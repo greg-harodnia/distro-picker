@@ -10,6 +10,13 @@
 	function handleClick() {
 		dispatch('toggle');
 	}
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			handleClick();
+		}
+	}
 </script>
 
 <button 
@@ -17,37 +24,45 @@
 	class:selected
 	style="--tag-color: {tag.color}"
 	on:click={handleClick}
-	on:mouseenter={handleMouseEnter}
-	on:mouseleave={handleMouseLeave}
+	on:keydown={handleKeydown}
+	aria-pressed={selected}
+	aria-describedby={tag.id + '-tooltip'}
+	tabindex="0"
 >
 	{tag.name}
+	<span class="sr-only">, {tag.description}</span>
 </button>
 
-<div class="tooltip" role="tooltip">
+<div class="tooltip" role="tooltip" id={tag.id + '-tooltip'}>
 	{tag.description}
 </div>
 
 <style>
 	.tag-filter {
-		padding: 0.5rem 1rem;
+		padding: var(--space-sm) var(--space-md);
 		border: 2px solid var(--tag-color);
-		border-radius: 2rem;
-		background: white;
+		border-radius: var(--radius-full);
+		background: var(--color-background);
 		color: var(--tag-color);
-		font-weight: 600;
+		font-weight: var(--font-semibold);
 		cursor: pointer;
-		transition: all 0.2s ease;
+		transition: all var(--transition-normal);
 		position: relative;
+		font-size: var(--text-sm);
 	}
 
 	.tag-filter:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.tag-filter:focus {
+		box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
 	}
 
 	.tag-filter.selected {
 		background: var(--tag-color);
-		color: white;
+		color: var(--color-background);
 	}
 
 	.tooltip {
@@ -55,20 +70,21 @@
 		bottom: 100%;
 		left: 50%;
 		transform: translateX(-50%);
-		background: #2c3e50;
-		color: white;
-		padding: 0.5rem 0.75rem;
-		border-radius: 0.5rem;
-		font-size: 0.875rem;
+		background: var(--color-secondary);
+		color: var(--color-background);
+		padding: var(--space-sm) var(--space-md);
+		border-radius: var(--radius-md);
+		font-size: var(--text-xs);
 		white-space: nowrap;
 		opacity: 0;
 		pointer-events: none;
-		transition: opacity 0.2s ease;
-		margin-bottom: 0.5rem;
-		z-index: 10;
+		transition: opacity var(--transition-normal);
+		margin-bottom: var(--space-sm);
+		z-index: var(--z-tooltip);
 		max-width: 200px;
 		white-space: normal;
 		text-align: center;
+		box-shadow: var(--shadow-lg);
 	}
 
 	.tooltip::after {
@@ -78,10 +94,11 @@
 		left: 50%;
 		transform: translateX(-50%);
 		border: 4px solid transparent;
-		border-top-color: #2c3e50;
+		border-top-color: var(--color-secondary);
 	}
 
-	.tag-filter:hover + .tooltip {
+	.tag-filter:hover + .tooltip,
+	.tag-filter:focus + .tooltip {
 		opacity: 1;
 	}
 </style>

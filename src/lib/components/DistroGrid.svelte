@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { Distro } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
+	import OptimizedImage from '$lib/components/OptimizedImage.svelte';
 
-	export let filteredDistros: Distro[] = [];
+	export let distros: Distro[] = [];
 	export let selectedDistro: Distro | null = null;
 
 	const dispatch = createEventDispatcher();
@@ -11,45 +12,46 @@
 		dispatch('select', distro);
 	}
 
-	function getIconPath(distro: Distro): string {
-		const iconMap: Record<string, string> = {
-			'mint': '/mint.png',
-			'zorin': '/zorin.png',
-			'popos': '/popos.png',
-			'aurora': '/aurora.svg',
-			'fedora-kde': '/fedora.png',
-			'fedora-workstation': '/fedora.png',
-			'bluefin': '/bluefin.svg',
-			'bazzite-kde': '/bazzite.svg',
-			'bazzite-gnome': '/bazzite.svg',
-			'cachyos': '/cachyos.png',
-			'lubuntu': '/lubuntu.png',
-			'linux-lite': '/linux-lite.png'
-		};
-		return iconMap[distro.id] || '/ubuntu.png';
+	function handleKeydown(e: any) {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			const card = e.currentTarget as HTMLElement;
+			const distroId = card.getAttribute('data-distro-id');
+			if (distroId) {
+				const distro = distros.find(d => d.id === distroId);
+				if (distro) {
+					selectDistro(distro);
+				}
+			}
+		}
 	}
 </script>
 
 <div class="distro-grid">
-	{#each filteredDistros as distro (distro.id)}
+	{#each distros as distro (distro.id)}
 		<div 
 			class="distro-card"
 			class:selected={selectedDistro?.id === distro.id}
 			on:click={() => selectDistro(distro)}
+			on:keydown={handleKeydown}
 			role="button"
 			tabindex="0"
+			aria-label={`${distro.name}, ${distro.description}`}
+			aria-pressed={selectedDistro?.id === distro.id}
+			data-distro-id={distro.id}
 		>
-			<img 
-				src={getIconPath(distro)} 
-				alt="{distro.name} logo" 
-				class="distro-icon"
+			<OptimizedImage 
+				distroId={distro.id}
+				alt="{distro.name} logo"
+				size="medium"
+				customClass="distro-icon"
 			/>
 			<h3>{distro.name}</h3>
 		</div>
 	{/each}
 </div>
 
-{#if filteredDistros.length === 0}
+{#if distros.length === 0}
 	<div class="no-results">
 		<p>No distributions match your selected criteria.</p>
 		<p>Try adjusting your filters to see more options.</p>
@@ -60,70 +62,76 @@
 	.distro-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-		gap: 1.5rem;
+		gap: var(--space-xl);
 	}
 
 	.distro-card {
-		background: white;
-		border: 2px solid #e1e8ed;
-		border-radius: 1rem;
-		padding: 1.5rem;
+		background: var(--color-surface);
+		border: 2px solid var(--color-border);
+		border-radius: var(--radius-lg);
+		padding: var(--space-xl);
 		text-align: center;
 		cursor: pointer;
-		transition: all 0.2s ease;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		transition: all var(--transition-normal);
+		box-shadow: var(--shadow-md);
+		position: relative;
 	}
 
 	.distro-card:hover {
 		transform: translateY(-4px);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-		border-color: #4ecdc4;
+		box-shadow: var(--shadow-xl);
+		border-color: var(--color-primary);
+	}
+
+	.distro-card:focus {
+		box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
 	}
 
 	.distro-card.selected {
-		border-color: #4ecdc4;
-		background: linear-gradient(135deg, #4ecdc4 0%, #44a3a0 100%);
-		color: white;
+		border-color: var(--color-primary);
+		background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+		color: var(--color-background);
 	}
 
-	.distro-icon {
-		width: 64px;
-		height: 64px;
-		margin-bottom: 1rem;
-		object-fit: contain;
+	:global(.distro-icon) {
+		margin-bottom: var(--space-lg);
+		margin: 0 auto; /* Center the image within the card */
 	}
 
 	.distro-card h3 {
-		font-size: 1rem;
-		font-weight: 600;
+		font-size: var(--text-base);
+		font-weight: var(--font-semibold);
 		margin: 0;
-		line-height: 1.3;
+		line-height: var(--line-height-tight);
 	}
 
 	.no-results {
 		text-align: center;
-		padding: 3rem;
-		color: #7f8c8d;
+		padding: var(--space-3xl);
+		color: var(--color-text-secondary);
+		grid-column: 1 / -1;
 	}
 
 	.no-results p {
-		margin: 0.5rem 0;
-		font-size: 1.1rem;
+		margin: var(--space-sm) 0;
+		font-size: var(--text-lg);
+		line-height: var(--line-height-normal);
 	}
 
 	@media (max-width: 640px) {
 		.distro-grid {
 			grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-			gap: 1rem;
+			gap: var(--space-lg);
 		}
 
 		.distro-card {
-			padding: 1rem;
+			padding: var(--space-lg);
 		}
 
 		.distro-icon {
 			width: 48px;
 			height: 48px;
+			margin-bottom: var(--space-md);
 		}
 	}
 </style>
