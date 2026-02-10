@@ -56,7 +56,7 @@
 
 	<div class="content">
 		<section class="distros">
-			<h2>Available Distros ({filteredDistros.length})</h2>
+			<h2>Recommended Distros ({filteredDistros.length})</h2>
 			<DistroGrid 
 				{filteredDistros} 
 				{selectedDistro}
@@ -65,11 +65,14 @@
 		</section>
 
 		{#if selectedDistro}
+		<section class="distros">
+			<h2>Details</h2>
 			<DistroPanel 
 				distro={selectedDistro}
 				tags={tagsData.tags}
 				on:close={() => selectedDistro = null}
 			/>
+		</section>
 		{/if}
 	</div>
 </main>
