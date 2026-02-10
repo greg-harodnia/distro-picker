@@ -1,0 +1,34 @@
+{
+  "tags": [
+    {
+      "id": "gaming-ready",
+      "name": "Gaming Ready",
+      "description": "Optimized for gaming with good driver support and performance",
+      "color": "#ff6b6b"
+    },
+    {
+      "id": "windows-like",
+      "name": "Windows-like Layout",
+      "description": "Familiar desktop layout similar to Windows",
+      "color": "#4ecdc4"
+    },
+    {
+      "id": "development",
+      "name": "Best for Development",
+      "description": "Excellent tools and environment for software development",
+      "color": "#45b7d1"
+    },
+    {
+      "id": "old-pc",
+      "name": "For an Old PC (15+ years)",
+      "description": "Lightweight and suitable for older hardware",
+      "color": "#96ceb4"
+    },
+    {
+      "id": "user-friendly",
+      "name": "User-friendly",
+      "description": "Easy to use for beginners and non-technical users",
+      "color": "#feca57"
+    }
+  ]
+}

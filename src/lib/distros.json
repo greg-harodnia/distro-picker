@@ -1,0 +1,100 @@
+{
+  "distros": [
+    {
+      "id": "mint",
+      "name": "Linux Mint",
+      "website": "https://linuxmint.com/",
+      "tag_ids": ["windows-like", "user-friendly"],
+      "priority": 1,
+      "description": "Linux Mint is a community-driven Linux distribution based on Ubuntu, focused on providing a complete out-of-the-box experience."
+    },
+    {
+      "id": "zorin",
+      "name": "Zorin OS",
+      "website": "https://zorinos.com/",
+      "tag_ids": ["windows-like", "user-friendly"],
+      "priority": 2,
+      "description": "Zorin OS is designed to be user-friendly and features a Windows-like desktop layout, making it ideal for those transitioning from Windows."
+    },
+    {
+      "id": "popos",
+      "name": "Pop!_OS",
+      "website": "https://pop.system76.com/",
+      "tag_ids": ["user-friendly"],
+      "priority": 3,
+      "description": "Pop!_OS is an Ubuntu-based distribution by System76, featuring a unique desktop environment and focusing on usability."
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora",
+      "website": "https://auroraos.com/",
+      "tag_ids": ["windows-like", "user-friendly"],
+      "priority": 4,
+      "description": "Aurora is a user-friendly Linux distribution with a Windows-like interface, designed for ease of use."
+    },
+    {
+      "id": "fedora-kde",
+      "name": "Fedora KDE Plasma Desktop",
+      "website": "https://spins.fedoraproject.org/kde/",
+      "tag_ids": ["windows-like", "development"],
+      "priority": 5,
+      "description": "Fedora with KDE Plasma desktop offers a powerful and customizable environment with excellent development tools."
+    },
+    {
+      "id": "fedora-workstation",
+      "name": "Fedora Workstation",
+      "website": "https://fedoraproject.org/workstation/",
+      "tag_ids": ["development"],
+      "priority": 5,
+      "description": "Fedora Workstation is a professional-grade operating system focused on development and productivity."
+    },
+    {
+      "id": "bluefin",
+      "name": "Bluefin",
+      "website": "https://bluefin.io/",
+      "tag_ids": ["development", "user-friendly"],
+      "priority": 5,
+      "description": "Bluefin is a stable and reliable Linux distribution based on Fedora, optimized for development and daily use."
+    },
+    {
+      "id": "bazzite-kde",
+      "name": "Bazzite KDE",
+      "website": "https://bazzite.gg/",
+      "tag_ids": ["gaming-ready", "windows-like", "user-friendly"],
+      "priority": 6,
+      "description": "Bazzite KDE is a gaming-focused Linux distribution with KDE Plasma desktop, optimized for gaming and Windows-like experience."
+    },
+    {
+      "id": "bazzite-gnome",
+      "name": "Bazzite GNOME",
+      "website": "https://bazzite.gg/",
+      "tag_ids": ["gaming-ready", "user-friendly"],
+      "priority": 6,
+      "description": "Bazzite GNOME is a gaming-focused Linux distribution with GNOME desktop, providing an excellent gaming experience."
+    },
+    {
+      "id": "cachyos",
+      "name": "CachyOS",
+      "website": "https://cachyos.org/",
+      "tag_ids": ["windows-like", "development"],
+      "priority": 6,
+      "description": "CachyOS is an Arch-based distribution optimized for performance, featuring excellent development tools and Windows-like layout."
+    },
+    {
+      "id": "lubuntu",
+      "name": "Lubuntu",
+      "website": "https://lubuntu.net/",
+      "tag_ids": ["windows-like", "old-pc", "user-friendly"],
+      "priority": 8,
+      "description": "Lubuntu is a lightweight Ubuntu variant using LXQt, perfect for older hardware and providing a user-friendly experience."
+    },
+    {
+      "id": "linux-lite",
+      "name": "Linux Lite",
+      "website": "https://www.linuxliteos.com/",
+      "tag_ids": ["windows-like", "old-pc", "user-friendly"],
+      "priority": 7,
+      "description": "Linux Lite is designed for older hardware and Windows users, providing a familiar and lightweight computing experience."
+    }
+  ]
+}
