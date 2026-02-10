@@ -22,9 +22,9 @@
 			'bluefin': '/bluefin.svg',
 			'bazzite-kde': '/bazzite.svg',
 			'bazzite-gnome': '/bazzite.svg',
-			'cachyos': '/cachyos.svg',
-			'lubuntu': '/lubuntu.svg',
-			'linux-lite': '/linux-lite.svg'
+			'cachyos': '/cachyos.png',
+			'lubuntu': '/lubuntu.png',
+			'linux-lite': '/linux-lite.png'
 		};
 		return iconMap[distro.id] || '/ubuntu.png';
 	}

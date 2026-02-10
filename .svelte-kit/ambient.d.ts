@@ -78,8 +78,8 @@ declare module '$env/static/private' {
 	export const LC_IDENTIFICATION: string;
 	export const npm_package_name: string;
 	export const USER: string;
-	export const CUDA_PATH: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
+	export const CUDA_PATH: string;
 	export const QT_WAYLAND_RECONNECT: string;
 	export const KDE_SESSION_VERSION: string;
 	export const PAM_KWALLET5_LOGIN: string;
@@ -101,8 +101,8 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
 	export const JOURNAL_STREAM: string;
 	export const XDG_DATA_DIRS: string;
-	export const GDK_BACKEND: string;
 	export const KDE_FULL_SESSION: string;
+	export const GDK_BACKEND: string;
 	export const BROWSER: string;
 	export const PATH: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
@@ -195,8 +195,8 @@ declare module '$env/dynamic/private' {
 		LC_IDENTIFICATION: string;
 		npm_package_name: string;
 		USER: string;
-		CUDA_PATH: string;
 		VSCODE_GIT_IPC_HANDLE: string;
+		CUDA_PATH: string;
 		QT_WAYLAND_RECONNECT: string;
 		KDE_SESSION_VERSION: string;
 		PAM_KWALLET5_LOGIN: string;
@@ -218,8 +218,8 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_MAIN: string;
 		JOURNAL_STREAM: string;
 		XDG_DATA_DIRS: string;
-		GDK_BACKEND: string;
 		KDE_FULL_SESSION: string;
+		GDK_BACKEND: string;
 		BROWSER: string;
 		PATH: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;

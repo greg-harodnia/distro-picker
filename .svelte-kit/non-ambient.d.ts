@@ -36,6 +36,6 @@ declare module "$app/types" {
 		};
 		Pathname(): "/";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/aurora.svg" | "/bazzite.svg" | "/bluefin.svg" | "/cachyos.svg" | "/fedora.png" | "/linux-lite.svg" | "/lubuntu.svg" | "/mint.png" | "/popos.png" | "/ubuntu.png" | "/zorin.png" | string & {};
+		Asset(): "/aurora.png" | "/aurora.svg" | "/bazzite.png" | "/bazzite.svg" | "/bluefin.png" | "/bluefin.svg" | "/cachyos.png" | "/cachyos.svg" | "/fedora.png" | "/linux-lite.png" | "/linux-lite.svg" | "/lubuntu.png" | "/lubuntu.svg" | "/mint.png" | "/mint.svg" | "/popos.png" | "/popos.svg" | "/ubuntu.png" | "/zorin.png" | "/zorin.svg" | string & {};
 	}
 }
