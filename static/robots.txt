@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://distropicker.com/sitemap.xml
+
+# Block common non-content paths
+Disallow: /api/
+Disallow: /_app/
+Disallow: /_auth/
+Disallow: /.well-known/

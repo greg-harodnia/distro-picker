@@ -19,6 +19,10 @@
 	} from '$lib/stores';
 	import type { Distro } from '$lib/types';
 
+
+
+
+
 	async function loadData() {
 		dataActions.setLoading(true);
 		dataActions.clearError();
@@ -59,6 +63,8 @@
 	onMount(() => {
 		loadData();
 	});
+
+
 </script>
 
 {#if $loading}
@@ -72,55 +78,80 @@
 		/>
 {:else}
 	<a href="#main-content" class="skip-link">Skip to main content</a>
-	<main class="app" id="main-content">
+	<div class="app">
 		<header class="header">
 			<h1>Linux Distro Picker</h1>
 			<p>Find the perfect Linux distribution for your needs</p>
 		</header>
 
-		<section class="filters" aria-labelledby="filters-heading">
-			<h2 id="filters-heading">Filter by Tags</h2>
-			<div class="tag-list" role="group" aria-label="Filter options">
-				{#each $tags as tag (tag.id)}
-					<TagFilter 
-						{tag} 
-						selected={$selectedTags.has(tag.id)}
-						on:toggle={() => toggleTag(tag.id)}
-					/>
-				{/each}
-			</div>
-		</section>
+		<main id="main-content">
+			<section class="filters" aria-labelledby="filters-heading">
+				<h2 id="filters-heading">Filter by Tags</h2>
+				<div class="tag-list" role="group" aria-label="Filter options">
+					{#each $tags as tag (tag.id)}
+						<TagFilter 
+							{tag} 
+							selected={$selectedTags.has(tag.id)}
+							on:toggle={() => toggleTag(tag.id)}
+						/>
+					{/each}
+				</div>
+			</section>
 
-		<div class="content">
-			<section class="distros" aria-labelledby="distros-heading">
-				<h2 id="distros-heading">Recommended Distros ({$filteredDistros.length})</h2>
-				{#if $filteredDistros.length === 0}
-					<div class="no-results" role="status" aria-live="polite">
-						<p>No distributions match your selected criteria.</p>
-						<p>Try adjusting your filters to see more options.</p>
-					</div>
-				{:else}
-					<DistroGrid 
-						distros={$filteredDistros} 
-						selectedDistro={$selectedDistro}
-						on:select={(e) => selectDistro(e.detail)}
+			<div class="content">
+				<section class="distros" aria-labelledby="distros-heading">
+					<h2 id="distros-heading">Recommended Distros ({$filteredDistros.length})</h2>
+					{#if $filteredDistros.length === 0}
+						<div class="no-results" role="status" aria-live="polite">
+							<p>No distributions match your selected criteria.</p>
+							<p>Try adjusting your filters to see more options.</p>
+						</div>
+					{:else}
+						<DistroGrid 
+							distros={$filteredDistros} 
+							selectedDistro={$selectedDistro}
+							on:select={(e) => selectDistro(e.detail)}
+						/>
+					{/if}
+				</section>
+
+				{#if $selectedDistro}
+				<section class="distros" aria-labelledby="details-heading">
+					<h2 id="details-heading">Distribution Details</h2>
+					<DistroPanel 
+						distro={$selectedDistro}
+						tags={$tags}
+						on:close={closePanel}
 					/>
+				</section>
 				{/if}
-			</section>
-
-			{#if $selectedDistro}
-			<section class="distros" aria-labelledby="details-heading">
-				<h2 id="details-heading">Details</h2>
-				<DistroPanel 
-					distro={$selectedDistro}
-					tags={$tags}
-					on:close={closePanel}
-				/>
-			</section>
-			{/if}
-		</div>
-	</main>
+			</div>
+		</main>
+	</div>
 {/if}
+
+<svelte:head>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			"name": "Linux Distribution Picker",
+			"description": "Interactive tool to help users find the perfect Linux distribution based on their needs",
+			"url": "",
+			"applicationCategory": "UtilitiesApplication",
+			"operatingSystem": "Any",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"creator": {
+				"@type": "Organization",
+				"name": "Linux Distribution Picker"
+			}
+		}
+	</script>
+</svelte:head>
 
 <style>
 	.app {
