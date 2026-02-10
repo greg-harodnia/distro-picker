@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Distro, Tag } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
+	import { sanitizeUrl } from '$lib/utils';
 
 	export let distro: Distro;
 	export let tags: Tag[] = [];
@@ -12,18 +13,43 @@
 	}
 
 	function visitWebsite() {
-		window.open(distro.website, '_blank');
+		const sanitizedUrl = sanitizeUrl(distro.website);
+		if (sanitizedUrl !== '#') {
+			window.open(sanitizedUrl, '_blank', 'noopener,noreferrer');
+		}
 	}
 
 	function closePanel() {
 		dispatch('close');
+	}
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			closePanel();
+		}
+	}
+
+	function handleWebsiteKeydown(e: KeyboardEvent) {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			visitWebsite();
+		}
 	}
 </script>
 
 <div class="distro-panel">
 	<div class="panel-header">
 		<h2>{distro.name}</h2>
-		<button class="close-btn" on:click={closePanel} aria-label="Close panel">×</button>
+		<button 
+			class="close-btn" 
+			on:click={closePanel}
+			on:keydown={handleKeydown}
+			aria-label="Close distro details panel"
+			type="button"
+		>
+			×
+		</button>
 	</div>
 
 	<div class="panel-content">
@@ -48,7 +74,13 @@
 			</div>
 		</div>
 
-		<button class="website-btn" on:click={visitWebsite}>
+		<button 
+			class="website-btn" 
+			on:click={visitWebsite}
+			on:keydown={handleWebsiteKeydown}
+			aria-label={`Visit ${distro.name} website`}
+			type="button"
+		>
 			Visit Website
 		</button>
 	</div>
@@ -56,14 +88,14 @@
 
 <style>
 	.distro-panel {
-		background: white;
-		border: 2px solid #e1e8ed;
-		border-radius: 1rem;
-		padding: 2rem;
+		background: var(--color-surface);
+		border: 2px solid var(--color-border);
+		border-radius: var(--radius-lg);
+		padding: var(--space-xl);
 		width: 350px;
-		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+		box-shadow: var(--shadow-2xl);
 		position: sticky;
-		top: 2rem;
+		top: var(--space-xl);
 		max-height: calc(100vh - 4rem);
 		overflow-y: auto;
 	}
@@ -72,92 +104,106 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin-bottom: 1.5rem;
-		padding-bottom: 1rem;
-		border-bottom: 1px solid #e1e8ed;
+		margin-bottom: var(--space-xl);
+		padding-bottom: var(--space-lg);
+		border-bottom: 1px solid var(--color-border);
 	}
 
 	.panel-header h2 {
 		margin: 0;
-		color: #2c3e50;
-		font-size: 1.5rem;
+		color: var(--color-secondary);
+		font-size: var(--text-2xl);
+		font-weight: var(--font-semibold);
+		line-height: var(--line-height-tight);
 	}
 
 	.close-btn {
 		background: none;
 		border: none;
-		font-size: 1.5rem;
-		color: #7f8c8d;
+		font-size: var(--text-2xl);
+		color: var(--color-text-secondary);
 		cursor: pointer;
-		padding: 0.25rem;
+		padding: var(--space-xs);
 		width: 2rem;
 		height: 2rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 0.25rem;
-		transition: all 0.2s ease;
+		border-radius: var(--radius-sm);
+		transition: all var(--transition-normal);
+		line-height: 1;
 	}
 
 	.close-btn:hover {
-		background: #f8f9fa;
-		color: #2c3e50;
+		background: var(--color-background-secondary);
+		color: var(--color-secondary);
+	}
+
+	.close-btn:focus {
+		box-shadow: 0 0 0 2px var(--color-primary);
 	}
 
 	.distro-description {
-		margin-bottom: 2rem;
+		margin-bottom: var(--space-2xl);
 	}
 
 	.distro-description p {
-		color: #5a6c7d;
-		line-height: 1.6;
+		color: var(--color-text-secondary);
+		line-height: var(--line-height-relaxed);
 		margin: 0;
+		font-size: var(--text-base);
 	}
 
 	.distro-tags {
-		margin-bottom: 2rem;
+		margin-bottom: var(--space-2xl);
 	}
 
 	.distro-tags h3 {
-		margin: 0 0 1rem 0;
-		color: #2c3e50;
-		font-size: 1.1rem;
+		margin: 0 0 var(--space-lg) 0;
+		color: var(--color-secondary);
+		font-size: var(--text-lg);
+		font-weight: var(--font-medium);
 	}
 
 	.tag-list {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.5rem;
+		gap: var(--space-sm);
 	}
 
 	.tag {
-		padding: 0.25rem 0.75rem;
+		padding: var(--space-xs) var(--space-md);
 		background: var(--tag-color);
-		color: white;
-		border-radius: 1rem;
-		font-size: 0.875rem;
-		font-weight: 500;
+		color: var(--color-background);
+		border-radius: var(--radius-full);
+		font-size: var(--text-sm);
+		font-weight: var(--font-medium);
 	}
 
 	.website-btn {
 		width: 100%;
-		padding: 0.75rem 1.5rem;
-		background: linear-gradient(135deg, #4ecdc4 0%, #44a3a0 100%);
-		color: white;
+		padding: var(--space-md) var(--space-xl);
+		background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+		color: var(--color-background);
 		border: none;
-		border-radius: 0.5rem;
-		font-size: 1rem;
-		font-weight: 600;
+		border-radius: var(--radius-md);
+		font-size: var(--text-base);
+		font-weight: var(--font-semibold);
 		cursor: pointer;
-		transition: all 0.2s ease;
+		transition: all var(--transition-normal);
 		text-decoration: none;
 		display: inline-block;
 		text-align: center;
+		line-height: var(--line-height-normal);
 	}
 
 	.website-btn:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.website-btn:focus {
+		box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
 	}
 
 	@media (max-width: 1024px) {
@@ -170,11 +216,11 @@
 
 	@media (max-width: 640px) {
 		.distro-panel {
-			padding: 1.5rem;
+			padding: var(--space-lg);
 		}
 
 		.panel-header h2 {
-			font-size: 1.25rem;
+			font-size: var(--text-xl);
 		}
 	}
 </style>

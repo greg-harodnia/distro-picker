@@ -1,133 +1,183 @@
 <script lang="ts">
-	import tagsData from '$lib/tags.json';
-	import distrosData from '$lib/distros.json';
+	import { onMount } from 'svelte';
 	import TagFilter from '$lib/components/TagFilter.svelte';
 	import DistroGrid from '$lib/components/DistroGrid.svelte';
 	import DistroPanel from '$lib/components/DistroPanel.svelte';
-	import type { Distro, Tag } from '$lib/types';
+	import ErrorDisplay from '$lib/components/ErrorDisplay.svelte';
+	import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
+	import { loadTags, loadDistros } from '$lib/utils';
+	import { 
+		tags, 
+		loading, 
+		error, 
+		selectedTags, 
+		selectedDistro, 
+		filteredDistros,
+		tagActions,
+		distroActions,
+		dataActions
+	} from '$lib/stores';
+	import type { Distro } from '$lib/types';
 
-	let selectedTags: Set<string> = new Set();
-	let selectedDistro: Distro | null = null;
-	let filteredDistros: Distro[] = [...distrosData.distros];
+	async function loadData() {
+		dataActions.setLoading(true);
+		dataActions.clearError();
 
-	$: {
-		filteredDistros = distrosData.distros
-			.filter(distro => {
-				if (selectedTags.size === 0) return true;
-				return Array.from(selectedTags).every(tagId => 
-					distro.tag_ids.includes(tagId)
-				);
-			})
-			.sort((a, b) => a.priority - b.priority);
+		try {
+			const [tagsResult, distrosResult] = await Promise.all([
+				loadTags(),
+				loadDistros()
+			]);
+
+			if (tagsResult.error) {
+				dataActions.setError(tagsResult.error);
+			} else if (distrosResult.error) {
+				dataActions.setError(distrosResult.error);
+			} else {
+				dataActions.setTags(tagsResult.data || []);
+				dataActions.setDistros(distrosResult.data || []);
+			}
+		} catch (err) {
+			dataActions.setError(err instanceof Error ? err.message : 'Failed to load data');
+		} finally {
+			dataActions.setLoading(false);
+		}
 	}
 
 	function toggleTag(tagId: string) {
-		if (selectedTags.has(tagId)) {
-			selectedTags.delete(tagId);
-		} else {
-			selectedTags.add(tagId);
-		}
-		selectedTags = new Set(selectedTags);
+		tagActions.toggle(tagId);
 	}
 
 	function selectDistro(distro: Distro) {
-		selectedDistro = distro;
+		distroActions.select(distro);
 	}
+
+	function closePanel() {
+		distroActions.clear();
+	}
+
+	onMount(() => {
+		loadData();
+	});
 </script>
 
-<main class="app">
-	<header class="header">
-		<h1>Linux Distro Picker</h1>
-		<p>Find the perfect Linux distribution for your needs</p>
-	</header>
+{#if $loading}
+		<LoadingSpinner message="Loading distributions..." size="large" />
+	{:else if $error}
+		<ErrorDisplay 
+			title="Failed to Load Data" 
+			message={$error} 
+			retryable 
+			on:retry={loadData}
+		/>
+{:else}
+	<a href="#main-content" class="skip-link">Skip to main content</a>
+	<main class="app" id="main-content">
+		<header class="header">
+			<h1>Linux Distro Picker</h1>
+			<p>Find the perfect Linux distribution for your needs</p>
+		</header>
 
-	<section class="filters">
-		<h2>Filter by Tags</h2>
-		<div class="tag-list">
-			{#each tagsData.tags as tag (tag.id)}
-				<TagFilter 
-					{tag} 
-					selected={selectedTags.has(tag.id)}
-					on:toggle={() => toggleTag(tag.id)}
+		<section class="filters" aria-labelledby="filters-heading">
+			<h2 id="filters-heading">Filter by Tags</h2>
+			<div class="tag-list" role="group" aria-label="Filter options">
+				{#each $tags as tag (tag.id)}
+					<TagFilter 
+						{tag} 
+						selected={$selectedTags.has(tag.id)}
+						on:toggle={() => toggleTag(tag.id)}
+					/>
+				{/each}
+			</div>
+		</section>
+
+		<div class="content">
+			<section class="distros" aria-labelledby="distros-heading">
+				<h2 id="distros-heading">Recommended Distros ({$filteredDistros.length})</h2>
+				{#if $filteredDistros.length === 0}
+					<div class="no-results" role="status" aria-live="polite">
+						<p>No distributions match your selected criteria.</p>
+						<p>Try adjusting your filters to see more options.</p>
+					</div>
+				{:else}
+					<DistroGrid 
+						distros={$filteredDistros} 
+						selectedDistro={$selectedDistro}
+						on:select={(e) => selectDistro(e.detail)}
+					/>
+				{/if}
+			</section>
+
+			{#if $selectedDistro}
+			<section class="distros" aria-labelledby="details-heading">
+				<h2 id="details-heading">Details</h2>
+				<DistroPanel 
+					distro={$selectedDistro}
+					tags={$tags}
+					on:close={closePanel}
 				/>
-			{/each}
+			</section>
+			{/if}
 		</div>
-	</section>
-
-	<div class="content">
-		<section class="distros">
-			<h2>Recommended Distros ({filteredDistros.length})</h2>
-			<DistroGrid 
-				{filteredDistros} 
-				{selectedDistro}
-				on:select={(e) => selectDistro(e.detail)}
-			/>
-		</section>
-
-		{#if selectedDistro}
-		<section class="distros">
-			<h2>Details</h2>
-			<DistroPanel 
-				distro={selectedDistro}
-				tags={tagsData.tags}
-				on:close={() => selectedDistro = null}
-			/>
-		</section>
-		{/if}
-	</div>
-</main>
+	</main>
+{/if}
 
 <style>
 	.app {
-		max-width: 1400px;
+		max-width: var(--container-2xl);
 		margin: 0 auto;
-		padding: 2rem;
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		padding: var(--space-xl);
+		font-family: var(--font-sans);
 	}
 
 	.header {
 		text-align: center;
-		margin-bottom: 3rem;
+		margin-bottom: var(--space-3xl);
 	}
 
 	.header h1 {
-		font-size: 2.5rem;
-		color: #2c3e50;
-		margin-bottom: 0.5rem;
+		font-size: var(--text-4xl);
+		color: var(--color-secondary);
+		margin-bottom: var(--space-sm);
+		font-weight: var(--font-bold);
+		line-height: var(--line-height-tight);
 	}
 
 	.header p {
-		color: #7f8c8d;
-		font-size: 1.1rem;
+		color: var(--color-text-secondary);
+		font-size: var(--text-lg);
+		font-weight: var(--font-normal);
 	}
 
 	.filters {
-		margin-bottom: 2rem;
+		margin-bottom: var(--space-2xl);
 	}
 
 	.filters h2 {
-		font-size: 1.5rem;
-		color: #2c3e50;
-		margin-bottom: 1rem;
+		font-size: var(--text-2xl);
+		color: var(--color-secondary);
+		margin-bottom: var(--space-lg);
+		font-weight: var(--font-semibold);
 	}
 
 	.tag-list {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1rem;
+		gap: var(--space-lg);
 	}
 
 	.content {
 		display: grid;
 		grid-template-columns: 1fr auto;
-		gap: 2rem;
+		gap: var(--space-2xl);
 		align-items: start;
 	}
 
 	.distros h2 {
-		font-size: 1.5rem;
-		color: #2c3e50;
-		margin-bottom: 1rem;
+		font-size: var(--text-2xl);
+		color: var(--color-secondary);
+		margin-bottom: var(--space-lg);
+		font-weight: var(--font-semibold);
 	}
 
 	@media (max-width: 1024px) {
@@ -138,15 +188,15 @@
 
 	@media (max-width: 640px) {
 		.app {
-			padding: 1rem;
+			padding: var(--space-lg);
 		}
 
 		.header h1 {
-			font-size: 2rem;
+			font-size: var(--text-3xl);
 		}
 
 		.tag-list {
-			gap: 0.5rem;
+			gap: var(--space-md);
 		}
 	}
 </style>
