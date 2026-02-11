@@ -6,10 +6,16 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
+			domain: 'greg-harodnia.github.io',
+			jekyll: false,
 			fallback: null,
 			precompress: false,
 			strict: true
-		})
+		}),
+        paths: {
+            base: process.argv.includes('dev') ? '' : '/distro-picker'
+        },
+        appDir: 'internal'
 	}
 };
 
