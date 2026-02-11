@@ -63,8 +63,8 @@
 	function handleError() {
 		isError = true;
 		// Try loading fallback icon
-		if (imgElement && iconPath !== '/ubuntu.png') {
-			imgElement.src = '/ubuntu.png';
+		if (imgElement && iconPath !== '/linux.png') {
+			imgElement.src = '/linux.png';
 		}
 	}
 </script>

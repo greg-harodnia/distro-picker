@@ -78,7 +78,7 @@ export function getDistroIconPath(distroId: string): string {
 		'lubuntu': '/lubuntu.png',
 		'linux-lite': '/linux-lite.png'
 	};
-	return iconMap[distroId] || '/ubuntu.png';
+	return iconMap[distroId] || '/linux.png';
 }
 
 export function sanitizeUrl(url: string): string {
