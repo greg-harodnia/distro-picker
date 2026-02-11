@@ -6,7 +6,7 @@
       "website": "https://linuxmint.com/",
       "tag_ids": ["windows-like", "user-friendly"],
       "priority": 1,
-      "description": "Been here for quite a while. Community-driven, stable and familiar. Works well even on 10-15 years old compuers."
+      "description": "Been here for quite a while. Community-driven, stable and familiar. Works well even on 10-15 years old computers."
     },
     {
       "id": "zorin",
@@ -14,7 +14,7 @@
       "website": "https://zorinos.com/",
       "tag_ids": ["windows-like", "user-friendly"],
       "priority": 2,
-      "description": "A fresh optimised distro with many layouts out-of-the-box including Windows-like."
+      "description": "A fresh, optimized distro with many out-of-the-box layouts, including Windows-like."
     },
     {
       "id": "popos",
@@ -46,7 +46,7 @@
       "website": "https://fedoraproject.org/workstation/",
       "tag_ids": ["development"],
       "priority": 5,
-      "description": "Perfect environment for development and daily use with Gnome desktop."
+      "description": "Perfect environment for development and daily use with the GNOME desktop."
     },
     {
       "id": "bluefin",
@@ -70,7 +70,7 @@
       "website": "https://bazzite.gg/",
       "tag_ids": ["gaming-ready", "user-friendly"],
       "priority": 6,
-      "description": "Bazzite GNOME is a gaming-focused Linux distribution with GNOME desktop, providing an excellent gaming experience."
+      "description": "Bazzite GNOME is a gaming-focused Linux distribution with the GNOME desktop, providing an excellent gaming experience."
     },
     {
       "id": "cachyos",

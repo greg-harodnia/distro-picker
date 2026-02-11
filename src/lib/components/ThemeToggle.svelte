@@ -83,10 +83,10 @@
 		transform: translateY(-1px);
 	}
 
-	.theme-toggle:focus {
+	/* .theme-toggle:focus {
 		outline: 2px solid var(--color-primary);
 		outline-offset: 2px;
-	}
+	} */
 
 	.theme-toggle:active {
 		transform: translateY(0);

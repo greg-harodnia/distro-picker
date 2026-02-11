@@ -93,7 +93,7 @@
 		border-radius: var(--radius-lg);
 		padding: var(--space-xl);
 		width: 350px;
-		box-shadow: var(--shadow-2xl);
+		box-shadow: var(--shadow-xl);
 		position: sticky;
 		top: var(--space-xl);
 		max-height: calc(100vh - 4rem);

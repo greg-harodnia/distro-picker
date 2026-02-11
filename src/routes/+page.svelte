@@ -90,7 +90,7 @@
 			</div>
 		</header>
 
-		<main id="main-content">
+		<main id="main-content">			
 			<section class="filters" aria-labelledby="filters-heading">
 				<h2 id="filters-heading">Filter by Tags</h2>
 				<div class="tag-list" role="group" aria-label="Filter options">
@@ -132,6 +132,25 @@
 				</section>
 				{/if}
 			</div>
+
+
+			<footer>
+				<p>Not all distributions are included, as this app is intended for beginners.
+Feel free to dual boot the distribution you choose with your main OS, but do so on separate disks — Windows updates can break the Linux installation. Also, never use Windows tools to resize partitions on the disk where Linux is installed.
+
+If some apps are missing in your distribution, consider the following:
+
+1) First, make sure it's really missing — search for it in your distribution's repositories. Don't forget to check Flatpak (on Flathub.org or in your software center) and AppImage (on AppImageHub.com) versions as well.
+
+2) If the app is truly missing, consider using alternatives (e.g., OnlyOffice over Microsoft Office, qBittorrent over uTorrent, etc.). There is a lot of great open source software available.
+
+3) If the app is missing in your distribution but is available in others, you can use Distrobox to install it in a container.
+
+4) If you still need to use Windows apps that aren't available for Linux, try Bottles (which uses Wine under the hood) to run them natively. This also works for the majority of games — though for gaming, Steam is recommended.
+
+5) If the Windows app still doesn't run in Bottles, try Winboat to run it in a virtual machine. This works for apps like Photoshop, for example.
+				</p>
+			</footer>
 		</main>
 	</div>
 {/if}
@@ -210,6 +229,16 @@
 		font-weight: var(--font-semibold);
 	}
 
+	footer {
+		margin-bottom: var(--space-2xl);
+	}
+
+	footer p {
+		color: var(--color-text-secondary);
+		font-size: var(--text-lg);
+		font-weight: var(--font-normal);
+	}
+
 	.tag-list {
 		display: flex;
 		flex-wrap: wrap;
@@ -221,6 +250,7 @@
 		grid-template-columns: 1fr auto;
 		gap: var(--space-2xl);
 		align-items: start;
+		margin-bottom: var(--space-2xl);
 	}
 
 	.distros h2 {
