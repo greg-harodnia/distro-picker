@@ -4,33 +4,27 @@ A modern Linux distribution picker built with SvelteKit to help users find the p
 
 ![Linux Distro Picker](https://img.shields.io/badge/SvelteKit-5.50.1-orange) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)
 
-### Installation
+### Install dependencies
 
 ```bash
-# Install dependencies
 bun install
 ```
 
-### Development
+### Start development server
 
 ```bash
-# Start development server
 bun run dev
-
-# Open http://localhost:5173 in your browser
 ```
 
-### Building for Production
+### Create production build
 
 ```bash
-# Create production build
 bun run build
 ```
 
-### Preview Production Build
+### Preview production build
 
 ```bash
-# Preview the production build locally
 bun run preview
 ```
 
