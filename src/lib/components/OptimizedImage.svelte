@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { getDistroIconPath } from '$lib/utils';
+    import { base } from '$app/paths';
 
 	export let distroId: string;
 	export let alt: string;
@@ -19,7 +20,7 @@
 	};
 
 	$: currentSize = sizes[size];
-	$: iconPath = getDistroIconPath(distroId);
+	$: iconPath = `${base}${getDistroIconPath(distroId)}`;
 
 	onMount(() => {
 		if ('IntersectionObserver' in window) {
@@ -63,8 +64,8 @@
 	function handleError() {
 		isError = true;
 		// Try loading fallback icon
-		if (imgElement && iconPath !== '/linux.png') {
-			imgElement.src = '/linux.png';
+		if (imgElement && iconPath !== `${base}/linux.png`) {	
+			imgElement.src = `${base}/linux.png`;	
 		}
 	}
 </script>
