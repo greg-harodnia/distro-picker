@@ -1,44 +1,77 @@
-# distro-picker-3
+# Linux Distribution Picker
 
-A modern Linux distribution picker built with SvelteKit to help users find the perfect Linux distribution for their needs.
+A modern Linux distribution picker built with SvelteKit to help users find the perfect Linux distribution for their needs based on gaming, development, user-friendliness, and other criteria.
 
-## Installation
+![Linux Distro Picker](https://img.shields.io/badge/SvelteKit-5.50.1-orange) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)
 
-To install dependencies:
+### Installation
 
 ```bash
+# Install dependencies
 bun install
 ```
 
-## Development
-
-To run the development server:
+### Development
 
 ```bash
+# Start development server
 bun run dev
+
+# Open http://localhost:5173 in your browser
 ```
 
-## Building
-
-To create a production build:
+### Building for Production
 
 ```bash
+# Create production build
 bun run build
 ```
 
-## Preview
-
-To preview the production build:
+### Preview Production Build
 
 ```bash
+# Preview the production build locally
 bun run preview
 ```
 
-## Features
+## 📁 Project Structure
 
-- Interactive filtering by tags (gaming, development, user-friendly, etc.)
-- Responsive design for mobile and desktop
-- Detailed information about each distribution
-- Direct links to official websites
+```
+distro-picker/
+├── src/
+│   ├── app.css
+│   ├── app.html
+│   ├── lib/
+│   │   ├── components/
+│   │   │   ├── DistroGrid.svelte
+│   │   │   ├── DistroPanel.svelte
+│   │   │   ├── ErrorDisplay.svelte
+│   │   │   ├── LoadingSpinner.svelte
+│   │   │   ├── TagFilter.svelte
+│   │   │   ├── ThemeToggle.svelte
+│   │   │   ├── OptimizedImage.svelte
+│   │   │   └── *Skeleton.svelte
+│   │   ├── stores/
+│   │   │   ├── index.ts
+│   │   │   └── theme.ts
+│   │   ├── utils/
+│   │   │   ├── data.ts
+│   │   │   ├── focusTrap.ts
+│   │   │   ├── index.ts
+│   │   │   └── validation.ts
+│   │   ├── types.ts
+│   │   ├── distros.json
+│   │   └── tags.json
+│   └── routes/
+│       ├── +layout.svelte
+│       ├── +layout.server.js
+│       └── +page.svelte
+├── static/
+├── package.json
+├── svelte.config.js
+├── tsconfig.json
+├── vite.config.js
+└── README.md
+```
 
-Built with [SvelteKit](https://kit.svelte.dev/) and styled with modern CSS.
+**Find Your Perfect Linux Distribution Today! 🐧**
