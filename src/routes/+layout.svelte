@@ -4,7 +4,7 @@
 	import { browser } from '$app/environment';
 	import { base } from '$app/paths';
 	
-	const siteUrl = 'https://greg-harodnia.github.io'; // TODO complete the link
+	const siteUrl = 'https://greg-harodnia.github.io/distro-picker';
 	
 	// Update page title dynamically based on current route
 	$: if (browser && $page) {
