@@ -7,7 +7,6 @@ const config = {
 			pages: 'build',
 			assets: 'build',
 			domain: 'greg-harodnia.github.io',
-			jekyll: false,
 			fallback: null,
 			precompress: false,
 			strict: true
