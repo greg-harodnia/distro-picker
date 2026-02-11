@@ -102,20 +102,40 @@
   --tag-user-friendly: #feca57;
 }
 
-/* Dark mode support for future implementation */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #1a1a1a;
-    --color-background-secondary: #2d2d2d;
-    --color-surface: #2d2d2d;
-    
-    --color-text: #ffffff;
-    --color-text-secondary: #b0b0b0;
-    --color-text-muted: #808080;
-    
-    --color-border: #404040;
-    --color-border-light: #333333;
-  }
+/* Dark mode theme */
+:root.dark {
+  --color-primary: #6dd8d0;
+  --color-primary-dark: #5ac8c0;
+  --color-primary-light: #7fe8e0;
+  
+  --color-secondary: #e8f4f3;
+  --color-secondary-light: #f0f8f7;
+  --color-secondary-dark: #d0e8e5;
+  
+  --color-background: #1a1a1a;
+  --color-background-secondary: #2d2d2d;
+  --color-surface: #2d2d2d;
+  
+  --color-text: #ffffff;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #808080;
+  
+  --color-border: #404040;
+  --color-border-light: #333333;
+  
+  --color-error: #ff6b6b;
+  --color-error-light: #ff8787;
+  --color-error-dark: #ff5252;
+  --color-error-background: #2d1b1b;
+  
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-2xl: 0 16px 32px rgba(0, 0, 0, 0.5);
 }
 
 /* Base styles */
@@ -137,10 +157,11 @@ body {
 }
 
 /* Focus styles for accessibility */
-*:focus {
+/* *:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-}
+} */
+
 
 /* Skip link for accessibility */
 .skip-link {

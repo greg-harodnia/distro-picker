@@ -5,6 +5,7 @@
 	import DistroPanel from '$lib/components/DistroPanel.svelte';
 	import ErrorDisplay from '$lib/components/ErrorDisplay.svelte';
 	import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
+	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import { loadTags, loadDistros } from '$lib/utils';
 	import { 
 		tags, 
@@ -80,8 +81,13 @@
 	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<div class="app">
 		<header class="header">
-			<h1>Linux Distro Picker</h1>
-			<p>Find the perfect Linux distribution for your needs</p>
+			<div class="header-content">
+				<div class="header-text">
+					<h1>Linux Distro Picker</h1>
+					<p>Find the perfect Linux distribution for your needs</p>
+				</div>
+				<ThemeToggle />
+			</div>
 		</header>
 
 		<main id="main-content">
@@ -162,8 +168,21 @@
 	}
 
 	.header {
-		text-align: center;
 		margin-bottom: var(--space-3xl);
+	}
+
+	.header-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: var(--container-2xl);
+		margin: 0 auto;
+		padding: 0 var(--space-xl);
+	}
+
+	.header-text {
+		text-align: center;
+		flex: 1;
 	}
 
 	.header h1 {
@@ -220,6 +239,12 @@
 	@media (max-width: 640px) {
 		.app {
 			padding: var(--space-lg);
+		}
+
+		.header-content {
+			flex-direction: column;
+			gap: var(--space-lg);
+			padding: 0;
 		}
 
 		.header h1 {

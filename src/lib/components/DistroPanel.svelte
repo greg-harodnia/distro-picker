@@ -139,9 +139,9 @@
 		color: var(--color-secondary);
 	}
 
-	.close-btn:focus {
+	/* .close-btn:focus {
 		box-shadow: 0 0 0 2px var(--color-primary);
-	}
+	} */
 
 	.distro-description {
 		margin-bottom: var(--space-2xl);
@@ -202,9 +202,9 @@
 		box-shadow: var(--shadow-lg);
 	}
 
-	.website-btn:focus {
+	/* .website-btn:focus {
 		box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
-	}
+	} */
 
 	@media (max-width: 1024px) {
 		.distro-panel {

@@ -56,9 +56,9 @@
 		box-shadow: var(--shadow-lg);
 	}
 
-	.tag-filter:focus {
+	/* .tag-filter:focus {
 		box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
-	}
+	} */
 
 	.tag-filter.selected {
 		background: var(--tag-color);

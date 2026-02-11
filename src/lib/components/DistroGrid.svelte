@@ -83,9 +83,9 @@
 		border-color: var(--color-primary);
 	}
 
-	.distro-card:focus {
+	/* .distro-card:focus {
 		box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
-	}
+	} */
 
 	.distro-card.selected {
 		border-color: var(--color-primary);

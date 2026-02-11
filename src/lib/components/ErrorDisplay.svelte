@@ -76,7 +76,7 @@
 		box-shadow: var(--shadow-md);
 	}
 
-	.retry-button:focus {
+	/* .retry-button:focus {
 		box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2);
-	}
+	} */
 </style>
