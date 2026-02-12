@@ -66,6 +66,7 @@ export async function loadDistros(): Promise<DataLoadResult<Distro[]>> {
 export function getDistroIconPath(distroId: string): string {
 	const iconMap: Record<string, string> = {
 		'mint': '/mint.png',
+		'kubuntu': '/kubuntu.png',
 		'zorin': '/zorin.png',
 		'popos': '/popos.png',
 		'aurora': '/aurora.svg',
@@ -74,7 +75,7 @@ export function getDistroIconPath(distroId: string): string {
 		'bluefin': '/bluefin.svg',
 		'bazzite-kde': '/bazzite.svg',
 		'bazzite-gnome': '/bazzite.svg',
-		'cachyos': '/cachyos.png',
+		'cachyos': '/cachyos.svg',
 		'lubuntu': '/lubuntu.png',
 		'linux-lite': '/linux-lite.png',
 		'antiX': '/antiX.png'

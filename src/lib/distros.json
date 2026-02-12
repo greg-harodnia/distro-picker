@@ -2,11 +2,19 @@
   "distros": [
     {
       "id": "mint",
-      "name": "Linux Mint (Cinnamon)",
+      "name": "Linux Mint",
       "website": "https://linuxmint.com/",
       "tag_ids": ["windows-like", "user-friendly"],
       "priority": 1,
-      "description": "Been here for quite a while. Community-driven, stable and familiar. Works well even on 10-15 years old computers designed for Windows 8/10/11."
+      "description": "Been here for quite a while. Community-driven, stable and familiar. Features the Cinnamon desktop environment. Works well even on 10-15 years old computers designed for Windows 8/10/11."
+    },
+    {
+      "id": "kubuntu",
+      "name": "Kubuntu",
+      "website": "https://kubuntu.org/",
+      "tag_ids": ["windows-like", "user-friendly"],
+      "priority": 2,
+      "description": "A well established and trusted distro, based on Ubuntu with the KDE Plasma desktop environment. Similar requirements to Linux Mint."
     },
     {
       "id": "zorin",
@@ -14,7 +22,7 @@
       "website": "https://zorinos.com/",
       "tag_ids": ["windows-like", "user-friendly"],
       "priority": 2,
-      "description": "A polished distro focused on visual appeal, featuring many out-of-the-box layouts, including a Windows-like one. Similar requirements to Linux Mint."
+      "description": "A polished distro focused on visual appeal, featuring the Gnome desktop environment with many out-of-the-box layouts, including a Windows-like one. Similar requirements to Linux Mint."
     },
     {
       "id": "popos",
@@ -22,7 +30,7 @@
       "website": "https://pop.system76.com/",
       "tag_ids": ["user-friendly"],
       "priority": 3,
-      "description": "Built by System76, featuring a unique desktop environment and focusing on usability."
+      "description": "Built by System76, featuring the Cosmic desktop environment and focusing on usability."
     },
     {
       "id": "aurora",
@@ -30,7 +38,7 @@
       "website": "https://getaurora.dev/",
       "tag_ids": ["windows-like", "user-friendly"],
       "priority": 4,
-      "description": "A user-friendly stable and immutable (making it harder to break) distro - the future of the Linux desktop."
+      "description": "A user-friendly stable and immutable (making it harder to break) distro - the future of the Linux desktop. Features the KDE Plasma desktop environment."
     },
     {
       "id": "fedora-kde",
@@ -38,7 +46,7 @@
       "website": "https://fedoraproject.org/kde/",
       "tag_ids": ["windows-like", "development"],
       "priority": 5,
-      "description": "Perfect environment for development and daily use."
+      "description": "Perfect environment for development and daily use with the KDE Plasma desktop environment."
     },
     {
       "id": "fedora-workstation",
@@ -46,7 +54,7 @@
       "website": "https://fedoraproject.org/workstation/",
       "tag_ids": ["development"],
       "priority": 5,
-      "description": "Perfect environment for development and daily use with the GNOME desktop."
+      "description": "Perfect environment for development and daily use with the GNOME desktop environment."
     },
     {
       "id": "bluefin",
@@ -62,7 +70,7 @@
       "website": "https://bazzite.gg/",
       "tag_ids": ["gaming-ready", "windows-like", "user-friendly"],
       "priority": 6,
-      "description": "A gaming-focused Linux distribution, perfect for both PCs and handhelds, with a Windows-like layout."
+      "description": "A gaming-focused immutable Linux distribution, perfect for both PCs and handhelds, with a Windows-like layout."
     },
     {
       "id": "bazzite-gnome",
@@ -70,7 +78,7 @@
       "website": "https://bazzite.gg/",
       "tag_ids": ["gaming-ready", "user-friendly"],
       "priority": 6,
-      "description": "A gaming-focused Linux distribution, perfect for both PCs and handhelds."
+      "description": "A gaming-focused immutable Linux distribution, perfect for both PCs and handhelds."
     },
     {
       "id": "cachyos",
@@ -78,7 +86,7 @@
       "website": "https://cachyos.org/",
       "tag_ids": ["windows-like", "development"],
       "priority": 6,
-      "description": "An Arch-based distribution optimized for performance, featuring a Windows-like layout. Though not gaming-ready, it can be easily set up for gaming with just one meta package (cachyos-gaming-meta). Good for development, too. Requires some terminal experience."
+      "description": "An Arch-based distribution optimized for performance, featuring a Windows-like layout. Though not gaming-ready, it can be easily set up for gaming with just one meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Good for development, too. Requires some terminal experience."
     },
     {
       "id": "linux-lite",
