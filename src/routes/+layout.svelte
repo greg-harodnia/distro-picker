@@ -38,7 +38,7 @@
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Linux Distribution Picker - Find Your Perfect Linux Distro">
 	<meta property="og:description" content="Discover the perfect Linux distribution for your needs. Filter by gaming, development, user-friendliness, and more.">
-	<meta property="og:image" content="{siteUrl}{base}/mint.png">
+	<meta property="og:image" content="{siteUrl}{base}/linux.png">
 	<meta property="og:url" content="{siteUrl}{base}{$page.url.pathname}">
 	<meta property="og:site_name" content="Linux Distribution Picker">
 	
@@ -46,7 +46,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Linux Distribution Picker - Find Your Perfect Linux Distro">
 	<meta name="twitter:description" content="Discover the perfect Linux distribution for your needs. Filter by gaming, development, user-friendliness, and more.">
-	<meta name="twitter:image" content="{siteUrl}{base}/mint.png">
+	<meta name="twitter:image" content="{siteUrl}{base}/linux.png">
 	<meta name="twitter:url" content="{siteUrl}{base}{$page.url.pathname}">
 	
 	<!-- Canonical URL -->

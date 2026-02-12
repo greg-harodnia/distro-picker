@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://distropicker.com/sitemap.xml
+Sitemap: https://greg-harodnia.github.io/distro-picker/sitemap.xml
 
 # Block common non-content paths
 Disallow: /api/

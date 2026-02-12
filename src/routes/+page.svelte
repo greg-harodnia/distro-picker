@@ -140,15 +140,15 @@ Feel free to dual boot the distribution you choose with your main OS, but do so 
 
 If some apps are missing in your distribution, consider the following:
 
-1) First, make sure it's really missing — search for it in your distribution's repositories. Don't forget to check Flatpak (on Flathub.org or in your software center) and AppImage (on AppImageHub.com) versions as well.
+1) First, make sure it's really missing — search for it in your distribution's repositories. Don't forget to check Flatpak (on Flathub.org or in your software center) and AppImage (on AppImageHub.com) versions as well. Linux uses different package formats and doesn't support Windows proprietary formats, like .exe, without additional software.
 
-2) If the app is truly missing, consider using alternatives (e.g., OnlyOffice over Microsoft Office, qBittorrent over uTorrent, etc.). There is a lot of great open source software available.
+2) If the app is truly missing, consider using alternatives (e.g., OnlyOffice over Microsoft Office, qBittorrent over uTorrent, Affinity/Photopea/GIMP/Krita over Photoshop, etc.). There is a lot of great open source software available.
 
-3) If the app is missing in your distribution but is available in others, you can use Distrobox to install it in a container.
+3) If the app is missing in your distribution but is available in others, you can use Distrobox to install it in a container running that specific distribution.
 
-4) If you still need to use Windows apps that aren't available for Linux, try Bottles (which uses Wine under the hood) to run them natively. This also works for the majority of games — though for gaming, Steam is recommended.
+4) If you still need to use Windows apps that aren't available for Linux, try Bottles (which uses Wine under the hood) to install and run them natively. For games, Steam is recommended.
 
-5) If the Windows app still doesn't run in Bottles, try Winboat to run it in a virtual machine. This works for apps like Photoshop, for example.
+5) If the Windows app still doesn't run in Bottles, try Winboat to run it in a Windows container. This works for apps like Photoshop, for example.
 				</p>
 			</footer>
 		</main>
