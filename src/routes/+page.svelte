@@ -135,7 +135,7 @@
 
 
 			<footer>
-				<p>Not all distributions are included, as this app is intended for beginners (openSUSE, for example, caters more to system administrators, is hard to get Nvidia drivers working, and has poor graphics performance, while AlmaLinux is a server OS. Arch, EndeavourOS, NixOS, Void and Gentoo are geared toward advanced users. Solus, on the other hand, is just not too popular and may have poorer package support. Nobara, PikaOS and Garuda are not listed in favor of Bazzite; Ubuntu in favor of Mint, Zorin OS, Kubuntu and Pop!_OS; Peppermint OS and PuppyLinux in favor of Linux Lite, Lubuntu and AntiX). Some distros, like Feren OS, feature no more than just UI customization and different apps preinstalled compared to what they are based on.<br><br>
+				<p>Not all distributions are included, as this app is intended for beginners (openSUSE, for example, caters more to system administrators, is hard to get Nvidia drivers working, and has poor graphics performance, while AlmaLinux is a server OS. Arch, EndeavourOS, NixOS, Void and Gentoo are geared toward advanced users. Solus, on the other hand, is just not too popular and may have poorer package support. Nobara, PikaOS and Garuda are not listed in favor of Bazzite; Ubuntu in favor of Mint, Zorin OS, Kubuntu and Pop!_OS; Peppermint OS and PuppyLinux in favor of Linux Lite, Lubuntu and AntiX). Some distros, like Feren OS, feature no more than just UI customization and different apps preinstalled compared to what they are based on, which all can be done manually. Other distros, like Qubes (security-oriented) or KDE Neon (KDE test environment), serve very niche purposes.<br><br>
 				Feel free to dual boot the distribution you choose with your main OS, but do so on separate disks — Windows updates can break the Linux installation. Also, never use Windows tools to resize partitions on the disk where Linux is installed.<br><br>
 
 				If some apps are missing in your distribution, consider the following:
@@ -149,7 +149,7 @@
 				4) If you still need to use Windows apps that aren't available for Linux, try Bottles (which uses Wine under the hood) to install and run them natively. For games, Steam is recommended.
 
 				5) If the Windows app still doesn't run in Bottles, try Winboat to run it in a Windows container. This works for apps like Photoshop, for example.<br><br>
-				In traditional distros, over time, cache files, temporary files, system logs, and other unnecessary data can accumulate—just like in Windows. To clean them, you can use tools like Stacer or BleachBit. But on immutable distros, you don't need to do this, as the entire system image is replaced during updates.
+				In traditional distros, over time, cache files, temporary files, system logs, and other unnecessary data can accumulate—just like in Windows. To clean them, you can use tools like BleachBit or Stacer. But on immutable distros, you don't need to do this, as the entire system image is replaced during updates.<br><br>
 				</p>
 			</footer>
 		</main>
@@ -251,7 +251,7 @@
 		grid-template-columns: 1fr auto;
 		gap: var(--space-2xl);
 		align-items: start;
-		margin-bottom: var(--space-2xl);
+		margin-bottom: var(--space-3xl);
 	}
 
 	.distros h2 {
