@@ -58,7 +58,6 @@
 		</div>
 
 		<div class="distro-tags">
-			<h3>Features</h3>
 			<div class="tag-list">
 				{#each distro.tag_ids as tagId}
 					{#if getTagById(tagId)}
@@ -156,13 +155,6 @@
 
 	.distro-tags {
 		margin-bottom: var(--space-2xl);
-	}
-
-	.distro-tags h3 {
-		margin: 0 0 var(--space-lg) 0;
-		color: var(--color-secondary);
-		font-size: var(--text-lg);
-		font-weight: var(--font-medium);
 	}
 
 	.tag-list {

@@ -2,11 +2,11 @@
   "distros": [
     {
       "id": "mint",
-      "name": "Linux Mint",
+      "name": "Linux Mint (Cinnamon)",
       "website": "https://linuxmint.com/",
       "tag_ids": ["windows-like", "user-friendly"],
       "priority": 1,
-      "description": "Been here for quite a while. Community-driven, stable and familiar. Works well even on 10-15 years old computers."
+      "description": "Been here for quite a while. Community-driven, stable and familiar. Works well even on 10-15 years old computers designed for Windows 8/10/11."
     },
     {
       "id": "zorin",
@@ -14,7 +14,7 @@
       "website": "https://zorinos.com/",
       "tag_ids": ["windows-like", "user-friendly"],
       "priority": 2,
-      "description": "A fresh, optimized distro with many out-of-the-box layouts, including Windows-like."
+      "description": "A polished distro focused on visual appeal, featuring many out-of-the-box layouts, including a Windows-like one. Similar requirements to Linux Mint."
     },
     {
       "id": "popos",
@@ -22,7 +22,7 @@
       "website": "https://pop.system76.com/",
       "tag_ids": ["user-friendly"],
       "priority": 3,
-      "description": "Built by System76, featuring a unique desktop environment and focusing on usability. Nvidia version is available."
+      "description": "Built by System76, featuring a unique desktop environment and focusing on usability."
     },
     {
       "id": "aurora",
@@ -30,7 +30,7 @@
       "website": "https://getaurora.dev/",
       "tag_ids": ["windows-like", "user-friendly"],
       "priority": 4,
-      "description": "A user-friendly stable immutable distro - the future of the Linux desktop. Nvidia version is available."
+      "description": "A user-friendly stable and immutable (making it harder to break) distro - the future of the Linux desktop."
     },
     {
       "id": "fedora-kde",
@@ -54,7 +54,7 @@
       "website": "https://projectbluefin.io/",
       "tag_ids": ["development", "user-friendly"],
       "priority": 5,
-      "description": "Built on top of Fedora atomic, Bluefin is an immutable user-friendly distro, perfect for development and daily use."
+      "description": "Built on top of Fedora atomic, Bluefin is an immutable user-friendly distro, perfect for conteinerized development and daily use."
     },
     {
       "id": "bazzite-kde",
@@ -62,7 +62,7 @@
       "website": "https://bazzite.gg/",
       "tag_ids": ["gaming-ready", "windows-like", "user-friendly"],
       "priority": 6,
-      "description": "Bazzite KDE is a gaming-focused Linux distribution with KDE Plasma desktop, optimized for gaming and Windows-like experience."
+      "description": "A gaming-focused Linux distribution, perfect for both PCs and handhelds, with a Windows-like layout."
     },
     {
       "id": "bazzite-gnome",
@@ -70,7 +70,7 @@
       "website": "https://bazzite.gg/",
       "tag_ids": ["gaming-ready", "user-friendly"],
       "priority": 6,
-      "description": "Bazzite GNOME is a gaming-focused Linux distribution with the GNOME desktop, providing an excellent gaming experience."
+      "description": "A gaming-focused Linux distribution, perfect for both PCs and handhelds."
     },
     {
       "id": "cachyos",
@@ -78,15 +78,7 @@
       "website": "https://cachyos.org/",
       "tag_ids": ["windows-like", "development"],
       "priority": 6,
-      "description": "An Arch-based distribution optimized for performance, featuring excellent development tools and Windows-like layout. Requires some terminal experience."
-    },
-    {
-      "id": "lubuntu",
-      "name": "Lubuntu",
-      "website": "https://lubuntu.me/",
-      "tag_ids": ["windows-like", "old-pc", "user-friendly"],
-      "priority": 8,
-      "description": "Lubuntu is a lightweight Ubuntu variant using LXQt, perfect for older hardware and providing a user-friendly experience."
+      "description": "An Arch-based distribution optimized for performance, featuring a Windows-like layout. Though not gaming-ready, it can be easily set up for gaming with just one meta package (cachyos-gaming-meta). Good for development, too. Requires some terminal experience."
     },
     {
       "id": "linux-lite",
@@ -94,7 +86,23 @@
       "website": "https://www.linuxliteos.com/",
       "tag_ids": ["windows-like", "old-pc", "user-friendly"],
       "priority": 7,
-      "description": "A lightweight Linux distro with a sleek design."
+      "description": "A lightweight Linux distro with a sleek design. Minimum 1Gb of RAM is recommended. Good for slow computers or netbooks designed for Windows 7/8/10."
+    },
+    {
+      "id": "lubuntu",
+      "name": "Lubuntu",
+      "website": "https://lubuntu.me/",
+      "tag_ids": ["windows-like", "old-pc", "user-friendly"],
+      "priority": 8,
+      "description": "A user-friendly lightweight Ubuntu variant, perfect for older hardware. Slightly lighter than Linux Lite due to using LXQt desktop environment instead of XFCE. Good for computers older than 15 years."
+    },
+    {
+      "id": "antiX",
+      "name": "antiX",
+      "website": "https://antixlinux.com/",
+      "tag_ids": ["windows-like", "old-pc", "user-friendly"],
+      "priority": 9,
+      "description": "Even lighter alternative to Lubuntu, requires as minimum as 256Mb of RAM. Good for ancient computers."
     }
   ]
 }

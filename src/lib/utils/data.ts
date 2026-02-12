@@ -76,7 +76,8 @@ export function getDistroIconPath(distroId: string): string {
 		'bazzite-gnome': '/bazzite.svg',
 		'cachyos': '/cachyos.png',
 		'lubuntu': '/lubuntu.png',
-		'linux-lite': '/linux-lite.png'
+		'linux-lite': '/linux-lite.png',
+		'antiX': '/antiX.png'
 	};
 	return iconMap[distroId] || '/linux.png';
 }
