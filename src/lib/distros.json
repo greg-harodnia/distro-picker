@@ -6,7 +6,7 @@
       "website": "https://linuxmint.com/",
       "tag_ids": ["windows-like", "user-friendly"],
       "priority": 1,
-      "description": "Been here for quite a while. Community-driven, stable and familiar. Features the Cinnamon desktop environment. Works well even on 10-15 years old computers designed for Windows 8/10/11."
+      "description": "Been here for quite a while. Community-driven, stable and familiar. Features the Cinnamon desktop environment. Works well even on 10-15 years old computers (with an SSD) designed for Windows 8/10/11."
     },
     {
       "id": "kubuntu",
@@ -94,7 +94,7 @@
       "website": "https://www.linuxliteos.com/",
       "tag_ids": ["windows-like", "old-pc", "user-friendly"],
       "priority": 7,
-      "description": "A lightweight Linux distro with a sleek design. Minimum 1Gb of RAM is recommended. Good for slow computers or netbooks designed for Windows 7/8/10."
+      "description": "A lightweight Linux distro with a sleek design. A minimum of 1GB of RAM is required (more to run apps smoothly). Good for older, slower computers or netbooks (2009 and above) with an HDD and 2-4 Gb of RAM designed for Windows 7/8/10 (if you have an SSD and 4Gb DDR3 RAM it's recommended to use Linux Mint, Zorin OS, or Kubuntu)."
     },
     {
       "id": "lubuntu",
@@ -102,7 +102,7 @@
       "website": "https://lubuntu.me/",
       "tag_ids": ["windows-like", "old-pc", "user-friendly"],
       "priority": 8,
-      "description": "A user-friendly lightweight Ubuntu variant, perfect for older hardware. Slightly lighter than Linux Lite due to using LXQt desktop environment instead of XFCE. Good for computers older than 15 years."
+      "description": "A user-friendly lightweight Ubuntu variant, perfect for computers produced before 2011 and designed for Windows XP/Vista/7 with 1 or 2Gb of RAM. Slightly lighter than Linux Lite due to using LXQt desktop environment instead of XFCE."
     },
     {
       "id": "antiX",
@@ -110,7 +110,7 @@
       "website": "https://antixlinux.com/",
       "tag_ids": ["windows-like", "old-pc", "user-friendly"],
       "priority": 9,
-      "description": "Even lighter alternative to Lubuntu, requires as minimum as 256Mb of RAM. Good for ancient computers."
+      "description": "Ultra light distro, requires as minimum as 256Mb of RAM to run (more to run apps smoothly). Good for ancient computers designed for Windows XP."
     }
   ]
 }
