@@ -142,15 +142,14 @@
 
 				1) First, make sure it's really missing — search for it in your distribution's repositories. Don't forget to check Flatpak (on Flathub.org or in your software center) and AppImage (on AppImageHub.com) versions as well. Linux uses different package formats and doesn't support Windows proprietary formats, like .exe, without additional software.
 
-				2) If the app is truly missing, consider using alternatives (e.g., OnlyOffice over Microsoft Office, qBittorrent over uTorrent, Affinity/Photopea/GIMP/Krita over Photoshop, etc.). There is a lot of great open source software available.
+				2) If the app is truly missing, consider using alternatives (e.g., OnlyOffice over Microsoft Office, qBittorrent over uTorrent, Photopea/GIMP/Krita over Photoshop/Affinity, Darktable over Lightroom, Inkscape over Illustrator, DaVinci Resolve over Premiere Pro, etc.). There is a lot of great open source software available.
 
 				3) If the app is missing in your distribution but is available in others, you can use Distrobox to install it in a container running that specific distribution.
 
 				4) If you still need to use Windows apps that aren't available for Linux, try Bottles (which uses Wine under the hood) to install and run them natively. For games, Steam is recommended.
 
-				5) If the Windows app still doesn't run in Bottles, try Winboat to run it in a Windows container. This works for apps like Photoshop, for example.<br><br>
-				Don't forget to create a swap file/partition when installing a distribution, especially on systems with limited RAM. Also, consider creating backups (with Timeshift or alternatives) to be able to restore your system if something goes wrong. This is unnecessary for immutable distros as the entire system image is switched during the updates.<br><br>
-				In traditional distros, over time, cache files, temporary files, system logs, and other unnecessary data can accumulate—just like in Windows. To clean them, you can use tools like BleachBit or Stacer. But on immutable distros, you don't need to do this, as the entire system image is replaced during updates.<br><br>
+				5) If the Windows app still doesn't run in Bottles, try Winboat to run it in a Windows container. This works for apps like Photoshop and MS Office, for example.<br><br>
+				When installing any distribution, especially on systems with limited RAM, don't forget to create a swap file/partition (you can create a swap file after the installation, too). In traditional distributions, over time cache files, temporary files, system logs, and other unnecessary data can accumulate, just like in Windows. To clean them, you can use tools like BleachBit or Stacer. Additionally, consider creating backups (with Timeshift or alternatives) to be able to restore your system if something goes wrong. However, this all is unnecessary for immutable distros as the entire system image is replaced during updates.
 				</p>
 			</footer>
 		</main>
