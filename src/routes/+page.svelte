@@ -140,16 +140,33 @@
 
 				If some apps are missing in your distribution, consider the following:
 
-				1) First, make sure it's really missing — search for it in your distribution's repositories. Don't forget to check Flatpak (on Flathub.org or in your software center) and AppImage (on AppImageHub.com) versions as well. Linux uses different package formats and doesn't support Windows proprietary formats, like .exe, without additional software.
+				1) First, make sure it's really missing — search for it in your distribution's repositories (using a software center if installed). Don't forget to check Flatpak (on Flathub.org or in your software center) and AppImage (on AppImageHub.com) versions as well. Linux uses different package formats and doesn't support Windows proprietary formats, like .exe, without additional software.
 
-				2) If the app is truly missing, consider using alternatives (e.g., OnlyOffice over Microsoft Office, qBittorrent over uTorrent, Photopea/GIMP/Krita over Photoshop/Affinity, Darktable over Lightroom, Inkscape over Illustrator, DaVinci Resolve over Premiere Pro, etc.). There is a lot of great open source software available.
+				2) If the app is truly missing, consider using alternatives (e.g., OnlyOffice over Microsoft Office, qBittorrent over uTorrent, Photopea/GIMP/Krita/Affinity(via Bottles) over Photoshop, Darktable over Lightroom, Inkscape over Illustrator, DaVinci Resolve over Premiere Pro, etc.). There is a lot of great open source software available.
 
 				3) If the app is missing in your distribution but is available in others, you can use Distrobox to install it in a container running that specific distribution.
 
 				4) If you still need to use Windows apps that aren't available for Linux, try Bottles (which uses Wine under the hood) to install and run them natively. For games, Steam is recommended.
 
 				5) If the Windows app still doesn't run in Bottles, try Winboat to run it in a Windows container. This works for apps like Photoshop and MS Office, for example.<br><br>
-				When installing any distribution, especially on systems with limited RAM, don't forget to create a swap file/partition (you can create a swap file after the installation, too). In traditional distributions, over time cache files, temporary files, system logs, and other unnecessary data can accumulate, just like in Windows. To clean them, you can use tools like BleachBit or Stacer. Additionally, consider creating backups (with Timeshift or alternatives) to be able to restore your system if something goes wrong. However, this all is unnecessary for immutable distros as the entire system image is replaced during updates.
+				When installing any distribution, especially on systems with limited RAM, don't forget to create a swap file/partition (you can create a swap file after the installation, too). In traditional distributions, over time cache files, temporary files, system logs, and other unnecessary data can accumulate, just like in Windows. To clean them, you can use tools like BleachBit or Stacer. Additionally, consider creating backups (with Timeshift or alternatives) to be able to restore your system if something goes wrong. However, this all is unnecessary for immutable distros as the entire system image is replaced during updates.<br><br>
+
+				There are 3 (main) types of a Linux distribution:<br><br>
+				1. Traditional. Stable release, GUI software center. Desktop versions are usually based on Ubuntu. User-friendly. Used on servers, too. <br>
+				2. Rolling release. Fresh software. Good for developers and power users that want to modify their system. Requires some terminal experience.<br>
+				3. Immutable. The base is rolling release, but releases are provided in a form of a whole system image, allowing developers to decide the update frequency (I would even suggest them to handle 2 types of updates: stable and frequent optional). Very stable, apps are provided as Flatpaks. GUI software center, very user-friendly. The new era of the Linux desktop, making traditional distros a privilege for servers. <br><br>
+
+				Software that I recommend.<br><br>
+
+				Browsers: Brave, Helium, Zen.<br>
+				Office: OnlyOffice, LibreOffice.<br>
+				Nvidia Shadow Play alternative: GPU Screen Recorder.<br>
+				Torrent client: qBittorrent.<br>
+				Disk analyzer: Filelight (KDE/Qt), Baobab (Gnome/GTK), gdu (command-line written in Rust).<br>
+				Local AI: LM Studio (I recommend Mistral model).<br>
+				Extended software support: Flatpak (Bazaar or your software center), Distrobox (DistroShelf).<br>
+				Running Windows apps: Bottles, Winboat.<br>
+				Ventoy for creating a bootable USB drive with multiple Linux distributions.<br>
 				</p>
 			</footer>
 		</main>

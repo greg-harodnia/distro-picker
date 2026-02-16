@@ -38,23 +38,23 @@
       "website": "https://getaurora.dev/",
       "tag_ids": ["windows-like", "user-friendly"],
       "priority": 4,
-      "description": "A user-friendly stable and immutable (making it harder to break) distro - the future of the Linux desktop. Features the KDE Plasma desktop environment."
+      "description": "A user-friendly stable and immutable (making it harder to break) distro - the future of the Linux desktop. Features the KDE Plasma desktop environment. An alternative to yet unreleased KDE Linux."
     },
     {
-      "id": "fedora-kde",
-      "name": "Fedora KDE",
+      "id": "kde-linux",
+      "name": "KDE Linux",
+      "website": "https://kde.org/linux/",
+      "tag_ids": ["windows-like", "user-friendly"],
+      "priority": 4,
+      "description": "A Linux distribution built by KDE. Immutable and fast. The new era of the Linux desktop. Even more stable and simple than traditional distros (which were already more stable and simple than Windows). Yet to be released."
+    },
+    {
+      "id": "fedora",
+      "name": "Fedora",
       "website": "https://fedoraproject.org/kde/",
       "tag_ids": ["windows-like", "development"],
       "priority": 5,
-      "description": "Perfect environment for development and daily use with the KDE Plasma desktop environment."
-    },
-    {
-      "id": "fedora-workstation",
-      "name": "Fedora Workstation",
-      "website": "https://fedoraproject.org/workstation/",
-      "tag_ids": ["development"],
-      "priority": 5,
-      "description": "Perfect environment for development and daily use with the GNOME desktop environment."
+      "description": "Perfect environment for development and daily use. Comes in many editions, including one with the KDE Plasma desktop environment."
     },
     {
       "id": "bluefin",
@@ -65,28 +65,20 @@
       "description": "Built on top of Fedora atomic, Bluefin is an immutable user-friendly distro, perfect for conteinerized development and daily use."
     },
     {
-      "id": "bazzite-kde",
-      "name": "Bazzite KDE",
+      "id": "bazzite",
+      "name": "Bazzite",
       "website": "https://bazzite.gg/",
       "tag_ids": ["gaming-ready", "windows-like", "user-friendly"],
       "priority": 6,
-      "description": "A gaming-focused immutable Linux distribution, perfect for both PCs and handhelds, with a Windows-like layout."
-    },
-    {
-      "id": "bazzite-gnome",
-      "name": "Bazzite GNOME",
-      "website": "https://bazzite.gg/",
-      "tag_ids": ["gaming-ready", "user-friendly"],
-      "priority": 6,
-      "description": "A gaming-focused immutable Linux distribution, perfect for both PCs and handhelds."
+      "description": "A gaming-focused immutable Linux distribution, perfect for both PCs and handhelds. Has multiple editions, including one with a Windows-like layout. Take a survey on the official website to see if your hardware supports Linux gaming."
     },
     {
       "id": "cachyos",
       "name": "CachyOS",
       "website": "https://cachyos.org/",
-      "tag_ids": ["windows-like", "development"],
+      "tag_ids": ["windows-like", "development", "gaming-ready"],
       "priority": 6,
-      "description": "An Arch-based distribution optimized for performance, featuring a Windows-like layout. Though not gaming-ready, it can be easily set up for gaming with just one meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Good for development, too. Requires some terminal experience."
+      "description": "An Arch-based distribution optimized for performance, featuring a Windows-like layout. Though not initially gaming-ready, it can be easily set up for gaming by installing just one meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Good for development and daily use, too. Requires some terminal experience."
     },
     {
       "id": "linux-lite",
