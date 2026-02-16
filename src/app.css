@@ -149,30 +149,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Focus styles for accessibility */
-/* *:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-} */
-
-
-/* Skip link for accessibility */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: var(--color-primary);
-  color: white;
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--radius-md);
-  text-decoration: none;
-  z-index: var(--z-modal);
-}
-
-.skip-link:focus {
-  top: 6px;
-}
-
 /* Utility classes */
 .sr-only {
   position: absolute;
