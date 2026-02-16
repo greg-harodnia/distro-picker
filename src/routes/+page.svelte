@@ -54,8 +54,11 @@
 		tagActions.toggle(tagId);
 	}
 
-	function selectDistro(distro: Distro) {
+		function selectDistro(distro: Distro) {
 		distroActions.select(distro);
+		setTimeout(() => {
+			document.getElementById('distribution-details')?.scrollIntoView({ behavior: 'smooth' });
+		}, 0);
 	}
 
 	function closePanel() {
@@ -97,7 +100,7 @@
 		</section>
 
 		<div class="content">
-			<section class="distros" aria-labelledby="distros-heading">
+			<section class="distros" id="distribution-details" aria-labelledby="distros-heading">
 				<h2 id="distros-heading">
 					Recommended Distros ({$filteredDistros.length})
 				</h2>
