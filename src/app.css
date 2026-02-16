@@ -93,13 +93,6 @@
   --container-lg: 1024px;
   --container-xl: 1280px;
   --container-2xl: 1400px;
-  
-  /* Component-specific */
-  --tag-gaming-ready: #ff6b6b;
-  --tag-windows-like: #4ecdc4;
-  --tag-development: #45b7d1;
-  --tag-old-pc: #96ceb4;
-  --tag-user-friendly: #feca57;
 }
 
 /* Dark mode theme */
