@@ -4,7 +4,7 @@
       "id": "mint",
       "name": "Linux Mint",
       "website": "https://linuxmint.com/",
-      "tag_ids": ["windows-like", "user-friendly"],
+      "tag_ids": [],
       "priority": 1,
       "description": "Been here for quite a while. Community-driven, stable and familiar. Features the Cinnamon desktop environment. Works well even on 10-15 years old computers (with an SSD) designed for Windows 8/10/11."
     },
@@ -12,7 +12,7 @@
       "id": "kubuntu",
       "name": "Kubuntu",
       "website": "https://kubuntu.org/",
-      "tag_ids": ["windows-like", "user-friendly"],
+      "tag_ids": [],
       "priority": 2,
       "description": "A well established and trusted distro, based on Ubuntu with the KDE Plasma desktop environment. Similar requirements to Linux Mint."
     },
@@ -20,7 +20,7 @@
       "id": "zorin",
       "name": "Zorin OS",
       "website": "https://zorinos.com/",
-      "tag_ids": ["windows-like", "user-friendly"],
+      "tag_ids": [],
       "priority": 2,
       "description": "A polished distro focused on visual appeal, featuring the Gnome desktop environment with many out-of-the-box layouts, including a Windows-like one. Similar requirements to Linux Mint."
     },
@@ -28,7 +28,7 @@
       "id": "popos",
       "name": "Pop!_OS",
       "website": "https://pop.system76.com/",
-      "tag_ids": ["user-friendly"],
+      "tag_ids": [],
       "priority": 3,
       "description": "Built by System76, featuring the Cosmic desktop environment (MacOS-like) and focusing on usability."
     },
@@ -37,7 +37,7 @@
       "id": "aurora",
       "name": "Aurora",
       "website": "https://getaurora.dev/",
-      "tag_ids": ["windows-like", "user-friendly"],
+      "tag_ids": [],
       "priority": 4,
       "description": "A user-friendly stable and immutable (making it harder to break) distro - the future of the Linux desktop. Features the KDE Plasma desktop environment. An alternative to yet unreleased KDE Linux."
     },
@@ -45,24 +45,24 @@
       "id": "kde-linux",
       "name": "KDE Linux",
       "website": "https://kde.org/linux/",
-      "tag_ids": ["windows-like", "user-friendly"],
+      "tag_ids": [],
       "priority": 4,
-      "description": "A Linux distribution built by KDE. Immutable and fast. The new era of the Linux desktop. Even more stable and simple than traditional distros (which were already more stable and simple than Windows). Yet to be released."
+      "description": "A Linux distribution built by KDE. Immutable (using Btrfs snapshots), stable and fast. The new era of the Linux desktop. Yet to be released."
     },
     {
       "id": "fedora",
       "name": "Fedora",
       "website": "https://fedoraproject.org/kde/",
-      "tag_ids": ["windows-like", "development"],
+      "tag_ids": [],
       "priority": 5,
-      "description": "Perfect environment for development and daily use. Comes in many editions, including one with the KDE Plasma desktop environment."
+      "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Fedora is a semi-rolling distribution, making it both stable and up-to-date. Nvidia drivers installation may not be straightforward."
     },
     {
       "disabled": true,
       "id": "bluefin",
       "name": "Bluefin",
       "website": "https://projectbluefin.io/",
-      "tag_ids": ["development", "user-friendly"],
+      "tag_ids": [],
       "priority": 5,
       "description": "Built on top of Fedora atomic, Bluefin is an immutable user-friendly distro, perfect for conteinerized development and daily use."
     },
@@ -70,39 +70,39 @@
       "id": "bazzite",
       "name": "Bazzite",
       "website": "https://bazzite.gg/",
-      "tag_ids": ["gaming-ready", "windows-like", "user-friendly"],
+      "tag_ids": ["gaming-ready"],
       "priority": 6,
-      "description": "A gaming-focused immutable Linux distribution, perfect for both PCs and handhelds. Has multiple editions, including one with a Windows-like layout. Take a survey on the official website to see if your hardware supports Linux gaming."
+      "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). One of the editions features the KDE Plasma desktop environment. Take a survey on the official website to see if your hardware supports Linux gaming."
     },
     {
       "id": "cachyos",
       "name": "CachyOS",
       "website": "https://cachyos.org/",
-      "tag_ids": ["windows-like", "development", "gaming-ready"],
+      "tag_ids": ["gaming-ready"],
       "priority": 6,
-      "description": "An Arch-based distribution optimized for performance, featuring a Windows-like layout. Though not initially gaming-ready, it can be easily set up for gaming by installing just one meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Good for development and daily use, too. Requires some terminal experience."
+      "description": "An Arch-based distribution optimized for performance, featuring the KDE Plasma desktop environment. Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Perfect for tech enthusiasts, requires some terminal experience."
     },
     {
       "id": "linux-lite",
       "name": "Linux Lite",
       "website": "https://www.linuxliteos.com/",
-      "tag_ids": ["windows-like", "lightweight", "user-friendly"],
+      "tag_ids": ["lightweight"],
       "priority": 7,
-      "description": "A lightweight Linux distro with a sleek design. A minimum of 1GB of RAM is required (more to run apps smoothly). Good for older, slower computers or netbooks (2009 and above) with an HDD and 2-4 Gb of RAM designed for Windows 7/8/10 (if you have an SSD and 4Gb DDR3 RAM it's recommended to use Linux Mint, Zorin OS, or Kubuntu)."
+      "description": "A lightweight Linux distro with a sleek design, featuring the XFCE desktop environment. A minimum of 1GB of RAM is required (more to run apps smoothly). Good for older, slower computers or netbooks (2009 and above) with an HDD and 2-4 Gb of RAM designed for Windows 7/8/10 (if you have an SSD and 4Gb DDR3 RAM it's recommended to use Linux Mint, Zorin OS, or Kubuntu)."
     },
     {
       "id": "lubuntu",
       "name": "Lubuntu",
       "website": "https://lubuntu.me/",
-      "tag_ids": ["windows-like", "lightweight", "user-friendly"],
+      "tag_ids": ["lightweight"],
       "priority": 8,
-      "description": "A user-friendly lightweight Ubuntu variant, perfect for computers produced before 2011 and designed for Windows XP/Vista/7 with 1 or 2Gb of RAM. Slightly lighter than Linux Lite due to using LXQt desktop environment instead of XFCE."
+      "description": "A user-friendly lightweight Ubuntu variant, perfect for computers produced before 2011 and designed for Windows XP/Vista/7 with 1 or 2Gb of RAM. Slightly lighter than Linux Lite due to using LXQt desktop environment."
     },
     {
       "id": "antiX",
       "name": "antiX",
       "website": "https://antixlinux.com/",
-      "tag_ids": ["windows-like", "lightweight", "user-friendly"],
+      "tag_ids": ["lightweight"],
       "priority": 9,
       "description": "Ultra light distro, requires as minimum as 256Mb of RAM to run (more to run apps smoothly). Good for ancient computers designed for Windows XP."
     }
