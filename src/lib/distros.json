@@ -30,7 +30,7 @@
       "website": "https://pop.system76.com/",
       "tag_ids": ["user-friendly"],
       "priority": 3,
-      "description": "Built by System76, featuring the Cosmic desktop environment and focusing on usability."
+      "description": "Built by System76, featuring the Cosmic desktop environment (MacOS-like) and focusing on usability."
     },
     {
       "disabled": true,

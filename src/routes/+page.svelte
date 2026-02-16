@@ -152,9 +152,9 @@
 				When installing any distribution, especially on systems with limited RAM, don't forget to create a swap file/partition (you can create a swap file after the installation, too). In traditional distributions, over time cache files, temporary files, system logs, and other unnecessary data can accumulate, just like in Windows. To clean them, you can use tools like BleachBit or Stacer. Additionally, consider creating backups (with Timeshift or alternatives) to be able to restore your system if something goes wrong. However, this all is unnecessary for immutable distros as the entire system image is replaced during updates.<br><br>
 
 				There are 3 (main) types of a Linux distribution:<br><br>
-				1. Traditional. Stable release, GUI software center. Desktop versions are usually based on Ubuntu. User-friendly. Used on servers, too. <br>
-				2. Rolling release. Fresh software. Good for developers and power users that want to modify their system. Requires some terminal experience.<br>
-				3. Immutable. The base is rolling release, but releases are provided in a form of a whole system image, allowing developers to decide the update frequency (I would even suggest them to handle 2 types of updates: stable and frequent optional). Very stable, apps are provided as Flatpaks. GUI software center, very user-friendly. The new era of the Linux desktop, making traditional distros a privilege for servers. <br><br>
+				1. Stable release (traditional). GUI software center, usually ext4 filesystem. Desktop versions are usually based on Ubuntu. User-friendly. Used on servers, too. <br>
+				2. Rolling release. Fresh software, usually btrfs filesystem. Good for developers and power users that want to modify their system. Requires some terminal experience.<br>
+				3. Immutable. The base is rolling release (usually Arch or Fedora), but releases are provided in a form of a whole system image (using btrfs snapshots or OSTree tool), allowing developers to decide the update frequency (I would even suggest them to handle 2 types of updates: stable every 6 months and frequent optional every month). Very stable, apps are provided as Flatpaks. GUI software center, very user-friendly. The new era of the Linux desktop, making traditional distros a privilege for servers. <br><br>
 
 				Software that I recommend.<br><br>
 
