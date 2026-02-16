@@ -33,6 +33,7 @@
       "description": "Built by System76, featuring the Cosmic desktop environment and focusing on usability."
     },
     {
+      "disabled": true,
       "id": "aurora",
       "name": "Aurora",
       "website": "https://getaurora.dev/",
@@ -57,6 +58,7 @@
       "description": "Perfect environment for development and daily use. Comes in many editions, including one with the KDE Plasma desktop environment."
     },
     {
+      "disabled": true,
       "id": "bluefin",
       "name": "Bluefin",
       "website": "https://projectbluefin.io/",

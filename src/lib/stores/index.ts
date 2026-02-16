@@ -16,6 +16,7 @@ export const filteredDistros = derived(
 		if (!$distros) return [];
 		
 		return $distros
+			.filter(distro => !distro.disabled)
 			.filter(distro => {
 				if ($selectedTags.size === 0) return true;
 				return Array.from($selectedTags).every(tagId => 

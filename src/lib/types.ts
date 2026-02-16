@@ -6,6 +6,7 @@ export interface Tag {
 }
 
 export interface Distro {
+	disabled?: boolean;
 	id: string;
 	name: string;
 	website: string;
