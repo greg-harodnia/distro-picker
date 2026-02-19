@@ -6,7 +6,7 @@
       "website": "https://linuxmint.com/",
       "tag_ids": [],
       "priority": 1,
-      "description": "Been here for quite a while. Community-driven, stable and familiar. Features the Cinnamon desktop environment. Works well even on 10-15 years old computers (with an SSD) designed for Windows 8/10/11."
+      "description": "Been here for quite a while. Community-driven, stable and familiar. Features the Cinnamon desktop environment. Works well even on 10-15 years old computers (with an SSD) designed for Windows 8/10/11. Can be used for gaming just like any distro, but doesn't come with special tools pre-installed."
     },
     {
       "id": "kubuntu",
@@ -30,7 +30,7 @@
       "website": "https://pop.system76.com/",
       "tag_ids": [],
       "priority": 3,
-      "description": "Built by System76, featuring the Cosmic desktop environment (MacOS-like) and focusing on usability."
+      "description": "Built by System76, featuring the Cosmic desktop environment (MacOS-like) and focusing on usability. Has an Nvidia version available. Good for creative work."
     },
     {
       "disabled": true,
@@ -80,7 +80,7 @@
       "website": "https://cachyos.org/",
       "tag_ids": ["gaming-ready"],
       "priority": 6,
-      "description": "An Arch-based distribution optimized for performance, featuring the KDE Plasma desktop environment. Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Perfect for tech enthusiasts, requires some terminal experience."
+      "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment. Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Perfect for tech enthusiasts, requires some terminal experience."
     },
     {
       "id": "linux-lite",

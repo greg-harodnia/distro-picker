@@ -2,9 +2,9 @@
 
 :root {
   /* Colors */
-  --color-primary: #4ecdc4;
-  --color-primary-dark: #44a3a0;
-  --color-primary-light: #6dd8d0;
+  --color-primary: #e2e8f0;
+  --color-primary-dark: #94a3b8;
+  --color-primary-light: #f1f5f9;
   
   --color-secondary: #2c3e50;
   --color-secondary-light: #5a6c7d;
@@ -97,9 +97,9 @@
 
 /* Dark mode theme */
 :root.dark {
-  --color-primary: #6dd8d0;
-  --color-primary-dark: #5ac8c0;
-  --color-primary-light: #7fe8e0;
+  --color-primary: #cbd5e1;
+  --color-primary-dark: #94a3b8;
+  --color-primary-light: #e2e8f0;
   
   --color-secondary: #e8f4f3;
   --color-secondary-light: #f0f8f7;
