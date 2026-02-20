@@ -12,5 +12,6 @@ export interface Distro {
 	website: string;
 	tag_ids: string[];
 	priority: number;
+	best?: boolean;
 	description: string;
 }

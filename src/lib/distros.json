@@ -6,7 +6,8 @@
       "website": "https://linuxmint.com/",
       "tag_ids": [],
       "priority": 1,
-      "description": "Been here for quite a while. Community-driven, stable and familiar. Features the Cinnamon desktop environment. Works well even on 10-15 years old computers (with an SSD) designed for Windows 8/10/11. Can be used for gaming just like any distro, but doesn't come with special tools pre-installed. If your computer has an HDD and only 2Gb of RAM (potentially Windows 7 era), use the XFCE version of Linux Mint."
+      "best": true,
+      "description": "Been here for quite a while. Community-driven, stable and familiar. Features the Cinnamon desktop environment. Good for everything, can be used for gaming too, but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers (with an SSD). If your computer has an HDD and only 2Gb of RAM (potentially Windows 7 era), use the XFCE version of Linux Mint."
     },
     {
       "id": "kubuntu",
@@ -55,6 +56,7 @@
       "website": "https://fedoraproject.org/kde/",
       "tag_ids": [],
       "priority": 5,
+      "best": true,
       "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Fedora is a semi-rolling distribution, making it both stable and up-to-date. Nvidia drivers installation may not be straightforward."
     },
     {
@@ -80,7 +82,8 @@
       "website": "https://cachyos.org/",
       "tag_ids": ["gaming-ready"],
       "priority": 6,
-      "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (and many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Perfect for tech enthusiasts, requires some terminal experience."
+      "best": true,
+      "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Perfect for tech enthusiasts, requires some terminal experience."
     },
     {
       "disabled": true,

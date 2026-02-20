@@ -40,6 +40,9 @@
 			aria-pressed={selectedDistro?.id === distro.id}
 			data-distro-id={distro.id}
 		>
+			{#if distro.best}
+				<span class="best">🔥</span>
+			{/if}
 			<OptimizedImage 
 				distroId={distro.id}
 				alt="{distro.name} logo"
@@ -91,6 +94,15 @@
 		border-color: var(--color-primary);
 		background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
 		color: var(--color-background);
+	}
+
+	.best {
+		position: absolute;
+		top: -10px;
+		right: -10px;
+		font-size: 1.5rem;
+		line-height: 1;
+		z-index: 1;
 	}
 
 	:global(.distro-icon) {
