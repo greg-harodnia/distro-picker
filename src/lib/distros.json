@@ -6,7 +6,7 @@
       "website": "https://linuxmint.com/",
       "tag_ids": [],
       "priority": 1,
-      "description": "Been here for quite a while. Community-driven, stable and familiar. Features the Cinnamon desktop environment. Works well even on 10-15 years old computers (with an SSD) designed for Windows 8/10/11. Can be used for gaming just like any distro, but doesn't come with special tools pre-installed."
+      "description": "Been here for quite a while. Community-driven, stable and familiar. Features the Cinnamon desktop environment. Works well even on 10-15 years old computers (with an SSD) designed for Windows 8/10/11. Can be used for gaming just like any distro, but doesn't come with special tools pre-installed. If your computer has an HDD and only 2Gb of RAM (potentially Windows 7 era), use the XFCE version of Linux Mint."
     },
     {
       "id": "kubuntu",
@@ -80,15 +80,16 @@
       "website": "https://cachyos.org/",
       "tag_ids": ["gaming-ready"],
       "priority": 6,
-      "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment. Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Perfect for tech enthusiasts, requires some terminal experience."
+      "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (and many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Perfect for tech enthusiasts, requires some terminal experience."
     },
     {
+      "disabled": true,
       "id": "linux-lite",
       "name": "Linux Lite",
       "website": "https://www.linuxliteos.com/",
       "tag_ids": ["lightweight"],
       "priority": 7,
-      "description": "A lightweight Linux distro with a sleek design, featuring the XFCE desktop environment. A minimum of 1GB of RAM is required (more to run apps smoothly). Good for older, slower computers or netbooks (2009 and above) with an HDD and 2-4 Gb of RAM designed for Windows 7/8/10 (if you have an SSD and 4Gb DDR3 RAM it's recommended to use Linux Mint, Zorin OS, or Kubuntu)."
+      "description": "A midweight Linux distro with a sleek design, featuring the XFCE desktop environment. Good for older, slower computers or netbooks (2009-2015) with an HDD and 2-4 Gb of RAM designed for Windows Vista/7/8."
     },
     {
       "id": "lubuntu",
@@ -96,7 +97,7 @@
       "website": "https://lubuntu.me/",
       "tag_ids": ["lightweight"],
       "priority": 8,
-      "description": "A user-friendly lightweight Ubuntu variant, perfect for computers produced before 2011 and designed for Windows XP/Vista/7 with 1 or 2Gb of RAM. Slightly lighter than Linux Lite due to using LXQt desktop environment."
+      "description": "A user-friendly lightweight Ubuntu variant, perfect for computers produced between 2004 and 2011 designed for Windows XP/Vista with 1 or 2Gb of RAM. Features the LXQt desktop environment."
     },
     {
       "id": "antiX",

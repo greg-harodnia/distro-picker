@@ -149,8 +149,8 @@
 						Solus, on the other hand, is just not too popular and
 						may have poorer package support. Nobara, PikaOS and
 						Garuda are not listed in favor of Bazzite; Ubuntu in
-						favor of Mint, Zorin OS, Kubuntu and Pop!_OS; Peppermint
-						OS and PuppyLinux in favor of Linux Lite, Lubuntu and
+						favor of Mint, Zorin OS, Kubuntu and Pop!_OS; Linux Lite, Peppermint
+						OS and PuppyLinux in favor of Lubuntu and
 						AntiX). Some distros, like Feren OS, feature no more
 						than just UI customization and different apps
 						preinstalled compared to what they are based on, which
