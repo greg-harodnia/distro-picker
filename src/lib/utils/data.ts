@@ -70,13 +70,11 @@ export function getDistroIconPath(distroId: string): string {
 		'kubuntu': '/kubuntu.png',
 		'zorin': '/zorin.png',
 		'popos': '/popos.png',
-		'aurora': '/aurora.svg',
 		'fedora': '/fedora.png',
-		'bluefin': '/bluefin.svg',
+		'steamos': '/steamos.png',
 		'bazzite': '/bazzite.svg',
 		'cachyos': '/cachyos.svg',
 		'lubuntu': '/lubuntu.png',
-		'linux-lite': '/linux-lite.png',
 		'antiX': '/antiX.png'
 	};
 	return iconMap[distroId] || '/linux.png';

@@ -34,15 +34,6 @@
       "description": "Built by System76, featuring the Cosmic desktop environment (MacOS-like) and focusing on usability. Has an Nvidia version available. Good for creative work."
     },
     {
-      "disabled": true,
-      "id": "aurora",
-      "name": "Aurora",
-      "website": "https://getaurora.dev/",
-      "tag_ids": [],
-      "priority": 4,
-      "description": "A user-friendly stable and immutable (making it harder to break) distro - the future of the Linux desktop. Features the KDE Plasma desktop environment. An alternative to yet unreleased KDE Linux."
-    },
-    {
       "id": "kde-linux",
       "name": "KDE Linux",
       "website": "https://kde.org/linux/",
@@ -60,13 +51,12 @@
       "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Fedora is a semi-rolling distribution, making it both stable and up-to-date. Nvidia drivers installation may not be straightforward."
     },
     {
-      "disabled": true,
-      "id": "bluefin",
-      "name": "Bluefin",
-      "website": "https://projectbluefin.io/",
-      "tag_ids": [],
-      "priority": 5,
-      "description": "Built on top of Fedora atomic, Bluefin is an immutable user-friendly distro, perfect for conteinerized development and daily use."
+      "id": "steamos",
+      "name": "SteamOS",
+      "website": "https://store.steampowered.com/steamos",
+      "tag_ids": ["gaming-ready"],
+      "priority": 6,
+      "description": "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment. Released for handhelds, but yet to be released for desktops."
     },
     {
       "id": "bazzite",
@@ -74,7 +64,7 @@
       "website": "https://bazzite.gg/",
       "tag_ids": ["gaming-ready"],
       "priority": 6,
-      "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). One of the editions features the KDE Plasma desktop environment. Take a survey on the official website to see if your hardware supports Linux gaming."
+      "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). One of the editions features the KDE Plasma desktop environment. A SteamOS alternative. Much more user-friendly than CachyOS (but more bloated). Take a survey on the official website to see if your hardware supports the Linux gaming."
     },
     {
       "id": "cachyos",
@@ -83,16 +73,7 @@
       "tag_ids": ["gaming-ready"],
       "priority": 6,
       "best": true,
-      "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Perfect for tech enthusiasts, requires some terminal experience."
-    },
-    {
-      "disabled": true,
-      "id": "linux-lite",
-      "name": "Linux Lite",
-      "website": "https://www.linuxliteos.com/",
-      "tag_ids": ["lightweight"],
-      "priority": 7,
-      "description": "A midweight Linux distro with a sleek design, featuring the XFCE desktop environment. Good for older, slower computers or netbooks (2009-2015) with an HDD and 2-4 Gb of RAM designed for Windows Vista/7/8."
+      "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Perfect for tech enthusiasts, who want to have full control over their system. Requires some terminal experience."
     },
     {
       "id": "lubuntu",

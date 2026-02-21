@@ -94,7 +94,6 @@
 		display: inline-block;
 		border-radius: var(--radius-sm);
 		overflow: hidden;
-		/* background: var(--color-border-light); */
 	}
 
 	.optimized-image {

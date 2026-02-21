@@ -57,21 +57,23 @@
 			<p>{distro.description}</p>
 		</div>
 
-		<div class="distro-tags">
-			<div class="tag-list">
-				{#each distro.tag_ids as tagId}
-					{#if getTagById(tagId)}
-						{@const tag = getTagById(tagId)!}
-						<span 
-							class="tag"
-							style="--tag-color: {tag.color}"
-						>
-							{tag.name}
-						</span>
-					{/if}
-				{/each}
+		{#if distro.tag_ids && distro.tag_ids.length > 0}
+			<div class="distro-tags">
+				<div class="tag-list">
+					{#each distro.tag_ids as tagId}
+						{#if getTagById(tagId)}
+							{@const tag = getTagById(tagId)!}
+							<span 
+								class="tag"
+								style="--tag-color: {tag.color}"
+							>
+								{tag.name}
+							</span>
+						{/if}
+					{/each}
+				</div>
 			</div>
-		</div>
+		{/if}
 
 		<button 
 			class="website-btn" 
@@ -142,10 +144,6 @@
 		box-shadow: 0 0 0 2px var(--color-primary);
 	} */
 
-	.distro-description {
-		margin-bottom: var(--space-2xl);
-	}
-
 	.distro-description p {
 		color: var(--color-text-secondary);
 		line-height: var(--line-height-relaxed);
@@ -154,7 +152,7 @@
 	}
 
 	.distro-tags {
-		margin-bottom: var(--space-2xl);
+		margin-top: var(--space-2xl);
 	}
 
 	.tag-list {
@@ -187,6 +185,7 @@
 		display: inline-block;
 		text-align: center;
 		line-height: var(--line-height-normal);
+		margin-top: var(--space-2xl);
 	}
 
 	.website-btn:hover {
