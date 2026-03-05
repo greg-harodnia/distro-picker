@@ -168,14 +168,14 @@
 						search for it in your distribution's repositories (using
 						a software center if installed). Don't forget to check
 						Flatpak (on Flathub.org or in your software center) and
-						AppImage (on AppImageHub.com) versions as well. Linux
+						AppImage (sometimes developers distribute their software using this format on their official website) versions as well. Linux
 						uses different package formats and doesn't support
 						Windows proprietary formats, like .exe, without
 						additional software. 2) If the app is truly missing,
 						consider using alternatives (e.g., OnlyOffice over
 						Microsoft Office, qBittorrent over uTorrent,
 						Photopea/GIMP/Krita/Affinity(via Bottles) over
-						Photoshop, Darktable over Lightroom, Inkscape over
+						Photoshop, KolourPaint/Pinta/Krita over Paint, Darktable over Lightroom, Inkscape over
 						Illustrator, DaVinci Resolve over Premiere Pro, etc.).
 						There is a lot of great open source software available.
 						3) If the app is missing in your distribution but is
@@ -210,7 +210,7 @@
 						system. Requires some terminal experience.<br />
 						3. Immutable. The base is rolling release (usually Arch or
 						Fedora), but releases are provided in a form of a whole system
-						image (using btrfs snapshots or OSTree tool), allowing developers
+						image (using btrfs snapshots, OSTree tool, or something custom), allowing developers
 						to decide the update frequency (I would even suggest them
 						to handle 2 types of updates: stable every 6 months and frequent
 						optional every month). Very stable, apps are provided as
