@@ -54,11 +54,13 @@
 		tagActions.toggle(tagId);
 	}
 
-		function selectDistro(distro: Distro) {
+	function selectDistro(distro: Distro) {
 		distroActions.select(distro);
-		setTimeout(() => {
-			document.getElementById('distribution-details')?.scrollIntoView({ behavior: 'smooth' });
-		}, 0);
+		if (window.innerWidth < 1024) {
+			setTimeout(() => {
+				document.querySelector('.distro-panel')?.scrollIntoView({ behavior: 'smooth' });
+			}, 0);
+		}
 	}
 
 	function closePanel() {
