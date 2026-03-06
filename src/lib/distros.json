@@ -4,7 +4,7 @@
       "id": "mint",
       "name": "Linux Mint",
       "website": "https://linuxmint.com/",
-      "tag_ids": [],
+      "tag_ids": ["traditional"],
       "priority": 1,
       "best": true,
       "description": "Been here for quite a while. Community-driven, stable and familiar. Features the Cinnamon desktop environment. Good for everything, can be used for gaming too, but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers (with an SSD). If your computer has an HDD and only 2Gb of RAM (potentially Windows 7 era), use the XFCE version of Linux Mint."
@@ -13,7 +13,7 @@
       "id": "kubuntu",
       "name": "Kubuntu",
       "website": "https://kubuntu.org/",
-      "tag_ids": [],
+      "tag_ids": ["traditional"],
       "priority": 2,
       "description": "A well established and trusted distro, based on Ubuntu with the KDE Plasma desktop environment. Similar requirements to Linux Mint."
     },
@@ -21,7 +21,7 @@
       "id": "zorin",
       "name": "Zorin OS",
       "website": "https://zorinos.com/",
-      "tag_ids": [],
+      "tag_ids": ["traditional"],
       "priority": 2,
       "description": "A polished distro focused on visual appeal, featuring the Gnome desktop environment with many out-of-the-box layouts, including a Windows-like one. Similar requirements to Linux Mint."
     },
@@ -29,7 +29,7 @@
       "id": "popos",
       "name": "Pop!_OS",
       "website": "https://pop.system76.com/",
-      "tag_ids": [],
+      "tag_ids": ["traditional"],
       "priority": 3,
       "description": "Built by System76, featuring the Cosmic desktop environment (MacOS-like) and focusing on usability. Has an Nvidia version available. Good for creative work."
     },
@@ -37,7 +37,7 @@
       "id": "kde-linux",
       "name": "KDE Linux",
       "website": "https://kde.org/linux/",
-      "tag_ids": [],
+      "tag_ids": ["immutable"],
       "priority": 4,
       "description": "A Linux distribution built by KDE. Immutable (using Btrfs snapshots), stable and fast. The new era of the Linux desktop. Yet to be released."
     },
@@ -45,7 +45,7 @@
       "id": "fedora",
       "name": "Fedora",
       "website": "https://fedoraproject.org/kde/",
-      "tag_ids": [],
+      "tag_ids": ["rolling-release"],
       "priority": 5,
       "best": true,
       "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Fedora is a semi-rolling distribution, making it both stable and up-to-date. Nvidia drivers installation may not be straightforward."
@@ -54,7 +54,7 @@
       "id": "steamos",
       "name": "SteamOS",
       "website": "https://store.steampowered.com/steamos",
-      "tag_ids": ["gaming-ready"],
+      "tag_ids": ["gaming-ready", "immutable"],
       "priority": 6,
       "description": "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment. Released for handhelds, but yet to be released for desktops."
     },
@@ -62,7 +62,7 @@
       "id": "bazzite",
       "name": "Bazzite",
       "website": "https://bazzite.gg/",
-      "tag_ids": ["gaming-ready"],
+      "tag_ids": ["gaming-ready", "immutable"],
       "priority": 6,
       "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). One of the editions features the KDE Plasma desktop environment. A SteamOS alternative. Much more user-friendly than CachyOS (but more bloated). Take a survey on the official website to see if your hardware supports the Linux gaming."
     },
@@ -70,7 +70,7 @@
       "id": "cachyos",
       "name": "CachyOS",
       "website": "https://cachyos.org/",
-      "tag_ids": ["gaming-ready"],
+      "tag_ids": ["gaming-ready", "rolling-release"],
       "priority": 6,
       "best": true,
       "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Perfect for tech enthusiasts, who want to have full control over their system. Requires some terminal experience."
@@ -79,7 +79,7 @@
       "id": "lubuntu",
       "name": "Lubuntu",
       "website": "https://lubuntu.me/",
-      "tag_ids": ["lightweight"],
+      "tag_ids": ["lightweight", "traditional"],
       "priority": 8,
       "description": "A user-friendly lightweight Ubuntu variant, perfect for computers produced between 2004 and 2011 designed for Windows XP/Vista with 1 or 2Gb of RAM. Features the LXQt desktop environment."
     },
@@ -87,7 +87,7 @@
       "id": "antiX",
       "name": "antiX",
       "website": "https://antixlinux.com/",
-      "tag_ids": ["lightweight"],
+      "tag_ids": ["lightweight", "traditional"],
       "priority": 9,
       "description": "Ultra light distro, requires as minimum as 256Mb of RAM to run (more to run apps smoothly). Good for ancient computers designed for Windows XP."
     }

@@ -11,6 +11,24 @@
       "name": "Lightweight",
       "description": "Lightweight and suitable for older hardware",
       "color": "#feca57"
+    },
+    {
+      "id": "traditional",
+      "name": "Traditional",
+      "description": "Standard release model with periodic version updates",
+      "color": "#a1cf3e"
+    },
+    {
+      "id": "rolling-release",
+      "name": "Rolling Release",
+      "description": "Continuously updated distribution with no fixed releases",
+      "color": "#5498f6"
+    },
+    {
+      "id": "immutable",
+      "name": "Immutable",
+      "description": "Immutable distribution with atomic updates",
+      "color": "#f97316"
     }
   ]
 }
