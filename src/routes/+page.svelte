@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { slide } from "svelte/transition";
+	import { base } from '$app/paths';
 	import type { PageData } from './$types';
 	import TagFilter from "$lib/components/TagFilter.svelte";
 	import DistroGrid from "$lib/components/DistroGrid.svelte";
@@ -129,7 +130,7 @@
 					<DistroPanel
 						distro={$selectedDistro}
 						tags={$tags}
-						screenshots={data.screenshots[$selectedDistro.id] || []}
+						screenshots={(data.screenshots[$selectedDistro.id] || []).map(s => `${base}${s}`)}
 						on:close={closePanel}
 					/>
 				</section>
