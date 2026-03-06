@@ -1,39 +1,50 @@
 <script lang="ts">
-	import type { Distro, Tag } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
-	import { sanitizeUrl } from '$lib/utils';
+	import type { Distro, Tag } from "$lib/types";
+	import { createEventDispatcher } from "svelte";
+	import { sanitizeUrl } from "$lib/utils";
+	import GalleryModal from "./GalleryModal.svelte";
 
 	export let distro: Distro;
 	export let tags: Tag[] = [];
+	export let screenshots: string[] = [];
 
 	const dispatch = createEventDispatcher();
 
+	let showGallery = false;
+
 	function getTagById(tagId: string): Tag | undefined {
-		return tags.find(tag => tag.id === tagId);
+		return tags.find((tag) => tag.id === tagId);
 	}
 
 	function visitWebsite() {
 		const sanitizedUrl = sanitizeUrl(distro.website);
-		if (sanitizedUrl !== '#') {
-			window.open(sanitizedUrl, '_blank', 'noopener,noreferrer');
+		if (sanitizedUrl !== "#") {
+			window.open(sanitizedUrl, "_blank", "noopener,noreferrer");
 		}
 	}
 
 	function closePanel() {
-		dispatch('close');
+		dispatch("close");
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'Enter' || e.key === ' ') {
+		if (e.key === "Enter" || e.key === " ") {
 			e.preventDefault();
 			closePanel();
 		}
 	}
 
 	function handleWebsiteKeydown(e: KeyboardEvent) {
-		if (e.key === 'Enter' || e.key === ' ') {
+		if (e.key === "Enter" || e.key === " ") {
 			e.preventDefault();
 			visitWebsite();
+		}
+	}
+
+	function handleGalleryKeydown(e: KeyboardEvent) {
+		if (e.key === "Enter" || e.key === " ") {
+			e.preventDefault();
+			showGallery = true;
 		}
 	}
 </script>
@@ -41,8 +52,8 @@
 <div class="distro-panel">
 	<div class="panel-header">
 		<h2>{distro.name}</h2>
-		<button 
-			class="close-btn" 
+		<button
+			class="close-btn"
 			on:click={closePanel}
 			on:keydown={handleKeydown}
 			aria-label="Close distro details panel"
@@ -63,10 +74,7 @@
 					{#each distro.tag_ids as tagId}
 						{#if getTagById(tagId)}
 							{@const tag = getTagById(tagId)!}
-							<span 
-								class="tag"
-								style="--tag-color: {tag.color}"
-							>
+							<span class="tag" style="--tag-color: {tag.color}">
 								{tag.name}
 							</span>
 						{/if}
@@ -75,17 +83,52 @@
 			</div>
 		{/if}
 
-		<button 
-			class="website-btn" 
-			on:click={visitWebsite}
-			on:keydown={handleWebsiteKeydown}
-			aria-label={`Visit ${distro.name} website`}
-			type="button"
-		>
-			Visit Website
-		</button>
+		<div class="buttons">
+			<button
+				class="website-btn"
+				on:click={visitWebsite}
+				on:keydown={handleWebsiteKeydown}
+				aria-label={`Visit ${distro.name} website`}
+				type="button"
+			>
+				Visit Website
+			</button>
+
+			<button
+				class="gallery-btn"
+				on:click={() => (showGallery = true)}
+				on:keydown={handleGalleryKeydown}
+				aria-label={`View ${distro.name} screenshots`}
+				type="button"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<rect x="3" y="3" width="18" height="18" rx="2" ry="2"
+					></rect>
+					<circle cx="8.5" cy="8.5" r="1.5"></circle>
+					<polyline points="21 15 16 10 5 21"></polyline>
+				</svg>
+			</button>
+		</div>
 	</div>
 </div>
+
+{#if showGallery}
+	<GalleryModal
+		images={screenshots}
+		distroName={distro.name}
+		on:close={() => (showGallery = false)}
+	/>
+{/if}
 
 <style>
 	.distro-panel {
@@ -170,10 +213,18 @@
 		font-weight: var(--font-medium);
 	}
 
-	.website-btn {
-		width: 100%;
-		padding: var(--space-md) var(--space-xl);
-		background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+	.buttons {
+		display: flex;
+		height: 56px;
+		margin-top: var(--space-2xl);
+	}
+
+	.buttons > button {
+		background: linear-gradient(
+			135deg,
+			var(--color-primary) 0%,
+			var(--color-primary-dark) 100%
+		);
 		color: var(--color-background);
 		border: none;
 		border-radius: var(--radius-md);
@@ -181,14 +232,21 @@
 		font-weight: var(--font-semibold);
 		cursor: pointer;
 		transition: all var(--transition-normal);
-		text-decoration: none;
-		display: inline-block;
-		text-align: center;
-		line-height: var(--line-height-normal);
-		margin-top: var(--space-2xl);
 	}
 
-	.website-btn:hover {
+	.website-btn {
+		width: calc(100% - 56px - var(--space-md));
+		padding: var(--space-md) var(--space-xl);
+		text-decoration: none;
+		text-align: center;
+	}
+
+	.gallery-btn {
+		width: 56px;
+		margin-left: var(--space-md);
+	}
+
+	.buttons > button:hover {
 		transform: translateY(-2px);
 		box-shadow: var(--shadow-lg);
 	}

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { slide } from "svelte/transition";
+	import type { PageData } from './$types';
 	import TagFilter from "$lib/components/TagFilter.svelte";
 	import DistroGrid from "$lib/components/DistroGrid.svelte";
 	import DistroPanel from "$lib/components/DistroPanel.svelte";
@@ -20,6 +21,8 @@
 		dataActions,
 	} from "$lib/stores";
 	import type { Distro } from "$lib/types";
+
+	export let data: PageData;
 
 	let footerExpanded = false;
 
@@ -126,6 +129,7 @@
 					<DistroPanel
 						distro={$selectedDistro}
 						tags={$tags}
+						screenshots={data.screenshots[$selectedDistro.id] || []}
 						on:close={closePanel}
 					/>
 				</section>
