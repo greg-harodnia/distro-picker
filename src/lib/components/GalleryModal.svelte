@@ -96,6 +96,10 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
+
+		@media (orientation: portrait) {
+			height: 50vh;
+		}
 	}
 
 	.modal-header {
