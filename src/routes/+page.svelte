@@ -94,7 +94,8 @@
 
 		<section class="filters" aria-labelledby="filters-heading">
 			<h2 id="filters-heading">Filter by Tags</h2>
-			<div class="tag-list" role="group" aria-label="Filter options">
+			<div class="tag-list-wrapper">
+				<div class="tag-list" role="group" aria-label="Filter options">
 				{#each $tags as tag, i (tag.id)}
 					{#if i > 0 && tag.group !== $tags[i - 1].group}
 						<span class="tag-separator" aria-hidden="true"></span>
@@ -105,7 +106,16 @@
 						on:toggle={() => toggleTag(tag.id)}
 					/>
 				{/each}
+				{#if $selectedTags.size > 0}
+					<button class="clear-btn" on:click={() => { tagActions.clear(); }} aria-label="Clear all filters">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="18" y1="6" x2="6" y2="18"></line>
+							<line x1="6" y1="6" x2="18" y2="18"></line>
+						</svg>
+					</button>
+				{/if}
 			</div>
+		</div>
 		</section>
 
 		<div class="content">
@@ -116,7 +126,6 @@
 				{#if $filteredDistros.length === 0}
 					<div class="no-results" role="status" aria-live="polite">
 						<p>No distributions match your selected criteria.</p>
-						<p>Try adjusting your filters to see more options.</p>
 					</div>
 				{:else}
 					<DistroGrid
@@ -346,6 +355,31 @@
 		height: 24px;
 		background: var(--color-border);
 		margin: 0 var(--space-xs);
+	}
+
+	.tag-list-wrapper {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+	}
+
+	.clear-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border: none;
+		border-radius: var(--radius-full);
+		background: var(--color-secondary);
+		color: var(--color-background);
+		cursor: pointer;
+		transition: all var(--transition-normal);
+	}
+
+	.clear-btn:hover {
+		transform: scale(1.1);
+		box-shadow: var(--shadow-lg);
 	}
 
 	.content {

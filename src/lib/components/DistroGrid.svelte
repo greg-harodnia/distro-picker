@@ -54,13 +54,6 @@
 	{/each}
 </div>
 
-{#if distros.length === 0}
-	<div class="no-results">
-		<p>No distributions match your selected criteria.</p>
-		<p>Try adjusting your filters to see more options.</p>
-	</div>
-{/if}
-
 <style>
 	.distro-grid {
 		display: grid;
