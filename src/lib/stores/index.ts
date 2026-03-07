@@ -15,7 +15,7 @@ function getTagById(tagId: string): Tag | undefined {
 }
 
 // Get tag group helper
-function getTagGroup(tagId: string): number | undefined {
+function getTagGroup(tagId: string): string | undefined {
 	const tag = getTagById(tagId);
 	return tag?.group;
 }
@@ -47,7 +47,7 @@ export const tagActions = {
 				newSet.delete(tagId);
 			} else {
 				const tagGroup = getTagGroup(tagId);
-				if (tagGroup !== undefined) {
+				if (tagGroup) {
 					for (const selectedId of newSet) {
 						if (getTagGroup(selectedId) === tagGroup) {
 							newSet.delete(selectedId);
