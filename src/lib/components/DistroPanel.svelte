@@ -63,10 +63,21 @@
 		</button>
 	</div>
 
-	<div class="panel-content">
+		<div class="panel-content">
 		<div class="distro-description">
 			<p>{distro.description}</p>
 		</div>
+
+		{#if distro.desktops && distro.desktops.length > 0}
+			<div class="additional-detail">
+				{#if distro.desktops.length === 1}
+					<h3>Desktop: </h3>
+				{:else}
+					<h3>Desktops: </h3>
+				{/if}
+				<p>{distro.desktops.join(", ")}</p>
+			</div>
+		{/if}
 
 		{#if distro.tag_ids && distro.tag_ids.length > 0}
 			<div class="distro-tags">
@@ -136,7 +147,7 @@
 		border: 2px solid var(--color-border);
 		border-radius: var(--radius-lg);
 		padding: var(--space-xl);
-		width: 350px;
+		width: 400px;
 		box-shadow: var(--shadow-xl);
 		position: sticky;
 		top: var(--space-xl);
@@ -192,6 +203,25 @@
 		line-height: var(--line-height-relaxed);
 		margin: 0;
 		font-size: var(--text-base);
+	}
+
+	.additional-detail {
+		margin-top: var(--space-xl);
+	}
+
+	.additional-detail h3 {
+		display: inline;
+		color: var(--color-secondary);
+		font-size: var(--text-base);
+		font-weight: var(--font-semibold);
+		margin: 0;
+	}
+
+	.additional-detail p {
+		display: inline;
+		color: var(--color-text-secondary);
+		font-size: var(--text-base);
+		margin: 0;
 	}
 
 	.distro-tags {

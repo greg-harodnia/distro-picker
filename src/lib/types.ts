@@ -14,4 +14,5 @@ export interface Distro {
 	priority: number;
 	best?: boolean;
 	description: string;
+	desktops?: string[];
 }
