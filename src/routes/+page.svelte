@@ -137,6 +137,11 @@
 			{/if}
 		</div>
 
+		<div class="sr-only">
+			<p>Linux distro chooser - find your perfect Linux distribution. Distro picker tool to choose a distro based on your needs. Browse and filter popular Linux distributions including Ubuntu, Fedora, Debian, Arch Linux, Linux Mint, Pop!_OS, Zorin OS, Elementary OS, Manjaro, openSUSE, and more. Use our interactive Linux distribution chooser to discover the best distro for beginners, power users, developers, gamers, and professionals. Try our distro finder to match your use case whether you need a beginner-friendly Linux OS, a rolling release distribution, an immutable distro, or a server-oriented Linux system.</p>
+			<p>Linux, distro chooser, distro picker, choose a distro, find a distro, Linux distribution picker, best Linux distro, Linux distro for beginners, Linux distribution finder, interactive distro chooser, Linux OS chooser, which Linux distro, pick a Linux distro, Linux distro recommendation, distro selection tool, Linux distro quiz.</p>
+		</div>
+
 		<footer>
 			<button
 				class="toggle-btn"
