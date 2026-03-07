@@ -3,6 +3,7 @@ export interface Tag {
 	name: string;
 	description: string;
 	color: string;
+	group: number;
 }
 
 export interface Distro {

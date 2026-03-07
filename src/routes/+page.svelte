@@ -95,7 +95,10 @@
 		<section class="filters" aria-labelledby="filters-heading">
 			<h2 id="filters-heading">Filter by Tags</h2>
 			<div class="tag-list" role="group" aria-label="Filter options">
-				{#each $tags as tag (tag.id)}
+				{#each $tags as tag, i (tag.id)}
+					{#if i > 0 && tag.group !== $tags[i - 1].group}
+						<span class="tag-separator" aria-hidden="true"></span>
+					{/if}
 					<TagFilter
 						{tag}
 						selected={$selectedTags.has(tag.id)}
@@ -335,6 +338,14 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--space-lg);
+		align-items: center;
+	}
+
+	.tag-separator {
+		width: 1px;
+		height: 24px;
+		background: var(--color-border);
+		margin: 0 var(--space-xs);
 	}
 
 	.content {

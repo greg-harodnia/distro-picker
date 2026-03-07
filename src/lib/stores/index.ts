@@ -1,4 +1,4 @@
-import { writable, derived } from 'svelte/store';
+import { writable, derived, get } from 'svelte/store';
 import type { Distro, Tag } from '$lib/types';
 
 // Stores for application state
@@ -8,6 +8,17 @@ export const tags = writable<Tag[]>([]);
 export const distros = writable<Distro[]>([]);
 export const loading = writable(true);
 export const error = writable<string | null>(null);
+
+// Get tag by ID helper
+function getTagById(tagId: string): Tag | undefined {
+	return get(tags).find(t => t.id === tagId);
+}
+
+// Get tag group helper
+function getTagGroup(tagId: string): number | undefined {
+	const tag = getTagById(tagId);
+	return tag?.group;
+}
 
 // Derived store for filtered distros
 export const filteredDistros = derived(
@@ -35,6 +46,14 @@ export const tagActions = {
 			if (newSet.has(tagId)) {
 				newSet.delete(tagId);
 			} else {
+				const tagGroup = getTagGroup(tagId);
+				if (tagGroup !== undefined) {
+					for (const selectedId of newSet) {
+						if (getTagGroup(selectedId) === tagGroup) {
+							newSet.delete(selectedId);
+						}
+					}
+				}
 				newSet.add(tagId);
 			}
 			return newSet;
