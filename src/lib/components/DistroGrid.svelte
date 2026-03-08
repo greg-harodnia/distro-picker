@@ -2,6 +2,7 @@
 	import type { Distro } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
 	import OptimizedImage from '$lib/components/OptimizedImage.svelte';
+	import { supabase, getLikedDistros, setLikedDistro, removeLikedDistro } from '$lib/supabase';
 
 	export let distros: Distro[] = [];
 	export let selectedDistro: Distro | null = null;
@@ -10,6 +11,36 @@
 
 	function selectDistro(distro: Distro) {
 		dispatch('select', distro);
+	}
+
+	async function handleLike(e: Event, distro: Distro) {
+		e.stopPropagation();
+
+		if (distro.userLiked) {
+			const { error } = await supabase
+				.from('distros')
+				.update({ likes: (distro.likes || 1) - 1 })
+				.eq('id', distro.id);
+
+			if (!error) {
+				distro.likes = (distro.likes || 1) - 1;
+				distro.userLiked = false;
+				removeLikedDistro(distro.id);
+				distros = distros;
+			}
+		} else {
+			const { error } = await supabase
+				.from('distros')
+				.update({ likes: (distro.likes || 0) + 1 })
+				.eq('id', distro.id);
+
+			if (!error) {
+				distro.likes = (distro.likes || 0) + 1;
+				distro.userLiked = true;
+				setLikedDistro(distro.id);
+				distros = distros;
+			}
+		}
 	}
 
 	function handleKeydown(e: any) {
@@ -43,6 +74,14 @@
 			{#if distro.best}
 				<span class="best">🔥</span>
 			{/if}
+			<button 
+				class="like" 
+				class:liked={distro.userLiked}
+				on:click={(e) => handleLike(e, distro)}
+				aria-label={distro.userLiked ? 'Unlike this distro' : 'Like this distro'}
+			>
+				❤️ {distro.likes || 0}
+			</button>
 			<OptimizedImage 
 				distroId={distro.id}
 				alt="{distro.name} logo"
@@ -96,6 +135,39 @@
 		font-size: 1.5rem;
 		line-height: 1;
 		z-index: 1;
+	}
+
+	.like {
+		position: absolute;
+		top: -10px;
+		left: -10px;
+		font-size: 1rem;
+		line-height: 1;
+		z-index: 1;
+		background: var(--color-surface);
+		border: 2px solid var(--color-border);
+		border-radius: var(--radius-full);
+		padding: 4px 8px;
+		cursor: pointer;
+		transition: all var(--transition-normal);
+		display: flex;
+		align-items: center;
+		gap: 2px;
+		opacity: 0;
+	}
+
+	.distro-card:hover .like {
+		opacity: 1;
+	}
+
+	.like:hover {
+		transform: scale(1.1);
+		border-color: #e25555;
+	}
+
+	.like.liked {
+		background: #ffe5e5;
+		border-color: #e25555;
 	}
 
 	:global(.distro-icon) {

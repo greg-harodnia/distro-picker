@@ -10,6 +10,7 @@
 	import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import { loadTags, loadDistros } from "$lib/utils";
+	import { supabase, getLikedDistros } from "$lib/supabase";
 	import {
 		tags,
 		loading,
@@ -42,8 +43,29 @@
 			} else if (distrosResult.error) {
 				dataActions.setError(distrosResult.error);
 			} else {
+				const loadedDistros = distrosResult.data || [];
+				
+				const { data: likesData, error: likesError } = await supabase
+					.from('distros')
+					.select('id, likes');
+				
+				if (likesError) {
+					console.error('Failed to fetch likes:', likesError);
+				}
+				
+				const userLikes = getLikedDistros();
+
+				const distrosWithLikes = loadedDistros.map(distro => {
+					const likeInfo = likesData?.find(l => l.id === distro.id);
+					return {
+						...distro,
+						likes: likeInfo?.likes ?? 0,
+						userLiked: userLikes.includes(distro.id)
+					};
+				});
+
 				dataActions.setTags(tagsResult.data || []);
-				dataActions.setDistros(distrosResult.data || []);
+				dataActions.setDistros(distrosWithLikes);
 			}
 		} catch (err) {
 			dataActions.setError(
