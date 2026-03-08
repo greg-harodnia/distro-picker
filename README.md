@@ -38,13 +38,15 @@ distro-picker/
 │   ├── lib/
 │   │   ├── components/
 │   │   │   ├── DistroGrid.svelte
+│   │   │   ├── DistroGridSkeleton.svelte
 │   │   │   ├── DistroPanel.svelte
 │   │   │   ├── ErrorDisplay.svelte
+│   │   │   ├── GalleryModal.svelte
 │   │   │   ├── LoadingSpinner.svelte
-│   │   │   ├── TagFilter.svelte
-│   │   │   ├── ThemeToggle.svelte
 │   │   │   ├── OptimizedImage.svelte
-│   │   │   └── *Skeleton.svelte
+│   │   │   ├── TagFilter.svelte
+│   │   │   ├── TagSkeleton.svelte
+│   │   │   └── ThemeToggle.svelte
 │   │   ├── stores/
 │   │   │   ├── index.ts
 │   │   │   └── theme.ts
@@ -52,20 +54,33 @@ distro-picker/
 │   │   │   ├── data.ts
 │   │   │   ├── focusTrap.ts
 │   │   │   ├── index.ts
-│   │   │   └── validation.ts
+│   │   │   ├── validation.ts
+│   │   │   └── focusTrap.ts
+│   │   ├── supabase.ts
 │   │   ├── types.ts
 │   │   ├── distros.json
 │   │   └── tags.json
 │   └── routes/
 │       ├── +layout.svelte
-│       ├── +layout.server.js
-│       └── +page.svelte
+│       ├── +page.svelte
+│       └── +page.server.ts
 ├── static/
+│   └── screenshots/
 ├── package.json
 ├── svelte.config.js
 ├── tsconfig.json
 ├── vite.config.js
 └── README.md
 ```
+
+## 🗄️ Database Structure (Supabase)
+
+### distros table
+
+| Column | Type | Description |
+|--------|------|-------------|
+| id | int8 | Primary key |
+| name | varchar | Distro identifier (same as 'id' in distros.json) |
+| likes | int2 | Number of likes |
 
 **Find Your Perfect Linux Distribution Today! 🐧**
