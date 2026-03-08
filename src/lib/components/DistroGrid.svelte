@@ -67,17 +67,19 @@
 			aria-pressed={selectedDistro?.id === distro.id}
 			data-distro-id={distro.id}
 		>
-			{#if distro.best}
-				<span class="best">🔥</span>
-			{/if}
-			<button 
-				class="like" 
-				class:liked={distro.userLiked}
-				on:click={(e) => handleLike(e, distro)}
-				aria-label={distro.userLiked ? 'Unlike this distro' : 'Like this distro'}
-			>
-				❤️{distro.likes ? ` ${distro.likes}` : ''}
-			</button>
+			<div class="reactions">
+				{#if distro.best}
+					<span class="best">🔥</span>
+				{/if}
+				<button 
+					class="like" 
+					class:liked={distro.userLiked}
+					on:click={(e) => handleLike(e, distro)}
+					aria-label={distro.userLiked ? 'Unlike this distro' : 'Like this distro'}
+				>
+					❤️{distro.likes ? ` ${distro.likes}` : ''}
+				</button>
+			</div>
 			<OptimizedImage 
 				distroId={distro.id}
 				alt="{distro.name} logo"
@@ -124,22 +126,23 @@
 		color: var(--color-background);
 	}
 
-	.best {
+	.reactions {
 		position: absolute;
 		top: -10px;
 		right: -10px;
-		font-size: 1.5rem;
-		line-height: 1;
+		display: flex;
+		gap: 4px;
 		z-index: 1;
 	}
 
+	.best {
+		font-size: 1.5rem;
+		line-height: 1;
+	}
+
 	.like {
-		position: absolute;
-		bottom: -10px;
-		right: -10px;
 		font-size: 1rem;
 		line-height: 1;
-		z-index: 1;
 		background: var(--color-surface);
 		border: 2px solid var(--color-border);
 		border-radius: var(--radius-full);
@@ -149,6 +152,7 @@
 		display: flex;
 		align-items: center;
 		gap: 2px;
+		color: var(--color-text, inherit);
 	}
 
 	.like:hover {
@@ -157,8 +161,8 @@
 	}
 
 	.like.liked {
-		background: #ffe5e5;
 		border-color: #e25555;
+		color: var(--color-text, inherit);
 	}
 
 	:global(.distro-icon) {
@@ -171,19 +175,6 @@
 		font-weight: var(--font-semibold);
 		margin: 0;
 		line-height: var(--line-height-tight);
-	}
-
-	.no-results {
-		text-align: center;
-		padding: var(--space-3xl);
-		color: var(--color-text-secondary);
-		grid-column: 1 / -1;
-	}
-
-	.no-results p {
-		margin: var(--space-sm) 0;
-		font-size: var(--text-lg);
-		line-height: var(--line-height-normal);
 	}
 
 	@media (max-width: 640px) {

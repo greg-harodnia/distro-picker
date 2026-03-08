@@ -417,6 +417,19 @@
 		margin-bottom: var(--space-3xl);
 	}
 
+	.no-results {
+		text-align: center;
+		padding: var(--space-3xl);
+		color: var(--color-text-secondary);
+		grid-column: 1 / -1;
+	}
+
+	.no-results p {
+		margin: var(--space-sm) 0;
+		font-size: var(--text-lg);
+		line-height: var(--line-height-normal);
+	}
+
 	.distros h2 {
 		font-size: var(--text-2xl);
 		color: var(--color-secondary);
