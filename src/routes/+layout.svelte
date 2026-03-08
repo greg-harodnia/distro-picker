@@ -53,7 +53,7 @@
 	<link rel="canonical" href="{siteUrl}{base}{$page.url.pathname}">
 	
 	<!-- Security Headers (can stay here or move back to app.html) -->
-	<meta http-equiv="content-security-policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self'; font-src 'self';">
+	<meta http-equiv="content-security-policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://lsydfkkkjazznplskovm.supabase.co; font-src 'self';">
 	<meta name="referrer" content="strict-origin-when-cross-origin">
 </svelte:head>
 

@@ -16,30 +16,26 @@
 	async function handleLike(e: Event, distro: Distro) {
 		e.stopPropagation();
 
-		if (distro.userLiked) {
-			const { error } = await supabase
-				.from('distros')
-				.update({ likes: (distro.likes || 1) - 1 })
-				.eq('id', distro.id);
+		const newLikes = distro.userLiked 
+			? (distro.likes || 1) - 1 
+			: (distro.likes || 0) + 1;
 
-			if (!error) {
-				distro.likes = (distro.likes || 1) - 1;
-				distro.userLiked = false;
-				removeLikedDistro(distro.id);
-				distros = distros;
-			}
-		} else {
-			const { error } = await supabase
-				.from('distros')
-				.update({ likes: (distro.likes || 0) + 1 })
-				.eq('id', distro.id);
+		const { error } = await supabase
+			.from('distros')
+			.update({ likes: newLikes })
+			.eq('name', distro.id);
 
-			if (!error) {
-				distro.likes = (distro.likes || 0) + 1;
-				distro.userLiked = true;
+		console.log('Update likes error:', error);
+
+		if (!error) {
+			distro.likes = newLikes;
+			distro.userLiked = !distro.userLiked;
+			if (distro.userLiked) {
 				setLikedDistro(distro.id);
-				distros = distros;
+			} else {
+				removeLikedDistro(distro.id);
 			}
+			distros = distros;
 		}
 	}
 
@@ -80,7 +76,7 @@
 				on:click={(e) => handleLike(e, distro)}
 				aria-label={distro.userLiked ? 'Unlike this distro' : 'Like this distro'}
 			>
-				❤️ {distro.likes || 0}
+				❤️{distro.likes ? ` ${distro.likes}` : ''}
 			</button>
 			<OptimizedImage 
 				distroId={distro.id}
@@ -139,8 +135,8 @@
 
 	.like {
 		position: absolute;
-		top: -10px;
-		left: -10px;
+		bottom: -10px;
+		right: -10px;
 		font-size: 1rem;
 		line-height: 1;
 		z-index: 1;
@@ -153,11 +149,6 @@
 		display: flex;
 		align-items: center;
 		gap: 2px;
-		opacity: 0;
-	}
-
-	.distro-card:hover .like {
-		opacity: 1;
 	}
 
 	.like:hover {
