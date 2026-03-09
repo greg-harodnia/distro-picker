@@ -165,6 +165,7 @@
 {/if}
 
 <style>
+
 	.distro-panel {
 		background: var(--color-surface);
 		border: 2px solid var(--color-border);
@@ -176,6 +177,10 @@
 		top: var(--space-xl);
 		max-height: calc(100vh - 4rem);
 		overflow-y: auto;
+
+		@media (max-width: 1176px) {
+			width: 398px;
+		}
 	}
 
 	.panel-header {

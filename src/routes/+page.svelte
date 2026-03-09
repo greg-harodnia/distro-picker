@@ -264,7 +264,7 @@
 						image (using btrfs snapshots, OSTree tool, or something custom), allowing developers
 						to decide the update frequency (I would even suggest them
 						to handle 2 types of updates: stable every 6 months and frequent
-						optional every month). Very stable, apps are provided as
+						optional every month). Immutable (the system is read-only), thus very stable, apps are provided as
 						Flatpaks. GUI software center, very user-friendly. The new
 						era of the Linux desktop, making traditional distros a privilege
 						for servers. <br /><br />
