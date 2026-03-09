@@ -16,6 +16,8 @@ export interface Distro {
 	best?: boolean;
 	description: string;
 	desktops?: string[];
+	beginner_friendly?: number;
+	based_on?: string;
 	likes?: number;
 	userLiked?: boolean;
 }

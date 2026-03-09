@@ -41,6 +41,11 @@
 		}
 	}
 
+	let hasAdditionalDetails =
+		(distro.desktops && distro.desktops.length > 0) ||
+		distro.based_on ||
+		distro.beginner_friendly;
+
 	function handleGalleryKeydown(e: KeyboardEvent) {
 		if (e.key === "Enter" || e.key === " ") {
 			e.preventDefault();
@@ -68,15 +73,33 @@
 			<p>{distro.description}</p>
 		</div>
 
-		{#if distro.desktops && distro.desktops.length > 0}
-			<div class="additional-detail">
-				{#if distro.desktops.length === 1}
-					<h3>Desktop: </h3>
-				{:else}
-					<h3>Desktops: </h3>
-				{/if}
-				<p>{distro.desktops.join(", ")}</p>
-			</div>
+		{#if hasAdditionalDetails}
+			<div class="additional-details">
+			{#if distro.based_on}
+				<div class="additional-detail">
+					<h3>Based on: </h3>
+					<p>{distro.based_on}</p>
+				</div>
+			{/if}
+
+			{#if distro.desktops && distro.desktops.length > 0}
+				<div class="additional-detail">
+					{#if distro.desktops.length === 1}
+						<h3>Desktop: </h3>
+					{:else}
+						<h3>Desktops: </h3>
+					{/if}
+					<p>{distro.desktops.join(", ")}</p>
+				</div>
+			{/if}
+
+			{#if distro.beginner_friendly}
+				<div class="additional-detail">
+					<h3>Beginner friendly: </h3>
+					<p>{distro.beginner_friendly}/5</p>
+				</div>
+			{/if}
+		</div>
 		{/if}
 
 		{#if distro.tag_ids && distro.tag_ids.length > 0}
@@ -147,7 +170,7 @@
 		border: 2px solid var(--color-border);
 		border-radius: var(--radius-lg);
 		padding: var(--space-xl);
-		width: 400px;
+		width: 550px;
 		box-shadow: var(--shadow-xl);
 		position: sticky;
 		top: var(--space-xl);
@@ -205,8 +228,12 @@
 		font-size: var(--text-base);
 	}
 
-	.additional-detail {
+	.additional-details {
 		margin-top: var(--space-xl);
+	}
+
+	.additional-detail {
+		margin-top: var(--space-sm);
 	}
 
 	.additional-detail h3 {

@@ -8,7 +8,9 @@
       "priority": 1,
       "best": true,
       "description": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. Good for everything, can be used for gaming too, but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers (with an SSD). If your computer has an HDD or just 2Gb of RAM (potentially Windows 7 era), use the Xfce version of Linux Mint.",
-      "desktops": ["Cinnamon", "MATE", "Xfce"]
+      "desktops": ["Cinnamon", "MATE", "Xfce"],
+      "beginner_friendly": 5,
+      "based_on": "Ubuntu"
     },
     {
       "id": "kubuntu",
@@ -17,7 +19,9 @@
       "tag_ids": ["traditional"],
       "priority": 2,
       "description": "A well established and trusted distro, based on Ubuntu with the KDE Plasma desktop environment. Similar requirements to Linux Mint.",
-      "desktops": ["KDE Plasma"]
+      "desktops": ["KDE Plasma"],
+      "beginner_friendly": 5,
+      "based_on": "Ubuntu"
     },
     {
       "id": "zorin",
@@ -26,7 +30,9 @@
       "tag_ids": ["traditional"],
       "priority": 2,
       "description": "A polished distro focused on visual appeal, featuring the Gnome desktop environment with 3D animations and many out-of-the-box layouts, including MacOS and Windows-like. Similar requirements to Linux Mint.",
-      "desktops": ["Gnome"]
+      "desktops": ["Gnome"],
+      "beginner_friendly": 5,
+      "based_on": "Ubuntu"
     },
     {
       "id": "popos",
@@ -35,7 +41,9 @@
       "tag_ids": ["traditional"],
       "priority": 3,
       "description": "Built by System76, featuring the COSMIC desktop environment (MacOS-like) and focusing on usability. Has an Nvidia version available. Good for creative work and productivity. Has tiling windows support.",
-      "desktops": ["COSMIC"]
+      "desktops": ["COSMIC"],
+      "beginner_friendly": 5,
+      "based_on": "Ubuntu"
     },
     {
       "id": "kde-linux",
@@ -45,6 +53,7 @@
       "priority": 4,
       "description": "A Linux distribution built by KDE. Immutable (using Btrfs snapshots), simple and fast. Yet to be released.",
       "desktops": ["KDE Plasma"],
+      "based_on": "Independent",
       "disabled": true
     },
     {
@@ -55,7 +64,9 @@
       "priority": 5,
       "best": true,
       "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Choose COSMIC for MacOS feel. Fedora is a semi-rolling distribution, making it both stable and up-to-date. Nvidia drivers installation may not be straightforward.",
-      "desktops": ["Gnome", "KDE Plasma", "Xfce", "Cinnamon", "COSMIC", "MATE", "LXQt", "LXDE", "Budgie", "etc."]
+      "desktops": ["Gnome", "KDE Plasma", "Xfce", "Cinnamon", "COSMIC", "MATE", "LXQt", "LXDE", "Budgie", "etc."],
+      "beginner_friendly": 4,
+      "based_on": "Independent"
     },
     {
       "id": "cachyos",
@@ -65,7 +76,9 @@
       "priority": 6,
       "best": true,
       "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Similar to EndeavourOS, but more preconfigured, has plenty of documentation. Perfect for tech enthusiasts, who want to have full control over their system. Requires some terminal experience.",
-      "desktops": ["KDE Plasma", "Gnome", "COSMIC", "Xfce", "Niri", "Hyprland", "etc."]
+      "desktops": ["KDE Plasma", "Gnome", "COSMIC", "Xfce", "Niri", "Hyprland", "etc."],
+      "beginner_friendly": 3,
+      "based_on": "Arch Linux"
     },
     {
       "id": "steamos",
@@ -74,7 +87,9 @@
       "tag_ids": ["gaming-ready", "immutable"],
       "priority": 6,
       "description": "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment. Released for handhelds, but yet to be released for desktops.",
-      "desktops": ["KDE Plasma"]
+      "desktops": ["KDE Plasma"],
+      "beginner_friendly": 5,
+      "based_on": "Independent"
     },
     {
       "id": "bazzite",
@@ -83,7 +98,9 @@
       "tag_ids": ["gaming-ready", "immutable"],
       "priority": 6,
       "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative. Much more user-friendly than CachyOS (but more bloated). Take a survey on the official website to see if your hardware supports the Linux gaming. If you want your system to be less limited (e.g. edit system files), choose Nobara instead.",
-      "desktops": ["KDE Plasma", "Gnome"]
+      "desktops": ["KDE Plasma", "Gnome"],
+      "beginner_friendly": 5,
+      "based_on": "Fedora Atomic"
     },
     {
       "id": "lubuntu",
@@ -92,7 +109,9 @@
       "tag_ids": ["lightweight", "traditional"],
       "priority": 8,
       "description": "A user-friendly lightweight Ubuntu variant, perfect for computers produced between 2004 and 2011 designed for Windows XP/Vista with 1 or 2Gb of RAM. Features the LXQt desktop environment.",
-      "desktops": ["LXQt"]
+      "desktops": ["LXQt"],
+      "beginner_friendly": 5,
+      "based_on": "Ubuntu"
     },
     {
       "id": "antiX",
@@ -101,7 +120,9 @@
       "tag_ids": ["lightweight", "traditional"],
       "priority": 9,
       "description": "Ultra light distro, requires as minimum as 256Mb of RAM to run (more to run apps smoothly). Good for ancient computers designed for Windows XP.",
-      "desktops": ["Fluxbox", "IceWM", "JWM"]
+      "desktops": ["Fluxbox", "IceWM", "JWM"],
+      "beginner_friendly": 4,
+      "based_on": "Debian"
     }
   ]
 }
