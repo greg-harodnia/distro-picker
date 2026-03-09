@@ -44,7 +44,8 @@
       "tag_ids": ["immutable"],
       "priority": 4,
       "description": "A Linux distribution built by KDE. Immutable (using Btrfs snapshots), simple and fast. Yet to be released.",
-      "desktops": ["KDE Plasma"]
+      "desktops": ["KDE Plasma"],
+      "disabled": true
     },
     {
       "id": "fedora",
@@ -55,6 +56,16 @@
       "best": true,
       "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Choose COSMIC for MacOS feel. Fedora is a semi-rolling distribution, making it both stable and up-to-date. Nvidia drivers installation may not be straightforward.",
       "desktops": ["Gnome", "KDE Plasma", "Xfce", "Cinnamon", "COSMIC", "MATE", "LXQt", "LXDE", "Budgie", "etc."]
+    },
+    {
+      "id": "cachyos",
+      "name": "CachyOS",
+      "website": "https://cachyos.org/",
+      "tag_ids": ["gaming-ready", "rolling-release"],
+      "priority": 6,
+      "best": true,
+      "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Similar to EndeavourOS, but more preconfigured, has plenty of documentation. Perfect for tech enthusiasts, who want to have full control over their system. Requires some terminal experience.",
+      "desktops": ["KDE Plasma", "Gnome", "COSMIC", "Xfce", "Niri", "Hyprland", "etc."]
     },
     {
       "id": "steamos",
@@ -71,18 +82,8 @@
       "website": "https://bazzite.gg/",
       "tag_ids": ["gaming-ready", "immutable"],
       "priority": 6,
-      "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative. Much more user-friendly than CachyOS (but more bloated). Take a survey on the official website to see if your hardware supports the Linux gaming.",
+      "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative. Much more user-friendly than CachyOS (but more bloated). Take a survey on the official website to see if your hardware supports the Linux gaming. If you want your system to be less limited (e.g. edit system files), choose Nobara instead.",
       "desktops": ["KDE Plasma", "Gnome"]
-    },
-    {
-      "id": "cachyos",
-      "name": "CachyOS",
-      "website": "https://cachyos.org/",
-      "tag_ids": ["gaming-ready", "rolling-release"],
-      "priority": 6,
-      "best": true,
-      "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Perfect for tech enthusiasts, who want to have full control over their system. Requires some terminal experience.",
-      "desktops": ["KDE Plasma", "Gnome", "COSMIC", "Xfce", "Niri", "Hyprland", "etc."]
     },
     {
       "id": "lubuntu",
