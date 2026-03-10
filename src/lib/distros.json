@@ -40,7 +40,7 @@
       "website": "https://pop.system76.com/",
       "tag_ids": ["traditional"],
       "priority": 3,
-      "description": "Built by System76, featuring the COSMIC desktop environment (MacOS-like) and focusing on usability. Has an Nvidia version available. Good for creative work and productivity. Has tiling windows support.",
+      "description": "Built by System76, featuring the COSMIC desktop environment (MacOS-like) and focusing on usability. Has an Nvidia version available. Good for creative work and productivity. Has tiling windows support. Not an ideal choice for gaming.",
       "desktops": ["COSMIC"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu"
@@ -108,7 +108,7 @@
       "website": "https://lubuntu.me/",
       "tag_ids": ["lightweight", "traditional"],
       "priority": 8,
-      "description": "A user-friendly lightweight Ubuntu variant, perfect for computers produced between 2004 and 2011 designed for Windows XP/Vista with 1 or 2Gb of RAM. Features the LXQt desktop environment.",
+      "description": "A user-friendly lightweight Ubuntu variant, perfect for computers produced between 2004 and 2011 designed for Windows XP/Vista with 1 or 2Gb of RAM.",
       "desktops": ["LXQt"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu"

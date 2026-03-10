@@ -191,23 +191,24 @@
 			{#if footerExpanded}
 				<div transition:slide>
 					<p>
-						Not all distributions are included, as this app is
-						intended for beginners (openSUSE, for example, caters
+						Other popular distros that weren't recommended: Arch Linux, Ubuntu, OpenSUSE, MX Linux, Debian, Manjaro, EndeavourOS, Nobara, elementary, NixOS, KDE Neon, Garuda, ChimeraOS, TUXEDO, SparkyLinux, PikaOS, AlmaLinux, Puppy, Bodhi, Peppermint, Solus, Lite, Artix, Devuan, Void, Alpine, ALT, Rocky, Deepin, Mageia, Red Hat, Archcraft, Xubuntu, Omarchy, Anduin, OpenMandriva, Slackware, Gentoo, and so on.
+						The reason for that is that this app is
+						intended for beginners. OpenSUSE, for example, caters
 						more to system administrators, is hard to get Nvidia
 						drivers working, and has poor graphics performance,
-						while AlmaLinux is a server OS. Arch, EndeavourOS,
+						while AlmaLinux is a server OS. Arch,
 						NixOS, Void and Gentoo are geared toward advanced users.
 						Solus, on the other hand, is just not too popular and
 						may have poorer package support. Nobara, PikaOS and
 						Garuda are not listed in favor of Bazzite; Ubuntu in
 						favor of Mint, Zorin OS, Kubuntu and Pop!_OS; Linux Lite, Peppermint
 						OS and PuppyLinux in favor of Lubuntu and
-						AntiX). Some distros, like Feren OS, feature no more
+						AntiX. Some distros, like Feren OS, feature no more
 						than just UI customization and different apps
 						preinstalled compared to what they are based on, which
 						all can be done manually. Other distros, like Qubes
 						(security-oriented) or KDE Neon (KDE testing
-						environment), serve very niche purposes.<br /><br />
+						environment), serve very niche purposes. So, this app focuses on the most popular beginner-friendly general-purpose distributions to minimize the choice overload.<br /><br />
 						Feel free to dual boot the distribution you choose with your
 						main OS, but do so on separate disks — Windows updates can
 						break the Linux installation. Also, never use Windows tools
