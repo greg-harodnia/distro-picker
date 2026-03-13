@@ -191,86 +191,18 @@
 			{#if footerExpanded}
 				<div transition:slide>
 					<p>
-						Other popular distros that weren't recommended: Arch Linux, Ubuntu, OpenSUSE, MX Linux, Debian, Manjaro, EndeavourOS, Nobara, elementary, NixOS, KDE Neon, Garuda, ChimeraOS, TUXEDO, SparkyLinux, PikaOS, AlmaLinux, Puppy, Bodhi, Peppermint, Solus, Lite, Artix, Devuan, Void, Alpine, ALT, Rocky, Deepin, Mageia, Red Hat, Archcraft, Xubuntu, Omarchy, Anduin, OpenMandriva, Slackware, Gentoo, and so on.
-						The reason for that is that this app is
-						intended for beginners. OpenSUSE, for example, caters
-						more to system administrators, is hard to get Nvidia
-						drivers working, and has poor graphics performance,
-						while AlmaLinux is a server OS. Arch,
-						NixOS, Void and Gentoo are geared toward advanced users.
-						Solus, on the other hand, is just not too popular and
-						may have poorer package support. Nobara, PikaOS and
-						Garuda are not listed in favor of Bazzite; Ubuntu in
-						favor of Mint, Zorin OS, Kubuntu and Pop!_OS; Linux Lite, Peppermint
-						OS and PuppyLinux in favor of Lubuntu and
-						AntiX. Some distros, like Feren OS, feature no more
-						than just UI customization and different apps
-						preinstalled compared to what they are based on, which
-						all can be done manually. Other distros, like Qubes
-						(security-oriented) or KDE Neon (KDE testing
-						environment), serve very niche purposes. So, this app focuses on the most popular beginner-friendly general-purpose distributions to minimize the choice overload.<br /><br />
-						Feel free to dual boot the distribution you choose with your
-						main OS, but do so on separate disks — Windows updates can
-						break the Linux installation. Also, never use Windows tools
-						to resize partitions on the disk where Linux is installed.<br
+						This app doesn't include all the popular distributions (<i>like, Arch Linux, Ubuntu, OpenSUSE, MX Linux, Debian, Manjaro, EndeavourOS, Nobara, elementary, NixOS, KDE Neon, Garuda, ChimeraOS, TUXEDO, SparkyLinux, PikaOS, AlmaLinux, Puppy, Bodhi, Peppermint, Solus, Lite, Artix, Devuan, Void, Alpine, ALT, Rocky, Deepin, Mageia, Red Hat, Archcraft, Xubuntu, Omarchy, Anduin, OpenMandriva, Slackware, Gentoo, and so on</i>) as it's intended for complete beginners and aims to simplify the choice.
+						<br
 						/><br />
-
-						If some apps are missing in your distribution, consider
-						the following: 1) First, make sure it's really missing —
-						search for it in your distribution's repositories (using
-						a software center if installed). Don't forget to check
-						Flatpak (on Flathub.org or in your software center) and
-						AppImage (sometimes developers distribute their software using this format on their official website) versions as well. Linux
-						uses different package formats and doesn't support
-						Windows proprietary formats, like .exe, without
-						additional software. 2) If the app is truly missing,
-						consider using alternatives (e.g., OnlyOffice over
-						Microsoft Office, qBittorrent over uTorrent,
-						Photopea/GIMP/Krita/Affinity(via Bottles) over
-						Photoshop, KolourPaint/Pinta/Krita over Paint, Darktable over Lightroom, Inkscape over
-						Illustrator, DaVinci Resolve over Premiere Pro, etc.).
-						There is a lot of great open source software available.
-						3) If the app is missing in your distribution but is
-						available in others, you can use Distrobox to install it
-						in a container running that specific distribution. 4) If
-						you still need to use Windows apps that aren't available
-						for Linux, try Bottles (which uses Wine under the hood)
-						to install and run them natively. For games, Steam is
-						recommended. 5) If the Windows app still doesn't run in
-						Bottles, try Winboat to run it in a Windows container.
-						This works for apps like Photoshop and MS Office, for
-						example.<br /><br />
-						When installing any distribution, especially on systems with
-						limited RAM, don't forget to create a swap file/partition
-						(you can create a swap file after the installation, too).
-						In traditional distributions, over time cache files, temporary
-						files, system logs, and other unnecessary data can accumulate,
-						just like in Windows. To clean them, you can use tools like
-						BleachBit or Stacer. Additionally, consider creating backups
-						(with Timeshift or alternatives) to be able to restore your
-						system if something goes wrong. However, this all is unnecessary
-						for immutable distros as the entire system image is replaced
-						during updates.<br /><br />
-
-						There are 3 (main) types of a Linux distribution:<br
+						<b>Hints for installation and dual-booting:</b><br
 						/><br />
-						1. Stable release (traditional). GUI software center, usually
-						ext4 filesystem. Desktop versions are usually based on Ubuntu.
-						User-friendly. Used on servers, too. <br />
-						2. Rolling release. Fresh software, usually btrfs filesystem.
-						Good for developers and power users that want to modify their
-						system. Requires some terminal experience.<br />
-						3. Immutable. The base is rolling release (usually Arch or
-						Fedora), but releases are provided in a form of a whole system
-						image (using btrfs snapshots, OSTree tool, or something custom), allowing developers
-						to decide the update frequency (I would even suggest them
-						to handle 2 types of updates: stable every 6 months and frequent
-						optional every month). Immutable (the system is read-only), thus very stable, apps are provided as
-						Flatpaks. GUI software center, very user-friendly. The new
-						era of the Linux desktop, making traditional distros a privilege
-						for servers. <br /><br />
-
-						Software that I recommend.<br /><br />
+						1. Install Linux on a separate disk as Windows updates may break the Linux installation.<br />
+						2. Don't use Windows tools
+						to resize partitions on the disk where Linux is installed for the same reason.<br />
+						3. Don't forget to create a swap file/partition, especially on systems with
+						limited RAM.<br
+						/><br />				
+						<b>Software that I recommend.</b><br /><br />
 
 						Browsers: Brave, Helium, Zen.<br />
 						Office: OnlyOffice, LibreOffice.<br />
@@ -283,7 +215,13 @@
 						Extended software support: Flatpak (Bazaar or your software
 						center), Distrobox (DistroShelf).<br />
 						Running Windows apps: Bottles, Winboat.<br />
-						Ventoy for creating a bootable USB drive with multiple Linux
+						Cleaners: BleachBit, Stacer (not needed for immutable systems).<br />
+						System Backup: Timeshift (not needed for immutable systems).<br />
+						Photoshop alternatives: Photopea/GIMP/Krita/Affinity(via Bottles).<br />
+						Lightroom alternative: Darktable.<br />
+						Illustrator alternative: Inkscape.<br />
+						Premier Pro alternative: DaVinci Resolve.<br />
+						<i>Ventoy</i> for creating a bootable USB drive with multiple Linux
 						distributions.
 					</p>
 				</div>
