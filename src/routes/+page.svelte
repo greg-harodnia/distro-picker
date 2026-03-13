@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { slide } from "svelte/transition";
 	import { base } from '$app/paths';
 	import type { PageData } from './$types';
 	import TagFilter from "$lib/components/TagFilter.svelte";
@@ -9,6 +8,7 @@
 	import ErrorDisplay from "$lib/components/ErrorDisplay.svelte";
 	import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
+	import InfoModal from "$lib/components/InfoModal.svelte";
 	import { loadTags, loadDistros } from "$lib/utils";
 	import { supabase, getLikedDistros } from "$lib/supabase";
 	import {
@@ -26,7 +26,7 @@
 
 	export let data: PageData;
 
-	let footerExpanded = false;
+	let infoModalOpen = false;
 
 	async function loadData() {
 		dataActions.setLoading(true);
@@ -148,7 +148,18 @@
 		<div class="content">
 			<section class="distros" id="distribution-details" aria-labelledby="distros-heading">
 				<h2 id="distros-heading">
-					Recommended Distros ({$filteredDistros.length})
+					<span class="heading-text">Recommended Distros ({$filteredDistros.length})</span>
+					<button 
+						class="info-btn" 
+						on:click={() => infoModalOpen = true}
+						aria-label="Additional information"
+						type="button"
+					>
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="12" cy="12" r="10"/>
+						<text x="12" y="17" text-anchor="middle" font-size="14" font-family="sans-serif" font-weight="bold" fill="currentColor" stroke="none" dy="1">i</text>
+					</svg>
+					</button>
 				</h2>
 				{#if $filteredDistros.length === 0}
 					<div class="no-results" role="status" aria-live="polite">
@@ -182,51 +193,9 @@
 		</div>
 
 		<footer>
-			<button
-				class="toggle-btn"
-				on:click={() => (footerExpanded = !footerExpanded)}
-			>
-				Additional information {footerExpanded ? "▲" : "▼"}
-			</button>
-			{#if footerExpanded}
-				<div transition:slide>
-					<p>
-						This app doesn't include all the popular distributions (<i>like, Arch Linux, Ubuntu, OpenSUSE, MX Linux, Debian, Manjaro, EndeavourOS, Nobara, elementary, NixOS, KDE Neon, Garuda, ChimeraOS, TUXEDO, SparkyLinux, PikaOS, AlmaLinux, Puppy, Bodhi, Peppermint, Solus, Lite, Artix, Devuan, Void, Alpine, ALT, Rocky, Deepin, Mageia, Red Hat, Archcraft, Xubuntu, Omarchy, Anduin, OpenMandriva, Slackware, Gentoo, and so on</i>) as it's intended for complete beginners and aims to simplify the choice.
-						<br
-						/><br />
-						<b>Hints for installation and dual-booting:</b><br
-						/><br />
-						1. Install Linux on a separate disk as Windows updates may break the Linux installation.<br />
-						2. Don't use Windows tools
-						to resize partitions on the disk where Linux is installed for the same reason.<br />
-						3. Don't forget to create a swap file/partition, especially on systems with
-						limited RAM.<br
-						/><br />				
-						<b>Software that I recommend.</b><br /><br />
-
-						Browsers: Brave, Helium, Zen.<br />
-						Office: OnlyOffice, LibreOffice.<br />
-						Nvidia Shadow Play alternative: GPU Screen Recorder.<br
-						/>
-						Torrent client: qBittorrent.<br />
-						Disk analyzer: Filelight (KDE/Qt), Baobab (Gnome/GTK), gdu
-						(command-line written in Rust).<br />
-						Local AI: LM Studio (I recommend Mistral model).<br />
-						Extended software support: Flatpak (Bazaar or your software
-						center), Distrobox (DistroShelf).<br />
-						Running Windows apps: Bottles, Winboat.<br />
-						Cleaners: BleachBit, Stacer (not needed for immutable systems).<br />
-						System Backup: Timeshift (not needed for immutable systems).<br />
-						Photoshop alternatives: Photopea/GIMP/Krita/Affinity(via Bottles).<br />
-						Lightroom alternative: Darktable.<br />
-						Illustrator alternative: Inkscape.<br />
-						Premier Pro alternative: DaVinci Resolve.<br />
-						<i>Ventoy</i> for creating a bootable USB drive with multiple Linux
-						distributions.
-					</p>
-				</div>
-			{/if}
 		</footer>
+
+		<InfoModal isOpen={infoModalOpen} on:close={() => infoModalOpen = false} />
 	</div>
 {/if}
 
@@ -291,22 +260,6 @@
 
 	footer {
 		margin-bottom: var(--space-2xl);
-	}
-
-	footer .toggle-btn {
-		background: none;
-		border: none;
-		color: var(--color-secondary);
-		font-size: var(--text-lg);
-		cursor: pointer;
-		padding: 0;
-		margin-bottom: var(--space-md);
-	}
-
-	footer p {
-		color: var(--color-text-secondary);
-		font-size: var(--text-lg);
-		font-weight: var(--font-normal);
 	}
 
 	.tag-list {
@@ -374,6 +327,33 @@
 		color: var(--color-secondary);
 		margin-bottom: var(--space-lg);
 		font-weight: var(--font-semibold);
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+	}
+
+	.heading-text {
+		flex: 1;
+	}
+
+	.info-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		background: transparent;
+		color: var(--color-text-secondary);
+		cursor: pointer;
+		transition: all var(--transition-normal);
+		flex-shrink: 0;
+	}
+
+	.info-btn:hover {
+		border-color: var(--color-secondary);
+		color: var(--color-secondary);
 	}
 
 	@media (max-width: 1024px) {
