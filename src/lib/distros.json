@@ -7,7 +7,7 @@
       "tag_ids": ["traditional"],
       "priority": 1,
       "best": true,
-      "description": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. Good for everything, can be used for gaming too, but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers (with an SSD). If your computer has an HDD or just 2Gb of RAM (potentially Windows 7 era), use the Xfce version of Linux Mint.",
+      "description": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. Good for everything, can be used for gaming too, but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers (with an SSD). If your computer has an HDD or just 2Gb of RAM (potentially Windows 7 era), use the Xfce version of Linux Mint - it has similar requirments to Linux Lite.",
       "desktops": ["Cinnamon", "MATE", "Xfce"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu"
@@ -75,7 +75,7 @@
       "tag_ids": ["gaming-ready", "rolling-release"],
       "priority": 6,
       "best": true,
-      "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Similar to EndeavourOS, but more preconfigured, has plenty of documentation. Perfect for tech enthusiasts, who want to have full control over their system. Requires some terminal experience.",
+      "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Perfect for tech enthusiasts, who want to have full control over their system. Requires some terminal experience. Similar to EndeavourOS, but is more preconfigured and has plenty of documentation. However, if you prefer a more barebone Arch and less customizations, stick to EndeavourOS.",
       "desktops": ["KDE Plasma", "Gnome", "COSMIC", "Xfce", "Niri", "Hyprland", "etc."],
       "beginner_friendly": 3,
       "based_on": "Arch Linux"
@@ -97,7 +97,7 @@
       "website": "https://bazzite.gg/",
       "tag_ids": ["gaming-ready", "immutable"],
       "priority": 6,
-      "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative. Much more user-friendly than CachyOS (but more bloated). Take a survey on the official website to see if your hardware supports the Linux gaming. If you want your system to be less limited (e.g. edit system files), choose Nobara instead.",
+      "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative. Much more user-friendly than CachyOS (but more bloated). Take a survey on the official website to see if your hardware supports the Linux gaming. If you want your system to be mutable (e.g. edit system files), choose Nobara instead.",
       "desktops": ["KDE Plasma", "Gnome"],
       "beginner_friendly": 5,
       "based_on": "Fedora Atomic"

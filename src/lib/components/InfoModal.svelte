@@ -68,7 +68,7 @@
 			</div>
 			<div class="modal-body">
 				<p>
-					This app doesn't include all the popular distributions (<i>like, Arch Linux, Ubuntu, OpenSUSE, MX Linux, Debian, Manjaro, EndeavourOS, Nobara, elementary, NixOS, KDE Neon, Garuda, ChimeraOS, TUXEDO, SparkyLinux, PikaOS, AlmaLinux, Puppy, Bodhi, Peppermint, Solus, Lite, Artix, Devuan, Void, Alpine, ALT, Rocky, Deepin, Mageia, Red Hat, Archcraft, Xubuntu, Omarchy, Anduin, OpenMandriva, Slackware, Gentoo, and so on</i>) as it's intended for complete beginners and aims to simplify the choice.
+					This app doesn't include other popular distributions (<i>like, Arch Linux, Ubuntu, Debian, OpenSUSE, NixOS, Gentoo, Solus, Void, elementaryOS, EndeavourOS, Nobara, Omarchy, MX Linux, Manjaro, and so on</i>), enterprise-level distributions (<i>like, Red Hat, AlmaLinux</i>) and niche distributions (<i>like, Kali, Alpine</i>) as it's intended for complete beginners and aims to simplify the choice.
 					<br /><br />
 					<b>Hints for installation and dual-booting:</b><br /><br />
 					1. Install Linux on a separate disk as Windows updates may break the Linux installation.<br />
