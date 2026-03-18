@@ -68,7 +68,7 @@
 			</div>
 			<div class="modal-body">
 				<p>
-					This app doesn't include other popular distributions (<i>like, Arch Linux, Ubuntu, Debian, OpenSUSE, NixOS, Gentoo, Solus, Void, elementaryOS, EndeavourOS, Nobara, Omarchy, MX Linux, Manjaro, and so on</i>), enterprise-level distributions (<i>like, Red Hat, AlmaLinux</i>) and niche distributions (<i>like, Kali, Alpine</i>) as it's intended for complete beginners and aims to simplify the choice.
+					This app doesn't include other popular distributions (<i>like, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, EndeavourOS, MX Linux, Nobara, Omarchy, Manjaro, elementaryOS, Solus, and so on</i>), enterprise-level distributions (<i>like, Red Hat, AlmaLinux</i>) and niche distributions (<i>like, Kali, Alpine</i>) as it's intended for complete beginners and aims to simplify the choice.
 					<br /><br />
 					<b>Hints for installation and dual-booting:</b><br /><br />
 					1. Install Linux on a separate disk as Windows updates may break the Linux installation.<br />
@@ -78,7 +78,6 @@
 
 					Browsers: Brave, Helium, Zen.<br />
 					Office: OnlyOffice, LibreOffice.<br />
-					Nvidia Shadow Play alternative: GPU Screen Recorder.<br />
 					Torrent client: qBittorrent.<br />
 					Disk analyzer: Filelight (KDE/Qt), Baobab (Gnome/GTK), gdu (command-line written in Rust).<br />
 					Local AI: LM Studio (I recommend Mistral model).<br />
@@ -86,7 +85,8 @@
 					Running Windows apps: Bottles, Winboat.<br />
 					Cleaners: BleachBit, Stacer (not needed for immutable systems).<br />
 					System Backup: Timeshift (not needed for immutable systems).<br />
-					Photoshop alternatives: Photopea/GIMP/Krita/Affinity(via Bottles).<br />
+					Nvidia Shadow Play alternative: GPU Screen Recorder.<br />
+					Photoshop alternatives: Photoshop online, Photopea,GIMP, Krita, Affinity (via Bottles), Canva (for simple tasks).<br />
 					Lightroom alternative: Darktable.<br />
 					Illustrator alternative: Inkscape.<br />
 					Premier Pro alternative: DaVinci Resolve.<br />
