@@ -179,7 +179,7 @@
 
 	@media (max-width: 640px) {
 		.distro-grid {
-			grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+			grid-template-columns: repeat(3, auto-fill, minmax(120px, 1fr));
 			gap: var(--space-lg);
 		}
 
