@@ -40,7 +40,7 @@ export const quickTestData: QuickTestData = {
 					},
 					{
 						text: 'I want to develop on it',
-						result: 'Fedora is your ideal choice. It\'s both stable and offers up-to-date software. Plus, you can choose from various desktop environments to suit your preferences. That said, traditional distros with less frequent updates—like Linux Mint, Kubuntu, Zorin OS, or Pop!_OS—are also excellent options.',
+						result: 'Fedora is your ideal choice. It\'s both stable and offers up-to-date software. Plus, you can choose from various desktop environments to suit your preferences. That said, distros like Linux Mint, Kubuntu, Zorin OS, Pop!_OS, or CachyOS are also viable options.',
 					},
 					{
 						text: 'I\'m a tech enthusiast who wants a distro that\'s as flexible and unbloated as possible. I want full control over my system, and I enjoy tweaking and using the terminal.',
@@ -53,7 +53,7 @@ export const quickTestData: QuickTestData = {
 							answers: [
 								{
 									text: 'Not extremely old, but it feels sluggish',
-									result: 'Mint Xfce',
+									result: 'Linux Mint Xfce',
 								},
 								{
 									text: 'It was produced before 2011',
