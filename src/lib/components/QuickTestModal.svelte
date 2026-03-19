@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
-	import { fade, scale } from 'svelte/transition';
+	import { scale } from 'svelte/transition';
 	import { quickTestData } from '$lib/data/quickTest';
 	import type { QuizQuestion, QuizAnswer } from '$lib/types/quiz';
 
@@ -102,7 +102,7 @@
 		on:keydown={handleKeydown}
 		role="button"
 		tabindex="0"
-		transition:fade={{ duration: 200 }}
+		transition:scale={{ duration: 200, start: 0.9 }}
 	>
 		<div
 			class="modal-content"
@@ -132,7 +132,7 @@
 			</div>
 			<div class="modal-body">
 				{#if isComplete && result}
-					<div class="result-container" transition:fade={{ duration: 200 }}>
+					<div class="result-container">
 						<div class="result-icon">
 							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -155,7 +155,7 @@
 						</div>
 					</div>
 				{:else if currentQuestion}
-					<div class="question-container" transition:fade={{ duration: 200 }}>
+					<div class="question-container">
 						<div class="progress-bar">
 							<div class="progress" style="width: {Math.min(100, (currentPath.length + 1) * 20)}%"></div>
 						</div>
