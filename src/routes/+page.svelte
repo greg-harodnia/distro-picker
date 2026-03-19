@@ -9,6 +9,7 @@
 	import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import InfoModal from "$lib/components/InfoModal.svelte";
+	import QuickTestModal from "$lib/components/QuickTestModal.svelte";
 	import { loadTags, loadDistros } from "$lib/utils";
 	import { supabase, getLikedDistros } from "$lib/supabase";
 	import {
@@ -27,6 +28,7 @@
 	export let data: PageData;
 
 	let infoModalOpen = false;
+	let quickTestOpen = false;
 
 	async function loadData() {
 		dataActions.setLoading(true);
@@ -196,6 +198,20 @@
 		</footer>
 
 		<InfoModal isOpen={infoModalOpen} on:close={() => infoModalOpen = false} />
+		<QuickTestModal isOpen={quickTestOpen} on:close={() => quickTestOpen = false} />
+
+		<button
+			class="quick-test-btn"
+			on:click={() => quickTestOpen = true}
+			aria-label="Start Quick Quiz"
+			type="button"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+				<line x1="12" y1="17" x2="12.01" y2="17"></line>
+			</svg>
+			<span>Quick Quiz</span>
+		</button>
 	</div>
 {/if}
 
@@ -356,6 +372,35 @@
 		color: var(--color-secondary);
 	}
 
+	.quick-test-btn {
+		position: fixed;
+		bottom: var(--space-xl);
+		right: var(--space-xl);
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		padding: var(--space-md) var(--space-lg);
+		background: var(--color-secondary);
+		color: var(--color-background);
+		border: none;
+		border-radius: var(--radius-full);
+		font-size: var(--text-base);
+		font-weight: var(--font-medium);
+		cursor: pointer;
+		box-shadow: var(--shadow-lg);
+		transition: all var(--transition-normal);
+		z-index: 100;
+	}
+
+	.quick-test-btn:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-xl);
+	}
+
+	.quick-test-btn:active {
+		transform: translateY(0);
+	}
+
 	@media (max-width: 1024px) {
 		.content {
 			grid-template-columns: 1fr;
@@ -379,6 +424,16 @@
 
 		.tag-list {
 			gap: var(--space-md);
+		}
+
+		.quick-test-btn {
+			bottom: var(--space-lg);
+			right: var(--space-lg);
+			padding: var(--space-sm) var(--space-md);
+		}
+
+		.quick-test-btn span {
+			display: none;
 		}
 	}
 </style>
