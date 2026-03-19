@@ -3,6 +3,8 @@
 	import { fade } from 'svelte/transition';
 	import { quickTestData } from '$lib/data/quickTest';
 	import type { QuizQuestion, QuizAnswer } from '$lib/types/quiz';
+	import { locale, t } from '$lib/i18n/locale';
+	import { getTranslation } from '$lib/i18n/translations';
 
 	export let isOpen = false;
 
@@ -13,6 +15,63 @@
 	let result: string | null = null;
 	let isComplete = false;
 
+	const questionKeyMap: Record<string, string> = {
+		'How would you like to use the distribution?': 'quiz.questions.howToUse',
+		'Just a regular user': 'quiz.questions.regularUser',
+		'I want my distro to be preconfigured for gaming / I want to use it on a handheld': 'quiz.questions.gaming',
+		'I want to develop on it': 'quiz.questions.developer',
+		"I'm a tech enthusiast who wants a distro that's as flexible and unbloated as possible. I want full control over my system, and I enjoy tweaking and using the terminal.": 'quiz.questions.enthusiast',
+		'I want to recover my old PC with it': 'quiz.questions.recover',
+		'Which layout do you prefer?': 'quiz.questions.whichLayout',
+		'Windows-like': 'quiz.questions.windowsLike',
+		'MacOS-like': 'quiz.questions.macosLike',
+		'Do you want to be able to edit system files?': 'quiz.questions.canEditSystem',
+		'Yes': 'quiz.questions.yes',
+		"I don't care about it": 'quiz.questions.dontCare',
+		'How old is your computer?': 'quiz.questions.howOld',
+		'Not extremely old, but it feels sluggish': 'quiz.questions.sluggish',
+		'It was produced before 2011': 'quiz.questions.before2011',
+		'It is truly ancient (2004 or older)': 'quiz.questions.ancient',
+	};
+
+	const resultKeyMap: Record<string, string> = {
+		'Linux Mint, Kubuntu, or Zorin OS—depending on which design you like more.': 'quiz.results.regularWindows',
+		"Pop!_OS. If you would like to be able to easily switch between different layouts, go with Zorin OS.": 'quiz.results.regularMacos',
+		"Nobara. With its mutable system, you'll be able to tweak system files and install any packages you want. If you're comfortable using the terminal, you can also go with CachyOS.": 'quiz.results.gamingYes',
+		"Bazzite. The distribution is available for both PCs and handhelds. You can also go with SteamOS if it supports your handheld (it doesn't officially support PCs yet). CachyOS is the third option for those who enjoy using the terminal.": 'quiz.results.gamingNo',
+		"Fedora is your ideal choice. It's both stable and offers up-to-date software. Plus, you can choose from various desktop environments to suit your preferences. That said, distros like Linux Mint, Kubuntu, Zorin OS, Pop!_OS, or CachyOS are also viable options.": 'quiz.results.developer',
+		"Sounds like CachyOS was made for you. Or, if you want something even closer to barebones Arch, EndeavourOS is worth checking out.": 'quiz.results.enthusiast',
+		'Linux Mint Xfce': 'quiz.results.oldSluggish',
+		'Lubuntu': 'quiz.results.old2011',
+		'AntiX': 'quiz.results.oldAncient',
+	};
+
+	function translateText(text: string): string {
+		const key = questionKeyMap[text] || resultKeyMap[text];
+		if (key) {
+			return getTranslation($locale, key);
+		}
+		return text;
+	}
+
+	function translateQuestion(question: QuizQuestion): QuizQuestion {
+		return {
+			text: translateText(question.text),
+			answers: question.answers.map(answer => {
+				const translated: QuizAnswer = {
+					text: translateText(answer.text),
+				};
+				if (answer.question) {
+					translated.question = translateQuestion(answer.question);
+				}
+				if (answer.result) {
+					translated.result = translateText(answer.result);
+				}
+				return translated;
+			})
+		};
+	}
+
 	$: if (isOpen) {
 		startQuiz();
 	}
@@ -20,7 +79,7 @@
 	function startQuiz() {
 		const quiz = quickTestData.test[0];
 		if (quiz) {
-			currentQuestion = quiz.question;
+			currentQuestion = translateQuestion(quiz.question);
 			currentPath = [];
 			result = null;
 			isComplete = false;
@@ -31,11 +90,11 @@
 		currentPath = [...currentPath, answer];
 
 		if (answer.result) {
-			result = answer.result;
+			result = translateText(answer.result);
 			isComplete = true;
 			currentQuestion = null;
 		} else if (answer.question) {
-			currentQuestion = answer.question;
+			currentQuestion = translateQuestion(answer.question);
 		}
 	}
 
@@ -45,15 +104,19 @@
 			if (currentPath.length === 0) {
 				startQuiz();
 			} else {
-				let target: { question: QuizQuestion } | null = quickTestData.test[0];
+				let target: QuizQuestion | null = translateQuestion(quickTestData.test[0].question);
 				for (const answer of currentPath) {
 					if (target) {
-						const found: QuizAnswer | undefined = target.question.answers.find((a) => a.text === answer.text);
-						target = found && 'question' in found ? { question: found.question } : null;
+						const found: QuizAnswer | undefined = target.answers.find((a) => a.text === answer.text);
+						if (found && found.question) {
+							target = found.question;
+						} else {
+							target = null;
+						}
 					}
 				}
 				if (target) {
-					currentQuestion = target.question;
+					currentQuestion = target;
 					result = null;
 					isComplete = false;
 				}
@@ -108,12 +171,12 @@
 			class="modal-content"
 			role="dialog"
 			aria-modal="true"
-			aria-label="Quick Quiz"
+			aria-label={$t('quiz.title')}
 			tabindex="-1"
 		>
 			<div class="modal-header">
 				{#if !isComplete && currentPath.length > 0}
-					<button class="back-btn" on:click={goBack} aria-label="Go back" type="button">
+					<button class="back-btn" on:click={goBack} aria-label={$t('quiz.goBack')} type="button">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="15 18 9 12 15 6"></polyline>
 						</svg>
@@ -121,8 +184,8 @@
 				{:else}
 					<div class="spacer"></div>
 				{/if}
-				<h2>Quick Quiz</h2>
-				<button class="close-btn" on:click={close} aria-label="Close" type="button">
+				<h2>{$t('quiz.title')}</h2>
+				<button class="close-btn" on:click={close} aria-label={$t('modal.close')} type="button">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<line x1="18" y1="6" x2="6" y2="18"></line>
 						<line x1="6" y1="6" x2="18" y2="18"></line>
@@ -138,7 +201,7 @@
 								<polyline points="22 4 12 14.01 9 11.01"></polyline>
 							</svg>
 						</div>
-						<h3>Your Recommendation</h3>
+						<h3>{$t('quiz.yourRecommendation')}</h3>
 						<p class="result-text">{result}</p>
 						<div class="result-actions">
 							<button class="restart-btn" on:click={startQuiz} type="button">
@@ -146,10 +209,10 @@
 									<polyline points="1 4 1 10 7 10"></polyline>
 									<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
 								</svg>
-								Restart Test
+								{$t('quiz.restartTest')}
 							</button>
 							<button class="close-result-btn" on:click={close} type="button">
-								Close
+								{$t('quiz.close')}
 							</button>
 						</div>
 					</div>

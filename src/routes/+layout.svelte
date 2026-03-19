@@ -3,12 +3,13 @@
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
 	import { base } from '$app/paths';
+	import { t, locale } from '$lib/i18n/locale';
 	
 	const siteUrl = 'https://greg-harodnia.github.io/distro-picker';
 	
 	// Update page title dynamically based on current route
 	$: if (browser && $page) {
-		const baseTitle = 'Linux Distribution Picker';
+		const baseTitle = $t('app.title');
 		const routeTitle = getRouteTitle($page.route.id);
 		document.title = routeTitle ? `${routeTitle} | ${baseTitle}` : baseTitle;
 	}
@@ -17,35 +18,38 @@
 		if (!routeId) return '';
 		
 		const titles: Record<string, string> = {
-			'/': 'Find Your Perfect Linux Distro',
-			// Add more routes as needed
+			'/': $t('app.title'),
 		};
 		
 		return titles[routeId] || '';
 	}
 
-	export const prerender = true; // for GitHub pages
+	export const prerender = true;
+
+	if (browser) {
+		locale.init();
+	}
 </script>
 
 <svelte:head>
 	<!-- Basic Meta -->
-	<meta name="description" content="Discover the perfect Linux distribution for your needs." />
+	<meta name="description" content={$t('app.noResults').replace('.', '')} />
 	<meta name="keywords" content="linux distribution, linux distro, choose linux, linux picker, ubuntu, fedora, arch, debian, mint" />
-	<meta name="author" content="Linux Distribution Picker">
+	<meta name="author" content={$t('app.title')}>
 	<meta name="robots" content="index, follow">
 	
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="Linux Distribution Picker - Find Your Perfect Linux Distro">
-	<meta property="og:description" content="Discover the perfect Linux distribution for your needs.">
+	<meta property="og:title" content="{$t('app.title')} - {$t('app.title')}" />
+	<meta property="og:description" content={$t('app.noResults').replace('.', '')} />
 	<meta property="og:image" content="{siteUrl}{base}/linux.png">
 	<meta property="og:url" content="{siteUrl}{base}{$page.url.pathname}">
-	<meta property="og:site_name" content="Linux Distribution Picker">
+	<meta property="og:site_name" content={$t('app.title')}>
 	
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Linux Distribution Picker - Find Your Perfect Linux Distro">
-	<meta name="twitter:description" content="Discover the perfect Linux distribution for your needs.">
+	<meta name="twitter:title" content="{$t('app.title')} - {$t('app.title')}" />
+	<meta name="twitter:description" content={$t('app.noResults').replace('.', '')} />
 	<meta name="twitter:image" content="{siteUrl}{base}/linux.png">
 	<meta name="twitter:url" content="{siteUrl}{base}{$page.url.pathname}">
 	

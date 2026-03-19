@@ -1,11 +1,15 @@
 <script lang="ts">
-	export let message = 'Loading...';
+	import { t } from '$lib/i18n/locale';
+
+	export let message = '';
 	export let size = 'medium';
+
+	$: displayMessage = message || $t('loading.loading');
 </script>
 
 <div class="loading-container" class:size>
 	<div class="spinner"></div>
-	<p class="loading-message">{message}</p>
+	<p class="loading-message">{displayMessage}</p>
 </div>
 
 <style>

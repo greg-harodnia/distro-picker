@@ -8,6 +8,7 @@
 	import ErrorDisplay from "$lib/components/ErrorDisplay.svelte";
 	import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
+	import LanguageToggle from "$lib/components/LanguageToggle.svelte";
 	import InfoModal from "$lib/components/InfoModal.svelte";
 	import QuickTestModal from "$lib/components/QuickTestModal.svelte";
 	import { loadTags, loadDistros } from "$lib/utils";
@@ -24,6 +25,7 @@
 		dataActions,
 	} from "$lib/stores";
 	import type { Distro } from "$lib/types";
+	import { t } from "$lib/i18n/locale";
 
 	export let data: PageData;
 
@@ -106,10 +108,10 @@
 </script>
 
 {#if $loading}
-	<LoadingSpinner message="Loading distributions..." size="large" />
+	<LoadingSpinner message={$t('app.loadingDistributions')} size="large" />
 {:else if $error}
 	<ErrorDisplay
-		title="Failed to Load Data"
+		title={$t('app.failedToLoad')}
 		message={$error}
 		retryable
 		on:retry={loadData}
@@ -117,12 +119,15 @@
 {:else}
 	<div class="app">
 		<header class="header">
-			<h1>Linux Distro Picker</h1>
-			<ThemeToggle />
+			<h1>{$t('app.title')}</h1>
+			<div class="header-controls">
+				<LanguageToggle />
+				<ThemeToggle />
+			</div>
 		</header>
 
 		<section class="filters" aria-labelledby="filters-heading">
-			<h2 id="filters-heading">Filter by Tags</h2>
+			<h2 id="filters-heading">{$t('filters.title')}</h2>
 			<div class="tag-list-wrapper">
 				<div class="tag-list" role="group" aria-label="Filter options">
 				{#each $tags as tag, i (tag.id)}
@@ -136,7 +141,7 @@
 					/>
 				{/each}
 				{#if $selectedTags.size > 0}
-					<button class="clear-btn" on:click={() => { tagActions.clear(); }} aria-label="Clear all filters">
+					<button class="clear-btn" on:click={() => { tagActions.clear(); }} aria-label={$t('filters.clearAll')}>
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="18" y1="6" x2="6" y2="18"></line>
 							<line x1="6" y1="6" x2="18" y2="18"></line>
@@ -150,11 +155,11 @@
 		<div class="content">
 			<section class="distros" id="distribution-details" aria-labelledby="distros-heading">
 				<h2 id="distros-heading">
-					<span class="heading-text">Recommended Distros ({$filteredDistros.length})</span>
+					<span class="heading-text">{$t('distros.recommended')} ({$filteredDistros.length})</span>
 					<button 
 						class="info-btn" 
 						on:click={() => infoModalOpen = true}
-						aria-label="Additional information"
+						aria-label={$t('distros.info')}
 						type="button"
 					>
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -165,7 +170,7 @@
 				</h2>
 				{#if $filteredDistros.length === 0}
 					<div class="no-results" role="status" aria-live="polite">
-						<p>No distributions match your selected criteria.</p>
+						<p>{$t('app.noResults')}</p>
 					</div>
 				{:else}
 					<DistroGrid
@@ -178,7 +183,7 @@
 
 			{#if $selectedDistro}
 				<section class="distros" aria-labelledby="details-heading">
-					<h2 id="details-heading">Distribution Details</h2>
+					<h2 id="details-heading">{$t('distros.details')}</h2>
 					<DistroPanel
 						distro={$selectedDistro}
 						tags={$tags}
@@ -203,14 +208,14 @@
 		<button
 			class="quick-test-btn"
 			on:click={() => quickTestOpen = true}
-			aria-label="Start Quick Quiz"
+			aria-label={$t('app.startQuiz')}
 			type="button"
 		>
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
 				<line x1="12" y1="17" x2="12.01" y2="17"></line>
 			</svg>
-			<span>Quick Quiz</span>
+			<span>{$t('app.quickQuiz')}</span>
 		</button>
 	</div>
 {/if}
@@ -261,6 +266,11 @@
 		color: var(--color-secondary);
 		font-weight: var(--font-bold);
 		line-height: var(--line-height-tight);
+	}
+
+	.header-controls {
+		display: flex;
+		gap: var(--space-sm);
 	}
 
 	.filters {

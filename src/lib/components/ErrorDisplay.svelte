@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { t } from '$lib/i18n/locale';
 
 	export let title = 'Something went wrong';
 	export let message = 'Please try again later.';
@@ -14,11 +15,11 @@
 
 <div class="error-container">
 	<div class="error-icon">⚠️</div>
-	<h2 class="error-title">{title}</h2>
-	<p class="error-message">{message}</p>
+	<h2 class="error-title">{title || $t('errors.somethingWentWrong')}</h2>
+	<p class="error-message">{message || $t('errors.tryAgainLater')}</p>
 	{#if retryable}
 		<button class="retry-button" on:click={handleRetry}>
-			Try Again
+			{$t('errors.tryAgain')}
 		</button>
 	{/if}
 </div>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
+	import { t } from '$lib/i18n/locale';
 
 	export let images: string[] = [];
 	export let distroName: string = '';
@@ -40,16 +41,16 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="modal-overlay" on:click={close} on:keydown={handleKeydown} role="button" tabindex="0">
+	<div class="modal-overlay" on:click={close} on:keydown={handleKeydown} role="button" tabindex="0">
 	<div class="modal-content" on:click|stopPropagation on:keydown={handleKeydown} role="dialog" aria-modal="true" aria-label={`${distroName} screenshots`} tabindex="-1">
 		<div class="modal-header">
 			<span class="serial-number">{currentIndex + 1} / {images.length}</span>
-			<button class="close-btn" on:click={close} aria-label="Close gallery" type="button">×</button>
+			<button class="close-btn" on:click={close} aria-label={$t('modal.gallery.closeGallery')} type="button">×</button>
 		</div>
 
 		{#if images.length === 0}
 			<div class="no-images">
-				<p>No images</p>
+				<p>{$t('modal.gallery.noImages')}</p>
 			</div>
 		{:else}
 			<div class="image-container">
@@ -57,12 +58,12 @@
 			</div>
 
 			{#if images.length > 1}
-				<button class="arrow left-arrow" on:click={prev} aria-label="Previous image" type="button">
+				<button class="arrow left-arrow" on:click={prev} aria-label={$t('modal.gallery.previousImage')} type="button">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<polyline points="15 18 9 12 15 6"></polyline>
 					</svg>
 				</button>
-				<button class="arrow right-arrow" on:click={next} aria-label="Next image" type="button">
+				<button class="arrow right-arrow" on:click={next} aria-label={$t('modal.gallery.nextImage')} type="button">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<polyline points="9 18 15 12 9 6"></polyline>
 					</svg>

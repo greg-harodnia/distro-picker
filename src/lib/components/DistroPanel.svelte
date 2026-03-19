@@ -3,6 +3,7 @@
 	import { createEventDispatcher } from "svelte";
 	import { sanitizeUrl } from "$lib/utils";
 	import GalleryModal from "./GalleryModal.svelte";
+	import { t } from "$lib/i18n/locale";
 
 	export let distro: Distro;
 	export let tags: Tag[] = [];
@@ -12,8 +13,19 @@
 
 	let showGallery = false;
 
+	$: translatedDescription = $t(`distros.descriptions.${distro.id}`);
+	$: translatedUserbase = $t(`distros.userbases.${distro.id}`);
+
 	function getTagById(tagId: string): Tag | undefined {
 		return tags.find((tag) => tag.id === tagId);
+	}
+
+	function getTranslatedTagName(tagId: string): string {
+		const tag = getTagById(tagId);
+		if (tag) {
+			return $t(`tags.${tagId}.name`) || tag.name;
+		}
+		return '';
 	}
 
 	function visitWebsite() {
@@ -62,7 +74,7 @@
 			class="close-btn"
 			on:click={closePanel}
 			on:keydown={handleKeydown}
-			aria-label="Close distro details panel"
+			aria-label={$t('modal.close')}
 			type="button"
 		>
 			×
@@ -71,14 +83,14 @@
 
 		<div class="panel-content">
 		<div class="distro-description">
-			<p>{distro.description}</p>
+			<p>{translatedDescription}</p>
 		</div>
 
 		{#if hasAdditionalDetails}
 			<div class="additional-details">
 			{#if distro.based_on}
 				<div class="additional-detail">
-					<h3>Based on: </h3>
+					<h3>{$t('panel.basedOn')}</h3>
 					<p>{distro.based_on}</p>
 				</div>
 			{/if}
@@ -86,25 +98,27 @@
 			{#if distro.desktops && distro.desktops.length > 0}
 				<div class="additional-detail">
 					{#if distro.desktops.length === 1}
-						<h3>Desktop: </h3>
+						<h3>{$t('panel.desktop')}</h3>
 					{:else}
-						<h3>Desktops: </h3>
+						<h3>{$t('panel.desktops')}</h3>
 					{/if}
-					<p>{distro.desktops.join(", ")}</p>
+					<p>
+						{distro.desktops.join(", ")}{#if distro.hasMoreDesktops}{$t('distros.andMore')}{/if}
+					</p>
 				</div>
 			{/if}
 
 			{#if distro.beginner_friendly}
 				<div class="additional-detail">
-					<h3>Beginner friendly: </h3>
+					<h3>{$t('panel.beginnerFriendly')}</h3>
 					<p>{distro.beginner_friendly}/5</p>
 				</div>
 			{/if}
 
 			{#if distro.userbase}
 				<div class="additional-detail">
-					<h3>Userbase: </h3>
-					<p>{distro.userbase}</p>
+					<h3>{$t('panel.userbase')}</h3>
+					<p>{translatedUserbase}</p>
 				</div>
 			{/if}
 		</div>
@@ -117,7 +131,7 @@
 						{#if getTagById(tagId)}
 							{@const tag = getTagById(tagId)!}
 							<span class="tag" style="--tag-color: {tag.color}">
-								{tag.name}
+								{getTranslatedTagName(tagId)}
 							</span>
 						{/if}
 					{/each}
@@ -133,7 +147,7 @@
 				aria-label={`Visit ${distro.name} website`}
 				type="button"
 			>
-				Visit Website
+				{$t('panel.visitWebsite')}
 			</button>
 
 			<button

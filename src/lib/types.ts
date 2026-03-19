@@ -14,11 +14,10 @@ export interface Distro {
 	tag_ids: string[];
 	priority: number;
 	best?: boolean;
-	description: string;
 	desktops?: string[];
+	hasMoreDesktops?: boolean;
 	beginner_friendly?: number;
 	based_on?: string;
 	likes?: number;
 	userLiked?: boolean;
-	userbase?: string;
 }

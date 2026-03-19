@@ -78,10 +78,6 @@ export function validateDistro(distro: any): ValidationResult {
 		errors.push({ field: 'priority', message: 'Distro must have a valid positive priority number' });
 	}
 
-	if (!distro.description || typeof distro.description !== 'string') {
-		errors.push({ field: 'description', message: 'Distro must have a valid string description' });
-	}
-
 	return {
 		isValid: errors.length === 0,
 		errors

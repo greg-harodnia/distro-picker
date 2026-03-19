@@ -1,10 +1,18 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
+	import { locale } from '$lib/i18n/locale';
+	import { getTranslation } from '$lib/i18n/translations';
 
 	export let isOpen = false;
 
 	const dispatch = createEventDispatcher();
+
+	$: lang = $locale;
+
+	function gt(path: string): string {
+		return getTranslation(lang, path);
+	}
 
 	function close() {
 		dispatch('close');
@@ -53,13 +61,13 @@
 			class="modal-content" 
 			role="dialog" 
 			aria-modal="true" 
-			aria-label="Additional information"
+			aria-label={gt('modal.additionalInfo')}
 			tabindex="-1"
 			transition:scale={{ duration: 200, start: 0.95 }}
 		>
 			<div class="modal-header">
-				<h2>Additional Information</h2>
-				<button class="close-btn" on:click={close} aria-label="Close" type="button">
+				<h2>{gt('modal.additionalInfo')}</h2>
+				<button class="close-btn" on:click={close} aria-label={gt('modal.close')} type="button">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<line x1="18" y1="6" x2="6" y2="18"></line>
 						<line x1="6" y1="6" x2="18" y2="18"></line>
@@ -68,29 +76,29 @@
 			</div>
 			<div class="modal-body">
 				<p>
-					This app doesn't include other popular distributions (<i>like, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, EndeavourOS, MX Linux, Nobara, Omarchy, Manjaro, elementaryOS, Solus, and so on</i>), enterprise-level distributions (<i>like, Red Hat, AlmaLinux</i>) and niche distributions (<i>like, Kali, Alpine</i>) as it's intended for complete beginners and aims to simplify the choice.
+					{@html gt('modal.additionalContent.intro')}
 					<br /><br />
-					<b>Hints for installation and dual-booting:</b><br /><br />
-					1. Install Linux on a separate disk as Windows updates may break the Linux installation.<br />
-					2. Don't use Windows tools to resize partitions on the disk where Linux is installed for the same reason.<br />
-					3. Don't forget to create a swap file/partition, especially on systems with limited RAM.<br /><br />				
-					<b>Software that I recommend.</b><br /><br />
+					<b>{gt('modal.additionalContent.installationTitle')}</b><br /><br />
+					1. {gt('modal.additionalContent.hint1')}<br />
+					2. {gt('modal.additionalContent.hint2')}<br />
+					3. {gt('modal.additionalContent.hint3')}<br /><br />				
+					<b>{gt('modal.additionalContent.softwareTitle')}</b><br /><br />
 
-					Browsers: Brave, Helium, Zen.<br />
-					Office: OnlyOffice, LibreOffice.<br />
-					Torrent client: qBittorrent.<br />
-					Disk analyzer: Filelight (KDE/Qt), Baobab (Gnome/GTK), gdu (command-line written in Rust).<br />
-					Local AI: LM Studio (I recommend Mistral model).<br />
-					Extended software support: Flatpak (Bazaar or your software center), Distrobox (DistroShelf).<br />
-					Running Windows apps: Bottles, Winboat.<br />
-					Cleaners: BleachBit, Stacer (not needed for immutable systems).<br />
-					System Backup: Timeshift (not needed for immutable systems).<br />
-					Nvidia Shadow Play alternative: GPU Screen Recorder.<br />
-					Photoshop alternatives: Photoshop online, Photopea, GIMP, Krita, Affinity (via Bottles), Canva (for simple tasks).<br />
-					Lightroom alternative: Darktable.<br />
-					Illustrator alternative: Inkscape.<br />
-					Premier Pro alternative: DaVinci Resolve.<br />
-					<i>Ventoy</i> for creating a bootable USB drive with multiple Linux distributions.
+					{gt('modal.additionalContent.browsers')}<br />
+					{gt('modal.additionalContent.office')}<br />
+					{gt('modal.additionalContent.torrent')}<br />
+					{gt('modal.additionalContent.diskAnalyzer')}<br />
+					{gt('modal.additionalContent.localAI')}<br />
+					{gt('modal.additionalContent.softwareSupport')}<br />
+					{gt('modal.additionalContent.windowsApps')}<br />
+					{gt('modal.additionalContent.cleaners')}<br />
+					{gt('modal.additionalContent.backup')}<br />
+					{gt('modal.additionalContent.nvidia')}<br />
+					{gt('modal.additionalContent.photoshop')}<br />
+					{gt('modal.additionalContent.lightroom')}<br />
+					{gt('modal.additionalContent.illustrator')}<br />
+					{gt('modal.additionalContent.premier')}<br />
+					{@html gt('modal.additionalContent.ventoy')}
 				</p>
 			</div>
 		</div>

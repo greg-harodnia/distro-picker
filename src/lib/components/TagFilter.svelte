@@ -1,11 +1,15 @@
 <script lang="ts">
 	import type { Tag } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
+	import { t } from '$lib/i18n/locale';
 
 	export let tag: Tag;
 	export let selected = false;
 
 	const dispatch = createEventDispatcher();
+
+	$: tagName = $t(`tags.${tag.id}.name`) || tag.name;
+	$: tagDescription = $t(`tags.${tag.id}.description`) || tag.description;
 
 	function handleClick() {
 		dispatch('toggle');
@@ -29,12 +33,12 @@
 	aria-describedby={tag.id + '-tooltip'}
 	tabindex="0"
 >
-	{tag.name}
-	<span class="sr-only">, {tag.description}</span>
+	{tagName}
+	<span class="sr-only">, {tagDescription}</span>
 </button>
 
 <div class="tooltip" role="tooltip" id={tag.id + '-tooltip'}>
-	{tag.description}
+	{tagDescription}
 </div>
 
 <style>

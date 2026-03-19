@@ -3,11 +3,17 @@
 	import { createEventDispatcher } from 'svelte';
 	import OptimizedImage from '$lib/components/OptimizedImage.svelte';
 	import { supabase, getLikedDistros, setLikedDistro, removeLikedDistro } from '$lib/supabase';
+	import { t } from '$lib/i18n/locale';
 
 	export let distros: Distro[] = [];
 	export let selectedDistro: Distro | null = null;
 
 	const dispatch = createEventDispatcher();
+
+	function getDescription(distro: Distro): string {
+		const desc = $t(`distros.descriptions.${distro.id}`);
+		return typeof desc === 'string' ? desc : '';
+	}
 
 	function selectDistro(distro: Distro) {
 		dispatch('select', distro);
@@ -63,7 +69,7 @@
 			on:keydown={handleKeydown}
 			role="button"
 			tabindex="0"
-			aria-label={`${distro.name}, ${distro.description}`}
+			aria-label={`${distro.name}, ${getDescription(distro)}`}
 			aria-pressed={selectedDistro?.id === distro.id}
 			data-distro-id={distro.id}
 		>
