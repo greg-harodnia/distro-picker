@@ -44,7 +44,8 @@
 	let hasAdditionalDetails =
 		(distro.desktops && distro.desktops.length > 0) ||
 		distro.based_on ||
-		distro.beginner_friendly;
+		distro.beginner_friendly ||
+		distro.userbase;
 
 	function handleGalleryKeydown(e: KeyboardEvent) {
 		if (e.key === "Enter" || e.key === " ") {
@@ -97,6 +98,13 @@
 				<div class="additional-detail">
 					<h3>Beginner friendly: </h3>
 					<p>{distro.beginner_friendly}/5</p>
+				</div>
+			{/if}
+
+			{#if distro.userbase}
+				<div class="additional-detail">
+					<h3>Userbase: </h3>
+					<p>{distro.userbase}</p>
 				</div>
 			{/if}
 		</div>
