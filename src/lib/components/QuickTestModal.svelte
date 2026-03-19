@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
-	import { scale } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import { quickTestData } from '$lib/data/quickTest';
 	import type { QuizQuestion, QuizAnswer } from '$lib/types/quiz';
 
@@ -102,7 +102,7 @@
 		on:keydown={handleKeydown}
 		role="button"
 		tabindex="0"
-		transition:scale={{ duration: 200, start: 0.9 }}
+		transition:fade={{ duration: 150 }}
 	>
 		<div
 			class="modal-content"
@@ -110,7 +110,6 @@
 			aria-modal="true"
 			aria-label="Quick Quiz"
 			tabindex="-1"
-			transition:scale={{ duration: 200, start: 0.95 }}
 		>
 			<div class="modal-header">
 				{#if !isComplete && currentPath.length > 0}
