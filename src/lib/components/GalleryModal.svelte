@@ -54,7 +54,7 @@
 			</div>
 		{:else}
 			<div class="image-container">
-				<img src={images[currentIndex]} alt={`${distroName} screenshot ${currentIndex + 1}`} />
+				<img src={images[currentIndex]} alt={`${distroName} screenshot ${currentIndex + 1}`} loading="lazy" decoding="async" />
 			</div>
 
 			{#if images.length > 1}
