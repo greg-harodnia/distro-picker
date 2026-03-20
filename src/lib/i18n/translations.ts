@@ -44,8 +44,8 @@ export const translations = {
         be: 'Гульнявая',
       },
       description: {
-        en: 'Optimized for gaming with good driver support and performance',
-        be: 'Аптымізаваны для гульняў з добрай падпорай драйвэраў і прадукцыйнасьцю',
+        en: 'Optimized for gaming with good driver support and special apps preinstalled',
+        be: 'Аптымізаваная для гульняў з добрай падпорай драйвэраў і спэцыяльнымі перадусталяванымі праґрамамі',
       },
     },
     'lightweight': {
@@ -54,8 +54,8 @@ export const translations = {
         be: 'Лёгкая на рэсурсы',
       },
       description: {
-        en: 'Lightweight and suitable for older hardware',
-        be: 'Лёгкая на рэсурсы і прыдатная для старога апаратнага забясьпечаньня',
+        en: 'Lighter than most of the popular distros to support older hardware',
+        be: 'Лёгчэйшая на рэсурсы, ніж большасьць папулярных дыстрыбуцый, каб падпіраць старэйшае апаратнае забясьпечаньне',
       },
     },
     'traditional': {
@@ -65,7 +65,7 @@ export const translations = {
       },
       description: {
         en: 'Standard release model with periodic version updates',
-        be: 'Стандартная мадэль выпуску з перыядычнымі абнавеньнямі',
+        be: 'Стандартная мадэль выпуску з перыядычнымі абнавеньнямі і зьменнай сыстэмай',
       },
     },
     'rolling-release': {
@@ -84,8 +84,8 @@ export const translations = {
         be: 'Нязьменная',
       },
       description: {
-        en: 'Immutable distribution with atomic updates',
-        be: 'Нязьменная дыстрыбуцыя з атамарнымі абнавеньнямі',
+        en: 'Distribution with an immutable core and atomic updates',
+        be: 'Дыстрыбуцыя зь нязьменным ядром і атамарнымі абнавеньнямі',
       },
     },
   },
@@ -104,8 +104,8 @@ export const translations = {
     },
     descriptions: {
       mint: {
-        en: "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. A general-purpose distro, can be used for gaming too, but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers (with an SSD). If your computer has an HDD or just 2Gb of RAM (potentially Windows 7 era), use the Xfce version of Linux Mint — it has similar hardware requirements to Linux Lite.",
-        be: "Існуе ўжо даўно. Супольнасная, стабільная й звыклая. Галоўнае выданьне зьяўляе ґрафічнае асяродзьдзе Cinnamon. Агульна-прыдатная дыстрыбуцыя, можа выкарыстоўвацца й для гульняў, але яна не пастаўляе спэцыяльных для гэтага праґрам з заводу. Добра функцыянуе нават на кампутарах 10-15-гадовай даўніны (з SSD). Калі ваш кампутар мае HDD або толькі 2ГБ апэратыўнае памяці (мажліва з часоў Windows 7), выберыце выданьне Linux Mint з Xfce — яно мае блізкія апаратныя вымаганьні да Linux Lite.",
+        en: "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. A general-purpose distro, can be used for gaming too, but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers (with an SSD). If your computer has an HDD or just 2Gb of RAM (potentially Windows 7 era), use the Xfce version of Linux Mint — it has similar hardware requirements to Linux Lite and Xubuntu.",
+        be: "Існуе ўжо даўно. Супольнасная, стабільная й звыклая. Галоўнае выданьне зьяўляе ґрафічнае асяродзьдзе Cinnamon. Агульна-прыдатная дыстрыбуцыя, можа выкарыстоўвацца й для гульняў, але яна не пастаўляе спэцыяльных для гэтага праґрам з заводу. Добра функцыянуе нават на кампутарах 10-15-гадовай даўніны (з SSD). Калі ваш кампутар мае HDD або толькі 2ГБ апэратыўнае памяці (мажліва з часоў Windows 7), выберыце выданьне Linux Mint з Xfce — яно мае блізкія апаратныя вымаганьні да Linux Lite і Xubuntu.",
       },
       kubuntu: {
         en: "A well-established and trusted distro, based on Ubuntu with the KDE Plasma desktop environment. It is backed by a huge corporation, Canonical. Similar hardware requirements to Linux Mint.",
@@ -129,7 +129,7 @@ export const translations = {
       },
       cachyos: {
         en: "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Perfect for tech enthusiasts, who want to have full control over their system. Requires some terminal experience. Similar to EndeavourOS, but it is more preconfigured. However, if you prefer a more barebones Arch experience with fewer customizations, choose EndeavourOS.",
-        be: "Дыстрыбуцыя зь няспыннымі абнавеньнямі, закладзеная на Arch і аптымізаваная для прадукцыйнасьці, зьяўляе ґрафічнае асяродзьдзе KDE Plasma (сярод многіх іншых). Хоць і не гатовая для гульняў з заводу, яна можа быць лёгка наладжаная для іх, усталяваўшы адзіны мэта-пакет (cachyos-gaming-meta). Выданьне для партатыўных кансоляў, з іншага боку, гатовае для гульняў. Вельмі мала заграмаджэньня. Ідэальная для тэхнічных аматараў, якія хочуць мець поўны кантроль над сваёй сыстэмай. Вымагае трохі досьведу з тэрміналам. Падобная да EndeavourOS, але болей перадналаджаная. Аднак, калі вы аддаяце перавагу чыстаму Arch бяз ліншніх зьмен, выбірайце EndeavourOS.",
+        be: "Дыстрыбуцыя зь няспыннымі абнавеньнямі, закладзеная на Arch і аптымізаваная для прадукцыйнасьці, зьяўляе ґрафічнае асяродзьдзе KDE Plasma (сярод многіх іншых). Хоць і не гатовая для гульняў з заводу, яна можа быць лёгка наладжаная для іх, усталяваўшы адзіны мэта-пакет (cachyos-gaming-meta). Выданьне для партатыўных кансоляў, з іншага боку, гатовае для гульняў. Вельмі мала заграмаджэньня. Ідэальная для тэхнічных аматараў, якія хочуць мець поўны кантроль над сваёй сыстэмай. Вымагае трохі досьведу з тэрміналам. Падобная да EndeavourOS, але болей перадналаджаная. Аднак, калі вы аддаяце перавагу чыстаму Arch бяз лішніх зьмен, выбірайце EndeavourOS.",
       },
       steamos: {
         en: "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment. Released for handhelds, but yet to be released for desktops.",
@@ -137,7 +137,7 @@ export const translations = {
       },
       bazzite: {
         en: "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative. Much more user-friendly than CachyOS (but more bloated). Take a survey on the official website to see if your hardware supports the Linux gaming. If you want your system to be mutable (e.g. edit system files), choose Nobara instead.",
-        be: "Нязьменная гульнявая (з дапамогай OSTree) Linux дыстрыбуцыя, ідэальная для ПК і партатыўных кансоляў (мае асобнае выданьне для іх). Альтэрнатыва SteamOS. Значна болей простая ў карыстаньні, ніж CachyOS (але болей заграмаджоная). Прайдзіце апытаньне на афіцыйным сайце, каб даведацца, ці вашае апаратнае забясьпечаньне падпірае Linux гульні. Калі вы хочаце, каб вашая сыстэма была зьменнай (нп., рэдагаваць сыстэмныя файлы), абярыце Nobara.",
+        be: "Нязьменная (з дапамогай OSTree) гульнявая Linux дыстрыбуцыя, ідэальная для ПК і партатыўных кансоляў (мае асобнае выданьне для іх). Альтэрнатыва SteamOS. Значна болей простая ў карыстаньні, ніж CachyOS (але болей заграмаджоная). Прайдзіце апытаньне на афіцыйным сайце, каб даведацца, ці вашае апаратнае забясьпечаньне падпірае Linux гульні. Калі вы хочаце, каб вашая сыстэма была зьменнай (нп., рэдагаваць сыстэмныя файлы), абярыце Nobara.",
       },
       lubuntu: {
         en: "A user-friendly lightweight Ubuntu variant, perfect for computers produced between 2004 and 2011 designed for Windows XP/Vista with 1 or 2Gb of RAM.",
