@@ -20,13 +20,13 @@
 		return tags.find((tag) => tag.id === tagId);
 	}
 
-	function getTranslatedTagName(tagId: string): string {
+	$: translatedTagNames = distro.tag_ids?.map((tagId) => {
 		const tag = getTagById(tagId);
-		if (tag) {
-			return $t(`tags.${tagId}.name`) || tag.name;
-		}
-		return '';
-	}
+		return {
+			tagId,
+			name: tag ? ($t(`tags.${tagId}.name`) || tag.name) : '',
+		};
+	}) || [];
 
 	function visitWebsite() {
 		const sanitizedUrl = sanitizeUrl(distro.website);
@@ -127,11 +127,11 @@
 		{#if distro.tag_ids && distro.tag_ids.length > 0}
 			<div class="distro-tags">
 				<div class="tag-list">
-					{#each distro.tag_ids as tagId}
-						{#if getTagById(tagId)}
-							{@const tag = getTagById(tagId)!}
+					{#each translatedTagNames as { tagId, name }}
+						{@const tag = getTagById(tagId)}
+						{#if tag}
 							<span class="tag" style="--tag-color: {tag.color}">
-								{getTranslatedTagName(tagId)}
+								{name}
 							</span>
 						{/if}
 					{/each}
