@@ -11,14 +11,14 @@
       "id": "lightweight",
       "name": "Lightweight",
       "description": "Lightweight and suitable for older hardware",
-      "color": "#feca57",
+      "color": "#edb817",
       "group": "purpose"
     },
     {
       "id": "traditional",
       "name": "Traditional",
       "description": "Standard release model with periodic version updates",
-      "color": "#a1cf3e",
+      "color": "#85ba2e",
       "group": "update-model"
     },
     {
