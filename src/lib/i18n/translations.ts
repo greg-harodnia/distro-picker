@@ -11,14 +11,14 @@ export const translations: Record<Language, typeof en> = {
 export function getTranslation(lang: Language, path: string): string | undefined {
   const keys = path.split('.');
   let result: any = translations[lang];
-  
+
   for (const key of keys) {
     if (result && typeof result === 'object' && key in result) {
       result = result[key];
     } else {
-      return undefined;
+      return lang === 'en' ? undefined : getTranslation('en', path);
     }
   }
-  
+
   return typeof result === 'string' ? result : undefined;
 }
