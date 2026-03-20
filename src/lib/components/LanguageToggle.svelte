@@ -149,7 +149,7 @@
   }
 
   .dropdown-item.selected {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: var(--color-background);
   }
 

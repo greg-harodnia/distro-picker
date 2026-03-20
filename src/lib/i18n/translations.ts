@@ -30,7 +30,7 @@ export const translations = {
   filters: {
     title: {
       en: 'Filter by Tags',
-      be: 'Фільтрацыя водле тэґаў',
+      be: 'Фільтраваньне водле тэґаў',
     },
     clearAll: {
       en: 'Clear all filters',
