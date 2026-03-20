@@ -85,7 +85,7 @@ function createLocaleStore() {
 export const locale = createLocaleStore();
 
 export const t = derived(locale, ($locale) => {
-  return (path: string): string | Record<string, string> => {
+  return (path: string): string | undefined => {
     const result = getTranslation($locale, path);
     return result;
   };

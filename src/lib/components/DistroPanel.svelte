@@ -13,8 +13,8 @@
 
 	let showGallery = false;
 
-	$: translatedDescription = $t(`distros.descriptions.${distro.id}`);
-	$: translatedUserbase = $t(`distros.userbases.${distro.id}`);
+	$: translatedDescription = $t(`distros.descriptions.${distro.id}`) as string;
+	$: translatedUserbase = $t(`distros.userbases.${distro.id}`) as string | undefined;
 
 	function getTagById(tagId: string): Tag | undefined {
 		return tags.find((tag) => tag.id === tagId);
@@ -57,7 +57,7 @@
 		(distro.desktops && distro.desktops.length > 0) ||
 		distro.based_on ||
 		distro.beginner_friendly ||
-		distro.userbase;
+		translatedUserbase;
 
 	function handleGalleryKeydown(e: KeyboardEvent) {
 		if (e.key === "Enter" || e.key === " ") {
@@ -115,7 +115,7 @@
 				</div>
 			{/if}
 
-			{#if distro.userbase}
+			{#if translatedUserbase}
 				<div class="additional-detail">
 					<h3>{$t('panel.userbase')}</h3>
 					<p>{translatedUserbase}</p>

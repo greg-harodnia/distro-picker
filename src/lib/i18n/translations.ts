@@ -55,7 +55,7 @@ export const translations = {
       },
       description: {
         en: 'Lighter than most of the popular distros to support older hardware',
-        be: 'Лёгчэйшая на рэсурсы, ніж большасьць папулярных дыстрыбуцый, каб падпіраць старэйшае апаратнае забясьпечаньне',
+        be: 'Лягчэйшая на рэсурсы, ніж большасьць папулярных дыстрыбуцый, каб падпіраць старэйшае апаратнае забясьпечаньне',
       },
     },
     'traditional': {
@@ -113,7 +113,7 @@ export const translations = {
       },
       zorin: {
         en: "A polished distro focused on visual appeal, featuring the Gnome desktop environment with 3D animations and various out-of-the-box layouts, including MacOS- and Windows-like ones. Similar hardware requirements to Linux Mint.",
-        be: "Выкшталчаная дыстрыбуцыя з увагай на візуальную панаднасьць, якая зьяўляе ґрафічнае асяродзьдзе Gmome з 3D анімацыямі і рознымі гатовымі ўкладамі, сярод якіх ёсьць падобныя да MacOS і Windows. Блізкія апаратныя вымаганьні да Linux Mint.",
+        be: "Выкшталчаная дыстрыбуцыя з увагай на візуальную панаднасьць, якая зьяўляе ґрафічнае асяродзьдзе Gnome з 3D анімацыямі і рознымі гатовымі ўкладамі, сярод якіх ёсьць падобныя да MacOS і Windows. Блізкія апаратныя вымаганьні да Linux Mint.",
       },
       popos: {
         en: "Built by System76, featuring the COSMIC desktop environment (MacOS-like) and focusing on usability. Has an Nvidia version available. Good for creative work and productivity. Has tiling windows support. Not an ideal choice for gaming.",
@@ -141,7 +141,7 @@ export const translations = {
       },
       lubuntu: {
         en: "A user-friendly lightweight Ubuntu variant, perfect for computers produced between 2004 and 2011 designed for Windows XP/Vista with 1 or 2Gb of RAM.",
-        be: "Лёгкі на рэсурсы й просты для карыстаньня варыянт Ubuntu, ідэальны для кампутараў, выпрадукаваных паміж 2004 і 2001 і прызначаных для Windows XP/Vista з 1 ці 2ГБ апэратыўнае памяці.",
+        be: "Лёгкі на рэсурсы й просты у карыстаньні варыянт Ubuntu, ідэальны для кампутараў, выпрадукаваных паміж 2004 і 2011 і прызначаных для Windows XP/Vista з 1 ці 2ГБ апэратыўнае памяці.",
       },
       antiX: {
         en: "Ultra light distro, requires as minimum as 256Mb of RAM to run (more to run apps smoothly). Suitable for ancient computers designed for Windows XP.",
@@ -331,7 +331,7 @@ export const translations = {
       },
       ventoy: {
         en: "<i>Ventoy</i> for creating a bootable USB drive with multiple Linux distributions.",
-        be: "<i>Ventoy</i> для стварэньня запусковай флэшкі з колькімі дыстрыбуцыямі Linux.",
+        be: "<i>Ventoy</i> для стварэньня запусковае флэшкі з колькімі дыстрыбуцыямі Linux.",
       },
     },
   },
@@ -495,7 +495,7 @@ export const translations = {
   },
 };
 
-export function getTranslation(lang: Language, path: string): string {
+export function getTranslation(lang: Language, path: string): string | undefined {
   const keys = path.split('.');
   let result: any = translations;
   
@@ -503,7 +503,7 @@ export function getTranslation(lang: Language, path: string): string {
     if (result && typeof result === 'object' && key in result) {
       result = result[key];
     } else {
-      return path;
+      return undefined;
     }
   }
   
@@ -511,5 +511,5 @@ export function getTranslation(lang: Language, path: string): string {
     return result[lang];
   }
   
-  return typeof result === 'string' ? result : path;
+  return typeof result === 'string' ? result : undefined;
 }
