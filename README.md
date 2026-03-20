@@ -42,40 +42,38 @@ distro-picker/
 │   │   │   ├── DistroPanel.svelte
 │   │   │   ├── ErrorDisplay.svelte
 │   │   │   ├── GalleryModal.svelte
+│   │   │   ├── InfoModal.svelte
+│   │   │   ├── LanguageToggle.svelte
 │   │   │   ├── LoadingSpinner.svelte
 │   │   │   ├── OptimizedImage.svelte
+│   │   │   ├── QuickTestModal.svelte
 │   │   │   ├── TagFilter.svelte
 │   │   │   ├── TagSkeleton.svelte
 │   │   │   └── ThemeToggle.svelte
+│   │   ├── data/
+│   │   ├── i18n/
+│   │   │   ├── locale.ts
+│   │   │   └── translations.ts
 │   │   ├── stores/
-│   │   │   ├── index.ts
-│   │   │   └── theme.ts
-│   │   ├── utils/
-│   │   │   ├── data.ts
-│   │   │   ├── focusTrap.ts
-│   │   │   ├── index.ts
-│   │   │   ├── validation.ts
-│   │   │   └── focusTrap.ts
 │   │   ├── supabase.ts
-│   │   ├── types.ts
+│   │   ├── types/
+│   │   ├── utils/
 │   │   ├── distros.json
 │   │   └── tags.json
 │   └── routes/
 │       ├── +layout.svelte
-│       ├── +page.svelte
-│       └── +page.server.ts
+│       └── +page.svelte
 ├── static/
 │   └── screenshots/
 ├── package.json
 ├── svelte.config.js
 ├── tsconfig.json
-├── vite.config.js
 └── README.md
 ```
 
 ## 🗄️ Database Structure (Supabase)
 
-### distros table
+### 'distros' table
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -83,4 +81,12 @@ distro-picker/
 | name | varchar | Distro identifier (same as 'id' in distros.json) |
 | likes | int2 | Number of likes |
 
-**Find Your Perfect Linux Distribution Today! 🐧**
+## 🌐 Supported Languages
+
+The app supports the following languages for browsers and search engines:
+- **English (en)** - Default language
+- **Belarusian (be)** - Беларуская
+
+Language detection is based on browser language preferences and system timezone.
+
+<br>**Find Your Perfect Linux Distribution Today! 🐧**
