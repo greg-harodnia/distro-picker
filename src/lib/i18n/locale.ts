@@ -10,16 +10,58 @@ interface LanguageConfig {
 
 const languageConfigs: LanguageConfig[] = [
   {
+    code: 'en',
+    name: 'English',
+    browserLanguages: ['en'],
+    timezones: [],
+  },
+  {
     code: 'be',
     name: 'Беларуская',
     browserLanguages: ['be', 'be-BY', 'bel', 'be-tarask'],
     timezones: ['Europe/Minsk'],
   },
   {
-    code: 'en',
-    name: 'English',
-    browserLanguages: ['en'],
+    code: 'es',
+    name: 'Español 🤖',
+    browserLanguages: ['es', 'es-ES', 'es-MX', 'es-AR', 'es-CO', 'es-CL'],
     timezones: [],
+  },
+  {
+    code: 'pt',
+    name: 'Português 🤖',
+    browserLanguages: ['pt', 'pt-BR', 'pt-PT'],
+    timezones: ['America/Sao_Paulo', 'Europe/Lisbon'],
+  },
+  {
+    code: 'tr',
+    name: 'Türkçe 🤖',
+    browserLanguages: ['tr', 'tr-TR'],
+    timezones: ['Europe/Istanbul'],
+  },
+  {
+    code: 'de',
+    name: 'Deutsch 🤖',
+    browserLanguages: ['de', 'de-DE', 'de-AT', 'de-CH'],
+    timezones: ['Europe/Berlin', 'Europe/Vienna', 'Europe/Zurich'],
+  },
+  {
+    code: 'fr',
+    name: 'Français 🤖',
+    browserLanguages: ['fr', 'fr-FR', 'fr-CA', 'fr-BE', 'fr-CH'],
+    timezones: ['Europe/Paris', 'America/Montreal', 'Europe/Brussels'],
+  },
+  {
+    code: 'it',
+    name: 'Italiano 🤖',
+    browserLanguages: ['it', 'it-IT'],
+    timezones: ['Europe/Rome'],
+  },
+  {
+    code: 'id',
+    name: 'Bahasa Indonesia 🤖',
+    browserLanguages: ['id', 'id-ID'],
+    timezones: ['Asia/Jakarta'],
   },
 ];
 

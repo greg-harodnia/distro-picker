@@ -1,11 +1,25 @@
 import { translations as en } from './translations/en';
 import { translations as be } from './translations/be';
+import { translations as es } from './translations/es';
+import { translations as pt } from './translations/pt';
+import { translations as tr } from './translations/tr';
+import { translations as de } from './translations/de';
+import { translations as fr } from './translations/fr';
+import { translations as it } from './translations/it';
+import { translations as id } from './translations/id';
 
-export type Language = 'en' | 'be';
+export type Language = 'en' | 'be' | 'es' | 'pt' | 'tr' | 'de' | 'fr' | 'it' | 'id';
 
 export const translations: Record<Language, typeof en> = {
   en,
   be,
+  es,
+  pt,
+  tr,
+  de,
+  fr,
+  it,
+  id,
 };
 
 export function getTranslation(lang: Language, path: string): string | undefined {
