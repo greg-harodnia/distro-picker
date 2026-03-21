@@ -22,6 +22,18 @@ const languageConfigs: LanguageConfig[] = [
     timezones: ['Europe/Minsk'],
   },
   {
+    code: 'uk',
+    name: 'Українська',
+    browserLanguages: ['uk', 'uk-UA'],
+    timezones: ['Europe/Kiev', 'Europe/Kyiv'],
+  },
+  {
+    code: 'pl',
+    name: 'Polski',
+    browserLanguages: ['pl', 'pl-PL'],
+    timezones: ['Europe/Warsaw'],
+  },
+  {
     code: 'es',
     name: 'Español 🤖',
     browserLanguages: ['es', 'es-ES', 'es-MX', 'es-AR', 'es-CO', 'es-CL'],

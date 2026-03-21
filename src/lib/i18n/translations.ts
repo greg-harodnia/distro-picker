@@ -1,5 +1,7 @@
 import { translations as en } from './translations/en';
 import { translations as be } from './translations/be';
+import { translations as uk } from './translations/uk';
+import { translations as pl } from './translations/pl';
 import { translations as es } from './translations/es';
 import { translations as pt } from './translations/pt';
 import { translations as tr } from './translations/tr';
@@ -8,11 +10,13 @@ import { translations as fr } from './translations/fr';
 import { translations as it } from './translations/it';
 import { translations as id } from './translations/id';
 
-export type Language = 'en' | 'be' | 'es' | 'pt' | 'tr' | 'de' | 'fr' | 'it' | 'id';
+export type Language = 'en' | 'be' | 'uk' | 'pl' | 'es' | 'pt' | 'tr' | 'de' | 'fr' | 'it' | 'id';
 
 export const translations: Record<Language, typeof en> = {
   en,
   be,
+  uk,
+  pl,
   es,
   pt,
   tr,

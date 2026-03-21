@@ -1,5 +1,6 @@
 <script lang="ts">
   import { locale, availableLanguages, t } from '$lib/i18n/locale';
+import type { Language } from '$lib/i18n/translations';
   import { onMount } from 'svelte';
 
   let isOpen = false;
@@ -12,8 +13,8 @@
     isOpen = !isOpen;
   }
 
-  function selectLanguage(code: string) {
-    locale.set(code as 'en' | 'be');
+  function selectLanguage(code: Language) {
+    locale.set(code);
     isOpen = false;
   }
 
@@ -122,12 +123,13 @@
     top: calc(100% + 4px);
     right: 0;
     min-width: 140px;
+    max-height: 280px;
+    overflow-y: auto;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     z-index: 100;
-    overflow: hidden;
   }
 
   .dropdown-item {
