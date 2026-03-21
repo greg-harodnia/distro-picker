@@ -54,7 +54,9 @@ distro-picker/
 │   │   ├── i18n/
 │   │   │   ├── locale.ts
 │   │   │   └── translations.ts
-│   │   ├── locales/          # English type definition (en.ts)
+│   │   ├── locales/
+│   │   │   ├── types.ts      # Type definitions
+│   │   │   └── en.json       # English (used for SSR)
 │   │   ├── stores/
 │   │   ├── supabase.ts
 │   │   ├── types/
@@ -65,7 +67,7 @@ distro-picker/
 │       ├── +layout.svelte
 │       └── +page.svelte
 ├── static/
-│   ├── locales/              # Translation files (edit JSON to add/edit languages)
+│   ├── locales/              # Translation files (edit JSON to add/edit languages, loaded via fetch)
 │   └── screenshots/
 ├── package.json
 ├── svelte.config.js
