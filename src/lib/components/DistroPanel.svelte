@@ -130,7 +130,7 @@
 					{#each translatedTagNames as { tagId, name }}
 						{@const tag = getTagById(tagId)}
 						{#if tag}
-							<span class="tag" style="--tag-color: {tag.color}">
+							<span class="tag" style="--tag-color: var(--tag-{tagId})">
 								{name}
 							</span>
 						{/if}

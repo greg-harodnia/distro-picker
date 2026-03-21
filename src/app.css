@@ -28,6 +28,13 @@
   
   --color-success: #38a169;
   --color-warning: #d69e2e;
+
+  /* Tag colors (4:1 contrast on white) */
+  --tag-gaming-ready: #8b5cf6;
+  --tag-lightweight: #ca8a04;
+  --tag-traditional: #22c55e;
+  --tag-rolling-release: #3b82f6;
+  --tag-immutable: #f97316;
   
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -123,6 +130,13 @@
   
   --color-success: #4ade80;
   --color-warning: #fbbf24;
+
+  /* Tag colors (5:1 contrast on #1a1a1a) */
+  --tag-gaming-ready: #8b5cf6;
+  --tag-lightweight: #cab004;
+  --tag-traditional: #22c55b;
+  --tag-rolling-release: #3b82f6;
+  --tag-immutable: #f98416;
   
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.3);

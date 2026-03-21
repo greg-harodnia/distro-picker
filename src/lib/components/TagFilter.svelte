@@ -24,15 +24,15 @@
 </script>
 
 <button 
-	class="tag-filter"
-	class:selected
-	style="--tag-color: {tag.color}"
-	on:click={handleClick}
-	on:keydown={handleKeydown}
-	aria-pressed={selected}
-	aria-describedby={tag.id + '-tooltip'}
-	tabindex="0"
->
+ 	class="tag-filter"
+ 	class:selected
+ 	style="--tag-color: var(--tag-{tag.id})"
+ 	on:click={handleClick}
+ 	on:keydown={handleKeydown}
+ 	aria-pressed={selected}
+ 	aria-describedby={tag.id + '-tooltip'}
+ 	tabindex="0"
+ >
 	{tagName}
 	<span class="sr-only">, {tagDescription}</span>
 </button>

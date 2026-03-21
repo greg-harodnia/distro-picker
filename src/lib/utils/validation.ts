@@ -30,15 +30,6 @@ export function validateTag(tag: any): ValidationResult {
 		errors.push({ field: 'description', message: 'Tag must have a valid string description' });
 	}
 
-	if (!tag.color || typeof tag.color !== 'string') {
-		errors.push({ field: 'color', message: 'Tag must have a valid string color' });
-	}
-
-	// Validate color format (hex color)
-	if (tag.color && !/^#[0-9A-Fa-f]{6}$/.test(tag.color)) {
-		errors.push({ field: 'color', message: 'Color must be a valid hex color' });
-	}
-
 	return {
 		isValid: errors.length === 0,
 		errors
