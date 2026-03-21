@@ -30,7 +30,7 @@ export const translations = {
     },
     'immutable': {
       name: 'Immutabile',
-      description: 'Distribuzione con un核 immutabile e aggiornamenti atomici',
+      description: 'Distribuzione con un nucleo immutabile e aggiornamenti atomici',
     },
   },
   distros: {

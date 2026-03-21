@@ -13,15 +13,15 @@ export const translations = {
   },
   tags: {
     'gaming-ready': {
-      name: 'Gotowy do Gier',
-      description: 'Zoptymalizowany pod kątem gier z dobrą obsługą sterowników i specjalnymi wstępnie zainstalowanymi aplikacjami',
+      name: 'Gotowa do Gier',
+      description: 'Zoptymalizowana pod kątem gier z dobrą obsługą sterowników i specjalnymi wstępnie zainstalowanymi aplikacjami',
     },
     'lightweight': {
-      name: 'Lekki',
-      description: 'Lżejszy niż większość popularnych dystrybucji, aby obsługiwać starszy sprzęt',
+      name: 'Lekka',
+      description: 'Lżejsza niż większość popularnych dystrybucji, aby obsługiwać starszy sprzęt',
     },
     'traditional': {
-      name: 'Tradycyjny',
+      name: 'Tradycyjna',
       description: 'Standardowy model wydania z okresowymi aktualizacjami wersji',
     },
     'rolling-release': {
@@ -29,7 +29,7 @@ export const translations = {
       description: 'Dystrybucja stale aktualizowana z najnowszymi wersjami oprogramowania',
     },
     'immutable': {
-      name: 'Niezmienny',
+      name: 'Niezmienna',
       description: 'Dystrybucja z niezmiennym jądrem i atomowymi aktualizacjami',
     },
   },
