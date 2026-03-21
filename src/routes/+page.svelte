@@ -126,6 +126,7 @@
 			</div>
 		</header>
 
+		<main>
 		<section class="filters" aria-labelledby="filters-heading">
 			<h2 id="filters-heading">{$t('filters.title')}</h2>
 			<div class="tag-list-wrapper">
@@ -193,6 +194,7 @@
 				</section>
 			{/if}
 		</div>
+		</main>
 
 		<div class="sr-only">
 			<p>Linux distro chooser - find your perfect Linux distribution. Distro picker tool to choose a distro based on your needs. Browse and filter popular Linux distributions including Ubuntu, Fedora, Debian, Arch Linux, Linux Mint, Pop!_OS, Zorin OS, Elementary OS, Manjaro, openSUSE, and more. Use our interactive Linux distribution chooser to discover the best distro for beginners, power users, developers, gamers, and professionals. Try our distro finder to match your use case whether you need a beginner-friendly Linux OS, a rolling release distribution, an immutable distro, or a server-oriented Linux system.</p>

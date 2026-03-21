@@ -64,8 +64,8 @@
 	function handleError() {
 		isError = true;
 		// Try loading fallback icon
-		if (imgElement && iconPath !== `${base}/linux.png`) {	
-			imgElement.src = `${base}/linux.png`;	
+		if (imgElement && iconPath !== `${base}/linux.webp`) {	
+			imgElement.src = `${base}/linux.webp`;	
 		}
 	}
 </script>

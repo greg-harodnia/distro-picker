@@ -42,7 +42,7 @@
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="{$t('app.title')} - {$t('app.title')}" />
 	<meta property="og:description" content={$t('app.noResults').replace('.', '')} />
-	<meta property="og:image" content="{siteUrl}{base}/linux.png">
+	<meta property="og:image" content="{siteUrl}{base}/linux.webp">
 	<meta property="og:url" content="{siteUrl}{base}{$page.url.pathname}">
 	<meta property="og:site_name" content={$t('app.title')}>
 	
@@ -50,7 +50,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="{$t('app.title')} - {$t('app.title')}" />
 	<meta name="twitter:description" content={$t('app.noResults').replace('.', '')} />
-	<meta name="twitter:image" content="{siteUrl}{base}/linux.png">
+	<meta name="twitter:image" content="{siteUrl}{base}/linux.webp">
 	<meta name="twitter:url" content="{siteUrl}{base}{$page.url.pathname}">
 	
 	<!-- Canonical URL -->

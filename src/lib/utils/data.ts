@@ -65,19 +65,19 @@ export async function loadDistros(): Promise<DataLoadResult<Distro[]>> {
 
 export function getDistroIconPath(distroId: string): string {
 	const iconMap: Record<string, string> = {
-		'kde-linux': '/kde.png',
-		'mint': '/mint.png',
-		'kubuntu': '/kubuntu.png',
-		'zorin': '/zorin.png',
-		'popos': '/popos.png',
-		'fedora': '/fedora.png',
-		'steamos': '/steamos.png',
+		'kde-linux': '/kde.webp',
+		'mint': '/mint.webp',
+		'kubuntu': '/kubuntu.webp',
+		'zorin': '/zorin.webp',
+		'popos': '/popos.webp',
+		'fedora': '/fedora.webp',
+		'steamos': '/steamos.webp',
 		'bazzite': '/bazzite.svg',
 		'cachyos': '/cachyos.svg',
-		'lubuntu': '/lubuntu.png',
-		'antiX': '/antiX.png'
+		'lubuntu': '/lubuntu.webp',
+		'antiX': '/antiX.webp'
 	};
-	return iconMap[distroId] || '/linux.png';
+	return iconMap[distroId] || '/linux.webp';
 }
 
 export function sanitizeUrl(url: string): string {
