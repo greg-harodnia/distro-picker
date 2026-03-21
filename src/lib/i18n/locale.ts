@@ -34,6 +34,12 @@ const languageConfigs: LanguageConfig[] = [
     timezones: ['Europe/Warsaw'],
   },
   {
+    code: 'ru',
+    name: 'Русский',
+    browserLanguages: ['ru', 'ru-RU'],
+    timezones: ['Europe/Moscow', 'Europe/Kaliningrad', 'Europe/Volgograd', 'Europe/Samara', 'Asia/Yekaterinburg', 'Asia/Omsk'],
+  },
+  {
     code: 'es',
     name: 'Español 🤖',
     browserLanguages: ['es', 'es-ES', 'es-MX', 'es-AR', 'es-CO', 'es-CL'],
@@ -44,12 +50,6 @@ const languageConfigs: LanguageConfig[] = [
     name: 'Português 🤖',
     browserLanguages: ['pt', 'pt-BR', 'pt-PT'],
     timezones: ['America/Sao_Paulo', 'Europe/Lisbon'],
-  },
-  {
-    code: 'tr',
-    name: 'Türkçe 🤖',
-    browserLanguages: ['tr', 'tr-TR'],
-    timezones: ['Europe/Istanbul'],
   },
   {
     code: 'de',
@@ -70,10 +70,46 @@ const languageConfigs: LanguageConfig[] = [
     timezones: ['Europe/Rome'],
   },
   {
+    code: 'tr',
+    name: 'Türkçe 🤖',
+    browserLanguages: ['tr', 'tr-TR'],
+    timezones: ['Europe/Istanbul'],
+  },
+  {
+    code: 'vi',
+    name: 'Tiếng Việt 🤖',
+    browserLanguages: ['vi', 'vi-VN'],
+    timezones: ['Asia/Ho_Chi_Minh'],
+  },
+  {
     code: 'id',
     name: 'Bahasa Indonesia 🤖',
     browserLanguages: ['id', 'id-ID'],
     timezones: ['Asia/Jakarta'],
+  },
+  {
+    code: 'th',
+    name: 'ไทย 🤖',
+    browserLanguages: ['th', 'th-TH'],
+    timezones: ['Asia/Bangkok'],
+  },
+  {
+    code: 'zh',
+    name: '简体中文 🤖',
+    browserLanguages: ['zh', 'zh-CN', 'zh-SG'],
+    timezones: ['Asia/Shanghai', 'Asia/Harbin', 'Asia/Urumqi'],
+  },
+  {
+    code: 'ja',
+    name: '日本語 🤖',
+    browserLanguages: ['ja', 'ja-JP'],
+    timezones: ['Asia/Tokyo'],
+  },
+  {
+    code: 'ko',
+    name: '한국어 🤖',
+    browserLanguages: ['ko', 'ko-KR'],
+    timezones: ['Asia/Seoul'],
   },
 ];
 

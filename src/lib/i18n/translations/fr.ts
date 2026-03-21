@@ -116,7 +116,7 @@ export const translations = {
       regularUser: 'Juste un utilisateur normal',
       gaming: "Je veux que ma distro soit préconfigurée pour le gaming / je veux l'utiliser sur un handheld",
       developer: "Je veux développer dessus",
-      enthusiast: "Je suis un enthousiate tech qui veut une distro la plus flexible et sans bloat possible. Je veux avoir un contrôle total sur mon système et j'aime bidouiller et utiliser le terminal.",
+      enthusiast: "Je suis un enthousiaste tech qui veut une distro la plus flexible et sans bloat possible. Je veux avoir un contrôle total sur mon système et j'aime bidouiller et utiliser le terminal.",
       recover: "Je veux récupérer mon vieux PC",
       whichLayout: "Quel design préférez-vous?",
       windowsLike: 'Style Windows',
