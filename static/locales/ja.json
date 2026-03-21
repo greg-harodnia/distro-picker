@@ -1,0 +1,158 @@
+{
+  "app": {
+    "title": "Linuxディストリビューター選択",
+    "loadingDistributions": "ディストリビューションを読み込み中...",
+    "failedToLoad": "データの読み込みに失敗しました",
+    "noResults": "選択した条件に一致するディストリビューションがありません。",
+    "quickQuiz": "クイッククイズ",
+    "startQuiz": "クイッククイズを開始"
+  },
+  "filters": {
+    "title": "タグでフィルター",
+    "clearAll": "すべてのフィルターをクリア"
+  },
+  "tags": {
+    "gaming-ready": {
+      "name": "ゲーム対応",
+      "description": "良好なドライバーのサポートと専用アプリの事前インストールでゲームに最適化"
+    },
+    "lightweight": {
+      "name": "軽量",
+      "description": "古いハードウェアをサポートするため、多くの人気のディストリビューションより軽量"
+    },
+    "traditional": {
+      "name": "伝統的",
+      "description": "定期的なバージョン更新を持つ標準的なリリースモデル"
+    },
+    "rolling-release": {
+      "name": "ローリングリリース",
+      "description": "最新のソフトウェアバージョンで継続的に更新されるディストリビューション"
+    },
+    "immutable": {
+      "name": "イミュータブル",
+      "description": "イミュータブルなコアとアトミックアップデートを持つディストリビューション"
+    }
+  },
+  "distros": {
+    "recommended": "推奨ディストリビューション",
+    "details": "ディストリビューションの詳細",
+    "info": "追加情報",
+    "andMore": "など",
+    "descriptions": {
+      "mint": "かなり前から存在しています。コミュニティ主導で、安定しており、親しみやすい。メインビジョンはCinnamonデスクトップ環境を備えています。汎用ディストリビューションで、ゲームにも使用できますが、特別なツールは事前インストールされていません。SSD搭載の10〜15年前のコンピュータでも適切に動作します。コンピュータにHDDがある場合、または2GBのRAMしかない場合（Windows 7時代の可能性があります）、Linux MintのXfceバージョンを使用してください—ハードウェア要件はLinux LiteおよびXubuntuと同様です。",
+      "kubuntu": "Ubuntuをベースとした、確立された信頼性の高いディストリビューションで、KDE Plasmaデスクトップ環境を備えています。巨大な企業Canonicalによってサポートされています。ハードウェア要件はLinux Mintと似ています。",
+      "zorin": "視覚的魅力に重点を置いた洗練されたディストリビューションで、3DアニメーションとMacOSやWindowsに似た様々なレイアウトを備えたGNOMEデスクトップ環境を備えています。ハードウェア要件はLinux Mintと似ています。",
+      "popos": "System76によって作成され、（MacOSに似た）COSMICデスクトップ環境を備え、ユーザビリティに重点を置いています。Nvidiaバージョンがあります。クリエイティブ作業と生産性に優れています。タイルウィンドウをサポートしています。ゲームに最適の選択ではありません。",
+      "kde-linux": "KDEによって作成されたLinuxディストリビューション。（Btrfsスナップショットを使用）イミュータブル、シンプルで高速です。まだリリースされていません。",
+      "fedora": "開発者に最適です。KDE Plasmaデスクトップ環境を備えたものを含む多くのエディション/バリアントで利用可能です。MacOS風の外観にはCOSMICを選択してください。Fedoraは半ローリングディストリビューションで、安定性と最新状態を両立しています。Nvidiaドライバのインストールは簡単なものではない可能性があります。",
+      "cachyos": "KDE Plasmaデスクトップ環境を備えた（多くの！他の中で）パフォーマンスに最適化されたArchベースローリングディストリビューション。最初はゲーム準備ができていませんが、単一のメタパッケージ（cachyos-gaming-meta）をインストールすることで簡単にゲーム用に設定できます。一方、ハンドヘルドバージョンはゲーム準備ができています。ブロートが非常に少ないです。システムへの完全な制御を必要とするテクノロジーマニアに最適です。ターミナル経験が必要です。EndeavourOSに似ていますが、より事前構成されています。しかし、より基本的でカスタマイズの少ないArch体験をご希望の場合は、EndeavourOSを選択してください。",
+      "steamos": "Steam Deck、Steam Machine、Lenovo Legion Goなどのその他の機器に電力を供給するValveの公式ゲームOS。（独自のRAUCおよびdesync技術を使用）イミュータブル、ユーザーフレンドリー、ゲームに最適化されています。KDE Plasmaデスクトップ環境を備えています。ハンドヘルド向けにリリースされていますが、デスクトップ向けはまだです。",
+      "bazzite": "PCとハンドヘルドの両方に最適な（特別なエディションがあります）ゲーム用の（OSTreeを使用）イミュータブルLinuxディストリビューション。SteamOSの代替品。CachyOSよりもはるかにユーザーフレンドリー（ただしよりブロート）。公式サイトで調查して、ハードウェアがLinuxゲームをサポートしているかどうかを確認してください。システムを変更可能にしたい場合は（例：システムファイルの編集）、代わりにNobaraを選択してください。",
+      "lubuntu": "2004年から2011年の間に製造され、Windows XP/Vista用に設計され、1GBまたは2GBのRAMを備えたコンピュータに最適な、ユーザーフレンドリーな軽量Ubuntuバリアント。",
+      "antiX": "実行に最小256MBのRAMを必要とする超軽量ディストリビューション（アプリをスムーズに実行するためにより多く）。Windows XP用に設計された古いコンピュータに適しています。"
+    },
+    "userbases": {
+      "mint": "~3-5百万",
+      "kubuntu": "~1百万",
+      "zorin": "~2百万",
+      "popos": "~1-2百万",
+      "fedora": "~2百万",
+      "cachyos": "~50万（しかし急速に成長中）",
+      "steamos": "2000万以上（Steam Deck上）",
+      "bazzite": "~7万",
+      "lubuntu": "~40万",
+      "antiX": "~10万"
+    }
+  },
+  "panel": {
+    "basedOn": "ベース：",
+    "desktop": "デスクトップ：",
+    "desktops": "デスクトップ：",
+    "beginnerFriendly": "初心者向け：",
+    "userbase": "ユーザーベース：",
+    "visitWebsite": "ウェブサイトを訪問"
+  },
+  "modal": {
+    "additionalInfo": "追加情報",
+    "close": "閉じる",
+    "gallery": {
+      "noImages": "画像なし",
+      "previousImage": "前の画像",
+      "nextImage": "次の画像",
+      "closeGallery": "ギャラリーを閉じる"
+    },
+    "additionalContent": {
+      "intro": "このアプリケーションは、完全に初心者向けであり選択を簡素化することを目的としているため、他の人気のディストリビューション（<i>Arch Linux、Ubuntu、Debian、openSUSE、NixOS、Gentoo、Void、EndeavourOS、MX Linux、Nobara、Omarchy、Manjaro、elementaryOS、Solusなど</i>）、企業向けディストリビューション（<i>Red Hat、AlmaLinux</i>）、ニッチなディストリビューション（<i>Kali、Alpine</i>）を含みません。",
+      "installationTitle": "インストールとデュアルブートのヒント：",
+      "hint1": "Windowsの更新がLinuxのインストールを破損する可能性があるため、Linuxは別のディスクにインストールしてください。",
+      "hint2": "同じ理由で、Linuxがインストールされているディスクのパーティションサイズを変更するためにWindowsのツールを使用しないでください。",
+      "hint3": "RAMが限られたシステムでは、特に スワップファイル/パーティションを作成することを忘れないでください。",
+      "softwareTitle": "おすすめのソフトウェア。",
+      "browsers": "ブラウザ：Brave、Helium、Zen。",
+      "office": "オフィス：OnlyOffice、LibreOffice。",
+      "torrent": "トレントクライアント：qBittorrent。",
+      "diskAnalyzer": "ディスクアナライザー：Filelight（KDE/Qt）、Baobab（GNOME/GTK）、gdu（Rustで書かれたコマンドラインツール）。",
+      "localAI": "ローカルAI：LM Studio（Mistralモデルをお勧めします）。",
+      "softwareSupport": "拡張ソフトウェアサポート：Flatpak（Bazaarまたはソフトウェアセンター）、Distrobox（DistroShelf）。",
+      "windowsApps": "Windowsアプリの実行：Bottles、Winboat。",
+      "cleaners": "クリーナー：BleachBit、Stacer（イミュータブルシステムには不要）。",
+      "backup": "システムバックアップ：Timeshift（イミュータブルシステムには不要）。",
+      "nvidia": "Nvidia Shadow Playの代替：GPU Screen Recorder。",
+      "photoshop": "Photoshopの代替：Photoshopオンライン、Photopea、GIMP、Krita、Affinity（Bottles経由）、Canva（シンプルなタスク用）。",
+      "lightroom": "Lightroomの代替：Darktable。",
+      "illustrator": "Illustratorの代替：Inkscape。",
+      "premier": "Premier Proの代替：DaVinci Resolve。",
+      "ventoy": "複数のLinuxディストリビューションで起動可能なUSBを作成するための<i>Ventoy</i>。"
+    }
+  },
+  "quiz": {
+    "title": "クイッククイズ",
+    "goBack": "戻る",
+    "yourRecommendation": "おすすめ",
+    "restartTest": "テストを再試行",
+    "close": "閉じる",
+    "questions": {
+      "howToUse": "このディストリビューションをどのように使用したいですか？",
+      "regularUser": "ただの普通ユーザー",
+      "gaming": "ディストリビューションをゲーム用に事前設定してほしい / 携帯デバイスで使用したい",
+      "developer": "そこで開発したい",
+      "enthusiast": "できるだけ柔軟でブロートのないディストリビューションを求める技術愛好家です。システムに対して完全な制御を必要とし、ターミナルを調整して使用することを楽しんでいます。",
+      "recover": "古いPCを回復したい",
+      "whichLayout": "どのレイアウトが好みですか？",
+      "windowsLike": "Windows風",
+      "macosLike": "MacOS風",
+      "canEditSystem": "システムファイルを編集できるようにしたいですか？",
+      "yes": "はい",
+      "dontCare": "どちらでも構わない",
+      "howOld": "コンピュータの年齢は？",
+      "sluggish": "そんなに古くないが、遅い",
+      "before2011": "2011年前に製造",
+      "ancient": "本当に古い（2004年以前）"
+    },
+    "results": {
+      "regularWindows": "Linux Mint、Kubuntu、またはZorin OS—、好みのデザインによります。",
+      "regularMacos": "Pop!_OS。異なるレイアウト間を簡単に切り替えたい場合は、Zorin OSを選択してください。",
+      "gamingYes": "Nobara。その変更可能なシステムにより、システムファイルを編集し、必要なパッケージをインストールできます。ターミナルを使用することに慣れているなら、CachyOSも選択肢として考慮できます。",
+      "gamingNo": "Bazzite。このディストリビューションはPCとハンドヘルドの両方で利用可能です。ハンドヘルドがサポートされているならSteamOSも選択肢です（まだPCの公式サポートはありません）。ターミナルを使用することを楽しむ人々のためにCachyOSが三番目のオプションです。",
+      "developer": "Fedoraはあなたに的理想的な選択です。安定しており、最新のソフトウェアを提供します。さらに、好みに合わせてさまざまなデスクトップ環境から選択できます。それでも、Linux Mint、Kubuntu、Zorin OS、Pop!_OS、またはCachyOSも実行可能なオプションです。",
+      "enthusiast": "CachyOSはあなたのために作られたようですね。または、よりベースなArchに近いものをしたい場合は、EndeavourOSを試す価値があります。",
+      "oldSluggish": "Linux Mint Xfce",
+      "old2011": "Lubuntu",
+      "oldAncient": "AntiX"
+    }
+  },
+  "errors": {
+    "somethingWentWrong": "何か問題が発生しました",
+    "tryAgainLater": "後で再試行してください。",
+    "tryAgain": "再試行"
+  },
+  "loading": {
+    "loading": "読み込み中..."
+  },
+  "theme": {
+    "toggle": "ダークモードを切り替え"
+  },
+  "language": {
+    "toggle": "言語を変更"
+  }
+}

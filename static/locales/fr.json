@@ -1,0 +1,158 @@
+{
+  "app": {
+    "title": "Sélecteur de Distributions Linux",
+    "loadingDistributions": "Chargement des distributions...",
+    "failedToLoad": "Échec du chargement des données",
+    "noResults": "Aucune distribution ne correspond aux critères sélectionnés.",
+    "quickQuiz": "Quiz Rapide",
+    "startQuiz": "Démarrer le Quiz Rapide"
+  },
+  "filters": {
+    "title": "Filtrer par étiquettes",
+    "clearAll": "Effacer tous les filtres"
+  },
+  "tags": {
+    "gaming-ready": {
+      "name": "Prêt pour le Gaming",
+      "description": "Optimisé pour le gaming avec un bon support des pilotes et des apps spéciales préinstallées"
+    },
+    "lightweight": {
+      "name": "Léger",
+      "description": "Plus léger que la plupart des distributions populaires pour supporter le matériel ancien"
+    },
+    "traditional": {
+      "name": "Traditionnel",
+      "description": "Modèle de publication standard avec des mises à jour de version périodiques"
+    },
+    "rolling-release": {
+      "name": "Rolling Release",
+      "description": "Distribution continuellement mise à jour avec les dernières versions de logiciels"
+    },
+    "immutable": {
+      "name": "Immuable",
+      "description": "Distribution avec un noyau immuable et des mises à jour atomiques"
+    }
+  },
+  "distros": {
+    "recommended": "Distributions Recommandées",
+    "details": "Détails de la Distribution",
+    "info": "Informations supplémentaires",
+    "andMore": ", etc.",
+    "descriptions": {
+      "mint": "Existe depuis assez longtemps. Orienté communauté, stable et familier. L'édition principale propose l'environnement de bureau Cinnamon. Une distribution à usage général, peut aussi être utilisée pour le gaming, mais ne vient pas avec des outils spéciaux préinstallés. Fonctionne bien même sur des ordinateurs de 10-15 ans (avec SSD). Si votre ordinateur a un HDD ou seulement 2Go de RAM (possiblement de l'ère Windows 7), utilisez la version Xfce de Linux Mint — elle a des exigences matérielles similaires à Linux Lite et Xubuntu.",
+      "kubuntu": "Une distribution bien établie et fiable, basée sur Ubuntu avec l'environnement de bureau KDE Plasma. Soutenue par une énorme entreprise, Canonical. Exigences matérielles similaires à Linux Mint.",
+      "zorin": "Une distribution soignée focalisée sur l'attrait visuel, proposant l'environnement de bureau GNOME avec des animations 3D et plusieurs layouts prêts à l'emploi, incluant des styles MacOS et Windows. Exigences matérielles similaires à Linux Mint.",
+      "popos": "Créé par System76, proposant l'environnement de bureau COSMIC (style MacOS) et focalisé sur l'ergonomie. Il existe une version Nvidia. Bon pour le travail créatif et la productivité. Supporte les fenêtres en mosaïque. Pas le choix idéal pour le gaming.",
+      "kde-linux": "Une distribution Linux créée par KDE. Immuable (utilisant les instantanés Btrfs), simple et rapide. Pas encore publiée.",
+      "fedora": "Parfait pour les développeurs. Disponible en plusieurs éditions/variantes, dont une avec l'environnement de bureau KDE Plasma. Choisissez COSMIC pour un look MacOS. Fedora est une distribution semi-rolling, ce qui la rend à la fois stable et à jour. L'installation des pilotes Nvidia peut ne pas être simple.",
+      "cachyos": "Une distribution basée sur Arch à mises à jour continues, optimisée pour les performances, proposant l'environnement de bureau KDE Plasma (entre beaucoup d'autres). Bien que pas initialement prête pour le gaming, elle peut être facilement configurée en installant un seul métapaquet (cachyos-gaming-meta). L'édition pour handheld, par contre, est prête pour le gaming. Très peu de bloat. Parfait pour les enthousiastes tech qui veulent avoir un contrôle total sur leur système. Nécessite un peu d'expérience avec le terminal. Similaire à EndeavourOS, mais plus préconfigurée. Cependant, si vous préférez une expérience Arch plus basique avec moins de personnalisations, choisissez EndeavourOS.",
+      "steamos": "Un système d'exploitation gaming officiel de Valve qui alimente Steam Deck, Steam Machine et d'autres appareils comme Lenovo Legion Go. Immuable (utilisant ses propres technologies RAUC et desync), convivial et optimisé pour le gaming. Propose l'environnement de bureau KDE Plasma. Publié pour les handhelds, mais pas encore pour les ordinateurs de bureau.",
+      "bazzite": "Une distribution Linux gaming immuable (utilisant OSTree), parfaite pour les PC et les handhelds (a une édition spéciale pour eux). Une alternative à SteamOS. Beaucoup plus conviviale que CachyOS (mais plus bloated). Faites le sondage sur le site officiel pour voir si votre matériel supporte le gaming Linux. Si vous voulez que votre système soit mutable (ex. éditer les fichiers système), choisissez Nobara.",
+      "lubuntu": "Une variante Ubuntu légère et conviviale, parfaite pour les ordinateurs produits entre 2004 et 2011 conçus pour Windows XP/Vista avec 1 ou 2Go de RAM.",
+      "antiX": "Distribution ultralégère, requiert au minimum 256Mo de RAM pour fonctionner (plus pour exécuter les apps fluidement). Adaptée aux anciens ordinateurs conçus pour Windows XP."
+    },
+    "userbases": {
+      "mint": "~3-5 millions",
+      "kubuntu": "~1 million",
+      "zorin": "~2 millions",
+      "popos": "~1-2 millions",
+      "fedora": "~2 millions",
+      "cachyos": "~500k (mais en très forte croissance)",
+      "steamos": "20+ millions (sur Steam Deck)",
+      "bazzite": "~70k",
+      "lubuntu": "~400k",
+      "antiX": "~100k"
+    }
+  },
+  "panel": {
+    "basedOn": "Basé sur:",
+    "desktop": "Bureau:",
+    "desktops": "Bureaux:",
+    "beginnerFriendly": "Pour débutants:",
+    "userbase": "Base d'utilisateurs:",
+    "visitWebsite": "Visiter le site"
+  },
+  "modal": {
+    "additionalInfo": "Informations Supplémentaires",
+    "close": "Fermer",
+    "gallery": {
+      "noImages": "Pas d'images",
+      "previousImage": "Image précédente",
+      "nextImage": "Image suivante",
+      "closeGallery": "Fermer la galerie"
+    },
+    "additionalContent": {
+      "intro": "Cette app n'inclut pas d'autres distributions populaires (<i>comme Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, EndeavourOS, MX Linux, Nobara, Omarchy, Manjaro, elementaryOS, Solus, etc.</i>), distributions d'entreprise (<i>comme Red Hat, AlmaLinux</i>) et distributions de niche (<i>comme Kali, Alpine</i>) car elle est destinée aux débutants complets et vise à simplifier le choix.",
+      "installationTitle": "Conseils pour l'installation et le dual-boot:",
+      "hint1": "Installez Linux sur un disque séparé car les mises à jour Windows peuvent casser l'installation Linux.",
+      "hint2": "N'utilisez pas les outils Windows pour redimensionner les partitions sur le disque où Linux est installé pour la même raison.",
+      "hint3": "N'oubliez pas de créer un fichier/partage swap, spécialement sur les systèmes avec peu de RAM.",
+      "softwareTitle": "Logiciels que je recommande.",
+      "browsers": "Navigateurs: Brave, Helium, Zen.",
+      "office": "Bureautique: OnlyOffice, LibreOffice.",
+      "torrent": "Client Torrent: qBittorrent.",
+      "diskAnalyzer": "Analyseur de disque: Filelight (KDE/Qt), Baobab (GNOME/GTK), gdu (ligne de commande écrite en Rust).",
+      "localAI": "IA locale: LM Studio (je recommande le modèle Mistral).",
+      "softwareSupport": "Support logiciel étendu: Flatpak (Bazaar ou votre centre logiciel), Distrobox (DistroShelf).",
+      "windowsApps": "Exécuter des apps Windows: Bottles, Winboat.",
+      "cleaners": "Nettoyeurs: BleachBit, Stacer (pas nécessaires pour les systèmes immuables).",
+      "backup": "Sauvegarde système: Timeshift (pas nécessaire pour les systèmes immuables).",
+      "nvidia": "Alternative à Nvidia Shadow Play: GPU Screen Recorder.",
+      "photoshop": "Alternatives à Photoshop: Photoshop online, Photopea, GIMP, Krita, Affinity (via Bottles), Canva (pour les tâches simples).",
+      "lightroom": "Alternative à Lightroom: Darktable.",
+      "illustrator": "Alternative à Illustrator: Inkscape.",
+      "premier": "Alternative à Premier Pro: DaVinci Resolve.",
+      "ventoy": "<i>Ventoy</i> pour créer une clé USB amorçable avec plusieurs distributions Linux."
+    }
+  },
+  "quiz": {
+    "title": "Quiz Rapide",
+    "goBack": "Retour",
+    "yourRecommendation": "Votre Recommandation",
+    "restartTest": "Recommencer le Test",
+    "close": "Fermer",
+    "questions": {
+      "howToUse": "Comment souhaitez-vous utiliser la distribution?",
+      "regularUser": "Juste un utilisateur normal",
+      "gaming": "Je veux que ma distro soit préconfigurée pour le gaming / je veux l'utiliser sur un handheld",
+      "developer": "Je veux développer dessus",
+      "enthusiast": "Je suis un enthousiaste tech qui veut une distro la plus flexible et sans bloat possible. Je veux avoir un contrôle total sur mon système et j'aime bidouiller et utiliser le terminal.",
+      "recover": "Je veux récupérer mon vieux PC",
+      "whichLayout": "Quel design préférez-vous?",
+      "windowsLike": "Style Windows",
+      "macosLike": "Style MacOS",
+      "canEditSystem": "Voulez-vous pouvoir éditer les fichiers système?",
+      "yes": "Oui",
+      "dontCare": "Je m'en fiche",
+      "howOld": "Quel âge a votre ordinateur?",
+      "sluggish": "Pas très vieux, mais il rame",
+      "before2011": "Il a été produit avant 2011",
+      "ancient": "Il est vraiment ancien (2004 ou plus)"
+    },
+    "results": {
+      "regularWindows": "Linux Mint, Kubuntu ou Zorin OS—selon le design que vous préférez.",
+      "regularMacos": "Pop!_OS. Si vous voulez pouvoir basculer facilement entre différents layouts, allez avec Zorin OS.",
+      "gamingYes": "Nobara. Avec son système mutable, vous pourrez éditer les fichiers système et installer les paquets que vous voulez. Si vous êtes à l'aise avec le terminal, vous pouvez aussi opter pour CachyOS.",
+      "gamingNo": "Bazzite. La distribution est disponible pour les PC et les handhelds. Vous pouvez aussi opter pour SteamOS si votre handheld est supporté (ne supporte pas officiellement les PC pour le moment). CachyOS est la troisième option pour ceux qui aiment utiliser le terminal.",
+      "developer": "Fedora est votre choix idéal. Il est à la fois stable et propose des logiciels à jour. De plus, vous pouvez choisir parmi plusieurs environnements de bureau. Cela dit, des distributions comme Linux Mint, Kubuntu, Zorin OS, Pop!_OS ou CachyOS sont aussi des options viables.",
+      "enthusiast": "Il semble que CachyOS ait été faite pour vous. Ou, si vous voulez quelque chose de plus proche d'Arch basique, EndeavourOS vaut le détour.",
+      "oldSluggish": "Linux Mint Xfce",
+      "old2011": "Lubuntu",
+      "oldAncient": "AntiX"
+    }
+  },
+  "errors": {
+    "somethingWentWrong": "Quelque chose s'est mal passé",
+    "tryAgainLater": "Veuillez réessayer plus tard.",
+    "tryAgain": "Réessayer"
+  },
+  "loading": {
+    "loading": "Chargement..."
+  },
+  "theme": {
+    "toggle": "Basculer le mode sombre"
+  },
+  "language": {
+    "toggle": "Changer de langue"
+  }
+}

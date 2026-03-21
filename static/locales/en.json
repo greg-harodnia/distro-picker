@@ -1,0 +1,158 @@
+{
+  "app": {
+    "title": "Linux Distro Picker",
+    "loadingDistributions": "Loading distributions...",
+    "failedToLoad": "Failed to Load Data",
+    "noResults": "No distributions match your selected criteria.",
+    "quickQuiz": "Quick Quiz",
+    "startQuiz": "Start Quick Quiz"
+  },
+  "filters": {
+    "title": "Filter by Tags",
+    "clearAll": "Clear all filters"
+  },
+  "tags": {
+    "gaming-ready": {
+      "name": "Gaming Ready",
+      "description": "Optimized for gaming with good driver support and special apps preinstalled"
+    },
+    "lightweight": {
+      "name": "Lightweight",
+      "description": "Lighter than most of the popular distros to support older hardware"
+    },
+    "traditional": {
+      "name": "Traditional",
+      "description": "Standard release model with periodic version updates"
+    },
+    "rolling-release": {
+      "name": "Rolling Release",
+      "description": "Continuously updated distribution with the latest software versions"
+    },
+    "immutable": {
+      "name": "Immutable",
+      "description": "Distribution with an immutable core and atomic updates"
+    }
+  },
+  "distros": {
+    "recommended": "Recommended Distros",
+    "details": "Distribution Details",
+    "info": "Additional information",
+    "andMore": ", etc.",
+    "descriptions": {
+      "mint": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. A general-purpose distro, can be used for gaming too, but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers (with an SSD). If your computer has an HDD or just 2Gb of RAM (potentially Windows 7 era), use the Xfce version of Linux Mint — it has similar hardware requirements to Linux Lite and Xubuntu.",
+      "kubuntu": "A well-established and trusted distro, based on Ubuntu with the KDE Plasma desktop environment. It is backed by a huge corporation, Canonical. Similar hardware requirements to Linux Mint.",
+      "zorin": "A polished distro focused on visual appeal, featuring the Gnome desktop environment with 3D animations and various out-of-the-box layouts, including MacOS- and Windows-like ones. Similar hardware requirements to Linux Mint.",
+      "popos": "Built by System76, featuring the COSMIC desktop environment (MacOS-like) and focusing on usability. Has an Nvidia version available. Good for creative work and productivity. Has tiling windows support. Not an ideal choice for gaming.",
+      "kde-linux": "A Linux distribution built by KDE. Immutable (using Btrfs snapshots), simple and fast. Yet to be released.",
+      "fedora": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Choose COSMIC for MacOS look. Fedora is a semi-rolling distribution, making it both stable and up-to-date. Nvidia drivers installation may not be straightforward.",
+      "cachyos": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Perfect for tech enthusiasts, who want to have full control over their system. Requires some terminal experience. Similar to EndeavourOS, but it is more preconfigured. However, if you prefer a more barebones Arch experience with fewer customizations, choose EndeavourOS.",
+      "steamos": "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment. Released for handhelds, but yet to be released for desktops.",
+      "bazzite": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative. Much more user-friendly than CachyOS (but more bloated). Take a survey on the official website to see if your hardware supports the Linux gaming. If you want your system to be mutable (e.g. edit system files), choose Nobara instead.",
+      "lubuntu": "A user-friendly lightweight Ubuntu variant, perfect for computers produced between 2004 and 2011 designed for Windows XP/Vista with 1 or 2Gb of RAM.",
+      "antiX": "Ultra light distro, requires as minimum as 256Mb of RAM to run (more to run apps smoothly). Suitable for ancient computers designed for Windows XP."
+    },
+    "userbases": {
+      "mint": "~3-5 million",
+      "kubuntu": "~1 million",
+      "zorin": "~2 million",
+      "popos": "~1-2 million",
+      "fedora": "~2 million",
+      "cachyos": "~500k (but very fast growing)",
+      "steamos": "20+ million (on Steam Deck)",
+      "bazzite": "~70k",
+      "lubuntu": "~400k",
+      "antiX": "~100k"
+    }
+  },
+  "panel": {
+    "basedOn": "Based on:",
+    "desktop": "Desktop:",
+    "desktops": "Desktops:",
+    "beginnerFriendly": "Beginner friendly:",
+    "userbase": "Userbase:",
+    "visitWebsite": "Visit Website"
+  },
+  "modal": {
+    "additionalInfo": "Additional Information",
+    "close": "Close",
+    "gallery": {
+      "noImages": "No images",
+      "previousImage": "Previous image",
+      "nextImage": "Next image",
+      "closeGallery": "Close gallery"
+    },
+    "additionalContent": {
+      "intro": "This app doesn't include other popular distributions (<i>like, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, EndeavourOS, MX Linux, Nobara, Omarchy, Manjaro, elementaryOS, Solus, and so on</i>), enterprise-level distributions (<i>like, Red Hat, AlmaLinux</i>) and niche distributions (<i>like, Kali, Alpine</i>) as it's intended for complete beginners and aims to simplify the choice.",
+      "installationTitle": "Hints for installation and dual-booting:",
+      "hint1": "Install Linux on a separate disk as Windows updates may break the Linux installation.",
+      "hint2": "Don't use Windows tools to resize partitions on the disk where Linux is installed for the same reason.",
+      "hint3": "Don't forget to create a swap file/partition, especially on systems with limited RAM.",
+      "softwareTitle": "Software that I recommend.",
+      "browsers": "Browsers: Brave, Helium, Zen.",
+      "office": "Office: OnlyOffice, LibreOffice.",
+      "torrent": "Torrent client: qBittorrent.",
+      "diskAnalyzer": "Disk analyzer: Filelight (KDE/Qt), Baobab (Gnome/GTK), gdu (command-line written in Rust).",
+      "localAI": "Local AI: LM Studio (I recommend Mistral model).",
+      "softwareSupport": "Extended software support: Flatpak (Bazaar or your software center), Distrobox (DistroShelf).",
+      "windowsApps": "Running Windows apps: Bottles, Winboat.",
+      "cleaners": "Cleaners: BleachBit, Stacer (not needed for immutable systems).",
+      "backup": "System Backup: Timeshift (not needed for immutable systems).",
+      "nvidia": "Nvidia Shadow Play alternative: GPU Screen Recorder.",
+      "photoshop": "Photoshop alternatives: Photoshop online, Photopea, GIMP, Krita, Affinity (via Bottles), Canva (for simple tasks).",
+      "lightroom": "Lightroom alternative: Darktable.",
+      "illustrator": "Illustrator alternative: Inkscape.",
+      "premier": "Premier Pro alternative: DaVinci Resolve.",
+      "ventoy": "<i>Ventoy</i> for creating a bootable USB drive with multiple Linux distributions."
+    }
+  },
+  "quiz": {
+    "title": "Quick Quiz",
+    "goBack": "Go back",
+    "yourRecommendation": "Your Recommendation",
+    "restartTest": "Restart Test",
+    "close": "Close",
+    "questions": {
+      "howToUse": "How would you like to use the distribution?",
+      "regularUser": "Just a regular user",
+      "gaming": "I want my distro to be preconfigured for gaming / I want to use it on a handheld",
+      "developer": "I want to develop on it",
+      "enthusiast": "I'm a tech enthusiast who wants a distro that's as flexible and unbloated as possible. I want to have full control over my system, and I enjoy tweaking and using the terminal.",
+      "recover": "I want to recover my old PC with it",
+      "whichLayout": "Which layout do you prefer?",
+      "windowsLike": "Windows-like",
+      "macosLike": "MacOS-like",
+      "canEditSystem": "Do you want to be able to edit system files?",
+      "yes": "Yes",
+      "dontCare": "I don't care about it",
+      "howOld": "How old is your computer?",
+      "sluggish": "Not extremely old, but it feels sluggish",
+      "before2011": "It was produced before 2011",
+      "ancient": "It is truly ancient (2004 or older)"
+    },
+    "results": {
+      "regularWindows": "Linux Mint, Kubuntu, or Zorin OS—depending on which design you like more.",
+      "regularMacos": "Pop!_OS. If you would like to be able to easily switch between different layouts, go with Zorin OS.",
+      "gamingYes": "Nobara. With its mutable system, you'll be able to tweak system files and install any packages you want. If you're comfortable using the terminal, you can also go with CachyOS.",
+      "gamingNo": "Bazzite. The distribution is available for both PCs and handhelds. You can also go with SteamOS if it supports your handheld (it doesn't officially support PCs yet). CachyOS is the third option for those who enjoy using the terminal.",
+      "developer": "Fedora is your ideal choice. It's both stable and offers up-to-date software. Plus, you can choose from various desktop environments to suit your preferences. That said, distros like Linux Mint, Kubuntu, Zorin OS, Pop!_OS, or CachyOS are also viable options.",
+      "enthusiast": "Sounds like CachyOS was made for you. Or, if you want something even closer to barebones Arch, EndeavourOS is worth checking out.",
+      "oldSluggish": "Linux Mint Xfce",
+      "old2011": "Lubuntu",
+      "oldAncient": "AntiX"
+    }
+  },
+  "errors": {
+    "somethingWentWrong": "Something went wrong",
+    "tryAgainLater": "Please try again later.",
+    "tryAgain": "Try Again"
+  },
+  "loading": {
+    "loading": "Loading..."
+  },
+  "theme": {
+    "toggle": "Toggle dark mode"
+  },
+  "language": {
+    "toggle": "Change language"
+  }
+}

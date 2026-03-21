@@ -1,0 +1,158 @@
+{
+  "app": {
+    "title": "Linux 배포판 선택기",
+    "loadingDistributions": "배포판 로딩 중...",
+    "failedToLoad": "데이터 로드 실패",
+    "noResults": "선택한 기준에 맞는 배포판이 없습니다.",
+    "quickQuiz": "빠른 퀴즈",
+    "startQuiz": "빠른 퀴즈 시작"
+  },
+  "filters": {
+    "title": "태그로 필터",
+    "clearAll": "모든 필터 지우기"
+  },
+  "tags": {
+    "gaming-ready": {
+      "name": "게이밍 지원",
+      "description": "좋은 드라이버 지원과 특수 앱 사전 설치로 게이밍에 최적화됨"
+    },
+    "lightweight": {
+      "name": "경량",
+      "description": "오래된 하드웨어를 지원하기 위해 대부분의 인기 배포판보다 가벼움"
+    },
+    "traditional": {
+      "name": "트레이디셔널",
+      "description": "정기적인 버전 업데이트가 있는 표준 출시 모델"
+    },
+    "rolling-release": {
+      "name": "Rolling Release",
+      "description": "최신 소프트웨어 버전으로 지속적으로 업데이트되는 배포판"
+    },
+    "immutable": {
+      "name": "이뮤터블",
+      "description": "불변의 코어와 원자적 업데이트가 있는 배포판"
+    }
+  },
+  "distros": {
+    "recommended": "추천 배포판",
+    "details": "배포판 상세정보",
+    "info": "추가 정보",
+    "andMore": " 등",
+    "descriptions": {
+      "mint": "오래전에 존재해 왔습니다. 커뮤니티 기반, 안정적이며 익숙합니다. 주요 에디션은 Cinnamon 데스크탑 환경을 제공합니다. 범용 배포판으로, 게임에도 사용할 수 있지만 특수 도구가 사전 설치되어 있지 않습니다. SSD가 있는 10-15년 된 컴퓨터에서도 잘 작동합니다. 컴퓨터에 HDD가 있거나 RAM이 2GB만 있는 경우(아마도 Windows 7 시대), Linux Mint의 Xfce 버전을 사용하세요 — 하드웨어 요구사항이 Linux Lite 및 Xubuntu와 유사합니다.",
+      "kubuntu": "KDE Plasma 데스크탑 환경과 함께 Ubuntu 기반의 잘 확립되고 신뢰할 수 있는 배포판. 거대한 회사인 Canonical이 지원합니다. 하드웨어 요구사항이 Linux Mint와 유사합니다.",
+      "zorin": "시각적 매력에 중점을 둔 세련된 배포판으로, 3D 애니메이션과 MacOS 및 Windows 유사 레이아웃을 포함한 다양한 즉시 사용 가능한 레이아웃이 있는 GNOME 데스크탑 환경을 갖추고 있습니다. 하드웨어 요구사항이 Linux Mint와 유사합니다.",
+      "popos": "System76에서 만들었으며 (MacOS 유사) COSMIC 데스크탑 환경을 제공하고 사용성에 중점을 둡니다. Nvidia 버전이 있습니다. 창작 작업 및 생산성에 좋습니다. 타일링 창을 지원합니다. 게임에 이상적인 선택은 아닙니다.",
+      "kde-linux": "KDE에서 만든 Linux 배포판. (Btrfs 스냅샷 사용) 이뮤터블, 단순하고 빠릅니다. 아직 출시되지 않았습니다.",
+      "fedora": "개발자에게 완벽합니다. KDE Plasma 데스크탑 환경을 갖춘 것을 포함한 다양한 에디션/변형으로 제공됩니다. MacOS 모양을 원하면 COSMIC를 선택하세요. Fedora는 반 로링 배포판으로, 안정적이고 최신 상태를 유지합니다. Nvidia 드라이버 설치가 간단하지 않을 수 있습니다.",
+      "cachyos": "KDE Plasma 데스크탑 환경을 갖춘 (다른 많은 것 중에서) 성능에 최적화된 Arch 기반 로링 배포판. 처음에는 게임 준비가 되어 있지 않지만, 단일 메타 패키지(cachyos-gaming-meta)를 설치하여 쉽게 게임용으로 설정할 수 있습니다. 반면 휴대용 에디션은 게임 준비가 되어 있습니다. 블로트가 매우 적습니다. 시스템에 대한 완전한 제어를 원하는 기술 애호가에게 완벽합니다. 터미널 경험이 필요합니다. EndeavourOS와 유사하지만 더 사전 구성되어 있습니다. 그러나 더 기본적인 Arch 경험과 더 적은 커스터마이제를 원하면 EndeavourOS를 선택하세요.",
+      "steamos": "Steam Deck, Steam Machine 및 Lenovo Legion Go와 같은 기타 기기를 구동하는 Valve의 공식 게임 OS. (자체 RAUC 및 desync 기술 사용) 이뮤터블, 사용자 친화적이며 게임에 최적화되어 있습니다. KDE Plasma 데스크탑 환경을 갖추고 있습니다. 휴대용 기기용으로 출시되었지만 아직 데스크탑용으로는 아닙니다.",
+      "bazzite": "PC와 휴대용 기기 모두에 적합한 게임용 이뮤터블 (OSTree 사용) Linux 배포판 (특수 에디션 있음). SteamOS 대안. CachyOS보다 훨씬 사용자 친화적 (그러나 더 블로트). 공식 웹사이트에서 설문 조사를 작성하여 하드웨어가 Linux 게임을 지원하는지 확인하세요. 시스템을 이뮤터블하게 만들려면 (예: 시스템 파일 편집) 대신 Nobara를 선택하세요.",
+      "lubuntu": "2004년부터 2011년 사이에 제조되어 Windows XP/Vista용으로 설계되었고 1GB 또는 2GB의 RAM이 있는 컴퓨터에 적합한 사용자 친화적인 경량 Ubuntu 변형.",
+      "antiX": "실행에 최소 256MB의 RAM이 필요한 초경량 배포판 (앱을 부드럽게 실행하려면 더 필요). Windows XP용으로 설계된 고대 컴퓨터에 적합합니다."
+    },
+    "userbases": {
+      "mint": "~3-5백만",
+      "kubuntu": "~1백만",
+      "zorin": "~2백만",
+      "popos": "~1-2백만",
+      "fedora": "~2백만",
+      "cachyos": "~50만 (하지만 매우 빠르게 성장 중)",
+      "steamos": "2000만 이상 (Steam Deck에서)",
+      "bazzite": "~7만",
+      "lubuntu": "~40만",
+      "antiX": "~10만"
+    }
+  },
+  "panel": {
+    "basedOn": "기반:",
+    "desktop": "데스크탑:",
+    "desktops": "데스크탑:",
+    "beginnerFriendly": "초보자 친화적:",
+    "userbase": "사용자 기반:",
+    "visitWebsite": "웹사이트 방문"
+  },
+  "modal": {
+    "additionalInfo": "추가 정보",
+    "close": "닫기",
+    "gallery": {
+      "noImages": "이미지 없음",
+      "previousImage": "이전 이미지",
+      "nextImage": "다음 이미지",
+      "closeGallery": "갤러리 닫기"
+    },
+    "additionalContent": {
+      "intro": "이 앱은 완전한 초보자를 대상으로 하며 선택을 단순화하는 것을 목표로 하기 때문에 다른 인기 배포판(<i>Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, EndeavourOS, MX Linux, Nobara, Omarchy, Manjaro, elementaryOS, Solus 등</i>), 기업 배포판(<i>Red Hat, AlmaLinux</i>) 및 틈새 배포판(<i>Kali, Alpine</i>)을 포함하지 않습니다.",
+      "installationTitle": "설치 및 듀얼 부팅 힌트:",
+      "hint1": "Windows 업데이트가 Linux 설치를 손상시킬 수 있으므로 Linux를 별도의 디스크에 설치하세요.",
+      "hint2": "같은 이유로 Linux가 설치된 디스크의 파티션 크기를 조정하는 데 Windows 도구를 사용하지 마세요.",
+      "hint3": "특히 RAM이 제한된 시스템에서는 스왑 파일/파티션을 만드는 것을 잊지 마세요.",
+      "softwareTitle": "내가 추천하는 소프트웨어.",
+      "browsers": "브라우저: Brave, Helium, Zen.",
+      "office": "오피스: OnlyOffice, LibreOffice.",
+      "torrent": "토렌트 클라이언트: qBittorrent.",
+      "diskAnalyzer": "디스크 분석기: Filelight (KDE/Qt), Baobab (GNOME/GTK), gdu (Rust로 작성된 명령줄 프로그램).",
+      "localAI": "로컬 AI: LM Studio (Mistral 모델 추천).",
+      "softwareSupport": "확장 소프트웨어 지원: Flatpak (Bazaar 또는 소프트웨어 센터), Distrobox (DistroShelf).",
+      "windowsApps": "Windows 앱 실행: Bottles, Winboat.",
+      "cleaners": "클리너: BleachBit, Stacer (이뮤터블 시스템에 필요 없음).",
+      "backup": "시스템 백업: Timeshift (이뮤터블 시스템에 필요 없음).",
+      "nvidia": "Nvidia Shadow Play 대안: GPU Screen Recorder.",
+      "photoshop": "Photoshop 대안: Photoshop 온라인, Photopea, GIMP, Krita, Affinity (Bottles 통해), Canva (간단한 작업용).",
+      "lightroom": "Lightroom 대안: Darktable.",
+      "illustrator": "Illustrator 대안: Inkscape.",
+      "premier": "Premier Pro 대안: DaVinci Resolve.",
+      "ventoy": "여러 Linux 배포판으로 부팅 가능한 USB를 만들기 위한 <i>Ventoy</i>."
+    }
+  },
+  "quiz": {
+    "title": "빠른 퀴즈",
+    "goBack": "뒤로",
+    "yourRecommendation": "추천",
+    "restartTest": "테스트 다시 시작",
+    "close": "닫기",
+    "questions": {
+      "howToUse": "배포판을 어떻게 사용하고 싶으신가요?",
+      "regularUser": "그냥 일반 사용자",
+      "gaming": "제가 쓰는 배포판이 게임용으로 사전 설정되길 바람 / 휴대용 기기에서 사용하고 싶음",
+      "developer": "그 위에서 개발하고 싶음",
+      "enthusiast": "가능한 가장 유연하고 블로트 없는 배포판을 원하는 기술 애호가입니다. 제 시스템에 대한 완전한 제어를 원하며, 조정하고 터미널을 사용하는 것을 즐깁니다.",
+      "recover": "제 오래된 PC를 복구하고 싶음",
+      "whichLayout": "어떤 레이아웃을 선호하세요?",
+      "windowsLike": "Windows 스타일",
+      "macosLike": "MacOS 스타일",
+      "canEditSystem": "시스템 파일을 편집할 수 있기를 원하시나요?",
+      "yes": "네",
+      "dontCare": "상관없음",
+      "howOld": "컴퓨터가 얼마나 오래되었나요?",
+      "sluggish": "너무 오래되진 않았지만 느림",
+      "before2011": "2011년 전에 제조됨",
+      "ancient": "정말 오래됨 (2004년 이상)"
+    },
+    "results": {
+      "regularWindows": "Linux Mint, Kubuntu 또는 Zorin OS — 어떤 디자인을 더 좋아하는지에 따릅니다.",
+      "regularMacos": "Pop!_OS. 다른 레이아웃 간에 쉽게 전환할 수 있게 하려면 Zorin OS를 선택하세요.",
+      "gamingYes": "Nobara. 변경 가능한 시스템 덕분에 시스템 파일을 편집하고 원하는 패키지를 설치할 수 있습니다. 터미널 사용에 익숙하다면 CachyOS도 선택지로 고려할 수 있습니다.",
+      "gamingNo": "Bazzite. 이 배포판은 PC와 휴대용 기기 모두에서 이용 가능합니다. 호환되는 휴대용 기기가 있다면 SteamOS도 선택지입니다 (아직은 공식 PC 지원 없음). 터미널 사용을 즐기는 분들을 위해 CachyOS가 세 번째 옵션입니다.",
+      "developer": "Fedora는 당신에게 완벽한 선택입니다. 안정적이며 최신 소프트웨어를 제공합니다. 또한 다양한 데스크탑 환경 중에서 선택할 수 있습니다. 그래도 Linux Mint, Kubuntu, Zorin OS, Pop!_OS 또는 CachyOS도 실행 가능한 옵션입니다.",
+      "enthusiast": "CachyOS가 당신을 위해 만들어진 것 같습니다. 또는 더 기본적인 Arch에 가까운 것을 원한다면 EndeavourOS를 시도해 볼 가치가 있습니다.",
+      "oldSluggish": "Linux Mint Xfce",
+      "old2011": "Lubuntu",
+      "oldAncient": "AntiX"
+    }
+  },
+  "errors": {
+    "somethingWentWrong": "문제가 발생했습니다",
+    "tryAgainLater": "나중에 다시 시도해 주세요.",
+    "tryAgain": "다시 시도"
+  },
+  "loading": {
+    "loading": "로딩 중..."
+  },
+  "theme": {
+    "toggle": "다크 모드 전환"
+  },
+  "language": {
+    "toggle": "언어 변경"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "app": {
+    "title": "Linux发行版选择器",
+    "loadingDistributions": "正在加载发行版...",
+    "failedToLoad": "加载数据失败",
+    "noResults": "没有符合所选条件的发行版。",
+    "quickQuiz": "快速测验",
+    "startQuiz": "开始快速测验"
+  },
+  "filters": {
+    "title": "按标签筛选",
+    "clearAll": "清除所有筛选"
+  },
+  "tags": {
+    "gaming-ready": {
+      "name": "游戏就绪",
+      "description": "针对游戏优化，拥有良好的驱动支持，并预装了专用应用程序"
+    },
+    "lightweight": {
+      "name": "轻量级",
+      "description": "比大多数流行发行版更轻量，以支持老旧硬件"
+    },
+    "traditional": {
+      "name": "传统版",
+      "description": "标准发布模式，具有定期版本更新"
+    },
+    "rolling-release": {
+      "name": "滚动更新",
+      "description": "持续更新的发行版，始终使用最新版本的软件"
+    },
+    "immutable": {
+      "name": "不可变",
+      "description": "具有不可变核心和原子更新的发行版"
+    }
+  },
+  "distros": {
+    "recommended": "推荐的发行版",
+    "details": "发行版详情",
+    "info": "附加信息",
+    "andMore": "等",
+    "descriptions": {
+      "mint": "已经存在很长时间了。由社区驱动，稳定且熟悉。主要版本提供Cinnamon桌面环境。通用发行版，也可用于游戏，但没有预装特殊工具。即使在10-15年前的电脑上也能良好运行（带SSD）。如果您的电脑有HDD或只有2GB内存（可能是Windows 7时代的），请使用Linux Mint的Xfce版本——其硬件要求与Linux Lite和Xubuntu类似。",
+      "kubuntu": "一个成熟可靠的发行版，基于Ubuntu，使用KDE Plasma桌面环境。由大型公司Canonical支持。硬件要求与Linux Mint类似。",
+      "zorin": "一个注重视觉吸引力的精致发行版，使用带有3D动画的GNOME桌面环境，并提供多种现成布局，包括类似MacOS和Windows的布局。硬件要求与Linux Mint类似。",
+      "popos": "由System76创建，使用类似MacOS的COSMIC桌面环境，注重可用性。有Nvidia版本可供选择。适合创意工作和提高效率。支持平铺窗口。不是游戏的理想选择。",
+      "kde-linux": "由KDE创建的Linux发行版。不可变（使用Btrfs快照），简单快速。尚未发布。",
+      "fedora": "开发者的理想选择。提供多种版本/变体，包括使用KDE Plasma桌面环境的版本。选择COSMIC可以获得MacOS外观。Fedora是一个半滚动发行版，使其既稳定又最新。Nvidia驱动程序的安装可能不简单。",
+      "cachyos": "基于Arch的滚动更新发行版，针对性能优化，提供KDE Plasma桌面环境（以及许多其他）。虽然最初没有游戏就绪，但可以通过安装单个元包（cachyos-gaming-meta）轻松设置为游戏做好准备。另一方面，掌机版已经游戏就绪。几乎没有膨胀软件。非常适合想要完全控制系统的技术爱好者。需要一些终端经验。类似于EndeavourOS，但预配置更多。但是，如果您更喜欢更精简的Arch体验和更少的自定义，请选择EndeavourOS。",
+      "steamos": "Valve的官方游戏操作系统，为Steam Deck、Steam Machine和其他设备（如联想Legion Go）提供支持。不可变（使用其自己的RAUC和desync技术），用户友好且针对游戏优化。具有KDE Plasma桌面环境。为掌机发布，但尚未发布桌面版。",
+      "bazzite": "一款适合游戏和PC及掌机的不可变（使用OSTree）Linux发行版。SteamOS的替代品。比CachyOS用户友好得多（但膨胀软件更多）。在官方网站上填写调查问卷，看看您的硬件是否支持Linux游戏。如果您希望系统是可变的（例如编辑系统文件），请改选Nobara。",
+      "lubuntu": "用户友好的轻量级Ubuntu变体，非常适合2004年至2011年间生产的、专为Windows XP/Vista设计的、配备1或2GB内存的电脑。",
+      "antiX": "超轻量级发行版，运行只需最少256MB内存（更多内存可更流畅运行应用程序）。适合为Windows XP设计的古老电脑。"
+    },
+    "userbases": {
+      "mint": "~3-5百万",
+      "kubuntu": "~1百万",
+      "zorin": "~2百万",
+      "popos": "~1-2百万",
+      "fedora": "~2百万",
+      "cachyos": "~50万（但增长非常快）",
+      "steamos": "2000万以上（在Steam Deck上）",
+      "bazzite": "~7万",
+      "lubuntu": "~40万",
+      "antiX": "~10万"
+    }
+  },
+  "panel": {
+    "basedOn": "基于：",
+    "desktop": "桌面：",
+    "desktops": "桌面：",
+    "beginnerFriendly": "适合初学者：",
+    "userbase": "用户群：",
+    "visitWebsite": "访问网站"
+  },
+  "modal": {
+    "additionalInfo": "附加信息",
+    "close": "关闭",
+    "gallery": {
+      "noImages": "没有图片",
+      "previousImage": "上一张图片",
+      "nextImage": "下一张图片",
+      "closeGallery": "关闭图库"
+    },
+    "additionalContent": {
+      "intro": "此应用程序不包括其他流行发行版（<i>如Arch Linux、Ubuntu、Debian、openSUSE、NixOS、Gentoo、Void、EndeavourOS、MX Linux、Nobara、Omarchy、Manjaro、elementaryOS、Solus等</i>）、企业级发行版（<i>如Red Hat、AlmaLinux</i>）和利基发行版（<i>如Kali、Alpine</i>），因为它面向完全初学者，旨在简化选择。",
+      "installationTitle": "安装和双系统启动提示：",
+      "hint1": "将Linux安装在单独的磁盘上，因为Windows更新可能会破坏Linux安装。",
+      "hint2": "出于同样原因，不要使用Windows工具调整安装了Linux的磁盘上的分区大小。",
+      "hint3": "不要忘记创建交换文件/分区，尤其是在内存有限的系统上。",
+      "softwareTitle": "我推荐的软件。",
+      "browsers": "浏览器：Brave、Helium、Zen。",
+      "office": "办公：OnlyOffice、LibreOffice。",
+      "torrent": "种子客户端：qBittorrent。",
+      "diskAnalyzer": "磁盘分析器：Filelight（KDE/Qt）、Baobab（GNOME/GTK）、gdu（用Rust编写的命令行程序）。",
+      "localAI": "本地AI：LM Studio（推荐Mistral模型）。",
+      "softwareSupport": "扩展软件支持：Flatpak（Bazaar或您的软件中心）、Distrobox（DistroShelf）。",
+      "windowsApps": "运行Windows应用程序：Bottles、Winboat。",
+      "cleaners": "清理工具：BleachBit、Stacer（不可变系统不需要）。",
+      "backup": "系统备份：Timeshift（不可变系统不需要）。",
+      "nvidia": "Nvidia Shadow Play替代品：GPU Screen Recorder。",
+      "photoshop": "Photoshop替代品：Photoshop在线版、Photopea、GIMP、Krita、Affinity（通过Bottles）、Canva（用于简单任务）。",
+      "lightroom": "Lightroom替代品：Darktable。",
+      "illustrator": "Illustrator替代品：Inkscape。",
+      "premier": "Premier Pro替代品：DaVinci Resolve。",
+      "ventoy": "<i>Ventoy</i>用于创建可引导的USB驱动器，可包含多个Linux发行版。"
+    }
+  },
+  "quiz": {
+    "title": "快速测验",
+    "goBack": "返回",
+    "yourRecommendation": "您的推荐",
+    "restartTest": "重新开始测验",
+    "close": "关闭",
+    "questions": {
+      "howToUse": "您想如何使用这个发行版？",
+      "regularUser": "普通用户",
+      "gaming": "我希望我的发行版预配置为游戏就绪 / 我想在掌机上使用它",
+      "developer": "我想在上面开发",
+      "enthusiast": "我是一个技术爱好者，想要一个尽可能灵活且无膨胀软件的发行版。我想完全控制我的系统，我喜欢调整和使用终端。",
+      "recover": "我想用它来恢复我的旧电脑",
+      "whichLayout": "您更喜欢哪种布局？",
+      "windowsLike": "类似Windows",
+      "macosLike": "类似MacOS",
+      "canEditSystem": "您想能够编辑系统文件吗？",
+      "yes": "是",
+      "dontCare": "我不在乎",
+      "howOld": "您的电脑有多旧？",
+      "sluggish": "不是非常旧，但感觉运行缓慢",
+      "before2011": "2011年以前生产",
+      "ancient": "真的很古老（2004年或更早）"
+    },
+    "results": {
+      "regularWindows": "Linux Mint、Kubuntu或Zorin OS——取决于您更喜欢哪种设计。",
+      "regularMacos": "Pop!_OS。如果您想能够轻松切换不同的布局，请选择Zorin OS。",
+      "gamingYes": "Nobara。通过其可变系统，您将能够编辑系统文件并安装任何您想要的软件包。如果您对使用终端感到舒适，也可以选择CachyOS。",
+      "gamingNo": "Bazzite。该发行版适用于PC和掌机。如果SteamOS支持您的掌机，您也可以选择它（目前尚未正式支持PC）。CachyOS是第三个选项，适合喜欢使用终端的人。",
+      "developer": "Fedora是您的理想选择。它既稳定又提供最新的软件。此外，您可以从各种桌面环境中进行选择。不过，Linux Mint、Kubuntu、Zorin OS、Pop!_OS或CachyOS也是可行的选择。",
+      "enthusiast": "看起来CachyOS就是为您量身打造的。或者，如果您想要更接近精简Arch的东西，值得一试EndeavourOS。",
+      "oldSluggish": "Linux Mint Xfce",
+      "old2011": "Lubuntu",
+      "oldAncient": "AntiX"
+    }
+  },
+  "errors": {
+    "somethingWentWrong": "出了点问题",
+    "tryAgainLater": "请稍后重试。",
+    "tryAgain": "重试"
+  },
+  "loading": {
+    "loading": "加载中..."
+  },
+  "theme": {
+    "toggle": "切换深色模式"
+  },
+  "language": {
+    "toggle": "切换语言"
+  }
+}

@@ -1,38 +1,24 @@
-import { translations as en } from './translations/en';
+import { translations as en } from '$lib/locales/en';
 
 export type Language = 'en' | 'be' | 'uk' | 'pl' | 'ru' | 'zh' | 'ja' | 'vi' | 'ko' | 'th' | 'es' | 'pt' | 'tr' | 'de' | 'fr' | 'it' | 'id';
 
-const translationModules: Record<string, () => Promise<{ translations: typeof en }>> = {
-  be: () => import('./translations/be'),
-  uk: () => import('./translations/uk'),
-  pl: () => import('./translations/pl'),
-  ru: () => import('./translations/ru'),
-  zh: () => import('./translations/zh'),
-  ja: () => import('./translations/ja'),
-  vi: () => import('./translations/vi'),
-  ko: () => import('./translations/ko'),
-  th: () => import('./translations/th'),
-  es: () => import('./translations/es'),
-  pt: () => import('./translations/pt'),
-  tr: () => import('./translations/tr'),
-  de: () => import('./translations/de'),
-  fr: () => import('./translations/fr'),
-  it: () => import('./translations/it'),
-  id: () => import('./translations/id'),
-};
+type Translations = typeof en;
 
-const translationCache: Partial<Record<Language, typeof en>> = {
+const translationCache: Partial<Record<Language, Translations>> = {
   en,
 };
 
+async function loadLang(lang: Language): Promise<Translations> {
+  const url = `/locales/${lang}.json`;
+  const response = await fetch(url);
+  if (!response.ok) return en;
+  const data = await response.json() as Translations;
+  return data;
+}
+
 export async function loadTranslation(lang: Language): Promise<void> {
   if (lang === 'en' || translationCache[lang]) return;
-
-  const loader = translationModules[lang];
-  if (loader) {
-    const module = await loader();
-    translationCache[lang] = module.translations;
-  }
+  translationCache[lang] = await loadLang(lang);
 }
 
 export async function loadTranslations(langs: Language[]): Promise<void> {
