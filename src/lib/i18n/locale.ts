@@ -1,5 +1,5 @@
 import { writable, derived } from 'svelte/store';
-import { getTranslation, type Language } from './translations';
+import { getTranslation, loadTranslation, type Language } from './translations';
 
 interface LanguageConfig {
   code: Language;
@@ -138,10 +138,11 @@ function createLocaleStore() {
 
   return {
     subscribe,
-    set: (lang: Language) => {
+    set: async (lang: Language) => {
       if (typeof window !== 'undefined') {
         localStorage.setItem('language', lang);
       }
+      await loadTranslation(lang);
       set(lang);
     },
     toggle: () => {
@@ -156,17 +157,20 @@ function createLocaleStore() {
         return newLang;
       });
     },
-    init: () => {
+    init: async () => {
       if (typeof window !== 'undefined') {
         const stored = localStorage.getItem('language') as Language | null;
+        let lang: Language = 'en';
+
         if (stored && languageConfigs.some(c => c.code === stored)) {
-          set(stored);
-          return;
+          lang = stored;
+        } else {
+          lang = detectLanguage();
+          localStorage.setItem('language', lang);
         }
 
-        const detected = detectLanguage();
-        set(detected);
-        localStorage.setItem('language', detected);
+        await loadTranslation(lang);
+        set(lang);
       }
     },
   };

@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
 	import { base } from '$app/paths';
+	import { onMount } from 'svelte';
 	import { t, locale } from '$lib/i18n/locale';
 	
 	const siteUrl = 'https://greg-harodnia.github.io/distro-picker';
@@ -26,9 +27,9 @@
 
 	export const prerender = true;
 
-	if (browser) {
+	onMount(() => {
 		locale.init();
-	}
+	});
 </script>
 
 <svelte:head>
