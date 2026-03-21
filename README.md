@@ -54,6 +54,7 @@ distro-picker/
 │   │   ├── i18n/
 │   │   │   ├── locale.ts
 │   │   │   └── translations.ts
+│   │   ├── locales/          # English type definition (en.ts)
 │   │   ├── stores/
 │   │   ├── supabase.ts
 │   │   ├── types/
@@ -64,6 +65,7 @@ distro-picker/
 │       ├── +layout.svelte
 │       └── +page.svelte
 ├── static/
+│   ├── locales/              # Translation files (edit JSON to add/edit languages)
 │   └── screenshots/
 ├── package.json
 ├── svelte.config.js
@@ -83,10 +85,42 @@ distro-picker/
 
 ## 🌐 Supported Languages
 
-The app supports the following languages for browsers and search engines:
-- **English (en)** - Default language
-- **Belarusian (be)** - Беларуская
+The app supports **17 languages** with automatic detection based on browser language and timezone:
 
-Language detection is based on browser language preferences and system timezone.
+| Language | Code | Native Name | Auto-Detect Method |
+|----------|------|-------------|-------------------|
+| English | `en` | English | Browser default |
+| Belarusian | `be` | Беларуская | Browser (`be`, `be-BY`) + Timezone (`Europe/Minsk`) |
+| Ukrainian | `uk` | Українська | Browser (`uk`, `uk-UA`) + Timezone (`Europe/Kyiv`) |
+| Polish | `pl` | Polski | Browser (`pl`, `pl-PL`) + Timezone (`Europe/Warsaw`) |
+| Russian | `ru` | Русский | Browser (`ru`, `ru-RU`) + Multiple Russian timezones |
+| Spanish | `es` | Español | Browser (`es`, `es-ES`, etc.) |
+| Portuguese | `pt` | Português | Browser + Timezone (`America/Sao_Paulo`, `Europe/Lisbon`) |
+| German | `de` | Deutsch | Browser + Timezone (`Europe/Berlin`, `Europe/Vienna`) |
+| French | `fr` | Français | Browser + Timezone (`Europe/Paris`, `America/Montreal`) |
+| Italian | `it` | Italiano | Browser + Timezone (`Europe/Rome`) |
+| Turkish | `tr` | Türkçe | Browser + Timezone (`Europe/Istanbul`) |
+| Vietnamese | `vi` | Tiếng Việt | Browser + Timezone (`Asia/Ho_Chi_Minh`) |
+| Indonesian | `id` | Bahasa Indonesia | Browser + Timezone (`Asia/Jakarta`) |
+| Thai | `th` | ไทย | Browser + Timezone (`Asia/Bangkok`) |
+| Chinese | `zh` | 简体中文 | Browser + Timezone (`Asia/Shanghai`, `Asia/Tokyo`) |
+| Japanese | `ja` | 日本語 | Browser + Timezone (`Asia/Tokyo`) |
+| Korean | `ko` | 한국어 | Browser + Timezone (`Asia/Seoul`) |
+
+### Language Detection
+
+Language is automatically detected based on:
+1. **Browser language** - Uses `navigator.language` with fallback
+2. **System timezone** - Some languages are also detected by timezone (e.g., Minsk → Belarusian)
+
+Users can manually switch languages using the language toggle. The selected language is stored in `localStorage`.
+
+### Lazy Loading
+
+To optimize performance, translations are lazy-loaded:
+- **English** - Bundled with the app (fallback language)
+- **Other languages** - Loaded on-demand as JSON files (`/locales/{lang}.json`)
+- Each language file is ~10-16 KB
+- Total non-English translations: ~200 KB (loaded only when needed)
 
 <br>**Find Your Perfect Linux Distribution Today! 🐧**
