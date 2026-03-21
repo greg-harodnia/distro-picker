@@ -1,4 +1,5 @@
 import { translations as en } from '$lib/locales/en';
+import { base } from '$app/paths';
 
 export type Language = 'en' | 'be' | 'uk' | 'pl' | 'ru' | 'zh' | 'ja' | 'vi' | 'ko' | 'th' | 'es' | 'pt' | 'tr' | 'de' | 'fr' | 'it' | 'id';
 
@@ -9,9 +10,12 @@ const translationCache: Partial<Record<Language, Translations>> = {
 };
 
 async function loadLang(lang: Language): Promise<Translations> {
-  const url = `/locales/${lang}.json`;
+  const url = `${base}/locales/${lang}.json`;
   const response = await fetch(url);
-  if (!response.ok) return en;
+  if (!response.ok) {
+    console.error(`Failed to load translation ${lang} from ${url}: ${response.status}`);
+    return en;
+  }
   const data = await response.json() as Translations;
   return data;
 }

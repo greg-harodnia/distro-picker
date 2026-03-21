@@ -169,8 +169,10 @@ function createLocaleStore() {
           localStorage.setItem('language', lang);
         }
 
+        console.log('Initializing language:', lang);
         await loadTranslation(lang);
         set(lang);
+        console.log('Language set to:', lang);
       }
     },
   };
