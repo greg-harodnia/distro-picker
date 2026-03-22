@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { getDistroIconPath } from '$lib/utils';
-    import { base } from '$app/paths';
+  import { base } from '$app/paths';
+	import { observeImage } from '$lib/utils/imageObserver';
 
 	export let distroId: string;
 	export let alt: string;
@@ -9,9 +10,9 @@
 	export let customClass: string = '';
 
 	let imgElement: HTMLImageElement;
-	let observer: IntersectionObserver;
 	let isLoaded = false;
 	let isError = false;
+	let unobserve: (() => void) | null = null;
 
 	const sizes = {
 		small: { width: 48, height: 48 },
@@ -19,41 +20,18 @@
 		large: { width: 96, height: 96 }
 	};
 
-	$: currentSize = sizes[size];
-	$: iconPath = `${base}${getDistroIconPath(distroId)}`;
+	const iconPath = `${base}${getDistroIconPath(distroId)}`;
+	const currentSize = sizes[size];
 
 	onMount(() => {
-		if ('IntersectionObserver' in window) {
-			observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							const target = entry.target as HTMLImageElement;
-							target.src = iconPath;
-							observer.unobserve(target);
-						}
-					});
-				},
-				{
-					rootMargin: '50px 0px',
-					threshold: 0.1
-				}
-			);
-
-			if (imgElement) {
-				observer.observe(imgElement);
-			}
-		} else {
-			// Fallback for browsers that don't support IntersectionObserver
-			if (imgElement) {
-				imgElement.src = iconPath;
-			}
+		if (imgElement) {
+			unobserve = observeImage(imgElement, iconPath);
 		}
 	});
 
 	onDestroy(() => {
-		if (observer) {
-			observer.disconnect();
+		if (unobserve) {
+			unobserve();
 		}
 	});
 
@@ -63,23 +41,22 @@
 
 	function handleError() {
 		isError = true;
-		// Try loading fallback icon
 		if (imgElement && iconPath !== `${base}/linux.webp`) {	
 			imgElement.src = `${base}/linux.webp`;	
 		}
 	}
 </script>
 
-<div class="optimized-image-container {customClass}" class:size class:loaded={isLoaded} class:error={isError}>
+<div class="optimized-image-container {customClass}" class:loaded={isLoaded} class:error={isError}>
 	<img
 		bind:this={imgElement}
 		alt={alt}
 		width={currentSize.width}
 		height={currentSize.height}
-		class="optimized-image"
+		class="optimized-image size-{size}"
 		on:load={handleLoad}
 		on:error={handleError}
-		style={`object-fit: contain;`}
+		style="object-fit: contain;"
 		loading="lazy"
 		decoding="async"
 	/>
@@ -109,7 +86,6 @@
 		right: 0;
 		bottom: 0;
 		background: var(--color-border-light);
-		animation: shimmer 1.5s infinite;
 	}
 
 	.loaded .optimized-image {
@@ -124,37 +100,18 @@
 		opacity: 0.5;
 	}
 
-	.optimized-image-container.small {
+	.size-small {
 		width: 48px;
 		height: 48px;
 	}
 
-	.optimized-image-container.medium {
+	.size-medium {
 		width: 64px;
 		height: 64px;
 	}
 
-	.optimized-image-container.large {
+	.size-large {
 		width: 96px;
 		height: 96px;
-	}
-
-	@keyframes shimmer {
-		0% {
-			background: var(--color-border-light);
-		}
-		50% {
-			background: var(--color-border);
-		}
-		100% {
-			background: var(--color-border-light);
-		}
-	}
-
-	/* Fallback animation for unsupported browsers */
-	@supports not (display: grid) {
-		.optimized-image-container {
-			display: inline-block;
-		}
 	}
 </style>

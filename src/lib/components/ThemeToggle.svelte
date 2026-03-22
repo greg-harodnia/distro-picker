@@ -5,7 +5,6 @@
 	let isDark = false;
 
 	onMount(() => {
-		// Initialize theme from localStorage or system preference
 		const storedTheme = localStorage.getItem('theme');
 		if (storedTheme === 'light' || storedTheme === 'dark') {
 			themeActions.set(storedTheme);
@@ -14,16 +13,13 @@
 			themeActions.set(systemPreference);
 		}
 
-		// Subscribe to theme changes
-		const unsubscribe = theme.subscribe(value => {
+		const unsubscribe = theme.subscribe((value: string) => {
 			isDark = value === 'dark';
-			// Update DOM
 			if (value === 'dark') {
 				document.documentElement.classList.add('dark');
 			} else {
 				document.documentElement.classList.remove('dark');
 			}
-			// Save to localStorage
 			localStorage.setItem('theme', value);
 		});
 
@@ -37,7 +33,7 @@
 
 <button
 	type="button"
-	class="theme-toggle"
+	class="theme-toggle btn-toggle"
 	on:click={toggleTheme}
 	aria-label="Toggle dark mode"
 	title="Toggle dark mode"
@@ -63,30 +59,13 @@
 
 <style>
 	.theme-toggle {
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		width: 44px;
 		height: 44px;
-		border: none;
-		border-radius: var(--radius-md);
-		background: var(--color-surface);
-		color: var(--color-text);
-		cursor: pointer;
-		transition: var(--transition-normal);
-		box-shadow: var(--shadow-sm);
 	}
 
 	.theme-toggle:hover {
-		background: var(--color-background-secondary);
-		box-shadow: var(--shadow-md);
 		transform: translateY(-1px);
 	}
-
-	/* .theme-toggle:focus {
-		outline: 2px solid var(--color-primary);
-		outline-offset: 2px;
-	} */
 
 	.theme-toggle:active {
 		transform: translateY(0);

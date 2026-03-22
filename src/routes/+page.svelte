@@ -53,19 +53,14 @@
 					.from('distros')
 					.select('name, likes');
 				
-				console.log('Likes data:', likesData);
-				console.log('Likes error:', likesError);
-				
 				if (likesError) {
 					console.error('Failed to fetch likes:', likesError);
 				}
 				
 				const userLikes = getLikedDistros();
-				console.log('User likes (local):', userLikes);
 
 				const distrosWithLikes = loadedDistros.map(distro => {
 					const likeInfo = likesData?.find(l => l.name === distro.id);
-					console.log(`Distro ${distro.id}: likes =`, likeInfo?.likes);
 					return {
 						...distro,
 						likes: likeInfo?.likes ?? 0,

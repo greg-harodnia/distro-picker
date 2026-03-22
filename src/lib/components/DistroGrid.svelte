@@ -2,7 +2,7 @@
 	import type { Distro } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
 	import OptimizedImage from '$lib/components/OptimizedImage.svelte';
-	import { supabase, getLikedDistros, setLikedDistro, removeLikedDistro } from '$lib/supabase';
+	import { supabase, setLikedDistro, removeLikedDistro } from '$lib/supabase';
 	import { t } from '$lib/i18n/locale';
 
 	export let distros: Distro[] = [];
@@ -30,8 +30,6 @@
 			.from('distros')
 			.update({ likes: newLikes })
 			.eq('name', distro.id);
-
-		console.log('Update likes error:', error);
 
 		if (!error) {
 			distro.likes = newLikes;
@@ -121,10 +119,6 @@
 		box-shadow: var(--shadow-xl);
 		border-color: var(--color-primary);
 	}
-
-	/* .distro-card:focus {
-		box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
-	} */
 
 	.distro-card.selected {
 		border-color: var(--color-primary);

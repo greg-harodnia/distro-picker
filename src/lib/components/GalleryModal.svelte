@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { t } from '$lib/i18n/locale';
+	import { lockBodyScroll } from '$lib/utils/body';
 
 	export let images: string[] = [];
 	export let distroName: string = '';
@@ -8,6 +9,7 @@
 	const dispatch = createEventDispatcher();
 
 	let currentIndex = 0;
+	let preloadIndexes: number[] = [];
 
 	function close() {
 		dispatch('close');
@@ -15,10 +17,18 @@
 
 	function prev() {
 		currentIndex = (currentIndex - 1 + images.length) % images.length;
+		preloadAdjacent();
 	}
 
 	function next() {
 		currentIndex = (currentIndex + 1) % images.length;
+		preloadAdjacent();
+	}
+
+	function preloadAdjacent() {
+		const prevIdx = (currentIndex - 1 + images.length) % images.length;
+		const nextIdx = (currentIndex + 1) % images.length;
+		preloadIndexes = [prevIdx, nextIdx];
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
@@ -32,9 +42,10 @@
 	}
 
 	onMount(() => {
-		document.body.style.overflow = 'hidden';
+		lockBodyScroll(true);
+		preloadAdjacent();
 		return () => {
-			document.body.style.overflow = '';
+			lockBodyScroll(false);
 		};
 	});
 </script>
@@ -54,7 +65,15 @@
 			</div>
 		{:else}
 			<div class="image-container">
-				<img src={images[currentIndex]} alt={`${distroName} screenshot ${currentIndex + 1}`} loading="lazy" decoding="async" />
+				<img 
+					src={images[currentIndex]} 
+					alt={`${distroName} screenshot ${currentIndex + 1}`} 
+					loading="eager" 
+					decoding="async" 
+				/>
+				{#each preloadIndexes as idx}
+					<link rel="preload" as="image" href={images[idx]} />
+				{/each}
 			</div>
 
 			{#if images.length > 1}

@@ -32,28 +32,14 @@
 		margin-bottom: var(--space-lg);
 		background: var(--color-border-light);
 		border-radius: var(--radius-sm);
-		animation: skeleton-pulse 1.5s ease-in-out infinite;
 	}
 
 	.skeleton-text {
 		height: 16px;
 		background: var(--color-border-light);
 		border-radius: var(--radius-sm);
-		animation: skeleton-pulse 1.5s ease-in-out infinite;
 		margin: 0 auto;
 		width: 80%;
-	}
-
-	@keyframes skeleton-pulse {
-		0% {
-			opacity: 1;
-		}
-		50% {
-			opacity: 0.5;
-		}
-		100% {
-			opacity: 1;
-		}
 	}
 
 	@media (max-width: 640px) {

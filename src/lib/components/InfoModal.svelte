@@ -3,6 +3,7 @@
 	import { fade, scale } from 'svelte/transition';
 	import { locale } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
+	import { lockBodyScroll } from '$lib/utils/body';
 
 	export let isOpen = false;
 
@@ -11,7 +12,7 @@
 	$: lang = $locale;
 
 	function gt(path: string): string {
-		return getTranslation(lang, path);
+		return getTranslation(lang, path) ?? '';
 	}
 
 	function close() {
@@ -32,18 +33,14 @@
 
 	onMount(() => {
 		if (isOpen) {
-			document.body.style.overflow = 'hidden';
+			lockBodyScroll(true);
 		}
 		return () => {
-			document.body.style.overflow = '';
+			lockBodyScroll(false);
 		};
 	});
 
-	$: if (isOpen) {
-		document.body.style.overflow = 'hidden';
-	} else {
-		document.body.style.overflow = '';
-	}
+	$: lockBodyScroll(isOpen);
 </script>
 
 <svelte:window on:keydown={handleKeydown} />

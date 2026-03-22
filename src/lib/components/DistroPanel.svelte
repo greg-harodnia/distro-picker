@@ -16,12 +16,10 @@
 	$: translatedDescription = $t(`distros.descriptions.${distro.id}`) as string;
 	$: translatedUserbase = $t(`distros.userbases.${distro.id}`) as string | undefined;
 
-	function getTagById(tagId: string): Tag | undefined {
-		return tags.find((tag) => tag.id === tagId);
-	}
+	$: tagMap = new Map(tags.map(tag => [tag.id, tag]));
 
 	$: translatedTagNames = distro.tag_ids?.map((tagId) => {
-		const tag = getTagById(tagId);
+		const tag = tagMap.get(tagId);
 		return {
 			tagId,
 			name: tag ? ($t(`tags.${tagId}.name`) || tag.name) : '',
@@ -128,7 +126,7 @@
 			<div class="distro-tags">
 				<div class="tag-list">
 					{#each translatedTagNames as { tagId, name }}
-						{@const tag = getTagById(tagId)}
+						{@const tag = tagMap.get(tagId)}
 						{#if tag}
 							<span class="tag" style="--tag-color: var(--tag-{tagId})">
 								{name}
@@ -244,10 +242,6 @@
 		color: var(--color-secondary);
 	}
 
-	/* .close-btn:focus {
-		box-shadow: 0 0 0 2px var(--color-primary);
-	} */
-
 	.distro-description p {
 		color: var(--color-text-secondary);
 		line-height: var(--line-height-relaxed);
@@ -334,10 +328,6 @@
 		transform: translateY(-2px);
 		box-shadow: var(--shadow-lg);
 	}
-
-	/* .website-btn:focus {
-		box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
-	} */
 
 	@media (max-width: 1024px) {
 		.distro-panel {

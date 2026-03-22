@@ -25,14 +25,15 @@
 		return titles[routeId] || '';
 	}
 
-	export const prerender = true;
-
 	onMount(() => {
 		locale.init();
 	});
 </script>
 
 <svelte:head>
+	<!-- Critical Preloads -->
+	<link rel="preload" href="{base}/linux.webp" as="image" type="image/webp">
+	
 	<!-- Basic Meta -->
 	<meta name="description" content={$t('app.noResults').replace('.', '')} />
 	<meta name="keywords" content="linux distribution, linux distro, choose linux, linux picker, ubuntu, fedora, arch, debian, mint" />
@@ -56,10 +57,6 @@
 	
 	<!-- Canonical URL -->
 	<link rel="canonical" href="{siteUrl}{base}{$page.url.pathname}">
-	
-	<!-- Security Headers (can stay here or move back to app.html) -->
-	<meta http-equiv="content-security-policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://lsydfkkkjazznplskovm.supabase.co; font-src 'self';">
-	<meta name="referrer" content="strict-origin-when-cross-origin">
 </svelte:head>
 
 <slot />

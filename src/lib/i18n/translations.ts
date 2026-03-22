@@ -1,12 +1,14 @@
-import type { Translations } from '$lib/locales/types';
+import type { Translations, Language } from '$lib/locales/types';
 import enData from '$lib/locales/en.json';
 import { base } from '$app/paths';
 
-export type Language = 'en' | 'be' | 'uk' | 'pl' | 'ru' | 'zh' | 'ja' | 'vi' | 'ko' | 'th' | 'es' | 'pt' | 'tr' | 'de' | 'fr' | 'it' | 'id';
+export type { Language } from '$lib/locales/types';
 
 const translationCache: Partial<Record<Language, Translations>> = {
   en: enData as Translations,
 };
+
+const translationPathCache = new Map<string, string>();
 
 async function loadLang(lang: Language): Promise<Translations> {
   if (typeof window === 'undefined') {
@@ -24,6 +26,7 @@ export async function loadTranslation(lang: Language): Promise<Translations> {
   if (translationCache[lang]) return translationCache[lang]!;
   const translations = await loadLang(lang);
   translationCache[lang] = translations;
+  translationPathCache.clear();
   return translations;
 }
 
@@ -32,21 +35,35 @@ export async function loadTranslations(langs: Language[]): Promise<void> {
 }
 
 export function getTranslation(lang: Language, path: string): string | undefined {
+  const cacheKey = `${lang}:${path}`;
+  const cached = translationPathCache.get(cacheKey);
+  if (cached !== undefined) return cached;
+  
   const translations = translationCache[lang];
   if (!translations) {
-    return lang === 'en' ? undefined : getTranslation('en', path);
+    const fallback = lang === 'en' ? undefined : getTranslation('en', path);
+    translationPathCache.set(cacheKey, fallback || '');
+    return fallback;
   }
 
   const keys = path.split('.');
-  let result: any = translations;
+  let result: unknown = translations;
 
   for (const key of keys) {
     if (result && typeof result === 'object' && key in result) {
-      result = result[key];
+      result = (result as Record<string, unknown>)[key];
     } else {
-      return lang === 'en' ? undefined : getTranslation('en', path);
+      const fallback = lang === 'en' ? undefined : getTranslation('en', path);
+      translationPathCache.set(cacheKey, fallback || '');
+      return fallback;
     }
   }
 
-  return typeof result === 'string' ? result : undefined;
+  const value = typeof result === 'string' ? result : undefined;
+  translationPathCache.set(cacheKey, value || '');
+  return value;
+}
+
+export function gt(lang: Language, path: string): string {
+  return getTranslation(lang, path) || path;
 }

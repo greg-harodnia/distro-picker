@@ -10,7 +10,7 @@ export interface ValidationResult {
 	errors: ValidationError[];
 }
 
-export function validateTag(tag: any): ValidationResult {
+function validateTag(tag: unknown): ValidationResult {
 	const errors: ValidationError[] = [];
 
 	if (!tag || typeof tag !== 'object') {
@@ -18,15 +18,17 @@ export function validateTag(tag: any): ValidationResult {
 		return { isValid: false, errors };
 	}
 
-	if (!tag.id || typeof tag.id !== 'string') {
+	const t = tag as Record<string, unknown>;
+
+	if (!t['id'] || typeof t['id'] !== 'string') {
 		errors.push({ field: 'id', message: 'Tag must have a valid string ID' });
 	}
 
-	if (!tag.name || typeof tag.name !== 'string') {
+	if (!t['name'] || typeof t['name'] !== 'string') {
 		errors.push({ field: 'name', message: 'Tag must have a valid string name' });
 	}
 
-	if (!tag.description || typeof tag.description !== 'string') {
+	if (!t['description'] || typeof t['description'] !== 'string') {
 		errors.push({ field: 'description', message: 'Tag must have a valid string description' });
 	}
 
@@ -36,7 +38,7 @@ export function validateTag(tag: any): ValidationResult {
 	};
 }
 
-export function validateDistro(distro: any): ValidationResult {
+function validateDistro(distro: unknown): ValidationResult {
 	const errors: ValidationError[] = [];
 
 	if (!distro || typeof distro !== 'object') {
@@ -44,28 +46,29 @@ export function validateDistro(distro: any): ValidationResult {
 		return { isValid: false, errors };
 	}
 
-	if (!distro.id || typeof distro.id !== 'string') {
+	const d = distro as Record<string, unknown>;
+
+	if (!d['id'] || typeof d['id'] !== 'string') {
 		errors.push({ field: 'id', message: 'Distro must have a valid string ID' });
 	}
 
-	if (!distro.name || typeof distro.name !== 'string') {
+	if (!d['name'] || typeof d['name'] !== 'string') {
 		errors.push({ field: 'name', message: 'Distro must have a valid string name' });
 	}
 
-	if (!distro.website || typeof distro.website !== 'string') {
+	if (!d['website'] || typeof d['website'] !== 'string') {
 		errors.push({ field: 'website', message: 'Distro must have a valid string website' });
 	}
 
-	// Validate URL format
-	if (distro.website && !isValidUrl(distro.website)) {
+	if (d['website'] && !isValidUrl(d['website'] as string)) {
 		errors.push({ field: 'website', message: 'Website must be a valid URL' });
 	}
 
-	if (!Array.isArray(distro.tag_ids)) {
+	if (!Array.isArray(d['tag_ids'])) {
 		errors.push({ field: 'tag_ids', message: 'Distro must have a valid array of tag IDs' });
 	}
 
-	if (typeof distro.priority !== 'number' || distro.priority < 0) {
+	if (typeof d['priority'] !== 'number' || d['priority'] < 0) {
 		errors.push({ field: 'priority', message: 'Distro must have a valid positive priority number' });
 	}
 
@@ -75,7 +78,7 @@ export function validateDistro(distro: any): ValidationResult {
 	};
 }
 
-export function isValidUrl(url: string): boolean {
+function isValidUrl(url: string): boolean {
 	try {
 		const urlObj = new URL(url);
 		return urlObj.protocol === 'http:' || urlObj.protocol === 'https:';

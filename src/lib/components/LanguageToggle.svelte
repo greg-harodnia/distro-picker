@@ -1,6 +1,6 @@
 <script lang="ts">
   import { locale, availableLanguages, t } from '$lib/i18n/locale';
-import type { Language } from '$lib/i18n/translations';
+  import type { Language } from '$lib/locales/types';
   import { onMount } from 'svelte';
 
   let isOpen = false;
@@ -33,7 +33,7 @@ import type { Language } from '$lib/i18n/translations';
 <div class="language-toggle-container">
   <button
     type="button"
-    class="language-toggle"
+    class="language-toggle btn-toggle"
     on:click|stopPropagation={toggleDropdown}
     aria-label={$t('language.toggle')}
     aria-expanded={isOpen}
@@ -85,25 +85,11 @@ import type { Language } from '$lib/i18n/translations';
   }
 
   .language-toggle {
-    display: flex;
-    align-items: center;
     gap: 4px;
     padding: 0 12px;
     height: 44px;
-    border: none;
-    border-radius: var(--radius-md);
-    background: var(--color-surface);
-    color: var(--color-text);
-    cursor: pointer;
-    transition: var(--transition-normal);
-    box-shadow: var(--shadow-sm);
     font-size: var(--text-sm);
     font-weight: var(--font-semibold);
-  }
-
-  .language-toggle:hover {
-    background: var(--color-background-secondary);
-    box-shadow: var(--shadow-md);
   }
 
   .chevron {
