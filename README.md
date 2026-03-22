@@ -125,4 +125,10 @@ To optimize performance, translations are lazy-loaded:
 - Each language file is ~10-16 KB
 - Total non-English translations: ~200 KB (loaded only when needed)
 
+### SEO
+
+The app has a great SEO score.
+
+![SEO Analysis](docs/SEO.png)
+
 <br>**Find Your Perfect Linux Distribution Today! 🐧**
