@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { getDistroIconPath } from '$lib/utils';
-  import { base } from '$app/paths';
+  	import { base } from '$app/paths';
 	import { observeImage } from '$lib/utils/imageObserver';
 
 	export let distroId: string;
 	export let alt: string;
 	export let size: 'small' | 'medium' | 'large' = 'medium';
 	export let customClass: string = '';
+	export let logo: string | undefined = undefined;
 
 	let imgElement: HTMLImageElement;
 	let isLoaded = false;
@@ -20,7 +20,7 @@
 		large: { width: 96, height: 96 }
 	};
 
-	const iconPath = `${base}${getDistroIconPath(distroId)}`;
+	const iconPath = `${base}${logo || '/linux.webp'}`;
 	const currentSize = sizes[size];
 
 	onMount(() => {

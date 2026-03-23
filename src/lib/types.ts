@@ -11,6 +11,7 @@ export interface Distro {
 	name: string;
 	website: string;
 	tag_ids: string[];
+	logo?: string;
 	best?: boolean;
 	desktops?: string[];
 	hasMoreDesktops?: boolean;

@@ -86,6 +86,7 @@
 			</div>
 			<OptimizedImage 
 				distroId={distro.id}
+				logo={distro.logo}
 				alt="{distro.name} logo"
 				size="medium"
 				customClass="distro-icon"
