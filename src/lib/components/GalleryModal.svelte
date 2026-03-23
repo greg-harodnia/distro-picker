@@ -107,6 +107,7 @@
 <style>
 	.modal-content {
 		max-width: 1200px;
+		height: 100%;
 		position: relative;
 	}
 
@@ -127,7 +128,6 @@
 	.image-container img {
 		max-width: 100%;
 		max-height: 100%;
-		object-fit: contain;
 		border-radius: var(--radius-md);
 	}
 
