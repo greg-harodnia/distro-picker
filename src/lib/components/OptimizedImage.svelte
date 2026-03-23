@@ -58,7 +58,6 @@
 		on:error={handleError}
 		style="object-fit: contain;"
 		loading="lazy"
-		decoding="async"
 	/>
 	{#if !isLoaded && !isError}
 		<div class="image-placeholder"></div>
