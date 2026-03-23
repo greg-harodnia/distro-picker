@@ -48,6 +48,7 @@
       "cachyos": "Una distribuzione basata su Arch con aggiornamenti continui, ottimizzata per le prestazioni, con l'ambiente desktop KDE Plasma (tra le altre). Sebbene non sia inizialmente pronta per il gaming, può essere facilmente configurata installando un singolo meta-pacchetto (cachyos-gaming-meta). L'edizione handheld, d'altra parte, è pronta per il gaming. Molto poco bloat. Perfetto per appassionati tech che vogliono avere il pieno controllo sul proprio sistema. Richiede un po' di esperienza con il terminale. Simile a EndeavourOS, ma più preconfigurata. Tuttavia, se preferisci un'esperienza Arch più spoglia con meno personalizzazioni, scegli EndeavourOS.",
       "steamos": "Un sistema operativo gaming ufficiale di Valve che alimenta Steam Deck, Steam Machine e altri dispositivi come Lenovo Legion Go. Immutabile (usando le proprie tecnologie RAUC e desync), user-friendly e ottimizzato per il gaming. Presenta l'ambiente desktop KDE Plasma. Rilasciato per handheld, ma non ancora per desktop.",
       "bazzite": "Una distribuzione Linux gaming immutabile (usando OSTree), perfetta sia per PC che per handheld (ha un'edizione speciale per loro). Un'alternativa a SteamOS. Molto più user-friendly di CachyOS (ma più bloated). Fai il sondaggio sul sito ufficiale per vedere se il tuo hardware supporta il gaming Linux. Se vuoi che il tuo sistema sia mutabile (es. modificare file di sistema), scegli Nobara.",
+      "nobara": "Una distribuzione gaming con sistema mutabile, che ti dà il pieno controllo. È stata sviluppata dal creatore di Proton-GE, un'utilità al cuore dell'infrastruttura gaming di Linux, e offre versioni per PC e handheld.",
       "lubuntu": "Una variante Ubuntu leggera e user-friendly, perfetta per computer prodotti tra il 2004 e il 2011 progettati per Windows XP/Vista con 1 o 2GB di RAM.",
       "antiX": "Distribuzione ultra leggera, richiede almeno 256MB di RAM per funzionare (di più per eseguire app senza problemi). Adatta a computer datati progettati per Windows XP."
     },
@@ -61,7 +62,8 @@
       "steamos": "20+ milioni (su Steam Deck)",
       "bazzite": "~70k",
       "lubuntu": "~400k",
-      "antiX": "~100k"
+      "antiX": "~100k",
+      "nobara": "~25k"
     }
   },
   "panel": {

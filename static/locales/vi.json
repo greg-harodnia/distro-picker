@@ -48,6 +48,7 @@
       "cachyos": "Một bản phân phối dựa trên Arch với cập nhật liên tục, được tối ưu hóa cho hiệu suất, với môi trường desktop KDE Plasma (trong số nhiều cái khác). Mặc dù ban đầu không sẵn sàng chơi game, nó có thể dễ dàng được thiết lập để chơi game bằng cách cài một meta-package (cachyos-gaming-meta). Phiên bản handheld, mặt khác, thì đã sẵn sàng chơi game. Rất ít bloat. Hoàn hảo cho những người đam mê công nghệ muốn có quyền kiểm soát hoàn toàn hệ thống. Cần một chút kinh nghiệm với terminal. Tương tự EndeavourOS, nhưng được cấu hình sẵn nhiều hơn. Tuy nhiên, nếu bạn thích trải nghiệm Arch thuần túy hơn với ít tùy chỉnh hơn, hãy chọn EndeavourOS.",
       "steamos": "Hệ điều hành chơi game chính thức từ Valve cung cấp năng lượng cho Steam Deck, Steam Machine và các thiết bị khác như Lenovo Legion Go. Bất biến (sử dụng các công nghệ RAUC và desync của riêng), thân thiện với người dùng và được tối ưu hóa cho chơi game. Có môi trường desktop KDE Plasma. Được phát hành cho handheld, nhưng chưa cho desktop.",
       "bazzite": "Một bản phân phối Linux bất biến (sử dụng OSTree) dành cho chơi game, hoàn hảo cho cả PC và handheld (có phiên bản đặc biệt cho chúng). Một lựa chọn thay thế cho SteamOS. Thân thiện với người dùng hơn nhiều so với CachyOS (nhưng bloat hơn). Làm khảo sát trên trang web chính thức để xem phần cứng của bạn có hỗ trợ chơi game Linux không. Nếu bạn muốn hệ thống của mình có thể thay đổi được (vd. chỉnh sửa file hệ thống), hãy chọn Nobara thay thế.",
+      "nobara": "Một bản phân phối game với hệ thống có thể thay đổi được, cho bạn toàn quyền kiểm soát. Được phát triển bởi người tạo ra Proton-GE - tiện ích nằm ở cốt lõi của cơ sở hạ tầng chơi game Linux - và có phiên bản cho cả PC và handheld.",
       "lubuntu": "Một biến thể Ubuntu nhẹ và thân thiện với người dùng, hoàn hảo cho máy tính được sản xuất giữa 2004 và 2011 được thiết kế cho Windows XP/Vista với 1 hoặc 2GB RAM.",
       "antiX": "Bản phân phối siêu nhẹ, yêu cầu tối thiểu 256MB RAM để chạy (nhiều hơn để chạy ứng dụng mượt mà). Phù hợp với máy tính cổ đại được thiết kế cho Windows XP."
     },
@@ -61,7 +62,8 @@
       "steamos": "20+ triệu (trên Steam Deck)",
       "bazzite": "~70k",
       "lubuntu": "~400k",
-      "antiX": "~100k"
+      "antiX": "~100k",
+      "nobara": "~25k"
     }
   },
   "panel": {

@@ -96,6 +96,16 @@
       "based_on": "Fedora Atomic"
     },
     {
+      "id": "nobara",
+      "name": "Nobara",
+      "website": "https://nobaraproject.org/",
+      "tag_ids": ["gaming-ready", "traditional"],
+      "logo": "/nobara.webp",
+      "desktops": ["KDE Plasma", "Gnome"],
+      "beginner_friendly": 5,
+      "based_on": "Fedora"
+    },
+    {
       "id": "lubuntu",
       "name": "Lubuntu",
       "website": "https://lubuntu.me/",

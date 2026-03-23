@@ -48,6 +48,7 @@
       "cachyos": "Dystrybucja oparta na Arch z ciągłymi aktualizacjami, zoptymalizowana pod kątem wydajności, ze środowiskiem pulpitu KDE Plasma (wśród wielu innych). Choć początkowo nie jest gotowa do gier, można ją łatwo skonfigurować instalując pojedynczy meta-pakiet (cachyos-gaming-meta). Edycja handheld, z drugiej strony, jest gotowa do gier. Bardzo mało bloatu. Idealna dla entuzjastów technologii, którzy chcą mieć pełną kontrolę nad swoim systemem. Wymaga pewnego doświadczenia z terminalem. Podobna do EndeavourOS, ale bardziej wstępnie skonfigurowana. Jeśli jednak wolisz czystszy Arch z mniejszą liczbą dostosowań, wybierz EndeavourOS.",
       "steamos": "Oficjalny system operacyjny do gier od Valve, który napędza Steam Deck, Steam Machine i inne urządzenia jak Lenovo Legion Go. Niezmienny (używający własnych technologii RAUC i desync), przyjazny dla użytkownika i zoptymalizowany pod kątem gier. Oferuje środowisko pulpitu KDE Plasma. Wydany dla urządzeń przenośnych, ale jeszcze nie dla komputerów stacjonarnych.",
       "bazzite": "Niezmienna (używająca OSTree) dystrybucja Linux do gier, idealna zarówno dla PC, jak i urządzeń przenośnych (ma specjalną edycję dla nich). Alternatywa dla SteamOS. Znacznie bardziej przyjazna dla użytkownika niż CachyOS (ale z większym bloatem). Wypełnij ankietę na oficjalnej stronie, aby sprawdzić, czy twój sprzęt obsługuje gry w Linux. Jeśli chcesz, aby twój system był zmienny (np. edytować pliki systemowe), wybierz zamiast tego Nobara.",
+      "nobara": "Dystrybucja do gier z zmiennym systemem, dająca pełną kontrolę. Została stworzona przez twórcę Proton-GE — narzędzia stanowiącego rdzeń infrastruktury gier w Linux — i posiada wersje dla PC oraz urządzeń przenośnych.",
       "lubuntu": "Przyjazna dla użytkownika, lekka odmiana Ubuntu, idealna dla komputerów wyprodukowanych między 2004 a 2011 rokiem, przeznaczonych dla Windows XP/Vista z 1 lub 2GB RAM.",
       "antiX": "Ultralekka dystrybucja, wymaga minimum 256MB RAM do działania (więcej dla płynnego uruchamiania aplikacji). Odpowiednia dla antycznych komputerów przeznaczonych dla Windows XP."
     },
@@ -60,6 +61,7 @@
       "cachyos": "~500k (ale bardzo szybko rośnie)",
       "steamos": "20+ milionów (na Steam Deck)",
       "bazzite": "~70k",
+      "nobara": "~25k",
       "lubuntu": "~400k",
       "antiX": "~100k"
     }
