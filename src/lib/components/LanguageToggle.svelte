@@ -109,7 +109,7 @@
     position: absolute;
     top: calc(100% + 4px);
     right: 0;
-    min-width: 140px;
+    min-width: 170px;
     max-height: 280px;
     overflow-y: auto;
     background: var(--color-surface);
