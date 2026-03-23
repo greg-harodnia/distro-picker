@@ -56,7 +56,7 @@
   </button>
 
   {#if isOpen}
-    <div class="dropdown" role="listbox" transition:slide={{ duration: 120 }}>
+    <div class="dropdown" role="listbox" transition:slide={{ duration: 150 }}>
       {#each availableLanguages as lang}
         <button
           type="button"
