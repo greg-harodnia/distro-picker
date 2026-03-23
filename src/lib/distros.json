@@ -48,7 +48,7 @@
       "tag_ids": ["immutable"],
       "logo": "/kde.webp",
       "desktops": ["KDE Plasma"],
-      "based_on": "Independent",
+      "based_on": "independent",
       "disabled": true
     },
     {
@@ -61,7 +61,7 @@
       "desktops": ["Gnome", "KDE Plasma", "Xfce", "Cinnamon", "COSMIC", "MATE", "LXQt", "LXDE", "Budgie"],
       "hasMoreDesktops": true,
       "beginner_friendly": 4,
-      "based_on": "Independent"
+      "based_on": "independent"
     },
     {
       "id": "cachyos",
@@ -83,7 +83,7 @@
       "logo": "/steamos.webp",
       "desktops": ["KDE Plasma"],
       "beginner_friendly": 5,
-      "based_on": "Independent"
+      "based_on": "independent"
     },
     {
       "id": "bazzite",

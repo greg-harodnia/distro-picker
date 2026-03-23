@@ -15,6 +15,7 @@
 
 	$: translatedDescription = $t(`distros.descriptions.${distro.id}`) as string;
 	$: translatedUserbase = $t(`distros.userbases.${distro.id}`) as string | undefined;
+	$: translatedBasedOn = distro.based_on === 'independent' ? $t('independent') : distro.based_on;
 
 	$: tagMap = new Map(tags.map(tag => [tag.id, tag]));
 
@@ -86,10 +87,10 @@
 
 		{#if hasAdditionalDetails}
 			<div class="additional-details">
-			{#if distro.based_on}
+			{#if translatedBasedOn}
 				<div class="additional-detail">
 					<h3>{$t('panel.basedOn')}</h3>
-					<p>{distro.based_on}</p>
+					<p>{translatedBasedOn}</p>
 				</div>
 			{/if}
 
