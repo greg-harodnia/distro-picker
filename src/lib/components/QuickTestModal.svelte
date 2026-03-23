@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { lockBodyScroll } from '$lib/utils/body';
 	import { quickTestData } from '$lib/data/quickTest';
 	import type { QuizQuestion, QuizAnswer } from '$lib/types/quiz';
 	import { locale, t } from '$lib/i18n/locale';
@@ -142,18 +143,14 @@
 
 	onMount(() => {
 		if (isOpen) {
-			document.body.style.overflow = 'hidden';
+			lockBodyScroll(true);
 		}
 		return () => {
-			document.body.style.overflow = '';
+			lockBodyScroll(false);
 		};
 	});
 
-	$: if (isOpen) {
-		document.body.style.overflow = 'hidden';
-	} else {
-		document.body.style.overflow = '';
-	}
+	$: lockBodyScroll(isOpen);
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -165,7 +162,7 @@
 		on:keydown={handleKeydown}
 		role="button"
 		tabindex="0"
-		transition:fade={{ duration: 150 }}
+		transition:fade={{ duration: 200 }}
 	>
 		<div
 			class="modal-content"

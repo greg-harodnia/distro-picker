@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
-	import { fade, scale } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import { t } from '$lib/i18n/locale';
 	import { lockBodyScroll } from '$lib/utils/body';
 
@@ -42,6 +42,12 @@
 		}
 	}
 
+	function handleOverlayClick(e: MouseEvent) {
+		if (e.target === e.currentTarget) {
+			close();
+		}
+	}
+
 	onMount(() => {
 		lockBodyScroll(true);
 		preloadAdjacent();
@@ -53,11 +59,16 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-	<div class="modal-overlay" on:click={close} on:keydown={handleKeydown} role="button" tabindex="0" transition:fade={{ duration: 200 }}>
-	<div class="modal-content" on:click|stopPropagation on:keydown={handleKeydown} role="dialog" aria-modal="true" aria-label={`${distroName} screenshots`} tabindex="-1" transition:scale={{ duration: 200, start: 0.95 }}>
+	<div class="modal-overlay" on:click={handleOverlayClick} on:keydown={handleKeydown} role="button" tabindex="0" transition:fade={{ duration: 200 }}>
+	<div class="modal-content" on:click|stopPropagation on:keydown={handleKeydown} role="dialog" aria-modal="true" aria-label={`${distroName} screenshots`} tabindex="-1">
 		<div class="modal-header">
 			<span class="serial-number">{currentIndex + 1} / {images.length}</span>
-			<button class="close-btn" on:click={close} aria-label={$t('modal.gallery.closeGallery')} type="button">×</button>
+			<button class="close-btn" on:click={close} aria-label={$t('modal.gallery.closeGallery')} type="button">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
 		</div>
 
 		{#if images.length === 0}
@@ -100,7 +111,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: rgba(0, 0, 0, 0.8);
+		background: rgba(0, 0, 0, 0.7);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -109,12 +120,12 @@
 	}
 
 	.modal-content {
-		background: var(--color-surface, #1a1a1a);
-		border: 2px solid var(--color-border, #333);
-		border-radius: var(--radius-lg, 8px);
+		background: var(--color-surface);
+		border: 2px solid var(--color-border);
+		border-radius: var(--radius-lg);
 		width: 100%;
 		max-width: 1200px;
-		max-height: 85vh;
+		max-height: 80vh;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -124,36 +135,32 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: var(--space-lg, 1rem);
-		border-bottom: 1px solid var(--color-border, #333);
+		padding: var(--space-lg);
+		border-bottom: 1px solid var(--color-border);
 		flex-shrink: 0;
 	}
 
 	.serial-number {
-		color: var(--color-text-secondary, #aaa);
-		font-size: var(--text-sm, 0.875rem);
+		color: var(--color-text-secondary);
+		font-size: var(--text-sm);
 	}
 
 	.close-btn {
 		background: none;
 		border: none;
-		font-size: var(--text-2xl, 1.5rem);
-		color: var(--color-text-secondary, #aaa);
+		color: var(--color-text-secondary);
 		cursor: pointer;
-		padding: var(--space-xs, 0.25rem);
-		width: 2rem;
-		height: 2rem;
+		padding: var(--space-xs);
+		border-radius: var(--radius-sm);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: var(--radius-sm, 4px);
-		transition: all var(--transition-normal, 0.2s);
-		line-height: 1;
+		transition: all var(--transition-normal);
 	}
 
 	.close-btn:hover {
-		background: var(--color-background-secondary, #333);
-		color: var(--color-secondary, #4ecdc4);
+		background: var(--color-background-secondary);
+		color: var(--color-secondary);
 	}
 
 	.image-container {
@@ -162,44 +169,44 @@
 		align-items: center;
 		justify-content: center;
 		overflow: hidden;
-		padding: var(--space-lg, 1rem);
+		padding: var(--space-lg);
 	}
 
 	.image-container img {
 		max-width: 100%;
 		max-height: 100%;
 		object-fit: contain;
-		border-radius: var(--radius-md, 6px);
+		border-radius: var(--radius-md);
 	}
 
 	.arrow {
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		background: var(--color-surface, #1a1a1a);
-		border: 2px solid var(--color-border, #333);
-		color: var(--color-text-secondary, #aaa);
+		background: var(--color-surface);
+		border: 2px solid var(--color-border);
+		color: var(--color-text-secondary);
 		cursor: pointer;
-		padding: var(--space-md, 0.75rem);
-		border-radius: var(--radius-full, 9999px);
+		padding: var(--space-md);
+		border-radius: var(--radius-full);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: all var(--transition-normal, 0.2s);
+		transition: all var(--transition-normal);
 	}
 
 	.arrow:hover {
-		background: var(--color-background-secondary, #333);
-		color: var(--color-secondary, #4ecdc4);
-		border-color: var(--color-secondary, #4ecdc4);
+		background: var(--color-background-secondary);
+		color: var(--color-secondary);
+		border-color: var(--color-secondary);
 	}
 
 	.left-arrow {
-		left: var(--space-md, 0.5rem);
+		left: var(--space-md);
 	}
 
 	.right-arrow {
-		right: var(--space-md, 0.5rem);
+		right: var(--space-md);
 	}
 
 	.no-images {
@@ -210,8 +217,8 @@
 	}
 
 	.no-images p {
-		color: var(--color-text-secondary, #aaa);
-		font-size: var(--text-lg, 1.125rem);
+		color: var(--color-text-secondary);
+		font-size: var(--text-lg);
 	}
 
 	@media (max-width: 768px) {

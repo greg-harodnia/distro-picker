@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
-	import { fade, scale } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import { locale } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
 	import { lockBodyScroll } from '$lib/utils/body';
@@ -60,7 +60,6 @@
 			aria-modal="true" 
 			aria-label={gt('modal.additionalInfo')}
 			tabindex="-1"
-			transition:scale={{ duration: 200, start: 0.95 }}
 		>
 			<div class="modal-header">
 				<h2>{gt('modal.additionalInfo')}</h2>
