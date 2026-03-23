@@ -2,6 +2,7 @@
   import { locale, availableLanguages, t } from '$lib/i18n/locale';
   import type { Language } from '$lib/locales/types';
   import { onMount } from 'svelte';
+  import { slide } from 'svelte/transition';
 
   let isOpen = false;
 
@@ -55,7 +56,7 @@
   </button>
 
   {#if isOpen}
-    <div class="dropdown" role="listbox">
+    <div class="dropdown" role="listbox" transition:slide={{ duration: 120 }}>
       {#each availableLanguages as lang}
         <button
           type="button"
