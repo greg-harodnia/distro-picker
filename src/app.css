@@ -272,7 +272,20 @@ body {
 	flex: 1;
 }
 
-.modal-close-btn {
+.modal-title {
+	font-size: var(--text-xl);
+	color: var(--color-secondary);
+	margin: 0;
+	font-weight: var(--font-semibold);
+}
+
+.modal-header .modal-title {
+	flex: 1;
+	text-align: center;
+}
+
+.modal-close-btn,
+.close-btn {
 	background: none;
 	border: none;
 	color: var(--color-text-secondary);
@@ -285,7 +298,8 @@ body {
 	transition: all var(--transition-normal);
 }
 
-.modal-close-btn:hover {
+.modal-close-btn:hover,
+.close-btn:hover {
 	background: var(--color-background-secondary);
 	color: var(--color-secondary);
 }
