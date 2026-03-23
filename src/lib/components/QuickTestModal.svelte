@@ -7,8 +7,6 @@
 	import { locale, t } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
 
-	export let isOpen = false;
-
 	const dispatch = createEventDispatcher();
 
 	let currentQuestion: QuizQuestion | null = null;
@@ -73,9 +71,7 @@
 		};
 	}
 
-	$: if (isOpen) {
-		startQuiz();
-	}
+	startQuiz();
 
 	function startQuiz() {
 		const quiz = quickTestData.test[0];
@@ -142,20 +138,15 @@
 	}
 
 	onMount(() => {
-		if (isOpen) {
-			lockBodyScroll(true);
-		}
+		lockBodyScroll(true);
 		return () => {
 			lockBodyScroll(false);
 		};
 	});
-
-	$: lockBodyScroll(isOpen);
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
 
-{#if isOpen}
 	<div
 		class="modal-overlay"
 		on:click={handleOverlayClick}
@@ -237,7 +228,6 @@
 			</div>
 		</div>
 	</div>
-{/if}
 
 <style>
 	.modal-body {

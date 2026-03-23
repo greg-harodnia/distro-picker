@@ -5,8 +5,6 @@
 	import { getTranslation } from '$lib/i18n/translations';
 	import { lockBodyScroll } from '$lib/utils/body';
 
-	export let isOpen = false;
-
 	const dispatch = createEventDispatcher();
 
 	$: lang = $locale;
@@ -32,74 +30,68 @@
 	}
 
 	onMount(() => {
-		if (isOpen) {
-			lockBodyScroll(true);
-		}
+		lockBodyScroll(true);
 		return () => {
 			lockBodyScroll(false);
 		};
 	});
-
-	$: lockBodyScroll(isOpen);
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
 
-{#if isOpen}
+<div 
+	class="modal-overlay" 
+	on:click={handleOverlayClick} 
+	on:keydown={handleKeydown} 
+	role="button" 
+	tabindex="0"
+	transition:fade={{ duration: 200 }}
+>
 	<div 
-		class="modal-overlay" 
-		on:click={handleOverlayClick} 
-		on:keydown={handleKeydown} 
-		role="button" 
-		tabindex="0"
-		transition:fade={{ duration: 200 }}
+		class="modal-content" 
+		role="dialog" 
+		aria-modal="true" 
+		aria-label={gt('modal.additionalInfo')}
+		tabindex="-1"
 	>
-		<div 
-			class="modal-content" 
-			role="dialog" 
-			aria-modal="true" 
-			aria-label={gt('modal.additionalInfo')}
-			tabindex="-1"
-		>
-			<div class="modal-header">
-				<h2 class="modal-title">{gt('modal.additionalInfo')}</h2>
-				<button class="close-btn" on:click={close} aria-label={gt('modal.close')} type="button">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<line x1="18" y1="6" x2="6" y2="18"></line>
-						<line x1="6" y1="6" x2="18" y2="18"></line>
-					</svg>
-				</button>
-			</div>
-			<div class="modal-body">
-				<p>
-					{@html gt('modal.additionalContent.intro')}
-					<br /><br />
-					<b>{gt('modal.additionalContent.installationTitle')}</b><br /><br />
-					1. {gt('modal.additionalContent.hint1')}<br />
-					2. {gt('modal.additionalContent.hint2')}<br />
-					3. {gt('modal.additionalContent.hint3')}<br /><br />				
-					<b>{gt('modal.additionalContent.softwareTitle')}</b><br /><br />
+		<div class="modal-header">
+			<h2 class="modal-title">{gt('modal.additionalInfo')}</h2>
+			<button class="close-btn" on:click={close} aria-label={gt('modal.close')} type="button">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
+		</div>
+		<div class="modal-body">
+			<p>
+				{@html gt('modal.additionalContent.intro')}
+				<br /><br />
+				<b>{gt('modal.additionalContent.installationTitle')}</b><br /><br />
+				1. {gt('modal.additionalContent.hint1')}<br />
+				2. {gt('modal.additionalContent.hint2')}<br />
+				3. {gt('modal.additionalContent.hint3')}<br /><br />				
+				<b>{gt('modal.additionalContent.softwareTitle')}</b><br /><br />
 
-					{gt('modal.additionalContent.browsers')}<br />
-					{gt('modal.additionalContent.office')}<br />
-					{gt('modal.additionalContent.torrent')}<br />
-					{gt('modal.additionalContent.diskAnalyzer')}<br />
-					{gt('modal.additionalContent.localAI')}<br />
-					{gt('modal.additionalContent.softwareSupport')}<br />
-					{gt('modal.additionalContent.windowsApps')}<br />
-					{gt('modal.additionalContent.cleaners')}<br />
-					{gt('modal.additionalContent.backup')}<br />
-					{gt('modal.additionalContent.nvidia')}<br />
-					{gt('modal.additionalContent.photoshop')}<br />
-					{gt('modal.additionalContent.lightroom')}<br />
-					{gt('modal.additionalContent.illustrator')}<br />
-					{gt('modal.additionalContent.premier')}<br />
-					{@html gt('modal.additionalContent.ventoy')}
-				</p>
-			</div>
+				{gt('modal.additionalContent.browsers')}<br />
+				{gt('modal.additionalContent.office')}<br />
+				{gt('modal.additionalContent.torrent')}<br />
+				{gt('modal.additionalContent.diskAnalyzer')}<br />
+				{gt('modal.additionalContent.localAI')}<br />
+				{gt('modal.additionalContent.softwareSupport')}<br />
+				{gt('modal.additionalContent.windowsApps')}<br />
+				{gt('modal.additionalContent.cleaners')}<br />
+				{gt('modal.additionalContent.backup')}<br />
+				{gt('modal.additionalContent.nvidia')}<br />
+				{gt('modal.additionalContent.photoshop')}<br />
+				{gt('modal.additionalContent.lightroom')}<br />
+				{gt('modal.additionalContent.illustrator')}<br />
+				{gt('modal.additionalContent.premier')}<br />
+				{@html gt('modal.additionalContent.ventoy')}
+			</p>
 		</div>
 	</div>
-{/if}
+</div>
 
 <style>
 	.modal-content {

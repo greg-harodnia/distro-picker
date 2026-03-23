@@ -199,8 +199,13 @@
 		<footer>
 		</footer>
 
-		<InfoModal isOpen={infoModalOpen} on:close={() => infoModalOpen = false} />
-		<QuickTestModal isOpen={quickTestOpen} on:close={() => quickTestOpen = false} />
+	{#if infoModalOpen}
+		<InfoModal on:close={() => infoModalOpen = false} />
+	{/if}
+
+	{#if quickTestOpen}
+		<QuickTestModal on:close={() => quickTestOpen = false} />
+	{/if}
 
 		<button
 			class="quick-test-btn"
