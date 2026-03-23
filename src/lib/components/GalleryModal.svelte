@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
+	import { fade, scale } from 'svelte/transition';
 	import { t } from '$lib/i18n/locale';
 	import { lockBodyScroll } from '$lib/utils/body';
 
@@ -52,8 +53,8 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-	<div class="modal-overlay" on:click={close} on:keydown={handleKeydown} role="button" tabindex="0">
-	<div class="modal-content" on:click|stopPropagation on:keydown={handleKeydown} role="dialog" aria-modal="true" aria-label={`${distroName} screenshots`} tabindex="-1">
+	<div class="modal-overlay" on:click={close} on:keydown={handleKeydown} role="button" tabindex="0" transition:fade={{ duration: 200 }}>
+	<div class="modal-content" on:click|stopPropagation on:keydown={handleKeydown} role="dialog" aria-modal="true" aria-label={`${distroName} screenshots`} tabindex="-1" transition:scale={{ duration: 200, start: 0.95 }}>
 		<div class="modal-header">
 			<span class="serial-number">{currentIndex + 1} / {images.length}</span>
 			<button class="close-btn" on:click={close} aria-label={$t('modal.gallery.closeGallery')} type="button">×</button>
@@ -104,29 +105,27 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 1000;
+		padding: var(--space-lg);
 	}
 
 	.modal-content {
 		background: var(--color-surface, #1a1a1a);
 		border: 2px solid var(--color-border, #333);
 		border-radius: var(--radius-lg, 8px);
-		padding: var(--space-lg, 1rem);
-		width: 85vw;
-		height: 85vh;
+		width: 100%;
+		max-width: 1200px;
+		max-height: 85vh;
 		position: relative;
 		display: flex;
 		flex-direction: column;
-
-		@media (orientation: portrait) {
-			height: 50vh;
-		}
 	}
 
 	.modal-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin-bottom: var(--space-md, 0.5rem);
+		padding: var(--space-lg, 1rem);
+		border-bottom: 1px solid var(--color-border, #333);
 		flex-shrink: 0;
 	}
 
@@ -163,6 +162,7 @@
 		align-items: center;
 		justify-content: center;
 		overflow: hidden;
+		padding: var(--space-lg, 1rem);
 	}
 
 	.image-container img {
@@ -212,5 +212,34 @@
 	.no-images p {
 		color: var(--color-text-secondary, #aaa);
 		font-size: var(--text-lg, 1.125rem);
+	}
+
+	@media (max-width: 768px) {
+		.modal-content {
+			max-height: 60vh;
+		}
+
+		.arrow {
+			padding: var(--space-sm);
+		}
+
+		.arrow svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.modal-content {
+			max-height: 50vh;
+		}
+
+		.left-arrow {
+			left: var(--space-xs);
+		}
+
+		.right-arrow {
+			right: var(--space-xs);
+		}
 	}
 </style>
