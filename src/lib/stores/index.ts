@@ -33,8 +33,7 @@ export const filteredDistros = derived(
 		
 		if ($selectedTags.size === 0) {
 			return $distros
-				.filter(d => !d.disabled)
-				.sort((a, b) => a.priority - b.priority);
+				.filter(d => !d.disabled);
 		}
 		
 		const selectedArray = Array.from($selectedTags);
@@ -42,8 +41,7 @@ export const filteredDistros = derived(
 			.filter(distro => {
 				if (distro.disabled) return false;
 				return selectedArray.every(tagId => distro.tag_ids.includes(tagId));
-			})
-			.sort((a, b) => a.priority - b.priority);
+			});
 	}
 );
 

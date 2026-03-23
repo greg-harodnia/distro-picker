@@ -68,10 +68,6 @@ function validateDistro(distro: unknown): ValidationResult {
 		errors.push({ field: 'tag_ids', message: 'Distro must have a valid array of tag IDs' });
 	}
 
-	if (typeof d['priority'] !== 'number' || d['priority'] < 0) {
-		errors.push({ field: 'priority', message: 'Distro must have a valid positive priority number' });
-	}
-
 	return {
 		isValid: errors.length === 0,
 		errors

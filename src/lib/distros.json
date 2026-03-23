@@ -5,7 +5,6 @@
       "name": "Linux Mint",
       "website": "https://linuxmint.com/",
       "tag_ids": ["traditional"],
-      "priority": 1,
       "best": true,
       "desktops": ["Cinnamon", "MATE", "Xfce"],
       "beginner_friendly": 5,
@@ -16,7 +15,6 @@
       "name": "Kubuntu",
       "website": "https://kubuntu.org/",
       "tag_ids": ["traditional"],
-      "priority": 2,
       "desktops": ["KDE Plasma"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu"
@@ -26,7 +24,6 @@
       "name": "Zorin OS",
       "website": "https://zorinos.com/",
       "tag_ids": ["traditional"],
-      "priority": 2,
       "desktops": ["Gnome"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu"
@@ -36,7 +33,6 @@
       "name": "Pop!_OS",
       "website": "https://pop.system76.com/",
       "tag_ids": ["traditional"],
-      "priority": 3,
       "desktops": ["COSMIC"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu"
@@ -46,7 +42,6 @@
       "name": "KDE Linux",
       "website": "https://kde.org/linux/",
       "tag_ids": ["immutable"],
-      "priority": 4,
       "desktops": ["KDE Plasma"],
       "based_on": "Independent",
       "disabled": true
@@ -56,7 +51,6 @@
       "name": "Fedora",
       "website": "https://fedoraproject.org/kde/",
       "tag_ids": ["rolling-release"],
-      "priority": 5,
       "best": true,
       "desktops": ["Gnome", "KDE Plasma", "Xfce", "Cinnamon", "COSMIC", "MATE", "LXQt", "LXDE", "Budgie"],
       "hasMoreDesktops": true,
@@ -68,7 +62,6 @@
       "name": "CachyOS",
       "website": "https://cachyos.org/",
       "tag_ids": ["gaming-ready", "rolling-release"],
-      "priority": 6,
       "best": true,
       "desktops": ["KDE Plasma", "Gnome", "COSMIC", "Xfce", "Niri", "Hyprland"],
       "hasMoreDesktops": true,
@@ -80,7 +73,6 @@
       "name": "SteamOS",
       "website": "https://store.steampowered.com/steamos",
       "tag_ids": ["gaming-ready", "immutable"],
-      "priority": 6,
       "desktops": ["KDE Plasma"],
       "beginner_friendly": 5,
       "based_on": "Independent"
@@ -90,7 +82,6 @@
       "name": "Bazzite",
       "website": "https://bazzite.gg/",
       "tag_ids": ["gaming-ready", "immutable"],
-      "priority": 6,
       "desktops": ["KDE Plasma", "Gnome"],
       "beginner_friendly": 5,
       "based_on": "Fedora Atomic"
@@ -100,7 +91,6 @@
       "name": "Lubuntu",
       "website": "https://lubuntu.me/",
       "tag_ids": ["lightweight", "traditional"],
-      "priority": 8,
       "desktops": ["LXQt"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu"
@@ -110,7 +100,6 @@
       "name": "antiX",
       "website": "https://antixlinux.com/",
       "tag_ids": ["lightweight", "traditional"],
-      "priority": 9,
       "desktops": ["Fluxbox", "IceWM", "JWM"],
       "beginner_friendly": 4,
       "based_on": "Debian"
