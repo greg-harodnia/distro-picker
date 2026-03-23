@@ -50,7 +50,8 @@
       "bazzite": "Một bản phân phối Linux bất biến (sử dụng OSTree) dành cho chơi game, hoàn hảo cho cả PC và handheld (có phiên bản đặc biệt cho chúng). Một lựa chọn thay thế cho SteamOS. Thân thiện với người dùng hơn nhiều so với CachyOS (nhưng bloat hơn). Làm khảo sát trên trang web chính thức để xem phần cứng của bạn có hỗ trợ chơi game Linux không. Nếu bạn muốn hệ thống của mình có thể thay đổi được (vd. chỉnh sửa file hệ thống), hãy chọn Nobara thay thế.",
       "nobara": "Một bản phân phối game với hệ thống có thể thay đổi được, cho bạn toàn quyền kiểm soát. Được phát triển bởi người tạo ra Proton-GE - tiện ích nằm ở cốt lõi của cơ sở hạ tầng chơi game Linux - và có phiên bản cho cả PC và handheld.",
       "lubuntu": "Một biến thể Ubuntu nhẹ và thân thiện với người dùng, hoàn hảo cho máy tính được sản xuất giữa 2004 và 2011 được thiết kế cho Windows XP/Vista với 1 hoặc 2GB RAM.",
-      "antiX": "Bản phân phối siêu nhẹ, yêu cầu tối thiểu 256MB RAM để chạy (nhiều hơn để chạy ứng dụng mượt mà). Phù hợp với máy tính cổ đại được thiết kế cho Windows XP."
+      "antiX": "Bản phân phối siêu nhẹ, yêu cầu tối thiểu 256MB RAM để chạy (nhiều hơn để chạy ứng dụng mượt mà). Phù hợp với máy tính cổ đại được thiết kế cho Windows XP.",
+      "endeavouros": "Arch Linux, nhưng dễ hơn. Cung cấp trình cài đặt đồ họa và thay đổi tối thiểu hệ thống cơ sở."
     },
     "userbases": {
       "mint": "~3-5 triệu",
@@ -63,7 +64,8 @@
       "bazzite": "~70k",
       "lubuntu": "~400k",
       "antiX": "~100k",
-      "nobara": "~25k"
+      "nobara": "~25k",
+      "endeavouros": "~250k"
     }
   },
   "panel": {
@@ -84,7 +86,7 @@
       "closeGallery": "Đóng bộ sưu tập"
     },
     "additionalContent": {
-      "intro": "Ứng dụng này không bao gồm các bản phân phối phổ biến khác (<i>như Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, EndeavourOS, MX Linux, Nobara, Omarchy, Manjaro, elementaryOS, Solus, v.v.</i>), các bản phân phối doanh nghiệp (<i>như Red Hat, AlmaLinux</i>) và các bản phân phối chuyên biệt (<i>như Kali, Alpine</i>) vì nó dành cho người mới hoàn toàn và nhằm mục đích đơn giản hóa sự lựa chọn.",
+      "intro": "Ứng dụng này không bao gồm các bản phân phối phổ biến khác (<i>như Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, v.v.</i>), các bản phân phối doanh nghiệp (<i>như Red Hat, AlmaLinux</i>) và các bản phân phối chuyên biệt (<i>như Kali, Alpine</i>) vì nó dành cho người mới hoàn toàn và nhằm mục đích đơn giản hóa sự lựa chọn.",
       "installationTitle": "Gợi ý cài đặt và khởi động kép:",
       "hint1": "Cài đặt Linux trên một ổ đĩa riêng vì các bản cập nhật Windows có thể làm hỏng cài đặt Linux.",
       "hint2": "Không sử dụng công cụ Windows để thay đổi kích thước phân vùng trên ổ đĩa đã cài Linux vì lý do tương tự.",

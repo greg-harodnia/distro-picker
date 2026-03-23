@@ -50,7 +50,8 @@
       "bazzite": "Distribusi Linux gaming immutable (menggunakan OSTree), sempurna untuk PC dan handheld (memiliki edisi khusus untuk mereka). Alternatif SteamOS. Jauh lebih ramah pengguna dari CachyOS (tapi lebih bloated). Ikuti survei di situs resmi untuk melihat apakah hardware Anda mendukung gaming Linux. Jika Anda ingin sistem Anda mutable (mis. edit file sistem), pilih Nobara sebagai gantinya.",
       "nobara": "Distribusi gaming dengan sistem mutable, memberikan Anda kontrol penuh. Dikembangkan oleh pembuat Proton-GE — utilitas yang berada di inti infrastruktur gaming Linux — dan memiliki versi untuk PC dan handheld.",
       "lubuntu": "Varian Ubuntu yang ringan dan ramah pengguna, sempurna untuk komputer yang diproduksi antara 2004 dan 2011 yang dirancang untuk Windows XP/Vista dengan 1 atau 2GB RAM.",
-      "antiX": "Distribusi ultra ringan, membutuhkan minimal 256MB RAM untuk berjalan (lebih untuk menjalankan aplikasi dengan lancar). Cocok untuk komputer lawas yang dirancang untuk Windows XP."
+      "antiX": "Distribusi ultra ringan, membutuhkan minimal 256MB RAM untuk berjalan (lebih untuk menjalankan aplikasi dengan lancar). Cocok untuk komputer lawas yang dirancang untuk Windows XP.",
+      "endeavouros": "Arch Linux, tapi lebih mudah. Menyediakan installer grafis dan mengubah sistem dasar secara minimal."
     },
     "userbases": {
       "mint": "~3-5 juta",
@@ -63,7 +64,8 @@
       "bazzite": "~70k",
       "lubuntu": "~400k",
       "antiX": "~100k",
-      "nobara": "~25k"
+      "nobara": "~25k",
+      "endeavouros": "~250k"
     }
   },
   "panel": {
@@ -84,7 +86,7 @@
       "closeGallery": "Tutup galeri"
     },
     "additionalContent": {
-      "intro": "Aplikasi ini tidak mencakup distribusi populer lainnya (<i>seperti Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, EndeavourOS, MX Linux, Nobara, Omarchy, Manjaro, elementaryOS, Solus, dll.</i>), distribusi enterprise (<i>seperti Red Hat, AlmaLinux</i>) dan distribusi khusus (<i>seperti Kali, Alpine</i>) karena ini ditujukan untuk pemula total dan bertujuan menyederhanakan pilihan.",
+      "intro": "Aplikasi ini tidak mencakup distribusi populer lainnya (<i>seperti Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, dll.</i>), distribusi enterprise (<i>seperti Red Hat, AlmaLinux</i>) dan distribusi khusus (<i>seperti Kali, Alpine</i>) karena ini ditujukan untuk pemula total dan bertujuan menyederhanakan pilihan.",
       "installationTitle": "Tips untuk instalasi dan dual-boot:",
       "hint1": "Instal Linux di disk terpisah karena pembaruan Windows dapat merusak instalasi Linux.",
       "hint2": "Jangan gunakan alat Windows untuk mengubah ukuran partisi pada disk tempat Linux diinstal karena alasan yang sama.",

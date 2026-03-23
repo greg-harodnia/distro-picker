@@ -50,7 +50,8 @@
       "bazzite": "一款适合游戏和PC及掌机的不可变（使用OSTree）Linux发行版。SteamOS的替代品。比CachyOS用户友好得多（但膨胀软件更多）。在官方网站上填写调查问卷，看看您的硬件是否支持Linux游戏。如果您希望系统是可变的（例如编辑系统文件），请改选Nobara。",
       "nobara": "一款具有可变系统的游戏发行版，为您提供完全控制。由Proton-GE的创建者开发——Proton-GE是Linux游戏基础设施的核心工具——并提供PC和掌机版本。",
       "lubuntu": "用户友好的轻量级Ubuntu变体，非常适合2004年至2011年间生产的、专为Windows XP/Vista设计的、配备1或2GB内存的电脑。",
-      "antiX": "超轻量级发行版，运行只需最少256MB内存（更多内存可更流畅运行应用程序）。适合为Windows XP设计的古老电脑。"
+      "antiX": "超轻量级发行版，运行只需最少256MB内存（更多内存可更流畅运行应用程序）。适合为Windows XP设计的古老电脑。",
+      "endeavouros": "Arch Linux，但更简单。提供图形安装程序，对基础系统的更改最少。"
     },
     "userbases": {
       "mint": "~3-5百万",
@@ -63,7 +64,8 @@
       "bazzite": "~7万",
       "lubuntu": "~40万",
       "antiX": "~10万",
-      "nobara": "~2.5万"
+      "nobara": "~2.5万",
+      "endeavouros": "~25万"
     }
   },
   "panel": {

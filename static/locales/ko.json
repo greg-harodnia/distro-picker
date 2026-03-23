@@ -50,7 +50,8 @@
       "bazzite": "PC와 휴대용 기기 모두에 적합한 게임용 이뮤터블 (OSTree 사용) Linux 배포판 (특수 에디션 있음). SteamOS 대안. CachyOS보다 훨씬 사용자 친화적 (그러나 더 블로트). 공식 웹사이트에서 설문 조사를 작성하여 하드웨어가 Linux 게임을 지원하는지 확인하세요. 시스템을 이뮤터블하게 만들려면 (예: 시스템 파일 편집) 대신 Nobara를 선택하세요.",
       "nobara": "변경 가능한 시스템을 갖춘 게임 배포판으로, 완전히 제어할 수 있습니다. Linux 게임 인프라의 핵심인 Proton-GE의 제작자가 개발했으며 PC와 휴대용 기기 버전이 있습니다.",
       "lubuntu": "2004년부터 2011년 사이에 제조되어 Windows XP/Vista용으로 설계되었고 1GB 또는 2GB의 RAM이 있는 컴퓨터에 적합한 사용자 친화적인 경량 Ubuntu 변형.",
-      "antiX": "실행에 최소 256MB의 RAM이 필요한 초경량 배포판 (앱을 부드럽게 실행하려면 더 필요). Windows XP용으로 설계된 고대 컴퓨터에 적합합니다."
+      "antiX": "실행에 최소 256MB의 RAM이 필요한 초경량 배포판 (앱을 부드럽게 실행하려면 더 필요). Windows XP용으로 설계된 고대 컴퓨터에 적합합니다.",
+      "endeavouros": "Arch Linux인데 더 쉽습니다. 그래픽 설치 프로그램을 제공하며 기본 시스템을 최소한으로 변경합니다."
     },
     "userbases": {
       "mint": "~3-5백만",
@@ -63,7 +64,8 @@
       "bazzite": "~7만",
       "lubuntu": "~40만",
       "antiX": "~10만",
-      "nobara": "~2.5만"
+      "nobara": "~2.5만",
+      "endeavouros": "~25만"
     }
   },
   "panel": {
@@ -84,7 +86,7 @@
       "closeGallery": "갤러리 닫기"
     },
     "additionalContent": {
-      "intro": "이 앱은 완전한 초보자를 대상으로 하며 선택을 단순화하는 것을 목표로 하기 때문에 다른 인기 배포판(<i>Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, EndeavourOS, MX Linux, Nobara, Omarchy, Manjaro, elementaryOS, Solus 등</i>), 기업 배포판(<i>Red Hat, AlmaLinux</i>) 및 틈새 배포판(<i>Kali, Alpine</i>)을 포함하지 않습니다.",
+      "intro": "이 앱은 완전한 초보자를 대상으로 하며 선택을 단순화하는 것을 목표로 하기 때문에 다른 인기 배포판(<i>Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus 등</i>), 기업 배포판(<i>Red Hat, AlmaLinux</i>) 및 틈새 배포판(<i>Kali, Alpine</i>)을 포함하지 않습니다.",
       "installationTitle": "설치 및 듀얼 부팅 힌트:",
       "hint1": "Windows 업데이트가 Linux 설치를 손상시킬 수 있으므로 Linux를 별도의 디스크에 설치하세요.",
       "hint2": "같은 이유로 Linux가 설치된 디스크의 파티션 크기를 조정하는 데 Windows 도구를 사용하지 마세요.",

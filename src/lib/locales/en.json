@@ -45,6 +45,7 @@
       "popos": "Built by System76, featuring the COSMIC desktop environment (MacOS-like) and focusing on usability. Has an Nvidia version available. Good for creative work and productivity. Has tiling windows support. Not an ideal choice for gaming.",
       "kde-linux": "A Linux distribution built by KDE. Immutable (using Btrfs snapshots), simple and fast. Yet to be released.",
       "fedora": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Choose COSMIC for MacOS look. Fedora is a semi-rolling distribution, making it both stable and up-to-date. Nvidia drivers installation may not be straightforward.",
+      "endeavouros": "Arch Linux made easy. It provides a graphical installer and makes minimal changes to the base system.",
       "cachyos": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. A very few bloat. Perfect for tech enthusiasts, who want to have full control over their system. Requires some terminal experience. Similar to EndeavourOS, but it is more preconfigured. However, if you prefer a more barebones Arch experience with fewer customizations, choose EndeavourOS.",
       "steamos": "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment. Released for handhelds, but yet to be released for desktops.",
       "bazzite": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative. Much more user-friendly than CachyOS (but more bloated). Take a survey on the official website to see if your hardware supports the Linux gaming. If you want your system to be mutable (e.g. edit system files), choose Nobara instead.",
@@ -58,6 +59,7 @@
       "zorin": "~2 million",
       "popos": "~1-2 million",
       "fedora": "~2 million",
+      "endeavouros": "~250k",
       "cachyos": "~500k (but very fast growing)",
       "steamos": "20+ million (on Steam Deck)",
       "bazzite": "~70k",
@@ -84,7 +86,7 @@
       "closeGallery": "Close gallery"
     },
     "additionalContent": {
-      "intro": "This app doesn't include other popular distributions (<i>like, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, EndeavourOS, MX Linux, Nobara, Omarchy, Manjaro, elementaryOS, Solus, and so on</i>), enterprise-level distributions (<i>like, Red Hat, AlmaLinux</i>) and niche distributions (<i>like, Kali, Alpine</i>) as it's intended for complete beginners and aims to simplify the choice.",
+      "intro": "This app doesn't include other popular distributions (<i>like, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, and so on</i>), enterprise-level distributions (<i>like, Red Hat, AlmaLinux</i>) and niche distributions (<i>like, Kali, Alpine</i>) as it's intended for complete beginners and aims to simplify the choice.",
       "installationTitle": "Hints for installation and dual-booting:",
       "hint1": "Install Linux on a separate disk as Windows updates may break the Linux installation.",
       "hint2": "Don't use Windows tools to resize partitions on the disk where Linux is installed for the same reason.",

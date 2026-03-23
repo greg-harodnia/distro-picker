@@ -50,7 +50,8 @@
       "bazzite": "Uma distribuição Linux imutável (usando OSTree) para jogos, perfeita tanto para PCs quanto para portáteis (tem uma edição especial para eles). Uma alternativa ao SteamOS. Muito mais fácil de usar que o CachyOS (mas mais bloated). Faça a pesquisa no site oficial para ver se seu hardware suporta jogos Linux. Se você quer que seu sistema seja mutável (ex. editar arquivos do sistema), escolha Nobara.",
       "nobara": "Uma distribuição de jogos com sistema mutável, dando-lhe controle total. Foi desenvolvida pelo criador do Proton-GE, um utilitário no coração da infraestrutura de jogos Linux, e possui versões para PCs e portáteis.",
       "lubuntu": "Uma variante leve e fácil de usar do Ubuntu, perfeita para computadores produzidos entre 2004 e 2011 projetados para Windows XP/Vista com 1 ou 2GB de RAM.",
-      "antiX": "Distribuição ultraleve, requer no mínimo 256MB de RAM para rodar (mais para rodar apps suavemente). Adequada para computadores antigos projetados para Windows XP."
+      "antiX": "Distribuição ultraleve, requer no mínimo 256MB de RAM para rodar (mais para rodar apps suavemente). Adequada para computadores antigos projetados para Windows XP.",
+      "endeavouros": "Arch Linux, mas mais fácil. Fornece um instalador gráfico e modifica minimamente o sistema base."
     },
     "userbases": {
       "mint": "~3-5 milhões",
@@ -63,7 +64,8 @@
       "bazzite": "~70k",
       "lubuntu": "~400k",
       "antiX": "~100k",
-      "nobara": "~25k"
+      "nobara": "~25k",
+      "endeavouros": "~250k"
     }
   },
   "panel": {
@@ -84,7 +86,7 @@
       "closeGallery": "Fechar galeria"
     },
     "additionalContent": {
-      "intro": "Este app não inclui outras distribuições populares (<i>como Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, EndeavourOS, MX Linux, Nobara, Omarchy, Manjaro, elementaryOS, Solus, etc.</i>), distribuições corporativas (<i>como Red Hat, AlmaLinux</i>) e distribuições de nicho (<i>como Kali, Alpine</i>) pois é destinado a iniciantes completos e busca simplificar a escolha.",
+      "intro": "Este app não inclui outras distribuições populares (<i>como Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, etc.</i>), distribuições corporativas (<i>como Red Hat, AlmaLinux</i>) e distribuições de nicho (<i>como Kali, Alpine</i>) pois é destinado a iniciantes completos e busca simplificar a escolha.",
       "installationTitle": "Dicas para instalação e dual-boot:",
       "hint1": "Instale Linux em um disco separado pois atualizações do Windows podem quebrar a instalação do Linux.",
       "hint2": "Não use ferramentas do Windows para redimensionar partições no disco onde o Linux está instalado pela mesma razão.",

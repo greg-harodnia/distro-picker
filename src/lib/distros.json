@@ -64,6 +64,16 @@
       "based_on": "independent"
     },
     {
+      "id": "endeavouros",
+      "name": "EndeavourOS",
+      "website": "https://endeavouros.com/",
+      "tag_ids": ["rolling-release"],
+      "logo": "/endeavouros.webp",
+      "desktops": ["KDE Plasma", "Gnome", "Xfce", "Cinnamon", "MATE", "LXQt", "LXDE", "Budgie", "i3"],
+      "beginner_friendly": 3,
+      "based_on":"Arch Linux"
+    },
+    {
       "id": "cachyos",
       "name": "CachyOS",
       "website": "https://cachyos.org/",
