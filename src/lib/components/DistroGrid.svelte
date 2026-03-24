@@ -81,11 +81,9 @@
 					❤️{distro.likes ? ` ${distro.likes}` : ''}
 				</button>
 			</div>
-			<OptimizedImage 
-				distroId={distro.id}
+			<OptimizedImage
 				logo={distro.logo}
 				alt="{distro.name} logo"
-				size="medium"
 				customClass="distro-icon"
 			/>
 			<h3>{distro.name}</h3>
@@ -163,9 +161,15 @@
 		color: var(--color-text, inherit);
 	}
 
-	:global(.distro-icon) {
-		margin-bottom: var(--space-lg);
-		margin: 0 auto; /* Center the image within the card */
+	:global(.distro-card) {
+		& .optimized-image-container {
+			margin-bottom: var(--space-sm);
+		}
+
+		& .optimized-image {
+			width: 64px;
+			height: 64px;
+		}
 	}
 
 	.distro-card h3 {
@@ -173,22 +177,5 @@
 		font-weight: var(--font-semibold);
 		margin: 0;
 		line-height: var(--line-height-tight);
-	}
-
-	@media (max-width: 640px) {
-		.distro-grid {
-			grid-template-columns: repeat(3, auto-fill, minmax(120px, 1fr));
-			gap: var(--space-lg);
-		}
-
-		.distro-card {
-			padding: var(--space-lg);
-		}
-
-		.distro-icon {
-			width: 48px;
-			height: 48px;
-			margin-bottom: var(--space-md);
-		}
 	}
 </style>

@@ -3,9 +3,7 @@
   	import { base } from '$app/paths';
 	import { observeImage } from '$lib/utils/imageObserver';
 
-	export let distroId: string;
 	export let alt: string;
-	export let size: 'small' | 'medium' | 'large' = 'medium';
 	export let customClass: string = '';
 	export let logo: string | undefined = undefined;
 
@@ -14,14 +12,7 @@
 	let isError = false;
 	let unobserve: (() => void) | null = null;
 
-	const sizes = {
-		small: { width: 48, height: 48 },
-		medium: { width: 64, height: 64 },
-		large: { width: 96, height: 96 }
-	};
-
 	const iconPath = `${base}${logo || '/linux.webp'}`;
-	const currentSize = sizes[size];
 
 	onMount(() => {
 		if (imgElement) {
@@ -51,9 +42,7 @@
 	<img
 		bind:this={imgElement}
 		alt={alt}
-		width={currentSize.width}
-		height={currentSize.height}
-		class="optimized-image size-{size}"
+		class="optimized-image"
 		on:load={handleLoad}
 		on:error={handleError}
 		style="object-fit: contain;"
@@ -97,20 +86,5 @@
 
 	.error .optimized-image {
 		opacity: 0.5;
-	}
-
-	.size-small {
-		width: 48px;
-		height: 48px;
-	}
-
-	.size-medium {
-		width: 64px;
-		height: 64px;
-	}
-
-	.size-large {
-		width: 96px;
-		height: 96px;
 	}
 </style>
