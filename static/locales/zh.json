@@ -44,11 +44,11 @@
       "zorin": "一个注重视觉吸引力的精致发行版，使用带有3D动画的GNOME桌面环境，并提供多种现成布局，包括类似MacOS和Windows的布局。硬件要求与Linux Mint类似。",
       "popos": "由System76创建，使用类似MacOS的COSMIC桌面环境，注重可用性。有Nvidia版本可供选择。适合创意工作和提高效率。支持平铺窗口。不是游戏的理想选择。",
       "kde-linux": "由KDE创建的Linux发行版。不可变（使用Btrfs快照），简单快速。尚未发布。",
-      "fedora": "开发者的理想选择。提供多种版本/变体，包括使用KDE Plasma桌面环境的版本。选择COSMIC可以获得MacOS外观。Fedora是一个半滚动发行版，使其既稳定又最新。Nvidia驱动程序的安装可能不简单。",
+      "fedora": "开发者的理想选择。提供多种版本/变体，包括使用KDE Plasma桌面环境的版本。选择COSMIC可以获得MacOS外观。Fedora是一个半滚动发行版，使其既稳定又最新。专有Nvidia驱动程序的安装可能不简单。",
       "cachyos": "基于Arch的滚动更新发行版，针对性能优化，提供KDE Plasma桌面环境（以及许多其他）。虽然最初没有游戏就绪，但可以通过安装单个元包（cachyos-gaming-meta）轻松设置为游戏做好准备。另一方面，掌机版已经游戏就绪。几乎没有膨胀软件。非常适合想要完全控制系统的技术爱好者。需要一些终端经验。类似于EndeavourOS，但预配置更多。",
       "steamos": "Valve的官方游戏操作系统，为Steam Deck、Steam Machine和其他设备（如联想Legion Go）提供支持。不可变（使用其自己的RAUC和desync技术），用户友好且针对游戏优化。具有KDE Plasma桌面环境。为掌机发布，但尚未发布桌面版。",
       "bazzite": "一款适合游戏和PC及掌机的不可变（使用OSTree）Linux发行版。SteamOS的替代品。比CachyOS用户友好得多（但膨胀软件更多）。在官方网站上填写调查问卷，看看您的硬件是否支持Linux游戏。",
-      "nobara": "一款具有可变系统的游戏发行版，为您提供完全控制。由Proton-GE的创建者开发——Proton-GE是Linux游戏基础设施的核心工具——并提供PC和掌机版本。",
+      "nobara": "一款具有可变系统的游戏发行版，为您提供完全控制。由Proton-GE的创建者开发——Proton-GE是Linux游戏基础设施的核心工具——并提供PC和掌机版本。为您提供Fedora的全部功能，但配备了预装的图形驱动程序和游戏软件。",
       "lubuntu": "用户友好的轻量级Ubuntu变体，非常适合2004年至2011年间生产的、专为Windows XP/Vista设计的、配备1或2GB内存的电脑。",
       "antiX": "超轻量级发行版，运行只需最少256MB内存（更多内存可更流畅运行应用程序）。适合为Windows XP设计的古老电脑。",
       "endeavouros": "Arch Linux，但更简单。提供图形安装程序，对基础系统的更改最少。"
