@@ -184,11 +184,19 @@
 		.distro-grid {
 			display: flex;
 			width: calc(100vw - 2*var(--space-lg)); /* minus 2 paddings from .app*/
+			gap: var(--space-md);
 			overflow-x: auto;
 		}
 
 		.distro-card {
 			min-width: 150px;
+		}
+
+		:global(.distro-card) {
+			& .optimized-image {
+				width: 48px;
+				height: 48px;
+			}
 		}
 	}
 </style>
