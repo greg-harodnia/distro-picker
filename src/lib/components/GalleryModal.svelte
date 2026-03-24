@@ -171,7 +171,7 @@
 		font-size: var(--text-lg);
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 640px) {
 		.modal-content {
 			max-height: 60vh;
 		}

@@ -96,6 +96,7 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 		gap: var(--space-xl);
+		padding-top: var(--space-lg);
 	}
 
 	.distro-card {

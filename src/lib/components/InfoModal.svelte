@@ -97,7 +97,7 @@
 	}
 
 	.modal-body {
-		padding: 0 var(--space-lg);
+		padding: var(--space-lg);
 	}
 
 	.modal-body p {

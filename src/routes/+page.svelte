@@ -250,7 +250,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin: 0 auto var(--space-3xl);
+		margin: var(--space-lg) auto var(--space-3xl);
 		padding: 0 var(--space-xl);
 	}
 
@@ -346,7 +346,6 @@
 	.distros h2 {
 		font-size: var(--text-2xl);
 		color: var(--color-secondary);
-		margin-bottom: var(--space-lg);
 		font-weight: var(--font-semibold);
 		display: flex;
 		align-items: center;
@@ -418,6 +417,7 @@
 		}
 
 		.header {
+			margin: var(--space-md) 0 var(--space-xl);
 			flex-direction: column;
 			gap: var(--space-lg);
 			padding: 0;

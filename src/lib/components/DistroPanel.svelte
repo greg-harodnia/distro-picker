@@ -192,6 +192,7 @@
 		background: var(--color-surface);
 		border: 2px solid var(--color-border);
 		border-radius: var(--radius-lg);
+		margin-top: var(--space-lg);
 		padding: var(--space-xl);
 		width: 550px;
 		box-shadow: var(--shadow-xl);
