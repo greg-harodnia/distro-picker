@@ -199,5 +199,12 @@
 				height: 48px;
 			}
 		}
+
+		:global(.distro-card) {
+			& .optimized-image {
+				width: 48px;
+				height: 48px;
+			}
+		}
 	}
 </style>
