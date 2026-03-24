@@ -179,4 +179,16 @@
 		margin: 0;
 		line-height: var(--line-height-tight);
 	}
+
+	@media (max-width: 640px) { 
+		.distro-grid {
+			display: flex;
+			width: calc(100vw - 2*var(--space-lg)); /* minus 2 paddings from .app*/
+			overflow-x: auto;
+		}
+
+		.distro-card {
+			min-width: 150px;
+		}
+	}
 </style>
