@@ -1,5 +1,6 @@
 import { writable, derived } from 'svelte/store';
-import { getTranslation, loadTranslation, type Language } from './translations';
+import type { Language } from '$lib/locales/types';
+import { getTranslation, loadTranslation } from './translations';
 
 interface LanguageConfig {
   code: Language;

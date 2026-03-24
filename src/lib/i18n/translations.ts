@@ -26,7 +26,7 @@ export async function loadTranslation(lang: Language): Promise<Translations> {
   if (translationCache[lang]) return translationCache[lang]!;
   const translations = await loadLang(lang);
   translationCache[lang] = translations;
-  translationPathCache.clear();
+  translationPathCache.clear(); // is it needed?
   return translations;
 }
 

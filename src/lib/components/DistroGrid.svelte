@@ -2,7 +2,7 @@
 	import type { Distro } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
 	import OptimizedImage from '$lib/components/OptimizedImage.svelte';
-	import { supabase, setLikedDistro, removeLikedDistro } from '$lib/supabase';
+	import { updateLikes, setLikedDistro, removeLikedDistro } from '$lib/supabase';
 	import { t } from '$lib/i18n/locale';
 
 	export let distros: Distro[] = [];
@@ -26,12 +26,9 @@
 			? (distro.likes || 1) - 1 
 			: (distro.likes || 0) + 1;
 
-		const { error } = await supabase
-			.from('distros')
-			.update({ likes: newLikes })
-			.eq('name', distro.id);
+		const success = await updateLikes(distro.id, newLikes);
 
-		if (!error) {
+		if (success) {
 			distro.likes = newLikes;
 			distro.userLiked = !distro.userLiked;
 			if (distro.userLiked) {

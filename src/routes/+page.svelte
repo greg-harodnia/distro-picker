@@ -12,7 +12,7 @@
 	import InfoModal from "$lib/components/InfoModal.svelte";
 	import QuickTestModal from "$lib/components/QuickTestModal.svelte";
 	import { loadTags, loadDistros } from "$lib/utils";
-	import { supabase, getLikedDistros } from "$lib/supabase";
+	import { getLikedDistros, fetchLikes } from "$lib/supabase";
 	import {
 		tags,
 		loading,
@@ -49,14 +49,7 @@
 			} else {
 				const loadedDistros = distrosResult.data || [];
 				
-				const { data: likesData, error: likesError } = await supabase
-					.from('distros')
-					.select('name, likes');
-				
-				if (likesError) {
-					console.error('Failed to fetch likes:', likesError);
-				}
-				
+				const likesData = await fetchLikes();
 				const userLikes = getLikedDistros();
 
 				const distrosWithLikes = loadedDistros.map(distro => {
