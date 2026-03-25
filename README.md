@@ -127,7 +127,7 @@ To optimize performance, translations are lazy-loaded:
 
 ### SEO
 
-The app has a great SEO score.
+The app has a great SEO score (a11y is 96 due to tag color contrasts in the light theme).
 
 ![SEO Analysis](docs/SEO.png)
 

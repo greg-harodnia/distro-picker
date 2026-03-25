@@ -31,9 +31,6 @@
 </script>
 
 <svelte:head>
-	<!-- Critical Preloads -->
-	<link rel="preload" href="{base}/linux.webp" as="image" type="image/webp">
-	
 	<!-- Basic Meta -->
 	<meta name="description" content={$t('app.noResults').replace('.', '')} />
 	<meta name="keywords" content="linux distribution, linux distro, choose linux, linux picker, ubuntu, fedora, arch, debian, mint" />
