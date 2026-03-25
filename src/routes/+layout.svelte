@@ -8,22 +8,21 @@
 	
 	const siteUrl = 'https://greg-harodnia.github.io/distro-picker';
 	
-	// Update page title dynamically based on current route
-	$: if (browser && $page) {
+	let pageTitle = $derived(browser && $page ? (() => {
 		const baseTitle = $t('app.title');
-		const routeTitle = getRouteTitle($page.route.id);
-		document.title = routeTitle ? `${routeTitle} | ${baseTitle}` : baseTitle;
-	}
-
-	function getRouteTitle(routeId: string | null): string {
-		if (!routeId) return '';
-		
+		const routeId = $page.route.id;
 		const titles: Record<string, string> = {
 			'/': $t('app.title'),
 		};
-		
-		return titles[routeId] || '';
-	}
+		const routeTitle = titles[routeId || ''] || '';
+		return routeTitle ? `${routeTitle} | ${baseTitle}` : baseTitle;
+	})() : '');
+
+	$effect(() => {
+		if (browser) {
+			document.title = pageTitle;
+		}
+	});
 
 	onMount(() => {
 		locale.init();

@@ -27,10 +27,10 @@
 	import type { Distro } from "$lib/types";
 	import { t } from "$lib/i18n/locale";
 
-	export let data: PageData;
+	let { data }: { data: PageData } = $props();
 
-	let infoModalOpen = false;
-	let quickTestOpen = false;
+	let infoModalOpen = $state(false);
+	let quickTestOpen = $state(false);
 
 	async function loadData() {
 		dataActions.setLoading(true);
@@ -113,7 +113,7 @@
 		title={$t('app.failedToLoad')}
 		message={$error}
 		retryable
-		on:retry={loadData}
+		onretry={loadData}
 	/>
 {:else}
 	<div class="app">
@@ -137,11 +137,11 @@
 					<TagFilter
 						{tag}
 						selected={$selectedTags.has(tag.id)}
-						on:toggle={() => toggleTag(tag.id)}
+						ontoggle={() => toggleTag(tag.id)}
 					/>
 				{/each}
 				{#if $selectedTags.size > 0}
-					<button class="clear-btn" on:click={() => { tagActions.clear(); }} aria-label={$t('filters.clearAll')}>
+					<button class="clear-btn" onclick={() => { tagActions.clear(); }} aria-label={$t('filters.clearAll')}>
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="18" y1="6" x2="6" y2="18"></line>
 							<line x1="6" y1="6" x2="18" y2="18"></line>
@@ -158,7 +158,7 @@
 					<span class="heading-text">{$t('distros.recommended')} ({$filteredDistros.length})</span>
 					<button 
 						class="info-btn" 
-						on:click={() => infoModalOpen = true}
+						onclick={() => infoModalOpen = true}
 						aria-label={$t('distros.info')}
 						type="button"
 					>
@@ -176,7 +176,7 @@
 					<DistroGrid
 						distros={$filteredDistros}
 						selectedDistro={$selectedDistro}
-						on:select={(e) => selectDistro(e.detail)}
+						onselect={(d) => selectDistro(d)}
 					/>
 				{/if}
 			</section>
@@ -188,7 +188,7 @@
 						distro={$selectedDistro}
 						tags={$tags}
 						screenshots={(data.screenshots[$selectedDistro.id] || []).map(s => `${base}${s}`)}
-						on:close={closePanel}
+						onclose={closePanel}
 					/>
 				</section>
 			{/if}
@@ -204,16 +204,16 @@
 		</footer>
 
 	{#if infoModalOpen}
-		<InfoModal on:close={() => infoModalOpen = false} />
+		<InfoModal onclose={() => infoModalOpen = false} />
 	{/if}
 
 	{#if quickTestOpen}
-		<QuickTestModal on:close={() => quickTestOpen = false} />
+		<QuickTestModal onclose={() => quickTestOpen = false} />
 	{/if}
 
 		<button
 			class="quick-test-btn"
-			on:click={() => quickTestOpen = true}
+			onclick={() => quickTestOpen = true}
 			aria-label={$t('app.startQuiz')}
 			type="button"
 		>

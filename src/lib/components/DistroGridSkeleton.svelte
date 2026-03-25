@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let count = 8;
+	let { count = 8 }: { count?: number } = $props();
 </script>
 
 <div class="skeleton-grid">

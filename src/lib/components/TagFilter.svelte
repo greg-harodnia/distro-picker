@@ -1,18 +1,22 @@
 <script lang="ts">
 	import type { Tag } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
 	import { t } from '$lib/i18n/locale';
 
-	export let tag: Tag;
-	export let selected = false;
+	let {
+		tag,
+		selected = false,
+		ontoggle = () => {},
+	}: {
+		tag: Tag;
+		selected?: boolean;
+		ontoggle?: () => void;
+	} = $props();
 
-	const dispatch = createEventDispatcher();
-
-	$: tagName = $t(`tags.${tag.id}.name`) || tag.name;
-	$: tagDescription = $t(`tags.${tag.id}.description`) || tag.description;
+	let tagName = $derived($t(`tags.${tag.id}.name`) || tag.name);
+	let tagDescription = $derived($t(`tags.${tag.id}.description`) || tag.description);
 
 	function handleClick() {
-		dispatch('toggle');
+		ontoggle();
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
@@ -27,8 +31,8 @@
  	class="tag-filter"
  	class:selected
  	style="--tag-color: var(--tag-{tag.id})"
- 	on:click={handleClick}
- 	on:keydown={handleKeydown}
+ 	onclick={handleClick}
+ 	onkeydown={handleKeydown}
  	aria-pressed={selected}
  	aria-describedby={tag.id + '-tooltip'}
  	tabindex="0"

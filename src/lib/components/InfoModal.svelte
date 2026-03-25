@@ -1,21 +1,24 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { locale } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
 	import { lockBodyScroll } from '$lib/utils/body';
 	import CloseIcon from './icons/CloseIcon.svelte';
 
-	const dispatch = createEventDispatcher();
+	interface Props {
+		onclose?: () => void;
+	}
+	let { onclose = () => {} }: Props = $props();
 
-	$: lang = $locale;
+	let lang = $derived($locale);
 
 	function gt(path: string): string {
 		return getTranslation(lang, path) ?? '';
 	}
 
 	function close() {
-		dispatch('close');
+		onclose();
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
@@ -38,12 +41,12 @@
 	});
 </script>
 
-<svelte:window on:keydown={handleKeydown} />
+<svelte:window onkeydown={handleKeydown} />
 
 <div 
 	class="modal-overlay" 
-	on:click={handleOverlayClick} 
-	on:keydown={handleKeydown} 
+	onclick={handleOverlayClick} 
+	onkeydown={handleKeydown} 
 	role="button" 
 	tabindex="0"
 	transition:fade={{ duration: 200 }}
@@ -57,7 +60,7 @@
 	>
 		<div class="modal-header">
 			<h2 class="modal-title">{gt('modal.additionalInfo')}</h2>
-			<button class="close-btn" on:click={close} aria-label={gt('modal.close')} type="button">
+			<button class="close-btn" onclick={close} aria-label={gt('modal.close')} type="button">
 				<CloseIcon />
 			</button>
 		</div>

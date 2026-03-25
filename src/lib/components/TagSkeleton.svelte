@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let count = 5;
+	let { count = 5 }: { count?: number } = $props();
 </script>
 
 <div class="skeleton-tags">

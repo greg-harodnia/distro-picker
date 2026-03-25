@@ -3,16 +3,22 @@
   	import { base } from '$app/paths';
 	import { observeImage } from '$lib/utils/imageObserver';
 
-	export let alt: string;
-	export let customClass: string = '';
-	export let logo: string | undefined = undefined;
+	let {
+		alt,
+		customClass = '',
+		logo,
+	}: {
+		alt: string;
+		customClass?: string;
+		logo?: string;
+	} = $props();
 
 	let imgElement: HTMLImageElement;
-	let isLoaded = false;
-	let isError = false;
+	let isLoaded = $state(false);
+	let isError = $state(false);
 	let unobserve: (() => void) | null = null;
 
-	const iconPath = `${base}${logo || '/linux.webp'}`;
+	let iconPath = $derived(`${base}${logo || '/linux.webp'}`);
 
 	onMount(() => {
 		if (imgElement) {
@@ -41,10 +47,10 @@
 <div class="optimized-image-container {customClass}" class:loaded={isLoaded} class:error={isError}>
 	<img
 		bind:this={imgElement}
-		alt={alt}
+		{alt}
 		class="optimized-image"
-		on:load={handleLoad}
-		on:error={handleError}
+		onload={handleLoad}
+		onerror={handleError}
 		style="object-fit: contain;"
 		loading="lazy"
 	/>

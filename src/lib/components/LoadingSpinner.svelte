@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { t } from '$lib/i18n/locale';
 
-	export let message = '';
-	export let size = 'medium';
+	let { message = '', size = 'medium' }: { message?: string; size?: string } = $props();
 
-	$: displayMessage = message || $t('loading.loading');
+	let displayMessage = $derived(message || $t('loading.loading'));
 </script>
 
 <div class="loading-container" class:size>
