@@ -4,7 +4,7 @@
   import { onMount } from 'svelte';
   import { slide } from 'svelte/transition';
 
-  let isOpen = false;
+  let isOpen = $state(false);
 
   onMount(() => {
     locale.init();
@@ -14,7 +14,8 @@
     isOpen = !isOpen;
   }
 
-  function selectLanguage(code: Language) {
+  function selectLanguage(e: MouseEvent, code: Language) {
+    e.stopPropagation();
     locale.set(code);
     isOpen = false;
   }
@@ -26,16 +27,16 @@
     }
   }
 
-  $: currentLang = availableLanguages.find(l => l.code === $locale) || availableLanguages[0];
+  let currentLang = $derived(availableLanguages.find(l => l.code === $locale) || availableLanguages[0]);
 </script>
 
-<svelte:window on:click={handleClickOutside} />
+<svelte:window onclick={handleClickOutside} />
 
 <div class="language-toggle-container">
   <button
     type="button"
     class="language-toggle btn-toggle"
-    on:click|stopPropagation={toggleDropdown}
+    onclick={(e) => { e.stopPropagation(); toggleDropdown(); }}
     aria-label={$t('language.toggle')}
     aria-expanded={isOpen}
     aria-haspopup="listbox"
@@ -62,7 +63,7 @@
           type="button"
           class="dropdown-item"
           class:selected={lang.code === $locale}
-          on:click|stopPropagation={() => selectLanguage(lang.code)}
+          onclick={(e) => selectLanguage(e, lang.code)}
           role="option"
           aria-selected={lang.code === $locale}
         >

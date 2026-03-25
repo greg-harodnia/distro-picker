@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { lockBodyScroll } from '$lib/utils/body';
 	import { quickTestData } from '$lib/data/quickTest';
@@ -8,12 +8,15 @@
 	import { getTranslation } from '$lib/i18n/translations';
 	import CloseIcon from './icons/CloseIcon.svelte';
 
-	const dispatch = createEventDispatcher();
+	interface Props {
+		onclose?: () => void;
+	}
+	let { onclose = () => {} }: Props = $props();
 
-	let currentQuestion: QuizQuestion | null = null;
-	let currentPath: QuizAnswer[] = [];
-	let result: string | null = null;
-	let isComplete = false;
+	let currentQuestion: QuizQuestion | null = $state(null);
+	let currentPath: QuizAnswer[] = $state([]);
+	let result: string | null = $state(null);
+	let isComplete = $state(false);
 
 	const questionKeyMap: Record<string, string> = {
 		'How would you like to use the distribution?': 'quiz.questions.howToUse',
@@ -72,8 +75,6 @@
 		};
 	}
 
-	startQuiz();
-
 	function startQuiz() {
 		const quiz = quickTestData.test[0];
 		if (quiz) {
@@ -83,6 +84,14 @@
 			isComplete = false;
 		}
 	}
+
+	onMount(() => {
+		startQuiz();
+		lockBodyScroll(true);
+		return () => {
+			lockBodyScroll(false);
+		};
+	});
 
 	function selectAnswer(answer: QuizAnswer) {
 		currentPath = [...currentPath, answer];
@@ -123,7 +132,7 @@
 	}
 
 	function close() {
-		dispatch('close');
+		onclose();
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
@@ -137,21 +146,14 @@
 			close();
 		}
 	}
-
-	onMount(() => {
-		lockBodyScroll(true);
-		return () => {
-			lockBodyScroll(false);
-		};
-	});
 </script>
 
-<svelte:window on:keydown={handleKeydown} />
+<svelte:window onkeydown={handleKeydown} />
 
 	<div
 		class="modal-overlay"
-		on:click={handleOverlayClick}
-		on:keydown={handleKeydown}
+		onclick={handleOverlayClick}
+		onkeydown={handleKeydown}
 		role="button"
 		tabindex="0"
 		transition:fade={{ duration: 200 }}
@@ -165,7 +167,7 @@
 		>
 			<div class="modal-header">
 				{#if !isComplete && currentPath.length > 0}
-					<button class="back-btn" on:click={goBack} aria-label={$t('quiz.goBack')} type="button">
+					<button class="back-btn" onclick={goBack} aria-label={$t('quiz.goBack')} type="button">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<polyline points="15 18 9 12 15 6"></polyline>
 						</svg>
@@ -174,7 +176,7 @@
 					<div class="spacer"></div>
 				{/if}
 				<h2 class="modal-title">{$t('quiz.title')}</h2>
-				<button class="close-btn" on:click={close} aria-label={$t('modal.close')} type="button">
+				<button class="close-btn" onclick={close} aria-label={$t('modal.close')} type="button">
 					<CloseIcon />
 				</button>
 			</div>
@@ -190,14 +192,14 @@
 						<h3>{$t('quiz.yourRecommendation')}</h3>
 						<p class="result-text">{result}</p>
 						<div class="result-actions">
-							<button class="restart-btn" on:click={startQuiz} type="button">
+							<button class="restart-btn" onclick={startQuiz} type="button">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 									<polyline points="1 4 1 10 7 10"></polyline>
 									<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
 								</svg>
 								{$t('quiz.restartTest')}
 							</button>
-							<button class="close-result-btn" on:click={close} type="button">
+							<button class="close-result-btn" onclick={close} type="button">
 								{$t('quiz.close')}
 							</button>
 						</div>
@@ -212,7 +214,7 @@
 							{#each currentQuestion.answers as answer, i}
 								<button
 									class="answer-btn"
-									on:click={() => selectAnswer(answer)}
+									onclick={() => selectAnswer(answer)}
 									type="button"
 									style="animation-delay: {i * 50}ms"
 								>

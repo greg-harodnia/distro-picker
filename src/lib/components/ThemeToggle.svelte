@@ -2,7 +2,7 @@
 	import { theme, themeActions } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
 
-	let isDark = false;
+	let isDark = $state(false);
 
 	onMount(() => {
 		const storedTheme = localStorage.getItem('theme');
@@ -34,7 +34,7 @@
 <button
 	type="button"
 	class="theme-toggle btn-toggle"
-	on:click={toggleTheme}
+	onclick={toggleTheme}
 	aria-label="Toggle dark mode"
 	title="Toggle dark mode"
 >

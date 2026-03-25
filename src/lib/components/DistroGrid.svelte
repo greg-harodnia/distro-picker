@@ -1,15 +1,19 @@
 <script lang="ts">
 	import type { Distro } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
 	import OptimizedImage from '$lib/components/OptimizedImage.svelte';
 	import { updateLikes } from '$lib/supabase';
 	import { setLikedDistro, removeLikedDistro } from '$lib/utils';
 	import { t } from '$lib/i18n/locale';
 
-	export let distros: Distro[] = [];
-	export let selectedDistro: Distro | null = null;
-
-	const dispatch = createEventDispatcher();
+	let {
+		distros = [],
+		selectedDistro = null,
+		onselect = (_distro: Distro) => {},
+	}: {
+		distros?: Distro[];
+		selectedDistro?: Distro | null;
+		onselect?: (distro: Distro) => void;
+	} = $props();
 
 	function getDescription(distro: Distro): string {
 		const desc = $t(`distros.descriptions.${distro.id}`);
@@ -17,7 +21,7 @@
 	}
 
 	function selectDistro(distro: Distro) {
-		dispatch('select', distro);
+		onselect(distro);
 	}
 
 	async function handleLike(e: Event, distro: Distro) {
@@ -41,7 +45,7 @@
 		}
 	}
 
-	function handleKeydown(e: any) {
+	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'Enter' || e.key === ' ') {
 			e.preventDefault();
 			const card = e.currentTarget as HTMLElement;
@@ -61,8 +65,8 @@
 		<div 
 			class="distro-card"
 			class:selected={selectedDistro?.id === distro.id}
-			on:click={() => selectDistro(distro)}
-			on:keydown={handleKeydown}
+			onclick={() => selectDistro(distro)}
+			onkeydown={handleKeydown}
 			role="button"
 			tabindex="0"
 			aria-label={`${distro.name}, ${getDescription(distro)}`}
@@ -76,7 +80,7 @@
 				<button 
 					class="like" 
 					class:liked={distro.userLiked}
-					on:click={(e) => handleLike(e, distro)}
+					onclick={(e) => handleLike(e, distro)}
 					aria-label={distro.userLiked ? 'Unlike this distro' : 'Like this distro'}
 				>
 					❤️{distro.likes ? ` ${distro.likes}` : ''}

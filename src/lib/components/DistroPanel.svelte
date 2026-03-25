@@ -1,32 +1,44 @@
 <script lang="ts">
 	import type { Distro, Tag } from "$lib/types";
-	import { createEventDispatcher } from "svelte";
 	import { sanitizeUrl } from "$lib/utils";
 	import GalleryModal from "./GalleryModal.svelte";
 	import { t } from "$lib/i18n/locale";
 	import CloseIcon from "./icons/CloseIcon.svelte";
 
-	export let distro: Distro;
-	export let tags: Tag[] = [];
-	export let screenshots: string[] = [];
+	let {
+		distro,
+		tags = [],
+		screenshots = [],
+		onclose = () => {},
+	}: {
+		distro: Distro;
+		tags?: Tag[];
+		screenshots?: string[];
+		onclose?: () => void;
+	} = $props();
 
-	const dispatch = createEventDispatcher();
+	let showGallery = $state(false);
 
-	let showGallery = false;
+	let translatedDescription = $derived($t(`distros.descriptions.${distro.id}`) as string);
+	let translatedUserbase = $derived($t(`distros.userbases.${distro.id}`) as string | undefined);
+	let translatedBasedOn = $derived(distro.based_on === 'independent' ? $t('independent') : distro.based_on);
 
-	$: translatedDescription = $t(`distros.descriptions.${distro.id}`) as string;
-	$: translatedUserbase = $t(`distros.userbases.${distro.id}`) as string | undefined;
-	$: translatedBasedOn = distro.based_on === 'independent' ? $t('independent') : distro.based_on;
+	let tagMap = $derived(new Map(tags.map(tag => [tag.id, tag])));
 
-	$: tagMap = new Map(tags.map(tag => [tag.id, tag]));
-
-	$: translatedTagNames = distro.tag_ids?.map((tagId) => {
+	let translatedTagNames = $derived(distro.tag_ids?.map((tagId) => {
 		const tag = tagMap.get(tagId);
 		return {
 			tagId,
 			name: tag ? ($t(`tags.${tagId}.name`) || tag.name) : '',
 		};
-	}) || [];
+	}) || []);
+
+	let hasAdditionalDetails = $derived(
+		(distro.desktops && distro.desktops.length > 0) ||
+		distro.based_on ||
+		distro.beginner_friendly ||
+		translatedUserbase
+	);
 
 	function visitWebsite() {
 		const sanitizedUrl = sanitizeUrl(distro.website);
@@ -36,7 +48,7 @@
 	}
 
 	function closePanel() {
-		dispatch("close");
+		onclose();
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
@@ -53,12 +65,6 @@
 		}
 	}
 
-	let hasAdditionalDetails =
-		(distro.desktops && distro.desktops.length > 0) ||
-		distro.based_on ||
-		distro.beginner_friendly ||
-		translatedUserbase;
-
 	function handleGalleryKeydown(e: KeyboardEvent) {
 		if (e.key === "Enter" || e.key === " ") {
 			e.preventDefault();
@@ -72,8 +78,8 @@
 		<h2>{distro.name}</h2>
 		<button
 			class="close-btn"
-			on:click={closePanel}
-			on:keydown={handleKeydown}
+			onclick={closePanel}
+			onkeydown={handleKeydown}
 			aria-label={$t('modal.close')}
 			type="button"
 		>
@@ -142,8 +148,8 @@
 		<div class="buttons">
 			<button
 				class="website-btn"
-				on:click={visitWebsite}
-				on:keydown={handleWebsiteKeydown}
+				onclick={visitWebsite}
+				onkeydown={handleWebsiteKeydown}
 				aria-label={`Visit ${distro.name} website`}
 				type="button"
 			>
@@ -152,8 +158,8 @@
 
 			<button
 				class="gallery-btn"
-				on:click={() => (showGallery = true)}
-				on:keydown={handleGalleryKeydown}
+				onclick={() => (showGallery = true)}
+				onkeydown={handleGalleryKeydown}
 				aria-label={`View ${distro.name} screenshots`}
 				type="button"
 			>
@@ -182,7 +188,7 @@
 	<GalleryModal
 		images={screenshots}
 		distroName={distro.name}
-		on:close={() => (showGallery = false)}
+		onclose={() => (showGallery = false)}
 	/>
 {/if}
 
