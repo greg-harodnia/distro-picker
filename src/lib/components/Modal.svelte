@@ -108,6 +108,10 @@
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
+
+		@media (max-width: 640px) {
+			max-height: 60vh;
+		}
 	}
 
 	.modal-overlay :global(.modal-content.modal-content-full) {
