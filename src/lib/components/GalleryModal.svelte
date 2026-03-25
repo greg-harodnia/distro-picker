@@ -45,7 +45,7 @@
 	});
 </script>
 
-<Modal {onclose} scrollable={false} onkeydown={handleKeydown} ariaLabel={`${distroName} screenshots`} contentStyle="max-width: 1200px; position: relative;">
+<Modal {onclose} scrollable={false} onkeydown={handleKeydown} ariaLabel={`${distroName} screenshots`} contentStyle="max-width: 1200px; position: relative;" contentClass="gallery-modal-content">
 	{#snippet header()}
 		<span class="serial-number">{currentIndex + 1} / {images.length}</span>
 	{/snippet}
@@ -146,6 +146,10 @@
 	}
 
 	@media (max-width: 640px) {
+		:global(.modal-overlay .modal-content.gallery-modal-content) {
+			max-height: 50vh;
+		}
+
 		.arrow {
 			padding: var(--space-sm);
 		}

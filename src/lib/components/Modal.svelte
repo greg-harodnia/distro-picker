@@ -10,6 +10,7 @@
 		ariaLabel?: string;
 		scrollable?: boolean;
 		contentStyle?: string;
+		contentClass?: string;
 		onkeydown?: (e: KeyboardEvent) => void;
 		children: Snippet;
 		header?: Snippet;
@@ -20,6 +21,7 @@
 		ariaLabel = '',
 		scrollable = true,
 		contentStyle = '',
+		contentClass = '',
 		onkeydown: onKeydown,
 		children,
 		header
@@ -61,7 +63,7 @@
 	transition:fade={{ duration: 200 }}
 >
 	<div
-		class="modal-content"
+		class="modal-content {contentClass}"
 		class:modal-content-full={!scrollable}
 		style={contentStyle}
 		role="dialog"
@@ -84,6 +86,7 @@
 </div>
 
 <style>
+
 	.modal-overlay {
 		position: fixed;
 		top: 0;
@@ -108,10 +111,6 @@
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
-
-		@media (max-width: 640px) {
-			max-height: 60vh;
-		}
 	}
 
 	.modal-overlay :global(.modal-content.modal-content-full) {
