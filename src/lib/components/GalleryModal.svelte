@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
 	import { t } from '$lib/i18n/locale';
-	import { lockBodyScroll } from '$lib/utils/body';
-	import CloseIcon from './icons/CloseIcon.svelte';
+	import Modal from './Modal.svelte';
 
 	let {
 		images = [],
@@ -17,10 +15,6 @@
 
 	let currentIndex = $state(0);
 	let preloadIndexes: number[] = $state([]);
-
-	function close() {
-		onclose();
-	}
 
 	function prev() {
 		currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -39,81 +33,56 @@
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'Escape') {
-			close();
-		} else if (e.key === 'ArrowLeft') {
+		if (e.key === 'ArrowLeft') {
 			prev();
 		} else if (e.key === 'ArrowRight') {
 			next();
 		}
 	}
 
-	function handleOverlayClick(e: MouseEvent) {
-		if (e.target === e.currentTarget) {
-			close();
-		}
-	}
-
 	onMount(() => {
-		lockBodyScroll(true);
 		preloadAdjacent();
-		return () => {
-			lockBodyScroll(false);
-		};
 	});
 </script>
 
-<svelte:window onkeydown={handleKeydown} />
+<Modal {onclose} scrollable={false} onkeydown={handleKeydown} ariaLabel={`${distroName} screenshots`} contentStyle="max-width: 1200px; position: relative;">
+	{#snippet header()}
+		<span class="serial-number">{currentIndex + 1} / {images.length}</span>
+	{/snippet}
 
-	<div class="modal-overlay" onclick={handleOverlayClick} onkeydown={handleKeydown} role="button" tabindex="0" transition:fade={{ duration: 200 }}>
-	<div class="modal-content" onclick={(e) => e.stopPropagation()} onkeydown={handleKeydown} role="dialog" aria-modal="true" aria-label={`${distroName} screenshots`} tabindex="-1">
-		<div class="modal-header">
-			<span class="serial-number">{currentIndex + 1} / {images.length}</span>
-			<button class="close-btn" onclick={close} aria-label={$t('modal.gallery.closeGallery')} type="button">
-				<CloseIcon />
-			</button>
+	{#if images.length === 0}
+		<div class="no-images">
+			<p>{$t('modal.gallery.noImages')}</p>
+		</div>
+	{:else}
+		<div class="image-container">
+			<img 
+				src={images[currentIndex]} 
+				alt={`${distroName} screenshot ${currentIndex + 1}`} 
+				loading="eager" 
+				decoding="async" 
+			/>
+			{#each preloadIndexes as idx}
+				<link rel="preload" as="image" href={images[idx]} />
+			{/each}
 		</div>
 
-		{#if images.length === 0}
-			<div class="no-images">
-				<p>{$t('modal.gallery.noImages')}</p>
-			</div>
-		{:else}
-			<div class="image-container">
-				<img 
-					src={images[currentIndex]} 
-					alt={`${distroName} screenshot ${currentIndex + 1}`} 
-					loading="eager" 
-					decoding="async" 
-				/>
-				{#each preloadIndexes as idx}
-					<link rel="preload" as="image" href={images[idx]} />
-				{/each}
-			</div>
-
-			{#if images.length > 1}
-				<button class="arrow left-arrow" onclick={prev} aria-label={$t('modal.gallery.previousImage')} type="button">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<polyline points="15 18 9 12 15 6"></polyline>
-					</svg>
-				</button>
-				<button class="arrow right-arrow" onclick={next} aria-label={$t('modal.gallery.nextImage')} type="button">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<polyline points="9 18 15 12 9 6"></polyline>
-					</svg>
-				</button>
-			{/if}
+		{#if images.length > 1}
+			<button class="arrow left-arrow" onclick={prev} aria-label={$t('modal.gallery.previousImage')} type="button">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<polyline points="15 18 9 12 15 6"></polyline>
+				</svg>
+			</button>
+			<button class="arrow right-arrow" onclick={next} aria-label={$t('modal.gallery.nextImage')} type="button">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<polyline points="9 18 15 12 9 6"></polyline>
+				</svg>
+			</button>
 		{/if}
-	</div>
-</div>
+	{/if}
+</Modal>
 
 <style>
-	.modal-content {
-		max-width: 1200px;
-		height: 100%;
-		position: relative;
-	}
-
 	.serial-number {
 		color: var(--color-text-secondary);
 		font-size: var(--text-sm);
@@ -177,10 +146,6 @@
 	}
 
 	@media (max-width: 640px) {
-		.modal-content {
-			max-height: 60vh;
-		}
-
 		.arrow {
 			padding: var(--space-sm);
 		}
@@ -192,10 +157,6 @@
 	}
 
 	@media (max-width: 480px) {
-		.modal-content {
-			max-height: 50vh;
-		}
-
 		.left-arrow {
 			left: var(--space-xs);
 		}

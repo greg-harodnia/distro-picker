@@ -1,12 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
-	import { lockBodyScroll } from '$lib/utils/body';
 	import { quickTestData } from '$lib/data/quickTest';
 	import type { QuizQuestion, QuizAnswer } from '$lib/types/quiz';
 	import { locale, t } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
-	import CloseIcon from './icons/CloseIcon.svelte';
+	import Modal from './Modal.svelte';
 
 	interface Props {
 		onclose?: () => void;
@@ -52,7 +50,7 @@
 	function translateText(text: string): string {
 		const key = questionKeyMap[text] || resultKeyMap[text];
 		if (key) {
-			return getTranslation($locale, key);
+			return getTranslation($locale, key) ?? text;
 		}
 		return text;
 	}
@@ -87,10 +85,6 @@
 
 	onMount(() => {
 		startQuiz();
-		lockBodyScroll(true);
-		return () => {
-			lockBodyScroll(false);
-		};
 	});
 
 	function selectAnswer(answer: QuizAnswer) {
@@ -130,115 +124,69 @@
 			}
 		}
 	}
-
-	function close() {
-		onclose();
-	}
-
-	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'Escape') {
-			close();
-		}
-	}
-
-	function handleOverlayClick(e: MouseEvent) {
-		if (e.target === e.currentTarget) {
-			close();
-		}
-	}
 </script>
 
-<svelte:window onkeydown={handleKeydown} />
+<Modal {onclose} ariaLabel={$t('quiz.title') || ''}>
+	{#snippet header()}
+		{#if !isComplete && currentPath.length > 0}
+			<button class="back-btn" onclick={goBack} aria-label={$t('quiz.goBack')} type="button">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<polyline points="15 18 9 12 15 6"></polyline>
+				</svg>
+			</button>
+		{:else}
+			<div class="spacer"></div>
+		{/if}
+		<h2 class="modal-title">{$t('quiz.title')}</h2>
+	{/snippet}
 
-	<div
-		class="modal-overlay"
-		onclick={handleOverlayClick}
-		onkeydown={handleKeydown}
-		role="button"
-		tabindex="0"
-		transition:fade={{ duration: 200 }}
-	>
-		<div
-			class="modal-content"
-			role="dialog"
-			aria-modal="true"
-			aria-label={$t('quiz.title')}
-			tabindex="-1"
-		>
-			<div class="modal-header">
-				{#if !isComplete && currentPath.length > 0}
-					<button class="back-btn" onclick={goBack} aria-label={$t('quiz.goBack')} type="button">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="15 18 9 12 15 6"></polyline>
-						</svg>
-					</button>
-				{:else}
-					<div class="spacer"></div>
-				{/if}
-				<h2 class="modal-title">{$t('quiz.title')}</h2>
-				<button class="close-btn" onclick={close} aria-label={$t('modal.close')} type="button">
-					<CloseIcon />
+	{#if isComplete && result}
+		<div class="result-container">
+			<div class="result-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+					<polyline points="22 4 12 14.01 9 11.01"></polyline>
+				</svg>
+			</div>
+			<h3>{$t('quiz.yourRecommendation')}</h3>
+			<p class="result-text">{result}</p>
+			<div class="result-actions">
+				<button class="restart-btn" onclick={startQuiz} type="button">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<polyline points="1 4 1 10 7 10"></polyline>
+						<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+					</svg>
+					{$t('quiz.restartTest')}
+				</button>
+				<button class="close-result-btn" onclick={onclose} type="button">
+					{$t('quiz.close')}
 				</button>
 			</div>
-			<div class="modal-body">
-				{#if isComplete && result}
-					<div class="result-container">
-						<div class="result-icon">
-							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-								<polyline points="22 4 12 14.01 9 11.01"></polyline>
-							</svg>
-						</div>
-						<h3>{$t('quiz.yourRecommendation')}</h3>
-						<p class="result-text">{result}</p>
-						<div class="result-actions">
-							<button class="restart-btn" onclick={startQuiz} type="button">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<polyline points="1 4 1 10 7 10"></polyline>
-									<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-								</svg>
-								{$t('quiz.restartTest')}
-							</button>
-							<button class="close-result-btn" onclick={close} type="button">
-								{$t('quiz.close')}
-							</button>
-						</div>
-					</div>
-				{:else if currentQuestion}
-					<div class="question-container">
-						<div class="progress-bar">
-							<div class="progress" style="width: {Math.min(100, (currentPath.length + 1) * 20)}%"></div>
-						</div>
-						<p class="question-text">{currentQuestion.text}</p>
-						<div class="answers-list">
-							{#each currentQuestion.answers as answer, i}
-								<button
-									class="answer-btn"
-									onclick={() => selectAnswer(answer)}
-									type="button"
-									style="animation-delay: {i * 50}ms"
-								>
-									<span class="answer-letter">{String.fromCharCode(65 + i)}</span>
-									<span class="answer-text">{answer.text}</span>
-								</button>
-							{/each}
-						</div>
-					</div>
-				{/if}
+		</div>
+	{:else if currentQuestion}
+		<div class="question-container">
+			<div class="progress-bar">
+				<div class="progress" style="width: {Math.min(100, (currentPath.length + 1) * 20)}%"></div>
+			</div>
+			<p class="question-text">{currentQuestion.text}</p>
+			<div class="answers-list">
+				{#each currentQuestion.answers as answer, i}
+					<button
+						class="answer-btn"
+						onclick={() => selectAnswer(answer)}
+						type="button"
+						style="animation-delay: {i * 50}ms"
+					>
+						<span class="answer-letter">{String.fromCharCode(65 + i)}</span>
+						<span class="answer-text">{answer.text}</span>
+					</button>
+				{/each}
 			</div>
 		</div>
-	</div>
+	{/if}
+</Modal>
 
 <style>
-	.modal-body {
-		padding: var(--space-xl);
-	}
-
-	.modal-header .modal-title {
-		flex: 1;
-		text-align: center;
-	}
-
 	.back-btn {
 		background: none;
 		border: none;
@@ -259,11 +207,6 @@
 
 	.spacer {
 		width: 36px;
-	}
-
-	.modal-body {
-		padding: var(--space-xl);
-		overflow-y: auto;
 	}
 
 	.question-container {
@@ -432,10 +375,6 @@
 	}
 
 	@media (max-width: 640px) {
-		.modal-body {
-			padding: var(--space-lg);
-		}
-
 		.answer-btn {
 			padding: var(--space-md);
 		}
