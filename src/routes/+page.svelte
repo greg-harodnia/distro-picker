@@ -48,18 +48,13 @@
 				dataActions.setError(distrosResult.error);
 			} else {
 				const loadedDistros = distrosResult.data || [];
-				
-				const likesData = await fetchLikes();
 				const userLikes = getLikedDistros();
 
-				const distrosWithLikes = loadedDistros.map(distro => {
-					const likeInfo = likesData?.find(l => l.name === distro.id);
-					return {
-						...distro,
-						likes: likeInfo?.likes ?? 0,
-						userLiked: userLikes.includes(distro.id)
-					};
-				});
+				const distrosWithLikes = loadedDistros.map(distro => ({
+					...distro,
+					likes: 0,
+					userLiked: userLikes.includes(distro.id)
+				}));
 
 				dataActions.setTags(tagsResult.data || []);
 				dataActions.setDistros(distrosWithLikes);
@@ -70,6 +65,22 @@
 			);
 		} finally {
 			dataActions.setLoading(false);
+		}
+
+		try {
+			const likesData = await fetchLikes();
+			if (likesData.length > 0) {
+				const likesMap = new Map(likesData.map(l => [l.name, l.likes]));
+				const updatedDistros = $filteredDistros.map(distro => {
+					const newLikes = likesMap.get(distro.id);
+					return newLikes !== undefined && newLikes !== distro.likes
+						? { ...distro, likes: newLikes }
+						: distro;
+				});
+				dataActions.setDistros(updatedDistros);
+			}
+		} catch (err) {
+			console.error('Failed to fetch likes:', err);
 		}
 	}
 
