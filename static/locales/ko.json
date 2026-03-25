@@ -82,8 +82,7 @@
     "gallery": {
       "noImages": "이미지 없음",
       "previousImage": "이전 이미지",
-      "nextImage": "다음 이미지",
-      "closeGallery": "갤러리 닫기"
+      "nextImage": "다음 이미지"
     },
     "additionalContent": {
       "intro": "이 앱은 완전한 초보자를 대상으로 하며 선택을 단순화하는 것을 목표로 하기 때문에 다른 인기 배포판(<i>Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus 등</i>), 기업 배포판(<i>Red Hat, AlmaLinux</i>) 및 틈새 배포판(<i>Kali, Alpine</i>)을 포함하지 않습니다.",

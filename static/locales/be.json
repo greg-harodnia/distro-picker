@@ -82,8 +82,7 @@
     "gallery": {
       "noImages": "Няма выяў",
       "previousImage": "Папярэдняя выява",
-      "nextImage": "Наступная выява",
-      "closeGallery": "Закрыць ґалерэю"
+      "nextImage": "Наступная выява"
     },
     "additionalContent": {
       "intro": "Гэтая аплікацыя не зьмяшчае ўсіх папулярных дыстрыбуцый (<i>як, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus і г.д.</i>), карпаратыўных дыстрыбуцый (<i>як, Red Hat, AlmaLinux</i>) і спэцыялізаваных дыстрыбуцый (<i>як, Kali, Alpine</i>), бо яна прызначаная для пачаткоўцаў і мае на мэце спрасьціць выбар.",

@@ -82,8 +82,7 @@
     "gallery": {
       "noImages": "Brak obrazów",
       "previousImage": "Poprzedni obraz",
-      "nextImage": "Następny obraz",
-      "closeGallery": "Zamknij galerię"
+      "nextImage": "Następny obraz"
     },
     "additionalContent": {
       "intro": "Ta aplikacja nie obejmuje innych popularnych dystrybucji (<i>takich jak Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, itp.</i>), dystrybucji korporacyjnych (<i>takich jak Red Hat, AlmaLinux</i>) i niszowych dystrybucji (<i>takich jak Kali, Alpine</i>), ponieważ jest przeznaczona dla zupełnych nowicjuszy i ma na celu uproszczenie wyboru.",

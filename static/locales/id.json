@@ -82,8 +82,7 @@
     "gallery": {
       "noImages": "Tidak ada gambar",
       "previousImage": "Gambar sebelumnya",
-      "nextImage": "Gambar selanjutnya",
-      "closeGallery": "Tutup galeri"
+      "nextImage": "Gambar selanjutnya"
     },
     "additionalContent": {
       "intro": "Aplikasi ini tidak mencakup distribusi populer lainnya (<i>seperti Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, dll.</i>), distribusi enterprise (<i>seperti Red Hat, AlmaLinux</i>) dan distribusi khusus (<i>seperti Kali, Alpine</i>) karena ini ditujukan untuk pemula total dan bertujuan menyederhanakan pilihan.",

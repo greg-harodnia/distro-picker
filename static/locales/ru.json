@@ -82,8 +82,7 @@
     "gallery": {
       "noImages": "Нет изображений",
       "previousImage": "Предыдущее изображение",
-      "nextImage": "Следующее изображение",
-      "closeGallery": "Закрыть галерею"
+      "nextImage": "Следующее изображение"
     },
     "additionalContent": {
       "intro": "Это приложение не включает другие популярные дистрибутивы (<i>как Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, и т.д.</i>), корпоративные дистрибутивы (<i>как Red Hat, AlmaLinux</i>) и нишевые дистрибутивы (<i>как Kali, Alpine</i>), поскольку оно предназначено для абсолютных новичков и стремится упростить выбор.",

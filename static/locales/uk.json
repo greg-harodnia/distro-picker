@@ -82,8 +82,7 @@
     "gallery": {
       "noImages": "Немає зображень",
       "previousImage": "Попереднє зображення",
-      "nextImage": "Наступне зображення",
-      "closeGallery": "Закрити галерею"
+      "nextImage": "Наступне зображення"
     },
     "additionalContent": {
       "intro": "Цей додаток не включає інші популярні дистрибутиви (<i>як Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, тощо</i>), корпоративні дистрибутиви (<i>як Red Hat, AlmaLinux</i>) та нішеві дистрибутиви (<i>як Kali, Alpine</i>), оскільки він призначений для абсолютних початківців і має на меті спростити вибір.",

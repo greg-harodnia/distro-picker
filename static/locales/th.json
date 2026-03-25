@@ -82,8 +82,7 @@
     "gallery": {
       "noImages": "ไม่มีรูปภาพ",
       "previousImage": "รูปก่อนหน้า",
-      "nextImage": "รูปถัดไป",
-      "closeGallery": "ปิดแกลเลอรี"
+      "nextImage": "รูปถัดไป"
     },
     "additionalContent": {
       "intro": "แอปนี้ไม่รวมดิสโตรยอดนิยมอื่นๆ (<i>เช่น Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus เป็นต้น</i>) ดิสโตรระดับองค์กร (<i>เช่น Red Hat, AlmaLinux</i>) และดิสโตรเฉพาะทาง (<i>เช่น Kali, Alpine</i>) เนื่องจากมุ่งเป้าไปที่ผู้เริ่มต้นอย่างสมบูรณ์และมีจุดประสงค์เพื่อทำให้การเลือกง่ายขึ้น",

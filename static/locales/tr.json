@@ -82,8 +82,7 @@
     "gallery": {
       "noImages": "Görsel yok",
       "previousImage": "Önceki görsel",
-      "nextImage": "Sonraki görsel",
-      "closeGallery": "Galeriyi kapat"
+      "nextImage": "Sonraki görsel"
     },
     "additionalContent": {
       "intro": "Bu uygulama, tam acemilere yönelik olduğundan ve seçimi basitleştirmeyi amaçladığından, diğer popüler dağıtımları (<i>Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, vb.</i>), kurumsal dağıtımları (<i>Red Hat, AlmaLinux</i>) ve niş dağıtımları (<i>Kali, Alpine</i>) içermiyor.",

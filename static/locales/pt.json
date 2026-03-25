@@ -82,8 +82,7 @@
     "gallery": {
       "noImages": "Sem imagens",
       "previousImage": "Imagem anterior",
-      "nextImage": "Próxima imagem",
-      "closeGallery": "Fechar galeria"
+      "nextImage": "Próxima imagem"
     },
     "additionalContent": {
       "intro": "Este app não inclui outras distribuições populares (<i>como Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, etc.</i>), distribuições corporativas (<i>como Red Hat, AlmaLinux</i>) e distribuições de nicho (<i>como Kali, Alpine</i>) pois é destinado a iniciantes completos e busca simplificar a escolha.",

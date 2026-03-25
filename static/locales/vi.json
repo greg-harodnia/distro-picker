@@ -82,8 +82,7 @@
     "gallery": {
       "noImages": "Không có hình ảnh",
       "previousImage": "Hình ảnh trước",
-      "nextImage": "Hình ảnh tiếp theo",
-      "closeGallery": "Đóng bộ sưu tập"
+      "nextImage": "Hình ảnh tiếp theo"
     },
     "additionalContent": {
       "intro": "Ứng dụng này không bao gồm các bản phân phối phổ biến khác (<i>như Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, v.v.</i>), các bản phân phối doanh nghiệp (<i>như Red Hat, AlmaLinux</i>) và các bản phân phối chuyên biệt (<i>như Kali, Alpine</i>) vì nó dành cho người mới hoàn toàn và nhằm mục đích đơn giản hóa sự lựa chọn.",

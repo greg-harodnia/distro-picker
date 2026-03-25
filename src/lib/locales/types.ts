@@ -37,7 +37,6 @@ export type Translations = {
       noImages: string;
       previousImage: string;
       nextImage: string;
-      closeGallery: string;
     };
     additionalContent: Record<string, string>;
   };
