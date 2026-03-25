@@ -11,8 +11,8 @@
 	import LanguageToggle from "$lib/components/LanguageToggle.svelte";
 	import InfoModal from "$lib/components/InfoModal.svelte";
 	import QuickTestModal from "$lib/components/QuickTestModal.svelte";
-	import { loadTags, loadDistros } from "$lib/utils";
-	import { getLikedDistros, fetchLikes } from "$lib/supabase";
+	import { loadTags, loadDistros, getLikedDistros } from "$lib/utils";
+	import { fetchLikes } from "$lib/supabase";
 	import {
 		tags,
 		loading,

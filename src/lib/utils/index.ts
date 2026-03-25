@@ -1,2 +1,2 @@
-export { loadTags, loadDistros } from './data';
-export { sanitizeUrl } from './data';
+export * from './data';
+export * from './storage';

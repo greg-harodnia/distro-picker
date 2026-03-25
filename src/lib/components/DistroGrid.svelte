@@ -2,7 +2,8 @@
 	import type { Distro } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
 	import OptimizedImage from '$lib/components/OptimizedImage.svelte';
-	import { updateLikes, setLikedDistro, removeLikedDistro } from '$lib/supabase';
+	import { updateLikes } from '$lib/supabase';
+	import { setLikedDistro, removeLikedDistro } from '$lib/utils';
 	import { t } from '$lib/i18n/locale';
 
 	export let distros: Distro[] = [];
