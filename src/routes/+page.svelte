@@ -286,7 +286,6 @@
 	.filters h2 {
 		font-size: var(--text-2xl);
 		color: var(--color-secondary);
-		margin-bottom: var(--space-lg);
 		font-weight: var(--font-semibold);
 	}
 
@@ -299,22 +298,19 @@
 		flex-wrap: wrap;
 		gap: var(--space-lg);
 		align-items: center;
+		padding-top: var(--space-lg);
 	}
 
 	.tag-separator {
+		flex-shrink: 0;
 		width: 1px;
 		height: 24px;
 		background: var(--color-border);
 		margin: 0 var(--space-xs);
 	}
 
-	.tag-list-wrapper {
-		display: flex;
-		align-items: center;
-		gap: var(--space-md);
-	}
-
 	.clear-btn {
+		flex-shrink: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -440,6 +436,12 @@
 
 		.tag-list {
 			gap: var(--space-md);
+			flex-wrap: nowrap;
+			overflow-x: auto;
+		}
+
+		.filters {
+			margin-bottom: var(--space-xl);
 		}
 
 		.quick-test-btn {

@@ -223,8 +223,6 @@
 		line-height: var(--line-height-tight);
 	}
 
-
-
 	.distro-description p {
 		color: var(--color-text-secondary);
 		line-height: var(--line-height-relaxed);
