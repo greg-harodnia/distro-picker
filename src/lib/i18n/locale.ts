@@ -135,7 +135,7 @@ function detectLanguage(): Language {
 }
 
 function createLocaleStore() {
-  const { subscribe, set, update } = writable<Language>('en');
+  const { subscribe, set } = writable<Language>('en');
 
   return {
     subscribe,
@@ -145,18 +145,6 @@ function createLocaleStore() {
       }
       await loadTranslation(lang);
       set(lang);
-    },
-    toggle: () => {
-      update(current => {
-        const currentIndex = languageConfigs.findIndex(c => c.code === current);
-        const nextIndex = (currentIndex + 1) % languageConfigs.length;
-        const newLang = languageConfigs[nextIndex].code;
-        
-        if (typeof window !== 'undefined') {
-          localStorage.setItem('language', newLang);
-        }
-        return newLang;
-      });
     },
     init: async () => {
       if (typeof window !== 'undefined') {
