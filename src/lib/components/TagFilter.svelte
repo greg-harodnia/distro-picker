@@ -53,6 +53,7 @@
 		transition: all var(--transition-normal);
 		position: relative;
 		font-size: var(--text-sm);
+		white-space: nowrap;
 	}
 
 	.tag-filter:hover {

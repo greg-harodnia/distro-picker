@@ -302,6 +302,7 @@
 	}
 
 	.tag-separator {
+		flex-shrink: 0;
 		width: 1px;
 		height: 24px;
 		background: var(--color-border);
@@ -315,6 +316,7 @@
 	}
 
 	.clear-btn {
+		flex-shrink: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -440,6 +442,12 @@
 
 		.tag-list {
 			gap: var(--space-md);
+			flex-wrap: nowrap;
+			overflow-x: auto;
+		}
+
+		.filters {
+			margin-bottom: var(--space-xl);
 		}
 
 		.quick-test-btn {
