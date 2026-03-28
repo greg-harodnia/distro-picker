@@ -80,9 +80,15 @@ export const distroActions = {
 	select: (distro: Distro) => {
 		selectedDistro.set(distro);
 	},
-	
+
 	clear: () => {
 		selectedDistro.set(null);
+	},
+
+	update: (id: string, updates: Partial<Distro>) => {
+		distros.update(current =>
+			current.map(d => d.id === id ? { ...d, ...updates } : d)
+		);
 	}
 };
 

@@ -3,6 +3,7 @@
 	import OptimizedImage from '$lib/components/OptimizedImage.svelte';
 	import { updateLikes } from '$lib/supabase';
 	import { setLikedDistro, removeLikedDistro } from '$lib/utils';
+	import { distroActions } from '$lib/stores';
 	import { t } from '$lib/i18n/locale';
 
 	let {
@@ -30,18 +31,17 @@
 		const newLikes = distro.userLiked 
 			? (distro.likes || 1) - 1 
 			: (distro.likes || 0) + 1;
+		const newUserLiked = !distro.userLiked;
 
 		const success = await updateLikes(distro.id, newLikes);
 
 		if (success) {
-			distro.likes = newLikes;
-			distro.userLiked = !distro.userLiked;
-			if (distro.userLiked) {
+			distroActions.update(distro.id, { likes: newLikes, userLiked: newUserLiked });
+			if (newUserLiked) {
 				setLikedDistro(distro.id);
 			} else {
 				removeLikedDistro(distro.id);
 			}
-			distros = distros;
 		}
 	}
 
