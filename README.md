@@ -81,8 +81,7 @@ distro-picker/
 
 | Column | Type | Description |
 |--------|------|-------------|
-| id | int8 | Primary key |
-| name | varchar | Distro identifier (same as 'id' in distros.json) |
+| id | text | Primary key (same as 'id' in distros.json) |
 | likes | int2 | Number of likes |
 
 ## 🌐 Supported Languages

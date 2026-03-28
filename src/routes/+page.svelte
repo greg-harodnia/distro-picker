@@ -70,7 +70,7 @@
 		try {
 			const likesData = await fetchLikes();
 			if (likesData.length > 0) {
-				const likesMap = new Map(likesData.map(l => [l.name, l.likes]));
+				const likesMap = new Map(likesData.map(l => [l.id, l.likes]));
 				const updatedDistros = $filteredDistros.map(distro => {
 					const newLikes = likesMap.get(distro.id);
 					return newLikes !== undefined && newLikes !== distro.likes

@@ -5,10 +5,10 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-export async function fetchLikes(): Promise<Array<{ name: string; likes: number }>> {
+export async function fetchLikes(): Promise<Array<{ id: string; likes: number }>> {
 	const { data, error } = await supabase
 		.from('distros')
-		.select('name, likes');
+		.select('id, likes');
 	
 	if (error) {
 		console.error('Failed to fetch likes:', error);
@@ -21,7 +21,7 @@ export async function updateLikes(distroId: string, newLikes: number): Promise<b
 	const { error } = await supabase
 		.from('distros')
 		.update({ likes: newLikes })
-		.eq('name', distroId);
+		.eq('id', distroId);
 	
 	if (error) {
 		console.error('Failed to update likes:', error);
