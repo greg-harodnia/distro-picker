@@ -104,7 +104,7 @@
       "photoshop": "Alternatif Photoshop: Photoshop online, Photopea, GIMP, Krita, Affinity (via Bottles), Canva (untuk tugas sederhana).",
       "lightroom": "Alternatif Lightroom: Darktable.",
       "illustrator": "Alternatif Illustrator: Inkscape.",
-      "premier": "Alternatif Premier Pro: DaVinci Resolve.",
+      "premier": "Alternatif Premier Pro: DaVinci Resolve, Kdenlive.",
       "ventoy": "<i>Ventoy</i> untuk membuat USB bootable dengan beberapa distribusi Linux."
     }
   },
@@ -137,7 +137,7 @@
       "regularMacos": "Pop!_OS. Jika Anda ingin bisa dengan mudah beralih antara layout yang berbeda, gunakan Zorin OS.",
       "gamingYes": "Nobara. Dengan sistem mutable-nya, Anda bisa mengedit file sistem dan menginstal paket apa pun yang Anda mau. Jika Anda nyaman menggunakan terminal, Anda juga bisa memilih CachyOS.",
       "gamingNo": "Bazzite. Distribusi tersedia untuk PC dan handheld. Anda juga bisa memilih SteamOS jika mendukung handheld Anda (belum secara resmi mendukung PC). CachyOS adalah opsi ketiga untuk mereka yang menikmati menggunakan terminal.",
-      "developer": "Fedora adalah pilihan ideal Anda. Ini stabil dan menawarkan perangkat lunak terkini. Plus, Anda bisa memilih dari berbagai desktop environment sesuai preferensi Anda. Meski begitu, distribusi seperti Linux Mint, Kubuntu, Zorin OS, Pop!_OS, atau CachyOS juga merupakan opsi yang layak.",
+      "developer": "Fedora adalah pilihan ideal Anda. Ini stabil dan menawarkan perangkat lunak terkini. Plus, Anda bisa memilih dari berbagai desktop environment sesuai preferensi Anda. Meski begitu, distribusi seperti Linux Mint, Kubuntu, Zorin OS, Pop!_OS, atau CachyOS atau EndeavourOS juga merupakan opsi yang layak.",
       "enthusiast": "Sepertinya CachyOS dibuat untuk Anda. Atau, jika Anda ingin sesuatu yang lebih dekat ke Arch barebones, EndeavourOS layak dicoba.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",

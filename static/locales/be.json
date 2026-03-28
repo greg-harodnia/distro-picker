@@ -104,7 +104,7 @@
       "photoshop": "Альтэрнатывы для Photoshop: Photoshop online, Photopea, GIMP, Krita, Affinity (праз Bottles), Canva (для простых задач).",
       "lightroom": "Альтэрнатыва для Lightroom: Darktable.",
       "illustrator": "Альтэрнатыва для Illustrator: Inkscape.",
-      "premier": "Альтэрнатыва для Premier Pro: DaVinci Resolve.",
+      "premier": "Альтэрнатыва для Premier Pro: DaVinci Resolve, Kdenlive.",
       "ventoy": "<i>Ventoy</i> для стварэньня запусковае флэшкі з колькімі дыстрыбуцыямі Linux."
     }
   },
@@ -137,7 +137,7 @@
       "regularMacos": "Pop!_OS. Калі вы хочаце мець магчымасьць лёгкага пералучэньня паміж рознымі ўкладамі, абярыце Zorin OS.",
       "gamingYes": "Nobara. З яе зьменнай сыстэмай вы зможаце рэдагаваць сыстэмныя файлы і ўсталёўваць усякія пакеты. Калі вам зручна карыстацца тэрміналам, можаце таксама выбраць CachyOS.",
       "gamingNo": "Bazzite. Гэтая дыстрыбутыцыя даступная для ПК і партатыўных кансоляў. Таксама можаце выбраць SteamOS, калі яна падпірае вашую кансоль (падпоры ПК пакуль няма). CachyOS гэта трэці варыянт для тых, хто любяць карыстацца тэрміналам.",
-      "developer": "Fedora гэта ваш ідэальны выбар. Яна й стабільная, і мае актуальнае ПЗ. Да таго ж вы можаце выбраць сярод розных ґрафічных асяродзьдзяў. Але Linux Mint, Kubuntu, Zorin OS, Pop!_OS ці CachyOS таксама практычныя варыянты.",
+      "developer": "Fedora гэта ваш ідэальны выбар. Яна й стабільная, і мае актуальнае ПЗ. Да таго ж вы можаце выбраць сярод розных ґрафічных асяродзьдзяў. Але Linux Mint, Kubuntu, Zorin OS, Pop!_OS, CachyOS або EndeavourOS таксама практычныя варыянты.",
       "enthusiast": "Здаецца, CachyOS ствароная для вас. Ці, калі вы хочаце нешта бліжэйшае да голага Arch, варта паспрабаваць EndeavourOS.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",

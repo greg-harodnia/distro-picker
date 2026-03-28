@@ -104,7 +104,7 @@
       "photoshop": "Photoshop替代品：Photoshop在线版、Photopea、GIMP、Krita、Affinity（通过Bottles）、Canva（用于简单任务）。",
       "lightroom": "Lightroom替代品：Darktable。",
       "illustrator": "Illustrator替代品：Inkscape。",
-      "premier": "Premier Pro替代品：DaVinci Resolve。",
+      "premier": "Premier Pro替代品：DaVinci Resolve、Kdenlive。",
       "ventoy": "<i>Ventoy</i>用于创建可引导的USB驱动器，可包含多个Linux发行版。"
     }
   },
@@ -137,7 +137,7 @@
       "regularMacos": "Pop!_OS。如果您想能够轻松切换不同的布局，请选择Zorin OS。",
       "gamingYes": "Nobara。通过其可变系统，您将能够编辑系统文件并安装任何您想要的软件包。如果您对使用终端感到舒适，也可以选择CachyOS。",
       "gamingNo": "Bazzite。该发行版适用于PC和掌机。如果SteamOS支持您的掌机，您也可以选择它（目前尚未正式支持PC）。CachyOS是第三个选项，适合喜欢使用终端的人。",
-      "developer": "Fedora是您的理想选择。它既稳定又提供最新的软件。此外，您可以从各种桌面环境中进行选择。不过，Linux Mint、Kubuntu、Zorin OS、Pop!_OS或CachyOS也是可行的选择。",
+      "developer": "Fedora是您的理想选择。它既稳定又提供最新的软件。此外，您可以从各种桌面环境中进行选择。不过，Linux Mint、Kubuntu、Zorin OS、Pop!_OS或CachyOS或EndeavourOS也是可行的选择。",
       "enthusiast": "看起来CachyOS就是为您量身打造的。或者，如果您想要更接近精简Arch的东西，值得一试EndeavourOS。",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",

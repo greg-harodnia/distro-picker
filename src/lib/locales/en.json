@@ -104,7 +104,7 @@
       "photoshop": "Photoshop alternatives: Photoshop online, Photopea, GIMP, Krita, Affinity (via Bottles), Canva (for simple tasks).",
       "lightroom": "Lightroom alternative: Darktable.",
       "illustrator": "Illustrator alternative: Inkscape.",
-      "premier": "Premier Pro alternative: DaVinci Resolve.",
+      "premier": "Premier Pro alternative: DaVinci Resolve, Kdenlive.",
       "ventoy": "<i>Ventoy</i> for creating a bootable USB drive with multiple Linux distributions."
     }
   },
@@ -137,7 +137,7 @@
       "regularMacos": "Pop!_OS. If you would like to be able to easily switch between different layouts, go with Zorin OS.",
       "gamingYes": "Nobara. With its mutable system, you'll be able to tweak system files and install any packages you want. If you're comfortable using the terminal, you can also go with CachyOS.",
       "gamingNo": "Bazzite. The distribution is available for both PCs and handhelds. You can also go with SteamOS if it supports your handheld (it doesn't officially support PCs yet). CachyOS is the third option for those who enjoy using the terminal.",
-      "developer": "Fedora is your ideal choice. It's both stable and offers up-to-date software. Plus, you can choose from various desktop environments to suit your preferences. That said, distros like Linux Mint, Kubuntu, Zorin OS, Pop!_OS, or CachyOS are also viable options.",
+      "developer": "Fedora is your ideal choice. It's both stable and offers up-to-date software. Plus, you can choose from various desktop environments to suit your preferences. That said, distros like Linux Mint, Kubuntu, Zorin OS, Pop!_OS, CachyOS, or EndeavourOS are also viable options.",
       "enthusiast": "Sounds like CachyOS was made for you. Or, if you want something even closer to barebones Arch, EndeavourOS is worth checking out.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",

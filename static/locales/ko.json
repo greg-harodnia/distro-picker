@@ -104,7 +104,7 @@
       "photoshop": "Photoshop 대안: Photoshop 온라인, Photopea, GIMP, Krita, Affinity (Bottles 통해), Canva (간단한 작업용).",
       "lightroom": "Lightroom 대안: Darktable.",
       "illustrator": "Illustrator 대안: Inkscape.",
-      "premier": "Premier Pro 대안: DaVinci Resolve.",
+      "premier": "Premier Pro 대안: DaVinci Resolve, Kdenlive.",
       "ventoy": "여러 Linux 배포판으로 부팅 가능한 USB를 만들기 위한 <i>Ventoy</i>."
     }
   },
@@ -137,7 +137,7 @@
       "regularMacos": "Pop!_OS. 다른 레이아웃 간에 쉽게 전환할 수 있게 하려면 Zorin OS를 선택하세요.",
       "gamingYes": "Nobara. 변경 가능한 시스템 덕분에 시스템 파일을 편집하고 원하는 패키지를 설치할 수 있습니다. 터미널 사용에 익숙하다면 CachyOS도 선택지로 고려할 수 있습니다.",
       "gamingNo": "Bazzite. 이 배포판은 PC와 휴대용 기기 모두에서 이용 가능합니다. 호환되는 휴대용 기기가 있다면 SteamOS도 선택지입니다 (아직은 공식 PC 지원 없음). 터미널 사용을 즐기는 분들을 위해 CachyOS가 세 번째 옵션입니다.",
-      "developer": "Fedora는 당신에게 완벽한 선택입니다. 안정적이며 최신 소프트웨어를 제공합니다. 또한 다양한 데스크탑 환경 중에서 선택할 수 있습니다. 그래도 Linux Mint, Kubuntu, Zorin OS, Pop!_OS 또는 CachyOS도 실행 가능한 옵션입니다.",
+      "developer": "Fedora는 당신에게 완벽한 선택입니다. 안정적이며 최신 소프트웨어를 제공합니다. 또한 다양한 데스크탑 환경 중에서 선택할 수 있습니다. 그래도 Linux Mint, Kubuntu, Zorin OS, Pop!_OS 또는 CachyOS 또는 EndeavourOS도 실행 가능한 옵션입니다.",
       "enthusiast": "CachyOS가 당신을 위해 만들어진 것 같습니다. 또는 더 기본적인 Arch에 가까운 것을 원한다면 EndeavourOS를 시도해 볼 가치가 있습니다.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",

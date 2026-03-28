@@ -104,7 +104,7 @@
       "photoshop": "Photoshop alternatifleri: Photoshop online, Photopea, GIMP, Krita, Affinity (Bottles üzerinden), Canva (basit görevler için).",
       "lightroom": "Lightroom alternatifi: Darktable.",
       "illustrator": "Illustrator alternatifi: Inkscape.",
-      "premier": "Premier Pro alternatifi: DaVinci Resolve.",
+      "premier": "Premier Pro alternatifi: DaVinci Resolve, Kdenlive.",
       "ventoy": "Birden fazla Linux dağıtımıyla önyüklenebilir USB oluşturmak için <i>Ventoy</i>."
     }
   },
@@ -137,7 +137,7 @@
       "regularMacos": "Pop!_OS. Farklı düzenler arasında kolayca geçiş yapabilmek istiyorsanız Zorin OS ile devam edin.",
       "gamingYes": "Nobara. Değişken sistemiyle sistem dosyalarını düzenleyebilir ve istediğiniz paketleri kurabilirsiniz. Terminal kullanmakta rahat hissediyorsanız CachyOS'i de seçebilirsiniz.",
       "gamingNo": "Bazzite. Dağıtım hem PC'ler hem elde taşınır cihazlar için mevcut. Elde taşınır cihazınızı destekliyorsa SteamOS'i de seçebilirsiniz (henüz resmi olarak PC'leri desteklemiyor). Terminal kullanmayı sevenler için CachyOS üçüncü seçenek.",
-      "developer": "Fedora sizin ideal seçiminiz. Hem kararlı hem de güncel yazılımlar sunuyor. Ayrıca tercihlerinize göre çeşitli masaüstü ortamları arasından seçim yapabilirsiniz. Bununla birlikte, Linux Mint, Kubuntu, Zorin OS, Pop!_OS veya CachyOS gibi dağıtımlar da uygun seçeneklerdir.",
+      "developer": "Fedora sizin ideal seçiminiz. Hem kararlı hem de güncel yazılımlar sunuyor. Ayrıca tercihlerinize göre çeşitli masaüstü ortamları arasından seçim yapabilirsiniz. Bununla birlikte, Linux Mint, Kubuntu, Zorin OS, Pop!_OS veya CachyOS veya EndeavourOS gibi dağıtımlar da uygun seçeneklerdir.",
       "enthusiast": "CachyOS sizin için yapılmış gibi görünüyor. Ya da çıplak Arch'a daha yakın bir şey istiyorsanız EndeavourOS'e bir göz atın.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",

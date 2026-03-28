@@ -104,7 +104,7 @@
       "photoshop": "Alternativas a Photoshop: Photoshop online, Photopea, GIMP, Krita, Affinity (vía Bottles), Canva (para tareas simples).",
       "lightroom": "Alternativa a Lightroom: Darktable.",
       "illustrator": "Alternativa a Illustrator: Inkscape.",
-      "premier": "Alternativa a Premier Pro: DaVinci Resolve.",
+      "premier": "Alternativa a Premier Pro: DaVinci Resolve, Kdenlive.",
       "ventoy": "<i>Ventoy</i> para crear un USB de arranque con múltiples distribuciones Linux."
     }
   },
@@ -137,7 +137,7 @@
       "regularMacos": "Pop!_OS. Si quieres poder cambiar fácilmente entre diferentes diseños, ve con Zorin OS.",
       "gamingYes": "Nobara. Con su sistema mutable podrás editar archivos del sistema e instalar cualquier paquete que quieras. Si te sientes cómodo usando la terminal, también puedes optar por CachyOS.",
       "gamingNo": "Bazzite. La distribución está disponible tanto para PCs como para portátiles para gaming. También puedes optar por SteamOS si soporta tu portátil (todavía no soporta oficialmente PCs). CachyOS es la tercera opción para quienes disfrutan usando la terminal.",
-      "developer": "Fedora es tu elección ideal. Es estable y ofrece software actualizado. Además, puedes elegir entre varios escritorios. Dicho esto, distribuciones como Linux Mint, Kubuntu, Zorin OS, Pop!_OS o CachyOS también son opciones viables.",
+      "developer": "Fedora es tu elección ideal. Es estable y ofrece software actualizado. Además, puedes elegir entre varios escritorios. Dicho esto, distribuciones como Linux Mint, Kubuntu, Zorin OS, Pop!_OS o CachyOS o EndeavourOS también son opciones viables.",
       "enthusiast": "Parece que CachyOS fue hecha para ti. O, si quieres algo más cercano a Arch básico, EndeavourOS vale la pena probarlo.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",

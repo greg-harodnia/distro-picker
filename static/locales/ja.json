@@ -104,7 +104,7 @@
       "photoshop": "Photoshopの代替：Photoshopオンライン、Photopea、GIMP、Krita、Affinity（Bottles経由）、Canva（シンプルなタスク用）。",
       "lightroom": "Lightroomの代替：Darktable。",
       "illustrator": "Illustratorの代替：Inkscape。",
-      "premier": "Premier Proの代替：DaVinci Resolve。",
+      "premier": "Premier Proの代替：DaVinci Resolve、Kdenlive。",
       "ventoy": "複数のLinuxディストリビューションで起動可能なUSBを作成するための<i>Ventoy</i>。"
     }
   },
@@ -137,7 +137,7 @@
       "regularMacos": "Pop!_OS。異なるレイアウト間を簡単に切り替えたい場合は、Zorin OSを選択してください。",
       "gamingYes": "Nobara。その変更可能なシステムにより、システムファイルを編集し、必要なパッケージをインストールできます。ターミナルを使用することに慣れているなら、CachyOSも選択肢として考慮できます。",
       "gamingNo": "Bazzite。このディストリビューションはPCとハンドヘルドの両方で利用可能です。ハンドヘルドがサポートされているならSteamOSも選択肢です（まだPCの公式サポートはありません）。ターミナルを使用することを楽しむ人々のためにCachyOSが三番目のオプションです。",
-      "developer": "Fedoraはあなたに的理想的な選択です。安定しており、最新のソフトウェアを提供します。さらに、好みに合わせてさまざまなデスクトップ環境から選択できます。それでも、Linux Mint、Kubuntu、Zorin OS、Pop!_OS、またはCachyOSも実行可能なオプションです。",
+      "developer": "Fedoraはあなたに的理想的な選択です。安定しており、最新のソフトウェアを提供します。さらに、好みに合わせてさまざまなデスクトップ環境から選択できます。それでも、Linux Mint、Kubuntu、Zorin OS、Pop!_OS、CachyOS、またはEndeavourOSも実行可能なオプションです。",
       "enthusiast": "CachyOSはあなたのために作られたようですね。または、よりベースなArchに近いものをしたい場合は、EndeavourOSを試す価値があります。",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",
