@@ -264,7 +264,6 @@
 		max-width: var(--container-2xl);
 		margin: 0 auto;
 		padding: var(--space-xl);
-		font-family: var(--font-sans);
 	}
 
 	.header {

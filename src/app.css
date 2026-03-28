@@ -61,7 +61,6 @@
   
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', monospace;
   
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -164,6 +163,7 @@ body {
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 /* Utility classes */
