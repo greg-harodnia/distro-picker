@@ -56,26 +56,3 @@
 		</svg>
 	{/if}
 </button>
-
-<style>
-	.theme-toggle {
-		width: 44px;
-		height: 44px;
-	}
-
-	.theme-toggle:hover {
-		transform: translateY(-1px);
-	}
-
-	.theme-toggle:active {
-		transform: translateY(0);
-	}
-
-	svg {
-		transition: var(--transition-normal);
-	}
-
-	.theme-toggle:hover svg {
-		transform: scale(1.1);
-	}
-</style>

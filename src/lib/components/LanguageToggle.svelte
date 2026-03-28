@@ -89,7 +89,6 @@
   .language-toggle {
     gap: 4px;
     padding: 0 12px;
-    height: 44px;
     font-size: var(--text-sm);
     font-weight: var(--font-semibold);
   }
