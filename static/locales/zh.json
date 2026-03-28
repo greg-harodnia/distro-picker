@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "description": "基于您的需求找到理想Linux发行版的互动工具"
+  },
   "app": {
     "title": "Linux发行版选择器",
     "loadingDistributions": "正在加载发行版...",

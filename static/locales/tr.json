@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "description": "İhtiyaçlarınıza göre mükemmel Linux dağıtımını bulmak için interaktif araç"
+  },
   "app": {
     "title": "Linux Dağıtım Seçici",
     "loadingDistributions": "Dağıtımlar yükleniyor...",

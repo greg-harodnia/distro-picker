@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "description": "Alat interaktif untuk menemukan distribusi Linux yang sempurna berdasarkan kebutuhan Anda"
+  },
   "app": {
     "title": "Pemilih Distro Linux",
     "loadingDistributions": "Memuat distribusi...",

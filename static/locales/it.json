@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "description": "Strumento interattivo per trovare la distribuzione Linux perfetta in base alle tue esigenze"
+  },
   "app": {
     "title": "Selettore Distribuzioni Linux",
     "loadingDistributions": "Caricamento distribuzioni...",

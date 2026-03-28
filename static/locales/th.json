@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "description": "เครื่องมือโต้ตอบเพื่อค้นหา Linux distribution ที่สมบูรณ์แบบตามความต้องการของคุณ"
+  },
   "app": {
     "title": "ตัวเลือกดิสโตร Linux",
     "loadingDistributions": "กำลังโหลดดิสโตร...",

@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "description": "Interaktywne narzędzie do znalezienia idealnej dystrybucji Linuxa na podstawie Twoich potrzeb"
+  },
   "app": {
     "title": "Wybieracz Dystrybucji Linux",
     "loadingDistributions": "Ładowanie dystrybucji...",

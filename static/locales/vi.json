@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "description": "Công cụ tương tác để tìm bản phân phối Linux hoàn hảo dựa trên nhu cầu của bạn"
+  },
   "app": {
     "title": "Trình Chọn Distro Linux",
     "loadingDistributions": "Đang tải các bản phân phối...",

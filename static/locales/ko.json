@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "description": "니즈에 맞는 완벽한 Linux 배포판을 찾기 위한 인터랙티브 도구"
+  },
   "app": {
     "title": "Linux 배포판 선택기",
     "loadingDistributions": "배포판 로딩 중...",

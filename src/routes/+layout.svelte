@@ -31,23 +31,23 @@
 
 <svelte:head>
 	<!-- Basic Meta -->
-	<meta name="description" content={$t('app.noResults').replace('.', '')} />
+	<meta name="description" content={$t('meta.description')} />
 	<meta name="keywords" content="linux distribution, linux distro, choose linux, linux picker, ubuntu, fedora, arch, debian, mint" />
 	<meta name="author" content={$t('app.title')}>
 	<meta name="robots" content="index, follow">
 	
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="{$t('app.title')} - {$t('app.title')}" />
-	<meta property="og:description" content={$t('app.noResults').replace('.', '')} />
+	<meta property="og:title" content={$t('app.title')} />
+	<meta property="og:description" content={$t('meta.description')} />
 	<meta property="og:image" content="{siteUrl}{base}/linux.webp">
 	<meta property="og:url" content="{siteUrl}{base}{$page.url.pathname}">
 	<meta property="og:site_name" content={$t('app.title')}>
 	
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="{$t('app.title')} - {$t('app.title')}" />
-	<meta name="twitter:description" content={$t('app.noResults').replace('.', '')} />
+	<meta name="twitter:title" content={$t('app.title')} />
+	<meta name="twitter:description" content={$t('meta.description')} />
 	<meta name="twitter:image" content="{siteUrl}{base}/linux.webp">
 	<meta name="twitter:url" content="{siteUrl}{base}{$page.url.pathname}">
 	
@@ -56,11 +56,3 @@
 </svelte:head>
 
 <slot />
-
-<style>
-	:global(body) {
-		margin: 0;
-		padding: 0;
-		min-height: 100vh;
-	}
-</style>
