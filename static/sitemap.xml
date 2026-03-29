@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<url>
 		<loc>https://greg-harodnia.github.io/distro-picker/</loc>
 		<lastmod>2026-02-10</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>1.0</priority>
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://greg-harodnia.github.io/distro-picker/" />
+		<xhtml:link rel="alternate" hreflang="en" href="https://greg-harodnia.github.io/distro-picker/#en" />
+		<xhtml:link rel="alternate" hreflang="be" href="https://greg-harodnia.github.io/distro-picker/#be" />
+		<xhtml:link rel="alternate" hreflang="uk" href="https://greg-harodnia.github.io/distro-picker/#uk" />
+		<xhtml:link rel="alternate" hreflang="pl" href="https://greg-harodnia.github.io/distro-picker/#pl" />
+		<xhtml:link rel="alternate" hreflang="ru" href="https://greg-harodnia.github.io/distro-picker/#ru" />
+		<xhtml:link rel="alternate" hreflang="es" href="https://greg-harodnia.github.io/distro-picker/#es" />
+		<xhtml:link rel="alternate" hreflang="pt" href="https://greg-harodnia.github.io/distro-picker/#pt" />
+		<xhtml:link rel="alternate" hreflang="de" href="https://greg-harodnia.github.io/distro-picker/#de" />
+		<xhtml:link rel="alternate" hreflang="fr" href="https://greg-harodnia.github.io/distro-picker/#fr" />
+		<xhtml:link rel="alternate" hreflang="it" href="https://greg-harodnia.github.io/distro-picker/#it" />
+		<xhtml:link rel="alternate" hreflang="tr" href="https://greg-harodnia.github.io/distro-picker/#tr" />
+		<xhtml:link rel="alternate" hreflang="vi" href="https://greg-harodnia.github.io/distro-picker/#vi" />
+		<xhtml:link rel="alternate" hreflang="id" href="https://greg-harodnia.github.io/distro-picker/#id" />
+		<xhtml:link rel="alternate" hreflang="th" href="https://greg-harodnia.github.io/distro-picker/#th" />
+		<xhtml:link rel="alternate" hreflang="zh" href="https://greg-harodnia.github.io/distro-picker/#zh" />
+		<xhtml:link rel="alternate" hreflang="ja" href="https://greg-harodnia.github.io/distro-picker/#ja" />
+		<xhtml:link rel="alternate" hreflang="ko" href="https://greg-harodnia.github.io/distro-picker/#ko" />
 	</url>
 </urlset>
