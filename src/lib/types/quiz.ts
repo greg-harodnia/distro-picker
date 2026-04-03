@@ -1,11 +1,14 @@
+export type QuestionKey = `quiz.questions.${string}`;
+export type ResultKey = `quiz.results.${string}`;
+
 export interface QuizAnswer {
-	text: string;
+	text: QuestionKey;
 	question?: QuizQuestion;
-	result?: string;
+	result?: ResultKey;
 }
 
 export interface QuizQuestion {
-	text: string;
+	text: QuestionKey;
 	answers: QuizAnswer[];
 }
 

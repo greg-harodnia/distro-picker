@@ -63,4 +63,5 @@ export type Translations = {
   language: {
     toggle: string;
   };
+  independent: string;
 };

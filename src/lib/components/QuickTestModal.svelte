@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { quickTestData } from '$lib/data/quickTest';
-	import type { QuizQuestion, QuizAnswer } from '$lib/types/quiz';
-	import { locale, t } from '$lib/i18n/locale';
-	import { getTranslation } from '$lib/i18n/translations';
+	import type { QuizQuestion, QuizAnswer, ResultKey } from '$lib/types/quiz';
+	import { t } from '$lib/i18n/locale';
 	import Modal from './Modal.svelte';
 
 	interface Props {
@@ -11,117 +9,44 @@
 	}
 	let { onclose = () => {} }: Props = $props();
 
-	let currentQuestion: QuizQuestion | null = $state(null);
 	let currentPath: QuizAnswer[] = $state([]);
-	let result: string | null = $state(null);
+	let resultKey: ResultKey | null = $state(null);
 	let isComplete = $state(false);
 
-	const questionKeyMap: Record<string, string> = {
-		'How would you like to use the distribution?': 'quiz.questions.howToUse',
-		'Just a regular user': 'quiz.questions.regularUser',
-		'I want my distro to be preconfigured for gaming / I want to use it on a handheld': 'quiz.questions.gaming',
-		'I want to develop on it': 'quiz.questions.developer',
-		"I'm a tech enthusiast who wants a distro that's as flexible and unbloated as possible. I want full control over my system, and I enjoy tweaking and using the terminal.": 'quiz.questions.enthusiast',
-		'I want to recover my old PC with it': 'quiz.questions.recover',
-		'Which layout do you prefer?': 'quiz.questions.whichLayout',
-		'Windows-like': 'quiz.questions.windowsLike',
-		'MacOS-like': 'quiz.questions.macosLike',
-		'Do you want to be able to edit system files?': 'quiz.questions.canEditSystem',
-		'Yes': 'quiz.questions.yes',
-		"I don't care about it": 'quiz.questions.dontCare',
-		'How old is your computer?': 'quiz.questions.howOld',
-		'Not extremely old, but it feels sluggish': 'quiz.questions.sluggish',
-		'It was produced before 2011': 'quiz.questions.before2011',
-		'It is truly ancient (2004 or older)': 'quiz.questions.ancient',
-	};
-
-	const resultKeyMap: Record<string, string> = {
-		'Linux Mint, Kubuntu, or Zorin OS—depending on which design you like more.': 'quiz.results.regularWindows',
-		"Pop!_OS. If you would like to be able to easily switch between different layouts, go with Zorin OS.": 'quiz.results.regularMacos',
-		"Nobara. With its mutable system, you'll be able to tweak system files and install any packages you want. If you're comfortable using the terminal, you can also go with CachyOS.": 'quiz.results.gamingYes',
-		"Bazzite. The distribution is available for both PCs and handhelds. You can also go with SteamOS if it supports your handheld (it doesn't officially support PCs yet). CachyOS is the third option for those who enjoy using the terminal.": 'quiz.results.gamingNo',
-		"Fedora is your ideal choice. It's both stable and offers up-to-date software. Plus, you can choose from various desktop environments to suit your preferences. That said, distros like Linux Mint, Kubuntu, Zorin OS, Pop!_OS, or CachyOS are also viable options.": 'quiz.results.developer',
-		"Sounds like CachyOS was made for you. Or, if you want something even closer to barebones Arch, EndeavourOS is worth checking out.": 'quiz.results.enthusiast',
-		'Linux Mint Xfce': 'quiz.results.oldSluggish',
-		'Lubuntu': 'quiz.results.old2011',
-		'AntiX': 'quiz.results.oldAncient',
-	};
-
-	function translateText(text: string): string {
-		const key = questionKeyMap[text] || resultKeyMap[text];
-		if (key) {
-			return getTranslation($locale, key) ?? text;
+	function getCurrentQuestion(): QuizQuestion {
+		let question = quickTestData.test[0].question;
+		for (const answer of currentPath) {
+			if (answer.question) {
+				question = answer.question;
+			} else {
+				return question;
+			}
 		}
-		return text;
-	}
-
-	function translateQuestion(question: QuizQuestion): QuizQuestion {
-		return {
-			text: translateText(question.text),
-			answers: question.answers.map(answer => {
-				const translated: QuizAnswer = {
-					text: translateText(answer.text),
-				};
-				if (answer.question) {
-					translated.question = translateQuestion(answer.question);
-				}
-				if (answer.result) {
-					translated.result = translateText(answer.result);
-				}
-				return translated;
-			})
-		};
+		return question;
 	}
 
 	function startQuiz() {
-		const quiz = quickTestData.test[0];
-		if (quiz) {
-			currentQuestion = translateQuestion(quiz.question);
-			currentPath = [];
-			result = null;
-			isComplete = false;
-		}
+		currentPath = [];
+		resultKey = null;
+		isComplete = false;
 	}
 
-	onMount(() => {
-		startQuiz();
-	});
+	startQuiz();
 
 	function selectAnswer(answer: QuizAnswer) {
 		currentPath = [...currentPath, answer];
 
 		if (answer.result) {
-			result = translateText(answer.result);
+			resultKey = answer.result;
 			isComplete = true;
-			currentQuestion = null;
-		} else if (answer.question) {
-			currentQuestion = translateQuestion(answer.question);
 		}
 	}
 
 	function goBack() {
 		if (currentPath.length > 0) {
 			currentPath.pop();
-			if (currentPath.length === 0) {
-				startQuiz();
-			} else {
-				let target: QuizQuestion | null = translateQuestion(quickTestData.test[0].question);
-				for (const answer of currentPath) {
-					if (target) {
-						const found: QuizAnswer | undefined = target.answers.find((a) => a.text === answer.text);
-						if (found && found.question) {
-							target = found.question;
-						} else {
-							target = null;
-						}
-					}
-				}
-				if (target) {
-					currentQuestion = target;
-					result = null;
-					isComplete = false;
-				}
-			}
+			resultKey = null;
+			isComplete = false;
 		}
 	}
 </script>
@@ -140,7 +65,7 @@
 		<h2 class="modal-title">{$t('quiz.title')}</h2>
 	{/snippet}
 
-	{#if isComplete && result}
+	{#if isComplete && resultKey}
 		<div class="result-container">
 			<div class="result-icon">
 				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -149,7 +74,7 @@
 				</svg>
 			</div>
 			<h3>{$t('quiz.yourRecommendation')}</h3>
-			<p class="result-text">{result}</p>
+			<p class="result-text">{$t(resultKey)}</p>
 			<div class="result-actions">
 				<button class="restart-btn" onclick={startQuiz} type="button">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -163,12 +88,13 @@
 				</button>
 			</div>
 		</div>
-	{:else if currentQuestion}
+	{:else}
+		{@const currentQuestion = getCurrentQuestion()}
 		<div class="question-container">
 			<div class="progress-bar">
-				<div class="progress" style="width: {Math.min(100, (currentPath.length + 1) * 20)}%"></div>
+				<div class="progress" style="width: {Math.min(100, (currentPath.length + 1) * 100 / 3)}%"></div>
 			</div>
-			<p class="question-text">{currentQuestion.text}</p>
+			<p class="question-text">{$t(currentQuestion.text)}</p>
 			<div class="answers-list">
 				{#each currentQuestion.answers as answer, i}
 					<button
@@ -178,7 +104,7 @@
 						style="animation-delay: {i * 50}ms"
 					>
 						<span class="answer-letter">{String.fromCharCode(65 + i)}</span>
-						<span class="answer-text">{answer.text}</span>
+						<span class="answer-text">{$t(answer.text)}</span>
 					</button>
 				{/each}
 			</div>

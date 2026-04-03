@@ -4,64 +4,64 @@ export const quickTestData: QuickTestData = {
 	test: [
 		{
 			question: {
-				text: 'How would you like to use the distribution?',
+				text: 'quiz.questions.howToUse',
 				answers: [
 					{
-						text: 'Just a regular user',
+						text: 'quiz.questions.regularUser',
 						question: {
-							text: 'Which layout do you prefer?',
+							text: 'quiz.questions.whichLayout',
 							answers: [
 								{
-									text: 'Windows-like',
-									result: 'Linux Mint, Kubuntu, or Zorin OS—depending on which design you like more.',
+									text: 'quiz.questions.windowsLike',
+									result: 'quiz.results.regularWindows',
 								},
 								{
-									text: 'MacOS-like',
-									result: 'Pop!_OS. If you would like to be able to easily switch between different layouts, go with Zorin OS.',
+									text: 'quiz.questions.macosLike',
+									result: 'quiz.results.regularMacos',
 								},
 							],
 						},
 					},
 					{
-						text: 'I want my distro to be preconfigured for gaming / I want to use it on a handheld',
+						text: 'quiz.questions.gaming',
 						question: {
-							text: 'Do you want to be able to edit system files?',
+							text: 'quiz.questions.canEditSystem',
 							answers: [
 								{
-									text: 'Yes',
-									result: 'Nobara. With its mutable system, you\'ll be able to tweak system files and install any packages you want. If you\'re comfortable using the terminal, you can also go with CachyOS.',
+									text: 'quiz.questions.yes',
+									result: 'quiz.results.gamingYes',
 								},
 								{
-									text: "I don't care about it",
-									result: 'Bazzite. The distribution is available for both PCs and handhelds. You can also go with SteamOS if it supports your handheld (it doesn\'t officially support PCs yet). CachyOS is the third option for those who enjoy using the terminal.',
+									text: 'quiz.questions.dontCare',
+									result: 'quiz.results.gamingNo',
 								},
 							],
 						},
 					},
 					{
-						text: 'I want to develop on it',
-						result: 'Fedora is your ideal choice. It\'s both stable and offers up-to-date software. Plus, you can choose from various desktop environments to suit your preferences. That said, distros like Linux Mint, Kubuntu, Zorin OS, Pop!_OS, or CachyOS are also viable options.',
+						text: 'quiz.questions.developer',
+						result: 'quiz.results.developer',
 					},
 					{
-						text: 'I\'m a tech enthusiast who wants a distro that\'s as flexible and unbloated as possible. I want full control over my system, and I enjoy tweaking and using the terminal.',
-						result: 'Sounds like CachyOS was made for you. Or, if you want something even closer to barebones Arch, EndeavourOS is worth checking out.',
+						text: 'quiz.questions.enthusiast',
+						result: 'quiz.results.enthusiast',
 					},
 					{
-						text: 'I want to recover my old PC with it',
+						text: 'quiz.questions.recover',
 						question: {
-							text: 'How old is your computer?',
+							text: 'quiz.questions.howOld',
 							answers: [
 								{
-									text: 'Not extremely old, but it feels sluggish',
-									result: 'Linux Mint Xfce',
+									text: 'quiz.questions.sluggish',
+									result: 'quiz.results.oldSluggish',
 								},
 								{
-									text: 'It was produced before 2011',
-									result: 'Lubuntu',
+									text: 'quiz.questions.before2011',
+									result: 'quiz.results.old2011',
 								},
 								{
-									text: 'It is truly ancient (2004 or older)',
-									result: 'AntiX',
+									text: 'quiz.questions.ancient',
+									result: 'quiz.results.oldAncient',
 								},
 							],
 						},
