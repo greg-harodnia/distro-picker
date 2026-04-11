@@ -52,6 +52,7 @@
       "steamos": "Valve的官方游戏操作系统，为Steam Deck、Steam Machine和其他设备（如联想Legion Go）提供支持。不可变（使用其自己的RAUC和desync技术），用户友好且针对游戏优化。具有KDE Plasma桌面环境。为掌机发布，但尚未发布桌面版。",
       "bazzite": "一款适合游戏和PC及掌机的不可变（使用OSTree）Linux发行版。SteamOS的替代品。比CachyOS用户友好得多（但膨胀软件更多）。在官方网站上填写调查问卷，看看您的硬件是否支持Linux游戏。",
       "nobara": "一款具有可变系统的游戏发行版，为您提供完全控制。由Proton-GE的创建者开发——Proton-GE是Linux游戏基础设施的核心工具——并提供PC和掌机版本。为您提供Fedora的全部功能，但配备了预装的图形驱动程序和游戏软件。",
+      "pikaos": "可变游戏发行版。类似于Nobara，但基于Debian（不稳定分支，软件更新）。为您提供在操作系统安装后安装游戏元包的选择，这意味着您可以保持其无膨胀软件并自行配置。Gnome版本具有类似Zorin OS的布局切换器。",
       "lubuntu": "用户友好的轻量级Ubuntu变体，非常适合2004年至2011年间生产的、专为Windows XP/Vista设计的、配备1或2GB内存的电脑。",
       "antiX": "超轻量级发行版，运行只需最少256MB内存（更多内存可更流畅运行应用程序）。适合为Windows XP设计的古老电脑。",
       "endeavouros": "Arch Linux，但更简单。提供图形安装程序，对基础系统的更改最少。"
@@ -65,9 +66,10 @@
       "cachyos": "~50万（但增长非常快）",
       "steamos": "2000万以上（在Steam Deck上）",
       "bazzite": "~7万",
+      "nobara": "~2.5万",
+      "pikaos": "~3k",
       "lubuntu": "~40万",
       "antiX": "~10万",
-      "nobara": "~2.5万",
       "endeavouros": "~25万"
     }
   },

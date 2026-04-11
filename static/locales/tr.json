@@ -52,6 +52,7 @@
       "steamos": "Steam Deck, Steam Machine ve Lenovo Legion Go gibi diğer cihazları güçlendiren Valve'nin resmi oyun işletim sistemi. (Kendi RAUC ve desync teknolojilerini kullanarak) değişmez, kullanıcı dostu ve oyun için optimize edilmiş. KDE Plasma masaüstü ortamına sahip. Elde taşınır cihazlar için piyasaya sürüldü ancak henüz masaüstü için yok.",
       "bazzite": "Hem PC'ler hem elde taşınır cihazlar için mükemmel (onlar için özel bir sürümü var) oyun için (OSTree kullanarak) değişmez bir Linux dağıtımı. SteamOS alternatifi. CachyOS'ten çok daha kullanıcı dostu (ancak daha bloat). Donanımınızın Linux oyunlarını destekleyip desteklemediğini görmek için resmi web sitesinde anketi doldurun.",
       "nobara": "Tam kontrol sağlayan değişken sisteme sahip bir oyun dağıtımı. Linux oyun altyapısının merkezindeki Proton-GE'nin yaratıcısı tarafından geliştirilmiştir ve hem PC hem de elde taşınır sürümleri mevcuttur. Fedora'nın tam gücünü sunar ancak önceden yüklenmiş grafik sürücüleri ve oyun yazılımı ile birlikte gelir.",
+      "pikaos": "Değişken bir oyun dağıtımı. Nobara'ya benzer ancak Debian'a (yeni yazılımlar içeren kararsız dal) dayanır. İşletim sistemi kurulumundan sonra bir oyun meta paketi kurma seçeneği sunar, bu da onu şişkinlikten uzak tutabileceğiniz ve kendiniz yapılandırabileceğiniz anlamına gelir. Gnome sürümü, Zorin OS gibi bir düzen değiştiriciye sahiptir.",
       "lubuntu": "2004 ile 2011 arasında üretilen, Windows XP/Vista için tasarlanmış 1 veya 2GB RAM'li bilgisayarlar için mükemmel, kullanıcı dostu hafif bir Ubuntu varyantı.",
       "antiX": "Çalışmak için en az 256MB RAM gerektiren ultra hafif dağıtım (uygulamaları sorunsuz çalıştırmak için daha fazla). Windows XP için tasarlanmış eski bilgisayarlar için uygun.",
       "endeavouros": "Arch Linux, ama daha kolay. Grafik yükleyici sağlar ve taban sistemde minimum değişiklik yapar."
@@ -65,9 +66,10 @@
       "cachyos": "~500bin (ancak çok hızlı büyüyor)",
       "steamos": "20+ milyon (Steam Deck'te)",
       "bazzite": "~70bin",
+      "nobara": "~25bin",
+      "pikaos": "~3k",
       "lubuntu": "~400bin",
       "antiX": "~100bin",
-      "nobara": "~25bin",
       "endeavouros": "~250bin"
     }
   },

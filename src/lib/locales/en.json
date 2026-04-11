@@ -53,6 +53,7 @@
       "steamos": "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment. Released for handhelds, but yet to be released for desktops.",
       "bazzite": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative. Much more user-friendly than CachyOS (but more bloated). Take a survey on the official website to see if your hardware supports the Linux gaming.",
       "nobara": "A gaming distro with a mutable core system, giving you full control. It was developed by the creator of Proton-GE, a utility at the heart of Linux gaming, and features both PC and handheld versions. Provides you the full power of Fedora, but comes with graphics drivers and gaming software preinstalled on top of that.",
+      "pikaos": "A mutable gaming distribution. Similar to Nobara, but based on Debian (unstable branch with newer software). It offers you the option to install a gaming meta-package after the OS installation, meaning you can keep it bloat-free and configure it yourself. The Gnome edition features a layout switcher, just like Zorin OS.",
       "lubuntu": "A user-friendly lightweight Ubuntu variant, perfect for computers produced between 2004 and 2011 designed for Windows XP/Vista with 1 or 2Gb of RAM.",
       "antiX": "Ultra light distro, requires as minimum as 256Mb of RAM to run (more to run apps smoothly). Suitable for ancient computers designed for Windows XP."
     },
@@ -67,6 +68,7 @@
       "steamos": "20+ million (on Steam Deck)",
       "bazzite": "~70k",
       "nobara": "~25k",
+      "pikaos": "~3k",
       "lubuntu": "~400k",
       "antiX": "~100k"
     }

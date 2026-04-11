@@ -109,11 +109,21 @@
       "id": "nobara",
       "name": "Nobara",
       "website": "https://nobaraproject.org/",
-      "tag_ids": ["gaming-ready", "traditional"],
+      "tag_ids": ["gaming-ready", "rolling-release"],
       "logo": "/nobara.webp",
       "desktops": ["KDE Plasma", "Gnome"],
       "beginner_friendly": 5,
       "based_on": "Fedora"
+    },
+    {
+      "id": "pikaos",
+      "name": "PikaOS",
+      "website": "https://git.pika-os.com/",
+      "tag_ids": ["gaming-ready", "traditional"],
+      "logo": "/pikaos.svg",
+      "desktops": ["Gnome", "KDE Plasma", "COSMIC", "Niri", "Hyprland"],
+      "beginner_friendly": 5,
+      "based_on": "Debian Unstable"
     },
     {
       "id": "lubuntu",

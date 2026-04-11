@@ -52,6 +52,7 @@
       "steamos": "Ein offizielles Gaming-Betriebssystem von Valve, das Steam Deck, Steam Machine und andere Geräte wie Lenovo Legion Go antreibt. Unveränderlich (mit eigenen RAUC- und Desync-Technologien), benutzerfreundlich und für Gaming optimiert. Verfügt über die KDE-Plasma-Desktopumgebung. Für Handhelds veröffentlicht, aber noch nicht für Desktops.",
       "bazzite": "Eine Gaming-unveränderliche (mit OSTree) Linux-Distribution, perfekt für sowohl PCs als auch Handhelds (hat eine spezielle Edition dafür). Eine SteamOS-Alternative. Viel benutzerfreundlicher als CachyOS (aber mehr Bloat). Machen Sie die Umfrage auf der offiziellen Website, um zu sehen, ob Ihre Hardware Linux-Gaming unterstützt.",
       "nobara": "Eine Gaming-Distribution mit veränderlichem System, die Ihnen volle Kontrolle gibt. Sie wurde vom Ersteller von Proton-GE entwickelt — ein Werkzeug im Herzen der Linux-Gaming-Infrastruktur — und bietet Versionen für PCs und Handhelds. Sie bietet Ihnen die volle Kraft von Fedora, kommt aber mit vorinstallierten Grafiktreibern und Gaming-Software.",
+      "pikaos": "Eine veränderbare Gaming-Distribution. Ähnlich wie Nobara, aber basierend auf Debian (unstable Branch mit neuerer Software). Sie bietet Ihnen die Option, nach der OS-Installation ein Gaming-Meta-Paket zu installieren, was bedeutet, dass Sie es bloat-frei halten und selbst konfigurieren können. Die Gnome-Edition verfügt über einen Layout-Wechsler, genau wie Zorin OS.",
       "lubuntu": "Eine benutzerfreundliche, leichte Ubuntu-Variante, perfekt für Computer, die zwischen 2004 und 2011 für Windows XP/Vista mit 1 oder 2GB RAM hergestellt wurden.",
       "antiX": "Ultraleichte Distribution, erfordert mindestens 256MB RAM zum Betrieb (mehr für flüssiges Ausführen von Apps). Geeignet für alte Computer, die für Windows XP entwickelt wurden.",
       "endeavouros": "Arch Linux, aber einfacher. Bietet einen grafischen Installer und ändert das Basissystem minimal."
@@ -65,9 +66,10 @@
       "cachyos": "~500k (aber sehr schnell wachsend)",
       "steamos": "20+ Millionen (auf Steam Deck)",
       "bazzite": "~70k",
+      "nobara": "~25k",
+      "pikaos": "~3k",
       "lubuntu": "~400k",
       "antiX": "~100k",
-      "nobara": "~25k",
       "endeavouros": "~250k"
     }
   },

@@ -52,6 +52,7 @@
       "steamos": "Um sistema operacional oficial de jogos da Valve que alimenta Steam Deck, Steam Machine e outros dispositivos como Lenovo Legion Go. Imutável (usando suas próprias tecnologias RAUC e desync), fácil de usar e otimizado para jogos. Apresenta o desktop KDE Plasma. Lançado para portáteis, mas ainda não para desktops.",
       "bazzite": "Uma distribuição Linux imutável (usando OSTree) para jogos, perfeita tanto para PCs quanto para portáteis (tem uma edição especial para eles). Uma alternativa ao SteamOS. Muito mais fácil de usar que o CachyOS (mas mais bloated). Faça a pesquisa no site oficial para ver se seu hardware suporta jogos Linux.",
       "nobara": "Uma distribuição de jogos com sistema mutável, dando-lhe controle total. Foi desenvolvida pelo criador do Proton-GE, um utilitário no coração da infraestrutura de jogos Linux, e possui versões para PCs e portáteis. Oferece toda a força do Fedora, mas vem com drivers gráficos e software de jogos pré-instalados.",
+      "pikaos": "Uma distribuição de jogos mutável. Similar ao Nobara, mas baseada em Debian (ramo instável com software mais novo). Oferece a opção de instalar um meta-pacote de jogos após a instalação do SO, o que significa que você pode mantê-lo livre de bloat e configurá-lo você mesmo. A edição Gnome apresenta um alternador de layout, assim como o Zorin OS.",
       "lubuntu": "Uma variante leve e fácil de usar do Ubuntu, perfeita para computadores produzidos entre 2004 e 2011 projetados para Windows XP/Vista com 1 ou 2GB de RAM.",
       "antiX": "Distribuição ultraleve, requer no mínimo 256MB de RAM para rodar (mais para rodar apps suavemente). Adequada para computadores antigos projetados para Windows XP.",
       "endeavouros": "Arch Linux, mas mais fácil. Fornece um instalador gráfico e modifica minimamente o sistema base."
@@ -65,9 +66,10 @@
       "cachyos": "~500k (mas crescendo muito rápido)",
       "steamos": "20+ milhões (no Steam Deck)",
       "bazzite": "~70k",
+      "nobara": "~25k",
+      "pikaos": "~3k",
       "lubuntu": "~400k",
       "antiX": "~100k",
-      "nobara": "~25k",
       "endeavouros": "~250k"
     }
   },

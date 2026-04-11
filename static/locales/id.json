@@ -52,6 +52,7 @@
       "steamos": "Sistem operasi gaming resmi dari Valve yang powering Steam Deck, Steam Machine dan perangkat lain seperti Lenovo Legion Go. Immutable (menggunakan teknologi RAUC dan desync miliknya sendiri), ramah pengguna dan dioptimalkan untuk gaming. Menampilkan desktop environment KDE Plasma. Dirilis untuk handheld, tapi belum untuk desktop.",
       "bazzite": "Distribusi Linux gaming immutable (menggunakan OSTree), sempurna untuk PC dan handheld (memiliki edisi khusus untuk mereka). Alternatif SteamOS. Jauh lebih ramah pengguna dari CachyOS (tapi lebih bloated). Ikuti survei di situs resmi untuk melihat apakah hardware Anda mendukung gaming Linux.",
       "nobara": "Distribusi gaming dengan sistem mutable, memberikan Anda kontrol penuh. Dikembangkan oleh pembuat Proton-GE — utilitas yang berada di inti infrastruktur gaming Linux — dan memiliki versi untuk PC dan handheld. Memberikan Anda kekuatan penuh Fedora, namun datang dengan driver grafis dan software gaming yang sudah terinstal.",
+      "pikaos": "Distribusi game yang dapat diubah. Mirip dengan Nobara, tetapi berdasarkan Debian (cabang tidak stabil dengan perangkat lunak yang lebih baru). Menawarkan opsi untuk menginstal meta-paket game setelah instalasi OS, memungkinkan kamu menjaganya tetap bersih dari bloat dan mengonfigurasinya sendiri. Edisi Gnome memiliki pengalih tata letak, seperti Zorin OS.",
       "lubuntu": "Varian Ubuntu yang ringan dan ramah pengguna, sempurna untuk komputer yang diproduksi antara 2004 dan 2011 yang dirancang untuk Windows XP/Vista dengan 1 atau 2GB RAM.",
       "antiX": "Distribusi ultra ringan, membutuhkan minimal 256MB RAM untuk berjalan (lebih untuk menjalankan aplikasi dengan lancar). Cocok untuk komputer lawas yang dirancang untuk Windows XP.",
       "endeavouros": "Arch Linux, tapi lebih mudah. Menyediakan installer grafis dan mengubah sistem dasar secara minimal."
@@ -65,9 +66,10 @@
       "cachyos": "~500k (tapi berkembang sangat cepat)",
       "steamos": "20+ juta (di Steam Deck)",
       "bazzite": "~70k",
+      "nobara": "~25k",
+      "pikaos": "~3k",
       "lubuntu": "~400k",
       "antiX": "~100k",
-      "nobara": "~25k",
       "endeavouros": "~250k"
     }
   },

@@ -52,6 +52,7 @@
       "steamos": "Un sistema operativo gaming ufficiale di Valve che alimenta Steam Deck, Steam Machine e altri dispositivi come Lenovo Legion Go. Immutabile (usando le proprie tecnologie RAUC e desync), user-friendly e ottimizzato per il gaming. Presenta l'ambiente desktop KDE Plasma. Rilasciato per handheld, ma non ancora per desktop.",
       "bazzite": "Una distribuzione Linux gaming immutabile (usando OSTree), perfetta sia per PC che per handheld (ha un'edizione speciale per loro). Un'alternativa a SteamOS. Molto più user-friendly di CachyOS (ma più bloated). Fai il sondaggio sul sito ufficiale per vedere se il tuo hardware supporta il gaming Linux.",
       "nobara": "Una distribuzione gaming con sistema mutabile, che ti dà il pieno controllo. È stata sviluppata dal creatore di Proton-GE, un'utilità al cuore dell'infrastruttura gaming di Linux, e offre versioni per PC e handheld. Ti offre la piena potenza di Fedora, ma viene fornita con driver grafici e software gaming preinstallati.",
+      "pikaos": "Una distribuzione di giochi mutabile. Simile a Nobara, ma basata su Debian (ramo instabile con software più recente). Ti offre l'opzione di installare un meta-pacchetto di giochi dopo l'installazione del SO, il che significa che puoi tenerlo libero da bloat e configurarlo tu stesso. L'edizione Gnome presenta un commutatore di layout, proprio come Zorin OS.",
       "lubuntu": "Una variante Ubuntu leggera e user-friendly, perfetta per computer prodotti tra il 2004 e il 2011 progettati per Windows XP/Vista con 1 o 2GB di RAM.",
       "antiX": "Distribuzione ultra leggera, richiede almeno 256MB di RAM per funzionare (di più per eseguire app senza problemi). Adatta a computer datati progettati per Windows XP.",
       "endeavouros": "Arch Linux, ma più semplice. Fornisce un installatore grafico e modifica minimamente il sistema base."
@@ -65,9 +66,10 @@
       "cachyos": "~500k (ma in fortissima crescita)",
       "steamos": "20+ milioni (su Steam Deck)",
       "bazzite": "~70k",
+      "nobara": "~25k",
+      "pikaos": "~3k",
       "lubuntu": "~400k",
       "antiX": "~100k",
-      "nobara": "~25k",
       "endeavouros": "~250k"
     }
   },
