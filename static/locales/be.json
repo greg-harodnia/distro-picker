@@ -88,7 +88,7 @@
       "nextImage": "Наступная выява"
     },
     "additionalContent": {
-      "intro": "Гэтая аплікацыя не зьмяшчае ўсіх папулярных дыстрыбуцый (<i>як, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus і г.д.</i>), карпаратыўных дыстрыбуцый (<i>як, Red Hat, AlmaLinux</i>) і спэцыялізаваных дыстрыбуцый (<i>як, Kali, Alpine</i>), бо яна прызначаная для пачаткоўцаў і мае на мэце спрасьціць выбар.",
+      "intro": "Гэтая аплікацыя не зьмяшчае ўсіх папулярных дыстрыбуцый (<i>як, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus і г.д.</i>), карпаратыўных дыстрыбуцый (<i>як, Red Hat, AlmaLinux, Rocky Linux</i>) і спэцыялізаваных дыстрыбуцый (<i>як, Kali, Alpine</i>), бо яна прызначаная для пачаткоўцаў і мае на мэце спрасьціць выбар.",
       "installationTitle": "Парады для ўсталяваньня і dual-boot:",
       "hint1": "Усталюйце Linux на асобным дыску, бо абнавеньні Windows могуць пашкодзіць ўсталяваньню Linux.",
       "hint2": "Не выкарыстоўвайце прылады Windows для зьмяненьня памеру разьдзелаў на дыску, дзе ўсталяваны Linux, з тае самае прычыны.",
@@ -124,6 +124,7 @@
       "developer": "Хачу разрабляць на ёй",
       "enthusiast": "Я тэхнічны аматар, які хоча як мага болей гнуткую і незаграмаджоную дыстрыбуцыю. Хачу мець поўны кантроль над сыстэмай, мне падабаецца наладжваць і карыстацца тэрміналам",
       "recover": "Хачу аднавіць свой стары ПК",
+      "appleSilicon": "Хачу ўсталяваць яе на прыладу з працэсарам Apple Silicon",
       "whichLayout": "Які інтэрфэйс вам болей даспадобы?",
       "windowsLike": "Як Windows",
       "macosLike": "Як MacOS",
@@ -144,7 +145,8 @@
       "enthusiast": "Здаецца, CachyOS ствароная для вас. Ці, калі вы хочаце нешта бліжэйшае да голага Arch, варта паспрабаваць EndeavourOS.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",
-      "oldAncient": "AntiX"
+      "oldAncient": "AntiX",
+      "appleSilicon": "Asahi Linux"
     }
   },
   "errors": {

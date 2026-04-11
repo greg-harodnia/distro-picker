@@ -88,7 +88,7 @@
       "nextImage": "Nächstes Bild"
     },
     "additionalContent": {
-      "intro": "Diese App enthält keine anderen beliebten Distributionen (<i>wie Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, usw.</i>), Enterprise-Distributionen (<i>wie Red Hat, AlmaLinux</i>) und Nischen-Distributionen (<i>wie Kali, Alpine</i>), da sie für absolute Anfänger gedacht ist und die Wahl vereinfachen soll.",
+      "intro": "Diese App enthält keine anderen beliebten Distributionen (<i>wie Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, usw.</i>), Enterprise-Distributionen (<i>wie Red Hat, AlmaLinux, Rocky Linux</i>) und Nischen-Distributionen (<i>wie Kali, Alpine</i>), da sie für absolute Anfänger gedacht ist und die Wahl vereinfachen soll.",
       "installationTitle": "Tipps für Installation und Dual-Boot:",
       "hint1": "Installieren Sie Linux auf einer separaten Festplatte, da Windows-Updates die Linux-Installation beschädigen können.",
       "hint2": "Verwenden Sie aus demselben Grund keine Windows-Tools zum Ändern der Partitionen auf der Festplatte, auf der Linux installiert ist.",
@@ -124,6 +124,7 @@
       "developer": "Ich möchte darauf entwickeln",
       "enthusiast": "Ich bin ein Technik-Enthusiast, der eine möglichst flexible und bloat-freie Distribution will. Ich möchte volle Kontrolle über mein System haben und genieße das Konfigurieren und Benutzen des Terminals.",
       "recover": "Ich möchte meinen alten PC damit wiederherstellen",
+      "appleSilicon": "Ich möchte es auf einem Gerät mit Apple Silicon Prozessor installieren",
       "whichLayout": "Welches Design bevorzugen Sie?",
       "windowsLike": "Windows-artig",
       "macosLike": "MacOS-artig",
@@ -144,7 +145,8 @@
       "enthusiast": "Es klingt, als wäre CachyOS für Sie gemacht. Oder, wenn Sie etwas näher am barebones Arch wollen, lohnt sich ein Blick auf EndeavourOS.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",
-      "oldAncient": "AntiX"
+      "oldAncient": "AntiX",
+      "appleSilicon": "Asahi Linux"
     }
   },
   "errors": {

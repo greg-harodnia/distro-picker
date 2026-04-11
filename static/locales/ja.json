@@ -88,7 +88,7 @@
       "nextImage": "次の画像"
     },
     "additionalContent": {
-      "intro": "このアプリケーションは、完全に初心者向けであり選択を簡素化することを目的としているため、他の人気のディストリビューション（<i>Arch Linux、Ubuntu、Debian、openSUSE、NixOS、Gentoo、Void、EndeavourOS、MX Linux、Nobara、Omarchy、Manjaro、elementaryOS、Solusなど</i>）、企業向けディストリビューション（<i>Red Hat、AlmaLinux</i>）、ニッチなディストリビューション（<i>Kali、Alpine</i>）を含みません。",
+      "intro": "このアプリケーションは、完全に初心者向けであり選択を簡素化することを目的としているため、他の人気のディストリビューション（<i>Arch Linux、Ubuntu、Debian、openSUSE、NixOS、Gentoo、Void、Slackware、EndeavourOS、MX Linux、Nobara、Omarchy、Manjaro、elementaryOS、Solusなど</i>）、企業向けディストリビューション（<i>Red Hat、AlmaLinux、Rocky Linux</i>）、ニッチなディストリビューション（<i>Kali、Alpine</i>）を含みません。",
       "installationTitle": "インストールとデュアルブートのヒント：",
       "hint1": "Windowsの更新がLinuxのインストールを破損する可能性があるため、Linuxは別のディスクにインストールしてください。",
       "hint2": "同じ理由で、Linuxがインストールされているディスクのパーティションサイズを変更するためにWindowsのツールを使用しないでください。",
@@ -124,6 +124,7 @@
       "developer": "そこで開発したい",
       "enthusiast": "できるだけ柔軟でブロートのないディストリビューションを求める技術愛好家です。システムに対して完全な制御を必要とし、ターミナルを調整して使用することを楽しんでいます。",
       "recover": "古いPCを回復したい",
+      "appleSilicon": "Apple Siliconプロセッサ搭載のデバイスにインストールしたい",
       "whichLayout": "どのレイアウトが好みですか？",
       "windowsLike": "Windows風",
       "macosLike": "MacOS風",
@@ -144,7 +145,8 @@
       "enthusiast": "CachyOSはあなたのために作られたようですね。または、よりベースなArchに近いものをしたい場合は、EndeavourOSを試す価値があります。",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",
-      "oldAncient": "AntiX"
+      "oldAncient": "AntiX",
+      "appleSilicon": "Asahi Linux"
     }
   },
   "errors": {

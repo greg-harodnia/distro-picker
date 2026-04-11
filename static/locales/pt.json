@@ -88,7 +88,7 @@
       "nextImage": "Próxima imagem"
     },
     "additionalContent": {
-      "intro": "Este app não inclui outras distribuições populares (<i>como Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, etc.</i>), distribuições corporativas (<i>como Red Hat, AlmaLinux</i>) e distribuições de nicho (<i>como Kali, Alpine</i>) pois é destinado a iniciantes completos e busca simplificar a escolha.",
+      "intro": "Este app não inclui outras distribuições populares (<i>como Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, etc.</i>), distribuições corporativas (<i>como Red Hat, AlmaLinux, Rocky Linux</i>) e distribuições de nicho (<i>como Kali, Alpine</i>) pois é destinado a iniciantes completos e busca simplificar a escolha.",
       "installationTitle": "Dicas para instalação e dual-boot:",
       "hint1": "Instale Linux em um disco separado pois atualizações do Windows podem quebrar a instalação do Linux.",
       "hint2": "Não use ferramentas do Windows para redimensionar partições no disco onde o Linux está instalado pela mesma razão.",
@@ -124,6 +124,7 @@
       "developer": "Quero desenvolver nela",
       "enthusiast": "Sou um entusiasta de tecnologia que quer uma distro o mais flexível e sem bloat possível. Quero ter controle total sobre meu sistema e gosto de configurar e usar o terminal.",
       "recover": "Quero recuperar meu PC antigo",
+      "appleSilicon": "Quero instalá-lo em um dispositivo com processador Apple Silicon",
       "whichLayout": "Qual design você prefere?",
       "windowsLike": "Estilo Windows",
       "macosLike": "Estilo MacOS",
@@ -144,7 +145,8 @@
       "enthusiast": "Parece que CachyOS foi feita para você. Ou, se você quer algo mais próximo do Arch básico, EndeavourOS vale a pena experimentar.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",
-      "oldAncient": "AntiX"
+      "oldAncient": "AntiX",
+      "appleSilicon": "Asahi Linux"
     }
   },
   "errors": {

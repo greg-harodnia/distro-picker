@@ -88,7 +88,7 @@
       "nextImage": "Hình ảnh tiếp theo"
     },
     "additionalContent": {
-      "intro": "Ứng dụng này không bao gồm các bản phân phối phổ biến khác (<i>như Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, v.v.</i>), các bản phân phối doanh nghiệp (<i>như Red Hat, AlmaLinux</i>) và các bản phân phối chuyên biệt (<i>như Kali, Alpine</i>) vì nó dành cho người mới hoàn toàn và nhằm mục đích đơn giản hóa sự lựa chọn.",
+      "intro": "Ứng dụng này không bao gồm các bản phân phối phổ biến khác (<i>như Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, v.v.</i>), các bản phân phối doanh nghiệp (<i>như Red Hat, AlmaLinux, Rocky Linux</i>) và các bản phân phối chuyên biệt (<i>như Kali, Alpine</i>) vì nó dành cho người mới hoàn toàn và nhằm mục đích đơn giản hóa sự lựa chọn.",
       "installationTitle": "Gợi ý cài đặt và khởi động kép:",
       "hint1": "Cài đặt Linux trên một ổ đĩa riêng vì các bản cập nhật Windows có thể làm hỏng cài đặt Linux.",
       "hint2": "Không sử dụng công cụ Windows để thay đổi kích thước phân vùng trên ổ đĩa đã cài Linux vì lý do tương tự.",
@@ -124,6 +124,7 @@
       "developer": "Tôi muốn phát triển trên đó",
       "enthusiast": "Tôi là người đam mê công nghệ muốn một distro linh hoạt nhất và không bloat. Tôi muốn kiểm soát hoàn toàn hệ thống của mình, và tôi thích tinh chỉnh và sử dụng terminal.",
       "recover": "Tôi muốn phục hồi PC cũ của mình",
+      "appleSilicon": "Tôi muốn cài đặt nó trên thiết bị có bộ xử lý Apple Silicon",
       "whichLayout": "Bạn thích bố cục nào?",
       "windowsLike": "Phong cách Windows",
       "macosLike": "Phong cách MacOS",
@@ -144,7 +145,8 @@
       "enthusiast": "Nghe như CachyOS được làm cho bạn. Hoặc, nếu bạn muốn thứ gì đó gần hơn với Arch thuần túy, EndeavourOS đáng để thử.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",
-      "oldAncient": "AntiX"
+      "oldAncient": "AntiX",
+      "appleSilicon": "Asahi Linux"
     }
   },
   "errors": {

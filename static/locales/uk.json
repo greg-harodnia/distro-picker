@@ -88,7 +88,7 @@
       "nextImage": "Наступне зображення"
     },
     "additionalContent": {
-      "intro": "Цей додаток не включає інші популярні дистрибутиви (<i>як Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, тощо</i>), корпоративні дистрибутиви (<i>як Red Hat, AlmaLinux</i>) та нішеві дистрибутиви (<i>як Kali, Alpine</i>), оскільки він призначений для абсолютних початківців і має на меті спростити вибір.",
+      "intro": "Цей додаток не включає інші популярні дистрибутиви (<i>як Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, тощо</i>), корпоративні дистрибутиви (<i>як Red Hat, AlmaLinux, Rocky Linux</i>) та нішеві дистрибутиви (<i>як Kali, Alpine</i>), оскільки він призначений для абсолютних початківців і має на меті спростити вибір.",
       "installationTitle": "Поради щодо встановлення та dual-boot:",
       "hint1": "Встановіть Linux на окремому диску, оскільки оновлення Windows можуть пошкодити встановлення Linux.",
       "hint2": "Не використовуйте інструменти Windows для зміни розміру розділів на диску, де встановлений Linux, з тієї ж причини.",
@@ -124,6 +124,7 @@
       "developer": "Хочу розробляти на ньому",
       "enthusiast": "Я технічний ентузіаст, який хоче максимально гнучкий та без зайвого дистрибутив. Хочу мати повний контроль над своєю системою, люблю налаштовувати та використовувати термінал.",
       "recover": "Хочу відновити старий ПК",
+      "appleSilicon": "Хочу встановити на пристрій з процесором Apple Silicon",
       "whichLayout": "Якому макету ви віддаєте перевагу?",
       "windowsLike": "Як Windows",
       "macosLike": "Як MacOS",
@@ -144,7 +145,8 @@
       "enthusiast": "Здається, CachyOS створений для вас. Або, якщо ви хочете щось ближче до чистого Arch, варто спробувати EndeavourOS.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",
-      "oldAncient": "AntiX"
+      "oldAncient": "AntiX",
+      "appleSilicon": "Asahi Linux"
     }
   },
   "errors": {

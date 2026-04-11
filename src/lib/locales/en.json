@@ -88,7 +88,7 @@
       "nextImage": "Next image"
     },
     "additionalContent": {
-      "intro": "This app doesn't include other popular distributions (<i>like, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, and so on</i>), enterprise-level distributions (<i>like, Red Hat, AlmaLinux</i>) and niche distributions (<i>like, Kali, Alpine</i>) as it's intended for complete beginners and aims to simplify the choice.",
+      "intro": "This app doesn't include other popular distributions (<i>like, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, and so on</i>), enterprise-level distributions (<i>like, Red Hat, AlmaLinux, Rocky Linux</i>) and niche distributions (<i>like, Kali, Alpine</i>) as it's intended for complete beginners and aims to simplify the choice.",
       "installationTitle": "Hints for installation and dual-booting:",
       "hint1": "Install Linux on a separate disk as Windows updates may break the Linux installation.",
       "hint2": "Don't use Windows tools to resize partitions on the disk where Linux is installed for the same reason.",
@@ -124,6 +124,7 @@
       "developer": "I want to develop on it",
       "enthusiast": "I'm a tech enthusiast who wants a distro that's as flexible and unbloated as possible. I want to have full control over my system, and I enjoy tweaking and using the terminal.",
       "recover": "I want to recover my old PC with it",
+      "appleSilicon": "I want to install it on a device with an Apple Silicon processor",
       "whichLayout": "Which layout do you prefer?",
       "windowsLike": "Windows-like",
       "macosLike": "MacOS-like",
@@ -144,7 +145,8 @@
       "enthusiast": "Sounds like CachyOS was made for you. Or, if you want something even closer to barebones Arch, EndeavourOS is worth checking out.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",
-      "oldAncient": "AntiX"
+      "oldAncient": "AntiX",
+      "appleSilicon": "Asahi Linux"
     }
   },
   "errors": {

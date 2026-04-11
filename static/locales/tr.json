@@ -88,7 +88,7 @@
       "nextImage": "Sonraki görsel"
     },
     "additionalContent": {
-      "intro": "Bu uygulama, tam acemilere yönelik olduğundan ve seçimi basitleştirmeyi amaçladığından, diğer popüler dağıtımları (<i>Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, vb.</i>), kurumsal dağıtımları (<i>Red Hat, AlmaLinux</i>) ve niş dağıtımları (<i>Kali, Alpine</i>) içermiyor.",
+      "intro": "Bu uygulama, tam acemilere yönelik olduğundan ve seçimi basitleştirmeyi amaçladığından, diğer popüler dağıtımları (<i>Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, vb.</i>), kurumsal dağıtımları (<i>Red Hat, AlmaLinux, Rocky Linux</i>) ve niş dağıtımları (<i>Kali, Alpine</i>) içermiyor.",
       "installationTitle": "Kurulum ve çift önyükleme ipuçları:",
       "hint1": "Linux'i ayrı bir diske kurun çünkü Windows güncellemeleri Linux kurulumunu bozabilir.",
       "hint2": "Aynı nedenle Linux'in kurulu olduğu diskteki bölümleri yeniden boyutlandırmak için Windows araçlarını kullanmayın.",
@@ -124,6 +124,7 @@
       "developer": "Üzerinde geliştirme yapmak istiyorum",
       "enthusiast": "Mümkün olduğunca esnek ve bloat-free bir dağıtım isteyen bir teknoloji meraklısıyım. Sistemim üzerinde tam kontrole sahip olmak istiyorum ve terminali kullanmayı ve ayarlamayı seviyorum.",
       "recover": "Eski PC'mi kurtarmak istiyorum",
+      "appleSilicon": "Apple Silicon işlemcili bir cihaza kurmak istiyorum",
       "whichLayout": "Hangi tasarımı tercih edersiniz?",
       "windowsLike": "Windows tarzı",
       "macosLike": "MacOS tarzı",
@@ -144,7 +145,8 @@
       "enthusiast": "CachyOS sizin için yapılmış gibi görünüyor. Ya da çıplak Arch'a daha yakın bir şey istiyorsanız EndeavourOS'e bir göz atın.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",
-      "oldAncient": "AntiX"
+      "oldAncient": "AntiX",
+      "appleSilicon": "Asahi Linux"
     }
   },
   "errors": {

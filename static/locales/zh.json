@@ -88,7 +88,7 @@
       "nextImage": "下一张图片"
     },
     "additionalContent": {
-      "intro": "此应用程序不包括其他流行发行版（<i>如Arch Linux、Ubuntu、Debian、openSUSE、NixOS、Gentoo、Void、EndeavourOS、MX Linux、Nobara、Omarchy、Manjaro、elementaryOS、Solus等</i>）、企业级发行版（<i>如Red Hat、AlmaLinux</i>）和利基发行版（<i>如Kali、Alpine</i>），因为它面向完全初学者，旨在简化选择。",
+      "intro": "此应用程序不包括其他流行发行版（<i>如Arch Linux、Ubuntu、Debian、openSUSE、NixOS、Gentoo、Void、Slackware、EndeavourOS、MX Linux、Nobara、Omarchy、Manjaro、elementaryOS、Solus等</i>）、企业级发行版（<i>如Red Hat、AlmaLinux、Rocky Linux</i>）和利基发行版（<i>如Kali、Alpine</i>），因为它面向完全初学者，旨在简化选择。",
       "installationTitle": "安装和双系统启动提示：",
       "hint1": "将Linux安装在单独的磁盘上，因为Windows更新可能会破坏Linux安装。",
       "hint2": "出于同样原因，不要使用Windows工具调整安装了Linux的磁盘上的分区大小。",
@@ -124,6 +124,7 @@
       "developer": "我想在上面开发",
       "enthusiast": "我是一个技术爱好者，想要一个尽可能灵活且无膨胀软件的发行版。我想完全控制我的系统，我喜欢调整和使用终端。",
       "recover": "我想用它来恢复我的旧电脑",
+      "appleSilicon": "我想在配备 Apple Silicon 处理器的设备上安装它",
       "whichLayout": "您更喜欢哪种布局？",
       "windowsLike": "类似Windows",
       "macosLike": "类似MacOS",
@@ -144,7 +145,8 @@
       "enthusiast": "看起来CachyOS就是为您量身打造的。或者，如果您想要更接近精简Arch的东西，值得一试EndeavourOS。",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",
-      "oldAncient": "AntiX"
+      "oldAncient": "AntiX",
+      "appleSilicon": "Asahi Linux"
     }
   },
   "errors": {

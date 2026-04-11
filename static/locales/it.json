@@ -88,7 +88,7 @@
       "nextImage": "Immagine successiva"
     },
     "additionalContent": {
-      "intro": "Questa app non include altre distribuzioni popolari (<i>come Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, ecc.</i>), distribuzioni enterprise (<i>come Red Hat, AlmaLinux</i>) e distribuzioni di nicchia (<i>come Kali, Alpine</i>) poiché è pensata per principianti assoluti e mira a semplificare la scelta.",
+      "intro": "Questa app non include altre distribuzioni popolari (<i>come Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, ecc.</i>), distribuzioni enterprise (<i>come Red Hat, AlmaLinux, Rocky Linux</i>) e distribuzioni di nicchia (<i>come Kali, Alpine</i>) poiché è pensata per principianti assoluti e mira a semplificare la scelta.",
       "installationTitle": "Suggerimenti per installazione e dual-boot:",
       "hint1": "Installa Linux su un disco separato poiché gli aggiornamenti di Windows potrebbero rompere l'installazione di Linux.",
       "hint2": "Non usare strumenti di Windows per ridimensionare le partizioni sul disco dove è installato Linux per la stessa ragione.",
@@ -124,6 +124,7 @@
       "developer": "Voglio svilupparci sopra",
       "enthusiast": "Sono un appassionato tech che vuole una distro il più flessibile e senza bloat possibile. Voglio avere il pieno controllo sul mio sistema e mi piace smanettare e usare il terminale.",
       "recover": "Voglio recuperare il mio vecchio PC",
+      "appleSilicon": "Voglio installarlo su un dispositivo con processore Apple Silicon",
       "whichLayout": "Quale design preferisci?",
       "windowsLike": "Stile Windows",
       "macosLike": "Stile MacOS",
@@ -144,7 +145,8 @@
       "enthusiast": "Sembra che CachyOS sia stata fatta per te. O, se vuoi qualcosa di più vicino a un Arch spoglio, EndeavourOS vale la pena di dare un'occhiata.",
       "oldSluggish": "Linux Mint Xfce",
       "old2011": "Lubuntu",
-      "oldAncient": "AntiX"
+      "oldAncient": "AntiX",
+      "appleSilicon": "Asahi Linux"
     }
   },
   "errors": {

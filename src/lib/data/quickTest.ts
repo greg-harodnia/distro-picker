@@ -66,6 +66,10 @@ export const quickTestData: QuickTestData = {
 							],
 						},
 					},
+					{
+						text: 'quiz.questions.appleSilicon',
+						result: 'quiz.results.appleSilicon'
+					},
 				],
 			},
 		},
