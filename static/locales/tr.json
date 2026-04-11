@@ -141,8 +141,8 @@
     "results": {
       "regularWindows": "Hangi tasarımı daha çok beğendiğinize bağlı olarak Linux Mint, Kubuntu veya Zorin OS.",
       "regularMacos": "Pop!_OS. Farklı düzenler arasında kolayca geçiş yapabilmek istiyorsanız Zorin OS ile devam edin.",
-      "gamingYes": "Nobara. Değişken sistemiyle sistem dosyalarını düzenleyebilir ve istediğiniz paketleri kurabilirsiniz. Terminal kullanmakta rahat hissediyorsanız CachyOS'i de seçebilirsiniz.",
-      "gamingNo": "Bazzite. Dağıtım hem PC'ler hem elde taşınır cihazlar için mevcut. Elde taşınır cihazınızı destekliyorsa SteamOS'i de seçebilirsiniz (henüz resmi olarak PC'leri desteklemiyor). Terminal kullanmayı sevenler için CachyOS üçüncü seçenek.",
+      "gamingYes": "Nobara. Değişken sistemiyle sistem dosyalarını düzenleyebilir ve istediğiniz paketleri kurabilirsiniz. Alternatif olarak PikaOS'i de seçebilirsiniz. Terminal kullanmakta rahat hissediyorsanız CachyOS'i de seçebilirsiniz.",
+      "gamingNo": "Bazzite. Dağıtım hem PC'ler hem elde taşınır cihazlar için mevcut. Elde taşınır cihazınızı destekliyorsa SteamOS'i de seçebilirsiniz (henüz resmi olarak PC'leri desteklemiyor). Değişken bir oyun dağıtımı da güzel bir seçenektir.",
       "developer": "Fedora sizin ideal seçiminiz. Hem kararlı hem de güncel yazılımlar sunuyor. Ayrıca tercihlerinize göre çeşitli masaüstü ortamları arasından seçim yapabilirsiniz. Bununla birlikte, Linux Mint, Kubuntu, Zorin OS, Pop!_OS veya CachyOS veya EndeavourOS gibi dağıtımlar da uygun seçeneklerdir.",
       "enthusiast": "CachyOS sizin için yapılmış gibi görünüyor. Ya da çıplak Arch'a daha yakın bir şey istiyorsanız EndeavourOS'e bir göz atın.",
       "oldSluggish": "Linux Mint Xfce",

@@ -141,8 +141,8 @@
     "results": {
       "regularWindows": "Linux Mint, Kubuntu, atau Zorin OS—tergantung desain mana yang lebih Anda suka.",
       "regularMacos": "Pop!_OS. Jika Anda ingin bisa dengan mudah beralih antara layout yang berbeda, gunakan Zorin OS.",
-      "gamingYes": "Nobara. Dengan sistem mutable-nya, Anda bisa mengedit file sistem dan menginstal paket apa pun yang Anda mau. Jika Anda nyaman menggunakan terminal, Anda juga bisa memilih CachyOS.",
-      "gamingNo": "Bazzite. Distribusi tersedia untuk PC dan handheld. Anda juga bisa memilih SteamOS jika mendukung handheld Anda (belum secara resmi mendukung PC). CachyOS adalah opsi ketiga untuk mereka yang menikmati menggunakan terminal.",
+      "gamingYes": "Nobara. Dengan sistem mutable-nya, Anda bisa mengedit file sistem dan menginstal paket apa pun yang Anda mau. Alternatifnya, Anda juga bisa memilih PikaOS. Jika Anda nyaman menggunakan terminal, Anda juga bisa memilih CachyOS.",
+      "gamingNo": "Bazzite. Distribusi tersedia untuk PC dan handheld. Anda juga bisa memilih SteamOS jika mendukung handheld Anda (belum secara resmi mendukung PC). Distribusi game yang mutable juga merupakan pilihan yang bagus.",
       "developer": "Fedora adalah pilihan ideal Anda. Ini stabil dan menawarkan perangkat lunak terkini. Plus, Anda bisa memilih dari berbagai desktop environment sesuai preferensi Anda. Meski begitu, distribusi seperti Linux Mint, Kubuntu, Zorin OS, Pop!_OS, atau CachyOS atau EndeavourOS juga merupakan opsi yang layak.",
       "enthusiast": "Sepertinya CachyOS dibuat untuk Anda. Atau, jika Anda ingin sesuatu yang lebih dekat ke Arch barebones, EndeavourOS layak dicoba.",
       "oldSluggish": "Linux Mint Xfce",

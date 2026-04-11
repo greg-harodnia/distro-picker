@@ -141,8 +141,8 @@
     "results": {
       "regularWindows": "Linux Mint, Kubuntu o Zorin OS—a seconda del design che preferisci.",
       "regularMacos": "Pop!_OS. Se vuoi poter passare facilmente tra layout diversi, vai con Zorin OS.",
-      "gamingYes": "Nobara. Con il suo sistema mutabile potrai modificare i file di sistema e installare qualsiasi pacchetto tu voglia. Se ti trovi a tuo agio con il terminale, puoi anche optare per CachyOS.",
-      "gamingNo": "Bazzite. La distribuzione è disponibile sia per PC che per handheld. Puoi anche optare per SteamOS se supporta il tuo handheld (non supporta ancora ufficialmente i PC). CachyOS è la terza opzione per chi ama usare il terminale.",
+      "gamingYes": "Nobara. Con il suo sistema mutabile potrai modificare i file di sistema e installare qualsiasi pacchetto tu voglia. In alternativa, puoi anche optare per PikaOS. Se ti trovi a tuo agio con il terminale, puoi anche optare per CachyOS.",
+      "gamingNo": "Bazzite. La distribuzione è disponibile sia per PC che per handheld. Puoi anche optare per SteamOS se supporta il tuo handheld (non supporta ancora ufficialmente i PC). Una distribuzione di giochi mutabile è anche una bella scelta.",
       "developer": "Fedora è la tua scelta ideale. È sia stabile che aggiornata. Inoltre, puoi scegliere tra vari ambienti desktop. Detto ciò, distribuzioni come Linux Mint, Kubuntu, Zorin OS, Pop!_OS o CachyOS o EndeavourOS sono anche opzioni praticabili.",
       "enthusiast": "Sembra che CachyOS sia stata fatta per te. O, se vuoi qualcosa di più vicino a un Arch spoglio, EndeavourOS vale la pena di dare un'occhiata.",
       "oldSluggish": "Linux Mint Xfce",

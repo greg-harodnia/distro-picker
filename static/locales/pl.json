@@ -141,8 +141,8 @@
     "results": {
       "regularWindows": "Linux Mint, Kubuntu lub Zorin OS — w zależności od tego, który wygląd bardziej ci odpowiada.",
       "regularMacos": "Pop!_OS. Jeśli chcesz łatwo przełączać się między różnymi układami, wybierz Zorin OS.",
-      "gamingYes": "Nobara. Dzięki swojemu zmiennemu systemowi będziesz mógł edytować pliki systemowe i instalować dowolne pakiety. Jeśli czujesz się komfortowo z terminalem, możesz też wybrać CachyOS.",
-      "gamingNo": "Bazzite. Dystrybucja jest dostępna zarówno dla PC, jak i urządzeń przenośnych. Możesz też wybrać SteamOS, jeśli obsługuje twoje urządzenie (oficjalnie nie obsługuje jeszcze PC). CachyOS to trzecia opcja dla tych, którzy lubią używać terminala.",
+      "gamingYes": "Nobara. Dzięki swojemu zmiennemu systemowi będziesz mógł edytować pliki systemowe i instalować dowolne pakiety. Alternatywnie możesz też wybrać PikaOS. Jeśli czujesz się komfortowo z terminalem, możesz też wybrać CachyOS.",
+      "gamingNo": "Bazzite. Dystrybucja jest dostępna zarówno dla PC, jak i urządzeń przenośnych. Możesz też wybrać SteamOS, jeśli obsługuje twoje urządzenie (oficjalnie nie obsługuje jeszcze PC). Zmienna dystrybucja do gier też jest dobrym wyborem.",
       "developer": "Fedora to twój idealny wybór. Jest stabilna i oferuje aktualne oprogramowanie. Ponadto możesz wybierać spośród różnych środowisk pulpitu. Niemniej jednak dystrybucje takie jak Linux Mint, Kubuntu, Zorin OS, Pop!_OS, CachyOS lub EndeavourOS również są rozsądnymi opcjami.",
       "enthusiast": "Wygląda na to, że CachyOS została stworzona dla ciebie. Lub, jeśli chcesz czegoś bliższego do gołego Arch, warto sprawdzić EndeavourOS.",
       "oldSluggish": "Linux Mint Xfce",

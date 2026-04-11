@@ -141,8 +141,8 @@
     "results": {
       "regularWindows": "Linux Mint, Kubuntu hoặc Zorin OS— tùy thuộc vào thiết kế bạn thích hơn.",
       "regularMacos": "Pop!_OS. Nếu bạn muốn có thể dễ dàng chuyển đổi giữa các bố cục khác nhau, hãy chọn Zorin OS.",
-      "gamingYes": "Nobara. Với hệ thống có thể thay đổi được, bạn sẽ có thể chỉnh sửa file hệ thống và cài bất kỳ gói nào bạn muốn. Nếu bạn thoải mái với việc sử dụng terminal, bạn cũng có thể chọn CachyOS.",
-      "gamingNo": "Bazzite. Bản phân phối có sẵn cho cả PC và handheld. Bạn cũng có thể chọn SteamOS nếu nó hỗ trợ thiết bị handheld của bạn (chưa hỗ trợ PC chính thức). CachyOS là lựa chọn thứ ba cho những ai thích sử dụng terminal.",
+      "gamingYes": "Nobara. Với hệ thống có thể thay đổi được, bạn sẽ có thể chỉnh sửa file hệ thống và cài bất kỳ gói nào bạn muốn. Ngoài ra, bạn cũng có thể chọn PikaOS. Nếu bạn thoải mái với việc sử dụng terminal, bạn cũng có thể chọn CachyOS.",
+      "gamingNo": "Bazzite. Bản phân phối có sẵn cho cả PC và handheld. Bạn cũng có thể chọn SteamOS nếu nó hỗ trợ thiết bị handheld của bạn (chưa hỗ trợ PC chính thức). Một bản phân phối game có thể thay đổi được cũng là một lựa chọn tốt.",
       "developer": "Fedora là lựa chọn lý tưởng cho bạn. Nó vừa ổn định vừa cung cấp phần mềm mới nhất. Hơn nữa, bạn có thể chọn từ nhiều môi trường desktop khác nhau. Điều đó nói rằng, các bản phân phối như Linux Mint, Kubuntu, Zorin OS, Pop!_OS hoặc CachyOS hoặc EndeavourOS cũng là những lựa chọn khả thi.",
       "enthusiast": "Nghe như CachyOS được làm cho bạn. Hoặc, nếu bạn muốn thứ gì đó gần hơn với Arch thuần túy, EndeavourOS đáng để thử.",
       "oldSluggish": "Linux Mint Xfce",
