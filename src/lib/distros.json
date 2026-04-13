@@ -118,7 +118,7 @@
     {
       "id": "pikaos",
       "name": "PikaOS",
-      "website": "https://git.pika-os.com/",
+      "website": "https://wiki.pika-os.com/home",
       "tag_ids": ["gaming-ready", "traditional"],
       "logo": "/pikaos.svg",
       "desktops": ["Gnome", "KDE Plasma", "COSMIC", "Niri", "Hyprland"],
