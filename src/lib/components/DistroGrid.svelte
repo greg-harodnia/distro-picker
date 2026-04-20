@@ -65,6 +65,7 @@
 		<div 
 			class="distro-card"
 			class:selected={selectedDistro?.id === distro.id}
+			class:bestDistro={distro.best}
 			onclick={() => selectDistro(distro)}
 			onkeydown={handleKeydown}
 			role="button"
@@ -122,10 +123,19 @@
 		border-color: var(--color-primary);
 	}
 
+	.distro-card.bestDistro:hover {
+		border-color: var(--color-best);
+	}
+
 	.distro-card.selected {
 		border-color: var(--color-primary);
 		background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
 		color: var(--color-background);
+	}
+
+	.distro-card.bestDistro.selected {
+		border-color: var(--color-best);
+		background: linear-gradient(135deg, var(--color-best) 0%, var(--color-best-dark) 100%);
 	}
 
 	.reactions {

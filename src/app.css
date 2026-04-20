@@ -28,6 +28,8 @@
   
   --color-success: #38a169;
   --color-warning: #d69e2e;
+  --color-best: #ffdd1d;
+  --color-best-dark: #cb9819;
 
   /* Tag colors (4:1 contrast on white) */
   --tag-gaming-ready: #8b5cf6;
@@ -129,6 +131,8 @@
   
   --color-success: #4ade80;
   --color-warning: #fbbf24;
+  --color-best: #ffd700;
+  --color-best-dark: #b8860b;
 
   /* Tag colors (5:1 contrast on #1a1a1a) */
   --tag-gaming-ready: #8b5cf6;
