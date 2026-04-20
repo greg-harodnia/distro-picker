@@ -38,6 +38,7 @@
   },
   "distros": {
     "recommended": "Önerilen Dağıtımlar",
+    "bestOnly": "Sadece en iyiler",
     "details": "Dağıtım Detayları",
     "info": "Ek bilgiler",
     "andMore": ", vb.",

@@ -38,6 +38,7 @@
   },
   "distros": {
     "recommended": "推奨ディストリビューション",
+    "bestOnly": "ベストのみ",
     "details": "ディストリビューションの詳細",
     "info": "追加情報",
     "andMore": "など",

@@ -38,6 +38,7 @@
   },
   "distros": {
     "recommended": "Polecane Dystrybucje",
+    "bestOnly": "Tylko najlepsze",
     "details": "Szczegóły Dystrybucji",
     "info": "Dodatkowe informacje",
     "andMore": ", itp.",

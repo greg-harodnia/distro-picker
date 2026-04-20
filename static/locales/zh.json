@@ -38,6 +38,7 @@
   },
   "distros": {
     "recommended": "推荐的发行版",
+    "bestOnly": "仅最佳",
     "details": "发行版详情",
     "info": "附加信息",
     "andMore": "等",

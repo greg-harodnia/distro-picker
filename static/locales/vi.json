@@ -38,6 +38,7 @@
   },
   "distros": {
     "recommended": "Bản Phân Phối Được Đề Xuất",
+    "bestOnly": "Chỉ những tốt nhất",
     "details": "Chi Tiết Bản Phân Phối",
     "info": "Thông tin bổ sung",
     "andMore": ", v.v.",

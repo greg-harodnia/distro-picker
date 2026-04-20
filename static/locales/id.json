@@ -38,6 +38,7 @@
   },
   "distros": {
     "recommended": "Distribusi Rekomendasi",
+    "bestOnly": "Hanya yang terbaik",
     "details": "Detail Distribusi",
     "info": "Informasi tambahan",
     "andMore": ", dll.",

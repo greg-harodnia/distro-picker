@@ -38,6 +38,7 @@
   },
   "distros": {
     "recommended": "Recommended Distros",
+    "bestOnly": "Best only",
     "details": "Distribution Details",
     "info": "Additional information",
     "andMore": ", etc.",

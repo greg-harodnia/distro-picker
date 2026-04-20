@@ -20,6 +20,7 @@
 		selectedTags,
 		selectedDistro,
 		filteredDistros,
+		showBestOnly,
 		tagActions,
 		distroActions,
 		dataActions,
@@ -166,6 +167,11 @@
 			<section class="distros" id="distribution-details" aria-labelledby="distros-heading">
 				<h2 id="distros-heading">
 					<span class="heading-text">{$t('distros.recommended')} ({$filteredDistros.length})</span>
+					<label class="toggle-label">
+						<span class="toggle-text">{$t('distros.bestOnly')}</span>
+						<input type="checkbox" class="toggle-input" bind:checked={$showBestOnly} />
+						<span class="toggle-switch"></span>
+					</label>
 					<button 
 						class="info-btn" 
 						onclick={() => infoModalOpen = true}
@@ -438,6 +444,65 @@
 		transform: translateY(0);
 	}
 
+	.toggle-label {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		cursor: pointer;
+	}
+
+	.toggle-text {
+		font-size: var(--text-sm);
+		color: var(--color-text-secondary);
+	}
+
+	.toggle-input {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+	.toggle-switch {
+		display: inline-block;
+		position: relative;
+		width: 36px;
+		height: 20px;
+		background: var(--color-border);
+		border-radius: var(--radius-full);
+		transition: background var(--transition-normal);
+	}
+
+	.toggle-switch::after {
+		content: '';
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		width: 16px;
+		height: 16px;
+		background: var(--color-surface);
+		border-radius: 50%;
+		transition: transform var(--transition-normal);
+	}
+
+	.toggle-input:checked + .toggle-switch {
+		background: var(--color-best);
+	}
+
+	.toggle-input:checked + .toggle-switch::after {
+		transform: translateX(16px);
+	}
+
+	#distros-heading {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+	}
+
+	#distros-heading .toggle-label {
+		margin-left: auto;
+	}
+
 	@media (max-width: 1024px) {
 		.content {
 			grid-template-columns: 1fr;
@@ -468,6 +533,10 @@
 
 		.filters {
 			margin-bottom: var(--space-xl);
+		}
+
+		.toggle-text {
+			display: none;
 		}
 
 		.quick-test-btn {

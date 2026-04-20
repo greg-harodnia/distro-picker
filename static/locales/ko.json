@@ -38,6 +38,7 @@
   },
   "distros": {
     "recommended": "추천 배포판",
+    "bestOnly": "최고만",
     "details": "배포판 상세정보",
     "info": "추가 정보",
     "andMore": " 등",

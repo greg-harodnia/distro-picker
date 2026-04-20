@@ -38,6 +38,7 @@
   },
   "distros": {
     "recommended": "Empfohlene Distributionen",
+    "bestOnly": "Nur die Besten",
     "details": "Distributionsdetails",
     "info": "Zusätzliche Informationen",
     "andMore": ", usw.",
