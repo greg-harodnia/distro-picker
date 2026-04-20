@@ -7,6 +7,7 @@ export const tags = writable<Tag[]>([]);
 export const distros = writable<Distro[]>([]);
 export const loading = writable(true);
 export const error = writable<string | null>(null);
+export const showBestOnly = writable<boolean>(false);
 
 let tagMap = new Map<string, Tag>();
 
@@ -27,21 +28,24 @@ export function getTagGroup(tagId: string): string | undefined {
 }
 
 export const filteredDistros = derived(
-	[distros, selectedTags],
-	([$distros, $selectedTags]) => {
+	[distros, selectedTags, showBestOnly],
+	([$distros, $selectedTags, $showBestOnly]) => {
 		if (!$distros || $distros.length === 0) return [];
 		
-		if ($selectedTags.size === 0) {
-			return $distros
-				.filter(d => !d.disabled);
+		let result = $distros.filter(d => !d.disabled);
+		
+		if ($showBestOnly) {
+			result = result.filter(d => d.best);
 		}
 		
-		const selectedArray = Array.from($selectedTags);
-		return $distros
-			.filter(distro => {
-				if (distro.disabled) return false;
-				return selectedArray.every(tagId => distro.tag_ids.includes(tagId));
-			});
+		if ($selectedTags.size > 0) {
+			const selectedArray = Array.from($selectedTags);
+			result = result.filter(distro => 
+				selectedArray.every(tagId => distro.tag_ids.includes(tagId))
+			);
+		}
+		
+		return result;
 	}
 );
 
