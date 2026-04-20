@@ -65,7 +65,7 @@
 		<div 
 			class="distro-card"
 			class:selected={selectedDistro?.id === distro.id}
-			class:bestDistro={distro.best}
+			class:best={distro.best}
 			onclick={() => selectDistro(distro)}
 			onkeydown={handleKeydown}
 			role="button"
@@ -75,8 +75,8 @@
 			data-distro-id={distro.id}
 		>
 			<div class="reactions">
-				{#if distro.best}
-					<span class="best">🔥</span>
+				{#if distro.ultimate}
+					<span class="ultimate">🔥</span>
 				{/if}
 				<button 
 					class="like" 
@@ -123,7 +123,7 @@
 		border-color: var(--color-primary);
 	}
 
-	.distro-card.bestDistro:hover {
+	.distro-card.best:hover {
 		border-color: var(--color-best);
 	}
 
@@ -133,7 +133,7 @@
 		color: var(--color-background);
 	}
 
-	.distro-card.bestDistro.selected {
+	.distro-card.best.selected {
 		border-color: var(--color-best);
 		background: linear-gradient(135deg, var(--color-best) 0%, var(--color-best-dark) 100%);
 	}
@@ -147,7 +147,7 @@
 		z-index: 1;
 	}
 
-	.best {
+	.ultimate {
 		font-size: 1.5rem;
 		line-height: 1;
 	}

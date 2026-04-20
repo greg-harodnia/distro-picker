@@ -13,6 +13,7 @@ export interface Distro {
 	tag_ids: string[];
 	logo?: string;
 	best?: boolean;
+	ultimate?: boolean;
 	desktops?: string[];
 	hasMoreDesktops?: boolean;
 	beginner_friendly?: number;
