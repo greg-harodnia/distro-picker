@@ -58,19 +58,19 @@
       "endeavouros": "Arch Linux인데 더 쉽습니다. 그래픽 설치 프로그램을 제공하며 기본 시스템을 최소한으로 변경합니다."
     },
     "userbases": {
-      "mint": "~3-5백만",
-      "kubuntu": "~1백만",
-      "zorin": "~2백만",
-      "popos": "~1-2백만",
-      "fedora": "~2백만",
-      "cachyos": "~50만 (하지만 매우 빠르게 성장 중)",
-      "steamos": "2000만 이상 (Steam Deck에서)",
-      "bazzite": "~7만",
-      "nobara": "~2.5만",
-      "pikaos": "~3k",
-      "lubuntu": "~40만",
-      "antiX": "~10만",
-      "endeavouros": "~25만"
+      "mint": "백만",
+      "kubuntu": "백만",
+      "zorin": "백만",
+      "popos": "백만",
+      "fedora": "백만",
+      "cachyos": "만 (하지만 매우 빠르게 성장 중)",
+      "steamos": "만 이상 (Steam Deck에서)",
+      "bazzite": "만",
+      "nobara": "만",
+      "pikaos": "k",
+      "lubuntu": "만",
+      "antiX": "만",
+      "endeavouros": "만"
     }
   },
   "panel": {

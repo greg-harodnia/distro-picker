@@ -55,24 +55,22 @@
       "antiX": "Distribution ultralégère, requiert au minimum 256Mo de RAM pour fonctionner (plus pour exécuter les apps fluidement). Adaptée aux anciens ordinateurs conçus pour Windows XP.",
       "nobara": "Une distribution gaming avec un système mutable, vous donnant un contrôle total. Elle a été développée par le créateur de Proton-GE, un utilitaire au cœur de l'infrastructure gaming Linux, et propose des versions pour PC et handhelds. Elle vous offre la pleine puissance de Fedora, mais avec des pilotes graphiques et des logiciels de gaming préinstallés.",
       "pikaos": "Une distribution de jeux mutable. Similaire à Nobara, mais basée sur Debian (branche instable avec des logiciels plus récents). Elle vous offre la possibilité d'installer un méta-paquet de jeux après l'installation de l'OS, ce qui signifie que vous pouvez le garder sans bloat et le configurer vous-même. L'édition Gnome dispose d'un sélecteur de disposition, tout comme Zorin OS.",
-      "lubuntu": "Une variante Ubuntu légère et conviviale, parfaite pour les ordinateurs produits entre 2004 et 2011 conçus pour Windows XP/Vista avec 1 ou 2Go de RAM.",
-      "antiX": "Distribution ultralégère, requiert au minimum 256Mo de RAM pour fonctionner (plus pour exécuter les apps fluidement). Adaptée aux anciens ordinateurs conçus pour Windows XP.",
       "endeavouros": "Arch Linux, mais plus facile. Offre un installateur graphique et modifie minimalement le système de base."
     },
     "userbases": {
-      "mint": "~3-5 millions",
-      "kubuntu": "~1 million",
-      "zorin": "~2 millions",
-      "popos": "~1-2 millions",
-      "fedora": "~2 millions",
-      "cachyos": "~500k (mais en très forte croissance)",
-      "steamos": "20+ millions (sur Steam Deck)",
-      "bazzite": "~70k",
-      "nobara": "~25k",
-      "pikaos": "~3k",
-      "lubuntu": "~400k",
-      "antiX": "~100k",
-      "endeavouros": "~250k"
+      "mint": " millions",
+      "kubuntu": " million",
+      "zorin": " millions",
+      "popos": " millions",
+      "fedora": " millions",
+      "cachyos": "k (mais en très forte croissance)",
+      "steamos": " millions (sur Steam Deck)",
+      "bazzite": "k",
+      "nobara": "k",
+      "pikaos": "k",
+      "lubuntu": "k",
+      "antiX": "k",
+      "endeavouros": "k"
     }
   },
   "panel": {

@@ -58,19 +58,19 @@
       "endeavouros": "Arch Linux, nhưng dễ hơn. Cung cấp trình cài đặt đồ họa và thay đổi tối thiểu hệ thống cơ sở."
     },
     "userbases": {
-      "mint": "~3-5 triệu",
-      "kubuntu": "~1 triệu",
-      "zorin": "~2 triệu",
-      "popos": "~1-2 triệu",
-      "fedora": "~2 triệu",
-      "cachyos": "~500k (nhưng đang phát triển rất nhanh)",
-      "steamos": "20+ triệu (trên Steam Deck)",
-      "bazzite": "~70k",
-      "nobara": "~25k",
-      "pikaos": "~3k",
-      "lubuntu": "~400k",
-      "antiX": "~100k",
-      "endeavouros": "~250k"
+      "mint": " triệu",
+      "kubuntu": " triệu",
+      "zorin": " triệu",
+      "popos": " triệu",
+      "fedora": " triệu",
+      "cachyos": "k (nhưng đang phát triển rất nhanh)",
+      "steamos": " triệu (trên Steam Deck)",
+      "bazzite": "k",
+      "nobara": "k",
+      "pikaos": "k",
+      "lubuntu": "k",
+      "antiX": "k",
+      "endeavouros": "k"
     }
   },
   "panel": {

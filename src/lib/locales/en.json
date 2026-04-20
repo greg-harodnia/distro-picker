@@ -58,19 +58,19 @@
       "antiX": "Ultra light distro, requires as minimum as 256Mb of RAM to run (more to run apps smoothly). Suitable for ancient computers designed for Windows XP."
     },
     "userbases": {
-      "mint": "~3-5 million",
-      "kubuntu": "~1 million",
-      "zorin": "~2 million",
-      "popos": "~1-2 million",
-      "fedora": "~2 million",
-      "endeavouros": "~250k",
-      "cachyos": "~500k (but very fast growing)",
-      "steamos": "20+ million (on Steam Deck)",
-      "bazzite": "~70k",
-      "nobara": "~25k",
-      "pikaos": "~3k",
-      "lubuntu": "~400k",
-      "antiX": "~100k"
+      "mint": " million",
+      "kubuntu": " million",
+      "zorin": " million",
+      "popos": " million",
+      "fedora": " million",
+      "endeavouros": "k",
+      "cachyos": "k (but very fast growing)",
+      "steamos": " million (on Steam Deck)",
+      "bazzite": "k",
+      "nobara": "k",
+      "pikaos": "k",
+      "lubuntu": "k",
+      "antiX": "k"
     }
   },
   "panel": {

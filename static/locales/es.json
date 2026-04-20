@@ -58,19 +58,19 @@
       "endeavouros": "Arch Linux, pero más fácil. Proporciona un instalador gráfico y realiza cambios mínimos al sistema base."
     },
     "userbases": {
-      "mint": "~3-5 millones",
-      "kubuntu": "~1 millón",
-      "zorin": "~2 millones",
-      "popos": "~1-2 millones",
-      "fedora": "~2 millones",
-      "cachyos": "~500k (pero creciendo muy rápido)",
-      "steamos": "20+ millones (en Steam Deck)",
-      "bazzite": "~70k",
-      "lubuntu": "~400k",
-      "antiX": "~100k",
-      "nobara": "~25k",
-      "pikaos": "~3k",
-      "endeavouros": "~250k"
+      "mint": " millones",
+      "kubuntu": " millón",
+      "zorin": " millones",
+      "popos": " millones",
+      "fedora": " millones",
+      "cachyos": "k (pero creciendo muy rápido)",
+      "steamos": " millones (en Steam Deck)",
+      "bazzite": "k",
+      "lubuntu": "k",
+      "antiX": "k",
+      "nobara": "k",
+      "pikaos": "k",
+      "endeavouros": "k"
     }
   },
   "panel": {

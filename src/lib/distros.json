@@ -9,7 +9,8 @@
       "best": true,
       "desktops": ["Cinnamon", "MATE", "Xfce"],
       "beginner_friendly": 5,
-      "based_on": "Ubuntu"
+      "based_on": "Ubuntu",
+      "userbase_number": "~3-5"
     },
     {
       "id": "kubuntu",
@@ -19,7 +20,8 @@
       "logo": "/kubuntu.webp",
       "desktops": ["KDE Plasma"],
       "beginner_friendly": 5,
-      "based_on": "Ubuntu"
+      "based_on": "Ubuntu",
+      "userbase_number": "~1"
     },
     {
       "id": "zorin",
@@ -27,9 +29,11 @@
       "website": "https://zorinos.com/",
       "tag_ids": ["traditional"],
       "logo": "/zorin.webp",
+      "best": true,
       "desktops": ["Gnome"],
       "beginner_friendly": 5,
-      "based_on": "Ubuntu"
+      "based_on": "Ubuntu",
+      "userbase_number": "~2"
     },
     {
       "id": "popos",
@@ -39,7 +43,8 @@
       "logo": "/popos.webp",
       "desktops": ["COSMIC"],
       "beginner_friendly": 5,
-      "based_on": "Ubuntu"
+      "based_on": "Ubuntu",
+      "userbase_number": "~1-2"
     },
     {
       "id": "kde-linux",
@@ -61,7 +66,8 @@
       "desktops": ["Gnome", "KDE Plasma", "Xfce", "Cinnamon", "COSMIC", "MATE", "LXQt", "LXDE", "Budgie"],
       "hasMoreDesktops": true,
       "beginner_friendly": 4,
-      "based_on": "independent"
+      "based_on": "independent",
+      "userbase_number": "~2"
     },
     {
       "id": "endeavouros",
@@ -71,7 +77,8 @@
       "logo": "/endeavouros.webp",
       "desktops": ["KDE Plasma", "Gnome", "Xfce", "Cinnamon", "MATE", "LXQt", "LXDE", "Budgie", "i3"],
       "beginner_friendly": 3,
-      "based_on":"Arch Linux"
+      "based_on":"Arch Linux",
+      "userbase_number": "~250"
     },
     {
       "id": "cachyos",
@@ -83,7 +90,8 @@
       "desktops": ["KDE Plasma", "Gnome", "COSMIC", "Xfce", "Niri", "Hyprland"],
       "hasMoreDesktops": true,
       "beginner_friendly": 3,
-      "based_on": "Arch Linux"
+      "based_on": "Arch Linux",
+      "userbase_number": "~500"
     },
     {
       "id": "steamos",
@@ -93,7 +101,8 @@
       "logo": "/steamos.webp",
       "desktops": ["KDE Plasma"],
       "beginner_friendly": 5,
-      "based_on": "independent"
+      "based_on": "independent",
+      "userbase_number": "~10"
     },
     {
       "id": "bazzite",
@@ -101,9 +110,11 @@
       "website": "https://bazzite.gg/",
       "tag_ids": ["gaming-ready", "immutable"],
       "logo": "/bazzite.svg",
+      "best": true,
       "desktops": ["KDE Plasma", "Gnome"],
       "beginner_friendly": 5,
-      "based_on": "Fedora Atomic"
+      "based_on": "Fedora Atomic",
+      "userbase_number": "~70"
     },
     {
       "id": "nobara",
@@ -113,7 +124,8 @@
       "logo": "/nobara.webp",
       "desktops": ["KDE Plasma", "Gnome"],
       "beginner_friendly": 5,
-      "based_on": "Fedora"
+      "based_on": "Fedora",
+      "userbase_number": "~25"
     },
     {
       "id": "pikaos",
@@ -123,7 +135,8 @@
       "logo": "/pikaos.svg",
       "desktops": ["Gnome", "KDE Plasma", "COSMIC", "Niri", "Hyprland"],
       "beginner_friendly": 5,
-      "based_on": "Debian Unstable"
+      "based_on": "Debian Unstable",
+      "userbase_number": "~3"
     },
     {
       "id": "lubuntu",
@@ -133,7 +146,8 @@
       "logo": "/lubuntu.webp",
       "desktops": ["LXQt"],
       "beginner_friendly": 5,
-      "based_on": "Ubuntu"
+      "based_on": "Ubuntu",
+      "userbase_number": "~100"
     },
     {
       "id": "antiX",
@@ -143,7 +157,8 @@
       "logo": "/antiX.webp",
       "desktops": ["Fluxbox", "IceWM", "JWM"],
       "beginner_friendly": 4,
-      "based_on": "Debian"
+      "based_on": "Debian",
+      "userbase_number": "~20"
     }
   ]
 }

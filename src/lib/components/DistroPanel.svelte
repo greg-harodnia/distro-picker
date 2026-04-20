@@ -20,7 +20,7 @@
 	let showGallery = $state(false);
 
 	let translatedDescription = $derived($t(`distros.descriptions.${distro.id}`) as string);
-	let translatedUserbase = $derived($t(`distros.userbases.${distro.id}`) as string | undefined);
+	let translatedUserbaseSuffix = $derived($t(`distros.userbases.${distro.id}`) as string | undefined);
 	let translatedBasedOn = $derived(distro.based_on === 'independent' ? $t('independent') : distro.based_on);
 
 	let tagMap = $derived(new Map(tags.map(tag => [tag.id, tag])));
@@ -37,7 +37,7 @@
 		(distro.desktops && distro.desktops.length > 0) ||
 		distro.based_on ||
 		distro.beginner_friendly ||
-		translatedUserbase
+		(distro.userbase_number && translatedUserbaseSuffix)
 	);
 
 	function visitWebsite() {
@@ -121,10 +121,10 @@
 				</div>
 			{/if}
 
-			{#if translatedUserbase}
+			{#if distro.userbase_number && translatedUserbaseSuffix}
 				<div class="additional-detail">
 					<h3>{$t('panel.userbase')}</h3>
-					<p>{translatedUserbase}</p>
+					<p>{distro.userbase_number}{translatedUserbaseSuffix}</p>
 				</div>
 			{/if}
 		</div>

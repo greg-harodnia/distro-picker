@@ -58,19 +58,19 @@
       "endeavouros": "Arch Linux, tapi lebih mudah. Menyediakan installer grafis dan mengubah sistem dasar secara minimal."
     },
     "userbases": {
-      "mint": "~3-5 juta",
-      "kubuntu": "~1 juta",
-      "zorin": "~2 juta",
-      "popos": "~1-2 juta",
-      "fedora": "~2 juta",
-      "cachyos": "~500k (tapi berkembang sangat cepat)",
-      "steamos": "20+ juta (di Steam Deck)",
-      "bazzite": "~70k",
-      "nobara": "~25k",
-      "pikaos": "~3k",
-      "lubuntu": "~400k",
-      "antiX": "~100k",
-      "endeavouros": "~250k"
+      "mint": " juta",
+      "kubuntu": " juta",
+      "zorin": " juta",
+      "popos": " juta",
+      "fedora": " juta",
+      "cachyos": "rb (tapi berkembang sangat cepat)",
+      "steamos": " juta (di Steam Deck)",
+      "bazzite": "rb",
+      "nobara": "rb",
+      "pikaos": "k",
+      "lubuntu": "rb",
+      "antiX": "rb",
+      "endeavouros": "rb"
     }
   },
   "panel": {

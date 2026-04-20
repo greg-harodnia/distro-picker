@@ -58,19 +58,19 @@
       "endeavouros": "Arch Linux, ama daha kolay. Grafik yükleyici sağlar ve taban sistemde minimum değişiklik yapar."
     },
     "userbases": {
-      "mint": "~3-5 milyon",
-      "kubuntu": "~1 milyon",
-      "zorin": "~2 milyon",
-      "popos": "~1-2 milyon",
-      "fedora": "~2 milyon",
-      "cachyos": "~500bin (ancak çok hızlı büyüyor)",
-      "steamos": "20+ milyon (Steam Deck'te)",
-      "bazzite": "~70bin",
-      "nobara": "~25bin",
-      "pikaos": "~3k",
-      "lubuntu": "~400bin",
-      "antiX": "~100bin",
-      "endeavouros": "~250bin"
+      "mint": " milyon",
+      "kubuntu": " milyon",
+      "zorin": " milyon",
+      "popos": " milyon",
+      "fedora": " milyon",
+      "cachyos": "bin (ancak çok hızlı büyüyor)",
+      "steamos": " milyon (Steam Deck'te)",
+      "bazzite": "bin",
+      "nobara": "bin",
+      "pikaos": "k",
+      "lubuntu": "bin",
+      "antiX": "bin",
+      "endeavouros": "bin"
     }
   },
   "panel": {

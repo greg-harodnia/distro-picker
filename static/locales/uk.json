@@ -58,19 +58,19 @@
       "endeavouros": "Arch Linux, але простіше. Надає графічний інсталятор і мінімально змінює базову систему."
     },
     "userbases": {
-      "mint": "~3-5 мільйонів",
-      "kubuntu": "~1 мільйон",
-      "zorin": "~2 мільйони",
-      "popos": "~1-2 мільйони",
-      "fedora": "~2 мільйони",
-      "cachyos": "~500к (але дуже швидко зростає)",
-      "steamos": "20+ мільйонів (на Steam Deck)",
-      "bazzite": "~70к",
-      "nobara": "~25к",
-      "pikaos": "~3k",
-      "lubuntu": "~400к",
-      "antiX": "~100к",
-      "endeavouros": "~250к"
+      "mint": " мільйонів",
+      "kubuntu": " мільйон",
+      "zorin": " мільйони",
+      "popos": " мільйони",
+      "fedora": " мільйони",
+      "cachyos": "к (але дуже швидко зростає)",
+      "steamos": " мільйонів (на Steam Deck)",
+      "bazzite": "к",
+      "nobara": "к",
+      "pikaos": "k",
+      "lubuntu": "к",
+      "antiX": "к",
+      "endeavouros": "к"
     }
   },
   "panel": {

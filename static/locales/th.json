@@ -58,19 +58,19 @@
       "endeavouros": "Arch Linux แต่ง่ายกว่า ให้ตัวติดตั้งแบบกราฟิกและเปลี่ยนแปลงระบบพื้นฐานน้อยที่สุด"
     },
     "userbases": {
-      "mint": "~3-5 ล้าน",
-      "kubuntu": "~1 ล้าน",
-      "zorin": "~2 ล้าน",
-      "popos": "~1-2 ล้าน",
-      "fedora": "~2 ล้าน",
-      "cachyos": "~5 แสน (แต่เติบโตเร็วมาก)",
-      "steamos": "20+ ล้าน (บน Steam Deck)",
-      "bazzite": "~7 หมื่น",
-      "nobara": "~2.5 หมื่น",
-      "pikaos": "~3k",
-      "lubuntu": "~4 แสน",
-      "antiX": "~1 แสน",
-      "endeavouros": "~25 หมื่น"
+      "mint": " ล้าน",
+      "kubuntu": " ล้าน",
+      "zorin": " ล้าน",
+      "popos": " ล้าน",
+      "fedora": " ล้าน",
+      "cachyos": " หมื่น (แต่เติบโตเร็วมาก)",
+      "steamos": " ล้าน (บน Steam Deck)",
+      "bazzite": " หมื่น",
+      "nobara": " หมื่น",
+      "pikaos": "k",
+      "lubuntu": " หมื่น",
+      "antiX": " หมื่น",
+      "endeavouros": " หมื่น"
     }
   },
   "panel": {

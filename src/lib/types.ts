@@ -19,4 +19,5 @@ export interface Distro {
 	based_on?: string;
 	likes?: number;
 	userLiked?: boolean;
+	userbase_number?: string;
 }

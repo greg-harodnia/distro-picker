@@ -58,19 +58,19 @@
       "endeavouros": "Arch Linux，但更简单。提供图形安装程序，对基础系统的更改最少。"
     },
     "userbases": {
-      "mint": "~3-5百万",
-      "kubuntu": "~1百万",
-      "zorin": "~2百万",
-      "popos": "~1-2百万",
-      "fedora": "~2百万",
-      "cachyos": "~50万（但增长非常快）",
-      "steamos": "2000万以上（在Steam Deck上）",
-      "bazzite": "~7万",
-      "nobara": "~2.5万",
-      "pikaos": "~3k",
-      "lubuntu": "~40万",
-      "antiX": "~10万",
-      "endeavouros": "~25万"
+      "mint": " 百万",
+      "kubuntu": " 百万",
+      "zorin": " 百万",
+      "popos": " 百万",
+      "fedora": " 百万",
+      "cachyos": " 万（但增长非常快）",
+      "steamos": " 万以上（在Steam Deck上）",
+      "bazzite": " 万",
+      "nobara": " 万",
+      "pikaos": "k",
+      "lubuntu": " 万",
+      "antiX": " 万",
+      "endeavouros": " 万"
     }
   },
   "panel": {

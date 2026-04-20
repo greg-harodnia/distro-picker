@@ -58,19 +58,19 @@
       "endeavouros": "Arch Linuxだけど簡単。グラフィカルなインストーラーを提供し、ベースシステムへの変更を最小限に抑えます。"
     },
     "userbases": {
-      "mint": "~3-5百万",
-      "kubuntu": "~1百万",
-      "zorin": "~2百万",
-      "popos": "~1-2百万",
-      "fedora": "~2百万",
-      "cachyos": "~50万（しかし急速に成長中）",
-      "steamos": "2000万以上（Steam Deck上）",
-      "bazzite": "~7万",
-      "nobara": "~2.5万",
-      "pikaos": "~3k",
-      "lubuntu": "~40万",
-      "antiX": "~10万",
-      "endeavouros": "~25万"
+      "mint": "百万",
+      "kubuntu": "百万",
+      "zorin": "百万",
+      "popos": "百万",
+      "fedora": "百万",
+      "cachyos": "万（しかし急速に成長中）",
+      "steamos": "万以上（Steam Deck上）",
+      "bazzite": "万",
+      "nobara": "万",
+      "pikaos": "k",
+      "lubuntu": "万",
+      "antiX": "万",
+      "endeavouros": "万"
     }
   },
   "panel": {
