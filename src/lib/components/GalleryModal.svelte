@@ -1,4 +1,4 @@
-<script lang="ts">
+											<script lang="ts">
 	import { onMount } from 'svelte';
 	import { t } from '$lib/i18n/locale';
 	import Modal from './Modal.svelte';
@@ -15,6 +15,71 @@
 
 	let currentIndex = $state(0);
 	let preloadIndexes: number[] = $state([]);
+
+	let scale = $state(1);
+	let translateX = $state(0);
+	let translateY = $state(0);
+	let isZooming = $state(false);
+
+	let startDistance = 0;
+	let startScale = 1;
+	let startX = 0;
+	let startY = 0;
+	let originX = $state('50%');
+	let originY = $state('50%');
+
+	function getTouchCenter(touches: TouchList) {
+		return {
+			x: (touches[0].clientX + touches[1].clientX) / 2,
+			y: (touches[0].clientY + touches[1].clientY) / 2
+		};
+	}
+
+	function handleTouchStart(e: TouchEvent) {
+		if (e.touches.length === 2) {
+			isZooming = true;
+			startDistance = Math.hypot(
+				e.touches[0].clientX - e.touches[1].clientX,
+				e.touches[0].clientY - e.touches[1].clientY
+			);
+			startScale = scale;
+			
+			const center = getTouchCenter(e.touches);
+			const img = (e.target as HTMLElement).closest('.image-container')?.querySelector('img');
+			if (img) {
+				const rect = img.getBoundingClientRect();
+				originX = `${((center.x - rect.left) / rect.width) * 100}%`;
+				originY = `${((center.y - rect.top) / rect.height) * 100}%`;
+			}
+		} else if (e.touches.length === 1 && scale > 1) {
+			isZooming = true;
+			startX = e.touches[0].clientX - translateX;
+			startY = e.touches[0].clientY - translateY;
+		}
+	}
+
+	function handleTouchMove(e: TouchEvent) {
+		if (!isZooming) return;
+		e.preventDefault();
+
+		if (e.touches.length === 2) {
+			const distance = Math.hypot(
+				e.touches[0].clientX - e.touches[1].clientX,
+				e.touches[0].clientY - e.touches[1].clientY
+			);
+			scale = Math.max(1, Math.min(startScale * (distance / startDistance), 4));
+		} else if (e.touches.length === 1 && scale > 1) {
+			translateX = e.touches[0].clientX - startX;
+			translateY = e.touches[0].clientY - startY;
+		}
+	}
+
+	function handleTouchEnd() {
+		isZooming = false;
+		scale = 1;
+		translateX = 0;
+		translateY = 0;
+	}
 
 	function prev() {
 		currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -61,6 +126,11 @@
 				alt={`${distroName} screenshot ${currentIndex + 1}`} 
 				loading="eager" 
 				decoding="async" 
+				ontouchstart={handleTouchStart}
+				ontouchmove={handleTouchMove}
+				ontouchend={handleTouchEnd}
+				class:zoomed={scale > 1}
+				style="transform: translate({translateX}px, {translateY}px) scale({scale}); transform-origin: {originX} {originY}"
 			/>
 			{#each preloadIndexes as idx}
 				<link rel="preload" as="image" href={images[idx]} />
@@ -101,6 +171,12 @@
 		max-width: 100%;
 		max-height: 100%;
 		border-radius: var(--radius-md);
+		transition: transform 0.2s ease-out;
+		touch-action: none;
+	}
+
+	.image-container img.zoomed {
+		transition: none;
 	}
 
 	.arrow {
