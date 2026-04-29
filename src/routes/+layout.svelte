@@ -10,7 +10,7 @@
 
 	let { children }: { children: Snippet } = $props();
 
-	const siteUrl = 'https://greg-harodnia.github.io/distro-picker';
+	const siteUrl = 'https://distro-picker.vercel.app/';
 
 	let pageTitle = $derived(browser && $page ? (() => {
 		const baseTitle = $t('app.title') || getTranslation('en', 'app.title');
@@ -29,7 +29,12 @@
 	});
 
 	onMount(() => {
-		locale.init();
+		const hash = window.location.hash.slice(1);
+		if (hash && availableLanguages.some(l => l.code === hash)) {
+			locale.set(hash as any);
+		} else {
+			locale.init();
+		}
 	});
 	let description = $derived($t('meta.description') || getTranslation('en', 'meta.description'));
 	let title = $derived($t('app.title') || getTranslation('en', 'app.title'));

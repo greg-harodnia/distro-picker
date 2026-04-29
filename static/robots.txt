@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://greg-harodnia.github.io/distro-picker/sitemap.xml
+Sitemap: https://distro-picker.vercel.app/sitemap.xml
 
 # Block common non-content paths
 Disallow: /api/

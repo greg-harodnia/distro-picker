@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<url>
-		<loc>https://greg-harodnia.github.io/distro-picker/</loc>
-		<lastmod>2026-02-10</lastmod>
+		<loc>https://distro-picker.vercel.app/</loc>
+		<lastmod>2026-04-29</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>1.0</priority>
-		<xhtml:link rel="alternate" hreflang="x-default" href="https://greg-harodnia.github.io/distro-picker/" />
-		<xhtml:link rel="alternate" hreflang="en" href="https://greg-harodnia.github.io/distro-picker/#en" />
-		<xhtml:link rel="alternate" hreflang="be" href="https://greg-harodnia.github.io/distro-picker/#be" />
-		<xhtml:link rel="alternate" hreflang="uk" href="https://greg-harodnia.github.io/distro-picker/#uk" />
-		<xhtml:link rel="alternate" hreflang="pl" href="https://greg-harodnia.github.io/distro-picker/#pl" />
-		<xhtml:link rel="alternate" hreflang="ru" href="https://greg-harodnia.github.io/distro-picker/#ru" />
-		<xhtml:link rel="alternate" hreflang="es" href="https://greg-harodnia.github.io/distro-picker/#es" />
-		<xhtml:link rel="alternate" hreflang="pt" href="https://greg-harodnia.github.io/distro-picker/#pt" />
-		<xhtml:link rel="alternate" hreflang="de" href="https://greg-harodnia.github.io/distro-picker/#de" />
-		<xhtml:link rel="alternate" hreflang="fr" href="https://greg-harodnia.github.io/distro-picker/#fr" />
-		<xhtml:link rel="alternate" hreflang="it" href="https://greg-harodnia.github.io/distro-picker/#it" />
-		<xhtml:link rel="alternate" hreflang="tr" href="https://greg-harodnia.github.io/distro-picker/#tr" />
-		<xhtml:link rel="alternate" hreflang="vi" href="https://greg-harodnia.github.io/distro-picker/#vi" />
-		<xhtml:link rel="alternate" hreflang="id" href="https://greg-harodnia.github.io/distro-picker/#id" />
-		<xhtml:link rel="alternate" hreflang="th" href="https://greg-harodnia.github.io/distro-picker/#th" />
-		<xhtml:link rel="alternate" hreflang="zh" href="https://greg-harodnia.github.io/distro-picker/#zh" />
-		<xhtml:link rel="alternate" hreflang="ja" href="https://greg-harodnia.github.io/distro-picker/#ja" />
-		<xhtml:link rel="alternate" hreflang="ko" href="https://greg-harodnia.github.io/distro-picker/#ko" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://distro-picker.vercel.app/" />
+		<xhtml:link rel="alternate" hreflang="en" href="https://distro-picker.vercel.app/#en" />
+		<xhtml:link rel="alternate" hreflang="be" href="https://distro-picker.vercel.app/#be" />
+		<xhtml:link rel="alternate" hreflang="uk" href="https://distro-picker.vercel.app/#uk" />
+		<xhtml:link rel="alternate" hreflang="pl" href="https://distro-picker.vercel.app/#pl" />
+		<xhtml:link rel="alternate" hreflang="ru" href="https://distro-picker.vercel.app/#ru" />
+		<xhtml:link rel="alternate" hreflang="es" href="https://distro-picker.vercel.app/#es" />
+		<xhtml:link rel="alternate" hreflang="pt" href="https://distro-picker.vercel.app/#pt" />
+		<xhtml:link rel="alternate" hreflang="de" href="https://distro-picker.vercel.app/#de" />
+		<xhtml:link rel="alternate" hreflang="fr" href="https://distro-picker.vercel.app/#fr" />
+		<xhtml:link rel="alternate" hreflang="it" href="https://distro-picker.vercel.app/#it" />
+		<xhtml:link rel="alternate" hreflang="tr" href="https://distro-picker.vercel.app/#tr" />
+		<xhtml:link rel="alternate" hreflang="vi" href="https://distro-picker.vercel.app/#vi" />
+		<xhtml:link rel="alternate" hreflang="id" href="https://distro-picker.vercel.app/#id" />
+		<xhtml:link rel="alternate" hreflang="th" href="https://distro-picker.vercel.app/#th" />
+		<xhtml:link rel="alternate" hreflang="zh" href="https://distro-picker.vercel.app/#zh" />
+		<xhtml:link rel="alternate" hreflang="ja" href="https://distro-picker.vercel.app/#ja" />
+		<xhtml:link rel="alternate" hreflang="ko" href="https://distro-picker.vercel.app/#ko" />
 	</url>
 </urlset>
