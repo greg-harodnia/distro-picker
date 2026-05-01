@@ -5,11 +5,13 @@
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import type { Snippet } from 'svelte';
 	import { t, locale, availableLanguages } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
 
 	injectAnalytics({ mode: dev ? 'development' : 'production' });
+	injectSpeedInsights();
 
 	let { children }: { children: Snippet } = $props();
 
