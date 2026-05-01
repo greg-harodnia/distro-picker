@@ -91,7 +91,7 @@
       "ultimate": true,
       "desktops": ["KDE Plasma", "Gnome", "COSMIC", "Xfce", "Niri", "Hyprland"],
       "hasMoreDesktops": true,
-      "beginner_friendly": 3,
+      "beginner_friendly": 4,
       "based_on": "Arch Linux",
       "userbase_number": "~500"
     },
