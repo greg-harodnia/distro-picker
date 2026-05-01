@@ -56,7 +56,7 @@
       "pikaos": "Distribusi game yang dapat diubah. Mirip dengan Nobara, tetapi berdasarkan Debian (cabang tidak stabil dengan perangkat lunak yang lebih baru). Menawarkan opsi untuk menginstal meta-paket game setelah instalasi OS, memungkinkan kamu menjaganya tetap bersih dari bloat dan mengonfigurasinya sendiri. Edisi Gnome memiliki pengalih tata letak, seperti Zorin OS.",
       "lubuntu": "Varian Ubuntu yang ringan dan ramah pengguna, sempurna untuk komputer yang diproduksi antara 2004 dan 2011 yang dirancang untuk Windows XP/Vista dengan 1 atau 2GB RAM.",
       "antiX": "Distribusi ultra ringan, membutuhkan minimal 256MB RAM untuk berjalan (lebih untuk menjalankan aplikasi dengan lancar). Cocok untuk komputer lawas yang dirancang untuk Windows XP.",
-      "endeavouros": "Arch Linux, tapi lebih mudah. Menyediakan installer grafis dan mengubah sistem dasar secara minimal."
+      "endeavouros": "Arch Linux, tapi lebih mudah. Menyediakan installer grafis dan mengubah sistem dasar secara minimal. Tidak mengonfigurasi zram/swap secara default."
     },
     "userbases": {
       "mint": " juta",
@@ -95,7 +95,6 @@
       "installationTitle": "Tips untuk instalasi dan dual-boot:",
       "hint1": "Instal Linux di disk terpisah karena pembaruan Windows dapat merusak instalasi Linux.",
       "hint2": "Jangan gunakan alat Windows untuk mengubah ukuran partisi pada disk tempat Linux diinstal karena alasan yang sama.",
-      "hint3": "Jangan lupa membuat file/partisi swap, terutama pada sistem dengan RAM terbatas.",
       "softwareTitle": "Perangkat lunak yang saya rekomendasikan.",
       "browsers": "Browser: Brave, Helium, Zen.",
       "office": "Kantor: OnlyOffice, LibreOffice.",

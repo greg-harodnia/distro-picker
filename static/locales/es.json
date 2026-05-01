@@ -56,7 +56,7 @@
       "pikaos": "Una distribución de juegos mutable. Similar a Nobara, pero basada en Debian (rama inestable con software más nuevo). Te ofrece la opción de instalar un meta-paquete de juegos después de la instalación del SO, lo que significa que puedes mantenerlo libre de bloat y configurarlo tú mismo. La edición Gnome cuenta con un cambiador de diseño, al igual que Zorin OS.",
       "lubuntu": "Una variante ligera y fácil de usar de Ubuntu, perfecta para computadoras producidas entre 2004 y 2011 diseñadas para Windows XP/Vista con 1 o 2GB de RAM.",
       "antiX": "Distribución ultra ligera, requiere un mínimo de 256MB de RAM para funcionar (más para ejecutar apps sin problemas). Adecuada para computadoras antiguas diseñadas para Windows XP.",
-      "endeavouros": "Arch Linux, pero más fácil. Proporciona un instalador gráfico y realiza cambios mínimos al sistema base."
+      "endeavouros": "Arch Linux, pero más fácil. Proporciona un instalador gráfico y realiza cambios mínimos al sistema base. No configura zram/swap de forma predeterminada."
     },
     "userbases": {
       "mint": " millones",
@@ -95,7 +95,6 @@
       "installationTitle": "Consejos para instalación y dual-boot:",
       "hint1": "Instala Linux en un disco separado ya que las actualizaciones de Windows pueden romper la instalación de Linux.",
       "hint2": "No uses herramientas de Windows para redimensionar particiones en el disco donde está instalado Linux por la misma razón.",
-      "hint3": "No olvides crear un archivo/partición swap, especialmente en sistemas con poca RAM.",
       "softwareTitle": "Software que recomiendo.",
       "browsers": "Navegadores: Brave, Helium, Zen.",
       "office": "Oficina: OnlyOffice, LibreOffice.",

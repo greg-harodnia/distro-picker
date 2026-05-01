@@ -56,7 +56,7 @@
       "pikaos": "可变游戏发行版。类似于Nobara，但基于Debian（不稳定分支，软件更新）。为您提供在操作系统安装后安装游戏元包的选择，这意味着您可以保持其无膨胀软件并自行配置。Gnome版本具有类似Zorin OS的布局切换器。",
       "lubuntu": "用户友好的轻量级Ubuntu变体，非常适合2004年至2011年间生产的、专为Windows XP/Vista设计的、配备1或2GB内存的电脑。",
       "antiX": "超轻量级发行版，运行只需最少256MB内存（更多内存可更流畅运行应用程序）。适合为Windows XP设计的古老电脑。",
-      "endeavouros": "Arch Linux，但更简单。提供图形安装程序，对基础系统的更改最少。"
+      "endeavouros": "Arch Linux，但更简单。提供图形安装程序，对基础系统的更改最少。默认不配置zram/swap。"
     },
     "userbases": {
       "mint": " 百万",
@@ -95,7 +95,6 @@
       "installationTitle": "安装和双系统启动提示：",
       "hint1": "将Linux安装在单独的磁盘上，因为Windows更新可能会破坏Linux安装。",
       "hint2": "出于同样原因，不要使用Windows工具调整安装了Linux的磁盘上的分区大小。",
-      "hint3": "不要忘记创建交换文件/分区，尤其是在内存有限的系统上。",
       "softwareTitle": "我推荐的软件。",
       "browsers": "浏览器：Brave、Helium、Zen。",
       "office": "办公：OnlyOffice、LibreOffice。",

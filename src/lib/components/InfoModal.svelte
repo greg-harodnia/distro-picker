@@ -26,7 +26,6 @@
 		<b>{gt('modal.additionalContent.installationTitle')}</b><br /><br />
 		1. {gt('modal.additionalContent.hint1')}<br />
 		2. {gt('modal.additionalContent.hint2')}<br />
-		3. {gt('modal.additionalContent.hint3')}<br /><br />				
 		<b>{gt('modal.additionalContent.softwareTitle')}</b><br /><br />
 
 		{gt('modal.additionalContent.browsers')}<br />
