@@ -1,12 +1,15 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/stores';
-	import { browser } from '$app/environment';
+	import { browser, dev } from '$app/environment';
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import type { Snippet } from 'svelte';
 	import { t, locale, availableLanguages } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
+
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
 
 	let { children }: { children: Snippet } = $props();
 

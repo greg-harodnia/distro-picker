@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.98.0",
-    "@sveltejs/adapter-vercel": "^6.3.3"
+    "@sveltejs/adapter-vercel": "^6.3.3",
+    "@vercel/analytics": "^2.0.1"
   }
 }
