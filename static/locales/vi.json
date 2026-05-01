@@ -56,7 +56,7 @@
       "pikaos": "Một bản phân phối game có thể thay đổi được. Tương tự như Nobara, nhưng dựa trên Debian (nhánh không ổn định với phần mềm mới hơn). Nó cung cấp cho bạn tùy chọn cài đặt meta-package game sau khi cài đặt hệ điều hành, nghĩa là bạn có thể giữ nó không có bloat và tự cấu hình. Phiên bản Gnome có bộ chuyển đổi bố cục, giống như Zorin OS.",
       "lubuntu": "Một biến thể Ubuntu nhẹ và thân thiện với người dùng, hoàn hảo cho máy tính được sản xuất giữa 2004 và 2011 được thiết kế cho Windows XP/Vista với 1 hoặc 2GB RAM.",
       "antiX": "Bản phân phối siêu nhẹ, yêu cầu tối thiểu 256MB RAM để chạy (nhiều hơn để chạy ứng dụng mượt mà). Phù hợp với máy tính cổ đại được thiết kế cho Windows XP.",
-      "endeavouros": "Arch Linux, nhưng dễ hơn. Cung cấp trình cài đặt đồ họa và thay đổi tối thiểu hệ thống cơ sở."
+      "endeavouros": "Arch Linux, nhưng dễ hơn. Cung cấp trình cài đặt đồ họa và thay đổi tối thiểu hệ thống cơ sở. Không định cấu hình zram/swap theo mặc định."
     },
     "userbases": {
       "mint": " triệu",
@@ -95,7 +95,6 @@
       "installationTitle": "Gợi ý cài đặt và khởi động kép:",
       "hint1": "Cài đặt Linux trên một ổ đĩa riêng vì các bản cập nhật Windows có thể làm hỏng cài đặt Linux.",
       "hint2": "Không sử dụng công cụ Windows để thay đổi kích thước phân vùng trên ổ đĩa đã cài Linux vì lý do tương tự.",
-      "hint3": "Đừng quên tạo file/phân vùng swap, đặc biệt trên hệ thống có RAM hạn chế.",
       "softwareTitle": "Phần mềm tôi đề xuất.",
       "browsers": "Trình duyệt: Brave, Helium, Zen.",
       "office": "Văn phòng: OnlyOffice, LibreOffice.",

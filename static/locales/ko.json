@@ -56,7 +56,7 @@
       "pikaos": "변경 가능한 게임 배포판입니다. Nobara와 유사하지만 Debian(더 새로운 소프트웨어가 있는 불안정 브랜치)에 기반합니다. OS 설치 후 게임 메타 패키지를 설치할 수 있는 옵션을 제공하므로, 번거로움 없이 직접 구성할 수 있습니다. Gnome 에디션은 Zorin OS처럼 레이아웃 전환 기능을 갖추고 있습니다.",
       "lubuntu": "2004년부터 2011년 사이에 제조되어 Windows XP/Vista용으로 설계되었고 1GB 또는 2GB의 RAM이 있는コンピュータ에 적합한 사용자 친화적인 경량 Ubuntu 변형.",
       "antiX": "실행에 최소 256MB의 RAM이 필요한 초경량 배포판 (앱을 부드럽게 실행하려면 더 필요). Windows XP용으로 설계된 고대 컴퓨터에 적합합니다.",
-      "endeavouros": "Arch Linux인데 더 쉽습니다. 그래픽 설치 프로그램을 제공하며 기본 시스템을 최소한으로 변경합니다."
+      "endeavouros": "Arch Linux인데 더 쉽습니다. 그래픽 설치 프로그램을 제공하며 기본 시스템을 최소한으로 변경합니다. 기본적으로 zram/swap을 구성하지 않습니다"
     },
     "userbases": {
       "mint": "백만",
@@ -95,7 +95,6 @@
       "installationTitle": "설치 및 듀얼 부팅 힌트:",
       "hint1": "Windows 업데이트가 Linux 설치를 손상시킬 수 있으므로 Linux를 별도의 디스크에 설치하세요.",
       "hint2": "같은 이유로 Linux가 설치된 디스크의 파티션 크기를 조정하는 데 Windows 도구를 사용하지 마세요.",
-      "hint3": "특히 RAM이 제한된 시스템에서는 스왑 파일/파티션을 만드는 것을 잊지 마세요.",
       "softwareTitle": "내가 추천하는 소프트웨어.",
       "browsers": "브라우저: Brave, Helium, Zen.",
       "office": "오피스: OnlyOffice, LibreOffice.",

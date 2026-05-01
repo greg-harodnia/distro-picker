@@ -56,7 +56,7 @@
       "antiX": "Distribution ultralégère, requiert au minimum 256Mo de RAM pour fonctionner (plus pour exécuter les apps fluidement). Adaptée aux anciens ordinateurs conçus pour Windows XP.",
       "nobara": "Une distribution gaming avec un système mutable, vous donnant un contrôle total. Elle a été développée par le créateur de Proton-GE, un utilitaire au cœur de l'infrastructure gaming Linux, et propose des versions pour PC et handhelds. Elle vous offre la pleine puissance de Fedora, mais avec des pilotes graphiques et des logiciels de gaming préinstallés.",
       "pikaos": "Une distribution de jeux mutable. Similaire à Nobara, mais basée sur Debian (branche instable avec des logiciels plus récents). Elle vous offre la possibilité d'installer un méta-paquet de jeux après l'installation de l'OS, ce qui signifie que vous pouvez le garder sans bloat et le configurer vous-même. L'édition Gnome dispose d'un sélecteur de disposition, tout comme Zorin OS.",
-      "endeavouros": "Arch Linux, mais plus facile. Offre un installateur graphique et modifie minimalement le système de base."
+      "endeavouros": "Arch Linux, mais plus facile. Offre un installateur graphique et modifie minimalement le système de base. Ne configure pas zram/swap par défaut."
     },
     "userbases": {
       "mint": " millions",
@@ -95,7 +95,6 @@
       "installationTitle": "Conseils pour l'installation et le dual-boot:",
       "hint1": "Installez Linux sur un disque séparé car les mises à jour Windows peuvent casser l'installation Linux.",
       "hint2": "N'utilisez pas les outils Windows pour redimensionner les partitions sur le disque où Linux est installé pour la même raison.",
-      "hint3": "N'oubliez pas de créer un fichier/partage swap, spécialement sur les systèmes avec peu de RAM.",
       "softwareTitle": "Logiciels que je recommande.",
       "browsers": "Navigateurs: Brave, Helium, Zen.",
       "office": "Bureautique: OnlyOffice, LibreOffice.",
