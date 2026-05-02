@@ -92,6 +92,7 @@
     },
     "additionalContent": {
       "intro": "Aplikasi ini tidak mencakup distribusi populer lainnya (<i>seperti Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, dll.</i>), distribusi enterprise (<i>seperti Red Hat, AlmaLinux, Rocky Linux</i>) dan distribusi khusus (<i>seperti Kali, Alpine</i>) karena ini ditujukan untuk pemula total dan bertujuan menyederhanakan pilihan.",
+      "linuxStats": "Pada pertengahan 2026, terdapat sekitar 100-120 juta pengguna Linux di seluruh dunia (sekitar 30 juta di antaranya menggunakan Ubuntu, terutama di sektor korporasi). Ini mewakili sekitar 4% dari semua pengguna PC.",
       "installationTitle": "Tips untuk instalasi dan dual-boot:",
       "hint1": "Instal Linux di disk terpisah karena pembaruan Windows dapat merusak instalasi Linux.",
       "hint2": "Jangan gunakan alat Windows untuk mengubah ukuran partisi pada disk tempat Linux diinstal karena alasan yang sama.",

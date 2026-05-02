@@ -92,6 +92,7 @@
     },
     "additionalContent": {
       "intro": "Cette app n'inclut pas d'autres distributions populaires (<i>comme Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, etc.</i>), distributions d'entreprise (<i>comme Red Hat, AlmaLinux, Rocky Linux</i>) et distributions de niche (<i>comme Kali, Alpine</i>) car elle est destinée aux débutants complets et vise à simplifier le choix.",
+      "linuxStats": "Mi-2026, il y a environ 100-120 millions d'utilisateurs Linux dans le monde (dont environ 30 millions utilisent Ubuntu, surtout dans le secteur des entreprises). Cela représente environ 4% de tous les utilisateurs de PC.",
       "installationTitle": "Conseils pour l'installation et le dual-boot:",
       "hint1": "Installez Linux sur un disque séparé car les mises à jour Windows peuvent casser l'installation Linux.",
       "hint2": "N'utilisez pas les outils Windows pour redimensionner les partitions sur le disque où Linux est installé pour la même raison.",

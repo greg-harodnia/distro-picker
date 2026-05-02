@@ -92,6 +92,7 @@
     },
     "additionalContent": {
       "intro": "Bu uygulama, tam acemilere yönelik olduğundan ve seçimi basitleştirmeyi amaçladığından, diğer popüler dağıtımları (<i>Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, vb.</i>), kurumsal dağıtımları (<i>Red Hat, AlmaLinux, Rocky Linux</i>) ve niş dağıtımları (<i>Kali, Alpine</i>) içermiyor.",
+      "linuxStats": "2026'nın ortasına kadar, dünya genelinde yaklaşık 100-120 milyon Linux kullanıcısı var (bunların yaklaşık 30 milyonu özellikle kurumsal sektörde Ubuntu kullanıyor). Bu, tüm PC kullanıcılarının yaklaşık %4'ünü temsil ediyor.",
       "installationTitle": "Kurulum ve çift önyükleme ipuçları:",
       "hint1": "Linux'i ayrı bir diske kurun çünkü Windows güncellemeleri Linux kurulumunu bozabilir.",
       "hint2": "Aynı nedenle Linux'in kurulu olduğu diskteki bölümleri yeniden boyutlandırmak için Windows araçlarını kullanmayın.",

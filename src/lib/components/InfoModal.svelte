@@ -23,6 +23,8 @@
 	<p>
 		{@html gt('modal.additionalContent.intro')}
 		<br /><br />
+		{gt('modal.additionalContent.linuxStats')}
+		<br /><br />
 		<b>{gt('modal.additionalContent.installationTitle')}</b><br /><br />
 		1. {gt('modal.additionalContent.hint1')}<br />
 		2. {gt('modal.additionalContent.hint2')}<br /><br />

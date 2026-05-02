@@ -92,6 +92,7 @@
     },
     "additionalContent": {
       "intro": "이 앱은 완전한 초보자를 대상으로 하며 선택을 단순화하는 것을 목표로 하기 때문에 다른 인기 배포판(<i>Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus 등</i>), 기업 배포판(<i>Red Hat, AlmaLinux, Rocky Linux</i>) 및 틈새 배포판(<i>Kali, Alpine</i>)을 포함하지 않습니다.",
+      "linuxStats": "2026년 중반 기준으로 전 세계적으로 약 1~1.2억 명의 Linux 사용자(약 3000만 명이 Ubuntu 사용, 특히 기업 부서)가 있습니다. 이는 모든 PC 사용자의 약 4%를 차지합니다.",
       "installationTitle": "설치 및 듀얼 부팅 힌트:",
       "hint1": "Windows 업데이트가 Linux 설치를 손상시킬 수 있으므로 Linux를 별도의 디스크에 설치하세요.",
       "hint2": "같은 이유로 Linux가 설치된 디스크의 파티션 크기를 조정하는 데 Windows 도구를 사용하지 마세요.",

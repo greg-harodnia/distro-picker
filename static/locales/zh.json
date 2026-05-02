@@ -92,6 +92,7 @@
     },
     "additionalContent": {
       "intro": "此应用程序不包括其他流行发行版（<i>如Arch Linux、Ubuntu、Debian、openSUSE、NixOS、Gentoo、Void、Slackware、EndeavourOS、MX Linux、Nobara、Omarchy、Manjaro、elementaryOS、Solus等</i>）、企业级发行版（<i>如Red Hat、AlmaLinux、Rocky Linux</i>）和利基发行版（<i>如Kali、Alpine</i>），因为它面向完全初学者，旨在简化选择。",
+      "linuxStats": "截至2026年中期，全球约有1-1.2亿Linux用户（约3000万使用Ubuntu，尤其是在企业领域）。这约占所有PC用户的4%。",
       "installationTitle": "安装和双系统启动提示：",
       "hint1": "将Linux安装在单独的磁盘上，因为Windows更新可能会破坏Linux安装。",
       "hint2": "出于同样原因，不要使用Windows工具调整安装了Linux的磁盘上的分区大小。",

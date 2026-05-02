@@ -92,6 +92,7 @@
     },
     "additionalContent": {
       "intro": "このアプリケーションは、完全に初心者向けであり選択を簡素化することを目的としているため、他の人気のディストリビューション（<i>Arch Linux、Ubuntu、Debian、openSUSE、NixOS、Gentoo、Void、Slackware、EndeavourOS、MX Linux、Nobara、Omarchy、Manjaro、elementaryOS、Solusなど</i>）、企業向けディストリビューション（<i>Red Hat、AlmaLinux、Rocky Linux</i>）、ニッチなディストリビューション（<i>Kali、Alpine</i>）を含みません。",
+      "linuxStats": "2026年中期現在、世界中で約1億～1億2000万Linuxユーザーがおり（約3000万がUbuntuを使用、特に企業分野）。これはすべてのPCユーザーの約4%を占めます。",
       "installationTitle": "インストールとデュアルブートのヒント：",
       "hint1": "Windowsの更新がLinuxのインストールを破損する可能性があるため、Linuxは別のディスクにインストールしてください。",
       "hint2": "同じ理由で、Linuxがインストールされているディスクのパーティションサイズを変更するためにWindowsのツールを使用しないでください。",
