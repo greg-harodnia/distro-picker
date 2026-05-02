@@ -10,7 +10,7 @@
       "desktops": ["Cinnamon", "MATE", "Xfce"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu",
-      "userbase_number": "~3-5"
+      "userbase_number": "~3-10"
     },
     {
       "id": "kubuntu",
@@ -68,7 +68,7 @@
       "hasMoreDesktops": true,
       "beginner_friendly": 4,
       "based_on": "independent",
-      "userbase_number": "~2"
+      "userbase_number": "~1-2"
     },
     {
       "id": "endeavouros",
@@ -79,7 +79,7 @@
       "desktops": ["KDE Plasma", "Gnome", "Xfce", "Cinnamon", "MATE", "LXQt", "LXDE", "Budgie", "i3"],
       "beginner_friendly": 3,
       "based_on":"Arch Linux",
-      "userbase_number": "~250"
+      "userbase_number": "~100"
     },
     {
       "id": "cachyos",
