@@ -122,6 +122,7 @@
     "close": "Kapat",
     "questions": {
       "howToUse": "Dağıtımı nasıl kullanmak istersiniz?",
+      "lazy": "Üşeniyorum, bana ne kullanmam gerektiğini söyleyin",
       "regularUser": "Sadece normal bir kullanıcı",
       "gaming": "Dağıtımımın oyun için önceden yapılandırılmış olmasını istiyorum / bir elde taşınır cihazda kullanmak istiyorum",
       "developer": "Üzerinde geliştirme yapmak istiyorum",

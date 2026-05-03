@@ -122,6 +122,7 @@
     "close": "Đóng",
     "questions": {
       "howToUse": "Bạn muốn sử dụng bản phân phối như thế nào?",
+      "lazy": "Tôi lười lắm, cứ bảo tôi dùng gì là được",
       "regularUser": "Chỉ là người dùng thông thường",
       "gaming": "Tôi muốn distro của mình được cấu hình sẵn cho chơi game / tôi muốn sử dụng nó trên thiết bị handheld",
       "developer": "Tôi muốn phát triển trên đó",

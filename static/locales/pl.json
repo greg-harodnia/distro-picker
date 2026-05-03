@@ -122,6 +122,7 @@
     "close": "Zamknij",
     "questions": {
       "howToUse": "Jak chcesz używać dystrybucji?",
+      "lazy": "Jestem leniwy, po prostu powiedz mi czego używać",
       "regularUser": "Zwykły użytkownik",
       "gaming": "Chcę, aby moja dystrybucja była wstępnie skonfigurowana do gier / chcę używać jej na urządzeniu przenośnym",
       "developer": "Chcę na niej programować",

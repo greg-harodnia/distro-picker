@@ -7,6 +7,10 @@ export const quickTestData: QuickTestData = {
 				text: 'quiz.questions.howToUse',
 				answers: [
 					{
+						text: 'quiz.questions.lazy',
+						result: 'quiz.results.lazy',
+					},
+					{
 						text: 'quiz.questions.regularUser',
 						question: {
 							text: 'quiz.questions.whichLayout',

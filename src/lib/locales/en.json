@@ -122,6 +122,7 @@
     "close": "Close",
     "questions": {
       "howToUse": "How would you like to use the distribution?",
+      "lazy": "I'm lazy, just tell me what to use",
       "regularUser": "Just a regular user",
       "gaming": "I want my distro to be preconfigured for gaming / I want to use it on a handheld",
       "developer": "I want to develop on it",
@@ -140,6 +141,7 @@
       "ancient": "It is truly ancient (2004 or older)"
     },
     "results": {
+      "lazy": "Zorin OS",
       "regularWindows": "Linux Mint, Kubuntu, or Zorin OS—depending on which design you like more.",
       "regularMacos": "Pop!_OS. If you would like to be able to easily switch between different layouts, go with Zorin OS.",
       "gamingYes": "Nobara. With its mutable system, you'll be able to tweak system files and install any packages you want. Alternatively, you can go with PikaOS. If you're comfortable using the terminal, you can also go with CachyOS.",

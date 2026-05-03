@@ -604,9 +604,5 @@
 			right: var(--space-lg);
 			padding: var(--space-sm) var(--space-md);
 		}
-
-		.quick-test-btn span {
-			display: none;
-		}
 	}
 </style>

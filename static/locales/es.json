@@ -122,6 +122,7 @@
     "close": "Cerrar",
     "questions": {
       "howToUse": "¿Cómo te gustaría usar la distribución?",
+      "lazy": "Soy perezoso, solo dime qué usar",
       "regularUser": "Solo un usuario regular",
       "gaming": "Quiero que mi distro venga preconfigurada para gaming / quiero usarla en un portátil para gaming",
       "developer": "Quiero desarrollar en ella",

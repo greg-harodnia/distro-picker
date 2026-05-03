@@ -122,6 +122,7 @@
     "close": "Tutup",
     "questions": {
       "howToUse": "Bagaimana Anda ingin menggunakan distribusinya?",
+      "lazy": "Saya malas, katakan saja apa yang harus saya gunakan",
       "regularUser": "Hanya pengguna biasa",
       "gaming": "Saya ingin distro saya sudah dikonfigurasi untuk gaming / saya ingin menggunakannya di handheld",
       "developer": "Saya ingin mengembangkan di dalamnya",
