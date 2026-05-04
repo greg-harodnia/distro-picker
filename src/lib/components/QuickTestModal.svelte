@@ -96,17 +96,17 @@
 			</div>
 			<p class="question-text">{$t(currentQuestion.text)}</p>
 			<div class="answers-list">
-				{#each currentQuestion.answers as answer, i}
-					<button
-						class="answer-btn"
-						onclick={() => selectAnswer(answer)}
-						type="button"
-						style="animation-delay: {i * 50}ms"
-					>
-						<span class="answer-letter">{String.fromCharCode(65 + i)}</span>
-						<span class="answer-text">{$t(answer.text)}</span>
-					</button>
-				{/each}
+			{#each currentQuestion.answers as answer, i (answer.text)}
+				<button
+					class="answer-btn"
+					onclick={() => selectAnswer(answer)}
+					type="button"
+					style="animation-delay: {i * 50}ms"
+				>
+					<span class="answer-letter">{String.fromCharCode(65 + i)}</span>
+					<span class="answer-text">{$t(answer.text)}</span>
+				</button>
+			{/each}
 			</div>
 		</div>
 	{/if}
