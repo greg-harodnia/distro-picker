@@ -76,14 +76,14 @@
 			<h3>{$t('quiz.yourRecommendation')}</h3>
 			<p class="result-text">{$t(resultKey)}</p>
 			<div class="result-actions">
-				<button class="restart-btn" onclick={startQuiz} type="button">
+				<button class="btn-outline restart-btn" onclick={startQuiz} type="button">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<polyline points="1 4 1 10 7 10"></polyline>
 						<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
 					</svg>
 					{$t('quiz.restartTest')}
 				</button>
-				<button class="close-result-btn" onclick={onclose} type="button">
+				<button class="btn-primary" onclick={onclose} type="button">
 					{$t('quiz.close')}
 				</button>
 			</div>
@@ -261,43 +261,6 @@
 		display: flex;
 		gap: var(--space-md);
 		margin-top: var(--space-md);
-	}
-
-	.restart-btn {
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-		padding: var(--space-md) var(--space-lg);
-		background: transparent;
-		border: 2px solid var(--color-secondary);
-		border-radius: var(--radius-md);
-		color: var(--color-secondary);
-		font-size: var(--text-base);
-		font-weight: var(--font-medium);
-		cursor: pointer;
-		transition: all var(--transition-normal);
-	}
-
-	.restart-btn:hover {
-		background: var(--color-secondary);
-		color: var(--color-background);
-	}
-
-	.close-result-btn {
-		padding: var(--space-md) var(--space-lg);
-		background: var(--color-secondary);
-		border: 2px solid var(--color-secondary);
-		border-radius: var(--radius-md);
-		color: var(--color-background);
-		font-size: var(--text-base);
-		font-weight: var(--font-medium);
-		cursor: pointer;
-		transition: all var(--transition-normal);
-	}
-
-	.close-result-btn:hover {
-		opacity: 0.9;
-		transform: translateY(-1px);
 	}
 
 	@media (max-width: 640px) {

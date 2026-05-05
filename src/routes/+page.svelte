@@ -229,7 +229,7 @@
 	{/if}
 
 		<button
-			class="quick-test-btn"
+			class="btn-primary quick-test-btn"
 			onclick={() => quickTestOpen = true}
 			aria-label={$t('app.startQuiz')}
 			type="button"
@@ -423,22 +423,9 @@
 		display: flex;
 		align-items: center;
 		gap: var(--space-sm);
-		padding: var(--space-md) var(--space-lg);
-		background: var(--color-secondary);
-		color: var(--color-background);
-		border: none;
 		border-radius: var(--radius-full);
-		font-size: var(--text-base);
-		font-weight: var(--font-medium);
-		cursor: pointer;
 		box-shadow: var(--shadow-lg);
-		transition: all var(--transition-normal);
 		z-index: 100;
-	}
-
-	.quick-test-btn:hover {
-		transform: translateY(-2px);
-		box-shadow: var(--shadow-xl);
 	}
 
 	.quick-test-btn:active {

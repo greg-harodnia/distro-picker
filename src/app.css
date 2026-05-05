@@ -222,7 +222,36 @@ body {
 	box-shadow: var(--shadow-md);
 }
 
-.modal-close-btn,
+.btn-primary,
+.btn-outline {
+	border: 2px solid var(--color-secondary);
+	border-radius: var(--radius-md);
+	padding: var(--space-md) var(--space-lg);
+	font-size: var(--text-base);
+	font-weight: var(--font-medium);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.btn-primary {
+	background: var(--color-secondary);
+	color: var(--color-background);
+}
+
+.btn-primary:hover {
+	transform: translateY(-2px);
+}
+
+.btn-outline {
+	background: transparent;
+	color: var(--color-secondary);
+}
+
+.btn-outline:hover {
+	background: var(--color-secondary);
+	color: var(--color-background);
+}
+
 .close-btn {
 	background: none;
 	border: none;
@@ -236,7 +265,6 @@ body {
 	transition: all var(--transition-normal);
 }
 
-.modal-close-btn:hover,
 .close-btn:hover {
 	background: var(--color-background-secondary);
 	color: var(--color-secondary);
