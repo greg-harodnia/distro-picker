@@ -161,6 +161,12 @@
   "loading": {
     "loading": "Đang tải..."
   },
+  "share": {
+    "title": "Bạn có thích ứng dụng này không?",
+    "text": "Giúp người khác khám phá Linux bằng cách chia sẻ ứng dụng này cho bạn bè!",
+    "copyLink": "Sao chép liên kết",
+    "copied": "Đã sao chép!"
+  },
   "theme": {
     "toggle": "Bật/tắt chế độ tối"
   },

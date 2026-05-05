@@ -161,6 +161,12 @@
   "loading": {
     "loading": "加载中..."
   },
+  "share": {
+    "title": "喜欢这个应用吗？",
+    "text": "通过分享此应用给朋友，帮助他人发现Linux！",
+    "copyLink": "复制链接",
+    "copied": "已复制！"
+  },
   "theme": {
     "toggle": "切换深色模式"
   },

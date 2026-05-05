@@ -161,6 +161,12 @@
   "loading": {
     "loading": "Ładowanie..."
   },
+  "share": {
+    "title": "Podoba Ci się aplikacja?",
+    "text": "Pomóż innym odkryć Linuxa, dzieląc się tą aplikacją ze znajomymi!",
+    "copyLink": "Kopiuj link",
+    "copied": "Skopiowano!"
+  },
   "theme": {
     "toggle": "Przełącz tryb ciemny"
   },

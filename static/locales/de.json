@@ -161,6 +161,12 @@
   "loading": {
     "loading": "Lädt..."
   },
+  "share": {
+    "title": "Gefällt dir die App?",
+    "text": "Hilf anderen, Linux zu entdecken, indem du diese App mit deinen Freunden teilst!",
+    "copyLink": "Link kopieren",
+    "copied": "Kopiert!"
+  },
   "theme": {
     "toggle": "Dunkelmodus umschalten"
   },

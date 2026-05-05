@@ -162,6 +162,12 @@
   "loading": {
     "loading": "Loading..."
   },
+  "share": {
+    "title": "Enjoying the app?",
+    "text": "Help others discover Linux by sharing this app with your friends!",
+    "copyLink": "Copy Link",
+    "copied": "Copied!"
+  },
   "theme": {
     "toggle": "Toggle dark mode"
   },

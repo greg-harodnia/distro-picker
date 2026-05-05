@@ -11,6 +11,7 @@
 	import LanguageToggle from "$lib/components/LanguageToggle.svelte";
 	import InfoModal from "$lib/components/InfoModal.svelte";
 	import QuickTestModal from "$lib/components/QuickTestModal.svelte";
+	import ShareModal from "$lib/components/ShareModal.svelte";
 	import { loadTags, loadDistros, getLikedDistros } from "$lib/utils";
 	import { fetchLikes } from "$lib/supabase";
 	import {
@@ -32,6 +33,7 @@
 
 	let infoModalOpen = $state(false);
 	let quickTestOpen = $state(false);
+	let shareModalOpen = $state(false);
 
 	async function loadData() {
 		dataActions.setLoading(true);
@@ -104,6 +106,10 @@
 
 	onMount(() => {
 		loadData();
+		const timer = setTimeout(() => {
+			shareModalOpen = true;
+		}, 60_000);
+		return () => clearTimeout(timer);
 	});
 </script>
 
@@ -226,6 +232,10 @@
 
 	{#if quickTestOpen}
 		<QuickTestModal onclose={() => quickTestOpen = false} />
+	{/if}
+
+	{#if shareModalOpen}
+		<ShareModal onclose={() => shareModalOpen = false} />
 	{/if}
 
 		<button

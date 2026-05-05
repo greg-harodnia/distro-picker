@@ -161,6 +161,12 @@
   "loading": {
     "loading": "Memuat..."
   },
+  "share": {
+    "title": "Menikmati aplikasi ini?",
+    "text": "Bantu orang lain menemukan Linux dengan membagikan aplikasi ini kepada teman-teman Anda!",
+    "copyLink": "Salin Tautan",
+    "copied": "Tersalin!"
+  },
   "theme": {
     "toggle": "Toggle mode gelap"
   },

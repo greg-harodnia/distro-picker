@@ -161,6 +161,12 @@
   "loading": {
     "loading": "Caricamento..."
   },
+  "share": {
+    "title": "Ti piace l'app?",
+    "text": "Aiuta gli altri a scoprire Linux condividendo questa app con i tuoi amici!",
+    "copyLink": "Copia link",
+    "copied": "Copiato!"
+  },
   "theme": {
     "toggle": "Attiva/disattiva modalità scura"
   },

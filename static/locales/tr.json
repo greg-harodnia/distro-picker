@@ -161,6 +161,12 @@
   "loading": {
     "loading": "Yükleniyor..."
   },
+  "share": {
+    "title": "Uygulamayı beğendiniz mi?",
+    "text": "Bu uygulamayı arkadaşlarınızla paylaşarak başkalarının Linux keşfetmesine yardımcı olun!",
+    "copyLink": "Bağlantıyı Kopyala",
+    "copied": "Kopyalandı!"
+  },
   "theme": {
     "toggle": "Koyu modu aç/kapa"
   },
