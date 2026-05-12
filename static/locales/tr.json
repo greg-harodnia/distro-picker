@@ -27,8 +27,7 @@
       "name": "Geleneksel",
       "description": "Düzenli sürüm güncellemeleriyle standart yayın modeli"
     },
-    "rolling-release": {
-      "name": "Rolling Release",
+    "rolling": {
       "description": "En son yazılım sürümleriyle sürekli güncellenen dağıtım"
     },
     "immutable": {

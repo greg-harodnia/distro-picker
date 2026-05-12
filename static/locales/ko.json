@@ -27,8 +27,7 @@
       "name": "트레이디셔널",
       "description": "정기적인 버전 업데이트가 있는 표준 출시 모델"
     },
-    "rolling-release": {
-      "name": "Rolling Release",
+    "rolling": {
       "description": "최신 소프트웨어 버전으로 지속적으로 업데이트되는 배포판"
     },
     "immutable": {

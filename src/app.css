@@ -35,7 +35,7 @@
   --tag-gaming-ready: #8b5cf6;
   --tag-lightweight: #b9ad03;
   --tag-traditional: #22c55e;
-  --tag-rolling-release: #3b82f6;
+  --tag-rolling: #3b82f6;
   --tag-immutable: #f97316;
   
   /* Shadows */
@@ -138,7 +138,7 @@
   --tag-gaming-ready: #8b5cf6;
   --tag-lightweight: #dbc117;
   --tag-traditional: rgb(22, 200, 84);
-  --tag-rolling-release: #2478ff;
+  --tag-rolling: #2478ff;
   --tag-immutable: #f98416;
   
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);

@@ -2,31 +2,26 @@
   "tags": [
     {
       "id": "gaming-ready",
-      "name": "Gaming Ready",
       "description": "Optimized for gaming with good driver support and performance",
       "group": "purpose"
     },
     {
       "id": "lightweight",
-      "name": "Lightweight",
       "description": "Lightweight and suitable for older hardware",
       "group": "purpose"
     },
     {
       "id": "traditional",
-      "name": "Traditional",
       "description": "Standard release model with periodic version updates",
       "group": "update-model"
     },
     {
-      "id": "rolling-release",
-      "name": "Rolling Release",
+      "id": "rolling",
       "description": "Continuously updated distribution with no fixed releases",
       "group": "update-model"
     },
     {
       "id": "immutable",
-      "name": "Immutable",
       "description": "Immutable distribution with atomic updates",
       "group": "update-model"
     }

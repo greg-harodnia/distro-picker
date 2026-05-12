@@ -29,7 +29,7 @@
 		const tag = tagMap.get(tagId);
 		return {
 			tagId,
-			name: tag ? ($t(`tags.${tagId}.name`) || tag.name) : '',
+			name: tag ? $t(`tags.${tagId}.name`) : '',
 		};
 	}) || []);
 

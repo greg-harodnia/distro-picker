@@ -27,8 +27,7 @@
       "name": "Traditionnel",
       "description": "Modèle de publication standard avec des mises à jour de version périodiques"
     },
-    "rolling-release": {
-      "name": "Rolling Release",
+    "rolling": {
       "description": "Distribution continuellement mise à jour avec les dernières versions de logiciels"
     },
     "immutable": {

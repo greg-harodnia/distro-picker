@@ -27,7 +27,7 @@
       "name": "传统版",
       "description": "标准发布模式，具有定期版本更新"
     },
-    "rolling-release": {
+    "rolling": {
       "name": "滚动更新",
       "description": "持续更新的发行版，始终使用最新版本的软件"
     },

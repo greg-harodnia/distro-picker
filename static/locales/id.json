@@ -27,8 +27,7 @@
       "name": "Tradisional",
       "description": "Model rilis standar dengan pembaruan versi berkala"
     },
-    "rolling-release": {
-      "name": "Rolling Release",
+    "rolling": {
       "description": "Distribusi yang terus diperbarui dengan versi perangkat lunak terbaru"
     },
     "immutable": {

@@ -27,8 +27,7 @@
       "name": "伝統的",
       "description": "定期的なバージョン更新を持つ標準的なリリースモデル"
     },
-    "rolling-release": {
-      "name": "ローリングリリース",
+    "rolling": {
       "description": "最新のソフトウェアバージョンで継続的に更新されるディストリビューション"
     },
     "immutable": {

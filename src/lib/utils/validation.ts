@@ -33,9 +33,7 @@ export function validateTagsArray(tags: unknown[]): ValidationResult {
 		if (!t['id'] || typeof t['id'] !== 'string') {
 			errors.push({ field: `tags[${index}].id`, message: 'Tag must have a valid string ID' });
 		}
-		if (!t['name'] || typeof t['name'] !== 'string') {
-			errors.push({ field: `tags[${index}].name`, message: 'Tag must have a valid string name' });
-		}
+
 		if (!t['description'] || typeof t['description'] !== 'string') {
 			errors.push({ field: `tags[${index}].description`, message: 'Tag must have a valid string description' });
 		}

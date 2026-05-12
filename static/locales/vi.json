@@ -27,8 +27,7 @@
       "name": "Truyền Thống",
       "description": "Mô hình phát hành tiêu chuẩn với các bản cập nhật phiên bản định kỳ"
     },
-    "rolling-release": {
-      "name": "Rolling Release",
+    "rolling": {
       "description": "Bản phân phối được cập nhật liên tục với các phiên bản phần mềm mới nhất"
     },
     "immutable": {

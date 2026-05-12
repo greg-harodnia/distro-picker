@@ -12,7 +12,7 @@
 		ontoggle?: () => void;
 	} = $props();
 
-	let tagName = $derived($t(`tags.${tag.id}.name`) || tag.name);
+	let tagName = $derived($t(`tags.${tag.id}.name`));
 	let tagDescription = $derived($t(`tags.${tag.id}.description`) || tag.description);
 
 	function handleClick() {
