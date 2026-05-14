@@ -41,7 +41,7 @@
 			locale.init();
 		}
 	});
-	let description = $derived($t('meta.description') || getTranslation('en', 'meta.description'));
+	let description = $derived($t('app.description') || getTranslation('en', 'app.description'));
 	let title = $derived($t('app.title') || getTranslation('en', 'app.title'));
 </script>
 

@@ -1,21 +1,12 @@
-export type QuestionKey = `quiz.questions.${string}`;
-export type ResultKey = `quiz.results.${string}`;
-
 export interface QuizAnswer {
-	text: QuestionKey;
+	text: string;
 	question?: QuizQuestion;
-	result?: ResultKey;
+	result?: string;
 }
 
 export interface QuizQuestion {
-	text: QuestionKey;
+	text: string;
 	answers: QuizAnswer[];
 }
 
-export interface QuizNode {
-	question: QuizQuestion;
-}
 
-export interface QuickTestData {
-	test: QuizNode[];
-}

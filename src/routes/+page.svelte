@@ -114,7 +114,7 @@
 </script>
 
 {#if $loading}
-	<LoadingSpinner message={$t('app.loadingDistributions')} size="large" />
+	<LoadingSpinner message={$t('app.loading')} size="large" />
 {:else if $error}
 	<ErrorDisplay
 		title={$t('app.failedToLoad')}
@@ -144,7 +144,7 @@
 
 		<main>
 		<section class="filters" aria-labelledby="filters-heading">
-			<h2 id="filters-heading">{$t('filters.title')}</h2>
+			<h2 id="filters-heading">{$t('app.filters.title')}</h2>
 			<div class="tag-list-wrapper">
 				<div class="tag-list" role="group" aria-label="Filter options">
 				{#each $tags as tag, i (tag.id)}
@@ -158,7 +158,7 @@
 					/>
 				{/each}
 				{#if $selectedTags.size > 0}
-					<button class="clear-btn" onclick={() => { tagActions.clear(); }} aria-label={$t('filters.clearAll')}>
+					<button class="clear-btn" onclick={() => { tagActions.clear(); }} aria-label={$t('app.filters.clearAll')}>
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="18" y1="6" x2="6" y2="18"></line>
 							<line x1="6" y1="6" x2="18" y2="18"></line>
@@ -172,16 +172,16 @@
 		<div class="content">
 			<section class="distros" id="distribution-details" aria-labelledby="distros-heading">
 				<h2 id="distros-heading">
-					<span class="heading-text">{$t('distros.recommended')} ({$filteredDistros.length})</span>
+					<span class="heading-text">{$t('app.distroGridTitle')} ({$filteredDistros.length})</span>
 					<label class="toggle-label">
-						<span class="toggle-text">{$t('distros.bestOnly')}</span>
+						<span class="toggle-text">{$t('app.filters.bestOnly')}</span>
 						<input type="checkbox" class="toggle-input" bind:checked={$showBestOnly} />
 						<span class="toggle-switch"></span>
 					</label>
 					<button 
 						class="info-btn" 
 						onclick={() => infoModalOpen = true}
-						aria-label={$t('distros.info')}
+						aria-label={$t('modals.additionalInfo.title')}
 						type="button"
 					>
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -205,7 +205,7 @@
 
 			{#if $selectedDistro}
 				<section class="distros" aria-labelledby="details-heading">
-					<h2 id="details-heading">{$t('distros.details')}</h2>
+					<h2 id="details-heading">{$t('distroPanel.title')}</h2>
 					<DistroPanel
 						distro={$selectedDistro}
 						tags={$tags}
@@ -241,14 +241,14 @@
 		<button
 			class="btn-primary quick-test-btn"
 			onclick={() => quickTestOpen = true}
-			aria-label={$t('app.startQuiz')}
+			aria-label={$t('modals.quiz.title')}
 			type="button"
 		>
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
 				<line x1="12" y1="17" x2="12.01" y2="17"></line>
 			</svg>
-			<span>{$t('app.quickQuiz')}</span>
+			<span>{$t('modals.quiz.title')}</span>
 		</button>
 	</div>
 {/if}

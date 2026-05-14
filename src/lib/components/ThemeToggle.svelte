@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { theme, themeActions } from '$lib/stores/theme';
 	import { onMount } from 'svelte';
+	import { t } from '$lib/i18n/locale';
 
 	let isDark = $state(false);
 
@@ -35,8 +36,8 @@
 	type="button"
 	class="theme-toggle btn-toggle"
 	onclick={toggleTheme}
-	aria-label="Toggle dark mode"
-	title="Toggle dark mode"
+	aria-label={$t('app.toggles.theme')}
+	title={$t('app.toggles.theme')}
 >
 	{#if isDark}
 		<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

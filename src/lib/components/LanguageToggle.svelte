@@ -37,7 +37,7 @@
     type="button"
     class="language-toggle btn-toggle"
     onclick={(e) => { e.stopPropagation(); toggleDropdown(); }}
-    aria-label={$t('language.toggle')}
+    aria-label={$t('app.toggles.language')}
     aria-expanded={isOpen}
     aria-haspopup="listbox"
   >

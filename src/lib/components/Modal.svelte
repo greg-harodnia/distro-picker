@@ -75,7 +75,7 @@
 			{#if header}
 				{@render header()}
 			{/if}
-			<button class="close-btn" onclick={close} aria-label={$t('modal.close')} type="button">
+			<button class="close-btn" onclick={close} aria-label={$t('app.close')} type="button">
 				<CloseIcon />
 			</button>
 		</div>

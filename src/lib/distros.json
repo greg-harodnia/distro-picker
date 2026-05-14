@@ -30,7 +30,7 @@
       "tag_ids": ["traditional"],
       "logo": "/zorin.webp",
       "best": true,
-      "ultimate": true,
+      "popular": true,
       "desktops": ["Gnome"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu",
@@ -87,8 +87,7 @@
       "website": "https://cachyos.org/",
       "tag_ids": ["gaming-ready", "rolling"],
       "logo": "/cachyos.svg",
-      "best": true,
-      "ultimate": true,
+      "popular": true,
       "desktops": ["KDE Plasma", "Gnome", "COSMIC", "Xfce", "Niri", "Hyprland"],
       "hasMoreDesktops": true,
       "beginner_friendly": 4,
@@ -104,7 +103,7 @@
       "desktops": ["KDE Plasma"],
       "beginner_friendly": 5,
       "based_on": "independent",
-      "userbase_number": "~10"
+      "userbase_number": "~5-10"
     },
     {
       "id": "bazzite",

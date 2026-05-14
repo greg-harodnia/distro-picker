@@ -67,3 +67,23 @@ export function getTranslation(lang: Language, path: string): string | undefined
 export function gt(lang: Language, path: string): string {
   return getTranslation(lang, path) || path;
 }
+
+export function getNestedValue<T = unknown>(lang: Language, path: string): T | undefined {
+  const translations = translationCache[lang];
+  if (!translations) {
+    return lang === 'en' ? undefined : getNestedValue<T>('en', path);
+  }
+
+  const keys = path.split('.');
+  let result: unknown = translations;
+
+  for (const key of keys) {
+    if (result && typeof result === 'object' && key in result) {
+      result = (result as Record<string, unknown>)[key];
+    } else {
+      return lang === 'en' ? undefined : getNestedValue<T>('en', path);
+    }
+  }
+
+  return result as T;
+}

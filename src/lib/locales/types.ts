@@ -1,67 +1,77 @@
-export type Language = 'en' | 'be' | 'uk' | 'pl' | 'ru' | 'zh' | 'ja' | 'vi' | 'ko' | 'th' | 'es' | 'pt' | 'tr' | 'de' | 'fr' | 'it' | 'id';
+export type Language = 'en' | 'be' | 'ru' | 'es' | 'pt' | 'de' | 'fr' | 'tr';
 
 export type Translations = {
   app: {
     title: string;
-    loadingDistributions: string;
+    description: string;
+    loading: string;
     failedToLoad: string;
     noResults: string;
-    quickQuiz: string;
-    startQuiz: string;
-  };
-  filters: {
-    title: string;
-    clearAll: string;
+    distroGridTitle: string;
+    close: string;
+    filters: {
+      title: string;
+      clearAll: string;
+      bestOnly: string;
+    };
+    error: string;
+    toggles: {
+      language: string;
+      theme: string;
+    };
   };
   tags: Record<string, { name: string; description: string }>;
-  distros: {
-    recommended: string;
-    details: string;
-    info: string;
-    andMore: string;
-    descriptions: Record<string, string>;
-    userbases: Record<string, string>;
-  };
-  panel: {
+  distros: Record<string, {
+    description: string;
+    userbasePostfix?: string;
+  }>;
+  distroPanel: {
+    title: string;
     basedOn: string;
     desktop: string;
     desktops: string;
     beginnerFriendly: string;
     userbase: string;
     visitWebsite: string;
+    andMore: string;
+    independent: string;
   };
-  modal: {
-    additionalInfo: string;
-    close: string;
+  modals: {
+    additionalInfo: {
+      title: string;
+      content: string;
+    };
     gallery: {
       noImages: string;
       previousImage: string;
       nextImage: string;
     };
-    additionalContent: Record<string, string>;
+    quiz: {
+      title: string;
+      start: string;
+      goBack: string;
+      yourRecommendation: string;
+      restartTest: string;
+      question: {
+        text: string;
+        answers: Array<{
+          text: string;
+          result?: string;
+          question?: {
+            text: string;
+            answers: Array<{
+              text: string;
+              result: string;
+            }>;
+          };
+        }>;
+      };
+    };
+    share: {
+      title: string;
+      text: string;
+      copyLink: string;
+      copied: string;
+    };
   };
-  quiz: {
-    title: string;
-    goBack: string;
-    yourRecommendation: string;
-    restartTest: string;
-    close: string;
-    questions: Record<string, string>;
-    results: Record<string, string>;
-  };
-  errors: {
-    somethingWentWrong: string;
-    tryAgainLater: string;
-    tryAgain: string;
-  };
-  loading: {
-    loading: string;
-  };
-  theme: {
-    toggle: string;
-  };
-  language: {
-    toggle: string;
-  };
-  independent: string;
 };

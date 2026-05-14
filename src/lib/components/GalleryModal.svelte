@@ -117,7 +117,7 @@
 
 	{#if images.length === 0}
 		<div class="no-images">
-			<p>{$t('modal.gallery.noImages')}</p>
+			<p>{$t('modals.gallery.noImages')}</p>
 		</div>
 	{:else}
 		<div class="image-container">
@@ -138,12 +138,12 @@
 		</div>
 
 		{#if images.length > 1}
-			<button class="arrow left-arrow" onclick={prev} aria-label={$t('modal.gallery.previousImage')} type="button">
+			<button class="arrow left-arrow" onclick={prev} aria-label={$t('modals.gallery.previousImage')} type="button">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<polyline points="15 18 9 12 15 6"></polyline>
 				</svg>
 			</button>
-			<button class="arrow right-arrow" onclick={next} aria-label={$t('modal.gallery.nextImage')} type="button">
+			<button class="arrow right-arrow" onclick={next} aria-label={$t('modals.gallery.nextImage')} type="button">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<polyline points="9 18 15 12 9 6"></polyline>
 				</svg>

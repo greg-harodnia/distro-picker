@@ -16,11 +16,11 @@
 
 <div class="error-container">
 	<div class="error-icon">⚠️</div>
-	<h2 class="error-title">{title || $t('errors.somethingWentWrong')}</h2>
-	<p class="error-message">{message || $t('errors.tryAgainLater')}</p>
+	<h2 class="error-title">{title || $t('app.error')}</h2>
+	<p class="error-message">{message || $t('app.error')}</p>
 	{#if retryable}
 		<button class="retry-button" onclick={onretry}>
-			{$t('errors.tryAgain')}
+			Try Again
 		</button>
 	{/if}
 </div>

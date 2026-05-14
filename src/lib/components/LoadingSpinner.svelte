@@ -3,7 +3,7 @@
 
 	let { message = '', size = 'medium' }: { message?: string; size?: string } = $props();
 
-	let displayMessage = $derived(message || $t('loading.loading'));
+	let displayMessage = $derived(message || $t('app.loading'));
 </script>
 
 <div class="loading-container" class:size>

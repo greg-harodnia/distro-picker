@@ -19,9 +19,9 @@
 
 	let showGallery = $state(false);
 
-	let translatedDescription = $derived($t(`distros.descriptions.${distro.id}`) as string);
-	let translatedUserbaseSuffix = $derived($t(`distros.userbases.${distro.id}`) as string | undefined);
-	let translatedBasedOn = $derived(distro.based_on === 'independent' ? $t('independent') : distro.based_on);
+	let translatedDescription = $derived($t(`distros.${distro.id}.description`) as string);
+	let translatedUserbaseSuffix = $derived($t(`distros.${distro.id}.userbasePostfix`) as string | undefined);
+	let translatedBasedOn = $derived(distro.based_on === 'independent' ? $t('distroPanel.independent') : distro.based_on);
 
 	let tagMap = $derived(new Map(tags.map(tag => [tag.id, tag])));
 
@@ -80,7 +80,7 @@
 			class="close-btn"
 			onclick={closePanel}
 			onkeydown={handleKeydown}
-			aria-label={$t('modal.close')}
+			aria-label={$t('app.close')}
 			type="button"
 		>
 			<CloseIcon />
@@ -96,7 +96,7 @@
 			<div class="additional-details">
 			{#if translatedBasedOn}
 				<div class="additional-detail">
-					<h3>{$t('panel.basedOn')}</h3>
+					<h3>{$t('distroPanel.basedOn')}</h3>
 					<p>{translatedBasedOn}</p>
 				</div>
 			{/if}
@@ -104,26 +104,26 @@
 			{#if distro.desktops && distro.desktops.length > 0}
 				<div class="additional-detail">
 					{#if distro.desktops.length === 1}
-						<h3>{$t('panel.desktop')}</h3>
+						<h3>{$t('distroPanel.desktop')}</h3>
 					{:else}
-						<h3>{$t('panel.desktops')}</h3>
+						<h3>{$t('distroPanel.desktops')}</h3>
 					{/if}
 					<p>
-						{distro.desktops.join(", ")}{#if distro.hasMoreDesktops}{$t('distros.andMore')}{/if}
+						{distro.desktops.join(", ")}{#if distro.hasMoreDesktops}{$t('distroPanel.andMore')}{/if}
 					</p>
 				</div>
 			{/if}
 
 			{#if distro.beginner_friendly}
 				<div class="additional-detail">
-					<h3>{$t('panel.beginnerFriendly')}</h3>
+					<h3>{$t('distroPanel.beginnerFriendly')}</h3>
 					<p>{distro.beginner_friendly}/5</p>
 				</div>
 			{/if}
 
 			{#if distro.userbase_number && translatedUserbaseSuffix}
 				<div class="additional-detail">
-					<h3>{$t('panel.userbase')}</h3>
+					<h3>{$t('distroPanel.userbase')}</h3>
 					<p>{distro.userbase_number}{translatedUserbaseSuffix}</p>
 				</div>
 			{/if}
@@ -153,7 +153,7 @@
 				aria-label={`Visit ${distro.name} website`}
 				type="button"
 			>
-				{$t('panel.visitWebsite')}
+				{$t('distroPanel.visitWebsite')}
 			</button>
 
 			<button

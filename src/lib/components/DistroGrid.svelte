@@ -17,7 +17,7 @@
 	} = $props();
 
 	function getDescription(distro: Distro): string {
-		const desc = $t(`distros.descriptions.${distro.id}`);
+		const desc = $t(`distros.${distro.id}.description`);
 		return typeof desc === 'string' ? desc : '';
 	}
 
@@ -75,8 +75,8 @@
 			data-distro-id={distro.id}
 		>
 			<div class="reactions">
-				{#if distro.ultimate}
-					<span class="ultimate">🔥</span>
+				{#if distro.popular}
+					<span class="popular">🔥</span>
 				{/if}
 				<button 
 					class="like" 
@@ -147,7 +147,7 @@
 		z-index: 1;
 	}
 
-	.ultimate {
+	.popular {
 		font-size: 1.5rem;
 		line-height: 1;
 	}

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { quickTestData } from '$lib/data/quickTest';
-	import type { QuizQuestion, QuizAnswer, ResultKey } from '$lib/types/quiz';
-	import { t } from '$lib/i18n/locale';
+	import type { QuizQuestion, QuizAnswer } from '$lib/types/quiz';
+	import { locale, t } from '$lib/i18n/locale';
+	import { getNestedValue } from '$lib/i18n/translations';
 	import Modal from './Modal.svelte';
 
 	interface Props {
@@ -9,25 +9,27 @@
 	}
 	let { onclose = () => {} }: Props = $props();
 
+	let rootQuestion = $derived(getNestedValue<QuizQuestion>($locale, 'modals.quiz.question')!);
+
 	let currentPath: QuizAnswer[] = $state([]);
-	let resultKey: ResultKey | null = $state(null);
+	let resultText: string | null = $state(null);
 	let isComplete = $state(false);
 
-	function getCurrentQuestion(): QuizQuestion {
-		let question = quickTestData.test[0].question;
+	let currentQuestion = $derived.by(() => {
+		let q = rootQuestion;
 		for (const answer of currentPath) {
 			if (answer.question) {
-				question = answer.question;
+				q = answer.question;
 			} else {
-				return question;
+				return q;
 			}
 		}
-		return question;
-	}
+		return q;
+	});
 
 	function startQuiz() {
 		currentPath = [];
-		resultKey = null;
+		resultText = null;
 		isComplete = false;
 	}
 
@@ -37,7 +39,7 @@
 		currentPath = [...currentPath, answer];
 
 		if (answer.result) {
-			resultKey = answer.result;
+			resultText = answer.result;
 			isComplete = true;
 		}
 	}
@@ -45,16 +47,16 @@
 	function goBack() {
 		if (currentPath.length > 0) {
 			currentPath.pop();
-			resultKey = null;
+			resultText = null;
 			isComplete = false;
 		}
 	}
 </script>
 
-<Modal {onclose} ariaLabel={$t('quiz.title') || ''}>
+<Modal {onclose} ariaLabel={$t('modals.quiz.title') || ''}>
 	{#snippet header()}
 		{#if !isComplete && currentPath.length > 0}
-			<button class="back-btn" onclick={goBack} aria-label={$t('quiz.goBack')} type="button">
+			<button class="back-btn" onclick={goBack} aria-label={$t('modals.quiz.goBack')} type="button">
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<polyline points="15 18 9 12 15 6"></polyline>
 				</svg>
@@ -62,10 +64,10 @@
 		{:else}
 			<div class="spacer"></div>
 		{/if}
-		<h2 class="modal-title">{$t('quiz.title')}</h2>
+		<h2 class="modal-title">{$t('modals.quiz.title')}</h2>
 	{/snippet}
 
-	{#if isComplete && resultKey}
+	{#if isComplete && resultText}
 		<div class="result-container">
 			<div class="result-icon">
 				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -73,28 +75,27 @@
 					<polyline points="22 4 12 14.01 9 11.01"></polyline>
 				</svg>
 			</div>
-			<h3>{$t('quiz.yourRecommendation')}</h3>
-			<p class="result-text">{$t(resultKey)}</p>
+			<h3>{$t('modals.quiz.yourRecommendation')}</h3>
+			<p class="result-text">{resultText}</p>
 			<div class="result-actions">
 				<button class="btn-outline restart-btn" onclick={startQuiz} type="button">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<polyline points="1 4 1 10 7 10"></polyline>
 						<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
 					</svg>
-					{$t('quiz.restartTest')}
+					{$t('modals.quiz.restartTest')}
 				</button>
 				<button class="btn-primary" onclick={onclose} type="button">
-					{$t('quiz.close')}
+					{$t('app.close')}
 				</button>
 			</div>
 		</div>
 	{:else}
-		{@const currentQuestion = getCurrentQuestion()}
 		<div class="question-container">
 			<div class="progress-bar">
 				<div class="progress" style="width: {Math.min(100, (currentPath.length + 1) * 100 / 3)}%"></div>
 			</div>
-			<p class="question-text">{$t(currentQuestion.text)}</p>
+			<p class="question-text">{currentQuestion.text}</p>
 			<div class="answers-list">
 			{#each currentQuestion.answers as answer, i (answer.text)}
 				<button
@@ -104,7 +105,7 @@
 					style="animation-delay: {i * 50}ms"
 				>
 					<span class="answer-letter">{String.fromCharCode(65 + i)}</span>
-					<span class="answer-text">{$t(answer.text)}</span>
+					<span class="answer-text">{answer.text}</span>
 				</button>
 			{/each}
 			</div>
