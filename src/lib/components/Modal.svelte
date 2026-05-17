@@ -14,6 +14,7 @@
 		onkeydown?: (e: KeyboardEvent) => void;
 		children: Snippet;
 		header?: Snippet;
+		footer?: Snippet;
 	}
 
 	let { 
@@ -24,7 +25,8 @@
 		contentClass = '',
 		onkeydown: onKeydown,
 		children,
-		header
+		header,
+		footer
 	}: Props = $props();
 
 	function close() {
@@ -82,6 +84,11 @@
 		<div class="modal-body" class:modal-body-flex={!scrollable}>
 			{@render children()}
 		</div>
+		{#if footer}
+			<div class="modal-footer">
+				{@render footer()}
+			</div>
+		{/if}
 	</div>
 </div>
 
@@ -137,6 +144,12 @@
 		flex-direction: column;
 		overflow: hidden;
 		padding: 0;
+	}
+
+	.modal-overlay :global(.modal-footer) {
+		padding: var(--space-lg);
+		border-top: 1px solid var(--color-border);
+		flex-shrink: 0;
 	}
 
 	.modal-overlay :global(.modal-title) {

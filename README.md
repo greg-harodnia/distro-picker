@@ -42,7 +42,7 @@ distro-picker/
 │   │   ├── components/
 │   │   │   ├── DistroGrid.svelte
 │   │   │   ├── DistroGridSkeleton.svelte
-│   │   │   ├── DistroPanel.svelte
+│   │   │   ├── DistroModal.svelte
 │   │   │   ├── ErrorDisplay.svelte
 │   │   │   ├── GalleryModal.svelte
 │   │   │   ├── InfoModal.svelte

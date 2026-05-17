@@ -25,18 +25,17 @@ export type Translations = {
     description: string;
     userbasePostfix?: string;
   }>;
-  distroPanel: {
-    title: string;
-    basedOn: string;
-    desktop: string;
-    desktops: string;
-    beginnerFriendly: string;
-    userbase: string;
-    visitWebsite: string;
-    andMore: string;
-    independent: string;
-  };
   modals: {
+    distro: {
+      basedOn: string;
+      desktop: string;
+      desktops: string;
+      beginnerFriendly: string;
+      userbase: string;
+      visitWebsite: string;
+      andMore: string;
+      independent: string;
+    };
     additionalInfo: {
       title: string;
       content: string;

@@ -4,7 +4,7 @@
 	import type { PageData } from './$types';
 	import TagFilter from "$lib/components/TagFilter.svelte";
 	import DistroGrid from "$lib/components/DistroGrid.svelte";
-	import DistroPanel from "$lib/components/DistroPanel.svelte";
+	import DistroModal from "$lib/components/DistroModal.svelte";
 	import ErrorDisplay from "$lib/components/ErrorDisplay.svelte";
 	import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
@@ -93,11 +93,6 @@
 
 	function selectDistro(distro: Distro) {
 		distroActions.select(distro);
-		if (window.innerWidth < 1024) {
-			setTimeout(() => {
-				document.querySelector('.distro-panel')?.scrollIntoView({ behavior: 'smooth' });
-			}, 0);
-		}
 	}
 
 	function closePanel() {
@@ -147,7 +142,20 @@
 
 		<main>
 		<section class="filters" aria-labelledby="filters-heading">
-			<h2 id="filters-heading">{$t('app.filters.title')}</h2>
+			<h2 id="filters-heading">
+				<span class="heading-text">{$t('app.filters.title')}</span>
+				<button 
+					class="info-btn" 
+					onclick={() => infoModalOpen = true}
+					aria-label={$t('modals.additionalInfo.title')}
+					type="button"
+				>
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<circle cx="12" cy="12" r="10"/>
+					<text x="12" y="17" text-anchor="middle" font-size="14" font-family="sans-serif" font-weight="bold" fill="currentColor" stroke="none" dy="1">i</text>
+				</svg>
+				</button>
+			</h2>
 			<div class="tag-list-wrapper">
 				<div class="tag-list" role="group" aria-label="Filter options">
 				{#each $tags as tag, i (tag.id)}
@@ -181,17 +189,6 @@
 						<input type="checkbox" class="toggle-input" bind:checked={$showBestOnly} />
 						<span class="toggle-switch"></span>
 					</label>
-					<button 
-						class="info-btn" 
-						onclick={() => infoModalOpen = true}
-						aria-label={$t('modals.additionalInfo.title')}
-						type="button"
-					>
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<circle cx="12" cy="12" r="10"/>
-						<text x="12" y="17" text-anchor="middle" font-size="14" font-family="sans-serif" font-weight="bold" fill="currentColor" stroke="none" dy="1">i</text>
-					</svg>
-					</button>
 				</h2>
 				{#if $filteredDistros.length === 0}
 					<div class="no-results" role="status" aria-live="polite">
@@ -206,17 +203,6 @@
 				{/if}
 			</section>
 
-			{#if $selectedDistro}
-				<section class="distros" aria-labelledby="details-heading">
-					<h2 id="details-heading">{$t('distroPanel.title')}</h2>
-					<DistroPanel
-						distro={$selectedDistro}
-						tags={$tags}
-						screenshots={(data.screenshots[$selectedDistro.id] || []).map(s => `${base}${s}`)}
-						onclose={closePanel}
-					/>
-				</section>
-			{/if}
 		</div>
 		</main>
 
@@ -228,6 +214,15 @@
 
 		<footer>
 		</footer>
+
+	{#if $selectedDistro}
+		<DistroModal
+			distro={$selectedDistro}
+			tags={$tags}
+			screenshots={(data.screenshots[$selectedDistro.id] || []).map(s => `${base}${s}`)}
+			onclose={closePanel}
+		/>
+	{/if}
 
 	{#if infoModalOpen}
 		<InfoModal onclose={() => infoModalOpen = false} />
@@ -291,7 +286,6 @@
 		justify-content: space-between;
 		align-items: center;
 		margin: var(--space-lg) auto var(--space-3xl);
-		padding: 0 var(--space-xl);
 	}
 
 	.header-title-group {
@@ -348,6 +342,9 @@
 		font-size: var(--text-2xl);
 		color: var(--color-secondary);
 		font-weight: var(--font-semibold);
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
 	}
 
 	footer {
@@ -391,10 +388,6 @@
 	}
 
 	.content {
-		display: grid;
-		grid-template-columns: 1fr auto;
-		gap: var(--space-2xl);
-		align-items: start;
 		margin-bottom: var(--space-3xl);
 	}
 
@@ -465,6 +458,7 @@
 		align-items: center;
 		gap: var(--space-sm);
 		cursor: pointer;
+		flex-shrink: 0;
 	}
 
 	.toggle-text {
@@ -513,69 +507,6 @@
 		display: flex;
 		align-items: center;
 		gap: var(--space-md);
-	}
-
-	#distros-heading .toggle-label {
-		margin-left: auto;
-	}
-
-	.toggle-label {
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-		cursor: pointer;
-	}
-
-	.toggle-text {
-		font-size: var(--text-sm);
-		color: var(--color-text-secondary);
-	}
-
-	.toggle-input {
-		position: absolute;
-		opacity: 0;
-		width: 0;
-		height: 0;
-	}
-
-	.toggle-switch {
-		display: inline-block;
-		position: relative;
-		width: 36px;
-		height: 20px;
-		background: var(--color-border);
-		border-radius: var(--radius-full);
-		transition: background var(--transition-normal);
-	}
-
-	.toggle-switch::after {
-		content: '';
-		position: absolute;
-		top: 2px;
-		left: 2px;
-		width: 16px;
-		height: 16px;
-		background: var(--color-surface);
-		border-radius: 50%;
-		transition: transform var(--transition-normal);
-	}
-
-	.toggle-input:checked + .toggle-switch {
-		background: var(--color-best);
-	}
-
-	.toggle-input:checked + .toggle-switch::after {
-		transform: translateX(16px);
-	}
-
-	#distros-heading {
-		display: flex;
-		align-items: center;
-		gap: var(--space-md);
-	}
-
-	#distros-heading .toggle-label {
-		margin-left: auto;
 	}
 
 	@media (max-width: 1024px) {
@@ -608,10 +539,6 @@
 
 		.filters {
 			margin-bottom: var(--space-xl);
-		}
-
-		.toggle-text {
-			display: none;
 		}
 
 		.quick-test-btn {

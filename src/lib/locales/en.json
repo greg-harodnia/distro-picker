@@ -5,12 +5,12 @@
         "loading": "Loading...",
         "failedToLoad": "Failed to Load Data",
         "noResults": "No distributions match your selected criteria.",
-        "distroGridTitle": "Recommended Distros",
+        "distroGridTitle": "Distros",
         "close": "Close",
         "filters": {
-            "title": "Filter by Tags",
+            "title": "Filter by tags",
             "clearAll": "Clear filters",
-            "bestOnly": "Best only"
+            "bestOnly": "Best"
         },
         "error": "Something went wrong",
         "toggles": {
@@ -97,18 +97,17 @@
             "userbasePostfix": "k"
         }
     },
-    "distroPanel": {
-        "title": "Distribution Details",
-        "basedOn": "Based on:",
-        "desktop": "Desktop:",
-        "desktops": "Desktops:",
-        "beginnerFriendly": "Beginner friendly:",
-        "userbase": "Userbase:",
-        "visitWebsite": "Visit Website",
-        "andMore": ", etc.",
-        "independent": "independent"
-    },
     "modals": {
+        "distro": {
+            "basedOn": "Based on:",
+            "desktop": "Desktop:",
+            "desktops": "Desktops:",
+            "beginnerFriendly": "Beginner friendly:",
+            "userbase": "Userbase:",
+            "visitWebsite": "Visit Website",
+            "andMore": ", etc.",
+            "independent": "independent"
+        },
         "additionalInfo": {
             "title": "Additional Information",
             "content": "This app doesn't include other popular distributions (<i>like, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, and so on</i>), enterprise-level distributions (<i>like, Red Hat, AlmaLinux, Rocky Linux</i>) and niche distributions (<i>like, Kali, Alpine</i>) as it's intended for complete beginners and aims to simplify the choice. In the end of the day, most Linux distributions share (distribute) the same technologies and are very similar.<br /><br />As of mid-2026, there are approximately <b>100-120 million</b> Linux users worldwide (around 30 million of whom use Ubuntu, especially in the corporate sector). This represents about 4% of all PC users.<br /><br /><b>Hints for dual-booting:</b> install Linux on a separate disk and don't use Windows tools to resize partitions on it (even non-Linux ones) as Windows can make Linux unbootable.<br /><br /><b>Software that I recommend.</b><br /><br />Browsers: Brave, Helium, Zen.<br />Office: OnlyOffice, LibreOffice.<br />Torrent client: qBittorrent.<br />Disk analyzer: Filelight (KDE/Qt), Baobab (Gnome/GTK), gdu (command-line written in Rust).<br />Local AI: LM Studio (I recommend Mistral model).<br />Extended software support: Flatpak (Bazaar or your software center), Distrobox (DistroShelf).<br />Running Windows apps: Bottles, Winboat.<br />Cleaners: BleachBit, Stacer (not needed for immutable systems).<br />System Backup: Timeshift (not needed for immutable systems).<br />Nvidia Shadow Play alternative: GPU Screen Recorder.<br />Photoshop alternatives: Photoshop online, Photopea, GIMP, Krita, Affinity (via Bottles), Canva (for simple tasks).<br />Lightroom alternative: Darktable.<br />Illustrator alternative: Inkscape.<br />Premier Pro alternative: DaVinci Resolve, Kdenlive.<br /><i>Ventoy</i> for creating a bootable USB drive with multiple Linux distributions."

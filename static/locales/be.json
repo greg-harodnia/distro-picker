@@ -5,12 +5,12 @@
         "loading": "Ладаваньне...",
         "failedToLoad": "Не ўдалося заладаваць даныя",
         "noResults": "Няма дыстрыбуцый, якія адпавядаюць выбраным крытэрыям.",
-        "distroGridTitle": "Рэкамэндаваныя дыстрыбуцыі",
+        "distroGridTitle": "Дыстрыбуцыі",
         "close": "Закрыць",
         "filters": {
-            "title": "Фільтраваньне водле тэґаў",
+            "title": "Фільтр водле тэґаў",
             "clearAll": "Скінуць фільтры",
-            "bestOnly": "Толькі найлепшыя"
+            "bestOnly": "Найлепшыя"
         },
         "error": "Нешта пайшло ня так",
         "toggles": {
@@ -97,21 +97,20 @@
             "userbasePostfix": "k"
         }
     },
-    "distroPanel": {
-        "title": "Дэталі дыстрыбуцыі",
-        "basedOn": "Закладзеная на:",
-        "desktop": "Асяродзьдзе:",
-        "desktops": "Асяродзьдзі:",
-        "beginnerFriendly": "Для пачаткоўцаў:",
-        "userbase": "Карысьнікаў:",
-        "visitWebsite": "Наведаць сайт",
-        "andMore": " і г.д.",
-        "independent": "незалежная"
-    },
     "modals": {
+        "distro": {
+            "basedOn": "Закладзеная на:",
+            "desktop": "Асяродзьдзе:",
+            "desktops": "Асяродзьдзі:",
+            "beginnerFriendly": "Для пачаткоўцаў:",
+            "userbase": "Карысьнікаў:",
+            "visitWebsite": "Наведаць сайт",
+            "andMore": " і г.д.",
+            "independent": "незалежная"
+        },
         "additionalInfo": {
             "title": "Дадатковая інфармацыя",
-            "content": "Гэтая аплікацыя не зьмяшчае ўсіх папулярных дыстрыбуцый (<i>як, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus і г.д.</i>), карпаратыўных дыстрыбуцый (<i>як, Red Hat, AlmaLinux, Rocky Linux</i>) і спэцыялізаваных дыстрыбуцый (<i>як, Kali, Alpine</i>), бо яна прызначаная для пачаткоўцаў і мае на мэце спрасьціць выбар. Урэшце ж большасьць дыстрыбуцый Linux разьдзяляюць адныя самыя тэхналёґіі й падобныя адна да адной.<br /><br />Станам на сярэдзіну 2026 года ў сьвеце налічваецца прыблізна 100-120 мільёнаў карысьнікаў Linux (каля 30 мільёнаў з іх выкарыстоўваюць Ubuntu, асабліва ў карпаратыўным сэктары). Гэта становіць каля 4% ад усіх карысьнікаў ПК.<br /><br /><b>Парады для dual-boot:</b> Усталюйце Linux на асобным дыску й не выкарыстоўвайце прылады Windows для зьмяненьня памеру разьдзелаў на ім (нават ня з Linux), бо Windows можа зрабіць Linux незапускальным.<br /><br /><b>Рэкамэндаваныя праґрамы.</b><br /><br />Браўзэры: Brave, Helium, Zen.<br />Офіс: OnlyOffice, LibreOffice.<br />Торэнт-кліент: qBittorrent.<br />Аналізатар дыска: Filelight (KDE/Qt), Baobab (Gnome/GTK), gdu (тэрмінальная праґрама, напісаная на Rust).<br />Лакальны ШІ: LM Studio (рэкамэндую мадэль Mistral).<br />Пашыранае праґрамнае забясьпечаньне: Flatpak (Bazaar ці ваш цэнтр ПЗ), Distrobox (DistroShelf).<br />Запуск праґрам Windows: Bottles, Winboat.<br />Ачысьнікі: BleachBit, Stacer (не патрэбны для нязьменных сыстэм).<br />Рэзэрвовае капіяваньне: Timeshift (не патрэбны для нязьменных сыстэм).<br />Альтэрнатыва для Nvidia Shadow Play: GPU Screen Recorder.<br />Альтэрнатывы для Photoshop: Photoshop online, Photopea, GIMP, Krita, Affinity (праз Bottles), Canva (для простых задач).<br />Альтэрнатыва для Lightroom: Darktable.<br />Альтэрнатыва для Illustrator: Inkscape.<br />Альтэрнатыва для Premier Pro: DaVinci Resolve, Kdenlive.<br /><i>Ventoy</i> для стварэньня запусковае флэшкі з колькімі дыстрыбуцыямі Linux."
+            "content": "Гэтая аплікацыя не зьмяшчае ўсіх папулярных дыстрыбуцый (<i>як, Arch Linux, Ubuntu, Debian, openSUSE, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus і г.д.</i>), карпаратыўных дыстрыбуцый (<i>як, Red Hat, AlmaLinux, Rocky Linux</i>) і спэцыялізаваных дыстрыбуцый (<i>як, Kali, Alpine</i>), бо яна прызначаная для пачаткоўцаў і мае на мэце спрасьціць выбар. Урэшце ж большасьць дыстрыбуцый Linux разьдзяляюць адныя самыя тэхналёґіі й падобныя адна да адной.<br /><br />Станам на сярэдзіну 2026 года ў сьвеце налічваецца прыблізна <b>100-120 мільёнаў</b> карысьнікаў Linux (каля 30 мільёнаў з іх выкарыстоўваюць Ubuntu, асабліва ў карпаратыўным сэктары). Гэта становіць каля 4% ад усіх карысьнікаў ПК.<br /><br /><b>Парады для dual-boot:</b> Усталюйце Linux на асобным дыску й не выкарыстоўвайце прылады Windows для зьмяненьня памеру разьдзелаў на ім (нават ня з Linux), бо Windows можа зрабіць Linux незапускальным.<br /><br /><b>Рэкамэндаваныя праґрамы.</b><br /><br />Браўзэры: Brave, Helium, Zen.<br />Офіс: OnlyOffice, LibreOffice.<br />Торэнт-кліент: qBittorrent.<br />Аналізатар дыска: Filelight (KDE/Qt), Baobab (Gnome/GTK), gdu (тэрмінальная праґрама, напісаная на Rust).<br />Лакальны ШІ: LM Studio (рэкамэндую мадэль Mistral).<br />Пашыранае праґрамнае забясьпечаньне: Flatpak (Bazaar ці ваш цэнтр ПЗ), Distrobox (DistroShelf).<br />Запуск праґрам Windows: Bottles, Winboat.<br />Ачысьнікі: BleachBit, Stacer (не патрэбны для нязьменных сыстэм).<br />Рэзэрвовае капіяваньне: Timeshift (не патрэбны для нязьменных сыстэм).<br />Альтэрнатыва для Nvidia Shadow Play: GPU Screen Recorder.<br />Альтэрнатывы для Photoshop: Photoshop online, Photopea, GIMP, Krita, Affinity (праз Bottles), Canva (для простых задач).<br />Альтэрнатыва для Lightroom: Darktable.<br />Альтэрнатыва для Illustrator: Inkscape.<br />Альтэрнатыва для Premier Pro: DaVinci Resolve, Kdenlive.<br /><i>Ventoy</i> для стварэньня запусковае флэшкі з колькімі дыстрыбуцыямі Linux."
         },
         "gallery": {
             "noImages": "Няма выяў",
