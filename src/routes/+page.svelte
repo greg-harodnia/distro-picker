@@ -125,7 +125,10 @@
 {:else}
 	<div class="app">
 		<header class="header">
-			<h1>{$t('app.title')}</h1>
+			<div class="header-title-group">
+				<h1>{$t('app.title')}</h1>
+				<h2 class="header-description">{$t('app.description')}</h2>
+			</div>
 			<div class="header-controls">
 				<button
 					class="github-link btn-toggle"
@@ -218,7 +221,7 @@
 		</main>
 
 		<div class="sr-only">
-			<h1>Linux Distro Chooser - Find Your Perfect Linux Distribution. Distro chooser, distrochooser, choose a distro</h1>
+			<p>Linux Distro Chooser - Find Your Perfect Linux Distribution. Distro chooser, distrochooser, choose a distro</p>
 			<p>Distro picker tool to choose a distro based on your needs. Browse and filter popular Linux distributions including Linux Mint, Kubuntu, Zorin OS, Pop!_OS, Fedora, EndeavourOS, CachyOS, SteamOS, Bazzite, Nobara, PikaOS, Lubuntu, AntiX, Ubuntu, Debian, Arch Linux, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, and more. Use our interactive Linux distribution chooser to discover the best distro for beginners, power users, developers, gamers, and professionals. Try our distro finder to match your use case whether you need a beginner-friendly Linux OS, a rolling release distribution, an immutable distro, or a server-oriented Linux system.</p>
 			<p>Linux, distro chooser, distro picker, choose a distro, find a distro, Linux distribution picker, best Linux distro, Linux distro for beginners, Linux distribution finder, interactive distro chooser, Linux OS chooser, which Linux distro, pick a Linux distro, Linux distro recommendation, distro selection tool, Linux distro quiz.</p>
 		</div>
@@ -291,13 +294,28 @@
 		padding: 0 var(--space-xl);
 	}
 
+	.header-title-group {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		flex: 1;
+	}
+
 	.header h1 {
 		text-align: center;
-		flex: 1;
 		font-size: var(--text-4xl);
 		color: var(--color-secondary);
 		font-weight: var(--font-bold);
 		line-height: var(--line-height-tight);
+		margin-bottom: var(--space-xs);
+	}
+
+	.header-description {
+		text-align: center;
+		font-size: var(--text-lg);
+		color: var(--color-text-muted);
+		max-width: 32rem;
+		line-height: var(--line-height-normal);
 	}
 
 	.header-controls {
