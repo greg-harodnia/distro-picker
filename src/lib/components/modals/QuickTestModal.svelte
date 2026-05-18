@@ -3,6 +3,7 @@
 	import { locale, t } from '$lib/i18n/locale';
 	import { getNestedValue } from '$lib/i18n/translations';
 	import Modal from './Modal.svelte';
+	import Confetti from '$lib/components/Confetti.svelte';
 
 	interface Props {
 		onclose?: () => void;
@@ -69,6 +70,7 @@
 
 	{#if isComplete && resultText}
 		<div class="result-container">
+			<Confetti />
 			<div class="result-icon">
 				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
