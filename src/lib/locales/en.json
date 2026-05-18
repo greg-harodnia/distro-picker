@@ -58,7 +58,7 @@
             "userbasePostfix": " million"
         },
         "kde-linux": {
-            "description": "A Linux distribution built by KDE. Immutable (using Btrfs snapshots), simple and fast. Yet to be released."
+            "description": "An immutable (using Btrfs snapshots) Linux OS built by KDE. Immutability makes it extremely stable, but keeps the system read-only (which isn't a problem for most users). Strives to be as user-friendly as possible. Yet to be released, here just for information."
         },
         "fedora": {
             "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Fedora is a semi-rolling distribution (meaning the apps get frequent updates, but the base system remains unchanged until the next big release), making it both stable and up-to-date.",

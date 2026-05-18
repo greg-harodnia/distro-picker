@@ -54,8 +54,8 @@
       "tag_ids": ["immutable"],
       "logo": "/kde.webp",
       "desktops": ["KDE Plasma"],
-      "based_on": "independent",
-      "disabled": true
+      "beginner_friendly": 5,
+      "based_on": "independent"
     },
     {
       "id": "fedora",
