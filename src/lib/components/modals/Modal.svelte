@@ -59,9 +59,6 @@
 <div
 	class="modal-overlay"
 	onclick={handleOverlayClick}
-	onkeydown={handleKeydown}
-	role="button"
-	tabindex="0"
 	transition:fade={{ duration: 200 }}
 >
 	<div

@@ -9,6 +9,7 @@
 	import type { Snippet } from 'svelte';
 	import { t, locale, availableLanguages } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
+	import type { Language } from '$lib/locales/types';
 
 	injectAnalytics({ mode: dev ? 'development' : 'production' });
 	injectSpeedInsights();
@@ -33,10 +34,16 @@
 		}
 	});
 
+	$effect(() => {
+		if (browser) {
+			document.documentElement.lang = $locale;
+		}
+	});
+
 	onMount(() => {
 		const hash = window.location.hash.slice(1);
 		if (hash && availableLanguages.some(l => l.code === hash)) {
-			locale.set(hash as any);
+			locale.set(hash as Language);
 		} else {
 			locale.init();
 		}
@@ -73,7 +80,7 @@
 
 	<!-- Hreflang for all supported languages -->
 	{#each availableLanguages as lang}
-		<link rel="alternate" hreflang={lang.code} href="{siteUrl}{base}{$page.url.pathname}#{lang.code}" />
+		<link rel="alternate" hreflang={lang.code} href="{siteUrl}{base}{$page.url.pathname}" />
 	{/each}
 	<link rel="alternate" hreflang="x-default" href="{siteUrl}{base}{$page.url.pathname}" />
 

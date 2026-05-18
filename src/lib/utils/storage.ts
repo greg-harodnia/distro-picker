@@ -3,7 +3,13 @@ const STORAGE_KEY = 'distro-picker-likes';
 export function getLikedDistros(): string[] {
 	if (typeof window === 'undefined' || !globalThis.localStorage) return [];
 	const stored = localStorage.getItem(STORAGE_KEY);
-	return stored ? JSON.parse(stored) : [];
+	if (!stored) return [];
+	try {
+		return JSON.parse(stored);
+	} catch {
+		localStorage.removeItem(STORAGE_KEY);
+		return [];
+	}
 }
 
 export function setLikedDistro(distroId: string) {

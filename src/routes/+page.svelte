@@ -9,9 +9,7 @@
 	import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import LanguageToggle from "$lib/components/LanguageToggle.svelte";
-	import InfoModal from "$lib/components/modals/InfoModal.svelte";
-	import QuickTestModal from "$lib/components/modals/QuickTestModal.svelte";
-	import ShareModal from "$lib/components/modals/ShareModal.svelte";
+
 	import { loadTags, loadDistros, getLikedDistros } from "$lib/utils";
 	import { fetchLikes } from "$lib/supabase";
 	import {
@@ -225,15 +223,21 @@
 	{/if}
 
 	{#if infoModalOpen}
-		<InfoModal onclose={() => infoModalOpen = false} />
+		{#await import("$lib/components/modals/InfoModal.svelte") then { default: InfoModal }}
+			<InfoModal onclose={() => infoModalOpen = false} />
+		{/await}
 	{/if}
 
 	{#if quickTestOpen}
-		<QuickTestModal onclose={() => quickTestOpen = false} />
+		{#await import("$lib/components/modals/QuickTestModal.svelte") then { default: QuickTestModal }}
+			<QuickTestModal onclose={() => quickTestOpen = false} />
+		{/await}
 	{/if}
 
 	{#if shareModalOpen}
-		<ShareModal onclose={() => shareModalOpen = false} />
+		{#await import("$lib/components/modals/ShareModal.svelte") then { default: ShareModal }}
+			<ShareModal onclose={() => shareModalOpen = false} />
+		{/await}
 	{/if}
 
 		<button
@@ -258,7 +262,7 @@
 			"@type": "SoftwareApplication",
 			"name": "Linux Distribution Picker",
 			"description": "Interactive tool to help users find the perfect Linux distribution based on their needs",
-			"url": "",
+			"url": "https://distro-picker.vercel.app/",
 			"applicationCategory": "UtilitiesApplication",
 			"operatingSystem": "Any",
 			"offers": {

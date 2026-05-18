@@ -33,11 +33,17 @@
 			: (distro.likes || 0) + 1;
 		const newUserLiked = !distro.userLiked;
 
-		const success = await updateLikes(distro.id, newLikes);
+		distroActions.update(distro.id, { likes: newLikes, userLiked: newUserLiked });
+		if (newUserLiked) {
+			setLikedDistro(distro.id);
+		} else {
+			removeLikedDistro(distro.id);
+		}
 
-		if (success) {
-			distroActions.update(distro.id, { likes: newLikes, userLiked: newUserLiked });
-			if (newUserLiked) {
+		const success = await updateLikes(distro.id, newLikes);
+		if (!success) {
+			distroActions.update(distro.id, { likes: distro.likes, userLiked: distro.userLiked });
+			if (!newUserLiked) {
 				setLikedDistro(distro.id);
 			} else {
 				removeLikedDistro(distro.id);
@@ -48,8 +54,9 @@
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'Enter' || e.key === ' ') {
 			e.preventDefault();
-			const card = e.currentTarget as HTMLElement;
-			const distroId = card.getAttribute('data-distro-id');
+			const heading = e.currentTarget as HTMLElement;
+			const card = heading.closest('[data-distro-id]') as HTMLElement;
+			const distroId = card?.getAttribute('data-distro-id');
 			if (distroId) {
 				const distro = distros.find(d => d.id === distroId);
 				if (distro) {
@@ -67,11 +74,6 @@
 			class:selected={selectedDistro?.id === distro.id}
 			class:best={distro.best}
 			onclick={() => selectDistro(distro)}
-			onkeydown={handleKeydown}
-			role="button"
-			tabindex="0"
-			aria-label={`${distro.name}, ${getDescription(distro)}`}
-			aria-pressed={selectedDistro?.id === distro.id}
 			data-distro-id={distro.id}
 		>
 			<div class="reactions">
@@ -92,7 +94,13 @@
 				alt="{distro.name} logo"
 				customClass="distro-icon"
 			/>
-			<h3>{distro.name}</h3>
+			<h3
+				role="button"
+				tabindex="0"
+				onkeydown={handleKeydown}
+				aria-label={`${distro.name}, ${getDescription(distro)}`}
+				aria-pressed={selectedDistro?.id === distro.id}
+			>{distro.name}</h3>
 		</div>
 	{/each}
 </div>
@@ -221,7 +229,7 @@
 			min-width: 134px;
 			padding: var(--space-lg);
 		} */
-
+		 
 		:global(.distro-card) {
 			& .optimized-image {
 				width: 48px;
