@@ -51,8 +51,9 @@
 		class="optimized-image"
 		onload={handleLoad}
 		onerror={handleError}
-		style="object-fit: contain;"
+		style="object-fit: contain; -webkit-user-drag: none; user-select: none;"
 		loading="lazy"
+		draggable="false"
 	/>
 	{#if !isLoaded && !isError}
 		<div class="image-placeholder"></div>

@@ -115,6 +115,8 @@
 		transition: all var(--transition-normal);
 		box-shadow: var(--shadow-md);
 		position: relative;
+		user-select: none;
+		-webkit-user-select: none;
 	}
 
 	.distro-card:hover {
