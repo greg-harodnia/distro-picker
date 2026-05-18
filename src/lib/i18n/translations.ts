@@ -2,8 +2,6 @@ import type { Translations, Language } from '$lib/locales/types';
 import enData from '$lib/locales/en.json';
 import { base } from '$app/paths';
 
-export type { Language } from '$lib/locales/types';
-
 const translationCache: Partial<Record<Language, Translations>> = {
   en: enData as Translations,
 };
@@ -28,10 +26,6 @@ export async function loadTranslation(lang: Language): Promise<Translations> {
   translationCache[lang] = translations;
   translationPathCache.clear(); // is it needed?
   return translations;
-}
-
-export async function loadTranslations(langs: Language[]): Promise<void> {
-  await Promise.all(langs.map(loadTranslation));
 }
 
 export function getTranslation(lang: Language, path: string): string | undefined {
@@ -62,10 +56,6 @@ export function getTranslation(lang: Language, path: string): string | undefined
   const value = typeof result === 'string' ? result : undefined;
   translationPathCache.set(cacheKey, value || '');
   return value;
-}
-
-export function gt(lang: Language, path: string): string {
-  return getTranslation(lang, path) || path;
 }
 
 export function getNestedValue<T = unknown>(lang: Language, path: string): T | undefined {

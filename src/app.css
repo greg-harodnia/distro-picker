@@ -183,26 +183,6 @@ body {
   border: 0;
 }
 
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-
-.font-normal { font-weight: var(--font-normal); }
-.font-medium { font-weight: var(--font-medium); }
-.font-semibold { font-weight: var(--font-semibold); }
-.font-bold { font-weight: var(--font-bold); }
-
-/* Animation keyframes */
-@keyframes skeleton-pulse {
-	0% { opacity: 1; }
-	50% { opacity: 0.5; }
-	100% { opacity: 1; }
-}
-
-.animate-skeleton {
-	animation: skeleton-pulse 1.5s ease-in-out infinite;
-}
-
 /* Shared button styles */
 .btn-toggle {
 	display: flex;

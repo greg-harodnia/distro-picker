@@ -36,10 +36,4 @@ export function observeImage(imgElement: HTMLImageElement, src: string): () => v
   };
 }
 
-export function disconnectObserver(): void {
-  if (sharedObserver) {
-    sharedObserver.disconnect();
-    sharedObserver = null;
-    observedElements = new WeakMap();
-  }
-}
+
