@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import { lockBodyScroll } from '$lib/utils/body';
 	import { t } from '$lib/i18n/locale';
-	import CloseIcon from './icons/CloseIcon.svelte';
+	import CloseIcon from '../icons/CloseIcon.svelte';
 
 	interface Props {
 		onclose?: () => void;

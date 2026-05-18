@@ -234,9 +234,7 @@
 			width: 20px;
 			height: 20px;
 		}
-	}
 
-	@media (max-width: 480px) {
 		.left-arrow {
 			left: var(--space-xs);
 		}

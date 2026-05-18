@@ -4,14 +4,14 @@
 	import type { PageData } from './$types';
 	import TagFilter from "$lib/components/TagFilter.svelte";
 	import DistroGrid from "$lib/components/DistroGrid.svelte";
-	import DistroModal from "$lib/components/DistroModal.svelte";
+	import DistroModal from "$lib/components/modals/DistroModal.svelte";
 	import ErrorDisplay from "$lib/components/ErrorDisplay.svelte";
 	import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import LanguageToggle from "$lib/components/LanguageToggle.svelte";
-	import InfoModal from "$lib/components/InfoModal.svelte";
-	import QuickTestModal from "$lib/components/QuickTestModal.svelte";
-	import ShareModal from "$lib/components/ShareModal.svelte";
+	import InfoModal from "$lib/components/modals/InfoModal.svelte";
+	import QuickTestModal from "$lib/components/modals/QuickTestModal.svelte";
+	import ShareModal from "$lib/components/modals/ShareModal.svelte";
 	import { loadTags, loadDistros, getLikedDistros } from "$lib/utils";
 	import { fetchLikes } from "$lib/supabase";
 	import {
@@ -509,12 +509,6 @@
 		gap: var(--space-md);
 	}
 
-	@media (max-width: 1024px) {
-		.content {
-			grid-template-columns: 1fr;
-		}
-	}
-
 	@media (max-width: 640px) {
 		.app {
 			padding: var(--space-lg);
@@ -533,6 +527,7 @@
 
 		.tag-list {
 			gap: var(--space-md);
+			padding-top: var(--space-md);
 			flex-wrap: nowrap;
 			overflow-x: auto;
 		}

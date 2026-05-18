@@ -195,10 +195,22 @@
 		line-height: var(--line-height-tight);
 	}
 
-	@media (max-width: 640px) { 
-		.distro-grid {
+	@media (max-width: 640px) {
+		.distro-grid {			
+			grid-template-columns: repeat(auto-fill, minmax(134px, 1fr));
+			gap: var(--space-lg);
+			padding-top: var(--space-md);
+		}
+
+		.distro-card {
+			padding: var(--space-lg);
+		}
+
+		/* below is the option for one-liner */
+		
+		/* .distro-grid {
 			display: flex;
-			width: calc(100vw - 2*var(--space-lg)); /* minus 2 paddings from .app*/
+			width: calc(100vw - 2*var(--space-lg)); minus 2 paddings from .app
 			gap: var(--space-md);
 			overflow-x: auto;
 		}
@@ -206,7 +218,7 @@
 		.distro-card {
 			min-width: 134px;
 			padding: var(--space-lg);
-		}
+		} */
 
 		:global(.distro-card) {
 			& .optimized-image {
