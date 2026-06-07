@@ -26,6 +26,45 @@
 	} from "$lib/stores";
 	import type { Distro } from "$lib/types";
 	import { t } from "$lib/i18n/locale";
+	import { getTranslation } from '$lib/i18n/translations';
+	import distrosData from "$lib/distros.json";
+
+	const siteUrl = "https://distro-picker.vercel.app/";
+
+	const seoKeywords = "linux distro picker, distro chooser, linux distro finder, choose linux distro, best linux distro, linux for beginners, linux distro quiz, distro selector, which linux distro, linux distro recommendation tool, interactive distro picker, linux distribution chooser, pick a distro, linux os selector, find my distro, linux distro finder, distro selector tool, best linux distro, beginner linux distro, linux distro quiz";
+
+	const itemListElements = distrosData.distros.map((d, i) => ({
+		"@type": "ListItem",
+		"position": i + 1,
+		"item": {
+			"@type": "SoftwareApplication",
+			"name": d.name,
+			"url": d.website,
+			"applicationCategory": "OperatingSystem",
+			"operatingSystem": "Linux"
+		}
+	}));
+
+	const seoTitle = getTranslation('en', 'app.title') || 'Linux Distro Picker';
+	const seoDescription = getTranslation('en', 'app.description') || 'A distro chooser for beginners with a quiz';
+
+	const ldJson = JSON.stringify({
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "WebSite",
+				"url": siteUrl,
+				"name": seoTitle,
+				"description": seoDescription,
+				"keywords": seoKeywords,
+				"inLanguage": "en"
+			},
+			{
+				"@type": "ItemList",
+				"itemListElement": itemListElements
+			}
+		]
+	}, null, 2);
 
 	let { data }: { data: PageData } = $props();
 
@@ -256,26 +295,7 @@
 {/if}
 
 <svelte:head>
-	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "SoftwareApplication",
-			"name": "Linux Distribution Picker",
-			"description": "Interactive tool to help users find the perfect Linux distribution based on their needs",
-			"url": "https://distro-picker.vercel.app/",
-			"applicationCategory": "UtilitiesApplication",
-			"operatingSystem": "Any",
-			"offers": {
-				"@type": "Offer",
-				"price": "0",
-				"priceCurrency": "USD"
-			},
-			"creator": {
-				"@type": "Organization",
-				"name": "Linux Distribution Picker"
-			}
-		}
-	</script>
+	{@html `<script type="application/ld+json">${ldJson}</script>`}
 </svelte:head>
 
 <style>
