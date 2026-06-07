@@ -72,9 +72,11 @@
 		line-height: var(--line-height-normal);
 	}
 
-	.retry-button:hover {
-		background: var(--color-error-dark);
-		transform: translateY(-1px);
-		box-shadow: var(--shadow-md);
+	@media (hover: hover) {
+		.retry-button:hover {
+			background: var(--color-error-dark);
+			transform: translateY(-1px);
+		}
 	}
+
 </style>

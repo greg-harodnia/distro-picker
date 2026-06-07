@@ -129,9 +129,11 @@
 		transition: all var(--transition-normal);
 	}
 
-	.back-btn:hover {
-		background: var(--color-background-secondary);
-		color: var(--color-secondary);
+	@media (hover: hover) {
+		.back-btn:hover {
+			background: var(--color-background-secondary);
+			color: var(--color-secondary);
+		}
 	}
 
 	.spacer {
@@ -197,11 +199,13 @@
 		}
 	}
 
-	.answer-btn:hover {
-		border-color: var(--color-secondary);
-		background: var(--color-background);
-		transform: translateX(4px);
+	@media (hover: hover) {
+		.answer-btn:hover {
+			border-color: var(--color-secondary);
+			background: var(--color-background);
+		}
 	}
+
 
 	.answer-btn:focus {
 		outline: none;

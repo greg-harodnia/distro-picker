@@ -133,8 +133,10 @@
     text-align: left;
   }
 
-  .dropdown-item:hover {
-    background: var(--color-background-secondary);
+  @media (hover: hover) {
+    .dropdown-item:hover {
+      background: var(--color-background-secondary);
+    }
   }
 
   .dropdown-item.selected {

@@ -329,8 +329,10 @@
 			width: 44px;
 		}
 
-		&:hover {
-			transform: translateY(-2px);
+		@media (hover: hover) {
+			&:hover {
+				transform: translateY(-2px);
+			}
 		}
 
 		&:active {
@@ -386,9 +388,11 @@
 		transition: all var(--transition-normal);
 	}
 
-	.clear-btn:hover {
-		transform: scale(1.1);
-		box-shadow: var(--shadow-lg);
+	@media (hover: hover) {
+		.clear-btn:hover {
+			transform: scale(1.1);
+			box-shadow: var(--shadow-lg);
+		}
 	}
 
 	.content {
@@ -436,9 +440,11 @@
 		flex-shrink: 0;
 	}
 
-	.info-btn:hover {
-		border-color: var(--color-secondary);
-		color: var(--color-secondary);
+	@media (hover: hover) {
+		.info-btn:hover {
+			border-color: var(--color-secondary);
+			color: var(--color-secondary);
+		}
 	}
 
 	.quick-test-btn {

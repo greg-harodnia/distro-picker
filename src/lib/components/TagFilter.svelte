@@ -60,9 +60,11 @@
 		white-space: nowrap;
 	}
 
-	.tag-filter:hover {
-		transform: translateY(-2px);
-		box-shadow: var(--shadow-lg);
+	@media (hover: hover) {
+		.tag-filter:hover {
+			transform: translateY(-2px);
+			box-shadow: var(--shadow-lg);
+		}
 	}
 
 	.tag-filter.selected {
@@ -102,8 +104,10 @@
 		border-top-color: var(--color-secondary);
 	}
 
-	.tag-filter:hover + .tooltip,
-	.tag-filter:focus + .tooltip {
-		opacity: 1;
+	@media (hover: hover) {
+		.tag-filter:hover + .tooltip,
+		.tag-filter:focus + .tooltip {
+			opacity: 1;
+		}
 	}
 </style>

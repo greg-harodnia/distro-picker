@@ -238,8 +238,10 @@
 		margin-left: var(--space-md);
 	}
 
-	.buttons > button:hover {
-		transform: translateY(-2px);
-		box-shadow: var(--shadow-lg);
+	@media (hover: hover) {
+		.buttons > button:hover {
+			transform: translateY(-2px);
+			box-shadow: var(--shadow-lg);
+		}
 	}
 </style>

@@ -197,9 +197,11 @@ body {
 	box-shadow: var(--shadow-sm);
 }
 
-.btn-toggle:hover {
-	background: var(--color-background-secondary);
-	box-shadow: var(--shadow-md);
+@media (hover: hover) {
+	.btn-toggle:hover {
+		background: var(--color-background-secondary);
+		box-shadow: var(--shadow-md);
+	}
 }
 
 .btn-primary,
@@ -218,8 +220,10 @@ body {
 	color: var(--color-background);
 }
 
-.btn-primary:hover {
-	transform: translateY(-2px);
+@media (hover: hover) {
+	.btn-primary:hover {
+		transform: translateY(-2px);
+	}
 }
 
 .btn-outline {
@@ -227,9 +231,11 @@ body {
 	color: var(--color-secondary);
 }
 
-.btn-outline:hover {
-	background: var(--color-secondary);
-	color: var(--color-background);
+@media (hover: hover) {
+	.btn-outline:hover {
+		background: var(--color-secondary);
+		color: var(--color-background);
+	}
 }
 
 .close-btn {
@@ -245,7 +251,9 @@ body {
 	transition: all var(--transition-normal);
 }
 
-.close-btn:hover {
-	background: var(--color-background-secondary);
-	color: var(--color-secondary);
+@media (hover: hover) {
+	.close-btn:hover {
+		background: var(--color-background-secondary);
+		color: var(--color-secondary);
+	}
 }

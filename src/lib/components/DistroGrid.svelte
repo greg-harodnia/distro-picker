@@ -127,14 +127,16 @@
 		-webkit-user-select: none;
 	}
 
-	.distro-card:hover {
-		transform: translateY(-4px);
-		box-shadow: var(--shadow-xl);
-		border-color: var(--color-primary);
-	}
+	@media (hover: hover) {
+		.distro-card:hover {
+			transform: translateY(-4px);
+			box-shadow: var(--shadow-xl);
+			border-color: var(--color-primary);
+		}
 
-	.distro-card.best:hover {
-		border-color: var(--color-best);
+		.distro-card.best:hover {
+			border-color: var(--color-best);
+		}
 	}
 
 	.distro-card.selected {
@@ -177,9 +179,11 @@
 		color: var(--color-text, inherit);
 	}
 
-	.like:hover {
-		transform: scale(1.1);
-		border-color: #e25555;
+	@media (hover: hover) {
+		.like:hover {
+			transform: scale(1.1);
+			border-color: #e25555;
+		}
 	}
 
 	.like.liked {

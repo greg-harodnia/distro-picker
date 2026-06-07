@@ -195,11 +195,13 @@
 		transition: all var(--transition-normal);
 	}
 
-	.arrow:hover {
-		background: var(--color-background-secondary);
-		color: var(--color-secondary);
-		border-color: var(--color-secondary);
+	@media (hover: hover) {
+		.arrow:hover {
+			background: var(--color-background-secondary);
+			color: var(--color-secondary);
+		}
 	}
+
 
 	.left-arrow {
 		left: var(--space-md);
