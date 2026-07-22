@@ -152,7 +152,7 @@
                             "answers": [
                                 {
                                     "text": "I don't care about it",
-                                    "result": "Bazzite. The distribution is available for both PCs and handhelds. You can also go with SteamOS if it supports your device (it doesn't officially support PCs yet). A mutable gaming distro is also a nice choice."
+                                    "result": "Bazzite or SteamOS. These distributions are available for both PCs and handhelds (keep in mind that AMD cards are currently the most supported). A mutable gaming distro is also a nice choice."
                                 },
                                 {
                                     "text": "Yes",
