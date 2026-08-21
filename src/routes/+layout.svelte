@@ -2,7 +2,6 @@
 	import '../app.css';
 	import { page } from '$app/stores';
 	import { browser, dev } from '$app/environment';
-	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
@@ -10,13 +9,12 @@
 	import { t, locale, availableLanguages } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
 	import type { Language } from '$lib/locales/types';
+	import { SITE_URL as siteUrl, SEO_KEYWORDS } from '$lib/seo';
 
 	injectAnalytics({ mode: dev ? 'development' : 'production' });
 	injectSpeedInsights();
 
 	let { children }: { children: Snippet } = $props();
-
-	const siteUrl = 'https://distro-picker.vercel.app/';
 
 	let pageTitle = $derived(browser && $page ? (() => {
 		const baseTitle = $t('app.title') || getTranslation('en', 'app.title');
@@ -56,7 +54,7 @@
 	<!-- Basic Meta -->
 	<title>{pageTitle || getTranslation('en', 'app.title') || ''}</title>
 	<meta name="description" content={description} />
-	<meta name="keywords" content="linux distribution, linux distro, choose linux, linux picker, linux distribution finder, best linux distro, ubuntu, fedora, arch, debian, mint, linux for beginners" />
+	<meta name="keywords" content={SEO_KEYWORDS} />
 	<meta name="author" content={title}>
 	<meta name="robots" content="index, follow">
 	
@@ -64,25 +62,25 @@
 	<meta property="og:type" content="website">
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
-	<meta property="og:image" content="{siteUrl}{base}/linux.webp">
-	<meta property="og:url" content="{siteUrl}{base}{$page.url.pathname}">
+	<meta property="og:image" content="{siteUrl}/linux.webp">
+	<meta property="og:url" content="{siteUrl}/">
 	<meta property="og:site_name" content={title}>
 	
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
-	<meta name="twitter:image" content="{siteUrl}{base}/linux.webp">
-	<meta name="twitter:url" content="{siteUrl}{base}{$page.url.pathname}">
+	<meta name="twitter:image" content="{siteUrl}/linux.webp">
+	<meta name="twitter:url" content="{siteUrl}/">
 	
 	<!-- Canonical URL -->
-	<link rel="canonical" href="{siteUrl}{base}{$page.url.pathname}">
+	<link rel="canonical" href="{siteUrl}/">
 
 	<!-- Hreflang for all supported languages -->
 	{#each availableLanguages as lang}
-		<link rel="alternate" hreflang={lang.code} href="{siteUrl}{base}{$page.url.pathname}" />
+		<link rel="alternate" hreflang={lang.code} href="{siteUrl}/" />
 	{/each}
-	<link rel="alternate" hreflang="x-default" href="{siteUrl}{base}{$page.url.pathname}" />
+	<link rel="alternate" hreflang="x-default" href="{siteUrl}/" />
 
 	<!-- Open Graph Locales -->
 	<meta property="og:locale" content={$locale === 'en' ? 'en_US' : $locale}>

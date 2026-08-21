@@ -28,10 +28,13 @@
 	import { t } from "$lib/i18n/locale";
 	import { getTranslation } from '$lib/i18n/translations';
 	import distrosData from "$lib/distros.json";
+	import tagsData from "$lib/tags.json";
+	import { SITE_URL as siteUrl, SEO_KEYWORDS } from "$lib/seo";
 
-	const siteUrl = "https://distro-picker.vercel.app/";
+	dataActions.setTags(tagsData.tags);
+	dataActions.setDistros(distrosData.distros.map(d => ({ ...d, likes: 0, userLiked: false })));
 
-	const seoKeywords = "linux distro picker, distro chooser, linux distro finder, choose linux distro, best linux distro, linux for beginners, linux distro quiz, distro selector, which linux distro, linux distro recommendation tool, interactive distro picker, linux distribution chooser, pick a distro, linux os selector, find my distro, linux distro finder, distro selector tool, best linux distro, beginner linux distro, linux distro quiz";
+	const seoKeywords = SEO_KEYWORDS;
 
 	const itemListElements = distrosData.distros.map((d, i) => ({
 		"@type": "ListItem",
@@ -154,8 +157,9 @@
 		retryable
 		onretry={loadData}
 	/>
-{:else}
-	<div class="app">
+{/if}
+
+<div class="app" class:app-hidden={$loading || !!$error}>
 		<header class="header">
 			<div class="header-title-group">
 				<h1>{$t('app.title')}</h1>
@@ -291,8 +295,7 @@
 			</svg>
 			<span>{$t('modals.quiz.title')}</span>
 		</button>
-	</div>
-{/if}
+</div>
 
 <svelte:head>
 	{@html `<script type="application/ld+json">${ldJson}</script>`}
@@ -303,6 +306,10 @@
 		max-width: var(--container-2xl);
 		margin: 0 auto;
 		padding: var(--space-xl);
+	}
+
+	.app.app-hidden {
+		display: none;
 	}
 
 	.header {
