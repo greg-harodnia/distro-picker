@@ -117,7 +117,7 @@
       "desktops": ["KDE Plasma", "Gnome"],
       "beginner_friendly": 5,
       "based_on": "Fedora Atomic",
-      "userbase_number": "~70"
+      "userbase_number": "~100"
     },
     {
       "id": "nobara",
