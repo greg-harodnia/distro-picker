@@ -1,0 +1,20 @@
+# Linux Distribution Picker
+
+> A modern tool to help you find the perfect Linux distribution based on your needs. Answer questions about gaming, development, user-friendliness, and more to get personalized recommendations.
+
+Linux Distribution Picker is a free, open-source web app built with SvelteKit. It features a quick quiz to match users with distros, a searchable grid of Linux distributions with detailed info (desktop environments, beginner-friendliness scores, userbase size, upstream base), and a like/favorites system powered by Supabase.
+
+## Features
+
+- Interactive quiz to find your ideal Linux distribution
+- Browse and filter distros by tags (gaming, development, minimal, traditional, etc.)
+- Detailed distribution info including desktops, beginner-friendliness, and popularity
+- Like and favorite distributions
+- Dark and light theme support
+- Multilingual support (English, Belarusian)
+
+## Links
+
+- Source: https://github.com/user/distro-picker
+- Live: https://distro-picker.vercel.app/
+- Sitemap: https://distro-picker.vercel.app/sitemap.xml
