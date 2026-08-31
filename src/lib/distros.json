@@ -95,12 +95,24 @@
       "userbase_number": "~0.5-1"
     },
     {
+      "id": "omarchy",
+      "name": "Omarchy",
+      "website": "https://omarchy.org/",
+      "tag_ids": ["rolling"],
+      "logo": "/omarchy.webp",
+      "popular": true,
+      "desktops": ["Hyprland"],
+      "beginner_friendly": 3,
+      "based_on": "Arch Linux",
+      "userbase_number": "~50-100"
+    },
+    {
       "id": "steamos",
       "name": "SteamOS",
       "website": "https://store.steampowered.com/steamos",
       "tag_ids": ["gaming-ready", "immutable"],
       "logo": "/steamos.webp",
-      "best": true,
+      "best": false,
       "popular": true,
       "desktops": ["KDE Plasma"],
       "beginner_friendly": 5,
@@ -114,6 +126,7 @@
       "tag_ids": ["gaming-ready", "immutable"],
       "logo": "/bazzite.svg",
       "best": true,
+      "popular": true,
       "desktops": ["KDE Plasma", "Gnome"],
       "beginner_friendly": 5,
       "based_on": "Fedora Atomic",

@@ -72,6 +72,10 @@
             "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Perfect for tech enthusiasts who want to have full control over their system. The extreme optimizations of CachyOS may result in less stability compared to EndeavourOS.",
             "userbasePostfix": " million"
         },
+        "omarchy": {
+            "description": "An opinionated Arch-based rolling distribution powered by the Hyprland tiling window manager and built for productivity in mind. Minimalistic, but still ships with some productivity software. The UI is highly customizable, with a large database of community extensions.",
+            "userbasePostfix": "k"
+        },
         "steamos": {
             "description": "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment.",
             "userbasePostfix": " million"
@@ -167,7 +171,7 @@
                     },
                     {
                         "text": "I'm a tech enthusiast and want to have full control over my system",
-                        "result": "Sounds like CachyOS was made for you. Or, if you want something even closer to barebones Arch, EndeavourOS is worth checking out."
+                        "result": "Sounds like CachyOS or Omarchy was made for you (choose first if you care about performance and second if you care more about minimalism and productivity). Or, if you want something even closer to barebones Arch, EndeavourOS is worth checking out."
                     },
                     {
                         "text": "I want to recover my old PC with it",
