@@ -73,7 +73,7 @@
             "userbasePostfix": " million"
         },
         "omarchy": {
-            "description": "An opinionated Arch-based rolling distribution powered by the Hyprland tiling window manager and built for productivity in mind. Minimalistic, but still ships with some productivity software. The UI is highly customizable, with a large database of community extensions.",
+            "description": "An opinionated Arch-based rolling distribution powered by the Hyprland tiling window manager and built for productivity in mind. Minimalistic UI and workflow, but it ships with some productivity software. The UI is highly customizable, with a large database of community extensions.",
             "userbasePostfix": "k"
         },
         "steamos": {
