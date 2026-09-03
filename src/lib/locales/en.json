@@ -135,7 +135,7 @@
                 "answers": [
                     {
                         "text": "I'm lazy, just tell me what to use",
-                        "result": "Zorin OS"
+                        "result": "Zorin OS or Ultramarine"
                     },
                     {
                         "text": "Just a regular user",
@@ -171,7 +171,7 @@
                     },
                     {
                         "text": "I want to develop on it",
-                        "result": "Fedora is your ideal choice. It's both stable and offers up-to-date software. Plus, you can choose from various desktop environments to suit your preferences. That said, distros like Linux Mint, Kubuntu, Zorin OS, Pop!_OS or EndeavourOS are also viable options."
+                        "result": "Fedora is your ideal choice. It's both stable and offers up-to-date software. Plus, you can choose from various desktop environments to suit your preferences. That said, distros like Linux Mint, Kubuntu, Ultramarine, Zorin OS, Pop!_OS or EndeavourOS are also viable options."
                     },
                     {
                         "text": "I'm a tech enthusiast and want to have full control over my system",
