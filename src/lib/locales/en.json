@@ -65,7 +65,7 @@
             "userbasePostfix": " million"
         },
         "ultramarine": {
-            "description": "An out-of-the-box version of Fedora. It features extra repositories, multimedia codecs, and preinstalled Nvidia drivers — essentially everything most users would manually set up post-installation. Ultramarine to Fedora is what Ubuntu is to Debian.",
+            "description": "An out-of-the-box version of Fedora. It features extra repositories, multimedia codecs, and preinstalled Nvidia drivers — essentially everything most users would manually set up post-installation. Ultramarine to Fedora is what Ubuntu is to Debian. Its developers also provide a conversion script allowing you to migrate from Fedora to Ultramarine Linux.",
             "userbasePostfix": "k"
         },
         "endeavouros": {
