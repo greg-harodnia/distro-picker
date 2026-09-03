@@ -61,8 +61,12 @@
             "description": "An immutable (using Btrfs snapshots) Linux OS built by KDE. Immutability makes it extremely stable, but keeps the system read-only (which isn't a problem for most users). Strives to be as user-friendly as possible. Yet to be released, here just for information."
         },
         "fedora": {
-            "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Fedora is a semi-rolling distribution (meaning the apps get frequent updates, but the base system remains unchanged until the next big release), making it both stable and up-to-date. There are also some \"ready-made\" distros based on Fedora such as Ultramarine (mutable), Aurora (immutable) and stillOS (immutable).",
+            "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Fedora is a semi-rolling distribution (meaning the apps get frequent updates, but the base system remains unchanged until the next big release), making it both stable and up-to-date. Fedora is a fully open-source project, so it doesn't come with Nvidia drivers or other proprietary software preinstalled.",
             "userbasePostfix": " million"
+        },
+        "ultramarine": {
+            "description": "An out-of-the-box version of Fedora. It features extra repositories, multimedia codecs, and preinstalled Nvidia drivers — essentially everything most users would manually set up post-installation. Ultramarine to Fedora is what Ubuntu is to Debian.",
+            "userbasePostfix": "k"
         },
         "endeavouros": {
             "description": "Arch Linux made easy. It provides a graphical installer and makes minimal changes to the base system. Doesn't configure zram/swap by default.",

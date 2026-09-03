@@ -71,6 +71,17 @@
       "userbase_number": "~1-2"
     },
     {
+      "id": "ultramarine",
+      "name": "Ultramarine",
+      "website": "https://ultramarine-linux.org/",
+      "tag_ids": ["rolling"],
+      "logo": "/ultramarine.webp",
+      "desktops": ["KDE Plasma", "Gnome", "Xfce", "Budgie"],
+      "beginner_friendly": 5,
+      "based_on": "Fedora",
+      "userbase_number": "~2"
+    },
+    {
       "id": "endeavouros",
       "name": "EndeavourOS",
       "website": "https://endeavouros.com/",
@@ -152,7 +163,7 @@
       "desktops": ["Gnome", "KDE Plasma", "COSMIC", "Niri", "Hyprland"],
       "beginner_friendly": 5,
       "based_on": "Debian Unstable",
-      "userbase_number": "~3"
+      "userbase_number": "~10"
     },
     {
       "id": "lubuntu",
