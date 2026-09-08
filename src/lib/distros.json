@@ -133,7 +133,7 @@
       "desktops": ["Hyprland"],
       "beginner_friendly": 3,
       "based_on": "Arch Linux",
-      "userbase_number": "~100-500",
+      "userbase_number": "~100-300",
       "secure_boot": false,
       "swap_strategy": "zram"
     },
