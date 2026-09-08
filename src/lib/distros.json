@@ -10,7 +10,9 @@
       "desktops": ["Cinnamon", "MATE", "Xfce"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu",
-      "userbase_number": "~3-10"
+      "userbase_number": "~3-10",
+      "secure_boot": true,
+      "swap_strategy": "swap-file"
     },
     {
       "id": "kubuntu",
@@ -21,7 +23,9 @@
       "desktops": ["KDE Plasma"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu",
-      "userbase_number": "~1"
+      "userbase_number": "~1",
+      "secure_boot": true,
+      "swap_strategy": "swap-file"
     },
     {
       "id": "zorin",
@@ -34,7 +38,9 @@
       "desktops": ["Gnome"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu",
-      "userbase_number": "~2"
+      "userbase_number": "~2",
+      "secure_boot": true,
+      "swap_strategy": "swap-file"
     },
     {
       "id": "popos",
@@ -45,7 +51,9 @@
       "desktops": ["COSMIC"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu",
-      "userbase_number": "~1-2"
+      "userbase_number": "~1-2",
+      "secure_boot": false,
+      "swap_strategy": "zram-and-swap-partition"
     },
     {
       "id": "kde-linux",
@@ -55,7 +63,9 @@
       "logo": "/kde.webp",
       "desktops": ["KDE Plasma"],
       "beginner_friendly": 5,
-      "based_on": "independent"
+      "based_on": "independent",
+      "secure_boot": true,
+      "swap_strategy": "zram-and-swap-file"
     },
     {
       "id": "fedora",
@@ -68,7 +78,9 @@
       "hasMoreDesktops": true,
       "beginner_friendly": 4,
       "based_on": "independent",
-      "userbase_number": "~1-2"
+      "userbase_number": "~1-2",
+      "secure_boot": true,
+      "swap_strategy": "zram"
     },
     {
       "id": "ultramarine",
@@ -79,7 +91,9 @@
       "desktops": ["KDE Plasma", "Gnome", "Xfce", "Budgie"],
       "beginner_friendly": 5,
       "based_on": "Fedora",
-      "userbase_number": "~2"
+      "userbase_number": "~2",
+      "secure_boot": true,
+      "swap_strategy": "zram"
     },
     {
       "id": "endeavouros",
@@ -90,7 +104,9 @@
       "desktops": ["KDE Plasma", "Gnome", "Xfce", "Cinnamon", "MATE", "LXQt", "LXDE", "Budgie", "i3"],
       "beginner_friendly": 3,
       "based_on":"Arch Linux",
-      "userbase_number": "~100"
+      "userbase_number": "~100",
+      "secure_boot": false,
+      "swap_strategy": "none"
     },
     {
       "id": "cachyos",
@@ -103,7 +119,9 @@
       "hasMoreDesktops": true,
       "beginner_friendly": 4,
       "based_on": "Arch Linux",
-      "userbase_number": "~0.5-1"
+      "userbase_number": "~0.5-1",
+      "secure_boot": false,
+      "swap_strategy": "zram"
     },
     {
       "id": "omarchy",
@@ -115,7 +133,9 @@
       "desktops": ["Hyprland"],
       "beginner_friendly": 3,
       "based_on": "Arch Linux",
-      "userbase_number": "~50-100"
+      "userbase_number": "~100-500",
+      "secure_boot": false,
+      "swap_strategy": "zram"
     },
     {
       "id": "steamos",
@@ -128,7 +148,9 @@
       "desktops": ["KDE Plasma"],
       "beginner_friendly": 5,
       "based_on": "independent",
-      "userbase_number": "~5-10"
+      "userbase_number": "~5-10",
+      "secure_boot": false,
+      "swap_strategy": "zram-and-swap-file"
     },
     {
       "id": "bazzite",
@@ -141,7 +163,9 @@
       "desktops": ["KDE Plasma", "Gnome"],
       "beginner_friendly": 5,
       "based_on": "Fedora Atomic",
-      "userbase_number": "~100"
+      "userbase_number": "~100",
+      "secure_boot": true,
+      "swap_strategy": "zram"
     },
     {
       "id": "nobara",
@@ -152,7 +176,9 @@
       "desktops": ["KDE Plasma", "Gnome"],
       "beginner_friendly": 5,
       "based_on": "Fedora",
-      "userbase_number": "~25"
+      "userbase_number": "~25",
+      "secure_boot": true,
+      "swap_strategy": "zram"
     },
     {
       "id": "pikaos",
@@ -163,7 +189,9 @@
       "desktops": ["Gnome", "KDE Plasma", "COSMIC", "Niri", "Hyprland"],
       "beginner_friendly": 5,
       "based_on": "Debian Unstable",
-      "userbase_number": "~10"
+      "userbase_number": "~10",
+      "secure_boot": true,
+      "swap_strategy": "zram"
     },
     {
       "id": "lubuntu",
@@ -174,7 +202,9 @@
       "desktops": ["LXQt"],
       "beginner_friendly": 5,
       "based_on": "Ubuntu",
-      "userbase_number": "~100"
+      "userbase_number": "~100",
+      "secure_boot": true,
+      "swap_strategy": "swap-file"
     },
     {
       "id": "antiX",
@@ -185,7 +215,9 @@
       "desktops": ["Fluxbox", "IceWM", "JWM"],
       "beginner_friendly": 4,
       "based_on": "Debian",
-      "userbase_number": "~20"
+      "userbase_number": "~20",
+      "secure_boot": false,
+      "swap_strategy": "none"
     }
   ]
 }

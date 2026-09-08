@@ -32,6 +32,18 @@ export type Translations = {
       desktops: string;
       beginnerFriendly: string;
       userbase: string;
+      secureBoot: string;
+      swapStrategy: string;
+      yes: string;
+      no: string;
+      swap: {
+        'swap-partition': string;
+        'swap-file': string;
+        zram: string;
+        none: string;
+        'zram-and-swap-file': string;
+        'zram-and-swap-partition': string;
+      };
       visitWebsite: string;
       andMore: string;
       independent: string;

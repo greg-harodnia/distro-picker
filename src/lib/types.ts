@@ -20,4 +20,6 @@ export interface Distro {
 	likes?: number;
 	userLiked?: boolean;
 	userbase_number?: string;
+	secure_boot?: boolean;
+	swap_strategy?: 'swap-partition' | 'swap-file' | 'zram' | 'none' | 'zram-and-swap-file' | 'zram-and-swap-partition';
 }

@@ -37,7 +37,13 @@
 		(distro.desktops && distro.desktops.length > 0) ||
 		distro.based_on ||
 		distro.beginner_friendly ||
-		(distro.userbase_number && translatedUserbaseSuffix)
+		(distro.userbase_number && translatedUserbaseSuffix) ||
+		distro.secure_boot !== undefined ||
+		distro.swap_strategy
+	);
+
+	let translatedSwapStrategy = $derived(
+		distro.swap_strategy ? $t(`modals.distro.swap.${distro.swap_strategy}`) as string : ''
 	);
 
 	function visitWebsite() {
@@ -90,6 +96,20 @@
 				<div class="additional-detail">
 					<h3>{$t('modals.distro.userbase')}</h3>
 					<p>{distro.userbase_number}{translatedUserbaseSuffix}</p>
+				</div>
+			{/if}
+
+			{#if distro.secure_boot !== undefined}
+				<div class="additional-detail">
+					<h3>{$t('modals.distro.secureBoot')}</h3>
+					<p>{distro.secure_boot ? $t('modals.distro.yes') : $t('modals.distro.no')}</p>
+				</div>
+			{/if}
+
+			{#if distro.swap_strategy}
+				<div class="additional-detail">
+					<h3>{$t('modals.distro.swapStrategy')}</h3>
+					<p>{translatedSwapStrategy}</p>
 				</div>
 			{/if}
 		</div>
