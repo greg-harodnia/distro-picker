@@ -264,4 +264,44 @@
 			box-shadow: var(--shadow-lg);
 		}
 	}
+
+	@media (max-width: 640px) {
+		.distro-description p,
+		.additional-detail h3,
+		.additional-detail p {
+			font-size: var(--text-sm);
+		}
+
+		.additional-details {
+			margin-top: var(--space-lg);
+		}
+
+		.distro-tags {
+			margin-bottom: var(--space-lg);
+		}
+
+		.tag {
+			padding: 0.125rem var(--space-sm);
+			font-size: var(--text-xs);
+		}
+
+		.buttons {
+			height: 44px;
+		}
+
+		.buttons > button {
+			font-size: var(--text-sm);
+			border-radius: var(--radius-sm);
+		}
+
+		.website-btn {
+			width: calc(100% - 44px - var(--space-sm));
+			padding: var(--space-sm) var(--space-md);
+		}
+
+		.gallery-btn {
+			width: 44px;
+			margin-left: var(--space-sm);
+		}
+	}
 </style>

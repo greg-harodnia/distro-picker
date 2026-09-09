@@ -59,4 +59,20 @@
 		align-items: center;
 		gap: var(--space-sm);
 	}
+
+	@media (max-width: 640px) {
+		.share-content {
+			gap: var(--space-md);
+			padding: var(--space-md);
+		}
+
+		.share-content p {
+			font-size: var(--text-base);
+		}
+
+		.share-content .btn-primary {
+			padding: var(--space-sm) var(--space-md);
+			font-size: var(--text-sm);
+		}
+	}
 </style>

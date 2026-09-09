@@ -157,4 +157,26 @@
 		flex: 1;
 		text-align: center;
 	}
+
+	@media (max-width: 640px) {
+		.modal-overlay {
+			padding: var(--space-md);
+		}
+
+		.modal-overlay :global(.modal-header) {
+			padding: var(--space-md);
+		}
+
+		.modal-overlay :global(.modal-body) {
+			padding: var(--space-md);
+		}
+
+		.modal-overlay :global(.modal-footer) {
+			padding: var(--space-md);
+		}
+
+		.modal-overlay :global(.modal-title) {
+			font-size: var(--text-lg);
+		}
+	}
 </style>
