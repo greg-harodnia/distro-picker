@@ -174,9 +174,5 @@
 		.modal-overlay :global(.modal-footer) {
 			padding: var(--space-md);
 		}
-
-		.modal-overlay :global(.modal-title) {
-			font-size: var(--text-lg);
-		}
 	}
 </style>

@@ -66,13 +66,8 @@
 			padding: var(--space-md);
 		}
 
-		.share-content p {
-			font-size: var(--text-base);
-		}
-
 		.share-content .btn-primary {
 			padding: var(--space-sm) var(--space-md);
-			font-size: var(--text-sm);
 		}
 	}
 </style>
