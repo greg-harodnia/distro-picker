@@ -114,8 +114,8 @@
             "userbase": "Карыстачоў:",
             "secureBoot": "Падпора Secure Boot:",
             "swapStrategy": "Swap:",
-            "yes": "Так",
-            "no": "Не",
+            "yes": "Ёсьць",
+            "no": "Няма",
             "swap": {
                 "swap-partition": "Разьдзел Swap",
                 "swap-file": "Файл Swap",
