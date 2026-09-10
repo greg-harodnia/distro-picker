@@ -276,7 +276,6 @@
 		}
 
 		.result-text {
-			font-size: var(--text-base);
 			padding: var(--space-md);
 		}
 	}

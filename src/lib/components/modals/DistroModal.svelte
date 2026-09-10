@@ -266,12 +266,6 @@
 	}
 
 	@media (max-width: 640px) {
-		.distro-description p,
-		.additional-detail h3,
-		.additional-detail p {
-			font-size: var(--text-sm);
-		}
-
 		.additional-details {
 			margin-top: var(--space-lg);
 		}
@@ -282,7 +276,7 @@
 
 		.tag {
 			padding: 0.125rem var(--space-sm);
-			font-size: var(--text-xs);
+			font-size: var(--text-base);
 		}
 
 		.buttons {
@@ -290,7 +284,6 @@
 		}
 
 		.buttons > button {
-			font-size: var(--text-sm);
 			border-radius: var(--radius-sm);
 		}
 
