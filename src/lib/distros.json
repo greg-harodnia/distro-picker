@@ -52,7 +52,7 @@
       "beginner_friendly": 5,
       "based_on": "Debian Testing",
       "userbase_number": "~100",
-      "secure_boot": true,
+      "secure_boot": false,
       "swap_strategy": "swap-file"
     },
     {
