@@ -89,7 +89,7 @@
             "userbasePostfix": " million"
         },
         "bazzite": {
-            "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative. Take a survey on the official website to see if your hardware supports the Linux gaming.",
+            "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative, but it has better desktop mode support. 16GB of RAM is recommended for Bazzite. Take a survey on the official website to see if your hardware supports the Linux gaming.",
             "userbasePostfix": "k"
         },
         "nobara": {
