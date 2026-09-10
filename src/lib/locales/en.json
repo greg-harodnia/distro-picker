@@ -49,6 +49,10 @@
             "description": "A well-established and trusted distro, based on Ubuntu with the KDE Plasma desktop environment (the most feature-rich). It is backed by a huge corporation, Canonical. Similar hardware requirements to Linux Mint.",
             "userbasePostfix": " million"
         },
+        "tuxedo": {
+            "description": "Tuxedo OS is a better Kubuntu alternative which is developed by TUXEDO Computers. It uses Flatpaks instead of Snaps, has a custom kernel, and includes other improvements. It is a semi-rolling distribution meaning it has newer software versions, including cutting-edge versions of KDE Plasma. Tuxedo OS comes pre-installed with the TUXEDO Control Center for managing fan speeds and power profiles, and it supports system snapshots with the help of the Btrfs filesystem. A good choice for gaming as well. Their mirrors can be slow for updates if you are very far away from Germany.",
+            "userbasePostfix": "k"
+        },
         "zorin": {
             "description": "A polished distro focused on visual appeal and ease of use, featuring the Gnome desktop environment with 3D animations and various out-of-the-box layouts. Similar hardware requirements to Linux Mint.",
             "userbasePostfix": " million"

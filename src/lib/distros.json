@@ -28,6 +28,19 @@
       "swap_strategy": "swap-file"
     },
     {
+      "id": "tuxedo",
+      "name": "Tuxedo OS",
+      "website": "https://www.tuxedocomputers.com/en/TUXEDO-OS_1.tuxedo",
+      "tag_ids": ["rolling"],
+      "logo": "/tuxedo.svg",
+      "desktops": ["KDE Plasma"],
+      "beginner_friendly": 5,
+      "based_on": "Debian Testing",
+      "userbase_number": "~100",
+      "secure_boot": true,
+      "swap_strategy": "swap-file"
+    },
+    {
       "id": "zorin",
       "name": "Zorin OS",
       "website": "https://zorinos.com/",
