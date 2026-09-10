@@ -15,6 +15,21 @@
       "swap_strategy": "swap-file"
     },
     {
+      "id": "zorin",
+      "name": "Zorin OS",
+      "website": "https://zorinos.com/",
+      "tag_ids": ["traditional"],
+      "logo": "/zorin.webp",
+      "best": true,
+      "popular": true,
+      "desktops": ["Gnome"],
+      "beginner_friendly": 5,
+      "based_on": "Ubuntu",
+      "userbase_number": "~2",
+      "secure_boot": true,
+      "swap_strategy": "swap-file"
+    },
+    {
       "id": "kubuntu",
       "name": "Kubuntu",
       "website": "https://kubuntu.org/",
@@ -37,21 +52,6 @@
       "beginner_friendly": 5,
       "based_on": "Debian Testing",
       "userbase_number": "~100",
-      "secure_boot": true,
-      "swap_strategy": "swap-file"
-    },
-    {
-      "id": "zorin",
-      "name": "Zorin OS",
-      "website": "https://zorinos.com/",
-      "tag_ids": ["traditional"],
-      "logo": "/zorin.webp",
-      "best": true,
-      "popular": true,
-      "desktops": ["Gnome"],
-      "beginner_friendly": 5,
-      "based_on": "Ubuntu",
-      "userbase_number": "~2",
       "secure_boot": true,
       "swap_strategy": "swap-file"
     },
