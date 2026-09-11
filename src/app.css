@@ -103,9 +103,10 @@
   --container-2xl: 1400px;
 }
 
-/* Modal mobile font scale - scoped to .modal-content only */
+/* Mobile font scale */
 @media (max-width: 640px) {
-  .modal-content {
+  .modal-content,
+  .app {
     --text-xs:   0.625rem;
     --text-sm:   0.75rem;
     --text-base: 0.875rem;
