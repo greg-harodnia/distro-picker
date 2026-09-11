@@ -24,6 +24,7 @@ export type Translations = {
   distros: Record<string, {
     description: string;
     userbasePostfix?: string;
+    highlights?: string[];
   }>;
   modals: {
     distro: {

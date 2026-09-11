@@ -3,7 +3,8 @@
 	import { sanitizeUrl } from "$lib/utils";
 	import Modal from "./Modal.svelte";
 	import GalleryModal from "./GalleryModal.svelte";
-	import { t } from "$lib/i18n/locale";
+	import { t, locale } from "$lib/i18n/locale";
+	import { getNestedValue } from "$lib/i18n/translations";
 
 	let {
 		distro,
@@ -45,6 +46,8 @@
 	let translatedSwapStrategy = $derived(
 		distro.swap_strategy ? $t(`modals.distro.swap.${distro.swap_strategy}`) as string : ''
 	);
+
+	let translatedHighlights = $derived(getNestedValue<string[]>($locale, `distros.${distro.id}.highlights`));
 
 	function visitWebsite() {
 		const sanitizedUrl = sanitizeUrl(distro.website);
@@ -112,6 +115,14 @@
 					<p>{translatedSwapStrategy}</p>
 				</div>
 			{/if}
+		</div>
+	{/if}
+
+	{#if translatedHighlights && translatedHighlights.length > 0}
+		<div class="highlights">
+			{#each translatedHighlights as highlight}
+				<p class="highlight-item">✦ {highlight}</p>
+			{/each}
 		</div>
 	{/if}
 
@@ -207,6 +218,17 @@
 		margin: 0;
 	}
 
+	.highlights {
+		margin-top: var(--space-xl);
+	}
+
+	.highlight-item {
+		color: var(--color-text-secondary);
+		font-size: var(--text-base);
+		line-height: var(--line-height-relaxed);
+		margin: 0;
+	}
+
 	.distro-tags {
 		margin-bottom: var(--space-xl);
 	}
@@ -267,6 +289,10 @@
 
 	@media (max-width: 640px) {
 		.additional-details {
+			margin-top: var(--space-lg);
+		}
+
+		.highlights {
 			margin-top: var(--space-lg);
 		}
 

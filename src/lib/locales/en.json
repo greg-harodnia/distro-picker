@@ -43,46 +43,57 @@
     "distros": {
         "mint": {
             "description": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. A general-purpose distro, can be used for gaming too (like most distros), but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers (with an SSD). If your computer has an HDD or just 2-4Gb of RAM (potentially Windows 7 era), use the Xfce version of Linux Mint.",
-            "userbasePostfix": " million"
-        },
-        "kubuntu": {
-            "description": "A well-established and trusted distro, based on Ubuntu with the KDE Plasma desktop environment (the most feature-rich). It is backed by a huge corporation, Canonical. Similar hardware requirements to Linux Mint.",
-            "userbasePostfix": " million"
-        },
-        "tuxedo": {
-            "description": "Tuxedo OS is a better Kubuntu alternative which is developed by TUXEDO Computers. It uses Flatpaks instead of Snaps, has a custom kernel, and includes other improvements. It is a semi-rolling distribution meaning it has newer software versions, including cutting-edge versions of KDE Plasma. Tuxedo OS comes pre-installed with the TUXEDO Control Center for managing fan speeds and power profiles, and it supports system snapshots with the help of the Btrfs filesystem. A good choice for gaming as well. Their mirrors can be slow for updates if you are very far away from Germany.",
-            "userbasePostfix": "k"
+            "userbasePostfix": " million",
+            "highlights": ["Extremely polished and intuitive desktop", "Strives to have GUI apps for everything to eliminate the need of using the terminal, like for example Driver Manager", "May look old-style"]
         },
         "zorin": {
             "description": "A polished distro focused on visual appeal and ease of use, featuring the Gnome desktop environment with 3D animations and various out-of-the-box layouts. Similar hardware requirements to Linux Mint.",
-            "userbasePostfix": " million"
+            "userbasePostfix": " million",
+            "highlights": ["Sleek design", "Good even for people that have no idea what Linux is"]
+        },
+        "kubuntu": {
+            "description": "A well-established and trusted distro, based on Ubuntu with the KDE Plasma desktop environment (the most feature-rich). It is backed by a huge corporation, Canonical. Similar hardware requirements to Linux Mint.",
+            "userbasePostfix": " million",
+            "highlights": ["Has a lot of documentation available", "Uses Snap packages"]
+        },
+        "tuxedo": {
+            "description": "Tuxedo OS is a better Kubuntu alternative which is developed by TUXEDO Computers. It uses Flatpaks instead of Snaps, has a custom kernel, and includes other improvements. It is a semi-rolling distribution meaning it has newer software versions, including cutting-edge versions of KDE Plasma. Tuxedo OS comes pre-installed with the TUXEDO Control Center for managing fan speeds and power profiles, and it supports system snapshots with the help of the Btrfs filesystem. A good choice for gaming as well. Their mirrors can be slow for updates if you are very far away from Germany.",
+            "userbasePostfix": "k",
+            "highlights": ["Full-fledged OS with up-to-date and stable software"]
         },
         "popos": {
             "description": "Built by System76, featuring the COSMIC desktop environment (macOS-like) and focusing on usability. Has tiling window support. Good for creative work and productivity, but not an ideal choice for gaming, as its package versions considerably lag behind their latest releases and the COSMIC desktop environment is relatively new.",
-            "userbasePostfix": " million"
+            "userbasePostfix": " million",
+            "highlights": ["Innovative design with tiling window capability", "Not up-to-date software"]
         },
         "kde-linux": {
-            "description": "An immutable (using Btrfs snapshots) Linux OS built by KDE. Immutability makes it extremely stable, but keeps the system read-only (which isn't a problem for most users). Strives to be as user-friendly as possible. Yet to be released, here just for information."
+            "description": "An immutable (using Btrfs snapshots) Linux OS built by KDE. Immutability makes it extremely stable, but keeps the system read-only (which isn't a problem for most users). Strives to be as user-friendly as possible. Yet to be released, here just for information.",
+            "highlights": ["Stable, modern, and reliable general-purpose OS"]
         },
         "fedora": {
             "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Fedora is a semi-rolling distribution (meaning the apps get frequent updates, but the base system remains unchanged until the next big release), making it both stable and up-to-date. Fedora is a fully open-source project, so it doesn't come with Nvidia drivers or other proprietary software preinstalled.",
-            "userbasePostfix": " million"
+            "userbasePostfix": " million",
+            "highlights": ["Cutting-edge and reliable distribution"]
         },
         "ultramarine": {
             "description": "An out-of-the-box version of Fedora. It features extra repositories, multimedia codecs, and preinstalled Nvidia drivers — essentially everything most users would manually set up post-installation. Ultramarine to Fedora is what Ubuntu is to Debian. A good choice for gaming. Its developers also provide a conversion script allowing you to migrate from Fedora to Ultramarine Linux.",
-            "userbasePostfix": "k"
+            "userbasePostfix": "k",
+            "highlights": ["Pre-configured distribution with up-to-date software"]
         },
         "endeavouros": {
             "description": "Arch Linux made easy. It provides a graphical installer and makes minimal changes to the base system. Doesn't configure zram/swap by default.",
-            "userbasePostfix": "k"
+            "userbasePostfix": "k",
+            "highlights": ["Simple and powerful", "A lot of available software in repositories", "No bloat"]
         },
         "cachyos": {
             "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Perfect for tech enthusiasts who want to have full control over their system. The extreme optimizations of CachyOS may result in less stability compared to EndeavourOS.",
-            "userbasePostfix": " million"
+            "userbasePostfix": " million",
+            "highlights": ["Extreme optimizations", "A lot of community support"]
         },
         "omarchy": {
             "description": "An opinionated Arch-based rolling distribution powered by the Hyprland tiling window manager and built for productivity in mind. Minimalistic UI and workflow, but it ships with some productivity software. The workflow revolves around using hotkeys. The UI is highly customizable, with a large database of community extensions.",
-            "userbasePostfix": "k"
+            "userbasePostfix": "k",
+            "highlights": ["Beautifully pre-configured setup with tiling workflow", "A lot of productivity software pre-installed"]
         },
         "steamos": {
             "description": "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment.",
@@ -90,11 +101,13 @@
         },
         "bazzite": {
             "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative, but it has better desktop mode support. 16GB of RAM is recommended for Bazzite. Take a survey on the official website to see if your hardware supports the Linux gaming.",
-            "userbasePostfix": "k"
+            "userbasePostfix": "k",
+            "highlights": ["Universal gaming distro for desktop and handhelds", "May take up about 4-5Gb of RAM on idle"]
         },
         "nobara": {
             "description": "A gaming distro with a mutable core system, giving you full control. It was developed by the creator of Proton-GE, a utility at the heart of Linux gaming, and features both PC and handheld versions. Provides you the full power of Fedora, but comes with graphics drivers and gaming software preinstalled on top of that.",
-            "userbasePostfix": "k"
+            "userbasePostfix": "k",
+            "highlights": ["Gaming distro that can be used for everything else too", "Good community support"]
         },
         "pikaos": {
             "description": "A mutable gaming distribution. Similar to Nobara, but based on Debian (unstable branch with newer software). It offers you the option to install a gaming meta-package after the OS installation, meaning you can keep it bloat-free and configure it yourself. The Gnome edition features a layout switcher, just like Zorin OS.",
