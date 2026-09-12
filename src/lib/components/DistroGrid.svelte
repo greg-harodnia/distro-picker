@@ -77,9 +77,15 @@
 			data-distro-id={distro.id}
 		>
 			<div class="reactions">
-				{#if distro.popular}
-					<span class="popular">🔥</span>
-				{/if}
+			{#if distro.popular}
+				<span class="popular">🔥</span>
+			{/if}
+			{#if distro.best}
+				<span class="best">👑</span>
+			{/if}
+			{#if distro.hidden_gem}
+				<span class="hidden-gem">💎</span>
+			{/if}
 				<button 
 					class="like" 
 					class:liked={distro.userLiked}
@@ -159,7 +165,13 @@
 		z-index: 1;
 	}
 
-	.popular {
+	.popular,
+	.best {
+		font-size: 1.5rem;
+		line-height: 1;
+	}
+
+	.hidden-gem {
 		font-size: 1.5rem;
 		line-height: 1;
 	}

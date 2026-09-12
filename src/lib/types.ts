@@ -13,6 +13,7 @@ export interface Distro {
 	logo?: string;
 	best?: boolean;
 	popular?: boolean;
+	hidden_gem?: boolean;
 	desktops?: string[];
 	hasMoreDesktops?: boolean;
 	beginner_friendly?: number;
