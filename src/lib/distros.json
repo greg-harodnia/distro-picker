@@ -132,7 +132,7 @@
       "hasMoreDesktops": true,
       "beginner_friendly": 4,
       "based_on": "Arch Linux",
-      "userbase_number": "~150-500",
+      "userbase_number": "~250-600",
       "secure_boot": false,
       "swap_strategy": "zram"
     },
