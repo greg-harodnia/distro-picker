@@ -81,19 +81,19 @@
             "highlights": ["Pre-configured distribution with up-to-date software"]
         },
         "endeavouros": {
-            "description": "Arch Linux made easy. It provides a graphical installer and makes minimal changes to the base system. Doesn't configure zram/swap by default.",
+            "description": "Arch Linux made easy. It provides a graphical installer and makes minimal changes to the base system.",
             "userbasePostfix": "k",
-            "highlights": ["Simple and powerful", "A lot of available software in repositories", "No bloat"]
+            "highlights": ["Simple and powerful with no bloat", "A lot of available software in repositories", "Very fast boot and shutdown times", "Doesn't configure zRAM by default"]
         },
         "cachyos": {
-            "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Perfect for tech enthusiasts who want to have full control over their system. The extreme optimizations of CachyOS may result in less stability compared to EndeavourOS.",
+            "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Perfect for tech enthusiasts who want to have full control over their system. The extreme optimizations of CachyOS may result in lower stability compared to EndeavourOS.",
             "userbasePostfix": "k",
-            "highlights": ["Extreme optimizations", "A lot of community support"]
+            "highlights": ["Extreme performance optimizations", "A lot of community support", "Integrated snapshots with a dedicated boot menu"]
         },
         "omarchy": {
             "description": "An opinionated Arch-based rolling distribution powered by the Hyprland tiling window manager and built for productivity in mind. Minimalistic UI and workflow, but it ships with some productivity software. The workflow revolves around using hotkeys and, optionally, AI agents. The UI is highly customizable, with a large database of community extensions.",
             "userbasePostfix": "k",
-            "highlights": ["Beautifully pre-configured setup with tiling workflow", "The system is complete which eliminates the need to manually tweak it", "A lot of productivity software pre-installed"]
+            "highlights": ["Beautifully pre-configured setup with tiling workflow", "The system is complete which eliminates the need to manually tweak it", "A lot of stock themes", "A lot of productivity software pre-installed", "Very fast installation within minutes"]
         },
         "steamos": {
             "description": "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment.",
