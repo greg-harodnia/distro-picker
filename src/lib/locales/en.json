@@ -238,6 +238,17 @@
             "text": "Help others discover Linux by sharing this app with your friends!",
             "copyLink": "Copy Link",
             "copied": "Copied!"
+        },
+        "contact": {
+            "title": "Contact Me",
+            "intro": "Have a question, suggestion, or just want to say hi? Send me a message!",
+            "name": "Name",
+            "email": "Email",
+            "message": "Message",
+            "send": "Send",
+            "sending": "Sending...",
+            "success": "Thanks for your message!",
+            "error": "Failed to send message. Please try again later."
         }
     }
 }

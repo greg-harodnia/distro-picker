@@ -29,3 +29,15 @@ export async function updateLikes(distroId: string, newLikes: number): Promise<b
 	}
 	return true;
 }
+
+export async function sendMessage(name: string, email: string, message: string): Promise<boolean> {
+	const { error } = await supabase
+		.from('messages')
+		.insert({ name, email, message });
+
+	if (error) {
+		console.error('Failed to send message:', error);
+		return false;
+	}
+	return true;
+}
