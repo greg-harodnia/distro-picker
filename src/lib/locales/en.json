@@ -87,7 +87,7 @@
         },
         "cachyos": {
             "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Perfect for tech enthusiasts who want to have full control over their system. The extreme optimizations of CachyOS may result in less stability compared to EndeavourOS.",
-            "userbasePostfix": " million",
+            "userbasePostfix": "k",
             "highlights": ["Extreme optimizations", "A lot of community support"]
         },
         "omarchy": {
