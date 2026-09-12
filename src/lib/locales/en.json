@@ -91,9 +91,9 @@
             "highlights": ["Extreme optimizations", "A lot of community support"]
         },
         "omarchy": {
-            "description": "An opinionated Arch-based rolling distribution powered by the Hyprland tiling window manager and built for productivity in mind. Minimalistic UI and workflow, but it ships with some productivity software. The workflow revolves around using hotkeys. The UI is highly customizable, with a large database of community extensions.",
+            "description": "An opinionated Arch-based rolling distribution powered by the Hyprland tiling window manager and built for productivity in mind. Minimalistic UI and workflow, but it ships with some productivity software. The workflow revolves around using hotkeys and, optionally, AI agents. The UI is highly customizable, with a large database of community extensions.",
             "userbasePostfix": "k",
-            "highlights": ["Beautifully pre-configured setup with tiling workflow", "A lot of productivity software pre-installed"]
+            "highlights": ["Beautifully pre-configured setup with tiling workflow", "The system is complete which eliminates the need to manually tweak it", "A lot of productivity software pre-installed"]
         },
         "steamos": {
             "description": "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment.",
