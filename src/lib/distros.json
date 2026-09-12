@@ -193,7 +193,7 @@
       "beginner_friendly": 5,
       "based_on": "Fedora",
       "userbase_number": "~25",
-      "secure_boot": true,
+      "secure_boot": false,
       "swap_strategy": "zram"
     },
     {
@@ -206,7 +206,7 @@
       "beginner_friendly": 5,
       "based_on": "Debian Unstable",
       "userbase_number": "~10",
-      "secure_boot": true,
+      "secure_boot": false,
       "swap_strategy": "zram"
     },
     {
