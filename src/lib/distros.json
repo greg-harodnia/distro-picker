@@ -30,6 +30,19 @@
       "swap_strategy": "swap-file"
     },
     {
+      "id": "popos",
+      "name": "Pop!_OS",
+      "website": "https://pop.system76.com/",
+      "tag_ids": ["traditional"],
+      "logo": "/popos.webp",
+      "desktops": ["COSMIC"],
+      "beginner_friendly": 5,
+      "based_on": "Ubuntu",
+      "userbase_number": "~1-2",
+      "secure_boot": false,
+      "swap_strategy": "zram-and-swap-partition"
+    },
+    {
       "id": "kubuntu",
       "name": "Kubuntu",
       "website": "https://kubuntu.org/",
@@ -57,19 +70,6 @@
       "swap_strategy": "swap-file"
     },
     {
-      "id": "popos",
-      "name": "Pop!_OS",
-      "website": "https://pop.system76.com/",
-      "tag_ids": ["traditional"],
-      "logo": "/popos.webp",
-      "desktops": ["COSMIC"],
-      "beginner_friendly": 5,
-      "based_on": "Ubuntu",
-      "userbase_number": "~1-2",
-      "secure_boot": false,
-      "swap_strategy": "zram-and-swap-partition"
-    },
-    {
       "id": "kde-linux",
       "name": "KDE Linux",
       "website": "https://kde.org/linux/",
@@ -80,6 +80,20 @@
       "based_on": "independent",
       "secure_boot": true,
       "swap_strategy": "zram-and-swap-file"
+    },
+    {
+      "id": "openSUSE",
+      "name": "openSUSE",
+      "website": "https://get.opensuse.org/desktop/",
+      "tag_ids": ["traditional", "rolling"],
+      "logo": "/opensuse.svg",
+      "desktops": ["KDE Plasma", "Gnome", "Xfce"],
+      "hasMoreDesktops": true,
+      "beginner_friendly": 4,
+      "based_on": "independent",
+      "userbase_number": "~0.5-1",
+      "secure_boot": true,
+      "swap_strategy": "swap-partition"
     },
     {
       "id": "fedora",

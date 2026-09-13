@@ -67,8 +67,12 @@
             "highlights": ["Innovative design with tiling window capability", "Not up-to-date software"]
         },
         "kde-linux": {
-            "description": "An immutable (using Btrfs snapshots) Linux OS built by KDE. Immutability makes it extremely stable, but keeps the system read-only (which isn't a problem for most users). Strives to be as user-friendly as possible. Yet to be released, here just for information.",
+            "description": "An immutable (using Btrfs snapshots) Linux OS built by KDE. Immutability makes it extremely stable, but keeps the system read-only (which isn't a problem for most users). Strives to be as user-friendly as possible. Yet to be released, here just for information, don't install it just yet.",
             "highlights": ["Stable, modern, and reliable general-purpose OS"]
+        },
+        "openSUSE": {
+            "description": "OpenSUSE is a modern, general-purpose, stable, and reliable distribution intended for both professional and regular users. It comes in two main variants: Tumbleweed (a rolling release) and Leap (a point release), and offers three primary desktop environments: KDE Plasma, GNOME, and XFCE (with more options available during installation). OpenSUSE uses the YaST configuration tool to manage the entire system from a single place. Additionally, it greatly leverages the Btrfs filesystem by making snapshots of files and packages to ensure the integrity of the system. At its core, it's similar to Fedora but with a greater focus on system stability. It is a perfect choice for system administrators and regular users (yes, even gamers). The OS adheres strictly to open-source practices and therefore does not contain proprietary components by default.",
+            "userbasePostfix": " million"
         },
         "fedora": {
             "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Fedora is a semi-rolling distribution (meaning the apps get frequent updates, but the base system remains unchanged until the next big release), making it both stable and up-to-date. Fedora is a fully open-source project, so it doesn't come with Nvidia drivers or other proprietary software preinstalled.",
