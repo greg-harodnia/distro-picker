@@ -87,6 +87,7 @@
       "website": "https://get.opensuse.org/desktop/",
       "tag_ids": ["point-release", "rolling"],
       "logo": "/opensuse.svg",
+      "hidden_gem": true,
       "desktops": ["KDE Plasma", "Gnome", "Xfce"],
       "hasMoreDesktops": true,
       "beginner_friendly": 3.8,
