@@ -102,7 +102,12 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 1000;
-		padding: var(--space-lg);
+		--overlay-padding: var(--space-lg);
+		padding: var(--overlay-padding);
+		padding-top: max(var(--overlay-padding), env(safe-area-inset-top));
+		padding-bottom: max(var(--overlay-padding), env(safe-area-inset-bottom));
+		padding-left: max(var(--overlay-padding), env(safe-area-inset-left));
+		padding-right: max(var(--overlay-padding), env(safe-area-inset-right));
 	}
 
 	.modal-overlay :global(.modal-content) {
@@ -112,6 +117,7 @@
 		width: 100%;
 		max-width: 600px;
 		max-height: 80vh;
+		max-height: 85dvh;
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
@@ -144,7 +150,9 @@
 	}
 
 	.modal-overlay :global(.modal-footer) {
-		padding: var(--space-lg);
+		--footer-padding: var(--space-lg);
+		padding: var(--footer-padding);
+		padding-bottom: calc(var(--footer-padding) + env(safe-area-inset-bottom));
 		border-top: 1px solid var(--color-border);
 		flex-shrink: 0;
 	}
@@ -160,7 +168,7 @@
 
 	@media (max-width: 640px) {
 		.modal-overlay {
-			padding: var(--space-md);
+			--overlay-padding: var(--space-md);
 		}
 
 		.modal-overlay :global(.modal-header) {
@@ -172,7 +180,7 @@
 		}
 
 		.modal-overlay :global(.modal-footer) {
-			padding: var(--space-md);
+			--footer-padding: var(--space-md);
 		}
 	}
 </style>

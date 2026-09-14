@@ -54,7 +54,7 @@
 	}
 </script>
 
-<Modal {onclose} ariaLabel={$t('modals.quiz.title') || ''}>
+<Modal {onclose} ariaLabel={$t('modals.quiz.title') || ''} footer={isComplete && resultText ? footerSnippet : undefined}>
 	{#snippet header()}
 		{#if !isComplete && currentPath.length > 0}
 			<button class="back-btn" onclick={goBack} aria-label={$t('modals.quiz.goBack')} type="button">
@@ -68,29 +68,34 @@
 		<h2 class="modal-title">{$t('modals.quiz.title')}</h2>
 	{/snippet}
 
+	{#snippet footerSnippet()}
+		<div class="result-actions">
+			<button class="btn-outline restart-btn" onclick={startQuiz} type="button">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<polyline points="1 4 1 10 7 10"></polyline>
+					<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+				</svg>
+				{$t('modals.quiz.restartTest')}
+			</button>
+			<button class="btn-primary" onclick={onclose} type="button">
+				{$t('app.close')}
+			</button>
+		</div>
+	{/snippet}
+
 	{#if isComplete && resultText}
 		<div class="result-container">
 			<Confetti />
-			<div class="result-icon">
-				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-					<polyline points="22 4 12 14.01 9 11.01"></polyline>
-				</svg>
-			</div>
-			<h3>{$t('modals.quiz.yourRecommendation')}</h3>
-			<p class="result-text">{resultText}</p>
-			<div class="result-actions">
-				<button class="btn-outline restart-btn" onclick={startQuiz} type="button">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<polyline points="1 4 1 10 7 10"></polyline>
-						<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+			<div class="result-heading">
+				<div class="result-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+						<polyline points="22 4 12 14.01 9 11.01"></polyline>
 					</svg>
-					{$t('modals.quiz.restartTest')}
-				</button>
-				<button class="btn-primary" onclick={onclose} type="button">
-					{$t('app.close')}
-				</button>
+				</div>
+				<h3>{$t('modals.quiz.yourRecommendation')}</h3>
 			</div>
+			<p class="result-text">{resultText}</p>
 		</div>
 	{:else}
 		<div class="question-container">
@@ -238,15 +243,22 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		gap: var(--space-lg);
-		padding: var(--space-xl) 0;
+		gap: var(--space-md);
+		padding: var(--space-sm) 0;
+	}
+
+	.result-heading {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
 	}
 
 	.result-icon {
 		color: var(--color-success);
+		display: flex;
 	}
 
-	.result-container h3 {
+	.result-heading h3 {
 		font-size: var(--text-xl);
 		color: var(--color-secondary);
 		margin: 0;
@@ -257,8 +269,9 @@
 		font-size: var(--text-lg);
 		color: var(--color-text);
 		line-height: var(--line-height-relaxed);
+		text-align: left;
 		margin: 0;
-		padding: var(--space-lg);
+		padding: var(--space-md);
 		background: var(--color-background-secondary);
 		border-radius: var(--radius-md);
 		border-left: 4px solid var(--color-secondary);
@@ -267,7 +280,15 @@
 	.result-actions {
 		display: flex;
 		gap: var(--space-md);
-		margin-top: var(--space-md);
+		flex-wrap: wrap;
+	}
+
+	.result-actions button {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-sm);
 	}
 
 	@media (max-width: 640px) {
@@ -276,7 +297,11 @@
 		}
 
 		.result-text {
-			padding: var(--space-md);
+			padding: var(--space-sm);
+		}
+
+		.result-actions {
+			gap: var(--space-sm);
 		}
 	}
 </style>
