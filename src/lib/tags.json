@@ -11,7 +11,7 @@
       "group": "purpose"
     },
     {
-      "id": "traditional",
+      "id": "point-release",
       "description": "Standard release model with periodic version updates",
       "group": "update-model"
     },

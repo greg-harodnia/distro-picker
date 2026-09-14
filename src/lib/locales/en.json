@@ -27,12 +27,12 @@
             "name": "Lightweight",
             "description": "For older hardware"
         },
-        "traditional": {
-            "name": "Traditional",
+        "point-release": {
+            "name": "Point release",
             "description": "Point releases with freezed software versions"
         },
         "rolling": {
-            "name": "Rolling",
+            "name": "Rolling release",
             "description": "Continuously updated software"
         },
         "immutable": {
@@ -75,7 +75,7 @@
             "userbasePostfix": " million"
         },
         "fedora": {
-            "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. Fedora is a semi-rolling distribution (meaning the apps get frequent updates, but the base system remains unchanged until the next big release), making it both stable and up-to-date. Fedora is a fully open-source project, so it doesn't come with Nvidia drivers or other proprietary software preinstalled.",
+            "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. It frequently updates apps and system components during its release cycle, keeping the software up-to-date while still remaining a point-release distribution. Fedora is a fully open-source project, so it doesn't come with Nvidia drivers or other proprietary software preinstalled.",
             "userbasePostfix": " million",
             "highlights": ["Cutting-edge and reliable distribution"]
         },

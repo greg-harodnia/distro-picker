@@ -34,7 +34,7 @@
   /* Tag colors (4:1 contrast on white) */
   --tag-gaming-ready: #8b5cf6;
   --tag-lightweight: #b9ad03;
-  --tag-traditional: #22c55e;
+  --tag-point-release: #22c55e;
   --tag-rolling: #3b82f6;
   --tag-immutable: #f97316;
   
@@ -152,7 +152,7 @@
   /* Tag colors (5:1 contrast on #1a1a1a) */
   --tag-gaming-ready: #8b5cf6;
   --tag-lightweight: #dbc117;
-  --tag-traditional: rgb(22, 200, 84);
+  --tag-point-release: rgb(22, 200, 84);
   --tag-rolling: #2478ff;
   --tag-immutable: #f98416;
   

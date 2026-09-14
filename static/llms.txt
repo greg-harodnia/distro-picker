@@ -7,7 +7,7 @@ Linux Distribution Picker is a free, open-source web app built with SvelteKit. I
 ## Features
 
 - Interactive quiz to find your ideal Linux distribution
-- Browse and filter distros by tags (gaming, development, minimal, traditional, etc.)
+- Browse and filter distros by tags (gaming, development, minimal, point release, etc.)
 - Detailed distribution info including desktops, beginner-friendliness, and popularity
 - Like and favorite distributions
 - Dark and light theme support
