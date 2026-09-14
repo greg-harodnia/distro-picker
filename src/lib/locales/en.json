@@ -42,7 +42,7 @@
     },
     "distros": {
         "mint": {
-            "description": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. A general-purpose distro, can be used for gaming too (like most distros), but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers (with an SSD). If your computer has an HDD or just 2-4Gb of RAM (potentially Windows 7 era), use the Xfce version of Linux Mint.",
+            "description": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. A general-purpose distro, can be used for gaming too (like most distros), but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers. For older computers (for instance, those with only 2–4 GB of RAM), the Xfce edition of Linux Mint is recommended.",
             "userbasePostfix": " million",
             "highlights": ["Extremely polished and intuitive desktop", "Strives to have GUI apps for everything to eliminate the need of using the terminal, like for example Driver Manager", "May look old-style"]
         },
@@ -62,7 +62,7 @@
             "highlights": ["Full-fledged OS with up-to-date and stable software"]
         },
         "popos": {
-            "description": "Built by System76, featuring the COSMIC desktop environment (macOS-like) and focusing on usability. Has tiling window support. Good for creative work and productivity, but not an ideal choice for gaming, as its package versions considerably lag behind their latest releases and the COSMIC desktop environment is relatively new.",
+            "description": "Built by System76, featuring the COSMIC desktop environment (macOS-like) and focusing on usability. Has tiling window support. Good for creative work and productivity, but not an ideal choice for gaming, as its package versions considerably lag behind their latest releases and the COSMIC desktop environment is relatively new. However, Flatpaks partially resolve this issue as they are updated frequently and independantly of the standard system repositories.",
             "userbasePostfix": " million",
             "highlights": ["Innovative design with tiling window capability", "Not up-to-date software"]
         },
@@ -71,7 +71,7 @@
             "highlights": ["Stable, modern, and reliable general-purpose OS"]
         },
         "openSUSE": {
-            "description": "OpenSUSE is a modern, general-purpose, stable, and reliable distribution intended for both professional and regular users. It comes in two main variants: Tumbleweed (a rolling release) and Leap (a point release), and offers three primary desktop environments: KDE Plasma, GNOME, and XFCE (with more options available during installation). OpenSUSE uses the YaST configuration tool to manage the entire system from a single place. Additionally, it greatly leverages the Btrfs filesystem by making snapshots of files and packages to ensure the integrity of the system. At its core, it's similar to Fedora but with a greater focus on system stability. It is a perfect choice for system administrators and regular users (yes, even gamers). The OS adheres strictly to open-source practices and therefore does not contain proprietary components by default.",
+            "description": "openSUSE is a modern, general-purpose, stable, and reliable distribution intended for both professional and casual users. It is sponsored by SUSE, the first company to market Linux for the enterprise. It comes in two main variants: Tumbleweed (a rolling release) and Leap (a point release), and offers three primary desktop environments: KDE Plasma, GNOME, and XFCE (with more options available during installation). openSUSE greatly leverages the Btrfs filesystem by making snapshots of files and packages with Snapper to ensure system integrity. Also, historically, it used the YaST configuration tool to manage the entire system from a single place, but now it has been replaced with modern solutions. At its core, it's similar to Fedora but with a greater focus on system stability. It is a perfect choice for system administrators and regular users (yes, even gamers). The OS adheres strictly to open-source practices and therefore does not contain proprietary components by default.",
             "userbasePostfix": " million"
         },
         "fedora": {
@@ -80,7 +80,7 @@
             "highlights": ["Cutting-edge and reliable distribution"]
         },
         "ultramarine": {
-            "description": "An out-of-the-box version of Fedora. It features extra repositories, multimedia codecs, and preinstalled Nvidia drivers — essentially everything most users would manually set up post-installation. Ultramarine to Fedora is what Ubuntu is to Debian. A good choice for gaming. Its developers also provide a conversion script allowing you to migrate from Fedora to Ultramarine Linux.",
+            "description": "An out-of-the-box version of Fedora. It features extra repositories, multimedia codecs, and preinstalled Nvidia drivers — essentially everything most users would manually set up post-installation. The additional Terra repository with its cutting-edge software makes it a truly semi-rolling distro. Ultramarine to Fedora is what Ubuntu is to Debian. A good choice for gaming. Its developers also provide a conversion script allowing you to migrate from Fedora to Ultramarine Linux.",
             "userbasePostfix": "k",
             "highlights": ["Pre-configured distribution with up-to-date software"]
         },
