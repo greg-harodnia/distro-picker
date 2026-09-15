@@ -84,7 +84,7 @@
     {
       "id": "openSUSE",
       "name": "openSUSE",
-      "website": "https://get.opensuse.org/desktop/",
+      "website": "https://www.opensuse.org/",
       "tag_ids": ["point-release", "rolling"],
       "logo": "/opensuse.svg",
       "hidden_gem": true,

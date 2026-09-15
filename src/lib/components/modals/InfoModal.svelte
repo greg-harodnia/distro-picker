@@ -32,6 +32,29 @@
 		line-height: var(--line-height-relaxed);
 	}
 
+	:global(a) {
+		color: var(--color-secondary);
+		font-weight: var(--font-medium);
+		text-decoration: underline;
+		text-decoration-color: var(--color-border);
+		text-decoration-thickness: 1px;
+		text-underline-offset: 3px;
+		transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+	}
+
+	@media (hover: hover) {
+		:global(a:hover) {
+			color: var(--color-text);
+			text-decoration-color: var(--color-secondary);
+		}
+	}
+
+	:global(a:focus-visible) {
+		outline: 2px solid var(--color-secondary);
+		outline-offset: 2px;
+		border-radius: var(--radius-sm);
+	}
+
 	:global(b) {
 		color: var(--color-text);
 	}
