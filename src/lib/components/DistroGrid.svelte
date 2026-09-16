@@ -50,21 +50,6 @@
 			}
 		}
 	}
-
-	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'Enter' || e.key === ' ') {
-			e.preventDefault();
-			const heading = e.currentTarget as HTMLElement;
-			const card = heading.closest('[data-distro-id]') as HTMLElement;
-			const distroId = card?.getAttribute('data-distro-id');
-			if (distroId) {
-				const distro = distros.find(d => d.id === distroId);
-				if (distro) {
-					selectDistro(distro);
-				}
-			}
-		}
-	}
 </script>
 
 <div class="distro-grid">
@@ -100,13 +85,18 @@
 				alt="{distro.name} logo"
 				customClass="distro-icon"
 			/>
-			<h3
-				role="button"
-				tabindex="0"
-				onkeydown={handleKeydown}
-				aria-label={`${distro.name}, ${getDescription(distro)}`}
-				aria-pressed={selectedDistro?.id === distro.id}
-			>{distro.name}</h3>
+			<h3>
+				<button
+					type="button"
+					class="distro-name-btn"
+					onclick={(e) => {
+						e.stopPropagation();
+						selectDistro(distro);
+					}}
+					aria-label={`${distro.name}, ${getDescription(distro)}`}
+					aria-pressed={selectedDistro?.id === distro.id}
+				>{distro.name}</button>
+			</h3>
 		</div>
 	{/each}
 </div>
@@ -215,10 +205,23 @@
 	}
 
 	.distro-card h3 {
-		font-size: var(--text-base);
-		font-weight: var(--font-semibold);
 		margin: 0;
 		line-height: var(--line-height-tight);
+	}
+
+	.distro-name-btn {
+		display: block;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: none;
+		background: none;
+		font-family: inherit;
+		font-size: var(--text-base);
+		font-weight: var(--font-semibold);
+		line-height: var(--line-height-tight);
+		color: inherit;
+		cursor: pointer;
 	}
 
 	@media (max-width: 640px) {
