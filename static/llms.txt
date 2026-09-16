@@ -1,20 +1,57 @@
-# Linux Distribution Picker
+# Linux Distro Picker
 
-> A modern tool to help you find the perfect Linux distribution based on your needs. Answer questions about gaming, development, user-friendliness, and more to get personalized recommendations.
+> Interactive tool to find the best Linux distribution for your needs. Answer questions about gaming, development, user-friendliness and more to get personalized recommendations.
 
-Linux Distribution Picker is a free, open-source web app built with SvelteKit. It features a quick quiz to match users with distros, a searchable grid of Linux distributions with detailed info (desktop environments, beginner-friendliness scores, userbase size, upstream base), and a like/favorites system powered by Supabase.
+Linux Distro Picker is a free, open-source web app built with SvelteKit. It features a quick quiz to match users with distros, a filterable grid of Linux distributions with detailed info (desktop environments, beginner-friendliness scores, userbase size, upstream base), and a like/favorites system.
 
-## Features
+## Navigation
 
-- Interactive quiz to find your ideal Linux distribution
-- Browse and filter distros by tags (gaming, development, minimal, point release, etc.)
-- Detailed distribution info including desktops, beginner-friendliness, and popularity
-- Like and favorite distributions
-- Dark and light theme support
-- Multilingual support (English, Belarusian)
+- [Home](https://distro-picker.vercel.app/)
+- [Full text of this site](https://distro-picker.vercel.app/llms-full.txt)
+- [Sitemap](https://distro-picker.vercel.app/sitemap.xml)
+- [Source code](https://github.com/greg-harodnia/distro-picker)
 
-## Links
+## About
 
-- Source: https://github.com/user/distro-picker
-- Live: https://distro-picker.vercel.app/
-- Sitemap: https://distro-picker.vercel.app/sitemap.xml
+Linux Distro Picker helps beginners and experienced users choose a Linux distribution. Instead of comparing dozens of distros, you filter by what matters: purpose (gaming, lightweight), release model (point release, rolling, immutable), favorite desktop environment, and more. The built-in quick quiz asks how you want to use your computer and recommends the best matching distribution.
+
+Key features:
+
+- Interactive quiz that recommends a distribution (e.g. "Windows-like layout" → Linux Mint, Kubuntu, or Zorin OS)
+- Browse and filter distributions by tags (gaming-ready, lightweight, point release, rolling, immutable)
+- Detailed info per distribution: desktop environments, based-on, beginner-friendliness score (/5), userbase size, Secure Boot support, swap strategy
+- Like cards work across 16 distributions covering beginners, gamers, developers, and power users
+- Dark and light theme, multilingual UI (English, Belarusian)
+
+## Distributions
+
+The app covers these Linux distributions, each with a dedicated page:
+
+- [Linux Mint](https://distro-picker.vercel.app/distro/mint) — community-driven, stable, user-friendly (Cinnamon, MATE, Xfce)
+- [Zorin OS](https://distro-picker.vercel.app/distro/zorin) — polished and easy to use (GNOME)
+- [Pop!_OS](https://distro-picker.vercel.app/distro/popos) — built by System76, COSMIC desktop (GNOME-based)
+- [Kubuntu](https://distro-picker.vercel.app/distro/kubuntu) — Ubuntu with KDE Plasma
+- [Tuxedo OS](https://distro-picker.vercel.app/distro/tuxedo) — semi-rolling Kubuntu alternative, Flatpak-first
+- [KDE Linux](https://distro-picker.vercel.app/distro/kde-linux) — immutable, user-friendly OS from KDE
+- [openSUSE](https://distro-picker.vercel.app/distro/openSUSE) — stable, professional-grade (Tumbleweed & Leap)
+- [Fedora](https://distro-picker.vercel.app/distro/fedora) — cutting-edge, developer favorite
+- [Ultramarine](https://distro-picker.vercel.app/distro/ultramarine) — Fedora out-of-the-box with codecs and drivers
+- [EndeavourOS](https://distro-picker.vercel.app/distro/endeavouros) — Arch made easy, minimal and fast
+- [CachyOS](https://distro-picker.vercel.app/distro/cachyos) — performance-optimized Arch, gaming capable
+- [Omarchy](https://distro-picker.vercel.app/distro/omarchy) — Arch + Hyprland, productivity-first tiling workflow
+- [SteamOS](https://distro-picker.vercel.app/distro/steamos) — Valve's gaming OS for Steam Deck and handhelds
+- [Bazzite](https://distro-picker.vercel.app/distro/bazzite) — gaming-ready immutable distro for PCs and handhelds
+- [Nobara](https://distro-picker.vercel.app/distro/nobara) — gaming distro from the creator of Proton-GE
+- [PikaOS](https://distro-picker.vercel.app/distro/pikaos) — gaming distro based on Debian Unstable
+- [Lubuntu](https://distro-picker.vercel.app/distro/lubuntu) — lightweight Ubuntu for older hardware (LXQt)
+- [antiX](https://distro-picker.vercel.app/distro/antiX) — ultra-light distro for ancient computers
+
+## Particulars
+
+- The app intentionally excludes enterprise, niche and very advanced distributions (Arch, Ubuntu, Debian, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Manjaro, elementaryOS, Solus, Red Hat, AlmaLinux, Rocky Linux, Kali, Alpine) to keep the choice simple for beginners.
+- Estimated Linux market data (mid-2026): ~100-120M computers using Linux, ~60-75M users (~25-30% Ubuntu, 10% Linux Mint, 5% Arch, 4% Debian), about 4-5% market share.
+- Recommended software: browsers (Brave, Helium, Zen, Floorp), office (OnlyOffice, LibreOffice), torrent (qBittorrent), local AI (LM Studio), Windows apps (Bottles), system backup (Timeshift).
+
+## Optional
+
+The full, dereferenced text of every page on this site is available at [/llms-full.txt](https://distro-picker.vercel.app/llms-full.txt).

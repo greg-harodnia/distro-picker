@@ -1,7 +1,7 @@
 export async function load() {
 	const screenshots: Record<string, string[]> = {};
 
-	const modules = import.meta.glob('/static/screenshots/*/*', { as: 'url' });
+	const modules = import.meta.glob('/static/screenshots/*/*');
 
 	for (const path in modules) {
 		const match = path.match(/\/screenshots\/([^/]+)\//);

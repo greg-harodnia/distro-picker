@@ -42,7 +42,8 @@
 		"item": {
 			"@type": "SoftwareApplication",
 			"name": d.name,
-			"url": d.website,
+			"url": `${siteUrl}/distro/${d.id}`,
+			"image": `${siteUrl}${d.logo || '/linux.webp'}`,
 			"applicationCategory": "OperatingSystem",
 			"operatingSystem": "Linux"
 		}

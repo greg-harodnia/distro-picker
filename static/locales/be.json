@@ -18,6 +18,17 @@
             "theme": "Перамкнуць тэму"
         }
     },
+    "pages": {
+        "distro": {
+            "backLink": "Назад да ўсіх дыстрыбуцый",
+            "recommended": "Адная з найлепшых",
+            "popular": "Папулярная",
+            "hiddenGem": "Таемная пэрліна",
+            "features": "Асаблівасьці",
+            "screenshots": "Скрыншоты",
+            "findMyDistro": "Знайсьці сваю дыстрыбуцыю"
+        }
+    },
     "tags": {
         "gaming-ready": {
             "name": "Гульнявая",

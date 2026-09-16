@@ -18,6 +18,17 @@
             "theme": "Toggle theme"
         }
     },
+    "pages": {
+        "distro": {
+            "backLink": "Back to all distributions",
+            "recommended": "One of the best",
+            "popular": "Popular",
+            "hiddenGem": "Hidden gem",
+            "features": "Features",
+            "screenshots": "Screenshots",
+            "findMyDistro": "Find my distro"
+        }
+    },
     "tags": {
         "gaming-ready": {
             "name": "Gaming Ready",

@@ -6,14 +6,16 @@
 	let {
 		images = [],
 		distroName = '',
+		initialIndex = 0,
 		onclose = () => {},
 	}: {
 		images?: string[];
 		distroName?: string;
+		initialIndex?: number;
 		onclose?: () => void;
 	} = $props();
 
-	let currentIndex = $state(0);
+	let currentIndex = $state(initialIndex);
 	let preloadIndexes: number[] = $state([]);
 
 	let scale = $state(1);
