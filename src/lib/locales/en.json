@@ -49,6 +49,22 @@
         "immutable": {
             "name": "Immutable",
             "description": "Immutable (read-only) system and atomic updates"
+        },
+        "kde-plasma": {
+            "name": "KDE Plasma",
+            "description": "KDE Plasma desktop environment"
+        },
+        "gnome": {
+            "name": "GNOME",
+            "description": "GNOME desktop environment"
+        },
+        "xfce": {
+            "name": "Xfce",
+            "description": "Xfce desktop environment"
+        },
+        "other": {
+            "name": "Other",
+            "description": "Any desktop environment other than KDE Plasma, GNOME, or Xfce"
         }
     },
     "distros": {

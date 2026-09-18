@@ -33,10 +33,14 @@
 
   /* Tag colors (4:1 contrast on white) */
   --tag-gaming-ready: #8b5cf6;
-  --tag-lightweight: #b9ad03;
-  --tag-point-release: #22c55e;
-  --tag-rolling: #3b82f6;
-  --tag-immutable: #f97316;
+  --tag-lightweight: #7a7400;
+  --tag-point-release: #15803d;
+  --tag-rolling: #1d4ed8;
+  --tag-immutable: #c2410c;
+  --tag-kde-plasma: #2b6cb0;
+  --tag-gnome: #7c3aed;
+  --tag-xfce: #a16207;
+  --tag-other: #d9480f;
   
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -155,6 +159,10 @@
   --tag-point-release: rgb(22, 200, 84);
   --tag-rolling: #2478ff;
   --tag-immutable: #f98416;
+  --tag-kde-plasma: #4a9de8;
+  --tag-gnome: #c084fc;
+  --tag-xfce: #facc15;
+  --tag-other: #ff7a00;
   
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.3);

@@ -24,6 +24,26 @@
       "id": "immutable",
       "description": "Immutable distribution with atomic updates",
       "group": "update-model"
+    },
+    {
+      "id": "kde-plasma",
+      "description": "Comes with the KDE Plasma desktop environment",
+      "group": "desktop"
+    },
+    {
+      "id": "gnome",
+      "description": "Comes with the GNOME desktop environment",
+      "group": "desktop"
+    },
+    {
+      "id": "xfce",
+      "description": "Comes with the Xfce desktop environment",
+      "group": "desktop"
+    },
+    {
+      "id": "other",
+      "description": "Comes with a desktop environment other than KDE Plasma, GNOME, or Xfce",
+      "group": "desktop"
     }
   ]
 }

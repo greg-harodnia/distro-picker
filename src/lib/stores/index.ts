@@ -27,6 +27,25 @@ export function getTagGroup(tagId: string): string | undefined {
 	return tag?.group;
 }
 
+const DESKTOP_GROUP = 'desktop';
+const MAIN_DESKTOPS = new Set(['KDE Plasma', 'GNOME', 'Xfce']);
+
+function matchesDesktop(desktops: string[] | undefined, tagId: string): boolean {
+	if (!desktops || desktops.length === 0) return false;
+	switch (tagId) {
+		case 'kde-plasma':
+			return desktops.includes('KDE Plasma');
+		case 'gnome':
+			return desktops.includes('GNOME');
+		case 'xfce':
+			return desktops.includes('Xfce');
+		case 'other':
+			return desktops.some(d => !MAIN_DESKTOPS.has(d));
+		default:
+			return false;
+	}
+}
+
 export const filteredDistros = derived(
 	[distros, selectedTags, showBestOnly],
 	([$distros, $selectedTags, $showBestOnly]) => {
@@ -41,7 +60,12 @@ export const filteredDistros = derived(
 		if ($selectedTags.size > 0) {
 			const selectedArray = Array.from($selectedTags);
 			result = result.filter(distro => 
-				selectedArray.every(tagId => distro.tag_ids.includes(tagId))
+				selectedArray.every(tagId => {
+					if (getTagGroup(tagId) === DESKTOP_GROUP) {
+						return matchesDesktop(distro.desktops, tagId);
+					}
+					return distro.tag_ids.includes(tagId);
+				})
 			);
 		}
 		

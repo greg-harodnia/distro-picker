@@ -49,6 +49,22 @@
         "immutable": {
             "name": "Нязьменная",
             "description": "Нязьменная (толькі для чытаньня) сыстэма й атамарныя абнавеньні"
+        },
+        "kde-plasma": {
+            "name": "KDE Plasma",
+            "description": "Ґрафічнае асяродзьдзе KDE Plasma"
+        },
+        "gnome": {
+            "name": "GNOME",
+            "description": "Ґрафічнае асяродзьдзе GNOME"
+        },
+        "xfce": {
+            "name": "Xfce",
+            "description": "Ґрафічнае асяродзьдзе Xfce"
+        },
+        "other": {
+            "name": "Іншае",
+            "description": "Усякае ґрафічнае асяродзьдзе акрамя KDE Plasma, GNOME або Xfce"
         }
     },
     "distros": {
