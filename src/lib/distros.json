@@ -4,7 +4,7 @@
       "id": "mint",
       "name": "Linux Mint",
       "website": "https://linuxmint.com/",
-      "tag_ids": ["point-release"],
+      "tag_ids": ["point-release", "lightweight"],
       "logo": "/mint.webp",
       "best": true,
       "desktops": ["Cinnamon", "MATE", "Xfce"],
