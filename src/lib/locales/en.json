@@ -102,6 +102,9 @@
             "description": "An immutable (using Btrfs snapshots) Linux OS built by KDE. Immutability makes it extremely stable, but keeps the system read-only (which isn't a problem for most users). Strives to be as user-friendly as possible. Yet to be released, here just for information, don't install it just yet.",
             "highlights": ["Stable, modern, and reliable general-purpose OS"]
         },
+        "kalpa": {
+            "description": "Kalpa is a desktop OS you don't have to worry about. It has an immutable OS layer, while providing continuous updates to its mutable software layer. It is the perfect choice for an \"it just works\" OS, however, it is still in the alpha stage."
+        },
         "openSUSE": {
             "description": "openSUSE is a modern, general-purpose, stable, and reliable distribution intended for both professional and casual users. It is sponsored by SUSE, the first company to market Linux for the enterprise. It comes in two main variants: Tumbleweed (a rolling release) and Leap (a point release), and offers three primary desktop environments: KDE Plasma, GNOME, and Xfce (with more options available during installation). openSUSE greatly leverages the Btrfs filesystem by making snapshots of files and packages with Snapper to ensure system integrity. Also, historically, it used the YaST configuration tool to manage the entire system from a single place, but now it has been replaced with modern solutions. At its core, it's similar to Fedora but with a greater focus on system stability. It is a perfect choice for system administrators and regular users (yes, even gamers). The OS adheres strictly to open-source practices and therefore does not contain proprietary components by default.",
             "userbasePostfix": " million"

@@ -96,6 +96,18 @@
       "swap_strategy": "zram-and-swap-file"
     },
     {
+      "id": "kalpa",
+      "name": "Kalpa",
+      "website": "https://kalpadesktop.org/",
+      "tag_ids": ["immutable", "rolling"],
+      "logo": "/kalpa.svg",
+      "desktops": ["KDE Plasma"],
+      "beginner_friendly": 4.8,
+      "based_on": "openSUSE MicroOS + openSUSE Tumbleweed",
+      "secure_boot": true,
+      "swap_strategy": "zram"
+    },
+    {
       "id": "openSUSE",
       "name": "openSUSE",
       "website": "https://www.opensuse.org/",
