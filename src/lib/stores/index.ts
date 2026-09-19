@@ -30,6 +30,10 @@ export function getTagGroup(tagId: string): string | undefined {
 const DESKTOP_GROUP = 'desktop';
 const MAIN_DESKTOPS = new Set(['KDE Plasma', 'GNOME', 'Xfce']);
 
+// Tag groups (sections) where multiple tags may be selected at once.
+// The second filter section ("update-model": point-release, rolling, immutable).
+const MULTI_SELECT_GROUPS = new Set(['update-model']);
+
 function matchesDesktop(desktops: string[] | undefined, tagId: string): boolean {
 	if (!desktops || desktops.length === 0) return false;
 	switch (tagId) {
@@ -82,7 +86,7 @@ export const tagActions = {
 				newSet.delete(tagId);
 			} else {
 				const tagGroup = getTagGroup(tagId);
-				if (tagGroup) {
+				if (tagGroup && !MULTI_SELECT_GROUPS.has(tagGroup)) {
 					for (const selectedId of newSet) {
 						if (getTagGroup(selectedId) === tagGroup) {
 							newSet.delete(selectedId);
