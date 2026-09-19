@@ -87,7 +87,7 @@
       "id": "kde-linux",
       "name": "KDE Linux",
       "website": "https://kde.org/linux/",
-      "tag_ids": ["immutable", "rolling"],
+      "tag_ids": ["immutable", "point-release", "rolling"],
       "logo": "/kde.webp",
       "in_development": true,
       "desktops": ["KDE Plasma"],
