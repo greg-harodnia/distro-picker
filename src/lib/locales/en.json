@@ -93,6 +93,11 @@
             "userbasePostfix": " million",
             "highlights": ["Innovative design with tiling window capability", "Not up-to-date software"]
         },
+        "aurora": {
+            "description": "Aurora is a cutting-edge Linux OS built on the same foundation as Bazzite. As an immutable, point-release distribution, it delivers daily background updates that apply seamlessly upon reboot, remaining unnoticed by the user. Aurora utilizes Flatpaks managed through the Bazaar software center, offering greater stability than traditional distributions like Ubuntu without sacrificing freshness. It is the perfect option for everyday use, including gaming and software development.",
+            "userbasePostfix": "k",
+            "highlights": ["Cutting-edge OS for everything"]
+        },
         "kde-linux": {
             "description": "An immutable (using Btrfs snapshots) Linux OS built by KDE. Immutability makes it extremely stable, but keeps the system read-only (which isn't a problem for most users). Strives to be as user-friendly as possible. Yet to be released, here just for information, don't install it just yet. The closest alternative is Aurora Linux.",
             "highlights": ["Stable, modern, and reliable general-purpose OS"]
