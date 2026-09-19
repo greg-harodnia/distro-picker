@@ -155,13 +155,9 @@
 		z-index: 1;
 	}
 
-	.popular,
-	.best {
-		font-size: 1.5rem;
-		line-height: 1;
-	}
-
-	.hidden-gem {
+	.reactions .popular,
+	.reactions .best,
+	.reactions .hidden-gem {
 		font-size: 1.5rem;
 		line-height: 1;
 	}
