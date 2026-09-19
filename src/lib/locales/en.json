@@ -100,7 +100,7 @@
             "highlights": ["Cutting-edge OS for everything"]
         },
         "kde-linux": {
-            "description": "An immutable Linux OS built by KDE. Immutability makes it extremely stable, but keeps the system read-only (which isn't a problem for most users). Strives to be as user-friendly as possible. Yet to be released, here just for information, don't install it just yet.",
+            "description": "An immutable Linux OS built by KDE. It provides the default KDE Plasma experience as its developers originally intended, effectively replacing KDE Neon. Yet to be released, here just for information, don't install it just yet.",
             "highlights": ["Stable, modern, and reliable general-purpose OS"]
         },
         "kalpa": {
