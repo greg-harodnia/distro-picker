@@ -129,7 +129,7 @@
       "id": "ultramarine",
       "name": "Ultramarine",
       "website": "https://ultramarine-linux.org/",
-      "tag_ids": ["rolling"],
+      "tag_ids": ["point-release", "rolling"],
       "logo": "/ultramarine.webp",
       "hidden_gem": true,
       "desktops": ["KDE Plasma", "GNOME", "Xfce", "Budgie"],
