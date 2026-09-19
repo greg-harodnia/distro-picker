@@ -71,6 +71,9 @@
 			{#if distro.hidden_gem}
 				<span class="hidden-gem">💎</span>
 			{/if}
+			{#if distro.in_development}
+				<span class="in-development">🚧</span>
+			{/if}
 				<button 
 					class="like" 
 					class:liked={distro.userLiked}
@@ -157,7 +160,8 @@
 
 	.reactions .popular,
 	.reactions .best,
-	.reactions .hidden-gem {
+	.reactions .hidden-gem,
+	.reactions .in-development {
 		font-size: 1.5rem;
 		line-height: 1;
 	}

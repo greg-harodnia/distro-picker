@@ -58,11 +58,12 @@
 	<header class="distro-header">
 		<img class="distro-logo" src={`${base}${distro.logo || '/linux.webp'}`} alt="{distro.name} logo" height="96" width="96" />
 		<h1 class="distro-name">{distro.name}</h1>
-		{#if distro.best || distro.popular || distro.hidden_gem}
+		{#if distro.best || distro.popular || distro.hidden_gem || distro.in_development}
 			<p class="badges">
 				{#if distro.best}<span class="badge">👑 {$t('pages.distro.recommended')}</span>{/if}
 				{#if distro.popular}<span class="badge">🔥 {$t('pages.distro.popular')}</span>{/if}
 				{#if distro.hidden_gem}<span class="badge">💎 {$t('pages.distro.hiddenGem')}</span>{/if}
+				{#if distro.in_development}<span class="badge">🚧 {$t('pages.distro.inDevelopment')}</span>{/if}
 			</p>
 		{/if}
 	</header>

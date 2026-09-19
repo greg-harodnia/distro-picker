@@ -14,6 +14,7 @@ export interface Distro {
 	best?: boolean;
 	popular?: boolean;
 	hidden_gem?: boolean;
+	in_development?: boolean;
 	desktops?: string[];
 	hasMoreDesktops?: boolean;
 	beginner_friendly?: number;
