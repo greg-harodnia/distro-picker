@@ -75,6 +75,7 @@
       "website": "https://getaurora.dev/",
       "tag_ids": ["immutable", "point-release", "rolling"],
       "logo": "/aurora.svg",
+      "hidden_gem": true,
       "desktops": ["KDE Plasma"],
       "beginner_friendly": 5.0,
       "based_on": "Fedora Atomic",
