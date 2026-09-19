@@ -99,7 +99,7 @@
             "highlights": ["Cutting-edge OS for everything"]
         },
         "kde-linux": {
-            "description": "An immutable (using Btrfs snapshots) Linux OS built by KDE. Immutability makes it extremely stable, but keeps the system read-only (which isn't a problem for most users). Strives to be as user-friendly as possible. Yet to be released, here just for information, don't install it just yet. The closest alternative is Aurora Linux.",
+            "description": "An immutable (using Btrfs snapshots) Linux OS built by KDE. Immutability makes it extremely stable, but keeps the system read-only (which isn't a problem for most users). Strives to be as user-friendly as possible. Yet to be released, here just for information, don't install it just yet.",
             "highlights": ["Stable, modern, and reliable general-purpose OS"]
         },
         "openSUSE": {
@@ -200,7 +200,7 @@
                 "answers": [
                     {
                         "text": "I'm lazy, just tell me what to use",
-                        "result": "Zorin OS (if you prioritize visual aesthetics and simplicity. Perfect for your mom and friends) or Ultramarine / Tuxedo OS (if you prefer the freshness of software. Perfect for ex-distrohoppers who want to finally settle)."
+                        "result": "Zorin OS (if you prioritize visual aesthetics and simplicity. Perfect for your mom and friends) or Ultramarine / Tuxedo OS (if you prefer the freshness of software. Perfect for ex-distrohoppers who want to finally settle) or Aurora (if you want maximum stability)."
                     },
                     {
                         "text": "Just a regular user",
