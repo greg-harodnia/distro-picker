@@ -261,7 +261,7 @@
       "desktops": ["LXQt"],
       "beginner_friendly": 4.8,
       "based_on": "Ubuntu",
-      "userbase_number": "~100",
+      "userbase_number": "~100-500",
       "secure_boot": true,
       "swap_strategy": "swap-file"
     },
@@ -274,7 +274,7 @@
       "desktops": ["Fluxbox", "IceWM", "JWM"],
       "beginner_friendly": 3.8,
       "based_on": "Debian",
-      "userbase_number": "~20",
+      "userbase_number": "~20-100",
       "secure_boot": false,
       "swap_strategy": "none"
     }
