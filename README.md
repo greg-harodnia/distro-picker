@@ -59,7 +59,7 @@ distro-picker/
 │   │   ├── locales/
 │   │   │   ├── types.ts      # Type definitions
 │   │   │   ├── en.json       # English (bundled, used for SSR)
-│   │   │   └── en_old.json
+│   │   │   └── be.json       # Belarusian (bundled, used for SSR)
 │   │   ├── stores/
 │   │   │   ├── index.ts
 │   │   │   └── theme.ts
@@ -77,17 +77,21 @@ distro-picker/
 │   │   ├── tagGroups.ts
 │   │   └── types.ts
 │   └── routes/
-│       ├── +layout.server.js
-│       ├── +layout.svelte
-│       ├── +page.server.ts
-│       └── +page.svelte
+│       ├── +layout.server.js     # Returns the locale from the URL (`/` -> en, `/be` -> be)
+│       ├── +layout.svelte        # Seeds the locale store, canonical + hreflang
+│       └── [[lang]]/             # Optional locale segment
+│           ├── +page.server.ts
+│           ├── +page.svelte
+│           └── distro/[id]/
+│               ├── +page.server.ts   # entries() prerenders both /distro/x and /be/distro/x
+│               └── +page.svelte
+├── src/hooks.server.ts           # Rewrites <html lang> per URL during prerender
 ├── static/
-│   ├── locales/              # Translation files loaded via fetch
 │   ├── screenshots/          # Distro screenshots
 │   ├── _headers
 │   ├── .nojekyll
 │   ├── robots.txt
-│   ├── sitemap.xml
+│   ├── sitemap.xml           # Includes both language variants
 │   └── *.webp/*.svg          # Distro logo images
 ├── package.json
 ├── svelte.config.js
@@ -108,26 +112,34 @@ Row Level Security (RLS) is enabled with public SELECT and UPDATE policies for t
 
 ## 🌐 Supported Languages
 
-The app supports language detection based on browser language and timezone:
+The language is part of the URL, so every version is prerendered as static,
+indexable HTML:
 
-| Language | Code | Native Name | Auto-Detect Method |
-|----------|------|-------------|-------------------|
-| English | `en` | English | Browser default (bundled) |
-| Belarusian | `be` | Беларуская | Browser (`be`, `be-BY`, `bel`, `be-tarask`) + Timezone (`Europe/Minsk`) |
+| Language | Code | Native Name | URL |
+|----------|------|-------------|-----|
+| English (default, `x-default`) | `en` | English | `/`, `/distro/{id}` |
+| Belarusian | `be` | Беларуская | `/be`, `/be/distro/{id}` |
 
-### Language Detection
+### How it works
 
-Language is automatically detected based on:
-1. **Browser language** - Uses `navigator.language` with fallback
-2. **System timezone** - Some languages are also detected by timezone (e.g., Minsk → Belarusian)
+1. **URL is the source of truth** - `/` serves English, `/be` serves
+   Belarusian. The root layout reads `params.lang` and seeds the locale store
+   *before* rendering, so the emitted HTML (title, description, content,
+   JSON-LD, `<html lang>`) matches the URL. No JavaScript required to see the
+   right language — search engines and AI crawlers get the full Belarusian
+   content directly in the response body.
+2. **Switching** - the language toggle renders real links between language
+   variants (crawlers can discover `/be` from them), so the choice survives
+   bookmarks and shared links. There is no localStorage/hash language state.
+3. **SEO** - each page emits self-referencing canonical plus
+   `hreflang="en"` / `hreflang="be"` / `hreflang="x-default"` alternates, and
+   the sitemap lists both variants. `src/hooks.server.ts` rewrites
+   `<html lang>` per URL at build time.
 
-Users can manually switch languages using the language toggle. The selected language is stored in `localStorage`.
+### Translations
 
-### Lazy Loading
-
-To optimize performance, translations are lazy-loaded:
-- **English** - Bundled with the app (fallback language)
-- **Other languages** - Loaded on-demand as JSON files (`/locales/{lang}.json`)
+All translations are statically bundled from `src/lib/locales/*.json`, which
+makes them available during SSR/prerender. Missing keys fall back to English.
 
 ### SEO
 

@@ -1,23 +1,28 @@
 <script lang="ts">
   import { locale, availableLanguages, t } from '$lib/i18n/locale';
   import type { Language } from '$lib/locales/types';
-  import { onMount } from 'svelte';
+  import { page } from '$app/state';
+  import { base } from '$app/paths';
   import { slide } from 'svelte/transition';
 
   let isOpen = $state(false);
 
-  onMount(() => {
-    locale.init();
-  });
+  /**
+   * The URL is the source of truth for the language, so each option is a
+   * real link — crawlers can discover `/be` this way, and the choice
+   * survives sharing/bookmarks.
+   */
+  function hrefFor(code: Language): string {
+    const path = page.url.pathname;
+    const isBe = path === '/be' || path.startsWith('/be/');
+    const enPath = isBe ? path.slice(3) || '/' : path;
+    if (code === 'en') return `${base}${enPath}`;
+    if (isBe) return `${base}${path}`;
+    return `${base}${enPath === '/' ? '/be' : `/be${enPath}`}`;
+  }
 
   function toggleDropdown() {
     isOpen = !isOpen;
-  }
-
-  function selectLanguage(e: MouseEvent, code: Language) {
-    e.stopPropagation();
-    locale.set(code);
-    isOpen = false;
   }
 
   function handleClickOutside(event: MouseEvent) {
@@ -59,11 +64,13 @@
   {#if isOpen}
     <div class="dropdown" role="listbox" transition:slide={{ duration: 150 }}>
       {#each availableLanguages as lang}
-        <button
-          type="button"
+        <a
           class="dropdown-item"
           class:selected={lang.code === $locale}
-          onclick={(e) => selectLanguage(e, lang.code)}
+          href={hrefFor(lang.code)}
+          hreflang={lang.code}
+          lang={lang.code}
+          onclick={() => (isOpen = false)}
           role="option"
           aria-selected={lang.code === $locale}
         >
@@ -74,7 +81,7 @@
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
           {/if}
-        </button>
+        </a>
       {/each}
     </div>
   {/if}
@@ -131,6 +138,7 @@
     cursor: pointer;
     transition: background var(--transition-fast);
     text-align: left;
+    text-decoration: none;
   }
 
   @media (hover: hover) {

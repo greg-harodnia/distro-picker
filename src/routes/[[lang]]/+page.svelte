@@ -25,8 +25,8 @@
 		dataActions,
 	} from "$lib/stores";
 	import type { Distro, Tag } from "$lib/types";
-	import { t } from "$lib/i18n/locale";
-	import { getTranslation, humanizeId } from '$lib/i18n/translations';
+	import { t, locale, localePath } from "$lib/i18n/locale";
+	import { humanizeId } from '$lib/i18n/translations';
 	import distrosData from "$lib/distros.json";
 	import { SITE_URL as siteUrl, SEO_KEYWORDS } from "$lib/seo";
 	import { getTagGroups, TAGS } from "$lib/tagGroups";
@@ -36,41 +36,44 @@
 
 	const seoKeywords = SEO_KEYWORDS;
 
-	const itemListElements = distrosData.distros.map((d, i) => ({
-		"@type": "ListItem",
-		"position": i + 1,
-		"item": {
-			"@type": "SoftwareApplication",
-			"name": d.name,
-			"url": `${siteUrl}/distro/${d.id}`,
-			"image": `${siteUrl}${d.logo || '/linux.webp'}`,
-			"applicationCategory": "OperatingSystem",
-			"operatingSystem": "Linux"
-		}
-	}));
-
-	const seoTitle = getTranslation('en', 'app.title') || 'Linux Distro Picker';
-	const seoDescription = getTranslation('en', 'app.description') || 'A distro chooser for beginners with a quiz';
-
-	const ldJson = JSON.stringify({
-		"@context": "https://schema.org",
-		"@graph": [
-			{
-				"@type": "WebSite",
-				"url": siteUrl,
-				"name": seoTitle,
-				"description": seoDescription,
-				"keywords": seoKeywords,
-				"inLanguage": "en"
-			},
-			{
-				"@type": "ItemList",
-				"itemListElement": itemListElements
-			}
-		]
-	}, null, 2);
-
 	let { data }: { data: PageData } = $props();
+
+	// Structured data is derived (not module-level) so it is rendered in the
+	// page's language — `/be` gets Belarusian names and `/be`-prefixed URLs.
+	let ldJson = $derived(
+		JSON.stringify(
+			{
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "WebSite",
+						"url": `${siteUrl}${localePath('/', $locale)}`,
+						"name": $t('app.title') || 'Linux Distro Picker',
+						"description": $t('app.description') || 'A distro chooser for beginners with a quiz',
+						"keywords": seoKeywords,
+						"inLanguage": $locale
+					},
+					{
+						"@type": "ItemList",
+						"itemListElement": distrosData.distros.map((d, i) => ({
+							"@type": "ListItem",
+							"position": i + 1,
+							"item": {
+								"@type": "SoftwareApplication",
+								"name": d.name,
+								"url": `${siteUrl}${localePath(`/distro/${d.id}`, $locale)}`,
+								"image": `${siteUrl}${d.logo || '/linux.webp'}`,
+								"applicationCategory": "OperatingSystem",
+								"operatingSystem": "Linux"
+							}
+						}))
+					}
+				]
+			},
+			null,
+			2
+		)
+	);
 
 	let infoModalOpen = $state(false);
 	let quickTestOpen = $state(false);

@@ -4,9 +4,11 @@ import { getTranslation } from '$lib/i18n/translations';
 
 export const prerender = true;
 
-export const entries = () => distrosData.distros.map((distro) => ({ id: distro.id }));
+export const entries = () =>
+	distrosData.distros.flatMap((distro) => [{ id: distro.id }, { id: distro.id, lang: 'be' }]);
 
 export function load({ params }) {
+	const locale = params.lang === 'be' ? 'be' : 'en';
 	const distro = distrosData.distros.find((d) => d.id === params.id);
 	if (!distro) {
 		error(404, 'Distribution not found');
@@ -22,13 +24,14 @@ export function load({ params }) {
 		}
 	}
 
-	const description = getTranslation('en', `distros.${distro.id}.description`) || '';
+	const siteTitle = getTranslation(locale, 'app.title') || getTranslation('en', 'app.title');
+	const description = getTranslation(locale, `distros.${distro.id}.description`) || '';
 
 	return {
 		distro,
 		screenshots,
 		seo: {
-			title: `${distro.name} | Linux Distro Picker`,
+			title: `${distro.name} | ${siteTitle}`,
 			description: description.length > 155 ? `${description.slice(0, 152).trim()}...` : description,
 			image: `${distro.logo || '/linux.webp'}`,
 		},

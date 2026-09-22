@@ -5,7 +5,7 @@
 	import Modal from "./Modal.svelte";
 	import GalleryModal from "./GalleryModal.svelte";
 	import DistroDetails from "$lib/components/DistroDetails.svelte";
-	import { t } from "$lib/i18n/locale";
+	import { t, locale, localePath } from "$lib/i18n/locale";
 
 	let {
 		distro,
@@ -21,7 +21,7 @@
 
 	let showGallery = $state(false);
 
-	let fullPageUrl = $derived(`${base}/distro/${distro.id}`);
+	let fullPageUrl = $derived(`${base}${localePath(`/distro/${distro.id}`, $locale)}`);
 
 	function visitWebsite() {
 		const sanitizedUrl = sanitizeUrl(distro.website);

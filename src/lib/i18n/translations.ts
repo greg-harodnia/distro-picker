@@ -1,36 +1,26 @@
 import type { Translations, Language } from '$lib/locales/types';
 import enData from '$lib/locales/en.json';
-import { base } from '$app/paths';
+import beData from '$lib/locales/be.json';
 
+/**
+ * All translations are bundled statically so they are available during
+ * server-side rendering / prerendering. This is what makes non-JS crawlers
+ * (search engines, AI agents) see the correct language in the HTML.
+ */
 const translationCache: Partial<Record<Language, Translations>> = {
-  en: enData as Translations,
+	en: enData as Translations,
+	be: beData as Translations,
 };
 
 const translationPathCache = new Map<string, string>();
 
-async function loadLang(lang: Language): Promise<Translations> {
-  if (typeof window === 'undefined') {
-    return enData as Translations;
-  }
-  const url = `${base}/locales/${lang}.json`;
-  const response = await fetch(url);
-  if (!response.ok) {
-    return enData as Translations;
-  }
-  return response.json() as Promise<Translations>;
-}
-
 export async function loadTranslation(lang: Language): Promise<Translations> {
-  if (translationCache[lang]) return translationCache[lang]!;
-  const translations = await loadLang(lang);
-  translationCache[lang] = translations;
-  translationPathCache.clear(); // is it needed?
-  return translations;
+	return translationCache[lang] ?? (translationCache.en as Translations);
 }
 
 /** Fallback label for ids with no translation, e.g. "kde-plasma" -> "Kde Plasma". */
 export function humanizeId(id: string): string {
-  return id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+	return id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 export function getTranslation(lang: Language, path: string): string | undefined {

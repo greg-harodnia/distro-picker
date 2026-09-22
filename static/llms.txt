@@ -7,6 +7,7 @@ Linux Distro Picker is a free, open-source web app built with SvelteKit. It feat
 ## Navigation
 
 - [Home](https://distro-picker.vercel.app/)
+- [Belarusian version](https://distro-picker.vercel.app/be) — same content in Belarusian (`/be` prefix on every page)
 - [Full text of this site](https://distro-picker.vercel.app/llms-full.txt)
 - [Sitemap](https://distro-picker.vercel.app/sitemap.xml)
 - [Source code](https://github.com/greg-harodnia/distro-picker)

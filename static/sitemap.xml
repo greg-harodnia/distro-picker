@@ -7,10 +7,22 @@
 		<priority>1.0</priority>
 	</url>
 	<url>
+		<loc>https://distro-picker.vercel.app/be</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
 		<loc>https://distro-picker.vercel.app/distro/mint</loc>
 		<lastmod>2026-09-16</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/mint</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
 	</url>
 	<url>
 		<loc>https://distro-picker.vercel.app/distro/zorin</loc>
@@ -19,10 +31,22 @@
 		<priority>0.8</priority>
 	</url>
 	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/zorin</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
 		<loc>https://distro-picker.vercel.app/distro/popos</loc>
 		<lastmod>2026-09-16</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/popos</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
 	</url>
 	<url>
 		<loc>https://distro-picker.vercel.app/distro/kubuntu</loc>
@@ -31,8 +55,32 @@
 		<priority>0.8</priority>
 	</url>
 	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/kubuntu</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
 		<loc>https://distro-picker.vercel.app/distro/tuxedo</loc>
 		<lastmod>2026-09-16</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/tuxedo</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/distro/aurora</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/aurora</loc>
+		<lastmod>2026-09-22</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.7</priority>
 	</url>
@@ -43,8 +91,32 @@
 		<priority>0.7</priority>
 	</url>
 	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/kde-linux</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/distro/kalpa</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/kalpa</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
 		<loc>https://distro-picker.vercel.app/distro/openSUSE</loc>
 		<lastmod>2026-09-16</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/openSUSE</loc>
+		<lastmod>2026-09-22</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.7</priority>
 	</url>
@@ -55,8 +127,20 @@
 		<priority>0.8</priority>
 	</url>
 	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/fedora</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
 		<loc>https://distro-picker.vercel.app/distro/ultramarine</loc>
 		<lastmod>2026-09-16</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/ultramarine</loc>
+		<lastmod>2026-09-22</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.7</priority>
 	</url>
@@ -67,8 +151,8 @@
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>https://distro-picker.vercel.app/distro/cachyos</loc>
-		<lastmod>2026-09-16</lastmod>
+		<loc>https://distro-picker.vercel.app/be/distro/endeavouros</loc>
+		<lastmod>2026-09-22</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.7</priority>
 	</url>
@@ -79,10 +163,34 @@
 		<priority>0.7</priority>
 	</url>
 	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/omarchy</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/distro/cachyos</loc>
+		<lastmod>2026-09-16</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/cachyos</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
 		<loc>https://distro-picker.vercel.app/distro/steamos</loc>
 		<lastmod>2026-09-16</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/steamos</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
 	</url>
 	<url>
 		<loc>https://distro-picker.vercel.app/distro/bazzite</loc>
@@ -91,8 +199,20 @@
 		<priority>0.8</priority>
 	</url>
 	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/bazzite</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
 		<loc>https://distro-picker.vercel.app/distro/nobara</loc>
 		<lastmod>2026-09-16</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/nobara</loc>
+		<lastmod>2026-09-22</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.7</priority>
 	</url>
@@ -103,14 +223,32 @@
 		<priority>0.7</priority>
 	</url>
 	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/pikaos</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
 		<loc>https://distro-picker.vercel.app/distro/lubuntu</loc>
 		<lastmod>2026-09-16</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.7</priority>
 	</url>
 	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/lubuntu</loc>
+		<lastmod>2026-09-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
 		<loc>https://distro-picker.vercel.app/distro/antiX</loc>
 		<lastmod>2026-09-16</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://distro-picker.vercel.app/be/distro/antiX</loc>
+		<lastmod>2026-09-22</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.7</priority>
 	</url>

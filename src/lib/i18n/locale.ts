@@ -1,81 +1,34 @@
-import { writable, derived } from 'svelte/store';
+import { writable, derived, get } from 'svelte/store';
 import type { Language } from '$lib/locales/types';
-import { getTranslation, loadTranslation } from './translations';
+import { getTranslation } from './translations';
 
 interface LanguageConfig {
   code: Language;
   name: string;
-  browserLanguages: string[];
-  timezones: string[];
 }
 
 const languageConfigs: LanguageConfig[] = [
   {
     code: 'en',
     name: 'English',
-    browserLanguages: ['en'],
-    timezones: [],
   },
   {
     code: 'be',
     name: 'Беларуская',
-    browserLanguages: ['be', 'be-BY', 'bel', 'be-tarask'],
-    timezones: ['Europe/Minsk'],
   },
 ];
 
-function detectLanguage(): Language {
-  if (typeof window === 'undefined') return 'en';
+/**
+ * The current locale. It is seeded from the URL (`/` -> en, `/be` -> be) by
+ * the root layout during SSR/prerender, so the rendered HTML always matches
+ * the URL. The URL is the single source of truth — no localStorage/hash.
+ */
+export const locale = writable<Language>('en');
 
-  const browserLang = navigator.language || (navigator as any).userLanguage;
-  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-  for (const config of languageConfigs) {
-    const matchesBrowser = config.browserLanguages.some(
-      lang => browserLang.toLowerCase().startsWith(lang.toLowerCase())
-    );
-    const matchesTimezone = config.timezones.includes(timezone);
-
-    if (matchesBrowser || matchesTimezone) {
-      return config.code;
-    }
-  }
-
-  return 'en';
+/** Set the current locale synchronously (translations are bundled). */
+export function setLocale(lang: Language): void {
+  locale.set(lang);
 }
-
-function createLocaleStore() {
-  const { subscribe, set } = writable<Language>('en');
-
-  return {
-    subscribe,
-    set: async (lang: Language) => {
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('language', lang);
-      }
-      await loadTranslation(lang);
-      set(lang);
-    },
-    init: async () => {
-      if (typeof window !== 'undefined') {
-        const stored = localStorage.getItem('language') as Language | null;
-        let lang: Language = 'en';
-
-        if (stored && languageConfigs.some(c => c.code === stored)) {
-          lang = stored;
-        } else {
-          lang = detectLanguage();
-          localStorage.setItem('language', lang);
-        }
-
-        await loadTranslation(lang);
-        set(lang);
-      }
-    },
-  };
-}
-
-export const locale = createLocaleStore();
 
 export const t = derived(locale, ($locale) => {
   return (path: string): string | undefined => {
@@ -88,3 +41,13 @@ export const availableLanguages = languageConfigs.map(c => ({
   code: c.code,
   name: c.name,
 }));
+
+/**
+ * Prefix a root-relative path with the active locale, e.g.
+ * localePath('/distro/mint', 'be') -> '/be/distro/mint'. English stays unprefixed.
+ */
+export function localePath(path: string, lang: Language = get(locale)): string {
+  const p = path.startsWith('/') ? path : `/${path}`;
+  if (lang === 'en') return p;
+  return p === '/' ? `/${lang}` : `/${lang}${p}`;
+}

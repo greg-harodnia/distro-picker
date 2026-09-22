@@ -6,7 +6,7 @@
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import type { Snippet } from 'svelte';
-	import { t, locale, availableLanguages } from '$lib/i18n/locale';
+	import { t, locale, setLocale, availableLanguages } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
 	import type { Language } from '$lib/locales/types';
 	import { theme, themeActions } from '$lib/stores/theme';
@@ -15,7 +15,22 @@
 	injectAnalytics({ mode: dev ? 'development' : 'production' });
 	injectSpeedInsights();
 
-	let { children }: { children: Snippet } = $props();
+	let { children, data }: { children: Snippet; data: { locale: Language } } = $props();
+
+	// Seed the locale from the URL before anything renders — this runs during
+	// SSR/prerender, so `/be` pages are emitted as Belarusian HTML.
+	// (Read inside a function so it's an explicit initial-value read; the
+	// $effect below keeps the store in sync on later changes.)
+	function seedLocale() {
+		setLocale(data.locale);
+	}
+	seedLocale();
+
+	// Keep the store in sync on client-side navigations (`/` <-> `/be`),
+	// where the layout component is not remounted.
+	$effect(() => {
+		setLocale(data.locale);
+	});
 
 	let seo = $derived(($page.data.seo || {}) as {
 		title?: string;
@@ -31,6 +46,15 @@
 	let pathname = $derived($page.url.pathname);
 	let canonicalUrl = $derived(`${siteUrl}${pathname}`);
 	let socialImage = $derived(`${siteUrl}/og-image.png`);
+
+	// Language variants of the current page: `/` <-> `/be`, `/distro/x` <-> `/be/distro/x`
+	let isBe = $derived(pathname === '/be' || pathname.startsWith('/be/'));
+	let enPath = $derived(isBe ? pathname.slice(3) || '/' : pathname);
+	let bePath = $derived(isBe ? pathname : enPath === '/' ? '/be' : `/be${enPath}`);
+
+	function langHref(lang: Language): string {
+		return siteUrl + (lang === 'en' ? enPath : bePath);
+	}
 
 	$effect(() => {
 		if (browser) {
@@ -57,13 +81,6 @@
 			document.documentElement.classList.toggle('dark', value === 'dark');
 			localStorage.setItem('theme', value);
 		});
-
-		const hash = window.location.hash.slice(1);
-		if (hash && availableLanguages.some(l => l.code === hash)) {
-			locale.set(hash as Language);
-		} else {
-			locale.init();
-		}
 
 		return () => {
 			unsubscribeTheme();
@@ -101,11 +118,11 @@
 	<!-- Canonical URL -->
 	<link rel="canonical" href={canonicalUrl}>
 
-	<!-- Hreflang for all supported languages -->
+	<!-- Hreflang: real per-language URLs (the URL carries the language) -->
 	{#each availableLanguages as lang}
-		<link rel="alternate" hreflang={lang.code} href="{siteUrl}{pathname}#{lang.code}" />
+		<link rel="alternate" hreflang={lang.code} href={langHref(lang.code)} />
 	{/each}
-	<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+	<link rel="alternate" hreflang="x-default" href={langHref('en')} />
 
 	<!-- Open Graph Locales -->
 	<meta property="og:locale" content={$locale === 'en' ? 'en_US' : $locale === 'be' ? 'be_BY' : $locale}>

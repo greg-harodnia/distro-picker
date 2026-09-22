@@ -9,7 +9,13 @@ const config = {
 		paths: {
 			base: ''
 		},
-		appDir: 'internal'
+		appDir: 'internal',
+		prerender: {
+			// '*' covers `/` (optional [[lang]] segment is stripped); `/be` is the
+			// Belarusian homepage. The /be/distro/* pages come from the route's
+			// `entries` export.
+			entries: ['*', '/be']
+		}
 	}
 };
 

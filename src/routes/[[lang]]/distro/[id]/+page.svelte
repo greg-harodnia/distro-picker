@@ -6,7 +6,7 @@
 	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
 	import { TAGS } from '$lib/tagGroups';
 	import { getTranslation } from '$lib/i18n/translations';
-	import { t } from '$lib/i18n/locale';
+	import { t, locale, localePath } from '$lib/i18n/locale';
 	import { SITE_URL as siteUrl } from '$lib/seo';
 
 	let { data }: { data: PageData } = $props();
@@ -14,32 +14,43 @@
 	const distro = data.distro;
 	const screenshots = data.screenshots;
 
-	const description = getTranslation('en', `distros.${distro.id}.description`) || '';
-
 	let galleryIndex = $state<number | null>(null);
 
-	const ldJson = JSON.stringify({
-		'@context': 'https://schema.org',
-		'@graph': [
+	// Derived so JSON-LD is emitted in the page's language and points at the
+	// locale-prefixed URLs (`/distro/x` vs `/be/distro/x`).
+	let description = $derived(getTranslation($locale, `distros.${distro.id}.description`) || '');
+	let homePath = $derived(localePath('/', $locale));
+	let distroPath = $derived(localePath(`/distro/${distro.id}`, $locale));
+
+	let ldJson = $derived(
+		JSON.stringify(
 			{
-				'@type': 'BreadcrumbList',
-				itemListElement: [
-					{ '@type': 'ListItem', position: 1, name: 'Linux Distro Picker', item: `${siteUrl}/` },
-					{ '@type': 'ListItem', position: 2, name: distro.name, item: `${siteUrl}/distro/${distro.id}` },
+				'@context': 'https://schema.org',
+				'@graph': [
+					{
+						'@type': 'BreadcrumbList',
+						itemListElement: [
+							{ '@type': 'ListItem', position: 1, name: $t('app.title') || 'Linux Distro Picker', item: `${siteUrl}${homePath}` },
+							{ '@type': 'ListItem', position: 2, name: distro.name, item: `${siteUrl}${distroPath}` },
+						],
+					},
+					{
+						'@type': 'SoftwareApplication',
+						name: distro.name,
+						url: `${siteUrl}${distroPath}`,
+						applicationCategory: 'OperatingSystem',
+						operatingSystem: 'Linux',
+						description,
+						inLanguage: $locale,
+						image: `${siteUrl}${distro.logo || '/linux.webp'}`,
+						...(distro.website ? { sameAs: distro.website } : {}),
+					},
 				],
 			},
-			{
-				'@type': 'SoftwareApplication',
-				name: distro.name,
-				url: `${siteUrl}/distro/${distro.id}`,
-				applicationCategory: 'OperatingSystem',
-				operatingSystem: 'Linux',
-				description,
-				image: `${siteUrl}${distro.logo || '/linux.webp'}`,
-				...(distro.website ? { sameAs: distro.website } : {}),
-			},
-		],
-	}, null, 2);
+			null,
+			2
+		)
+	);
 </script>
 
 <svelte:head>
@@ -48,7 +59,7 @@
 
 <main class="distro-page">
 	<div class="top-bar">
-		<a class="back-link" href={`${base}/`}>← {$t('pages.distro.backLink')}</a>
+		<a class="back-link" href={`${base}${localePath('/', $locale)}`}>← {$t('pages.distro.backLink')}</a>
 		<div class="page-controls">
 			<LanguageToggle />
 			<ThemeToggle />
@@ -91,7 +102,7 @@
 	{/if}
 
 	<div class="actions">
-		<a class="btn-primary" href={`${base}/`}>{$t('pages.distro.findMyDistro')}</a>
+		<a class="btn-primary" href={`${base}${localePath('/', $locale)}`}>{$t('pages.distro.findMyDistro')}</a>
 		{#if distro.website}
 			<a class="btn-secondary" href={distro.website} rel="noopener noreferrer" target="_blank">{$t('modals.distro.visitWebsite')}</a>
 		{/if}
