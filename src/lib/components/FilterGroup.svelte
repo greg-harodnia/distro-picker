@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Tag } from '$lib/types';
 	import TagFilter from './TagFilter.svelte';
+	import { fly } from 'svelte/transition';
 
 	let {
 		label,
@@ -23,6 +24,32 @@
 	let selectedCount = $derived(tags.filter(tag => selectedTags.has(tag.id)).length);
 
 	let buttonEl = $state<HTMLButtonElement | null>(null);
+	let panelEl = $state<HTMLElement | null>(null);
+
+	// When a group opens, scroll the filter strip so the beginning of the
+	// expanded tag list becomes visible (only if it pokes out of the viewport).
+	$effect(() => {
+		if (!open || !panelEl) return;
+
+		const container = panelEl.closest('.filter-groups') as HTMLElement | null;
+		if (!container) return;
+
+		const containerRect = container.getBoundingClientRect();
+		const panelRect = panelEl.getBoundingClientRect();
+
+		const leftGap = panelRect.left - containerRect.left;
+		const rightGap = panelRect.right - containerRect.right;
+
+		// Already fully visible — nothing to scroll.
+		if (leftGap >= 0 && rightGap <= 0) return;
+
+		// Align the beginning of the expanded tag list with the left edge
+		// of the strip (matters on mobile, where groups exceed 100% width).
+		container.scrollTo({
+			left: container.scrollLeft + leftGap,
+			behavior: 'smooth',
+		});
+	});
 
 	function handleClick() {
 		if (open) {
@@ -56,7 +83,6 @@
 		class:active={selectedCount > 0}
 		onclick={handleClick}
 		type="button"
-		aria-haspopup="true"
 		aria-expanded={open}
 		bind:this={buttonEl}
 	>
@@ -74,12 +100,18 @@
 			stroke-linejoin="round"
 			aria-hidden="true"
 		>
-			<polyline points="6 9 12 15 18 9"></polyline>
+			<polyline points="9 6 15 12 9 18"></polyline>
 		</svg>
 	</button>
 
 	{#if open}
-		<div class="dropdown-panel" role="group" aria-label={label}>
+		<div
+			class="expanded-panel"
+			role="group"
+			aria-label={label}
+			in:fly={{ x: -10, duration: 200 }}
+			bind:this={panelEl}
+		>
 			{#each tags as tag (tag.id)}
 				<TagFilter
 					{tag}
@@ -93,14 +125,20 @@
 
 <style>
 	.filter-group {
-		position: relative;
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: var(--space-sm);
 	}
 
 	.filter-group-btn {
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		gap: var(--space-sm);
 		padding: var(--space-sm) var(--space-md);
+		height: 35px;
 		border: 2px solid var(--color-border);
 		border-radius: var(--radius-full);
 		background: var(--color-background);
@@ -110,6 +148,7 @@
 		cursor: pointer;
 		transition: all var(--transition-normal);
 		white-space: nowrap;
+		flex-shrink: 0;
 	}
 
 	@media (hover: hover) {
@@ -137,33 +176,12 @@
 		transform: rotate(180deg);
 	}
 
-	.dropdown-panel {
-		position: absolute;
-		top: calc(100% + var(--space-sm));
-		left: 0;
-		z-index: var(--z-dropdown);
+	.expanded-panel {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: row;
+		flex-wrap: nowrap;
 		align-items: center;
 		gap: var(--space-sm);
-		min-width: 220px;
-		max-width: min(85vw, 420px);
-		padding: var(--space-md);
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-lg);
-		box-shadow: var(--shadow-lg);
-	}
-
-	@media (max-width: 640px) {
-		.dropdown-panel {
-			position: fixed;
-			top: 30%;
-			left: 50%;
-			transform: translateX(-50%);
-			width: min(90vw, 360px);
-			min-width: 0;
-			max-width: 90vw;
-		}
+		flex-shrink: 0;
 	}
 </style>

@@ -52,7 +52,11 @@
 
 <style>
 	.tag-filter {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		padding: var(--space-sm) var(--space-md);
+		height: 35px;
 		border: 2px solid var(--tag-color);
 		border-radius: var(--radius-full);
 		background: var(--color-background);
@@ -63,6 +67,7 @@
 		position: relative;
 		font-size: var(--text-sm);
 		white-space: nowrap;
+		flex-shrink: 0;
 	}
 
 	@media (hover: hover) {

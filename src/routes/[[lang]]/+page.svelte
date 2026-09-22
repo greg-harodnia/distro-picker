@@ -424,10 +424,13 @@
 
 	.filter-groups {
 		display: flex;
-		flex-wrap: wrap;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
 		align-items: center;
 		gap: var(--space-sm);
 		padding-top: var(--space-md);
+		-webkit-overflow-scrolling: touch;
 	}
 
 	.clear-btn {
@@ -596,6 +599,11 @@
 		.filter-groups {
 			gap: var(--space-sm);
 			padding-top: var(--space-sm);
+			scrollbar-width: none;
+		}
+
+		.filter-groups::-webkit-scrollbar {
+			display: none;
 		}
 
 		.filters {
