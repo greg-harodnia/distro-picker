@@ -1,7 +1,6 @@
 export interface Tag {
 	id: string;
 	description: string;
-	group: string;
 }
 
 export interface Distro {

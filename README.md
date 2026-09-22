@@ -74,7 +74,7 @@ distro-picker/
 │   │   │   └── validation.ts
 │   │   ├── distros.json
 │   │   ├── supabase.ts
-│   │   ├── tags.json
+│   │   ├── tagGroups.ts
 │   │   └── types.ts
 │   └── routes/
 │       ├── +layout.server.js

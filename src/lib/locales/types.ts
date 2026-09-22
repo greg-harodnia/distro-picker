@@ -20,7 +20,10 @@ export type Translations = {
       theme: string;
     };
   };
-  tags: Record<string, { name: string; description: string }>;
+  tags: Record<string, {
+    name: string;
+    entries: Record<string, { name: string; description: string }>;
+  }>;
   distros: Record<string, {
     description: string;
     userbasePostfix?: string;

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { Distro, Tag } from "$lib/types";
 	import { t, locale } from "$lib/i18n/locale";
-	import { getNestedValue } from "$lib/i18n/translations";
+	import { getNestedValue, humanizeId } from "$lib/i18n/translations";
+	import { getTagGroup } from "$lib/tagGroups";
 
 	let {
 		distro,
@@ -19,9 +20,12 @@
 
 	let translatedTagNames = $derived(distro.tag_ids?.map((tagId) => {
 		const tag = tagMap.get(tagId);
+		const group = tag ? getTagGroup(tag.id) : undefined;
 		return {
 			tagId,
-			name: tag ? $t(`tags.${tagId}.name`) : '',
+			name: group
+				? $t(`tags.${group}.entries.${tagId}.name`) || humanizeId(tagId)
+				: humanizeId(tagId),
 		};
 	}) || []);
 

@@ -28,6 +28,11 @@ export async function loadTranslation(lang: Language): Promise<Translations> {
   return translations;
 }
 
+/** Fallback label for ids with no translation, e.g. "kde-plasma" -> "Kde Plasma". */
+export function humanizeId(id: string): string {
+  return id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
 export function getTranslation(lang: Language, path: string): string | undefined {
   const cacheKey = `${lang}:${path}`;
   const cached = translationPathCache.get(cacheKey);

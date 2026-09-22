@@ -17,31 +17,6 @@ function isValidUrl(url: string): boolean {
 	}
 }
 
-export function validateTagsArray(tags: unknown[]): ValidationResult {
-	if (!Array.isArray(tags)) {
-		return { isValid: false, errors: [{ field: 'tags', message: 'Tags must be an array' }] };
-	}
-
-	const errors: ValidationError[] = [];
-
-	tags.forEach((tag, index) => {
-		const t = tag as Record<string, unknown>;
-		if (!t || typeof t !== 'object') {
-			errors.push({ field: `tags[${index}]`, message: 'Tag must be an object' });
-			return;
-		}
-		if (!t['id'] || typeof t['id'] !== 'string') {
-			errors.push({ field: `tags[${index}].id`, message: 'Tag must have a valid string ID' });
-		}
-
-		if (!t['description'] || typeof t['description'] !== 'string') {
-			errors.push({ field: `tags[${index}].description`, message: 'Tag must have a valid string description' });
-		}
-	});
-
-	return { isValid: errors.length === 0, errors };
-}
-
 export function validateDistrosArray(distros: unknown[]): ValidationResult {
 	if (!Array.isArray(distros)) {
 		return { isValid: false, errors: [{ field: 'distros', message: 'Distros must be an array' }] };

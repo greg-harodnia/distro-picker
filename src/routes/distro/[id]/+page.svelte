@@ -4,7 +4,7 @@
 	import DistroDetails from '$lib/components/DistroDetails.svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
-	import tagsData from '$lib/tags.json';
+	import { TAGS } from '$lib/tagGroups';
 	import { getTranslation } from '$lib/i18n/translations';
 	import { t } from '$lib/i18n/locale';
 	import { SITE_URL as siteUrl } from '$lib/seo';
@@ -69,7 +69,7 @@
 	</header>
 
 	<div class="details-wrap">
-		<DistroDetails {distro} tags={tagsData.tags} />
+		<DistroDetails {distro} tags={TAGS} />
 	</div>
 
 	{#if screenshots.length > 0}

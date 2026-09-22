@@ -1,5 +1,8 @@
 import { writable, derived } from 'svelte/store';
 import type { Distro, Tag } from '$lib/types';
+import { getTagGroup } from '$lib/tagGroups';
+
+export { getTagGroup };
 
 export const selectedTags = writable<Set<string>>(new Set());
 export const selectedDistro = writable<Distro | null>(null);
@@ -22,17 +25,15 @@ export function getTagById(tagId: string): Tag | undefined {
 	return tagMap.get(tagId);
 }
 
-export function getTagGroup(tagId: string): string | undefined {
-	const tag = tagMap.get(tagId);
-	return tag?.group;
-}
+// Tag group whose tags are matched against `distro.desktops`.
+// Derived from the locale structure (currently keyed "dekstops" there).
+const DESKTOP_GROUP = getTagGroup('kde-plasma') ?? 'desktop';
 
-const DESKTOP_GROUP = 'desktop';
 const MAIN_DESKTOPS = new Set(['KDE Plasma', 'GNOME', 'Xfce', 'COSMIC']);
 
 // Tag groups (sections) where multiple tags may be selected at once.
-// The second filter section ("update-model": point-release, rolling, immutable).
-const MULTI_SELECT_GROUPS = new Set(['update-model']);
+// The second filter section ("release-model": point-release, rolling, immutable).
+const MULTI_SELECT_GROUPS = new Set(['release-model']);
 
 function matchesDesktop(desktops: string[] | undefined, tagId: string): boolean {
 	if (!desktops || desktops.length === 0) return false;

@@ -31,45 +31,60 @@
         }
     },
     "tags": {
-        "gaming-ready": {
-            "name": "Гульнявая",
-            "description": "Аптымізаваная для гульняў зы спэцыяльным перадусталяваным ПЗ"
+        "purpose": {
+            "name": "Прызначаньне",
+            "entries": {
+                "gaming-ready": {
+                    "name": "Гульнявая",
+                    "description": "Аптымізаваная для гульняў зы спэцыяльным перадусталяваным ПЗ"
+                },
+                "lightweight": {
+                    "name": "Лёгкая",
+                    "description": "Для старой апаратуры"
+                }
+            }
         },
-        "lightweight": {
-            "name": "Лёгкая",
-            "description": "Для старой апаратуры"
+        "release-model": {
+            "name": "Мадэль выпуску",
+            "entries": {
+                "point-release": {
+                    "name": "Прамежкавы выпуск",
+                    "description": "Прамежкавыя выпускі з фіксаванымі вэрсыямі ПЗ"
+                },
+                "rolling": {
+                    "name": "Няспынны выпуск",
+                    "description": "Няспынна абнаўляльнае ПЗ"
+                },
+                "immutable": {
+                    "name": "Нязьменная",
+                    "description": "Нязьменная (толькі для чытаньня) сыстэма й атамарныя абнавеньні"
+                }
+            }
         },
-        "point-release": {
-            "name": "Прамежкавы выпуск",
-            "description": "Прамежкавыя выпускі з фіксаванымі вэрсыямі ПЗ"
-        },
-        "rolling": {
-            "name": "Няспынны выпуск",
-            "description": "Няспынна абнаўляльнае ПЗ"
-        },
-        "immutable": {
-            "name": "Нязьменная",
-            "description": "Нязьменная (толькі для чытаньня) сыстэма й атамарныя абнавеньні"
-        },
-        "kde-plasma": {
-            "name": "KDE Plasma",
-            "description": "Ґрафічнае асяродзьдзе KDE Plasma"
-        },
-        "gnome": {
-            "name": "GNOME",
-            "description": "Ґрафічнае асяродзьдзе GNOME"
-        },
-        "xfce": {
-            "name": "Xfce",
-            "description": "Ґрафічнае асяродзьдзе Xfce"
-        },
-        "cosmic": {
-            "name": "COSMIC",
-            "description": "Ґрафічнае асяродзьдзе COSMIC"
-        },
-        "other": {
-            "name": "Іншае",
-            "description": "Усякае ґрафічнае асяродзьдзе акрамя KDE Plasma, GNOME, Xfce або COSMIC"
+        "dekstops": {
+            "name": "Асяродзьдзі",
+            "entries": {
+                "kde-plasma": {
+                    "name": "KDE Plasma",
+                    "description": "Ґрафічнае асяродзьдзе KDE Plasma"
+                },
+                "gnome": {
+                    "name": "GNOME",
+                    "description": "Ґрафічнае асяродзьдзе GNOME"
+                },
+                "xfce": {
+                    "name": "Xfce",
+                    "description": "Ґрафічнае асяродзьдзе Xfce"
+                },
+                "cosmic": {
+                    "name": "COSMIC",
+                    "description": "Ґрафічнае асяродзьдзе COSMIC"
+                },
+                "other": {
+                    "name": "Іншае",
+                    "description": "Усякае ґрафічнае асяродзьдзе акрамя KDE Plasma, GNOME, Xfce або COSMIC"
+                }
+            }
         }
     },
     "distros": {

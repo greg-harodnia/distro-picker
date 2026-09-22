@@ -2,7 +2,7 @@
 	import { onMount } from "svelte";
 	import { base } from '$app/paths';
 	import type { PageData } from './$types';
-	import TagFilter from "$lib/components/TagFilter.svelte";
+	import FilterGroup from "$lib/components/FilterGroup.svelte";
 	import DistroGrid from "$lib/components/DistroGrid.svelte";
 	import DistroModal from "$lib/components/modals/DistroModal.svelte";
 	import ErrorDisplay from "$lib/components/ErrorDisplay.svelte";
@@ -10,7 +10,7 @@
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import LanguageToggle from "$lib/components/LanguageToggle.svelte";
 
-	import { loadTags, loadDistros, getLikedDistros } from "$lib/utils";
+	import { loadDistros, getLikedDistros } from "$lib/utils";
 	import { fetchLikes } from "$lib/supabase";
 	import {
 		tags,
@@ -24,14 +24,14 @@
 		distroActions,
 		dataActions,
 	} from "$lib/stores";
-	import type { Distro } from "$lib/types";
+	import type { Distro, Tag } from "$lib/types";
 	import { t } from "$lib/i18n/locale";
-	import { getTranslation } from '$lib/i18n/translations';
+	import { getTranslation, humanizeId } from '$lib/i18n/translations';
 	import distrosData from "$lib/distros.json";
-	import tagsData from "$lib/tags.json";
 	import { SITE_URL as siteUrl, SEO_KEYWORDS } from "$lib/seo";
+	import { getTagGroups, TAGS } from "$lib/tagGroups";
 
-	dataActions.setTags(tagsData.tags);
+	dataActions.setTags(TAGS);
 	dataActions.setDistros(distrosData.distros.map(d => ({ ...d, likes: 0, userLiked: false })));
 
 	const seoKeywords = SEO_KEYWORDS;
@@ -76,20 +76,28 @@
 	let quickTestOpen = $state(false);
 	let shareModalOpen = $state(false);
 	let contactModalOpen = $state(false);
+	let openGroup = $state<string | null>(null);
+
+	let groups = $derived.by(() => {
+		const tagById = new Map($tags.map(tag => [tag.id, tag]));
+		return getTagGroups()
+			.map(group => ({
+				id: group.id,
+				tags: group.entryIds
+					.map(tagId => tagById.get(tagId))
+					.filter((tag): tag is Tag => tag !== undefined),
+			}))
+			.filter(group => group.tags.length > 0);
+	});
 
 	async function loadData() {
 		dataActions.setLoading(true);
 		dataActions.clearError();
 
 		try {
-			const [tagsResult, distrosResult] = await Promise.all([
-				loadTags(),
-				loadDistros(),
-			]);
+			const distrosResult = await loadDistros();
 
-			if (tagsResult.error) {
-				dataActions.setError(tagsResult.error);
-			} else if (distrosResult.error) {
+			if (distrosResult.error) {
 				dataActions.setError(distrosResult.error);
 			} else {
 				const loadedDistros = distrosResult.data || [];
@@ -101,7 +109,6 @@
 					userLiked: userLikes.includes(distro.id)
 				}));
 
-				dataActions.setTags(tagsResult.data || []);
 				dataActions.setDistros(distrosWithLikes);
 			}
 		} catch (err) {
@@ -133,6 +140,10 @@
 		tagActions.toggle(tagId);
 	}
 
+	function groupLabel(group: string): string {
+		return $t(`tags.${group}.name`) || humanizeId(group);
+	}
+
 	function selectDistro(distro: Distro) {
 		distroActions.select(distro);
 	}
@@ -146,7 +157,19 @@
 		const timer = setTimeout(() => {
 			shareModalOpen = true;
 		}, 60_000);
-		return () => clearTimeout(timer);
+
+		const onDocClick = (e: Event) => {
+			const target = e.target as HTMLElement;
+			if (target.closest && !target.closest('.filter-group')) {
+				openGroup = null;
+			}
+		};
+		document.addEventListener('click', onDocClick);
+
+		return () => {
+			clearTimeout(timer);
+			document.removeEventListener('click', onDocClick);
+		};
 	});
 </script>
 
@@ -208,20 +231,19 @@
 				</svg>
 				</button>
 			</h2>
-			<div class="tag-list-wrapper">
-				<div class="tag-list" role="group" aria-label="Filter options">
-				{#each $tags as tag, i (tag.id)}
-					{#if i > 0 && tag.group !== $tags[i - 1].group}
-						<span class="tag-separator" aria-hidden="true"></span>
-					{/if}
-					<TagFilter
-						{tag}
-						selected={$selectedTags.has(tag.id)}
-						ontoggle={() => toggleTag(tag.id)}
+			<div class="filter-groups">
+				{#each groups as group (group.id)}
+					<FilterGroup
+						label={groupLabel(group.id)}
+						tags={group.tags}
+						selectedTags={$selectedTags}
+						open={openGroup === group.id}
+						ontoggle={toggleTag}
+						onopen={() => (openGroup = group.id)}
+						onclose={() => (openGroup = null)}
 					/>
 				{/each}
 			</div>
-		</div>
 		</section>
 
 		<div class="content">
@@ -397,20 +419,12 @@
 		margin-bottom: var(--space-2xl);
 	}
 
-	.tag-list {
+	.filter-groups {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--space-lg);
 		align-items: center;
-		padding-top: var(--space-lg);
-	}
-
-	.tag-separator {
-		flex-shrink: 0;
-		width: 1px;
-		height: 24px;
-		background: var(--color-border);
-		margin: 0 var(--space-xs);
+		gap: var(--space-sm);
+		padding-top: var(--space-md);
 	}
 
 	.clear-btn {
@@ -576,11 +590,9 @@
 			font-size: var(--text-3xl);
 		}
 
-		.tag-list {
-			gap: var(--space-md);
-			padding-top: var(--space-md);
-			flex-wrap: nowrap;
-			overflow-x: auto;
+		.filter-groups {
+			gap: var(--space-sm);
+			padding-top: var(--space-sm);
 		}
 
 		.filters {
