@@ -6,7 +6,7 @@
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import type { Snippet } from 'svelte';
-	import { t, locale, setLocale, availableLanguages } from '$lib/i18n/locale';
+	import { t, locale, setLocale, availableLanguages, redirectToPreferredLocale } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
 	import type { Language } from '$lib/locales/types';
 	import { theme, themeActions } from '$lib/stores/theme';
@@ -69,6 +69,10 @@
 	});
 
 	onMount(() => {
+		// Client-only auto-redirect for visitors who prefer Belarusian —
+		// runs after the (English) HTML is served, so crawlers never see it.
+		redirectToPreferredLocale();
+
 		const storedTheme = localStorage.getItem('theme');
 		if (storedTheme === 'light' || storedTheme === 'dark') {
 			themeActions.set(storedTheme);

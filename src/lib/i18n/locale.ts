@@ -51,3 +51,57 @@ export function localePath(path: string, lang: Language = get(locale)): string {
   if (lang === 'en') return p;
   return p === '/' ? `/${lang}` : `/${lang}${p}`;
 }
+
+/** Stored by the language toggle when the user makes an explicit choice. */
+const LANGUAGE_KEY = 'language';
+
+const BELARUSIAN_BROWSER_LANGUAGES = ['be', 'be-tarask', 'bel'];
+
+function prefersBelarusian(): boolean {
+  const browserLang = (window.navigator.language || '').toLowerCase();
+  const matchesBrowser = BELARUSIAN_BROWSER_LANGUAGES.some(
+    (l) => browserLang === l || browserLang.startsWith(`${l}-`)
+  );
+  if (matchesBrowser) return true;
+
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone === 'Europe/Minsk';
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Client-only: send visitors who likely prefer Belarusian (an explicit
+ * stored preference, or detection via browser language / Minsk timezone)
+ * to the `/be` equivalent of the English page they opened.
+ *
+ * Runs after a full page load only — the English HTML is already served
+ * (and indexed) before this executes, so it never affects crawlers or the
+ * prerendered output. Client-side navigations never reach this either.
+ */
+export function redirectToPreferredLocale(): void {
+  if (typeof window === 'undefined') return;
+
+  const path = window.location.pathname;
+  // Only English *content* pages are candidates; /be, other prefixes and
+  // potential 404s are left alone (also guarantees no redirect loops).
+  const isEnglishPage = path === '/' || /^\/distro\/[^/]+$/.test(path);
+  if (!isEnglishPage) return;
+
+  const stored = window.localStorage.getItem(LANGUAGE_KEY);
+  const preferBe =
+    stored === 'be' ? true : stored === 'en' ? false : prefersBelarusian();
+  if (!preferBe) return;
+
+  window.location.replace(localePath(path, 'be'));
+}
+
+/** Remember an explicit language choice so the auto-redirect respects it. */
+export function storeLanguagePreference(lang: Language): void {
+  try {
+    window.localStorage.setItem(LANGUAGE_KEY, lang);
+  } catch {
+    // storage unavailable (private mode/quota) — redirect heuristics just apply
+  }
+}

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { locale, availableLanguages, t } from '$lib/i18n/locale';
+  import { locale, availableLanguages, t, storeLanguagePreference } from '$lib/i18n/locale';
   import type { Language } from '$lib/locales/types';
   import { page } from '$app/state';
   import { base } from '$app/paths';
@@ -30,6 +30,13 @@
     if (!target.closest('.language-toggle-container')) {
       isOpen = false;
     }
+  }
+
+  // Store the explicit choice so the client-side auto-redirect respects it
+  // (e.g. a Minsk-timezone visitor who picks EN stays on English).
+  function chooseLanguage(code: Language) {
+    storeLanguagePreference(code);
+    isOpen = false;
   }
 
   let currentLang = $derived(availableLanguages.find(l => l.code === $locale) || availableLanguages[0]);
@@ -70,7 +77,7 @@
           href={hrefFor(lang.code)}
           hreflang={lang.code}
           lang={lang.code}
-          onclick={() => (isOpen = false)}
+          onclick={() => chooseLanguage(lang.code)}
           role="option"
           aria-selected={lang.code === $locale}
         >

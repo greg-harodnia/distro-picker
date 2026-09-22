@@ -130,8 +130,18 @@ indexable HTML:
    content directly in the response body.
 2. **Switching** - the language toggle renders real links between language
    variants (crawlers can discover `/be` from them), so the choice survives
-   bookmarks and shared links. There is no localStorage/hash language state.
-3. **SEO** - each page emits self-referencing canonical plus
+   bookmarks and shared links. Choosing a language stores an explicit
+   preference in `localStorage`, used only by the auto-redirect below — the
+   URL remains the source of truth for what is rendered. There is no hash
+   state.
+3. **Auto-redirect (client-side only)** - after a full page load of an
+   English page, visitors with a Belarusian preference — an explicit stored
+   choice, `be`-family browser language, or the `Europe/Minsk` timezone — are
+   redirected to the `/be` equivalent (e.g. `/distro/mint` → `/be/distro/mint`).
+   Since this runs only in the browser *after* the English HTML is served,
+   crawlers (which don't run the app's JavaScript) always see — and index —
+   the English version; it never affects the prerendered output.
+4. **SEO** - each page emits self-referencing canonical plus
    `hreflang="en"` / `hreflang="be"` / `hreflang="x-default"` alternates, and
    the sitemap lists both variants. `src/hooks.server.ts` rewrites
    `<html lang>` per URL at build time.
