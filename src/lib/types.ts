@@ -16,7 +16,7 @@ export interface Distro {
 	in_development?: boolean;
 	desktops?: string[];
 	hasMoreDesktops?: boolean;
-	beginner_friendly?: number;
+	ease_of_use?: number;
 	based_on?: string;
 	likes?: number;
 	userLiked?: boolean;

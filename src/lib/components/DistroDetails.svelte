@@ -32,7 +32,7 @@
 	let hasAdditionalDetails = $derived(
 		(distro.desktops && distro.desktops.length > 0) ||
 		distro.based_on ||
-		distro.beginner_friendly ||
+		distro.ease_of_use ||
 		(distro.userbase_number && translatedUserbaseSuffix) ||
 		distro.secure_boot !== undefined ||
 		distro.swap_strategy
@@ -72,10 +72,10 @@
 				</div>
 			{/if}
 
-			{#if distro.beginner_friendly}
+			{#if distro.ease_of_use}
 				<div class="additional-detail">
-					<h3>{$t('modals.distro.beginnerFriendly')}</h3>
-					<p>{distro.beginner_friendly}/5</p>
+					<h3>{$t('modals.distro.easeOfUse')}</h3>
+					<p>{distro.ease_of_use}/5</p>
 				</div>
 			{/if}
 

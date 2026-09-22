@@ -34,7 +34,7 @@ export type Translations = {
       basedOn: string;
       desktop: string;
       desktops: string;
-      beginnerFriendly: string;
+      easeOfUse: string;
       userbase: string;
       secureBoot: string;
       swapStrategy: string;

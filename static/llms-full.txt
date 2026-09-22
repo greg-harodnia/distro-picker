@@ -26,7 +26,7 @@ Been here for quite a while. Community-driven, stable and familiar. The main edi
 Key facts:
 - Based on: Ubuntu
 - Desktop environment(s): Cinnamon, MATE, Xfce
-- Beginner-friendly: 5/5
+- Ease of use: 5/5
 - Userbase: ~3-10 million
 - Secure Boot support: Yes
 - Swap strategy: Swap file
@@ -46,7 +46,7 @@ A polished distro focused on visual appeal and ease of use, featuring the GNOME 
 Key facts:
 - Based on: Ubuntu
 - Desktop environment(s): GNOME
-- Beginner-friendly: 5/5
+- Ease of use: 5/5
 - Userbase: ~2 million
 - Secure Boot support: Yes
 - Swap strategy: Swap file
@@ -65,7 +65,7 @@ Built by System76, featuring the COSMIC desktop environment (macOS-like) and foc
 Key facts:
 - Based on: Ubuntu
 - Desktop environment(s): COSMIC
-- Beginner-friendly: 5/5
+- Ease of use: 5/5
 - Userbase: ~1-2 million
 - Secure Boot support: No
 - Swap strategy: zRAM + Swap Partition
@@ -84,7 +84,7 @@ A well-established and trusted distro, based on Ubuntu with the KDE Plasma deskt
 Key facts:
 - Based on: Ubuntu
 - Desktop environment(s): KDE Plasma
-- Beginner-friendly: 4.8/5
+- Ease of use: 4.8/5
 - Userbase: ~1 million
 - Secure Boot support: Yes
 - Swap strategy: Swap file
@@ -103,7 +103,7 @@ Tuxedo OS is a better Kubuntu alternative which is developed by TUXEDO Computers
 Key facts:
 - Based on: Debian Testing
 - Desktop environment(s): KDE Plasma
-- Beginner-friendly: 4.8/5
+- Ease of use: 4.8/5
 - Userbase: ~100k
 - Secure Boot support: No
 - Swap strategy: Swap file
@@ -121,7 +121,7 @@ An immutable (using Btrfs snapshots) Linux OS built by KDE. Immutability makes i
 Key facts:
 - Based on: independent
 - Desktop environment(s): KDE Plasma
-- Beginner-friendly: 5/5
+- Ease of use: 5/5
 - Userbase: n/a
 - Secure Boot support: Yes
 - Swap strategy: zRAM + Swap File
@@ -139,7 +139,7 @@ openSUSE is a modern, general-purpose, stable, and reliable distribution intende
 Key facts:
 - Based on: independent
 - Desktop environment(s): KDE Plasma, GNOME, Xfce, and more
-- Beginner-friendly: 3.8/5
+- Ease of use: 3.8/5
 - Userbase: ~0.5-1 million
 - Secure Boot support: Yes
 - Swap strategy: Swap partition
@@ -155,7 +155,7 @@ Perfect for developers. Comes in many editions/spins, including one with the KDE
 Key facts:
 - Based on: independent
 - Desktop environment(s): GNOME, KDE Plasma, Xfce, Cinnamon, COSMIC, MATE, LXQt, LXDE, Budgie, and more
-- Beginner-friendly: 4/5
+- Ease of use: 4/5
 - Userbase: ~1-2 million
 - Secure Boot support: Yes
 - Swap strategy: zRAM
@@ -173,7 +173,7 @@ An out-of-the-box version of Fedora. It features extra repositories, multimedia 
 Key facts:
 - Based on: Fedora
 - Desktop environment(s): KDE Plasma, GNOME, Xfce, Budgie
-- Beginner-friendly: 4.8/5
+- Ease of use: 4.8/5
 - Userbase: ~2k
 - Secure Boot support: Yes
 - Swap strategy: zRAM
@@ -191,7 +191,7 @@ Arch Linux made easy. It provides a graphical installer and makes minimal change
 Key facts:
 - Based on: Arch Linux
 - Desktop environment(s): KDE Plasma, GNOME, Xfce, Cinnamon, MATE, LXQt, LXDE, Budgie, i3
-- Beginner-friendly: 3/5
+- Ease of use: 3/5
 - Userbase: ~100k
 - Secure Boot support: No
 - Swap strategy: None
@@ -212,7 +212,7 @@ An Arch-based rolling distribution optimized for performance, featuring the KDE 
 Key facts:
 - Based on: Arch Linux
 - Desktop environment(s): KDE Plasma, GNOME, COSMIC, Xfce, Niri, Hyprland, and more
-- Beginner-friendly: 3.5/5
+- Ease of use: 3.5/5
 - Userbase: ~250-600k
 - Secure Boot support: No
 - Swap strategy: zRAM
@@ -232,7 +232,7 @@ An opinionated Arch-based rolling distribution powered by the Hyprland tiling wi
 Key facts:
 - Based on: Arch Linux
 - Desktop environment(s): Hyprland
-- Beginner-friendly: 3/5
+- Ease of use: 3/5
 - Userbase: ~60-200k
 - Secure Boot support: No
 - Swap strategy: zRAM
@@ -254,7 +254,7 @@ An official gaming OS from Valve that powers Steam Deck, Steam Machine and other
 Key facts:
 - Based on: independent
 - Desktop environment(s): KDE Plasma
-- Beginner-friendly: 4.8/5
+- Ease of use: 4.8/5
 - Userbase: ~5-10 million
 - Secure Boot support: No
 - Swap strategy: zRAM + Swap File
@@ -270,7 +270,7 @@ A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and h
 Key facts:
 - Based on: Fedora Atomic
 - Desktop environment(s): KDE Plasma, GNOME
-- Beginner-friendly: 5/5
+- Ease of use: 5/5
 - Userbase: ~100k
 - Secure Boot support: Yes
 - Swap strategy: zRAM
@@ -289,7 +289,7 @@ A gaming distro with a mutable core system, giving you full control. It was deve
 Key facts:
 - Based on: Fedora
 - Desktop environment(s): KDE Plasma, GNOME
-- Beginner-friendly: 4.5/5
+- Ease of use: 4.5/5
 - Userbase: ~25k
 - Secure Boot support: No
 - Swap strategy: zRAM
@@ -309,7 +309,7 @@ A mutable gaming distribution. Similar to Nobara, but based on Debian (unstable 
 Key facts:
 - Based on: Debian Unstable
 - Desktop environment(s): GNOME, KDE Plasma, COSMIC, Niri, Hyprland
-- Beginner-friendly: 4.5/5
+- Ease of use: 4.5/5
 - Userbase: ~10k
 - Secure Boot support: No
 - Swap strategy: zRAM
@@ -325,7 +325,7 @@ A user-friendly lightweight Ubuntu variant, perfect for computers produced betwe
 Key facts:
 - Based on: Ubuntu
 - Desktop environment(s): LXQt
-- Beginner-friendly: 4.8/5
+- Ease of use: 4.8/5
 - Userbase: ~100k
 - Secure Boot support: Yes
 - Swap strategy: Swap file
@@ -341,7 +341,7 @@ Ultra light distro, requires as minimum as 256Mb of RAM to run (more to run apps
 Key facts:
 - Based on: Debian
 - Desktop environment(s): Fluxbox, IceWM, JWM
-- Beginner-friendly: 3.8/5
+- Ease of use: 3.8/5
 - Userbase: ~20k
 - Secure Boot support: No
 - Swap strategy: None
