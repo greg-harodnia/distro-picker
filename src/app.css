@@ -42,6 +42,12 @@
   --tag-xfce: #a16207;
   --tag-cosmic: #0e7490;
   --tag-other: #d9480f;
+  --tag-ubuntu: #c1440e;
+  --tag-debian: #a81d44;
+  --tag-fedora: #3c6eb4;
+  --tag-arch: #0b7285;
+  --tag-independent: #6d28d9;
+  --tag-based-on-other: #6b7280;
   
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -165,6 +171,12 @@
   --tag-xfce: #facc15;
   --tag-cosmic: #22d3ee;
   --tag-other: #ff7a00;
+  --tag-ubuntu: #ff7a1a;
+  --tag-debian: #f43f5e;
+  --tag-fedora: #60a5fa;
+  --tag-arch: #38bdf8;
+  --tag-independent: #a78bfa;
+  --tag-based-on-other: #9ca3af;
   
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.3);

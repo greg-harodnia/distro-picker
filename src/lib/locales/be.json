@@ -85,6 +85,35 @@
                     "description": "Усякае ґрафічнае асяродзьдзе акрамя KDE Plasma, GNOME, Xfce або COSMIC"
                 }
             }
+        },
+        "based-on": {
+            "name": "Заклад на",
+            "entries": {
+                "ubuntu": {
+                    "name": "Ubuntu",
+                    "description": "Закладзеная на Ubuntu"
+                },
+                "debian": {
+                    "name": "Debian",
+                    "description": "Закладзеная на Debian"
+                },
+                "fedora": {
+                    "name": "Fedora",
+                    "description": "Закладзеная на Fedora"
+                },
+                "arch": {
+                    "name": "Arch",
+                    "description": "Закладзеная на Arch Linux"
+                },
+                "independent": {
+                    "name": "Незалежная",
+                    "description": "Не закладзеная на іншай дыстрыбуцыі"
+                },
+                "based-on-other": {
+                    "name": "Іншае",
+                    "description": "Закладзеная на нечым іншым, напрыклад openSUSE"
+                }
+            }
         }
     },
     "distros": {

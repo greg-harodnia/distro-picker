@@ -85,6 +85,35 @@
                     "description": "Any desktop environment other than KDE Plasma, GNOME, Xfce, or COSMIC"
                 }
             }
+        },
+        "based-on": {
+            "name": "Based on",
+            "entries": {
+                "ubuntu": {
+                    "name": "Ubuntu",
+                    "description": "Based on Ubuntu"
+                },
+                "debian": {
+                    "name": "Debian",
+                    "description": "Based on Debian"
+                },
+                "fedora": {
+                    "name": "Fedora",
+                    "description": "Based on Fedora"
+                },
+                "arch": {
+                    "name": "Arch",
+                    "description": "Based on Arch Linux"
+                },
+                "independent": {
+                    "name": "Independent",
+                    "description": "Not based on another distribution"
+                },
+                "based-on-other": {
+                    "name": "Other",
+                    "description": "Based on something else, e.g. openSUSE"
+                }
+            }
         }
     },
     "distros": {

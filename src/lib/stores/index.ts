@@ -29,6 +29,10 @@ export function getTagById(tagId: string): Tag | undefined {
 // Derived from the locale structure (currently keyed "dekstops" there).
 const DESKTOP_GROUP = getTagGroup('kde-plasma') ?? 'desktop';
 
+// Tag group whose tags are matched against `distro.based_on`
+// (the "Based on" / "Заклад на" filter), not `tag_ids`.
+const BASED_ON_GROUP = getTagGroup('ubuntu') ?? 'based-on';
+
 const MAIN_DESKTOPS = new Set(['KDE Plasma', 'GNOME', 'Xfce', 'COSMIC']);
 
 // Tag groups (sections) where multiple tags may be selected at once.
@@ -53,6 +57,34 @@ function matchesDesktop(desktops: string[] | undefined, tagId: string): boolean 
 	}
 }
 
+// Base families of `based_on` values (e.g. "Debian Testing", "Fedora Atomic"
+// belong to their root family); everything else lands in the "other" bucket.
+const BASED_ON_FAMILIES = ['Ubuntu', 'Debian', 'Fedora', 'Arch'];
+
+// Which "Based on" filter tag a distro's `based_on` value matches.
+function matchesBasedOn(basedOn: string | undefined, tagId: string): boolean {
+	if (!basedOn) return false;
+	switch (tagId) {
+		case 'ubuntu':
+			return basedOn.startsWith('Ubuntu');
+		case 'debian':
+			return basedOn.startsWith('Debian');
+		case 'fedora':
+			return basedOn.startsWith('Fedora');
+		case 'arch':
+			return basedOn.startsWith('Arch');
+		case 'independent':
+			return basedOn === 'independent';
+		case 'based-on-other':
+			return (
+				basedOn !== 'independent' &&
+				!BASED_ON_FAMILIES.some(family => basedOn.startsWith(family))
+			);
+		default:
+			return false;
+	}
+}
+
 export const filteredDistros = derived(
 	[distros, selectedTags, showBestOnly],
 	([$distros, $selectedTags, $showBestOnly]) => {
@@ -68,8 +100,12 @@ export const filteredDistros = derived(
 			const selectedArray = Array.from($selectedTags);
 			result = result.filter(distro => 
 				selectedArray.every(tagId => {
-					if (getTagGroup(tagId) === DESKTOP_GROUP) {
+					const group = getTagGroup(tagId);
+					if (group === DESKTOP_GROUP) {
 						return matchesDesktop(distro.desktops, tagId);
+					}
+					if (group === BASED_ON_GROUP) {
+						return matchesBasedOn(distro.based_on, tagId);
 					}
 					return distro.tag_ids.includes(tagId);
 				})
