@@ -188,6 +188,14 @@
 		<section class="filters" aria-labelledby="filters-heading">
 			<h2 id="filters-heading">
 				<span class="heading-text">{$t('app.filters.title')}</span>
+				{#if $selectedTags.size > 0}
+					<button class="clear-btn" onclick={() => { tagActions.clear(); }} aria-label={$t('app.filters.clearAll')}>
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="18" y1="6" x2="6" y2="18"></line>
+							<line x1="6" y1="6" x2="18" y2="18"></line>
+						</svg>
+					</button>
+				{/if}
 				<button 
 					class="info-btn" 
 					onclick={() => infoModalOpen = true}
@@ -212,14 +220,6 @@
 						ontoggle={() => toggleTag(tag.id)}
 					/>
 				{/each}
-				{#if $selectedTags.size > 0}
-					<button class="clear-btn" onclick={() => { tagActions.clear(); }} aria-label={$t('app.filters.clearAll')}>
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<line x1="18" y1="6" x2="6" y2="18"></line>
-							<line x1="6" y1="6" x2="18" y2="18"></line>
-						</svg>
-					</button>
-				{/if}
 			</div>
 		</div>
 		</section>
@@ -386,7 +386,11 @@
 		font-weight: var(--font-semibold);
 		display: flex;
 		align-items: center;
-		gap: var(--space-sm);
+		gap: var(--space-md);
+	}
+
+	.filters h2 .heading-text {
+		flex: 0 1 auto;
 	}
 
 	footer {
@@ -465,6 +469,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		margin-left: auto;
 		width: 32px;
 		height: 32px;
 		border: 1px solid var(--color-border);

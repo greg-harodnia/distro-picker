@@ -40,6 +40,7 @@
   --tag-kde-plasma: #2b6cb0;
   --tag-gnome: #7c3aed;
   --tag-xfce: #a16207;
+  --tag-cosmic: #0e7490;
   --tag-other: #d9480f;
   
   /* Shadows */
@@ -162,6 +163,7 @@
   --tag-kde-plasma: #4a9de8;
   --tag-gnome: #c084fc;
   --tag-xfce: #facc15;
+  --tag-cosmic: #22d3ee;
   --tag-other: #ff7a00;
   
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);

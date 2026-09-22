@@ -63,9 +63,13 @@
             "name": "Xfce",
             "description": "Xfce desktop environment"
         },
+        "cosmic": {
+            "name": "COSMIC",
+            "description": "COSMIC desktop environment"
+        },
         "other": {
             "name": "Other",
-            "description": "Any desktop environment other than KDE Plasma, GNOME, or Xfce"
+            "description": "Any desktop environment other than KDE Plasma, GNOME, Xfce, or COSMIC"
         }
     },
     "distros": {

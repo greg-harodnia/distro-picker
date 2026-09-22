@@ -28,7 +28,7 @@ export function getTagGroup(tagId: string): string | undefined {
 }
 
 const DESKTOP_GROUP = 'desktop';
-const MAIN_DESKTOPS = new Set(['KDE Plasma', 'GNOME', 'Xfce']);
+const MAIN_DESKTOPS = new Set(['KDE Plasma', 'GNOME', 'Xfce', 'COSMIC']);
 
 // Tag groups (sections) where multiple tags may be selected at once.
 // The second filter section ("update-model": point-release, rolling, immutable).
@@ -43,6 +43,8 @@ function matchesDesktop(desktops: string[] | undefined, tagId: string): boolean 
 			return desktops.includes('GNOME');
 		case 'xfce':
 			return desktops.includes('Xfce');
+		case 'cosmic':
+			return desktops.includes('COSMIC');
 		case 'other':
 			return desktops.some(d => !MAIN_DESKTOPS.has(d));
 		default:

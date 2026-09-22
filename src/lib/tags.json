@@ -36,13 +36,18 @@
       "group": "desktop"
     },
     {
+      "id": "cosmic",
+      "description": "Comes with the COSMIC desktop environment",
+      "group": "desktop"
+    },
+    {
       "id": "xfce",
       "description": "Comes with the Xfce desktop environment",
       "group": "desktop"
     },
     {
       "id": "other",
-      "description": "Comes with a desktop environment other than KDE Plasma, GNOME, or Xfce",
+      "description": "Comes with a desktop environment other than KDE Plasma, GNOME, Xfce, or COSMIC",
       "group": "desktop"
     }
   ]

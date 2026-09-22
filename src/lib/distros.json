@@ -168,6 +168,20 @@
       "swap_strategy": "none"
     },
     {
+      "id": "omarchy",
+      "name": "Omarchy",
+      "website": "https://omarchy.org/",
+      "tag_ids": ["rolling"],
+      "logo": "/omarchy.webp",
+      "popular": true,
+      "desktops": ["Hyprland"],
+      "beginner_friendly": 3.0,
+      "based_on": "Arch Linux",
+      "userbase_number": "~60-200",
+      "secure_boot": false,
+      "swap_strategy": "zram"
+    },
+    {
       "id": "cachyos",
       "name": "CachyOS",
       "website": "https://cachyos.org/",
@@ -179,20 +193,6 @@
       "beginner_friendly": 3.5,
       "based_on": "Arch Linux",
       "userbase_number": "~250-600",
-      "secure_boot": false,
-      "swap_strategy": "zram"
-    },
-    {
-      "id": "omarchy",
-      "name": "Omarchy",
-      "website": "https://omarchy.org/",
-      "tag_ids": ["rolling"],
-      "logo": "/omarchy.webp",
-      "popular": true,
-      "desktops": ["Hyprland"],
-      "beginner_friendly": 3.0,
-      "based_on": "Arch Linux",
-      "userbase_number": "~60-200",
       "secure_boot": false,
       "swap_strategy": "zram"
     },

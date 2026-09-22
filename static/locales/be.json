@@ -41,7 +41,7 @@
         },
         "point-release": {
             "name": "Прамежкавы выпуск",
-            "description": "Кропкавыя рэлізы з фіксаванымі вэрсыямі ПЗ"
+            "description": "Прамежкавыя выпускі з фіксаванымі вэрсыямі ПЗ"
         },
         "rolling": {
             "name": "Няспынны выпуск",
@@ -63,9 +63,13 @@
             "name": "Xfce",
             "description": "Ґрафічнае асяродзьдзе Xfce"
         },
+        "cosmic": {
+            "name": "COSMIC",
+            "description": "Ґрафічнае асяродзьдзе COSMIC"
+        },
         "other": {
             "name": "Іншае",
-            "description": "Усякае ґрафічнае асяродзьдзе акрамя KDE Plasma, GNOME або Xfce"
+            "description": "Усякае ґрафічнае асяродзьдзе акрамя KDE Plasma, GNOME, Xfce або COSMIC"
         }
     },
     "distros": {
