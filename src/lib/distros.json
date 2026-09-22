@@ -163,7 +163,7 @@
       "desktops": ["KDE Plasma", "GNOME", "Xfce", "Cinnamon", "MATE", "LXQt", "LXDE", "Budgie", "i3"],
       "ease_of_use": 3.0,
       "based_on":"Arch Linux",
-      "userbase_number": "~100",
+      "userbase_number": "~100-300",
       "secure_boot": false,
       "swap_strategy": "none"
     },
@@ -192,7 +192,7 @@
       "hasMoreDesktops": true,
       "ease_of_use": 3.5,
       "based_on": "Arch Linux",
-      "userbase_number": "~250-600",
+      "userbase_number": "~300-600",
       "secure_boot": false,
       "swap_strategy": "zram"
     },
