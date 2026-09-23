@@ -15,7 +15,7 @@ But most people don't need it. If you just want to record your screen for a quic
 The two most popular desktop environments come with screen recorders built in, so you don't need to install anything:
 
 - **KDE Plasma** ships **Spectacle**, which records video now, not just screenshots.
-- **GNOME** includes a built-in screen recorder in the shell — look for the "Screen Recording" toggle in the quick settings menu.
+- **GNOME** includes a built-in screen recorder — press **Print** to open the screenshot tool, switch to screencast mode (or press `V`), pick Screen or Selection, and hit the red record button. `Shift+Ctrl+Alt+R` starts it even faster. Recordings are saved to `Videos/Screencasts`.
 
 Both are lighter on system resources than OBS and much easier to use. One small catch: audio support is limited — depending on your version, they may capture no sound at all or only your microphone.
 
