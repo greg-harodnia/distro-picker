@@ -28,6 +28,20 @@ bun run build
 bun run preview
 ```
 
+## 📝 Blog
+
+Blog posts live as Markdown files in `src/lib/blog/posts/`:
+
+```
+posts/
+├── <slug>.<lang>.md     e.g. dont-use-obs.en.md
+```
+
+- Each file starts with a `---` frontmatter block: `title`, `date`, optional `description` and `author`.
+- A post is served in the URL's locale; if no `<slug>.<lang>.md` exists, the English file is used as the default fallback.
+- Blog pages are **dynamic** (`prerender = false`): the markdown is read and rendered by the server when a visitor opens a blog page, so post content never ships in the initial SSR HTML and blog pages stay indexable (canonical, hreflang, JSON-LD `BlogPosting`).
+- **Views & likes** are stored in Supabase. The `blog_posts` table (`slug`, `views`, `likes`) must exist — apply `supabase/migrations/0001_blog_posts.sql` in your Supabase project (SQL editor). Without the table, the counters simply show 0 and the current visit/like is still tracked locally.
+
 ## 📁 Project Structure
 
 ```

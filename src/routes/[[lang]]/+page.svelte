@@ -9,6 +9,7 @@
 	import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import LanguageToggle from "$lib/components/LanguageToggle.svelte";
+	import BlogLink from "$lib/components/BlogLink.svelte";
 
 	import { loadDistros, getLikedDistros } from "$lib/utils";
 	import { fetchLikes } from "$lib/supabase";
@@ -189,11 +190,13 @@
 
 <div class="app" class:app-hidden={$loading || !!$error}>
 		<header class="header">
+			<BlogLink variant="desktop" />
 			<div class="header-title-group">
 				<h1>{$t('app.title')}</h1>
 				<h2 class="header-description">{$t('app.description')}</h2>
 			</div>
 			<div class="header-controls">
+				<BlogLink variant="mobile" />
 				<button
 					class="contact-link btn-toggle"
 					onclick={() => contactModalOpen = true}
@@ -380,25 +383,6 @@
 	.header-controls {
 		display: flex;
 		gap: var(--space-sm);
-	}
-
-	:global(.btn-toggle) {
-		height: 44px;
-
-		&.theme-toggle,
-		&.contact-link {
-			width: 44px;
-		}
-
-		@media (hover: hover) {
-			&:hover {
-				transform: translateY(-2px);
-			}
-		}
-
-		&:active {
-			transform: translateY(0);
-		}
 	}
 
 	.filters {
@@ -590,6 +574,11 @@
 			flex-direction: column;
 			gap: var(--space-lg);
 			padding: 0;
+		}
+
+		.header-controls {
+			flex-wrap: wrap;
+			justify-content: center;
 		}
 
 		.header h1 {

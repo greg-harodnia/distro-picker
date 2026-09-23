@@ -29,6 +29,32 @@ export type Translations = {
     userbasePostfix?: string;
     highlights?: string[];
   }>;
+  pages: {
+    distro: {
+      backLink: string;
+      recommended: string;
+      popular: string;
+      hiddenGem: string;
+      inDevelopment: string;
+      features: string;
+      screenshots: string;
+      findMyDistro: string;
+    };
+    blog: {
+      navLabel: string;
+      title: string;
+      publishedOn: string;
+      readMore: string;
+      backToBlog: string;
+      backToPicker: string;
+      loading: string;
+      empty: string;
+      views: string;
+      likes: string;
+      like: string;
+      liked: string;
+    };
+  };
   modals: {
     distro: {
       basedOn: string;
@@ -63,7 +89,6 @@ export type Translations = {
     };
     quiz: {
       title: string;
-      start: string;
       goBack: string;
       yourRecommendation: string;
       restartTest: string;

@@ -241,6 +241,29 @@ body {
 	}
 }
 
+/* Toggle dimensions & touch feedback (app-wide: header on the homepage,
+   top bars on distro/blog pages). Previously scoped to one page, which made
+   toggles lose their size when a page was hard-refreshed; app.css loads on
+   every page. */
+.btn-toggle {
+	height: 44px;
+}
+
+.btn-toggle.theme-toggle,
+.btn-toggle.contact-link {
+	width: 44px;
+}
+
+@media (hover: hover) {
+	.btn-toggle:hover {
+		transform: translateY(-2px);
+	}
+}
+
+.btn-toggle:active {
+	transform: translateY(0);
+}
+
 .btn-primary,
 .btn-outline {
 	border: 2px solid var(--color-secondary);

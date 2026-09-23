@@ -28,6 +28,20 @@
             "features": "Features",
             "screenshots": "Screenshots",
             "findMyDistro": "Find my distro"
+        },
+        "blog": {
+            "navLabel": "Blog",
+            "title": "Blog",
+            "publishedOn": "Published",
+            "readMore": "Read post",
+            "backToBlog": "Back to all posts",
+            "backToPicker": "Back to Distro Picker",
+            "loading": "Loading posts...",
+            "empty": "No posts yet. Check back soon!",
+            "views": "views",
+            "likes": "likes",
+            "like": "Like",
+            "liked": "Liked"
         }
     },
     "tags": {

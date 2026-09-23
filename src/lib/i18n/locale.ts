@@ -86,7 +86,8 @@ export function redirectToPreferredLocale(): void {
   const path = window.location.pathname;
   // Only English *content* pages are candidates; /be, other prefixes and
   // potential 404s are left alone (also guarantees no redirect loops).
-  const isEnglishPage = path === '/' || /^\/distro\/[^/]+$/.test(path);
+  const isEnglishPage =
+    path === '/' || /^\/distro\/[^/]+$/.test(path) || /^\/blog(?:\/[^/]+)?$/.test(path);
   if (!isEnglishPage) return;
 
   const stored = window.localStorage.getItem(LANGUAGE_KEY);

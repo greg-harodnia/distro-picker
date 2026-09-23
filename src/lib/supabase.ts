@@ -41,3 +41,65 @@ export async function sendMessage(name: string, email: string, message: string):
 	}
 	return true;
 }
+
+// ---- Blog views & likes ----
+// Rows live in the `blog_posts` table (slug PK, views, likes). Insert/update
+// uses `upsert` so the first view/like on a post creates its row.
+
+export interface BlogStats {
+	slug: string;
+	views: number;
+	likes: number;
+}
+
+export async function fetchBlogStats(slug: string): Promise<BlogStats | null> {
+	const { data, error } = await supabase
+		.from('blog_posts')
+		.select('slug, views, likes')
+		.eq('slug', slug)
+		.maybeSingle();
+
+	if (error) {
+		console.error('Failed to fetch blog stats:', error);
+		return null;
+	}
+	return (data as BlogStats) || null;
+}
+
+/** All posts' counters in one query — used by the blog index. */
+export async function fetchAllBlogStats(): Promise<BlogStats[]> {
+	const { data, error } = await supabase.from('blog_posts').select('slug, views, likes');
+
+	if (error) {
+		console.error('Failed to fetch blog stats:', error);
+		return [];
+	}
+	return (data as BlogStats[]) || [];
+}
+
+/** Counts one view for a post (call once per session from the client). */
+export async function addBlogView(slug: string): Promise<BlogStats | null> {
+	const current = (await fetchBlogStats(slug)) || { slug, views: 0, likes: 0 };
+	const next = { slug, views: current.views + 1, likes: current.likes };
+
+	const { error } = await supabase.from('blog_posts').upsert(next, { onConflict: 'slug' });
+	if (error) {
+		console.error('Failed to add blog view:', error);
+		return null;
+	}
+	return next;
+}
+
+/** Persists the new like count for a post. */
+export async function setBlogLikes(slug: string, likes: number): Promise<number | null> {
+	const current = (await fetchBlogStats(slug)) || { slug, views: 0, likes: 0 };
+	const { error } = await supabase
+		.from('blog_posts')
+		.upsert({ slug, views: current.views, likes }, { onConflict: 'slug' });
+
+	if (error) {
+		console.error('Failed to update blog likes:', error);
+		return null;
+	}
+	return likes;
+}
