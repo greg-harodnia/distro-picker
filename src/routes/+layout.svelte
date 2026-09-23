@@ -11,7 +11,7 @@
 	import type { Language } from '$lib/locales/types';
 	import { theme, themeActions } from '$lib/stores/theme';
 	import { warmUp } from '$lib/utils/warmup';
-	import { SITE_URL as siteUrl, SEO_KEYWORDS } from '$lib/seo';
+	import { SITE_URL as siteUrl } from '$lib/seo';
 
 	injectAnalytics({ mode: dev ? 'development' : 'production' });
 	injectSpeedInsights();
@@ -113,7 +113,6 @@
 	<!-- Basic Meta -->
 	<title>{pageTitle || ''}</title>
 	<meta name="description" content={pageDescription} />
-	<meta name="keywords" content={SEO_KEYWORDS} />
 	<meta name="author" content={baseTitle}>
 	<meta name="robots" content="index, follow">
 	

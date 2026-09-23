@@ -6,7 +6,6 @@
 	import DistroGrid from "$lib/components/DistroGrid.svelte";
 	import DistroModal from "$lib/components/modals/DistroModal.svelte";
 	import ErrorDisplay from "$lib/components/ErrorDisplay.svelte";
-	import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import LanguageToggle from "$lib/components/LanguageToggle.svelte";
 	import BlogLink from "$lib/components/BlogLink.svelte";
@@ -15,7 +14,6 @@
 	import { fetchLikes } from "$lib/supabase";
 	import {
 		tags,
-		loading,
 		error,
 		selectedTags,
 		selectedDistro,
@@ -29,13 +27,11 @@
 	import { t, locale, localePath } from "$lib/i18n/locale";
 	import { humanizeId } from '$lib/i18n/translations';
 	import distrosData from "$lib/distros.json";
-	import { SITE_URL as siteUrl, SEO_KEYWORDS } from "$lib/seo";
+	import { SITE_URL as siteUrl } from "$lib/seo";
 	import { getTagGroups, TAGS } from "$lib/tagGroups";
 
 	dataActions.setTags(TAGS);
 	dataActions.setDistros(distrosData.distros.map(d => ({ ...d, likes: 0, userLiked: false })));
-
-	const seoKeywords = SEO_KEYWORDS;
 
 	let { data }: { data: PageData } = $props();
 
@@ -50,8 +46,7 @@
 						"@type": "WebSite",
 						"url": `${siteUrl}${localePath('/', $locale)}`,
 						"name": $t('app.title') || 'Linux Distro Picker',
-						"description": $t('app.description') || 'A distro chooser for beginners with a quiz',
-						"keywords": seoKeywords,
+						"description": $t('app.description') || 'A distro chooser and finder for beginners with a quiz',
 						"inLanguage": $locale
 					},
 					{
@@ -95,7 +90,6 @@
 	});
 
 	async function loadData() {
-		dataActions.setLoading(true);
 		dataActions.clearError();
 
 		try {
@@ -119,8 +113,6 @@
 			dataActions.setError(
 				err instanceof Error ? err.message : "Failed to load data",
 			);
-		} finally {
-			dataActions.setLoading(false);
 		}
 
 		try {
@@ -177,9 +169,7 @@
 	});
 </script>
 
-{#if $loading}
-	<LoadingSpinner message={$t('app.loading')} size="large" />
-{:else if $error}
+{#if $error}
 	<ErrorDisplay
 		title={$t('app.failedToLoad')}
 		message={$error}
@@ -188,7 +178,7 @@
 	/>
 {/if}
 
-<div class="app" class:app-hidden={$loading || !!$error}>
+<div class="app" class:app-hidden={!!$error}>
 		<header class="header">
 			<BlogLink variant="desktop" />
 			<div class="header-title-group">
@@ -277,12 +267,6 @@
 
 		</div>
 		</main>
-
-		<div class="sr-only">
-			<p>Linux Distro Chooser - Find Your Perfect Linux Distribution. Distro chooser, distrochooser, choose a distro</p>
-			<p>Distro picker tool to choose a distro based on your needs. Browse and filter popular Linux distributions including Linux Mint, Kubuntu, Zorin OS, Pop!_OS, Fedora, EndeavourOS, CachyOS, SteamOS, Bazzite, Nobara, PikaOS, Lubuntu, AntiX, Ubuntu, Debian, Arch Linux, openSUSE, NixOS, Gentoo, Void, Slackware, MX Linux, Omarchy, Manjaro, elementaryOS, Solus, and more. Use our interactive Linux distribution chooser to discover the best distro for beginners, power users, developers, gamers, and professionals. Try our distro finder to match your use case whether you need a beginner-friendly Linux OS, a rolling release distribution, an immutable distro, or a server-oriented Linux system.</p>
-			<p>Linux, distro chooser, distro picker, choose a distro, find a distro, Linux distribution picker, best Linux distro, Linux distro for beginners, Linux distribution finder, interactive distro chooser, Linux OS chooser, which Linux distro, pick a Linux distro, Linux distro recommendation, distro selection tool, Linux distro quiz.</p>
-		</div>
 
 		<footer>
 		</footer>

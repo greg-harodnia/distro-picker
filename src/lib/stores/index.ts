@@ -8,7 +8,6 @@ export const selectedTags = writable<Set<string>>(new Set());
 export const selectedDistro = writable<Distro | null>(null);
 export const tags = writable<Tag[]>([]);
 export const distros = writable<Distro[]>([]);
-export const loading = writable(true);
 export const error = writable<string | null>(null);
 export const showBestOnly = writable<boolean>(false);
 
@@ -170,10 +169,6 @@ export const dataActions = {
 	
 	setDistros: (newDistros: Distro[]) => {
 		distros.set(newDistros);
-	},
-	
-	setLoading: (isLoading: boolean) => {
-		loading.set(isLoading);
 	},
 	
 	setError: (errorMessage: string | null) => {

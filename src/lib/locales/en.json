@@ -1,7 +1,7 @@
 {
     "app": {
         "title": "Linux Distro Picker",
-        "description": "A distro chooser for beginners with a quiz",
+        "description": "A distro chooser and finder for beginners with a quiz",
         "loading": "Loading...",
         "failedToLoad": "Failed to Load Data",
         "noResults": "No distributions match your selected criteria.",
