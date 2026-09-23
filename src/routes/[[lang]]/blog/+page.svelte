@@ -50,6 +50,9 @@
 				<li>
 					<a class="post-card" href={`${base}${localePath(`/blog/${post.slug}`, $locale)}`}>
 						<time datetime={post.date}>{formatDate(post.date)}</time>
+						{#if post.pinned}
+							<span class="pin-badge">📌 {$t('pages.blog.pinned')}</span>
+						{/if}
 						<h2>{post.title}</h2>
 						{#if post.description}
 							<p class="post-description">{post.description}</p>
@@ -164,6 +167,18 @@
 		font-size: var(--text-sm);
 		color: var(--color-text-muted);
 		margin-bottom: var(--space-sm);
+	}
+
+	.pin-badge {
+		display: inline-block;
+		margin-bottom: var(--space-sm);
+		padding: 2px var(--space-sm);
+		font-size: var(--text-xs);
+		font-weight: var(--font-semibold);
+		color: var(--color-secondary);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-full);
+		background: var(--color-background);
 	}
 
 	.post-card h2 {

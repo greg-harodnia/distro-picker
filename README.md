@@ -37,7 +37,7 @@ posts/
 ├── <slug>.<lang>.md     e.g. dont-use-obs.en.md
 ```
 
-- Each file starts with a `---` frontmatter block: `title`, `date`, optional `description` and `author`.
+- Each file starts with a `---` frontmatter block: `title`, `date`, optional `description` and `pinned`.
 - A post is served in the URL's locale; if no `<slug>.<lang>.md` exists, the English file is used as the default fallback.
 - Blog pages are **dynamic** (`prerender = false`): the markdown is read and rendered by the server when a visitor opens a blog page, so post content never ships in the initial SSR HTML and blog pages stay indexable (canonical, hreflang, JSON-LD `BlogPosting`).
 - **Views & likes** are stored in Supabase. The `blog_posts` table (`slug`, `views`, `likes`) must exist — apply `supabase/migrations/0001_blog_posts.sql` in your Supabase project (SQL editor). Without the table, the counters simply show 0 and the current visit/like is still tracked locally.
@@ -59,7 +59,6 @@ distro-picker/
 │   │   │   ├── DistroModal.svelte
 │   │   │   ├── ErrorDisplay.svelte
 │   │   │   ├── GalleryModal.svelte
-│   │   │   ├── InfoModal.svelte
 │   │   │   ├── LanguageToggle.svelte
 │   │   │   ├── LoadingSpinner.svelte
 │   │   │   ├── OptimizedImage.svelte

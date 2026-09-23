@@ -58,7 +58,7 @@
 	}
 
 	// Warm up the blog route and the modals that are otherwise only fetched on
-	// first interaction (Additional Information / Quick Quiz), so the first
+	// first interaction (Quick Quiz / Contact), so the first
 	// click or navigation isn't a network round-trip. warmUp() schedules the
 	// work for the first idle moment after load and deduplicates it per target,
 	// so it's fine for this effect to re-run on navigation/locale changes.

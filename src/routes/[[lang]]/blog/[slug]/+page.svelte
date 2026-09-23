@@ -99,7 +99,6 @@
 				description: post.meta.description,
 				datePublished: post.meta.date,
 				inLanguage: post.lang,
-				author: post.meta.author ? { '@type': 'Organization', name: post.meta.author } : undefined,
 			},
 			null,
 			2

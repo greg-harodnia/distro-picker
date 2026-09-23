@@ -8,7 +8,6 @@ import { preloadCode, preloadData } from '$app/navigation';
  * waiting for a network round-trip.
  */
 const LAZY_CHUNKS: ReadonlyArray<() => Promise<unknown>> = [
-	() => import('$lib/components/modals/InfoModal.svelte'), // "Additional Information"
 	() => import('$lib/components/modals/QuickTestModal.svelte'), // "Quick Quiz"
 	() => import('$lib/components/modals/ContactModal.svelte'), // header contact button
 ];

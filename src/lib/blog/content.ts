@@ -71,8 +71,8 @@ function normalizeMeta(slug: string, file: ParsedFile): BlogPostMeta {
 	const title = (typeof meta.title === 'string' && meta.title.trim()) || slug;
 	const date = typeof meta.date === 'string' ? meta.date : '';
 	const description = typeof meta.description === 'string' ? meta.description : undefined;
-	const author = typeof meta.author === 'string' ? meta.author : undefined;
-	return { slug, title, date, description, author };
+	const pinned = meta.pinned === 'true';
+	return { slug, title, date, description, pinned };
 }
 
 function filesForSlug(slug: string): BlogPostFile[] {
@@ -124,10 +124,15 @@ export function listPosts(lang: Language): BlogPostSummary[] {
 			date: meta.date,
 			availableLangs: files.map((f) => f.lang),
 			usingFallback: resolved.usingFallback,
+			pinned: meta.pinned,
 		});
 	}
 
-	return summaries.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug)));
+	return summaries.sort((a, b) => {
+		// Pinned posts come first, then newest first.
+		if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
+		return a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug);
+	});
 }
 
 /** The markdown file (or English fallback) for a single post, ready to render. */

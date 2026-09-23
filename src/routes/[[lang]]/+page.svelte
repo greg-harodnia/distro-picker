@@ -46,7 +46,7 @@
 						"@type": "WebSite",
 						"url": `${siteUrl}${localePath('/', $locale)}`,
 						"name": $t('app.title') || 'Linux Distro Picker',
-						"description": $t('app.description') || 'A distro chooser and finder for beginners with a quiz',
+						"description": $t('app.description') || 'A distro chooser for beginners with a quiz',
 						"inLanguage": $locale
 					},
 					{
@@ -71,7 +71,6 @@
 		)
 	);
 
-	let infoModalOpen = $state(false);
 	let quickTestOpen = $state(false);
 	let shareModalOpen = $state(false);
 	let contactModalOpen = $state(false);
@@ -215,18 +214,7 @@
 						</svg>
 					</button>
 				{/if}
-				<button 
-					class="info-btn" 
-					onclick={() => infoModalOpen = true}
-					aria-label={$t('modals.additionalInfo.title')}
-					type="button"
-				>
-				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<circle cx="12" cy="12" r="10"/>
-					<text x="12" y="17" text-anchor="middle" font-size="14" font-family="sans-serif" font-weight="bold" fill="currentColor" stroke="none" dy="1">i</text>
-				</svg>
-				</button>
-			</h2>
+				</h2>
 			<div class="filter-groups">
 				{#each groups as group (group.id)}
 					<FilterGroup
@@ -278,12 +266,6 @@
 			screenshots={(data.screenshots[$selectedDistro.id] || []).map(s => `${base}${s}`)}
 			onclose={closePanel}
 		/>
-	{/if}
-
-	{#if infoModalOpen}
-		{#await import("$lib/components/modals/InfoModal.svelte") then { default: InfoModal }}
-			<InfoModal onclose={() => infoModalOpen = false} />
-		{/await}
 	{/if}
 
 	{#if quickTestOpen}
@@ -451,29 +433,6 @@
 
 	.heading-text {
 		flex: 1;
-	}
-
-	.info-btn {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-left: auto;
-		width: 32px;
-		height: 32px;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-md);
-		background: transparent;
-		color: var(--color-text-secondary);
-		cursor: pointer;
-		transition: all var(--transition-normal);
-		flex-shrink: 0;
-	}
-
-	@media (hover: hover) {
-		.info-btn:hover {
-			border-color: var(--color-secondary);
-			color: var(--color-secondary);
-		}
 	}
 
 	.quick-test-btn {

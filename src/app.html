@@ -10,6 +10,24 @@
 		<meta name="google-site-verification" content="DYt7fPMkb9nRbwcRu_KkPqhtBDnUHPiYn_6GAS5gl2I" />
 		<link rel="icon" href="%sveltekit.assets%/linux.webp" />
 		<link rel="preconnect" href="https://lsydfkkkjazznplskovm.supabase.co" crossorigin="anonymous">
+		<script>
+			// Apply the theme class before first paint: the layout only sets it in
+			// onMount (after hydration), which made dark-mode visitors see a light
+			// flash of the prerendered page. onMount re-applies the same class,
+			// so this only moves the first application to parse time.
+			(() => {
+				let theme = null;
+				try {
+					theme = localStorage.getItem('theme');
+				} catch (e) {
+					// Storage blocked (e.g. private mode) — fall back to system preference.
+				}
+				if (theme !== 'light' && theme !== 'dark') {
+					theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				}
+				document.documentElement.classList.toggle('dark', theme === 'dark');
+			})();
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

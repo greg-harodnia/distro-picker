@@ -44,6 +44,7 @@ export type Translations = {
       navLabel: string;
       title: string;
       publishedOn: string;
+      pinned: string;
       readMore: string;
       backToBlog: string;
       backToPicker: string;
@@ -77,10 +78,6 @@ export type Translations = {
       visitWebsite: string;
       andMore: string;
       independent: string;
-    };
-    additionalInfo: {
-      title: string;
-      content: string;
     };
     gallery: {
       noImages: string;

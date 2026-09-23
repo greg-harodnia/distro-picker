@@ -2,7 +2,6 @@
 title: How To Clean Up Your System
 date: 2026-09-23
 description: Reclaim disk space from the terminal — clean package caches, remove orphaned packages and spot the junk without a heavy GUI cleaner.
-author: The Distro Picker Team
 ---
 
 # How To Clean Up Your System

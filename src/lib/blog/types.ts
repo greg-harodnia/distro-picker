@@ -7,7 +7,8 @@ export interface BlogPostMeta {
 	/** ISO date string, e.g. "2026-09-20". */
 	date: string;
 	description?: string;
-	author?: string;
+	/** Frontmatter `pinned: true` — sorted to the top of the blog index. */
+	pinned: boolean;
 }
 
 /** A post file that exists for a given slug, in a given language. */
@@ -29,6 +30,8 @@ export interface BlogPostSummary {
 	availableLangs: Language[];
 	/** True when English has to stand in for the requested locale. */
 	usingFallback: boolean;
+	/** Pinned posts are shown first on the index. */
+	pinned: boolean;
 }
 
 /** Full post as rendered for the detail page. */

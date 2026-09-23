@@ -2,7 +2,6 @@
 title: Stop Using OBS for Everything
 date: 2026-09-23
 description: OBS is a great tool, but it's overkill for plain screen recording. These lighter built-in and GPU-accelerated alternatives are easier on your system.
-author: The Distro Picker Team
 ---
 
 # Stop Using OBS for Everything
