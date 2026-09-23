@@ -6,10 +6,11 @@
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import type { Snippet } from 'svelte';
-	import { t, locale, setLocale, availableLanguages, redirectToPreferredLocale } from '$lib/i18n/locale';
+	import { t, locale, setLocale, localePath, availableLanguages, redirectToPreferredLocale } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
 	import type { Language } from '$lib/locales/types';
 	import { theme, themeActions } from '$lib/stores/theme';
+	import { warmUp } from '$lib/utils/warmup';
 	import { SITE_URL as siteUrl, SEO_KEYWORDS } from '$lib/seo';
 
 	injectAnalytics({ mode: dev ? 'development' : 'production' });
@@ -55,6 +56,22 @@
 	function langHref(lang: Language): string {
 		return siteUrl + (lang === 'en' ? enPath : bePath);
 	}
+
+	// Warm up the blog route and the modals that are otherwise only fetched on
+	// first interaction (Additional Information / Quick Quiz), so the first
+	// click or navigation isn't a network round-trip. warmUp() schedules the
+	// work for the first idle moment after load and deduplicates it per target,
+	// so it's fine for this effect to re-run on navigation/locale changes.
+	$effect(() => {
+		const blogPath = localePath('/blog', data.locale);
+		warmUp({
+			// The page we're already on has its data loaded — don't refetch it.
+			pages: pathname === blogPath ? [] : [blogPath],
+			// Individual post pages: warm their route code (their data is
+			// prefetched on hover by `data-sveltekit-preload-data`).
+			codes: [`${blogPath}/*`],
+		});
+	});
 
 	$effect(() => {
 		if (browser) {
