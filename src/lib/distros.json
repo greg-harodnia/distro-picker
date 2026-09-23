@@ -149,7 +149,7 @@
       "desktops": ["KDE Plasma", "GNOME", "Xfce", "Budgie"],
       "ease_of_use": 4.8,
       "based_on": "Fedora",
-      "userbase_number": "~2",
+      "userbase_number": "~10",
       "secure_boot": true,
       "swap_strategy": "zram"
     },
