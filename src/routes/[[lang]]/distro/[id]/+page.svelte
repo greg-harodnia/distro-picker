@@ -2,8 +2,7 @@
 	import { base } from '$app/paths';
 	import type { PageData } from './$types';
 	import DistroDetails from '$lib/components/DistroDetails.svelte';
-	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
-	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
+	import PageTopBar from '$lib/components/PageTopBar.svelte';
 	import { TAGS } from '$lib/tagGroups';
 	import { getTranslation } from '$lib/i18n/translations';
 	import { t, locale, localePath } from '$lib/i18n/locale';
@@ -57,14 +56,8 @@
 	{@html `<script type="application/ld+json">${ldJson}</script>`}
 </svelte:head>
 
-<main class="distro-page">
-	<div class="top-bar">
-		<a class="back-link" href={`${base}${localePath('/', $locale)}`}>← {$t('pages.distro.backLink')}</a>
-		<div class="page-controls">
-			<LanguageToggle />
-			<ThemeToggle />
-		</div>
-	</div>
+<main class="page-shell distro-page">
+	<PageTopBar backPath="/" label={$t('pages.distro.backLink')} />
 
 	<header class="distro-header">
 		<img class="distro-logo" src={`${base}${distro.logo || '/linux.webp'}`} alt="{distro.name} logo" height="96" width="96" />
@@ -121,38 +114,6 @@
 {/if}
 
 <style>
-	.distro-page {
-		max-width: var(--container-xl);
-		margin: 0 auto;
-		padding: var(--space-xl);
-	}
-
-	.top-bar {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: var(--space-xl);
-		gap: var(--space-md);
-	}
-
-	.back-link {
-		color: var(--color-secondary);
-		text-decoration: none;
-		font-weight: var(--font-medium);
-	}
-
-	@media (hover: hover) {
-		.back-link:hover {
-			text-decoration: underline;
-		}
-	}
-
-	.page-controls {
-		display: flex;
-		gap: var(--space-sm);
-		flex-shrink: 0;
-	}
-
 	.distro-header {
 		text-align: center;
 		margin-bottom: var(--space-2xl);
@@ -269,10 +230,6 @@
 	}
 
 	@media (max-width: 640px) {
-		.distro-page {
-			padding: var(--space-lg);
-		}
-
 		.distro-name {
 			font-size: var(--text-3xl);
 		}

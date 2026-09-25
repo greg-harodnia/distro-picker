@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import type { PageData } from './$types';
-	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
-	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import PageTopBar from '$lib/components/PageTopBar.svelte';
 	import { t, locale, localePath } from '$lib/i18n/locale';
 
 	let { data }: { data: PageData } = $props();
@@ -29,14 +28,8 @@
 	}
 </script>
 
-<main class="blog-page">
-	<div class="top-bar">
-		<a class="back-link" href={`${base}${localePath('/', $locale)}`}>← {$t('pages.blog.backToPicker')}</a>
-		<div class="page-controls">
-			<LanguageToggle />
-			<ThemeToggle />
-		</div>
-	</div>
+<main class="page-shell blog-page">
+	<PageTopBar backPath="/" label={$t('pages.blog.backToPicker')} />
 
 	<header class="blog-header">
 		<h1>{$t('pages.blog.title')}</h1>
@@ -83,41 +76,13 @@
 </main>
 
 <style>
-	.blog-page {
-		max-width: var(--container-xl);
-		margin: 0 auto;
-		padding: var(--space-xl);
-	}
-
-	.top-bar {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: var(--space-xl);
-		gap: var(--space-md);
-	}
-
-	.back-link {
-		color: var(--color-secondary);
-		text-decoration: none;
-		font-weight: var(--font-medium);
-	}
-
-	@media (hover: hover) {
-		.back-link:hover {
-			text-decoration: underline;
-		}
-	}
-
-	.page-controls {
-		display: flex;
-		gap: var(--space-sm);
-		flex-shrink: 0;
-	}
-
 	.blog-header {
-		text-align: center;
+		width: 100%;
+		max-width: var(--container-lg);
+		margin-right: auto;
 		margin-bottom: var(--space-2xl);
+		margin-left: auto;
+		text-align: center;
 	}
 
 	.blog-header h1 {
@@ -126,6 +91,7 @@
 		font-weight: var(--font-bold);
 		line-height: var(--line-height-tight);
 		margin: 0;
+		text-wrap: balance;
 	}
 
 	.empty {
@@ -135,16 +101,25 @@
 	}
 
 	.post-list {
+		width: 100%;
+		max-width: var(--container-lg);
+		min-width: 0;
 		list-style: none;
 		padding: 0;
-		margin: 0;
+		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-lg);
 	}
 
+	.post-list > li {
+		min-width: 0;
+	}
+
 	.post-card {
 		display: block;
+		min-width: 0;
+		overflow-wrap: anywhere;
 		background: var(--color-surface);
 		border: 1px solid var(--color-border);
 		border-radius: var(--radius-lg);
@@ -186,12 +161,14 @@
 		color: var(--color-secondary);
 		margin: 0 0 var(--space-sm);
 		line-height: var(--line-height-tight);
+		text-wrap: balance;
 	}
 
 	.post-description {
 		margin: 0 0 var(--space-md);
 		color: var(--color-text-secondary);
 		line-height: var(--line-height-normal);
+		text-wrap: pretty;
 	}
 
 	.post-meta {
@@ -224,16 +201,54 @@
 	}
 
 	@media (max-width: 640px) {
-		.blog-page {
-			padding: var(--space-lg);
+		.blog-header {
+			margin-bottom: var(--space-xl);
 		}
 
 		.blog-header h1 {
-			font-size: var(--text-3xl);
+			font-size: 1.75rem;
+		}
+
+		.post-list {
+			gap: 0.75rem;
 		}
 
 		.post-card {
 			padding: var(--space-md);
+		}
+
+		.post-card h2 {
+			font-size: 1.125rem;
+		}
+
+		.post-description {
+			margin-bottom: 0.875rem;
+		}
+
+		.post-meta {
+			gap: 0.75rem;
+		}
+	}
+
+	@media (max-width: 380px) {
+		.blog-header {
+			margin-bottom: var(--space-lg);
+		}
+
+		.blog-header h1 {
+			font-size: 1.625rem;
+		}
+
+		.post-list {
+			gap: 0.625rem;
+		}
+
+		.post-card {
+			padding: 0.875rem;
+		}
+
+		.post-card h2 {
+			font-size: 1.0625rem;
 		}
 	}
 </style>

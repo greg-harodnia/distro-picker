@@ -207,6 +207,25 @@ body {
   min-height: 100vh;
 }
 
+/* Shared responsive page spacing */
+.page-shell {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: max(var(--space-xl), env(safe-area-inset-top))
+    max(var(--space-xl), env(safe-area-inset-right))
+    max(var(--space-xl), env(safe-area-inset-bottom))
+    max(var(--space-xl), env(safe-area-inset-left));
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding: max(var(--space-md), env(safe-area-inset-top))
+      max(var(--space-md), env(safe-area-inset-right))
+      max(var(--space-md), env(safe-area-inset-bottom))
+      max(var(--space-md), env(safe-area-inset-left));
+  }
+}
+
 /* Utility classes */
 .sr-only {
   position: absolute;

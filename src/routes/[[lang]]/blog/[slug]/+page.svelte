@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { base } from '$app/paths';
 	import type { PageData } from './$types';
-	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
-	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import BackLink from '$lib/components/BackLink.svelte';
+	import PageTopBar from '$lib/components/PageTopBar.svelte';
 	import { t, locale, localePath } from '$lib/i18n/locale';
 	import { fetchBlogStats, addBlogView, setBlogLikes } from '$lib/supabase';
 	import { SITE_URL as siteUrl } from '$lib/seo';
@@ -110,14 +109,8 @@
 	{@html `<script type="application/ld+json">${ldJson}</script>`}
 </svelte:head>
 
-<main class="post-page">
-	<div class="top-bar">
-		<a class="back-link" href={`${base}${localePath('/blog', $locale)}`}>← {$t('pages.blog.backToBlog')}</a>
-		<div class="page-controls">
-			<LanguageToggle />
-			<ThemeToggle />
-		</div>
-	</div>
+<main class="page-shell post-page">
+	<PageTopBar backPath="/blog" label={$t('pages.blog.backToBlog')} />
 
 	<article class="post">
 		<header class="post-header">
@@ -148,48 +141,16 @@
 					<span class="like-label">{userLiked ? $t('pages.blog.liked') : $t('pages.blog.like')}</span>
 				</button>
 			</div>
-			<a class="back-to-picker" href={`${base}${localePath('/', $locale)}`}>← {$t('pages.blog.backToPicker')}</a>
+			<BackLink path="/" label={$t('pages.blog.backToPicker')} variant="footer" />
 		</footer>
 	</article>
 </main>
 
 <style>
-	.post-page {
-		max-width: var(--container-xl);
-		margin: 0 auto;
-		padding: var(--space-xl);
-	}
-
-	.top-bar {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: var(--space-xl);
-		gap: var(--space-md);
-	}
-
-	.back-link,
-	.back-to-picker {
-		color: var(--color-secondary);
-		text-decoration: none;
-		font-weight: var(--font-medium);
-	}
-
-	@media (hover: hover) {
-		.back-link:hover,
-		.back-to-picker:hover {
-			text-decoration: underline;
-		}
-	}
-
-	.page-controls {
-		display: flex;
-		gap: var(--space-sm);
-		flex-shrink: 0;
-	}
-
 	.post {
+		width: 100%;
 		max-width: var(--container-md);
+		min-width: 0;
 		margin: 0 auto;
 	}
 
@@ -203,6 +164,8 @@
 		font-weight: var(--font-bold);
 		line-height: var(--line-height-tight);
 		margin: 0 0 var(--space-md);
+		overflow-wrap: anywhere;
+		text-wrap: balance;
 	}
 
 	.post-info {
@@ -216,9 +179,11 @@
 	   otherwise Svelte treats these selectors as unused and drops them. */
 
 	.blog-prose {
+		min-width: 0;
 		font-size: var(--text-lg);
 		line-height: var(--line-height-relaxed);
 		color: var(--color-text);
+		overflow-wrap: break-word;
 	}
 
 	.blog-prose :global(:first-child) {
@@ -228,18 +193,40 @@
 	.blog-prose :global(h1),
 	.blog-prose :global(h2),
 	.blog-prose :global(h3),
-	.blog-prose :global(h4) {
+	.blog-prose :global(h4),
+	.blog-prose :global(h5),
+	.blog-prose :global(h6) {
 		color: var(--color-secondary);
 		line-height: var(--line-height-tight);
 		margin: 2rem 0 var(--space-md);
+		overflow-wrap: anywhere;
+		text-wrap: balance;
+	}
+
+	.blog-prose :global(h1) {
+		font-size: 2rem;
 	}
 
 	.blog-prose :global(h2) {
-		font-size: var(--text-2xl);
+		font-size: 1.5rem;
 	}
 
 	.blog-prose :global(h3) {
-		font-size: var(--text-xl);
+		font-size: 1.25rem;
+	}
+
+	.blog-prose :global(h4) {
+		font-size: 1.125rem;
+	}
+
+	.blog-prose :global(h5) {
+		font-size: 1rem;
+	}
+
+	.blog-prose :global(h6) {
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
 	}
 
 	.blog-prose :global(p) {
@@ -250,6 +237,7 @@
 		color: var(--color-primary-dark);
 		text-decoration: underline;
 		text-underline-offset: 2px;
+		overflow-wrap: anywhere;
 	}
 
 	.blog-prose :global(a:hover) {
@@ -259,11 +247,15 @@
 	.blog-prose :global(ul),
 	.blog-prose :global(ol) {
 		margin: 0 0 var(--space-lg);
-		padding-left: var(--space-xl);
+		padding-left: 1.75rem;
 	}
 
 	.blog-prose :global(li) {
 		margin-bottom: var(--space-xs);
+	}
+
+	.blog-prose :global(li:last-child) {
+		margin-bottom: 0;
 	}
 
 	.blog-prose :global(blockquote) {
@@ -285,9 +277,11 @@
 		background: var(--color-background-secondary);
 		padding: 2px 6px;
 		border-radius: var(--radius-sm);
+		overflow-wrap: anywhere;
 	}
 
 	.blog-prose :global(pre) {
+		max-width: 100%;
 		margin: 0 0 var(--space-lg);
 		padding: var(--space-lg);
 		/* Fixed dark palette on purpose: the previous `-secondary-dark` /
@@ -306,12 +300,29 @@
 		padding: 0;
 		font-size: var(--text-sm);
 		color: inherit;
+		overflow-wrap: normal;
+		white-space: pre;
+	}
+
+	.blog-prose :global(.table-scroll) {
+		max-width: 100%;
+		margin: 0 0 var(--space-lg);
+		overflow-x: auto;
+		overscroll-behavior-inline: contain;
+		-webkit-overflow-scrolling: touch;
+		border-radius: var(--radius-sm);
+	}
+
+	.blog-prose :global(.table-scroll:focus-visible) {
+		outline: 2px solid var(--color-primary-dark);
+		outline-offset: 2px;
 	}
 
 	.blog-prose :global(table) {
 		width: 100%;
+		min-width: 36rem;
 		border-collapse: collapse;
-		margin: 0 0 var(--space-lg);
+		margin: 0;
 		font-size: var(--text-base);
 	}
 
@@ -320,6 +331,7 @@
 		border: 1px solid var(--color-border);
 		padding: var(--space-sm) var(--space-md);
 		text-align: left;
+		vertical-align: top;
 	}
 
 	.blog-prose :global(th) {
@@ -329,7 +341,9 @@
 	}
 
 	.blog-prose :global(img) {
+		display: block;
 		max-width: 100%;
+		height: auto;
 		border-radius: var(--radius-md);
 	}
 
@@ -356,12 +370,14 @@
 		display: flex;
 		align-items: center;
 		gap: var(--space-sm);
+		flex-wrap: wrap;
 	}
 
 	.stat {
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
+		min-height: 44px;
 		padding: var(--space-sm) var(--space-md);
 		border-radius: var(--radius-full);
 		background: var(--color-background-secondary);
@@ -373,7 +389,9 @@
 	.like-btn {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: 6px;
+		min-height: 44px;
 		padding: var(--space-sm) var(--space-md);
 		border: none;
 		border-radius: var(--radius-full);
@@ -385,32 +403,196 @@
 		transition: all var(--transition-normal);
 	}
 
-	.like-btn:hover {
-		background: var(--color-border);
-	}
-
 	.like-btn.liked {
 		background: #fde8e8;
 		color: #c53030;
 	}
 
 	@media (hover: hover) {
+		.like-btn:hover {
+			background: var(--color-border);
+		}
+
 		.like-btn.liked:hover {
 			background: #fbd5d5;
 		}
 	}
 
 	@media (max-width: 640px) {
-		.post-page {
-			padding: var(--space-lg);
+		.post-header {
+			margin-bottom: var(--space-xl);
 		}
 
 		.post-header h1 {
-			font-size: var(--text-2xl);
+			font-size: 1.75rem;
 		}
 
 		.blog-prose {
 			font-size: var(--text-base);
+			line-height: 1.7;
+		}
+
+		.blog-prose :global(h1),
+		.blog-prose :global(h2),
+		.blog-prose :global(h3),
+		.blog-prose :global(h4),
+		.blog-prose :global(h5),
+		.blog-prose :global(h6) {
+			margin: 2rem 0 var(--space-sm);
+		}
+
+		.blog-prose :global(h1) {
+			font-size: 1.75rem;
+		}
+
+		.blog-prose :global(h2) {
+			font-size: 1.375rem;
+		}
+
+		.blog-prose :global(h3) {
+			font-size: 1.1875rem;
+		}
+
+		.blog-prose :global(h4) {
+			font-size: 1.0625rem;
+		}
+
+		.blog-prose :global(h6) {
+			font-size: 0.8125rem;
+		}
+
+		.blog-prose :global(p) {
+			margin-bottom: 1.25rem;
+		}
+
+		.blog-prose :global(ul),
+		.blog-prose :global(ol) {
+			margin-bottom: 1.25rem;
+			padding-left: 1.25rem;
+		}
+
+		.blog-prose :global(li) {
+			margin-bottom: 0.375rem;
+		}
+
+		.blog-prose :global(blockquote) {
+			margin-bottom: 1.25rem;
+			padding: 0.875rem var(--space-md);
+			border-left-width: 3px;
+		}
+
+		.blog-prose :global(code) {
+			font-size: 0.85em;
+		}
+
+		.blog-prose :global(pre),
+		.blog-prose :global(.table-scroll) {
+			margin-bottom: 1.25rem;
+		}
+
+		.blog-prose :global(pre) {
+			padding: var(--space-md);
+		}
+
+		.blog-prose :global(pre code) {
+			font-size: 0.8125rem;
+		}
+
+		.blog-prose :global(table) {
+			font-size: var(--text-sm);
+		}
+
+		.blog-prose :global(th),
+		.blog-prose :global(td) {
+			padding: 0.625rem 0.75rem;
+		}
+
+		.blog-prose :global(hr) {
+			margin: var(--space-xl) 0;
+		}
+
+		.post-footer {
+			align-items: stretch;
+			flex-direction: column;
+			gap: var(--space-sm);
+			margin-top: var(--space-xl);
+			padding-top: var(--space-lg);
+		}
+
+		.stats {
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 380px) {
+		.post-header {
+			margin-bottom: var(--space-lg);
+		}
+
+		.post-header h1 {
+			font-size: 1.625rem;
+		}
+
+		.post-info {
+			font-size: var(--text-xs);
+		}
+
+		.blog-prose {
+			line-height: 1.65;
+		}
+
+		.blog-prose :global(h1),
+		.blog-prose :global(h2),
+		.blog-prose :global(h3),
+		.blog-prose :global(h4),
+		.blog-prose :global(h5),
+		.blog-prose :global(h6) {
+			margin-top: 1.75rem;
+		}
+
+		.blog-prose :global(h2) {
+			font-size: 1.3125rem;
+		}
+
+		.blog-prose :global(h3) {
+			font-size: 1.125rem;
+		}
+
+		.blog-prose :global(ul),
+		.blog-prose :global(ol) {
+			padding-left: 1.125rem;
+		}
+
+		.blog-prose :global(li) {
+			margin-bottom: 0.25rem;
+		}
+
+		.blog-prose :global(blockquote) {
+			padding: 0.75rem 0.875rem;
+		}
+
+		.blog-prose :global(pre) {
+			padding: 0.875rem;
+		}
+
+		.blog-prose :global(th),
+		.blog-prose :global(td) {
+			padding: 0.5rem 0.625rem;
+		}
+
+		.post-footer {
+			margin-top: var(--space-lg);
+			padding-top: var(--space-md);
+		}
+
+		.stats {
+			gap: 0.5rem;
+		}
+
+		.stat,
+		.like-btn {
+			padding: 0.5rem 0.75rem;
+			font-size: var(--text-xs);
 		}
 	}
 </style>
