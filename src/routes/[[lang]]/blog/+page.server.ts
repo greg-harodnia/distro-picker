@@ -11,7 +11,9 @@ export const prerender = false;
 
 export async function load({ params }): Promise<{
 	posts: BlogPostSummary[];
-	stats: BlogStats[];
+	// This is intentionally streamed instead of awaited. Supabase is an
+	// external dependency and must not delay the post list or client navigation.
+	stats: Promise<BlogStats[]>;
 	locale: Language;
 	seo: { title: string; description: string };
 }> {
@@ -23,8 +25,9 @@ export async function load({ params }): Promise<{
 	const blogDescription = BLOG_INDEX_DESCRIPTION;
 
 	// View/like counters for the cards. Degrades to [] (counters show 0)
-	// when the `blog_posts` table isn't set up yet.
-	const stats = await fetchAllBlogStats();
+	// when the `blog_posts` table isn't set up yet. SvelteKit streams this
+	// promise after the page data, so a slow stats query cannot block /blog.
+	const stats = fetchAllBlogStats().catch(() => []);
 
 	return {
 		posts: listPosts(locale),

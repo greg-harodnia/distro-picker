@@ -3,11 +3,37 @@
 	import type { PageData } from './$types';
 	import PageTopBar from '$lib/components/PageTopBar.svelte';
 	import { t, locale, localePath } from '$lib/i18n/locale';
+	import type { BlogStats } from '$lib/supabase';
 
 	let { data }: { data: PageData } = $props();
 
+	// Stats are streamed after the post list so a slow Supabase query never
+	// blocks the blog route. Start at zero during SSR, then fill them in when
+	// the deferred server value arrives in the browser.
+	let stats = $state<BlogStats[]>([]);
+	$effect(() => {
+		let cancelled = false;
+		const result = data.stats;
+
+		if (Array.isArray(result)) {
+			stats = result;
+		} else {
+			void result
+				.then((next) => {
+					if (!cancelled) stats = next;
+				})
+				.catch(() => {
+					if (!cancelled) stats = [];
+				});
+		}
+
+		return () => {
+			cancelled = true;
+		};
+	});
+
 	// slug -> { views, likes } for quick lookup while rendering the cards.
-	let statsBySlug = $derived(new Map(data.stats.map((s) => [s.slug, s])));
+	let statsBySlug = $derived(new Map(stats.map((s) => [s.slug, s])));
 
 	function viewsFor(slug: string): number {
 		return statsBySlug.get(slug)?.views ?? 0;

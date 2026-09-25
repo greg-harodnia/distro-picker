@@ -67,8 +67,8 @@
 		warmUp({
 			// The page we're already on has its data loaded — don't refetch it.
 			pages: pathname === blogPath ? [] : [blogPath],
-			// Individual post pages: warm their route code (their data is
-			// prefetched on hover by `data-sveltekit-preload-data`).
+			// Individual post pages: warm their route code. Their data is
+			// prefetched on hover by the document-level SvelteKit link setting.
 			codes: [`${blogPath}/*`],
 		});
 	});
