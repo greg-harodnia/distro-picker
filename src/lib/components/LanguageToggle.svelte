@@ -3,7 +3,6 @@
   import type { Language } from '$lib/locales/types';
   import { page } from '$app/state';
   import { base } from '$app/paths';
-  import { slide } from 'svelte/transition';
 
   let isOpen = $state(false);
 
@@ -68,30 +67,33 @@
     </svg>
   </button>
 
-  {#if isOpen}
-    <div class="dropdown" role="listbox" transition:slide={{ duration: 150 }}>
-      {#each availableLanguages as lang}
-        <a
-          class="dropdown-item"
-          class:selected={lang.code === $locale}
-          href={hrefFor(lang.code)}
-          hreflang={lang.code}
-          lang={lang.code}
-          onclick={() => chooseLanguage(lang.code)}
-          role="option"
-          aria-selected={lang.code === $locale}
-        >
-          <span class="lang-code">{lang.code.toUpperCase()}</span>
-          <span class="lang-name">{lang.name}</span>
-          {#if lang.code === $locale}
-            <svg class="check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          {/if}
-        </a>
-      {/each}
-    </div>
-  {/if}
+  <div
+    class="dropdown"
+    class:open={isOpen}
+    role="listbox"
+    inert={!isOpen}
+  >
+    {#each availableLanguages as lang}
+      <a
+        class="dropdown-item"
+        class:selected={lang.code === $locale}
+        href={hrefFor(lang.code)}
+        hreflang={lang.code}
+        lang={lang.code}
+        onclick={() => chooseLanguage(lang.code)}
+        role="option"
+        aria-selected={lang.code === $locale}
+      >
+        <span class="lang-code">{lang.code.toUpperCase()}</span>
+        <span class="lang-name">{lang.name}</span>
+        {#if lang.code === $locale}
+          <svg class="check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        {/if}
+      </a>
+    {/each}
+  </div>
 </div>
 
 <style>
@@ -131,6 +133,23 @@
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     z-index: 100;
+    /* Always in the DOM instead of behind `{#if isOpen}`, so the language
+       alternates are real crawlable links in the prerendered HTML. Visibility
+       (not just opacity) keeps the closed panel from swallowing clicks, and
+       `inert` keeps its links out of the tab order while closed. */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition:
+      opacity 150ms ease,
+      transform 150ms ease,
+      visibility 150ms;
+  }
+
+  .dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   .dropdown-item {

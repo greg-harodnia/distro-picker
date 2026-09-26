@@ -4,7 +4,7 @@
 	import { updateLikes } from '$lib/supabase';
 	import { setLikedDistro, removeLikedDistro } from '$lib/utils';
 	import { distroActions } from '$lib/stores';
-	import { t } from '$lib/i18n/locale';
+	import { t, localePath } from '$lib/i18n/locale';
 
 	let {
 		distros = [],
@@ -23,6 +23,22 @@
 
 	function selectDistro(distro: Distro) {
 		onselect(distro);
+	}
+
+	/**
+	 * The card is a JS-only modal trigger, which left every /distro/<id> page
+	 * as an orphan reachable only through sitemap.xml. The name is a real
+	 * <a href> for crawlers (and middle-click / cmd-click / "open in new tab"),
+	 * but it is styled as plain text and a plain click still opens the modal,
+	 * so the hover state never promises a page navigation it won't perform.
+	 */
+	function handleNameClick(e: MouseEvent, distro: Distro) {
+		e.stopPropagation();
+		const isModified =
+			e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
+		if (isModified) return; // let the browser follow the href
+		e.preventDefault();
+		selectDistro(distro);
 	}
 
 	async function handleLike(e: Event, distro: Distro) {
@@ -89,16 +105,12 @@
 				customClass="distro-icon"
 			/>
 			<h3>
-				<button
-					type="button"
-					class="distro-name-btn"
-					onclick={(e) => {
-						e.stopPropagation();
-						selectDistro(distro);
-					}}
+				<a
+					class="distro-name-link"
+					href={localePath(`/distro/${distro.id}`)}
+					onclick={(e) => handleNameClick(e, distro)}
 					aria-label={`${distro.name}, ${getDescription(distro)}`}
-					aria-pressed={selectedDistro?.id === distro.id}
-				>{distro.name}</button>
+				>{distro.name}</a>
 			</h3>
 		</div>
 	{/each}
@@ -209,19 +221,34 @@
 		line-height: var(--line-height-tight);
 	}
 
-	.distro-name-btn {
+	.distro-name-link {
 		display: block;
 		width: 100%;
 		margin: 0;
 		padding: 0;
-		border: none;
-		background: none;
 		font-family: inherit;
 		font-size: var(--text-base);
 		font-weight: var(--font-semibold);
 		line-height: var(--line-height-tight);
 		color: inherit;
+		text-decoration: none;
 		cursor: pointer;
+		border-radius: var(--radius-sm);
+	}
+
+	@media (hover: hover) {
+		/* No underline here on purpose: a plain click opens the modal, not the
+		   page, so a link-styled hover would promise a navigation that never
+		   happens. The card's own hover (lift + border colour) is the
+		   affordance; the href is there for crawlers and modified clicks. */
+		.distro-card:hover .distro-name-link {
+			text-decoration: none;
+		}
+	}
+
+	.distro-name-link:focus-visible {
+		outline: 2px solid var(--color-primary);
+		outline-offset: 2px;
 	}
 
 	@media (max-width: 640px) {

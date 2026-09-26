@@ -53,6 +53,11 @@
 	let enPath = $derived(isBe ? pathname.slice(3) || '/' : pathname);
 	let bePath = $derived(isBe ? pathname : enPath === '/' ? '/be' : `/be${enPath}`);
 
+	// Blog posts are `article`; the blog index and every other page are
+	// `website`. `enPath` has the locale prefix stripped, so one regex covers
+	// both `/blog/x` and `/be/blog/x`.
+	let ogType = $derived(/^\/blog\/[^/]+$/.test(enPath) ? 'article' : 'website');
+
 	function langHref(lang: Language): string {
 		return siteUrl + (lang === 'en' ? enPath : bePath);
 	}
@@ -117,7 +122,7 @@
 	<meta name="robots" content="index, follow">
 	
 	<!-- Open Graph / Facebook -->
-	<meta property="og:type" content="website">
+	<meta property="og:type" content={ogType}>
 	<meta property="og:title" content={pageTitle} />
 	<meta property="og:description" content={pageDescription} />
 	<meta property="og:image" content={socialImage}>

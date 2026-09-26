@@ -1,6 +1,17 @@
 export type Language = 'en' | 'be' | 'ru' | 'es' | 'pt' | 'de' | 'fr' | 'tr';
 
 export type Translations = {
+  /**
+   * Per-page <title> / meta description overrides. `app.title` stays the brand
+   * (it is reused as the suffix on detail pages and as og:site_name), so the
+   * homepage needs its own keyword-targeted strings here.
+   */
+  seo: {
+    home: {
+      title: string;
+      description: string;
+    };
+  };
   app: {
     title: string;
     description: string;

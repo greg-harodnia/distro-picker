@@ -1,7 +1,13 @@
 {
+    "seo": {
+        "home": {
+            "title": "Linux Distro Picker – Quiz to Find Your Ideal Distro",
+            "description": "Take the free quiz or browse 20 Linux distributions. Find the best Linux distro for gaming, work, old hardware or complete beginners."
+        }
+    },
     "app": {
         "title": "Linux Distro Picker",
-        "description": "A distro chooser for beginners with a quiz",
+        "description": "Quiz or browse 20 Linux distros to find your perfect match",
         "loading": "Loading...",
         "failedToLoad": "Failed to Load Data",
         "noResults": "No distributions match your selected criteria.",

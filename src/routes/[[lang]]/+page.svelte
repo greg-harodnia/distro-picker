@@ -35,6 +35,16 @@
 
 	let { data }: { data: PageData } = $props();
 
+	// The JSON-LD description must match the meta description, otherwise Google
+	// sees structured data that contradicts the page. `seo.home.description` is
+	// the same string the layout renders into <meta name="description">; fall
+	// back to the shorter `app.description` if a locale is ever missing it.
+	let ldDescription = $derived(
+		(data.seo?.description as string | undefined) ||
+			$t('app.description') ||
+			'Linux distro picker'
+	);
+
 	// Structured data is derived (not module-level) so it is rendered in the
 	// page's language — `/be` gets Belarusian names and `/be`-prefixed URLs.
 	let ldJson = $derived(
@@ -46,11 +56,12 @@
 						"@type": "WebSite",
 						"url": `${siteUrl}${localePath('/', $locale)}`,
 						"name": $t('app.title') || 'Linux Distro Picker',
-						"description": $t('app.description') || 'A distro chooser for beginners with a quiz',
+						"description": ldDescription,
 						"inLanguage": $locale
 					},
 					{
 						"@type": "ItemList",
+						"numberOfItems": distrosData.distros.length,
 						"itemListElement": distrosData.distros.map((d, i) => ({
 							"@type": "ListItem",
 							"position": i + 1,
