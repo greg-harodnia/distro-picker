@@ -118,7 +118,7 @@
       "hidden_gem": true,
       "desktops": ["KDE Plasma", "GNOME", "Xfce"],
       "hasMoreDesktops": true,
-      "ease_of_use": "(Tumbleweed) 3.8/5, (Leap) 4",
+      "ease_of_use": 4,
       "based_on": "independent",
       "userbase_number": "~0.5-1",
       "secure_boot": true,
