@@ -11,7 +11,7 @@ Not sure which Linux distribution to use? Distro Picker is a distro finder and q
 
 ## Why some distributions aren't listed
 
-The picker doesn't include other popular distributions (*like Arch Linux, Ubuntu, Debian, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Manjaro, Garuda Linux, ChimeraOS, elementaryOS, Solus, and so on*), enterprise-level distributions (*like Red Hat, AlmaLinux, Rocky Linux*) or niche distributions (*like Kali, Alpine*), as it's intended for complete beginners and aims to simplify the choice. At the end of the day, most Linux distributions share (distribute) the same technologies and are very similar.
+The picker doesn't include other popular distributions (*like Arch Linux, Ubuntu, Debian, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Manjaro, Garuda Linux, ChimeraOS, elementaryOS, Solus, and so on*), enterprise-level distributions (*like Red Hat, AlmaLinux, Rocky Linux*) or niche distributions (*like Kali, Alpine*), as it's intended for complete beginners and aims to simplify the choice. At the end of the day, most Linux distributions share (distribute) the same technologies and are very similar. Is it important which distro you pick? No, as long as it does the job you want it to do. Does it matter what desktop environment, package manager, and other essential components it has? No, unless you need to use some specifically. What, then, should one pay attention to when choosing a distro? What it feels like, that's all. You'll be able to do the same things on most distros. The differences come down to how ready-made they are (as opposed to vanilla, where you need to manually configure everything) and how they look and feel.
 
 ## How big is Linux?
 
