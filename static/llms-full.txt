@@ -8,7 +8,7 @@ Linux Distro Picker is an interactive tool that helps you find the best Linux di
 
 Why use Linux? Linux is a free, open-source operating system family. As of mid-2026 there are approximately 100-120 million computers and 60-75 million Linux users worldwide (around 25-30% of whom use Ubuntu, 10% Linux Mint, 5% Arch Linux, and 4% Debian), representing about 4-5% of the market share.
 
-The app intentionally covers a hand-picked set of distributions that are good for beginners, and is not a database of all existing Linux distributions. It purposefully excludes enterprise-level distributions (Red Hat, AlmaLinux, Rocky Linux), niche distributions (Kali, Alpine), and distributions aimed at experienced users (Arch Linux, Ubuntu, Debian, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Manjaro, elementaryOS, Solus) to keep the choice simple. In the end of the day, most Linux distributions share the same technologies and are very similar. This makes the website different from most other "distro chooser" sites that often ask technical questions that users cannot answer and overwhelm them with dozens of options many of which aren't even suitable for general usage.
+The app intentionally covers a hand-picked set of distributions that are good for beginners, and is not a database of all existing Linux distributions. It purposefully excludes enterprise-level distributions (Red Hat, AlmaLinux, Rocky Linux), niche distributions (Kali, Alpine), and distributions aimed at experienced users (Arch Linux, Ubuntu, Debian, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Manjaro, Garuda Linux, ChimeraOS, elementaryOS, Solus) to keep the choice simple. In the end of the day, most Linux distributions share the same technologies and are very similar. This makes the website different from most other "distro chooser" sites that often ask technical questions that users cannot answer and overwhelm them with dozens of options many of which aren't even suitable for general usage.
 
 Dual-booting hints: install Linux on a separate disk and don't use Windows tools to resize partitions on it, as Windows can make Linux unbootable. If a distribution does not support Secure Boot, turn Secure Boot off in the BIOS before installing it.
 
@@ -112,6 +112,24 @@ Key facts:
 Highlights:
 - Full-fledged OS with up-to-date and stable software
 
+### Aurora
+
+URL: https://distro-picker.vercel.app/distro/aurora
+
+Aurora is a cutting-edge Linux OS built on the same foundation as Bazzite. As an immutable, point-release distribution, it delivers daily background updates that apply seamlessly upon reboot, remaining unnoticed by the user. Aurora utilizes Flatpaks managed through the Bazaar software center, offering greater stability than traditional distributions like Ubuntu without sacrificing freshness. It is the perfect option for everyday use, including gaming and software development.
+
+Key facts:
+- Based on: Fedora Atomic
+- Desktop environment(s): KDE Plasma
+- Ease of use: 5/5
+- Userbase: ~3k
+- Secure Boot support: Yes
+- Swap strategy: zRAM
+- Official website: https://getaurora.dev/
+
+Highlights:
+- Cutting-edge OS for everything
+
 ### KDE Linux
 
 URL: https://distro-picker.vercel.app/distro/kde-linux
@@ -126,6 +144,24 @@ Key facts:
 - Secure Boot support: Yes
 - Swap strategy: zRAM + Swap File
 - Official website: https://kde.org/linux/
+
+Highlights:
+- Stable, modern, and reliable general-purpose OS
+
+### Kalpa
+
+URL: https://distro-picker.vercel.app/distro/kalpa
+
+Kalpa is a desktop OS you don't have to worry about. It has an immutable OS layer (provided by Btrfs snapshots), while providing continuous updates to its mutable software layer. It is the perfect choice for an "it just works" OS, however, it is still in the alpha stage. The GNOME variant is called Aeon.
+
+Key facts:
+- Based on: openSUSE MicroOS + openSUSE Tumbleweed
+- Desktop environment(s): KDE Plasma
+- Ease of use: 4.8/5
+- Userbase: n/a
+- Secure Boot support: Yes
+- Swap strategy: zRAM
+- Official website: https://kalpadesktop.org/
 
 Highlights:
 - Stable, modern, and reliable general-purpose OS

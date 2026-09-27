@@ -21,7 +21,7 @@ Key features:
 - Interactive quiz that recommends a distribution (e.g. "Windows-like layout" → Linux Mint, Kubuntu, or Zorin OS)
 - Browse and filter distributions by tags (gaming-ready, lightweight, point release, rolling, immutable)
 - Detailed info per distribution: desktop environments, based-on, beginner-friendliness score (/5), userbase size, Secure Boot support, swap strategy
-- Like cards work across 16 distributions covering beginners, gamers, developers, and power users
+- Like cards work across 20 distributions covering beginners, gamers, developers, and power users
 - Dark and light theme, multilingual UI (English, Belarusian)
 
 ## Distributions
@@ -33,7 +33,9 @@ The app covers these Linux distributions, each with a dedicated page:
 - [Pop!_OS](https://distro-picker.vercel.app/distro/popos) — built by System76, COSMIC desktop (GNOME-based)
 - [Kubuntu](https://distro-picker.vercel.app/distro/kubuntu) — Ubuntu with KDE Plasma
 - [Tuxedo OS](https://distro-picker.vercel.app/distro/tuxedo) — semi-rolling Kubuntu alternative, Flatpak-first
+- [Aurora](https://distro-picker.vercel.app/distro/aurora) — immutable Fedora Atomic base, KDE Plasma, daily updates
 - [KDE Linux](https://distro-picker.vercel.app/distro/kde-linux) — immutable, user-friendly OS from KDE
+- [Kalpa](https://distro-picker.vercel.app/distro/kalpa) — immutable openSUSE base, "it just works" (alpha)
 - [openSUSE](https://distro-picker.vercel.app/distro/openSUSE) — stable, professional-grade (Tumbleweed & Leap)
 - [Fedora](https://distro-picker.vercel.app/distro/fedora) — cutting-edge, developer favorite
 - [Ultramarine](https://distro-picker.vercel.app/distro/ultramarine) — Fedora out-of-the-box with codecs and drivers
@@ -49,7 +51,7 @@ The app covers these Linux distributions, each with a dedicated page:
 
 ## Particulars
 
-- The app intentionally excludes enterprise, niche and very advanced distributions (Arch, Ubuntu, Debian, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Manjaro, elementaryOS, Solus, Red Hat, AlmaLinux, Rocky Linux, Kali, Alpine) to keep the choice simple for beginners.
+- The app intentionally excludes enterprise, niche and very advanced distributions (Arch, Ubuntu, Debian, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Manjaro, Garuda Linux, ChimeraOS, elementaryOS, Solus, Red Hat, AlmaLinux, Rocky Linux, Kali, Alpine) to keep the choice simple for beginners.
 - Estimated Linux market data (mid-2026): ~100-120M computers using Linux, ~60-75M users (~25-30% Ubuntu, 10% Linux Mint, 5% Arch, 4% Debian), about 4-5% market share.
 - Recommended software: browsers (Brave, Helium, Zen, Floorp), office (OnlyOffice, LibreOffice), torrent (qBittorrent), local AI (LM Studio), Windows apps (Bottles), system backup (Timeshift).
 

@@ -1,9 +1,20 @@
+<script module lang="ts">
+	// Every modal is a full-screen overlay with the same z-index, so nesting
+	// (gallery → distro → quiz) is resolved by DOM order — and needs a stack
+	// for the shared window-level handlers: only the topmost modal may react to
+	// Escape / overlay clicks, and the body scroll lock must survive until the
+	// *last* modal closes rather than being released by the first one.
+	const modalStack: symbol[] = [];
+</script>
+
 <script lang="ts">
 	import { onMount, type Snippet } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { lockBodyScroll } from '$lib/utils/body';
 	import { t } from '$lib/i18n/locale';
 	import CloseIcon from '../icons/CloseIcon.svelte';
+
+	const instance = Symbol('modal');
 
 	interface Props {
 		onclose?: () => void;
@@ -13,8 +24,8 @@
 		contentClass?: string;
 		onkeydown?: (e: KeyboardEvent) => void;
 		children: Snippet;
-		header?: Snippet;
-		footer?: Snippet;
+		header?: Snippet | undefined;
+		footer?: Snippet | undefined;
 	}
 
 	let { 
@@ -33,23 +44,31 @@
 		onclose();
 	}
 
+	/** True when this modal is the one currently on top of the stack. */
+	function isTopmost() {
+		return modalStack[modalStack.length - 1] === instance;
+	}
+
 	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'Escape') {
+		if (e.key === 'Escape' && isTopmost()) {
 			close();
 		}
 		onKeydown?.(e);
 	}
 
 	function handleOverlayClick(e: MouseEvent) {
-		if (e.target === e.currentTarget) {
+		if (e.target === e.currentTarget && isTopmost()) {
 			close();
 		}
 	}
 
 	onMount(() => {
+		modalStack.push(instance);
 		lockBodyScroll(true);
 		return () => {
-			lockBodyScroll(false);
+			const index = modalStack.indexOf(instance);
+			if (index !== -1) modalStack.splice(index, 1);
+			if (modalStack.length === 0) lockBodyScroll(false);
 		};
 	});
 </script>

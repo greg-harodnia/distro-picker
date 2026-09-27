@@ -3,7 +3,7 @@
 	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 
-	let { backPath, label }: { backPath: string; label?: string } = $props();
+	let { backPath, label }: { backPath: string; label?: string | undefined } = $props();
 </script>
 
 <div class="page-top-bar">

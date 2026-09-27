@@ -11,7 +11,7 @@ Not sure which Linux distribution to use? Distro Picker is a distro finder and q
 
 ## Why some distributions aren't listed
 
-The picker doesn't include other popular distributions (*like Arch Linux, Ubuntu, Debian, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Manjaro, elementaryOS, Solus, and so on*), enterprise-level distributions (*like Red Hat, AlmaLinux, Rocky Linux*) or niche distributions (*like Kali, Alpine*), as it's intended for complete beginners and aims to simplify the choice. At the end of the day, most Linux distributions share (distribute) the same technologies and are very similar.
+The picker doesn't include other popular distributions (*like Arch Linux, Ubuntu, Debian, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Manjaro, Garuda Linux, ChimeraOS, elementaryOS, Solus, and so on*), enterprise-level distributions (*like Red Hat, AlmaLinux, Rocky Linux*) or niche distributions (*like Kali, Alpine*), as it's intended for complete beginners and aims to simplify the choice. At the end of the day, most Linux distributions share (distribute) the same technologies and are very similar.
 
 ## How big is Linux?
 

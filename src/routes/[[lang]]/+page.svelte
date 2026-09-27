@@ -270,6 +270,15 @@
 		<footer>
 		</footer>
 
+	{#if quickTestOpen}
+		{#await import("$lib/components/modals/QuickTestModal.svelte") then { default: QuickTestModal }}
+			<QuickTestModal onclose={() => quickTestOpen = false} />
+		{/await}
+	{/if}
+
+	<!-- Rendered after the quiz modal on purpose: every modal shares
+	     z-index 1000, so DOM order decides which one paints on top. A distro
+	     popup opened from a quiz result must sit above the quiz. -->
 	{#if $selectedDistro}
 		<DistroModal
 			distro={$selectedDistro}
@@ -277,12 +286,6 @@
 			screenshots={(data.screenshots[$selectedDistro.id] || []).map(s => `${base}${s}`)}
 			onclose={closePanel}
 		/>
-	{/if}
-
-	{#if quickTestOpen}
-		{#await import("$lib/components/modals/QuickTestModal.svelte") then { default: QuickTestModal }}
-			<QuickTestModal onclose={() => quickTestOpen = false} />
-		{/await}
 	{/if}
 
 	{#if shareModalOpen}

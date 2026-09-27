@@ -1,63 +1,42 @@
 <script lang="ts">
-	import type { QuizQuestion, QuizAnswer } from '$lib/types/quiz';
-	import { locale, t } from '$lib/i18n/locale';
-	import { getNestedValue } from '$lib/i18n/translations';
+	import { t } from '$lib/i18n/locale';
 	import Modal from './Modal.svelte';
-	import Confetti from '$lib/components/Confetti.svelte';
+	import Quiz, { type QuizApi } from '$lib/components/Quiz.svelte';
 
 	interface Props {
 		onclose?: () => void;
 	}
 	let { onclose = () => {} }: Props = $props();
 
-	let rootQuestion = $derived(getNestedValue<QuizQuestion>($locale, 'modals.quiz.question')!);
-
-	let currentPath: QuizAnswer[] = $state([]);
-	let resultText: string | null = $state(null);
-	let isComplete = $state(false);
-
-	let currentQuestion = $derived.by(() => {
-		let q = rootQuestion;
-		for (const answer of currentPath) {
-			if (answer.question) {
-				q = answer.question;
-			} else {
-				return q;
-			}
-		}
-		return q;
-	});
-
-	function startQuiz() {
-		currentPath = [];
-		resultText = null;
-		isComplete = false;
-	}
-
-	startQuiz();
-
-	function selectAnswer(answer: QuizAnswer) {
-		currentPath = [...currentPath, answer];
-
-		if (answer.result) {
-			resultText = answer.result;
-			isComplete = true;
-		}
-	}
-
-	function goBack() {
-		if (currentPath.length > 0) {
-			currentPath.pop();
-			resultText = null;
-			isComplete = false;
-		}
-	}
+	// The back arrow lives in the modal header (as it always has) and restart
+	// in the modal footer, so the quiz reports its state up here instead of
+	// rendering those controls itself.
+	let quiz = $state<QuizApi | null>(null);
 </script>
 
-<Modal {onclose} ariaLabel={$t('modals.quiz.title') || ''} footer={isComplete && resultText ? footerSnippet : undefined}>
+{#snippet modalFooter()}
+	<div class="footer-actions">
+		<button class="btn-outline" onclick={() => quiz?.restart()} type="button">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<polyline points="1 4 1 10 7 10"></polyline>
+				<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+			</svg>
+			{$t('modals.quiz.restartTest')}
+		</button>
+		<button class="btn-primary" onclick={onclose} type="button">
+			{$t('app.close')}
+		</button>
+	</div>
+{/snippet}
+
+<Modal
+	{onclose}
+	ariaLabel={$t('modals.quiz.title') || ''}
+	footer={quiz?.isComplete ? modalFooter : undefined}
+>
 	{#snippet header()}
-		{#if !isComplete && currentPath.length > 0}
-			<button class="back-btn" onclick={goBack} aria-label={$t('modals.quiz.goBack')} type="button">
+		{#if quiz?.canGoBack}
+			<button class="back-btn" onclick={() => quiz?.goBack()} aria-label={$t('modals.quiz.goBack')} type="button">
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<polyline points="15 18 9 12 15 6"></polyline>
 				</svg>
@@ -68,56 +47,7 @@
 		<h2 class="modal-title">{$t('modals.quiz.title')}</h2>
 	{/snippet}
 
-	{#snippet footerSnippet()}
-		<div class="result-actions">
-			<button class="btn-outline restart-btn" onclick={startQuiz} type="button">
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<polyline points="1 4 1 10 7 10"></polyline>
-					<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-				</svg>
-				{$t('modals.quiz.restartTest')}
-			</button>
-			<button class="btn-primary" onclick={onclose} type="button">
-				{$t('app.close')}
-			</button>
-		</div>
-	{/snippet}
-
-	{#if isComplete && resultText}
-		<div class="result-container">
-			<Confetti />
-			<div class="result-heading">
-				<div class="result-icon">
-					<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-						<polyline points="22 4 12 14.01 9 11.01"></polyline>
-					</svg>
-				</div>
-				<h3>{$t('modals.quiz.yourRecommendation')}</h3>
-			</div>
-			<p class="result-text">{resultText}</p>
-		</div>
-	{:else}
-		<div class="question-container">
-			<div class="progress-bar">
-				<div class="progress" style="width: {Math.min(100, (currentPath.length + 1) * 100 / 3)}%"></div>
-			</div>
-			<p class="question-text">{currentQuestion.text}</p>
-			<div class="answers-list">
-			{#each currentQuestion.answers as answer, i (answer.text)}
-				<button
-					class="answer-btn"
-					onclick={() => selectAnswer(answer)}
-					type="button"
-					style="animation-delay: {i * 50}ms"
-				>
-					<span class="answer-letter">{String.fromCharCode(65 + i)}</span>
-					<span class="answer-text">{answer.text}</span>
-				</button>
-			{/each}
-			</div>
-		</div>
-	{/if}
+	<Quiz onchange={(api) => (quiz = api)} />
 </Modal>
 
 <style>
@@ -132,6 +62,7 @@
 		align-items: center;
 		justify-content: center;
 		transition: all var(--transition-normal);
+		flex-shrink: 0;
 	}
 
 	@media (hover: hover) {
@@ -143,165 +74,30 @@
 
 	.spacer {
 		width: 36px;
-	}
-
-	.question-container {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-xl);
-	}
-
-	.progress-bar {
-		height: 4px;
-		background: var(--color-border);
-		border-radius: var(--radius-full);
-		overflow: hidden;
-	}
-
-	.progress {
-		height: 100%;
-		background: var(--color-secondary);
-		border-radius: var(--radius-full);
-		transition: width var(--transition-slow);
-	}
-
-	.question-text {
-		font-size: var(--text-lg);
-		color: var(--color-text);
-		line-height: var(--line-height-relaxed);
-		margin: 0;
-	}
-
-	.answers-list {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-md);
-	}
-
-	.answer-btn {
-		display: flex;
-		align-items: center;
-		gap: var(--space-md);
-		padding: var(--space-lg);
-		background: var(--color-background-secondary);
-		border: 2px solid var(--color-border);
-		border-radius: var(--radius-md);
-		cursor: pointer;
-		transition: all var(--transition-normal);
-		text-align: left;
-		animation: fadeInUp 0.3s ease forwards;
-		opacity: 0;
-	}
-
-	@keyframes fadeInUp {
-		from {
-			opacity: 0;
-			transform: translateY(10px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@media (hover: hover) {
-		.answer-btn:hover {
-			border-color: var(--color-secondary);
-			background: var(--color-background);
-		}
-	}
-
-
-	.answer-btn:focus {
-		outline: none;
-		border-color: var(--color-secondary);
-		box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.2);
-	}
-
-	.answer-letter {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 28px;
-		height: 28px;
-		background: var(--color-secondary);
-		color: var(--color-background);
-		border-radius: var(--radius-sm);
-		font-weight: var(--font-semibold);
-		font-size: var(--text-sm);
 		flex-shrink: 0;
 	}
 
-	.answer-text {
-		color: var(--color-text);
-		font-size: var(--text-base);
-		line-height: var(--line-height-normal);
-	}
-
-	.result-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		gap: var(--space-md);
-		padding: var(--space-sm) 0;
-	}
-
-	.result-heading {
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-	}
-
-	.result-icon {
-		color: var(--color-success);
-		display: flex;
-	}
-
-	.result-heading h3 {
-		font-size: var(--text-xl);
-		color: var(--color-secondary);
-		margin: 0;
-		font-weight: var(--font-semibold);
-	}
-
-	.result-text {
+	.modal-title {
 		font-size: var(--text-lg);
 		color: var(--color-text);
-		line-height: var(--line-height-relaxed);
-		text-align: left;
 		margin: 0;
-		padding: var(--space-md);
-		background: var(--color-background-secondary);
-		border-radius: var(--radius-md);
-		border-left: 4px solid var(--color-secondary);
+		flex: 1;
+		text-align: center;
 	}
 
-	.result-actions {
+	/* .modal-footer is a plain block, so the buttons need their own flex row
+	   to split the width evenly instead of stacking left. */
+	.footer-actions {
 		display: flex;
 		gap: var(--space-md);
 		flex-wrap: wrap;
 	}
 
-	.result-actions button {
+	.footer-actions button {
 		flex: 1;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: var(--space-sm);
-	}
-
-	@media (max-width: 640px) {
-		.answer-btn {
-			padding: var(--space-md);
-		}
-
-		.result-text {
-			padding: var(--space-sm);
-		}
-
-		.result-actions {
-			gap: var(--space-sm);
-		}
 	}
 </style>

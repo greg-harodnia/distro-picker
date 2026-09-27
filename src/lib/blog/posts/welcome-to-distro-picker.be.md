@@ -11,7 +11,7 @@ pinned: true
 
 ## Чаму некаторыя дыстрыбуцыі не даданыя
 
-Гэтая аплікацыя не зьмяшчае ўсіх папулярных дыстрыбуцый (*як, Arch Linux, Ubuntu, Debian, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Manjaro, elementaryOS, Solus і г.д.*), карпаратыўных дыстрыбуцый (*як, Red Hat, AlmaLinux, Rocky Linux*) і спэцыялізаваных дыстрыбуцый (*як, Kali, Alpine*), бо яна прызначаная для пачаткоўцаў і мае на мэце спрасьціць выбар. Урэшце ж большасьць дыстрыбуцый Linux разьдзяляюць адныя самыя тэхналёґіі й падобныя адна да адной.
+Гэтая аплікацыя не зьмяшчае ўсіх папулярных дыстрыбуцый (*як, Arch Linux, Ubuntu, Debian, NixOS, Gentoo, Void, Artix, Slackware, MX Linux, Manjaro, Garuda Linux, ChimeraOS, elementaryOS, Solus і г.д.*), карпаратыўных дыстрыбуцый (*як, Red Hat, AlmaLinux, Rocky Linux*) і спэцыялізаваных дыстрыбуцый (*як, Kali, Alpine*), бо яна прызначаная для пачаткоўцаў і мае на мэце спрасьціць выбар. Урэшце ж большасьць дыстрыбуцый Linux разьдзяляюць адныя самыя тэхналёґіі й падобныя адна да адной.
 
 ## Наколькі вялікі Linux?
 

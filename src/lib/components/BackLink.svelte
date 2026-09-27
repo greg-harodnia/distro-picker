@@ -6,7 +6,7 @@
 		path,
 		label,
 		variant = 'default'
-	}: { path: string; label?: string; variant?: 'default' | 'footer' } = $props();
+	}: { path: string; label?: string | undefined; variant?: 'default' | 'footer' } = $props();
 
 	let href = $derived(`${base}${localePath(path, $locale)}`);
 </script>
