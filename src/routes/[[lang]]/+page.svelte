@@ -356,7 +356,7 @@
 		text-align: center;
 		font-size: var(--text-lg);
 		color: var(--color-text-muted);
-		max-width: 32rem;
+		max-width: 42rem;
 		line-height: var(--line-height-normal);
 	}
 
