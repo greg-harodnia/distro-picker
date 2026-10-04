@@ -51,7 +51,7 @@ P.S. Шырокая даступнасьць выбару ня ёсьць пра
 - **Лакальная Штучная Інтэліґенцыя**: LM Studio (раджу мадэль Mistral).
 - **Пашыранае праграмнае забясьпечаньне**: Flatpak (Bazaar або ваш цэнтар ПЗ), Distrobox (DistroShelf для GNOME/GTK, Kontainer для KDE/Qt).
 - **Запуск праґрам Windows**: Bottles, Winboat.
-- **Ачысьнікі**: BleachBit, Stacer (не патрэбны для нязьменных сыстэм).
+- **Ачысьнікі**: BleachBit (не патрэбны для нязьменных сыстэм), Krokiet.
 - **Рэзэрвовае капіяваньне**: Timeshift (не патрэбны для нязьменных сыстэм).
 - **Альтэрнатыва для Nvidia Shadow Play**: GPU Screen Recorder.
 - **Альтэрнатывы для Photoshop**: Photoshop online, Photopea, GIMP, Krita, Affinity (праз Bottles), Canva (для простых задач).

@@ -12,7 +12,7 @@ The app intentionally covers a hand-picked set of distributions that are good fo
 
 Dual-booting hints: install Linux on a separate disk and don't use Windows tools to resize partitions on it, as Windows can make Linux unbootable. If a distribution does not support Secure Boot, turn Secure Boot off in the BIOS before installing it.
 
-Recommended software: browsers — Brave (privacy and ad blocking), Helium (performance and minimalism), Zen (design and vertical tabs), Floorp (customizability); office — OnlyOffice, LibreOffice; torrent client — qBittorrent; disk analyzer — Filelight (KDE/Qt), Baobab (GNOME/GTK), gdu (Rust CLI); local AI — LM Studio (Mistral model recommended); extended software support — Flatpak, Distrobox; running Windows apps — Bottles; cleaners — BleachBit, Stacer; system backup — Timeshift.
+Recommended software: browsers — Brave (privacy and ad blocking), Helium (performance and minimalism), Zen (design and vertical tabs), Floorp (customizability); office — OnlyOffice, LibreOffice; torrent client — qBittorrent; disk analyzer — Filelight (KDE/Qt), Baobab (GNOME/GTK), gdu (Rust CLI); local AI — LM Studio (Mistral model recommended); extended software support — Flatpak, Distrobox; running Windows apps — Bottles; cleaners — BleachBit, Krokiet; system backup — Timeshift.
 
 ## Distributions
 

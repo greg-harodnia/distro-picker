@@ -25,6 +25,10 @@ gdu ~
 
 The first command gives you the system-wide picture, the second covers your home directory. The usual bulk lives in `~/.cache` and `~/.local/share`, and you can delete files straight from the gdu interface with `d`.
 
+## Removing personal duplicates
+
+To remove identical or similar personal files, you can take advantage of **Krokiet**.
+
 ## Clean the package manager cache
 
 Package managers are the biggest source of accumulated junk: every update leaves downloaded packages sitting in a cache. That cache speeds up future updates, so it is fine to keep — but once it has grown big, it is safe to prune.
