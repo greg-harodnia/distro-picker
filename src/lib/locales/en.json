@@ -109,9 +109,13 @@
                     "name": "LXQt",
                     "description": "LXQt desktop environment"
                 },
+                "hyprland": {
+                    "name": "Hyprland",
+                    "description": "Hyprland window manager"
+                },
                 "other": {
                     "name": "Other",
-                    "description": "Any desktop environment other than KDE Plasma, GNOME, COSMIC, Cinnamon, Xfce, or LXQt"
+                    "description": "Any desktop environment other than KDE Plasma, GNOME, COSMIC, Cinnamon, Xfce, LXQt, or Hyprland"
                 }
             }
         },

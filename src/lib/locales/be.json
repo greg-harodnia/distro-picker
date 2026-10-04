@@ -109,9 +109,13 @@
                     "name": "LXQt",
                     "description": "Ґрафічнае асяродзьдзе LXQt"
                 },
+                "hyprland": {
+                    "name": "Hyprland",
+                    "description": "Мэнэджар вокнаў Hyprland"
+                },
                 "other": {
                     "name": "Іншае",
-                    "description": "Усякае ґрафічнае асяродзьдзе акрамя KDE Plasma, GNOME, COSMIC, Cinnamon, Xfce або LXQt"
+                    "description": "Усякае асяродзьдзе акрамя KDE Plasma, GNOME, COSMIC, Cinnamon, Xfce, LXQt або Hyprland"
                 }
             }
         },
