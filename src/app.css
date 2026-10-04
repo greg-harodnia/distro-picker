@@ -39,8 +39,10 @@
   --tag-immutable: #c2410c;
   --tag-kde-plasma: #2b6cb0;
   --tag-gnome: #7c3aed;
-  --tag-xfce: #a16207;
   --tag-cosmic: #0e7490;
+  --tag-cinnamon: #8c4a2f;
+  --tag-xfce: #a16207;
+  --tag-lxqt: #00875a;
   --tag-other: #d9480f;
   --tag-ubuntu: #c1440e;
   --tag-debian: #a81d44;
@@ -168,8 +170,10 @@
   --tag-immutable: #f98416;
   --tag-kde-plasma: #4a9de8;
   --tag-gnome: #c084fc;
-  --tag-xfce: #facc15;
   --tag-cosmic: #22d3ee;
+  --tag-cinnamon: #e8a06a;
+  --tag-xfce: #facc15;
+  --tag-lxqt: #10b981;
   --tag-other: #ff7a00;
   --tag-ubuntu: #ff7a1a;
   --tag-debian: #f43f5e;

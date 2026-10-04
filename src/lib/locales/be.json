@@ -93,17 +93,25 @@
                     "name": "GNOME",
                     "description": "Ґрафічнае асяродзьдзе GNOME"
                 },
-                "xfce": {
-                    "name": "Xfce",
-                    "description": "Ґрафічнае асяродзьдзе Xfce"
-                },
                 "cosmic": {
                     "name": "COSMIC",
                     "description": "Ґрафічнае асяродзьдзе COSMIC"
                 },
+                "cinnamon": {
+                    "name": "Cinnamon",
+                    "description": "Ґрафічнае асяродзьдзе Cinnamon"
+                },
+                "xfce": {
+                    "name": "Xfce",
+                    "description": "Ґрафічнае асяродзьдзе Xfce"
+                },
+                "lxqt": {
+                    "name": "LXQt",
+                    "description": "Ґрафічнае асяродзьдзе LXQt"
+                },
                 "other": {
                     "name": "Іншае",
-                    "description": "Усякае ґрафічнае асяродзьдзе акрамя KDE Plasma, GNOME, Xfce або COSMIC"
+                    "description": "Усякае ґрафічнае асяродзьдзе акрамя KDE Plasma, GNOME, COSMIC, Cinnamon, Xfce або LXQt"
                 }
             }
         },
