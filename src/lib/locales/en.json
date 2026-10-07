@@ -151,7 +151,7 @@
     },
     "distros": {
         "mint": {
-            "description": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. A general-purpose distro, can be used for gaming too (like most distros), but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers. For older computers (for instance, those with only 2–4 GB of RAM), the Xfce edition of Linux Mint is recommended.",
+            "description": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. A general-purpose distro, can be used for gaming too (like most distros), but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers. For older computers (for instance, those with only 2–4 GB of RAM), the Xfce edition of Linux Mint is recommended. Consider also enabling zSwap to improve performance basically for free.",
             "userbasePostfix": " million",
             "highlights": ["Extremely polished and intuitive desktop", "Strives to have GUI apps for everything to eliminate the need of using the terminal, like for example Driver Manager", "May look old-style"]
         },
@@ -236,7 +236,7 @@
             "userbasePostfix": "k"
         },
         "lubuntu": {
-            "description": "A user-friendly lightweight Ubuntu variant, perfect for computers produced between 2004 and 2011 designed for Windows XP/Vista with only 2Gb of RAM. You can make it even faster if you use a native browser package (for instance, Brave) instead of the default Firefox Snap one and turn on zRAM (and give the Swap file the lowest priority).",
+            "description": "A user-friendly lightweight Ubuntu variant, perfect for 15-20 years old computers with only 2Gb of RAM. You can make it even faster if you use a native browser package (for instance, Brave Origin or Helium) instead of the default Firefox Snap one and turn on zSwap.",
             "userbasePostfix": "k"
         },
         "antiX": {
@@ -334,11 +334,11 @@
                                     "result": "Linux Mint Xfce"
                                 },
                                 {
-                                    "text": "It was produced before 2011",
+                                    "text": "It was produced more than 15 years ago",
                                     "result": "Lubuntu"
                                 },
                                 {
-                                    "text": "It is truly ancient (2004 or older) or has just 1Gb of RAM",
+                                    "text": "It is truly ancient (more than 20 years) or has only 1Gb of RAM",
                                     "result": "AntiX"
                                 }
                             ]

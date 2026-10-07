@@ -356,7 +356,7 @@ Key facts:
 
 URL: https://distro-picker.vercel.app/distro/lubuntu
 
-A user-friendly lightweight Ubuntu variant, perfect for computers produced between 2004 and 2011 designed for Windows XP/Vista with only 2Gb of RAM. You can make it even faster if you use a native browser package (for instance, Brave) instead of the default Firefox Snap one and turn on zRAM (and give the Swap file the lowest priority).
+A user-friendly lightweight Ubuntu variant, perfect for 15-20 years old computers with only 2Gb of RAM. You can make it even faster if you use a native browser package (for instance, Brave Origin or Helium) instead of the default Firefox Snap one and turn on zSwap.
 
 Key facts:
 - Based on: Ubuntu

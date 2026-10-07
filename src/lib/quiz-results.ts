@@ -28,7 +28,7 @@ export const QUIZ_RESULTS = {
 	'4': ['endeavouros', 'omarchy', 'cachyos'],
 	/** Recover an old PC → sluggish, but not extremely old */
 	'5.0': ['mint'],
-	/** Recover an old PC → produced before 2011 */
+	/** Recover an old PC → produced more than 15 years ago */
 	'5.1': ['lubuntu'],
 	/** Recover an old PC → truly ancient */
 	'5.2': ['antiX'],
