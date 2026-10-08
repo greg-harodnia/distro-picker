@@ -25,7 +25,12 @@
 			: tag.description
 	);
 
-	function handleClick() {
+	function handleClick(e: Event) {
+		if ((window as any).__filterDragged) {
+			e.preventDefault();
+			e.stopPropagation();
+			return;
+		}
 		ontoggle();
 	}
 

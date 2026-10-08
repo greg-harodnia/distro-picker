@@ -11,6 +11,7 @@
 		ontoggle,
 		onopen,
 		onclose,
+		wasDragged = false,
 	}: {
 		label: string;
 		tags: Tag[];
@@ -19,6 +20,7 @@
 		ontoggle: (tagId: string) => void;
 		onopen: () => void;
 		onclose: () => void;
+		wasDragged?: boolean;
 	} = $props();
 
 	let selectedCount = $derived(tags.filter(tag => selectedTags.has(tag.id)).length);
@@ -51,7 +53,12 @@
 		});
 	});
 
-	function handleClick() {
+	function handleClick(e: Event) {
+		if ((window as any).__filterDragged) {
+			e.preventDefault();
+			e.stopPropagation();
+			return;
+		}
 		if (open) {
 			onclose();
 		} else {
