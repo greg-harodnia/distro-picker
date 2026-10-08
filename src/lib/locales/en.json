@@ -113,9 +113,13 @@
                     "name": "Hyprland",
                     "description": "Hyprland window manager"
                 },
+                "niri": {
+                    "name": "Niri",
+                    "description": "Niri window manager"
+                },
                 "other": {
                     "name": "Other",
-                    "description": "Any desktop environment other than KDE Plasma, GNOME, COSMIC, Cinnamon, Xfce, LXQt, or Hyprland"
+                    "description": "Any desktop environment other than KDE Plasma, GNOME, COSMIC, Cinnamon, Xfce, LXQt, Hyprland, or Niri"
                 }
             }
         },

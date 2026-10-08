@@ -32,7 +32,7 @@ const DESKTOP_GROUP = getTagGroup('kde-plasma') ?? 'desktop';
 // (the "Based on" / "Заклад на" filter), not `tag_ids`.
 const BASED_ON_GROUP = getTagGroup('ubuntu') ?? 'based-on';
 
-const MAIN_DESKTOPS = new Set(['KDE Plasma', 'GNOME', 'COSMIC', 'Cinnamon', 'Xfce', 'LXQt', 'Hyprland']);
+const MAIN_DESKTOPS = new Set(['KDE Plasma', 'GNOME', 'COSMIC', 'Cinnamon', 'Xfce', 'LXQt', 'Hyprland', 'Niri']);
 
 // Tag groups (sections) where multiple tags may be selected at once.
 // The second filter section ("release-model": point-release, rolling, immutable).
@@ -55,6 +55,8 @@ function matchesDesktop(desktops: string[] | undefined, tagId: string): boolean 
 			return desktops.includes('LXQt');
 		case 'hyprland':
 			return desktops.includes('Hyprland');
+		case 'niri':
+			return desktops.includes('Niri');
 		case 'other':
 			return desktops.some(d => !MAIN_DESKTOPS.has(d));
 		default:

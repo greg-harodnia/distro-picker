@@ -113,9 +113,13 @@
                     "name": "Hyprland",
                     "description": "Мэнэджар вокнаў Hyprland"
                 },
+                "niri": {
+                    "name": "Niri",
+                    "description": "Мэнэджар вокнаў Niri"
+                },
                 "other": {
                     "name": "Іншае",
-                    "description": "Усякае асяродзьдзе акрамя KDE Plasma, GNOME, COSMIC, Cinnamon, Xfce, LXQt або Hyprland"
+                    "description": "Усякае асяродзьдзе акрамя KDE Plasma, GNOME, COSMIC, Cinnamon, Xfce, LXQt, Hyprland або Niri"
                 }
             }
         },
