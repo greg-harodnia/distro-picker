@@ -33,7 +33,9 @@ export const QUIZ_RESULTS = {
 	/** Recover an old PC → truly ancient */
 	'5.2': ['antiX'],
 	/** Apple Silicon — Asahi has no page in distros.json yet */
-	'6': []
+	'6': [],
+	/** Android console — Armada has no page in distros.json yet */
+	'7': []
 } as const satisfies Record<string, readonly string[]>;
 
 /** Dot-joined index path of an answer, matching a {@link QUIZ_RESULTS} key. */

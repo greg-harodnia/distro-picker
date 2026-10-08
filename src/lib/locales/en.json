@@ -347,6 +347,10 @@
                     {
                         "text": "I want to install it on a device with an Apple Silicon processor",
                         "result": "Asahi Linux"
+                    },
+                    {
+                        "text": "I want to install it on an Android Console (AYANEO, AYN, Retroid, KONKR)",
+                        "result": "Armada"
                     }
                 ]
             }

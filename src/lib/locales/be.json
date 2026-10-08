@@ -347,6 +347,10 @@
                     {
                         "text": "Хачу ўсталяваць яе на прыладу з працэсарам Apple Silicon",
                         "result": "Asahi Linux"
+                    },
+                    {
+                        "text": "Хачу ўсталяваць яе на партатыўную кансоль Android  (AYANEO, AYN, Retroid, KONKR)",
+                        "result": "Armada"
                     }
                 ]
             }
