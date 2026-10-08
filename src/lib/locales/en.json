@@ -2,12 +2,12 @@
     "seo": {
         "home": {
             "title": "Linux Distro Picker with a Quiz",
-            "description": "Quiz or browse 20 Linux distros — a better and simpler alternative to distrochooser for beginners."
+            "description": "Quiz or browse 21 Linux distros — a better and simpler alternative to distrochooser for beginners."
         }
     },
     "app": {
         "title": "Linux Distro Picker",
-        "description": "A distro chooser for beginners: quiz or browse 20 Linux distros",
+        "description": "A distro chooser for beginners: quiz or browse 21 Linux distros",
         "loading": "Loading...",
         "failedToLoad": "Failed to Load Data",
         "noResults": "No distributions match your selected criteria.",
@@ -235,6 +235,10 @@
             "description": "A mutable gaming distribution. Similar to Nobara, but based on Debian (unstable branch with newer software). It offers you the option to install a gaming meta-package after the OS installation, meaning you can keep it bloat-free and configure it yourself. The GNOME edition features a layout switcher, just like Zorin OS.",
             "userbasePostfix": "k"
         },
+        "rakuos": {
+            "description": "A hybrid-immutable, semi-rolling gaming OS for desktops. Unlike Bazzite, which boots directly into a dedicated gaming mode, RakuOS defaults to a traditional desktop environment. It also allows you to install native DNF packages into a mutable, overlayed /usr directory without requiring a reboot to use them. It uses a modified CachyOS kernel. You can think of it as \"Bazzite for desktops\"; it can be used for everything else apart from gaming, too.",
+            "userbasePostfix": "k"
+        },
         "lubuntu": {
             "description": "A user-friendly lightweight Ubuntu variant, perfect for 15-20 years old computers with only 2Gb of RAM. You can make it even faster if you use a native browser package (for instance, Brave Origin or Helium) instead of the default Firefox Snap one and turn on zSwap.",
             "userbasePostfix": "k"
@@ -307,7 +311,7 @@
                             "answers": [
                                 {
                                     "text": "I don't care about it",
-                                    "result": "Bazzite or SteamOS. These distributions are available for both PCs and handhelds (keep in mind that AMD cards are currently the most supported). A mutable gaming distro is also a nice choice."
+                                    "result": "Bazzite or SteamOS. These distributions are available for both PCs and handhelds (keep in mind that AMD cards are currently the most supported). Alternatively, you can pick RakuOS if you use a desktop."
                                 },
                                 {
                                     "text": "Yes",

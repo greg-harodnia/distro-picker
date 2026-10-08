@@ -352,6 +352,22 @@ Key facts:
 - Official website: https://wiki.pika-os.com/home
 
 
+### RakuOS
+
+URL: https://distro-picker.vercel.app/distro/rakuos
+
+A hybrid-immutable, semi-rolling gaming OS for desktops. Unlike Bazzite, which boots directly into a dedicated gaming mode, RakuOS defaults to a traditional desktop environment. It also allows you to install native DNF packages into a mutable, overlayed /usr directory without requiring a reboot to use them. It uses a modified CachyOS kernel. You can think of it as "Bazzite for desktops"; it can be used for everything else apart from gaming, too.
+
+Key facts:
+- Based on: Fedora Atomic
+- Desktop environment(s): KDE Plasma, GNOME, COSMIC, Niri
+- Ease of use: 4.8/5
+- Userbase: ~1k
+- Secure Boot support: Yes
+- Swap strategy: zRAM
+- Official website: https://rakuos.org/
+
+
 ### Lubuntu
 
 URL: https://distro-picker.vercel.app/distro/lubuntu

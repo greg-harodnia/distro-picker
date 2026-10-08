@@ -21,7 +21,7 @@ Key features:
 - Interactive quiz that recommends a distribution (e.g. "Windows-like layout" → Linux Mint, Kubuntu, or Zorin OS)
 - Browse and filter distributions by tags (gaming-ready, lightweight, point release, rolling, immutable)
 - Detailed info per distribution: desktop environments, based-on, beginner-friendliness score (/5), userbase size, Secure Boot support, swap strategy
-- Like cards work across 20 distributions covering beginners, gamers, developers, and power users
+- Like cards work across 21 distributions covering beginners, gamers, developers, and power users
 - Dark and light theme, multilingual UI (English, Belarusian)
 
 ## Distributions
@@ -46,6 +46,7 @@ The app covers these Linux distributions, each with a dedicated page:
 - [Bazzite](https://distro-picker.vercel.app/distro/bazzite) — gaming-ready immutable distro for PCs and handhelds
 - [Nobara](https://distro-picker.vercel.app/distro/nobara) — gaming distro from the creator of Proton-GE
 - [PikaOS](https://distro-picker.vercel.app/distro/pikaos) — gaming distro based on Debian Unstable
+- [RakuOS](https://distro-picker.vercel.app/distro/rakuos) — hybrid-immutable Fedora Atomic gaming OS for desktops
 - [Lubuntu](https://distro-picker.vercel.app/distro/lubuntu) — lightweight Ubuntu for older hardware (LXQt)
 - [antiX](https://distro-picker.vercel.app/distro/antiX) — ultra-light distro for ancient computers
 
