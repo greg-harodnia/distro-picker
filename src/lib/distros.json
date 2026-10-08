@@ -227,6 +227,20 @@
       "swap_strategy": "zram"
     },
     {
+      "id": "rakuos",
+      "name": "RakuOS",
+      "website": "https://rakuos.org/",
+      "tag_ids": ["gaming-ready", "immutable", "point-release", "rolling"],
+      "logo": "/rakuos.svg",
+      "hidden_gem": true,
+      "desktops": ["KDE Plasma", "GNOME", "COSMIC", "Niri"],
+      "ease_of_use": 4.8,
+      "based_on": "Fedora Atomic",
+      "userbase_number": "~1",
+      "secure_boot": true,
+      "swap_strategy": "zram"
+    },
+    {
       "id": "nobara",
       "name": "Nobara",
       "website": "https://nobaraproject.org/",
@@ -250,20 +264,6 @@
       "based_on": "Debian Unstable",
       "userbase_number": "~10",
       "secure_boot": false,
-      "swap_strategy": "zram"
-    },
-    {
-      "id": "rakuos",
-      "name": "RakuOS",
-      "website": "https://rakuos.org/",
-      "tag_ids": ["gaming-ready", "immutable", "point-release", "rolling"],
-      "logo": "/rakuos.svg",
-      "hidden_gem": true,
-      "desktops": ["KDE Plasma", "GNOME", "COSMIC", "Niri"],
-      "ease_of_use": 4.8,
-      "based_on": "Fedora Atomic",
-      "userbase_number": "~1",
-      "secure_boot": true,
       "swap_strategy": "zram"
     },
     {
