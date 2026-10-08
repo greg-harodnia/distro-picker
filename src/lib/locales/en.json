@@ -311,7 +311,7 @@
                             "answers": [
                                 {
                                     "text": "I don't care about it",
-                                    "result": "Bazzite or SteamOS. These distributions are available for both PCs and handhelds (keep in mind that AMD cards are currently the most supported). Alternatively, you can pick RakuOS if you use a desktop."
+                                    "result": "Bazzite or SteamOS. These distributions are available for both PCs and handhelds (keep in mind that AMD cards are currently the most supported). Alternatively, you can pick RakuOS if you use a desktop / laptop."
                                 },
                                 {
                                     "text": "Yes",
