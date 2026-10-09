@@ -17,6 +17,7 @@
 		error,
 		selectedTags,
 		selectedDistro,
+		distros,
 		filteredDistros,
 		showBestOnly,
 		tagActions,
@@ -134,7 +135,10 @@
 			const likesData = await fetchLikes();
 			if (likesData.length > 0) {
 				const likesMap = new Map(likesData.map(l => [l.id, l.likes]));
-				const updatedDistros = $filteredDistros.map(distro => {
+				// Update likes on the full distro list, not the filtered one —
+				// writing back a filtered subset would permanently drop distros
+				// from the store while filters are active (e.g. on remount).
+				const updatedDistros = $distros.map(distro => {
 					const newLikes = likesMap.get(distro.id);
 					return newLikes !== undefined && newLikes !== distro.likes
 						? { ...distro, likes: newLikes }
