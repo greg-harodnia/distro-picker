@@ -57,7 +57,7 @@
     },
     {
       "id": "tuxedo",
-      "name": "Tuxedo OS",
+      "name": "TUXEDO OS",
       "website": "https://www.tuxedocomputers.com/en/TUXEDO-OS_1.tuxedo",
       "tag_ids": ["rolling"],
       "logo": "/tuxedo.svg",
@@ -80,6 +80,20 @@
       "ease_of_use": 5.0,
       "based_on": "Fedora Atomic",
       "userbase_number": "~3",
+      "secure_boot": true,
+      "swap_strategy": "zram"
+    },
+    {
+      "id": "rakuos",
+      "name": "RakuOS",
+      "website": "https://rakuos.org/",
+      "tag_ids": ["immutable", "point-release", "rolling"],
+      "logo": "/rakuos.svg",
+      "hidden_gem": true,
+      "desktops": ["KDE Plasma", "GNOME", "COSMIC", "Niri"],
+      "ease_of_use": 4.8,
+      "based_on": "Fedora Atomic",
+      "userbase_number": "~1",
       "secure_boot": true,
       "swap_strategy": "zram"
     },
@@ -223,20 +237,6 @@
       "ease_of_use": 5.0,
       "based_on": "Fedora Atomic",
       "userbase_number": "~100",
-      "secure_boot": true,
-      "swap_strategy": "zram"
-    },
-    {
-      "id": "rakuos",
-      "name": "RakuOS",
-      "website": "https://rakuos.org/",
-      "tag_ids": ["gaming-ready", "immutable", "point-release", "rolling"],
-      "logo": "/rakuos.svg",
-      "hidden_gem": true,
-      "desktops": ["KDE Plasma", "GNOME", "COSMIC", "Niri"],
-      "ease_of_use": 4.8,
-      "based_on": "Fedora Atomic",
-      "userbase_number": "~1",
       "secure_boot": true,
       "swap_strategy": "zram"
     },

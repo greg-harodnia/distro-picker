@@ -240,7 +240,7 @@
             "userbasePostfix": "k"
         },
         "rakuos": {
-            "description": "A hybrid-immutable, semi-rolling OS for desktops. It is a good choice for gaming, but it doesn't come with gaming software preinstalled. Unlike Bazzite, which boots directly into a dedicated gaming mode, RakuOS defaults to a traditional desktop environment. It also allows you to install native DNF packages into a mutable, overlayed /usr directory without requiring a reboot to use them. It uses a modified kernel and its own Rum package manager. You can think of it as \"Bazzite for desktops.\"",
+            "description": "A hybrid-immutable, semi-rolling OS for desktops. It allows you to install native DNF packages into a mutable, overlayed /usr directory without requiring a reboot to use them. Also, it uses a modified kernel and its own Rum package manager. A good choice for gaming. A separate gaming edition may be released in the future which will boot directly into a dedicated gaming mode and come with preinstalled gaming software, similar to Bazzite.",
             "userbasePostfix": "k"
         },
         "lubuntu": {
