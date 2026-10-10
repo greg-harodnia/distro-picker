@@ -166,7 +166,7 @@
             "highlights": ["Sleek design", "Good even for people that have no idea what Linux is"]
         },
         "kubuntu": {
-            "description": "A well-established and trusted distro, based on Ubuntu with the KDE Plasma desktop environment (the most feature-rich). It is backed by a huge corporation, Canonical. Similar hardware requirements to Linux Mint.",
+            "description": "A well-established and trusted distro, based on Ubuntu (corporate standard) with the KDE Plasma desktop environment (the most feature-rich). It is backed by a huge corporation, Canonical. If you want to access more apps, feel free to install the Flatpak backend (you will also need to add the Flathub repository). Afterward, you can install more apps directly from Discover (if you add its Flatpak plugin) or choose an alternative storefront like Bazaar.",
             "userbasePostfix": " million",
             "highlights": ["Has a lot of documentation available", "Uses Snap packages"]
         },
