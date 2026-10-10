@@ -11,6 +11,7 @@ export interface Distro {
 	tag_ids: string[];
 	logo?: string;
 	best?: boolean;
+	show_in_partially?: boolean;
 	popular?: boolean;
 	hidden_gem?: boolean;
 	in_development?: boolean;

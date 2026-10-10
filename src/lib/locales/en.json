@@ -16,7 +16,8 @@
         "filters": {
             "title": "Filter by tags",
             "clearAll": "Clear filters",
-            "bestOnly": "Best"
+            "partially": "Partially",
+            "all": "All"
         },
         "error": "Something went wrong",
         "toggles": {

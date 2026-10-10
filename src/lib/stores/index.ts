@@ -9,7 +9,8 @@ export const selectedDistro = writable<Distro | null>(null);
 export const tags = writable<Tag[]>([]);
 export const distros = writable<Distro[]>([]);
 export const error = writable<string | null>(null);
-export const showBestOnly = writable<boolean>(false);
+// false => "Partially" (only distros flagged `show_in_partially`), true => "All" (every distro).
+export const showAll = writable<boolean>(false);
 
 let tagMap = new Map<string, Tag>();
 
@@ -93,14 +94,14 @@ function matchesBasedOn(basedOn: string | undefined, tagId: string): boolean {
 }
 
 export const filteredDistros = derived(
-	[distros, selectedTags, showBestOnly],
-	([$distros, $selectedTags, $showBestOnly]) => {
+	[distros, selectedTags, showAll],
+	([$distros, $selectedTags, $showAll]) => {
 		if (!$distros || $distros.length === 0) return [];
 		
 		let result = $distros.filter(d => !d.disabled);
 		
-		if ($showBestOnly) {
-			result = result.filter(d => d.best);
+		if (!$showAll) {
+			result = result.filter(d => d.show_in_partially);
 		}
 		
 		if ($selectedTags.size > 0) {

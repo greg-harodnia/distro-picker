@@ -23,7 +23,8 @@ export type Translations = {
     filters: {
       title: string;
       clearAll: string;
-      bestOnly: string;
+      partially: string;
+      all: string;
     };
     error: string;
     toggles: {

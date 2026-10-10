@@ -19,7 +19,7 @@
 		selectedDistro,
 		distros,
 		filteredDistros,
-		showBestOnly,
+		showAll,
 		tagActions,
 		distroActions,
 		dataActions,
@@ -345,8 +345,8 @@
 				<h2 id="distros-heading">
 					<span class="heading-text">{$t('app.distroGridTitle')} ({$filteredDistros.length})</span>
 					<label class="toggle-label">
-						<span class="toggle-text">{$t('app.filters.bestOnly')}</span>
-						<input type="checkbox" class="toggle-input" bind:checked={$showBestOnly} />
+						<span class="toggle-text">{$showAll ? $t('app.filters.all') : $t('app.filters.partially')}</span>
+						<input type="checkbox" class="toggle-input" bind:checked={$showAll} />
 						<span class="toggle-switch"></span>
 					</label>
 				</h2>
