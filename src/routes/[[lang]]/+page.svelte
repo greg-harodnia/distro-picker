@@ -9,6 +9,7 @@
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import LanguageToggle from "$lib/components/LanguageToggle.svelte";
 	import BlogLink from "$lib/components/BlogLink.svelte";
+	import { dragScroll } from "$lib/actions/dragScroll";
 
 	import { loadDistros, getLikedDistros } from "$lib/utils";
 	import { fetchLikes } from "$lib/supabase";
@@ -88,11 +89,6 @@
 	let shareModalOpen = $state(false);
 	let contactModalOpen = $state(false);
 	let openGroup = $state<string | null>(null);
-	let filterGroupsEl = $state<HTMLElement | null>(null);
-	let isDragging = $state(false);
-	let startX = $state(0);
-	let scrollLeftStart = $state(0);
-	let hasDragged = $state(false);
 
 	let groups = $derived.by(() => {
 		const tagById = new Map($tags.map(tag => [tag.id, tag]));
@@ -182,96 +178,6 @@
 		};
 		document.addEventListener('click', onDocClick);
 
-		// Drag to scroll for filter groups
-		const container = filterGroupsEl;
-		if (container) {
-			const handleStart = (clientX: number) => {
-				isDragging = true;
-				hasDragged = false;
-				container.classList.add('dragging');
-				startX = clientX - container.offsetLeft;
-				scrollLeftStart = container.scrollLeft;
-			};
-
-			const handleMove = (clientX: number) => {
-				if (!isDragging) return;
-				const x = clientX - container.offsetLeft;
-				const walk = (x - startX) * 1.5;
-				if (Math.abs(walk) > 3) {
-					hasDragged = true;
-				}
-				container.scrollLeft = scrollLeftStart - walk;
-			};
-
-			const handleEnd = () => {
-				if (hasDragged) {
-					(window as any).__filterDragged = true;
-				}
-				isDragging = false;
-				container.classList.remove('dragging');
-				setTimeout(() => {
-					hasDragged = false;
-					(window as any).__filterDragged = false;
-				}, 150);
-			};
-
-			const handleMouseDown = (e: MouseEvent) => {
-				handleStart(e.pageX);
-			};
-
-			const handleMouseMove = (e: MouseEvent) => {
-				if (!isDragging) return;
-				e.preventDefault();
-				handleMove(e.pageX);
-			};
-
-			const handleTouchStart = (e: TouchEvent) => {
-				if (e.touches.length === 1) {
-					handleStart(e.touches[0].pageX);
-				}
-			};
-
-			const handleTouchMove = (e: TouchEvent) => {
-				if (!isDragging || e.touches.length !== 1) return;
-				e.preventDefault();
-				handleMove(e.touches[0].pageX);
-			};
-
-			const handleTouchEnd = () => {
-				handleEnd();
-			};
-
-			container.addEventListener('mousedown', handleMouseDown);
-			container.addEventListener('mousemove', handleMouseMove);
-			container.addEventListener('mouseup', handleEnd);
-			container.addEventListener('mouseleave', handleEnd);
-			container.addEventListener('touchstart', handleTouchStart, { passive: true });
-			container.addEventListener('touchmove', handleTouchMove, { passive: false });
-			container.addEventListener('touchend', handleTouchEnd);
-
-			// Also prevent click events on dragged items at capture level
-			const handleClickCapture = (e: Event) => {
-				if (hasDragged || (window as any).__filterDragged) {
-					e.preventDefault();
-					e.stopPropagation();
-				}
-			};
-			container.addEventListener('click', handleClickCapture, true);
-
-			return () => {
-				clearTimeout(timer);
-				document.removeEventListener('click', onDocClick);
-				container.removeEventListener('mousedown', handleMouseDown);
-				container.removeEventListener('mousemove', handleMouseMove);
-				container.removeEventListener('mouseup', handleEnd);
-				container.removeEventListener('mouseleave', handleEnd);
-				container.removeEventListener('touchstart', handleTouchStart);
-				container.removeEventListener('touchmove', handleTouchMove);
-				container.removeEventListener('touchend', handleTouchEnd);
-				container.removeEventListener('click', handleClickCapture, true);
-			};
-		}
-
 		return () => {
 			clearTimeout(timer);
 			document.removeEventListener('click', onDocClick);
@@ -326,7 +232,7 @@
 					</button>
 				{/if}
 				</h2>
-			<div class="filter-groups" bind:this={filterGroupsEl}>
+			<div class="filter-groups" use:dragScroll>
 				{#each groups as group (group.id)}
 					<FilterGroup
 						label={groupLabel(group.id)}
@@ -497,17 +403,10 @@
 		-webkit-overflow-scrolling: touch;
 		scrollbar-width: none;
 		-ms-overflow-style: none;
-		cursor: grab;
 	}
 
 	.filter-groups::-webkit-scrollbar {
 		display: none;
-	}
-
-	.filter-groups.dragging {
-		cursor: grabbing;
-		user-select: none;
-		-webkit-user-select: none;
 	}
 
 	.clear-btn {

@@ -51,12 +51,7 @@
 		});
 	});
 
-	function handleClick(e: Event) {
-		if ((window as any).__filterDragged) {
-			e.preventDefault();
-			e.stopPropagation();
-			return;
-		}
+	function handleClick() {
 		if (open) {
 			onclose();
 		} else {

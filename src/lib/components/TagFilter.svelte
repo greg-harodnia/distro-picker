@@ -25,19 +25,14 @@
 			: tag.description
 	);
 
-	function handleClick(e: Event) {
-		if ((window as any).__filterDragged) {
-			e.preventDefault();
-			e.stopPropagation();
-			return;
-		}
+	function handleClick() {
 		ontoggle();
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'Enter' || e.key === ' ') {
 			e.preventDefault();
-			handleClick(e);
+			handleClick();
 		}
 	}
 </script>
