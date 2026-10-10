@@ -14,25 +14,9 @@
 	let quiz = $state<QuizApi | null>(null);
 </script>
 
-{#snippet modalFooter()}
-	<div class="footer-actions">
-		<button class="btn-outline" onclick={() => quiz?.restart()} type="button">
-			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<polyline points="1 4 1 10 7 10"></polyline>
-				<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-			</svg>
-			{$t('modals.quiz.restartTest')}
-		</button>
-		<button class="btn-primary" onclick={onclose} type="button">
-			{$t('app.close')}
-		</button>
-	</div>
-{/snippet}
-
 <Modal
 	{onclose}
 	ariaLabel={$t('modals.quiz.title') || ''}
-	footer={quiz?.isComplete ? modalFooter : undefined}
 >
 	{#snippet header()}
 		{#if quiz?.canGoBack}
@@ -45,6 +29,23 @@
 			<div class="spacer"></div>
 		{/if}
 		<h2 class="modal-title">{$t('modals.quiz.title')}</h2>
+	{/snippet}
+
+	{#snippet footer()}
+		{#if quiz?.isComplete}
+			<div class="footer-actions">
+				<button class="btn-outline" onclick={() => quiz?.restart()} type="button">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<polyline points="1 4 1 10 7 10"></polyline>
+						<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+					</svg>
+					{$t('modals.quiz.restartTest')}
+				</button>
+				<button class="btn-primary" onclick={onclose} type="button">
+					{$t('app.close')}
+				</button>
+			</div>
+		{/if}
 	{/snippet}
 
 	<Quiz onchange={(api) => (quiz = api)} />

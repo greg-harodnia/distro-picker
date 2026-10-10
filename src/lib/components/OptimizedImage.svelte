@@ -10,7 +10,7 @@
 	}: {
 		alt: string;
 		customClass?: string;
-		logo?: string;
+		logo?: string | undefined;
 	} = $props();
 
 	let imgElement: HTMLImageElement;

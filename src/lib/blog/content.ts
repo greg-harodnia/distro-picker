@@ -68,10 +68,14 @@ const KNOWN_LANGUAGES = new Set<Language>(['en', 'be', 'ru', 'es', 'pt', 'de', '
 
 function normalizeMeta(slug: string, file: ParsedFile): BlogPostMeta {
 	const meta = file.meta;
-	const title = (typeof meta.title === 'string' && meta.title.trim()) || slug;
-	const date = typeof meta.date === 'string' ? meta.date : '';
-	const description = typeof meta.description === 'string' ? meta.description : undefined;
-	const pinned = meta.pinned === 'true';
+	// `meta` is an index-signature record (frontmatter is free-form), so read
+	// keys with bracket access and narrow to strings explicitly.
+	const str = (key: string): string | undefined =>
+		typeof meta[key] === 'string' ? (meta[key] as string) : undefined;
+	const title = str('title')?.trim() || slug;
+	const date = str('date') ?? '';
+	const description = str('description') ?? '';
+	const pinned = meta['pinned'] === 'true';
 	return { slug, title, date, description, pinned };
 }
 

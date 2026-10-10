@@ -37,7 +37,7 @@
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'Enter' || e.key === ' ') {
 			e.preventDefault();
-			handleClick();
+			handleClick(e);
 		}
 	}
 </script>

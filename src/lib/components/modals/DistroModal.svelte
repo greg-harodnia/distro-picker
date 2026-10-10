@@ -31,7 +31,7 @@
 	}
 </script>
 
-<Modal {onclose} ariaLabel={distro.name} {footer} contentClass="distro-modal">
+<Modal {onclose} ariaLabel={distro.name} contentClass="distro-modal">
 	{#snippet header()}
 		<h2 class="modal-title">{distro.name}</h2>
 		<a
@@ -59,9 +59,8 @@
 	{/snippet}
 
 	<DistroDetails {distro} {tags} />
-</Modal>
 
-{#snippet footer()}
+	{#snippet footer()}
 	<div class="buttons">
 		<button
 			class="website-btn"
@@ -95,7 +94,8 @@
 			</svg>
 		</button>
 	</div>
-{/snippet}
+	{/snippet}
+</Modal>
 
 {#if showGallery}
 	<GalleryModal

@@ -1,4 +1,5 @@
 import type { Distro } from '../types';
+import { distros } from '../distros';
 import { validateDistrosArray, type ValidationResult } from './validation';
 
 export interface DataLoadResult<T> {
@@ -9,19 +10,18 @@ export interface DataLoadResult<T> {
 
 export async function loadDistros(): Promise<DataLoadResult<Distro[]>> {
 	try {
-		const distrosData = await import('$lib/distros.json');
-		if (!distrosData?.default?.distros || !Array.isArray(distrosData.default.distros)) {
+		if (!Array.isArray(distros)) {
 			throw new Error('Invalid distros data structure');
 		}
 
-		const validation: ValidationResult = validateDistrosArray(distrosData.default.distros);
+		const validation: ValidationResult = validateDistrosArray(distros);
 		if (!validation.isValid) {
 			const errorMessages = validation.errors.map(e => `${e.field}: ${e.message}`).join('; ');
 			throw new Error(`Validation failed: ${errorMessages}`);
 		}
 
 		return {
-			data: distrosData.default.distros,
+			data: distros,
 			error: null,
 			loading: false
 		};

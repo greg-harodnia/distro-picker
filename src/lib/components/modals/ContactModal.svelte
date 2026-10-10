@@ -26,10 +26,10 @@
 			if (ok) {
 				sent = true;
 			} else {
-				errorMsg = $t('modals.contact.error');
+				errorMsg = $t('modals.contact.error') ?? '';
 			}
 		} catch {
-			errorMsg = $t('modals.contact.error');
+			errorMsg = $t('modals.contact.error') ?? '';
 		} finally {
 			sending = false;
 		}

@@ -33,7 +33,7 @@
 		setLocale(data.locale);
 	});
 
-	let seo = $derived(($page.data.seo || {}) as {
+	let seo = $derived(($page.data['seo'] || {}) as {
 		title?: string;
 		description?: string;
 	});
@@ -80,7 +80,7 @@
 
 	$effect(() => {
 		if (browser) {
-			document.title = pageTitle;
+			document.title = pageTitle || '';
 		}
 	});
 

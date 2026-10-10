@@ -44,6 +44,8 @@
 	async function handleLike(e: Event, distro: Distro) {
 		e.stopPropagation();
 
+		const prevLikes = distro.likes;
+		const prevUserLiked = distro.userLiked;
 		const newLikes = distro.userLiked 
 			? (distro.likes || 1) - 1 
 			: (distro.likes || 0) + 1;
@@ -58,7 +60,10 @@
 
 		const success = await updateLikes(distro.id, newLikes);
 		if (!success) {
-			distroActions.update(distro.id, { likes: distro.likes, userLiked: distro.userLiked });
+			const rollback: Partial<Distro> = {};
+			if (prevLikes !== undefined) rollback.likes = prevLikes;
+			if (prevUserLiked !== undefined) rollback.userLiked = prevUserLiked;
+			distroActions.update(distro.id, rollback);
 			if (!newUserLiked) {
 				setLikedDistro(distro.id);
 			} else {

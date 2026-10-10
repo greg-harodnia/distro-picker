@@ -28,11 +28,12 @@
 	import { t, locale, localePath } from "$lib/i18n/locale";
 	import { humanizeId } from '$lib/i18n/translations';
 	import distrosData from "$lib/distros.json";
+	import { distros as distrosList } from "$lib/distros";
 	import { SITE_URL as siteUrl } from "$lib/seo";
 	import { getTagGroups, TAGS } from "$lib/tagGroups";
 
 	dataActions.setTags(TAGS);
-	dataActions.setDistros(distrosData.distros.map(d => ({ ...d, likes: 0, userLiked: false })));
+	dataActions.setDistros(distrosList.map(d => ({ ...d, likes: 0, userLiked: false })));
 
 	let { data }: { data: PageData } = $props();
 
@@ -280,7 +281,7 @@
 
 {#if $error}
 	<ErrorDisplay
-		title={$t('app.failedToLoad')}
+		title={$t('app.failedToLoad') ?? ''}
 		message={$error}
 		retryable
 		onretry={loadData}

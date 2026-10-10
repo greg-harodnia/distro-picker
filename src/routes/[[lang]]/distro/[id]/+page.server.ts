@@ -1,15 +1,15 @@
 import { error } from '@sveltejs/kit';
-import distrosData from '$lib/distros.json';
+import { distros } from '$lib/distros';
 import { getTranslation } from '$lib/i18n/translations';
 
 export const prerender = true;
 
 export const entries = () =>
-	distrosData.distros.flatMap((distro) => [{ id: distro.id }, { id: distro.id, lang: 'be' }]);
+	distros.flatMap((distro) => [{ id: distro.id }, { id: distro.id, lang: 'be' }]);
 
 export function load({ params }) {
 	const locale = params.lang === 'be' ? 'be' : 'en';
-	const distro = distrosData.distros.find((d) => d.id === params.id);
+	const distro = distros.find((d) => d.id === params.id);
 	if (!distro) {
 		error(404, 'Distribution not found');
 	}

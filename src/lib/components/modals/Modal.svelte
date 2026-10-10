@@ -176,6 +176,14 @@
 		flex-shrink: 0;
 	}
 
+	/* Consumers always supply the footer snippet and gate its content
+	 * themselves; when nothing is rendered the bar would show as an empty
+	 * bordered strip. A Svelte `{#if}` leaves only a comment anchor, so
+	 * "no element children" is the reliable emptiness check. */
+	.modal-footer:not(:has(*)) {
+		display: none;
+	}
+
 	.modal-overlay :global(.modal-title) {
 		font-size: var(--text-xl);
 		color: var(--color-secondary);
