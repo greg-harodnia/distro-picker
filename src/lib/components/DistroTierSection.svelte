@@ -71,8 +71,8 @@
 	   (a) extends the clip 16px beyond the box so the ❤️/badge overhangs and
 	   shadows of the outer card columns stay visible at rest, and (b) clips
 	   exactly at the panel edge while opening/closing — nothing lingers as a
-	   visible sliver when the panel finishes closing. No overflow/visibility
-	   tricks needed, so card widths stay untouched. */
+	   visible sliver when the panel finishes closing. Height (not overflow) does
+	   the layout collapsing, so card widths stay untouched. */
 	.tier-panel {
 		height: auto;
 		clip-path: inset(-16px);
@@ -80,6 +80,14 @@
 
 	.tier-panel.collapsed {
 		height: 0;
+		/* `clip-path` hides the overflowing grid visually but does NOT remove it
+		   from scrollable overflow — without this the document stays ~530px
+		   scrollable past the end (empty space where the expanded grid would
+		   be). `overflow: clip` (not `hidden`: no scroll container) drops that
+		   phantom scroll area; the 16px clip margin matches clip-path's own
+		   -16px bleed so badge overhangs animate identically. */
+		overflow: clip;
+		overflow-clip-margin: 16px;
 		clip-path: inset(-16px -16px 100% -16px);
 	}
 
