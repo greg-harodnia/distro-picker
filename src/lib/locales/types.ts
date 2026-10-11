@@ -18,13 +18,14 @@ export type Translations = {
     loading: string;
     failedToLoad: string;
     noResults: string;
-    distroGridTitle: string;
     close: string;
     filters: {
-      title: string;
       clearAll: string;
-      partially: string;
-      all: string;
+    };
+    tiers: {
+      best: { name: string };
+      other: { name: string };
+      'less-popular': { name: string };
     };
     error: string;
     toggles: {
@@ -44,9 +45,7 @@ export type Translations = {
   pages: {
     distro: {
       backLink: string;
-      recommended: string;
       popular: string;
-      hiddenGem: string;
       inDevelopment: string;
       features: string;
       screenshots: string;

@@ -11,13 +11,20 @@
         "loading": "Loading...",
         "failedToLoad": "Failed to Load Data",
         "noResults": "No distributions match your selected criteria.",
-        "distroGridTitle": "Distros",
         "close": "Close",
         "filters": {
-            "title": "Filter by tags",
-            "clearAll": "Clear filters",
-            "partially": "Partially",
-            "all": "All"
+            "clearAll": "Reset filters"
+        },
+        "tiers": {
+            "best": {
+                "name": "Best overall"
+            },
+            "other": {
+                "name": "More niche options"
+            },
+            "less-popular": {
+                "name": "Lesser-known but still good"
+            }
         },
         "error": "Something went wrong",
         "toggles": {
@@ -28,9 +35,7 @@
     "pages": {
         "distro": {
             "backLink": "Back to all distributions",
-            "recommended": "One of the best",
             "popular": "Popular",
-            "hiddenGem": "Hidden gem",
             "inDevelopment": "Still in development",
             "features": "Features",
             "screenshots": "Screenshots",
@@ -171,9 +176,9 @@
             "highlights": ["Has a lot of documentation available", "Uses Snap packages"]
         },
         "tuxedo": {
-            "description": "Tuxedo OS is a better Kubuntu alternative which is developed by TUXEDO Computers. It uses Flatpaks instead of Snaps, has a custom kernel, and includes other improvements. It is a semi-rolling distribution meaning it has newer software versions, including cutting-edge versions of KDE Plasma. Tuxedo OS comes pre-installed with the TUXEDO Control Center for managing fan speeds and power profiles, and it supports system snapshots with the help of the Btrfs filesystem. A good choice for gaming as well. It feels much more snappier than Kubuntu. Its mirrors can be slow for updates if you are very far away from Germany.",
+            "description": "TUXEDO OS is a better Kubuntu alternative which is developed by TUXEDO Computers. It uses Flatpaks instead of Snaps, has a custom kernel, and includes other improvements. It is a semi-rolling distribution meaning it has newer software versions, including cutting-edge versions of KDE Plasma. TUXEDO OS comes pre-installed with the TUXEDO Control Center for managing fan speeds and power profiles, and it supports system snapshots with the help of the Btrfs filesystem. A good choice for gaming as well. It feels much more snappier than Kubuntu. Its mirrors can be slow for updates if you are very far away from Germany.",
             "userbasePostfix": "k",
-            "highlights": ["Full-fledged OS with up-to-date and stable software"]
+            "highlights": ["Solid OS with up-to-date and stable software"]
         },
         "popos": {
             "description": "Built by System76, featuring the COSMIC desktop environment (macOS-like) and focusing on usability. Has tiling window support. Good for creative work and productivity, but not an ideal choice for gaming, as its package versions considerably lag behind their latest releases and the COSMIC desktop environment is relatively new. However, Flatpaks partially resolve this issue as they are updated frequently and independantly of the standard system repositories.",
@@ -194,7 +199,7 @@
             "highlights": ["Stable, modern, and reliable general-purpose OS"]
         },
         "openSUSE": {
-            "description": "openSUSE is a modern, general-purpose, stable, and reliable distribution intended for both professional and casual users. It is sponsored by SUSE, the first company to market Linux for the enterprise. It comes in two main variants: Tumbleweed (a rolling release) and Leap (a point release), and offers three primary desktop environments: KDE Plasma, GNOME, and Xfce (with more options available during installation). openSUSE greatly leverages the Btrfs filesystem by making snapshots of files and packages with Snapper to ensure system integrity. Also, historically, it used the YaST configuration tool to manage the entire system from a single place, but now it has been replaced with modern solutions. At its core, it's similar to Fedora but with a greater focus on system stability. It is a perfect choice for system administrators and regular users (yes, even gamers). The OS adheres strictly to open-source practices and therefore does not contain proprietary components by default.",
+            "description": "openSUSE is a modern, general-purpose, stable, and reliable distribution intended for both professional and casual users. It is sponsored by SUSE, the first company to market Linux for the enterprise. It comes in two main variants: Leap (a point release) and Tumbleweed (a rolling release), and offers three primary desktop environments: KDE Plasma, GNOME, and Xfce (with more options available during installation). openSUSE greatly leverages the Btrfs filesystem by making snapshots of files and packages with Snapper to ensure system integrity. Also, historically, it used the YaST configuration tool to manage the entire system from a single place, but now it has been replaced with modern solutions. At its core, it's similar to Fedora but with a greater focus on system stability. It is a perfect choice for system administrators and regular users (yes, even gamers). The OS adheres strictly to open-source practices and therefore does not contain proprietary components by default.",
             "userbasePostfix": " million"
         },
         "fedora": {
@@ -291,7 +296,7 @@
                 "answers": [
                     {
                         "text": "I'm lazy, just tell me what to use",
-                        "result": "Zorin OS (if you prioritize visual aesthetics and simplicity. Perfect for your mom and friends) or Ultramarine / Tuxedo OS (if you prefer the freshness of software. Perfect for ex-distrohoppers who want to finally settle) or Aurora (if you want maximum stability)."
+                        "result": "Zorin OS (if you prioritize visual aesthetics and simplicity. Perfect for your mom and friends) or Ultramarine / TUXEDO OS (if you prefer the freshness of software. Perfect for ex-distrohoppers who want to finally settle) or Aurora (if you want maximum stability)."
                     },
                     {
                         "text": "Just a regular user",
@@ -300,7 +305,7 @@
                             "answers": [
                                 {
                                     "text": "Windows-like",
-                                    "result": "Linux Mint, Kubuntu, or Zorin OS—depending on which design you like more. If you like Kubuntu, but prefer the freshness of software, you can choose Tuxedo OS, Ultramarine Linux or Aurora."
+                                    "result": "Linux Mint, Kubuntu, or Zorin OS—depending on which design you like more. If you like Kubuntu, but prefer the freshness of software, you can choose TUXEDO OS, Ultramarine Linux or Aurora."
                                 },
                                 {
                                     "text": "macOS-like",

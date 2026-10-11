@@ -94,11 +94,11 @@ Highlights:
 - Has a lot of documentation available
 - Uses Snap packages
 
-### Tuxedo OS
+### TUXEDO OS
 
 URL: https://distro-picker.vercel.app/distro/tuxedo
 
-Tuxedo OS is a better Kubuntu alternative which is developed by TUXEDO Computers. It uses Flatpaks instead of Snaps, has a custom kernel, and includes other improvements. It is a semi-rolling distribution meaning it has newer software versions, including cutting-edge versions of KDE Plasma. Tuxedo OS comes pre-installed with the TUXEDO Control Center for managing fan speeds and power profiles, and it supports system snapshots with the help of the Btrfs filesystem. A good choice for gaming as well. Their mirrors can be slow for updates if you are very far away from Germany.
+TUXEDO OS is a better Kubuntu alternative which is developed by TUXEDO Computers. It uses Flatpaks instead of Snaps, has a custom kernel, and includes other improvements. It is a semi-rolling distribution meaning it has newer software versions, including cutting-edge versions of KDE Plasma. TUXEDO OS comes pre-installed with the TUXEDO Control Center for managing fan speeds and power profiles, and it supports system snapshots with the help of the Btrfs filesystem. A good choice for gaming as well. Their mirrors can be slow for updates if you are very far away from Germany.
 
 Key facts:
 - Based on: Debian Testing
@@ -110,7 +110,7 @@ Key facts:
 - Official website: https://www.tuxedocomputers.com/en/TUXEDO-OS_1.tuxedo
 
 Highlights:
-- Full-fledged OS with up-to-date and stable software
+- Solid OS with up-to-date and stable software
 
 ### Aurora
 
@@ -170,7 +170,7 @@ Highlights:
 
 URL: https://distro-picker.vercel.app/distro/openSUSE
 
-openSUSE is a modern, general-purpose, stable, and reliable distribution intended for both professional and casual users. It is sponsored by SUSE, the first company to market Linux for the enterprise. It comes in two main variants: Tumbleweed (a rolling release) and Leap (a point release), and offers three primary desktop environments: KDE Plasma, GNOME, and Xfce (with more options available during installation). openSUSE greatly leverages the Btrfs filesystem by making snapshots of files and packages with Snapper to ensure system integrity. Also, historically, it used the YaST configuration tool to manage the entire system from a single place, but now it has been replaced with modern solutions. At its core, it's similar to Fedora but with a greater focus on system stability. It is a perfect choice for system administrators and regular users (yes, even gamers). The OS adheres strictly to open-source practices and therefore does not contain proprietary components by default.
+openSUSE is a modern, general-purpose, stable, and reliable distribution intended for both professional and casual users. It is sponsored by SUSE, the first company to market Linux for the enterprise. It comes in two main variants: Leap (a point release) and Tumbleweed (a rolling release), and offers three primary desktop environments: KDE Plasma, GNOME, and Xfce (with more options available during installation). openSUSE greatly leverages the Btrfs filesystem by making snapshots of files and packages with Snapper to ensure system integrity. Also, historically, it used the YaST configuration tool to manage the entire system from a single place, but now it has been replaced with modern solutions. At its core, it's similar to Fedora but with a greater focus on system stability. It is a perfect choice for system administrators and regular users (yes, even gamers). The OS adheres strictly to open-source practices and therefore does not contain proprietary components by default.
 
 Key facts:
 - Based on: independent

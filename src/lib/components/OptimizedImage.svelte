@@ -3,6 +3,12 @@
   	import { base } from '$app/paths';
 	import { observeImage } from '$lib/utils/imageObserver';
 
+	// Paths of images that have loaded at least once on this page. If a card's
+	// image is already in the cache, a fresh OptimizedImage instance starts
+	// "loaded" so remounting (after a filter change collapses/restores a card)
+	// doesn't flash the placeholder again. Module-scoped so it survives unmount.
+	const loadedIcons = new Set<string>();
+
 	let {
 		alt,
 		customClass = '',
@@ -14,11 +20,10 @@
 	} = $props();
 
 	let imgElement: HTMLImageElement;
-	let isLoaded = $state(false);
+	let iconPath = `${base}${logo || '/linux.webp'}`;
+	let isLoaded = $state(loadedIcons.has(iconPath));
 	let isError = $state(false);
 	let unobserve: (() => void) | null = null;
-
-	let iconPath = $derived(`${base}${logo || '/linux.webp'}`);
 
 	onMount(() => {
 		if (imgElement) {
@@ -33,6 +38,7 @@
 	});
 
 	function handleLoad() {
+		loadedIcons.add(iconPath);
 		isLoaded = true;
 	}
 

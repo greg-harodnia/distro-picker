@@ -3,7 +3,7 @@
 	import { base } from '$app/paths';
 	import type { PageData } from './$types';
 	import FilterGroup from "$lib/components/FilterGroup.svelte";
-	import DistroGrid from "$lib/components/DistroGrid.svelte";
+	import DistroTierSection from "$lib/components/DistroTierSection.svelte";
 	import DistroModal from "$lib/components/modals/DistroModal.svelte";
 	import ErrorDisplay from "$lib/components/ErrorDisplay.svelte";
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
@@ -20,7 +20,7 @@
 		selectedDistro,
 		distros,
 		filteredDistros,
-		showAll,
+		tieredDistros,
 		tagActions,
 		distroActions,
 		dataActions,
@@ -89,6 +89,29 @@
 	let shareModalOpen = $state(false);
 	let contactModalOpen = $state(false);
 	let openGroup = $state<string | null>(null);
+
+	// Tier sections: by default the first two ("Best", "Other good options") are
+	// expanded, and the third is collapsed on a fresh visit. `expandedTiers` is
+	// `null` until the visitor toggles a section; filters never change the
+	// collapsed state — a collapsed section stays collapsed while filtering (its
+	// count still updates, and it can be opened manually any time).
+	let expandedTiers = $state<Set<string> | null>(null);
+
+	function defaultExpandedTiers(): Set<string> {
+		return new Set(['best', 'other']);
+	}
+
+	function isTierOpen(tier: string): boolean {
+		if (expandedTiers) return expandedTiers.has(tier);
+		return tier === 'best' || tier === 'other';
+	}
+
+	function toggleTier(tier: string) {
+		const next = new Set(expandedTiers ?? defaultExpandedTiers());
+		if (next.has(tier)) next.delete(tier);
+		else next.add(tier);
+		expandedTiers = next;
+	}
 
 	let groups = $derived.by(() => {
 		const tagById = new Map($tags.map(tag => [tag.id, tag]));
@@ -220,18 +243,7 @@
 		</header>
 
 		<main>
-		<section class="filters" aria-labelledby="filters-heading">
-			<h2 id="filters-heading">
-				<span class="heading-text">{$t('app.filters.title')}</span>
-				{#if $selectedTags.size > 0}
-					<button class="clear-btn" onclick={() => { tagActions.clear(); }} aria-label={$t('app.filters.clearAll')}>
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<line x1="18" y1="6" x2="6" y2="18"></line>
-							<line x1="6" y1="6" x2="18" y2="18"></line>
-						</svg>
-					</button>
-				{/if}
-				</h2>
+		<section class="filters">
 			<div class="filter-groups" use:dragScroll>
 				{#each groups as group (group.id)}
 					<FilterGroup
@@ -244,30 +256,35 @@
 						onclose={() => (openGroup = null)}
 					/>
 				{/each}
+				{#if $selectedTags.size > 0}
+					<button class="clear-btn" onclick={() => { tagActions.clear(); }} aria-label={$t('app.filters.clearAll')}>
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="18" y1="6" x2="6" y2="18"></line>
+							<line x1="6" y1="6" x2="18" y2="18"></line>
+						</svg>
+					</button>
+				{/if}
 			</div>
 		</section>
 
 		<div class="content">
-			<section class="distros" id="distribution-details" aria-labelledby="distros-heading">
-				<h2 id="distros-heading">
-					<span class="heading-text">{$t('app.distroGridTitle')} ({$filteredDistros.length})</span>
-					<label class="toggle-label">
-						<span class="toggle-text">{$showAll ? $t('app.filters.all') : $t('app.filters.partially')}</span>
-						<input type="checkbox" class="toggle-input" bind:checked={$showAll} />
-						<span class="toggle-switch"></span>
-					</label>
-				</h2>
+			<section class="distros" id="distribution-details">
 				{#if $filteredDistros.length === 0}
 					<div class="no-results" role="status" aria-live="polite">
 						<p>{$t('app.noResults')}</p>
 					</div>
-				{:else}
-					<DistroGrid
-						distros={$filteredDistros}
+				{/if}
+				{#each $tieredDistros as group (group.tier)}
+					<DistroTierSection
+						tier={group.tier}
+						title={$t(`app.tiers.${group.tier}.name`) || humanizeId(group.tier)}
+						distros={group.distros}
 						selectedDistro={$selectedDistro}
 						onselect={(d) => selectDistro(d)}
+						open={isTierOpen(group.tier)}
+						ontoggle={() => toggleTier(group.tier)}
 					/>
-				{/if}
+				{/each}
 			</section>
 
 		</div>
@@ -372,20 +389,7 @@
 	}
 
 	.filters {
-		margin-bottom: var(--space-2xl);
-	}
-
-	.filters h2 {
-		font-size: var(--text-2xl);
-		color: var(--color-secondary);
-		font-weight: var(--font-semibold);
-		display: flex;
-		align-items: center;
-		gap: var(--space-md);
-	}
-
-	.filters h2 .heading-text {
-		flex: 0 1 auto;
+		margin-bottom: var(--space-xl);
 	}
 
 	footer {
@@ -448,19 +452,6 @@
 		line-height: var(--line-height-normal);
 	}
 
-	.distros h2 {
-		font-size: var(--text-2xl);
-		color: var(--color-secondary);
-		font-weight: var(--font-semibold);
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-	}
-
-	.heading-text {
-		flex: 1;
-	}
-
 	.quick-test-btn {
 		position: fixed;
 		bottom: var(--space-xl);
@@ -475,62 +466,6 @@
 
 	.quick-test-btn:active {
 		transform: translateY(0);
-	}
-
-	.toggle-label {
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-		cursor: pointer;
-		flex-shrink: 0;
-	}
-
-	.toggle-text {
-		font-size: var(--text-sm);
-		color: var(--color-text-secondary);
-	}
-
-	.toggle-input {
-		position: absolute;
-		opacity: 0;
-		width: 0;
-		height: 0;
-	}
-
-	.toggle-switch {
-		display: inline-block;
-		position: relative;
-		width: 36px;
-		height: 20px;
-		background: var(--color-border);
-		border-radius: var(--radius-full);
-		transition: background var(--transition-normal);
-	}
-
-	.toggle-switch::after {
-		content: '';
-		position: absolute;
-		top: 2px;
-		left: 2px;
-		width: 16px;
-		height: 16px;
-		background: var(--color-surface);
-		border-radius: 50%;
-		transition: transform var(--transition-normal);
-	}
-
-	.toggle-input:checked + .toggle-switch {
-		background: var(--color-best);
-	}
-
-	.toggle-input:checked + .toggle-switch::after {
-		transform: translateX(16px);
-	}
-
-	#distros-heading {
-		display: flex;
-		align-items: center;
-		gap: var(--space-md);
 	}
 
 	@media (max-width: 640px) {

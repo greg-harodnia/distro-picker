@@ -1,5 +1,5 @@
 import { writable, derived } from 'svelte/store';
-import type { Distro, Tag } from '$lib/types';
+import type { Distro, DistroTier, Tag } from '$lib/types';
 import { getTagGroup } from '$lib/tagGroups';
 
 export { getTagGroup };
@@ -9,8 +9,22 @@ export const selectedDistro = writable<Distro | null>(null);
 export const tags = writable<Tag[]>([]);
 export const distros = writable<Distro[]>([]);
 export const error = writable<string | null>(null);
-// false => "Partially" (only distros flagged `show_in_partially`), true => "All" (every distro).
-export const showAll = writable<boolean>(false);
+
+/**
+ * Homepage display order of the distro tiers. Each becomes its own labelled,
+ * collapsible section.
+ */
+export const TIERS: readonly DistroTier[] = ['best', 'other', 'less-popular'];
+
+export interface TierGroup {
+	tier: DistroTier;
+	distros: Distro[];
+}
+
+/** Tier a distro belongs to (unknown/missing tiers fall back to `other`). */
+function tierOf(distro: Distro): DistroTier {
+	return distro.tier && TIERS.includes(distro.tier) ? distro.tier : 'other';
+}
 
 let tagMap = new Map<string, Tag>();
 
@@ -94,15 +108,11 @@ function matchesBasedOn(basedOn: string | undefined, tagId: string): boolean {
 }
 
 export const filteredDistros = derived(
-	[distros, selectedTags, showAll],
-	([$distros, $selectedTags, $showAll]) => {
+	[distros, selectedTags],
+	([$distros, $selectedTags]) => {
 		if (!$distros || $distros.length === 0) return [];
 		
 		let result = $distros.filter(d => !d.disabled);
-		
-		if (!$showAll) {
-			result = result.filter(d => d.show_in_partially);
-		}
 		
 		if ($selectedTags.size > 0) {
 			const selectedArray = Array.from($selectedTags);
@@ -122,6 +132,21 @@ export const filteredDistros = derived(
 		
 		return result;
 	}
+);
+
+/**
+ * `filteredDistros` grouped by tier in `TIERS` order. Every tier is always
+ * present so the section stays mounted across filter changes — hiding instead
+ * of unmounting the grid keeps the card images loaded (no re-load flicker).
+ * Sections whose array is empty are hidden by `DistroTierSection`.
+ */
+export const tieredDistros = derived(
+	filteredDistros,
+	($filteredDistros): TierGroup[] =>
+		TIERS.map(tier => ({
+			tier,
+			distros: $filteredDistros.filter(d => tierOf(d) === tier),
+		}))
 );
 
 // Actions for state management

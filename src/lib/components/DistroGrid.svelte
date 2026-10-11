@@ -78,19 +78,12 @@
 		<div 
 			class="distro-card"
 			class:selected={selectedDistro?.id === distro.id}
-			class:best={distro.best}
 			onclick={() => selectDistro(distro)}
 			data-distro-id={distro.id}
 		>
 			<div class="reactions">
 			{#if distro.popular}
 				<span class="popular">🔥</span>
-			{/if}
-			{#if distro.best}
-				<span class="best">👑</span>
-			{/if}
-			{#if distro.hidden_gem}
-				<span class="hidden-gem">💎</span>
 			{/if}
 			{#if distro.in_development}
 				<span class="in-development">🚧</span>
@@ -149,21 +142,12 @@
 			box-shadow: var(--shadow-xl);
 			border-color: var(--color-primary);
 		}
-
-		.distro-card.best:hover {
-			border-color: var(--color-best);
-		}
 	}
 
 	.distro-card.selected {
 		border-color: var(--color-primary);
 		background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
 		color: var(--color-background);
-	}
-
-	.distro-card.best.selected {
-		border-color: var(--color-best);
-		background: linear-gradient(135deg, var(--color-best) 0%, var(--color-best-dark) 100%);
 	}
 
 	.reactions {
@@ -176,8 +160,6 @@
 	}
 
 	.reactions .popular,
-	.reactions .best,
-	.reactions .hidden-gem,
 	.reactions .in-development {
 		font-size: 1.5rem;
 		line-height: 1;

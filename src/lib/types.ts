@@ -3,6 +3,13 @@ export interface Tag {
 	description: string;
 }
 
+/**
+ * Homepage grouping. Every distro belongs to exactly one tier, rendered as its
+ * own labelled (collapsible) section: `best` is expanded first, then `other`,
+ * then `less-popular`.
+ */
+export type DistroTier = 'best' | 'other' | 'less-popular';
+
 export interface Distro {
 	disabled?: boolean;
 	id: string;
@@ -10,10 +17,8 @@ export interface Distro {
 	website: string;
 	tag_ids: string[];
 	logo?: string;
-	best?: boolean;
-	show_in_partially?: boolean;
+	tier?: DistroTier;
 	popular?: boolean;
-	hidden_gem?: boolean;
 	in_development?: boolean;
 	desktops?: string[];
 	hasMoreDesktops?: boolean;

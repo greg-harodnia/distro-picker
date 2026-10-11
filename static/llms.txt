@@ -32,7 +32,7 @@ The app covers these Linux distributions, each with a dedicated page:
 - [Zorin OS](https://distro-picker.vercel.app/distro/zorin) — polished and easy to use (GNOME)
 - [Pop!_OS](https://distro-picker.vercel.app/distro/popos) — built by System76, COSMIC desktop (GNOME-based)
 - [Kubuntu](https://distro-picker.vercel.app/distro/kubuntu) — Ubuntu with KDE Plasma
-- [Tuxedo OS](https://distro-picker.vercel.app/distro/tuxedo) — semi-rolling Kubuntu alternative, Flatpak-first
+- [TUXEDO OS](https://distro-picker.vercel.app/distro/tuxedo) — semi-rolling Kubuntu alternative, Flatpak-first
 - [Aurora](https://distro-picker.vercel.app/distro/aurora) — immutable Fedora Atomic base, KDE Plasma, daily updates
 - [KDE Linux](https://distro-picker.vercel.app/distro/kde-linux) — immutable, user-friendly OS from KDE
 - [Kalpa](https://distro-picker.vercel.app/distro/kalpa) — immutable openSUSE base, "it just works" (alpha)
