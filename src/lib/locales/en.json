@@ -163,12 +163,12 @@
         "mint": {
             "description": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. A general-purpose distro, can be used for gaming too (like most distros), but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers. For older computers (for instance, those with only 2–4 GB of RAM), the Xfce edition of Linux Mint is recommended. Consider also enabling zSwap to improve performance basically for free.",
             "userbasePostfix": " million",
-            "highlights": ["Extremely polished and intuitive desktop", "Strives to have GUI apps for everything to eliminate the need of using the terminal, like for example Driver Manager", "May look old-style"]
+            "highlights": ["Extremely polished and intuitive desktop", "Strives to have GUI apps for everything to eliminate the need of using the terminal, like for example Driver Manager", "May look old-style", "Not the most up-to-date software"]
         },
         "zorin": {
-            "description": "A polished distro focused on visual appeal and ease of use, featuring the GNOME desktop environment with 3D animations and various out-of-the-box layouts. Similar hardware requirements to Linux Mint. The update cycle is not the fastest, but Flatpaks partially address this, as they are updated oftenly and independently of the system repositories.",
+            "description": "A polished distro focused on visual appeal and ease of use, featuring the GNOME desktop environment with 3D animations and various out-of-the-box layouts. Similar hardware requirements to Linux Mint.",
             "userbasePostfix": " million",
-            "highlights": ["Sleek design", "Good even for people that have no idea what Linux is", "Not up-to-date software"]
+            "highlights": ["Sleek design", "Good even for people that have no idea what Linux is", "Not the most up-to-date software"]
         },
         "kubuntu": {
             "description": "A well-established and trusted distro, based on Ubuntu (corporate standard) with the KDE Plasma desktop environment (the most feature-rich). It is backed by a huge corporation, Canonical. If you want to access more apps, feel free to install the Flatpak backend (you will also need to add the Flathub repository). Afterward, you can install more apps directly from Discover (if you add its Flatpak plugin) or choose an alternative storefront like Bazaar.",
@@ -181,9 +181,9 @@
             "highlights": ["Solid OS with up-to-date and stable software"]
         },
         "popos": {
-            "description": "Built by System76, featuring the COSMIC desktop environment (macOS-like) and focusing on usability. Has tiling window support. Good for creative work and productivity, but not an ideal choice for gaming, as its package versions considerably lag behind their latest releases and the COSMIC desktop environment is relatively new. However, Flatpaks partially resolve this issue as they are updated frequently and independantly of the standard system repositories.",
+            "description": "Built by System76, featuring the COSMIC desktop environment (macOS-like) and focusing on usability. Has tiling window support. Good for creative work and productivity. It has a version with the Nvidia drivers preinstalled.",
             "userbasePostfix": " million",
-            "highlights": ["Innovative design with tiling window capability", "Not up-to-date software"]
+            "highlights": ["Innovative design with tiling window capability", "Not the most up-to-date software"]
         },
         "aurora": {
             "description": "Aurora is a cutting-edge Linux OS built on the same foundation as Bazzite. As an immutable, point-release distribution, it delivers daily background updates that apply seamlessly upon reboot, remaining unnoticed by the user. Aurora utilizes Flatpaks managed through the Bazaar software center, offering greater stability than traditional distributions like Ubuntu without sacrificing freshness. It is the perfect option for everyday use, including gaming and software development.",
