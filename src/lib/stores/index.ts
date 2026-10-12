@@ -135,18 +135,29 @@ export const filteredDistros = derived(
 );
 
 /**
- * `filteredDistros` grouped by tier in `TIERS` order. Every tier is always
- * present so the section stays mounted across filter changes — hiding instead
- * of unmounting the grid keeps the card images loaded (no re-load flicker).
- * Sections whose array is empty are hidden by `DistroTierSection`.
+ * Every (non-disabled) distro grouped by tier in `TIERS` order — the full set,
+ * regardless of the active filters. The grid renders this list and hides the
+ * cards that don't match, so filtering never unmounts a card. Unmounting would
+ * recreate the `<img>` and make the browser re-fetch/re-decode the icon, which
+ * reads as a flicker.
  */
-export const tieredDistros = derived(
-	filteredDistros,
-	($filteredDistros): TierGroup[] =>
+export const allTieredDistros = derived(
+	distros,
+	($distros): TierGroup[] =>
 		TIERS.map(tier => ({
 			tier,
-			distros: $filteredDistros.filter(d => tierOf(d) === tier),
+			distros: $distros.filter(d => !d.disabled && tierOf(d) === tier),
 		}))
+);
+
+/**
+ * Ids of the distros that pass the active filters. `DistroGrid` uses this to
+ * show/hide each (already mounted) card.
+ */
+export const visibleDistroIds = derived(
+	filteredDistros,
+	($filteredDistros): Set<string> =>
+		new Set($filteredDistros.map(d => d.id))
 );
 
 // Actions for state management

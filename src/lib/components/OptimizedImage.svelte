@@ -55,6 +55,7 @@
 		bind:this={imgElement}
 		{alt}
 		class="optimized-image"
+		src={isLoaded ? iconPath : undefined}
 		onload={handleLoad}
 		onerror={handleError}
 		style="object-fit: contain; -webkit-user-drag: none; user-select: none;"

@@ -8,10 +8,12 @@
 
 	let {
 		distros = [],
+		visibleIds = null,
 		selectedDistro = null,
 		onselect = (_distro: Distro) => {},
 	}: {
 		distros?: Distro[];
+		visibleIds?: Set<string> | null;
 		selectedDistro?: Distro | null;
 		onselect?: (distro: Distro) => void;
 	} = $props();
@@ -78,6 +80,7 @@
 		<div 
 			class="distro-card"
 			class:selected={selectedDistro?.id === distro.id}
+			hidden={visibleIds ? !visibleIds.has(distro.id) : false}
 			onclick={() => selectDistro(distro)}
 			data-distro-id={distro.id}
 		>
@@ -134,6 +137,10 @@
 		position: relative;
 		user-select: none;
 		-webkit-user-select: none;
+	}
+
+	.distro-card[hidden] {
+		display: none;
 	}
 
 	@media (hover: hover) {

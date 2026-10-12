@@ -6,6 +6,7 @@
 		tier,
 		title,
 		distros = [],
+		visibleIds = null,
 		selectedDistro = null,
 		onselect = (_distro: Distro) => {},
 		open = true,
@@ -14,14 +15,21 @@
 		tier: DistroTier;
 		title: string;
 		distros?: Distro[];
+		visibleIds?: Set<string> | null;
 		selectedDistro?: Distro | null;
 		onselect?: (distro: Distro) => void;
 		open?: boolean;
 		ontoggle?: () => void;
 	} = $props();
+
+	// `distros` is the full, unfiltered tier list (kept mounted so icons never
+	// reload). Only the count / section visibility respond to the filters.
+	let visibleCount = $derived(
+		visibleIds ? distros.filter(d => visibleIds.has(d.id)).length : distros.length
+	);
 </script>
 
-<section class="tier tier--{tier}" hidden={distros.length === 0}>
+<section class="tier tier--{tier}" hidden={visibleCount === 0}>
 	<h3 class="tier-heading">
 		<button
 			type="button"
@@ -46,14 +54,14 @@
 				<polyline points="6 9 12 15 18 9"></polyline>
 			</svg>
 			<span class="tier-title">{title}</span>
-			<span class="tier-count">{distros.length}</span>
+			<span class="tier-count">{visibleCount}</span>
 		</button>
 	</h3>
 
 	<!-- Kept mounted (only hidden) so the card images stay loaded and don't
 	     re-fetch/re-flash every time the section is expanded or re-shown. -->
 	<div class="tier-panel" class:collapsed={!open}>
-		<DistroGrid {distros} {selectedDistro} {onselect} />
+		<DistroGrid {distros} {visibleIds} {selectedDistro} {onselect} />
 	</div>
 </section>
 

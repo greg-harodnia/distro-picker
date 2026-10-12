@@ -20,7 +20,8 @@
 		selectedDistro,
 		distros,
 		filteredDistros,
-		tieredDistros,
+		allTieredDistros,
+		visibleDistroIds,
 		tagActions,
 		distroActions,
 		dataActions,
@@ -274,11 +275,12 @@
 						<p>{$t('app.noResults')}</p>
 					</div>
 				{/if}
-				{#each $tieredDistros as group (group.tier)}
+				{#each $allTieredDistros as group (group.tier)}
 					<DistroTierSection
 						tier={group.tier}
 						title={$t(`app.tiers.${group.tier}.name`) || humanizeId(group.tier)}
 						distros={group.distros}
+						visibleIds={$visibleDistroIds}
 						selectedDistro={$selectedDistro}
 						onselect={(d) => selectDistro(d)}
 						open={isTierOpen(group.tier)}
