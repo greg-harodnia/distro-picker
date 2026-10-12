@@ -7,7 +7,7 @@ pinned: true
 
 # Welcome to Distro Picker
 
-Not sure which Linux distribution to use? Distro Picker is a distro finder and quick quiz built to match beginners with the right distro.
+Not sure which Linux distribution to use? [Distro Picker](/) is a distro finder and quick quiz built to match beginners with the right distro. 
 
 ## Why some distributions aren't listed
 

@@ -2,12 +2,12 @@
     "seo": {
         "home": {
             "title": "Linux Distro Picker with a Quiz",
-            "description": "Quiz or browse 21 Linux distros — a better and simpler alternative to distrochooser for beginners."
+            "description": "Distro chooser: quiz or browse 20+ Linux distros."
         }
     },
     "app": {
         "title": "Linux Distro Picker",
-        "description": "A distro chooser for beginners: quiz or browse 21 Linux distros",
+        "description": "A distro chooser for beginners with a quiz",
         "loading": "Loading...",
         "failedToLoad": "Failed to Load Data",
         "noResults": "No distributions match your selected criteria.",
@@ -16,7 +16,7 @@
             "clearAll": "Reset filters"
         },
         "tiers": {
-            "best": {
+        "best": {
                 "name": "Best overall"
             },
             "other": {
