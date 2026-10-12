@@ -52,7 +52,7 @@
       "logo": "/tuxedo.svg",
       "tier": "best",
       "desktops": ["KDE Plasma"],
-      "ease_of_use": 4.8,
+      "ease_of_use": 5.0,
       "based_on": "Debian Testing",
       "userbase_number": "~100",
       "secure_boot": false,
