@@ -45,7 +45,7 @@ P.S. Шырокая даступнасьць выбару ня ёсьць пра
 ## Рэкамэндаваныя праґрамы
 
 - **Браўзэры**: Brave Origin (для прыватнасьці й блякаваньня рэклям), Helium (для прадукцыйнасьці й мінімалізму), Zen (для непаўторнага дызайну й вэртыкальных укладак), Floorp (для высокай наладжвальнасьці).
-- **Офіс**: OnlyOffice, LibreOffice.
+- **Офіс**: OnlyOffice, LibreOffice, ArtCraft.
 - **Торэнт-кліент**: qBittorrent.
 - **Аналізатар дыска**: Filelight (KDE/Qt), Baobab (GNOME/GTK), gdu (тэрмінальная праграма, напісаная на Rust).
 - **Лакальная Штучная Інтэліґенцыя**: LM Studio (раджу мадэль Mistral).
@@ -54,13 +54,21 @@ P.S. Шырокая даступнасьць выбару ня ёсьць пра
 - **Ачысьнікі**: BleachBit (не патрэбны для нязьменных сыстэм), Krokiet.
 - **Рэзэрвовае капіяваньне**: Timeshift (не патрэбны для нязьменных сыстэм).
 - **Альтэрнатыва для Nvidia Shadow Play**: GPU Screen Recorder.
-- **Альтэрнатывы для Photoshop**: Photoshop online, Photopea, GIMP, Krita, Affinity (праз Bottles), Canva (для простых задач).
-- **Альтэрнатыва для Lightroom**: Darktable.
-- **Альтэрнатыва для Illustrator**: Inkscape.
-- **Альтэрнатыва для Premier Pro**: DaVinci Resolve, Kdenlive.
 - **Альтэрнатывы для Discord (акрамя афіцыйнай аплікацыі)**: Matrix/Element, Fluxer, Stoat.
 - **Альтэрнатывы для Slack і Microsoft Teams (акрамя афіцыйных аплікацый)**: Rocket.chat, Mattermost, Matrix/Element, Zulip.
 - **Альтэрнатыва для Zoom (акрамя афіцыйнай аплікацыі)**: Jitsi Meet.
+
+### Прафэсыйныя аплікацыі
+
+- **Альтэрнатывы для Adobe Photoshop**: Photopea, GIMP, Krita, PhotoCraft, Affinity (праз Bottles), Photoshop online, Canva (для простых задач).
+- **Альтэрнатывы для Lightroom**: Darktable, LightCraft.
+- **Альтэрнатывы для Adobe Illustrator**: Inkscape, VectorCraft, Affinity (праз Bottles).
+- **Альтэрнатывы для Adobe Premiere Pro**: DaVinci Resolve, Kdenlive, FilmCraft, Shotcut.
+- **Альтэрнатывы для Adobe Acrobat**: Master PDF Editor, PdfCraft, PDF Arranger, Okular.
+- **Альтэрнатывы для Adobe After Effects**: EffectCraft, Blender.
+- **Альтэрнатывы для Adobe InDesign**: DesignCraft, Scribus, Affinity (праз Bottles).
+- **Альтэрнатывы для Autodesk AutoCAD**: BricsCAD, CADCraft, LibreCAD, FreeCAD.
+- **Альтэрнатывы для Avid Pro Tools**: REAPER, SoundCraft, Ardour.
 
 ### Карысныя інструмэнты
 

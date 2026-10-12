@@ -45,7 +45,7 @@ P.S. The broad availability of choice isn't a problem. If one day 500 new Window
 ## Software that I recommend
 
 - **Browsers**: Brave Origin (privacy and ad blocking), Helium (performance and minimalism), Zen (unique design and vertical tabs), Floorp (high customizability).
-- **Office**: OnlyOffice, LibreOffice.
+- **Office**: OnlyOffice, LibreOffice, ArtCraft.
 - **Torrent client**: qBittorrent.
 - **Disk analyzer**: Filelight (KDE/Qt), Baobab (GNOME/GTK), gdu (command-line written in Rust).
 - **Local AI**: LM Studio (I recommend the Mistral model).
@@ -54,13 +54,21 @@ P.S. The broad availability of choice isn't a problem. If one day 500 new Window
 - **Cleaners**: BleachBit (not needed for immutable systems), Krokiet.
 - **System backup**: Timeshift (not needed for immutable systems).
 - **Nvidia Shadow Play alternative**: GPU Screen Recorder.
-- **Photoshop alternatives**: Photoshop online, Photopea, GIMP, Krita, Affinity (via Bottles), Canva (for simple tasks).
-- **Lightroom alternative**: Darktable.
-- **Illustrator alternative**: Inkscape.
-- **Premier Pro alternative**: DaVinci Resolve, Kdenlive.
 - **Discord alternatives (besides the official app)**: Matrix/Element, Fluxer, Stoat.
 - **Slack and Microsoft Teams alternatives (besides the official apps)**: Rocket.chat, Mattermost, Matrix/Element, Zulip.
 - **Zoom alternative (besides the official app)**: Jitsi Meet.
+
+### Professional apps
+
+- **Adobe Photoshop alternatives**: Photopea, GIMP, Krita, PhotoCraft, Affinity (via Bottles), Photoshop online, Canva (for simple tasks).
+- **Adobe Lightroom alternatives**: Darktable, LightCraft.
+- **Adobe Illustrator alternatives**: Inkscape, VectorCraft, Affinity (via Bottles).
+- **Adobe Premiere Pro alternatives**: DaVinci Resolve, Kdenlive, FilmCraft, Shotcut.
+- **Adobe Acrobat alternatives**: Master PDF Editor, PdfCraft, PDF Arranger, Okular.
+- **Adobe After Effects alternatives**: EffectCraft, Blender.
+- **Adobe InDesign alternatives**: DesignCraft, Scribus, Affinity (via Bottles).
+- **Autodesk AutoCAD alternatives**: BricsCAD, CADCraft, LibreCAD, FreeCAD.
+- **Avid Pro Tools alternatives**: REAPER, SoundCraft, Ardour.
 
 ### Handy utilities
 
