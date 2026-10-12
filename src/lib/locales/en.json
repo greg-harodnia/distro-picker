@@ -171,7 +171,7 @@
             "highlights": ["Sleek design", "Good even for people that have no idea what Linux is", "Not the most up-to-date software"]
         },
         "kubuntu": {
-            "description": "A well-established and trusted distro, based on Ubuntu (corporate standard) with the KDE Plasma desktop environment (the most feature-rich). It is backed by a huge corporation, Canonical. If you want to access more apps, feel free to install the Flatpak backend (you will also need to add the Flathub repository). Afterward, you can install more apps directly from Discover (if you add its Flatpak plugin) or choose an alternative storefront like Bazaar.",
+            "description": "A well-established and trusted distro, based on Ubuntu (corporate standard) with the KDE Plasma desktop environment (the most feature-rich). It is backed by a huge corporation, Canonical. If you want to access more apps, feel free to install the Flatpak backend (you will also need to add the Flathub repository). Afterward, you can install more apps directly from Discover (if you add its Flatpak plugin) or choose an alternative storefront like Bazaar. The best alternative to it is TUXEDO OS.",
             "userbasePostfix": " million",
             "highlights": ["Has a lot of documentation available", "Uses Snap packages"]
         },
@@ -203,7 +203,7 @@
             "userbasePostfix": " million"
         },
         "fedora": {
-            "description": "Perfect for developers. Comes in many editions/spins, including one with the KDE Plasma desktop environment. It frequently updates apps and system components during its release cycle, keeping the software up-to-date while still remaining a point-release distribution. Fedora is a fully open-source project, so it doesn't come with Nvidia drivers or other proprietary software preinstalled.",
+            "description": "The golden mean for a Linux distribution, it is general-purpose and good for developers, gamers, and casual users. It comes in many editions/spins, including one with the KDE Plasma desktop environment. It frequently updates apps and system components during its release cycle, keeping the software up-to-date while still remaining a point-release distribution. Fedora is a fully open-source project, so it doesn't come with Nvidia drivers or other proprietary software preinstalled, but it all can be done manually after the installation. The best alternative to it is Ultramarine Linux.",
             "userbasePostfix": " million",
             "highlights": ["Cutting-edge and reliable distribution"]
         },
@@ -246,7 +246,7 @@
             "userbasePostfix": "k"
         },
         "rakuos": {
-            "description": "A hybrid-immutable, semi-rolling OS for desktops. It allows you to install native DNF packages into a mutable, overlayed /usr directory without requiring a reboot to use them. Also, it uses a modified kernel and its own Rum package manager. A good choice for gaming. A separate gaming edition may be released in the future which will boot directly into a dedicated gaming mode and come with preinstalled gaming software, similar to Bazzite.",
+            "description": "A hybrid-immutable, semi-rolling OS for desktops. It allows you to install native DNF packages into a mutable, overlayed /usr directory without requiring a reboot to use them. Also, it uses the custom P03 kernel and its own Rum package manager. A good choice for gaming. A separate gaming edition may be released in the future which will boot directly into a dedicated gaming mode and come with preinstalled gaming software, similar to Bazzite.",
             "userbasePostfix": "k"
         },
         "lubuntu": {

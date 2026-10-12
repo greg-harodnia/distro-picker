@@ -15,6 +15,21 @@
       "swap_strategy": "swap-file"
     },
     {
+      "id": "fedora",
+      "name": "Fedora",
+      "website": "https://fedoraproject.org/kde/",
+      "tag_ids": ["point-release"],
+      "logo": "/fedora.webp",
+      "tier": "best",
+      "desktops": ["GNOME", "KDE Plasma", "Xfce", "Cinnamon", "COSMIC", "MATE", "LXQt", "LXDE", "Budgie"],
+      "hasMoreDesktops": true,
+      "ease_of_use": 4.2,
+      "based_on": "independent",
+      "userbase_number": "~1-2",
+      "secure_boot": true,
+      "swap_strategy": "zram"
+    },
+    {
       "id": "zorin",
       "name": "Zorin OS",
       "website": "https://zorinos.com/",
@@ -154,21 +169,6 @@
       "based_on": "independent",
       "secure_boot": true,
       "swap_strategy": "zram-and-swap-file"
-    },
-    {
-      "id": "fedora",
-      "name": "Fedora",
-      "website": "https://fedoraproject.org/kde/",
-      "tag_ids": ["point-release"],
-      "logo": "/fedora.webp",
-      "tier": "best",
-      "desktops": ["GNOME", "KDE Plasma", "Xfce", "Cinnamon", "COSMIC", "MATE", "LXQt", "LXDE", "Budgie"],
-      "hasMoreDesktops": true,
-      "ease_of_use": 4.2,
-      "based_on": "independent",
-      "userbase_number": "~1-2",
-      "secure_boot": true,
-      "swap_strategy": "zram"
     },
     {
       "id": "kalpa",
