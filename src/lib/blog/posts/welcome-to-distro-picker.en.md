@@ -50,7 +50,7 @@ P.S. The broad availability of choice isn't a problem. If one day 500 new Window
 - **Disk analyzer**: Filelight (KDE/Qt), Baobab (GNOME/GTK), gdu (command-line written in Rust).
 - **Local AI**: LM Studio (I recommend the Mistral model).
 - **Extended software support**: Flatpak (Bazaar or your software center), Distrobox (DistroShelf for GNOME/GTK, Kontainer for KDE/Qt).
-- **Running Windows apps**: Bottles, Winboat.
+- **Running Windows apps**: Bottles, Winboat, winPodX.
 - **Cleaners**: BleachBit (not needed for immutable systems), Krokiet.
 - **System backup**: Timeshift (not needed for immutable systems).
 - **Nvidia Shadow Play alternative**: GPU Screen Recorder.

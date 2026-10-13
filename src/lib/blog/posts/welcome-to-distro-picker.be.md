@@ -50,7 +50,7 @@ P.S. Шырокая даступнасьць выбару ня ёсьць пра
 - **Аналізатар дыска**: Filelight (KDE/Qt), Baobab (GNOME/GTK), gdu (тэрмінальная праграма, напісаная на Rust).
 - **Лакальная Штучная Інтэліґенцыя**: LM Studio (раджу мадэль Mistral).
 - **Пашыранае праграмнае забясьпечаньне**: Flatpak (Bazaar або ваш цэнтар ПЗ), Distrobox (DistroShelf для GNOME/GTK, Kontainer для KDE/Qt).
-- **Запуск праґрам Windows**: Bottles, Winboat.
+- **Запуск праґрам Windows**: Bottles, Winboat, winPodX.
 - **Ачысьнікі**: BleachBit (не патрэбны для нязьменных сыстэм), Krokiet.
 - **Рэзэрвовае капіяваньне**: Timeshift (не патрэбны для нязьменных сыстэм).
 - **Альтэрнатыва для Nvidia Shadow Play**: GPU Screen Recorder.
