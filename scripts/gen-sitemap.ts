@@ -114,14 +114,20 @@ for (const locale of locales) {
 }
 
 for (const slug of slugs) {
+	// A post without a translation still resolves at `/<locale>/blog/<slug>`
+	// (English fallback), but that page canonicalizes to the English original,
+	// so only list the languages the post actually exists in. Listing the
+	// fallback URL would advertise a duplicate of the English post.
+	const sources = postFiles
+		.filter((file) => file.startsWith(`${slug}.`))
+		.map((file) => join('src/lib/blog/posts', file));
 	for (const locale of locales) {
-		// A post without a translation renders the source language file, so any
-		// locale variant of a slug tracks all of that slug's files.
-		const sources = postFiles
-			.filter((file) => file.startsWith(`${slug}.`))
-			.map((file) => join('src/lib/blog/posts', file));
+		if (locale !== DEFAULT_LOCALE && !sources.some((file) => file.endsWith(`.${locale}.md`))) {
+			continue;
+		}
 		entries.push({
 			loc: `${SITE}${prefix(locale)}/blog/${slug}`,
+			// Every real translation of a slug shares its files for lastmod.
 			lastmod: lastChanged(...sources),
 			changefreq: 'monthly',
 			priority: '0.8'

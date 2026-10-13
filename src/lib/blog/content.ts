@@ -149,7 +149,9 @@ export function toDetail(slug: string, lang: Language, contentHtml: string, usin
 	const file = files.find((f) => f.lang === lang) ?? files.find((f) => f.lang === 'en') ?? files[0];
 	return {
 		slug,
-		lang,
+		// The language of the file actually rendered, not the requested locale
+		// (they differ for fallback posts, and `inLanguage` must be truthful).
+		lang: file.lang,
 		meta: file.meta,
 		contentHtml,
 		availableLangs: [...new Set(files.map((f) => f.lang))],

@@ -45,13 +45,29 @@
 	let pageDescription = $derived(seo.description || description);
 
 	let pathname = $derived($page.url.pathname);
-	let canonicalUrl = $derived(`${siteUrl}${pathname}`);
-	let socialImage = $derived(`${siteUrl}/og-image.png`);
 
 	// Language variants of the current page: `/` <-> `/be`, `/distro/x` <-> `/be/distro/x`
 	let isBe = $derived(pathname === '/be' || pathname.startsWith('/be/'));
 	let enPath = $derived(isBe ? pathname.slice(3) || '/' : pathname);
 	let bePath = $derived(isBe ? pathname : enPath === '/' ? '/be' : `/be${enPath}`);
+
+	// Blog posts may exist in only some languages; `availableLangs` is the set
+	// they actually have. Every other page is fully localized, so it falls back
+	// to the full language list.
+	let pageLangs = $derived(
+		($page.data as { post?: { availableLangs?: Language[] } }).post?.availableLangs ??
+			availableLanguages.map((l) => l.code)
+	);
+	// True when the requested language has no post and English stands in.
+	let isFallback = $derived(
+		Boolean(($page.data as { post?: { usingFallback?: boolean } }).post?.usingFallback)
+	);
+	// Fallback pages render English text under a `/be` URL; point the canonical
+	// at the English original so the same content isn't indexed twice, and treat
+	// the page as English for Open Graph.
+	let canonicalUrl = $derived(`${siteUrl}${isFallback ? enPath : pathname}`);
+	let contentLocale = $derived(isFallback ? 'en' : $locale);
+	let socialImage = $derived(`${siteUrl}/og-image.png`);
 
 	// Blog posts are `article`; the blog index and every other page are
 	// `website`. `enPath` has the locale prefix stripped, so one regex covers
@@ -144,16 +160,16 @@
 	<!-- Canonical URL -->
 	<link rel="canonical" href={canonicalUrl}>
 
-	<!-- Hreflang: real per-language URLs (the URL carries the language) -->
-	{#each availableLanguages as lang}
-		<link rel="alternate" hreflang={lang.code} href={langHref(lang.code)} />
+	<!-- Hreflang: only the languages this page actually exists in -->
+	{#each pageLangs as code}
+		<link rel="alternate" hreflang={code} href={langHref(code)} />
 	{/each}
 	<link rel="alternate" hreflang="x-default" href={langHref('en')} />
 
 	<!-- Open Graph Locales -->
-	<meta property="og:locale" content={$locale === 'en' ? 'en_US' : $locale === 'be' ? 'be_BY' : $locale}>
-	{#each availableLanguages.filter(l => l.code !== $locale) as lang}
-		<meta property="og:locale:alternate" content={lang.code === 'en' ? 'en_US' : lang.code === 'be' ? 'be_BY' : lang.code}>
+	<meta property="og:locale" content={contentLocale === 'en' ? 'en_US' : contentLocale === 'be' ? 'be_BY' : contentLocale}>
+	{#each pageLangs.filter((code) => code !== contentLocale) as code}
+		<meta property="og:locale:alternate" content={code === 'en' ? 'en_US' : code === 'be' ? 'be_BY' : code}>
 	{/each}
 </svelte:head>
 

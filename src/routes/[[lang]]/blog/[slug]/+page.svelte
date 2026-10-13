@@ -86,7 +86,11 @@
 		liking = false;
 	}
 
-	let blogPath = $derived(localePath(`/blog/${post.slug}`, $locale));
+	// Fallback posts are English content served under `/be`; point the schema at
+	// the English original so it matches the canonical link the layout emits.
+	let blogPath = $derived(
+		post.usingFallback ? `/blog/${post.slug}` : localePath(`/blog/${post.slug}`, $locale)
+	);
 
 	let ldJson = $derived(
 		JSON.stringify(

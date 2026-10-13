@@ -37,6 +37,7 @@ export interface BlogPostSummary {
 /** Full post as rendered for the detail page. */
 export interface BlogPostDetail {
 	slug: string;
+	/** Language of the file actually rendered (English for fallback posts). */
 	lang: Language;
 	meta: BlogPostMeta;
 	contentHtml: string;
