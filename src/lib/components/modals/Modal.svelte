@@ -116,7 +116,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: rgba(0, 0, 0, 0.7);
+		background: color-mix(in srgb, var(--invert-bg) 60%, transparent);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -131,7 +131,7 @@
 
 	.modal-overlay :global(.modal-content) {
 		background: var(--color-surface);
-		border: 2px solid var(--color-border);
+		border: 1px solid var(--line-strong);
 		border-radius: var(--radius-lg);
 		width: 100%;
 		max-width: 600px;
@@ -140,6 +140,7 @@
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
+		box-shadow: var(--shadow-2xl);
 	}
 
 	.modal-overlay :global(.modal-content.modal-content-full) {
@@ -151,7 +152,7 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: var(--space-lg);
-		border-bottom: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--line);
 		flex-shrink: 0;
 	}
 
@@ -172,7 +173,7 @@
 		--footer-padding: var(--space-lg);
 		padding: var(--footer-padding);
 		padding-bottom: calc(var(--footer-padding) + env(safe-area-inset-bottom));
-		border-top: 1px solid var(--color-border);
+		border-top: 1px solid var(--line);
 		flex-shrink: 0;
 	}
 
@@ -185,10 +186,11 @@
 	}
 
 	.modal-overlay :global(.modal-title) {
-		font-size: var(--text-xl);
-		color: var(--color-secondary);
+		font-size: var(--text-lg);
+		color: var(--color-text);
 		margin: 0;
 		font-weight: var(--font-semibold);
+		letter-spacing: -0.01em;
 		flex: 1;
 		text-align: center;
 	}

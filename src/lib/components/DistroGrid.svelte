@@ -121,19 +121,18 @@
 	.distro-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-		gap: var(--space-xl);
+		gap: var(--space-md);
 		padding-top: var(--space-lg);
 	}
 
 	.distro-card {
 		background: var(--color-surface);
-		border: 2px solid var(--color-border);
-		border-radius: var(--radius-lg);
-		padding: var(--space-xl);
+		border: 1px solid var(--line);
+		border-radius: var(--radius-md);
+		padding: var(--space-lg) var(--space-md);
 		text-align: center;
 		cursor: pointer;
-		transition: all var(--transition-normal);
-		box-shadow: var(--shadow-md);
+		transition: border-color var(--transition-normal), background var(--transition-normal);
 		position: relative;
 		user-select: none;
 		-webkit-user-select: none;
@@ -145,15 +144,14 @@
 
 	@media (hover: hover) {
 		.distro-card:hover {
-			transform: translateY(-4px);
-			box-shadow: var(--shadow-xl);
-			border-color: var(--color-primary);
+			border-color: var(--color-text);
+			background: var(--color-background);
 		}
 	}
 
 	.distro-card.selected {
-		border-color: var(--color-primary);
-		background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+		border-color: var(--color-text);
+		background: var(--color-secondary);
 		color: var(--color-background);
 	}
 
@@ -168,15 +166,15 @@
 
 	.reactions .popular,
 	.reactions .in-development {
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		line-height: 1;
 	}
 
 	.like {
-		font-size: 1rem;
+		font-size: var(--text-xs);
 		line-height: 1;
 		background: var(--color-surface);
-		border: 2px solid var(--color-border);
+		border: 1px solid var(--line-strong);
 		border-radius: var(--radius-full);
 		padding: 4px 8px;
 		cursor: pointer;
@@ -189,7 +187,6 @@
 
 	@media (hover: hover) {
 		.like:hover {
-			transform: scale(1.1);
 			border-color: #e25555;
 		}
 	}
@@ -201,12 +198,12 @@
 
 	:global(.distro-card) {
 		& .optimized-image-container {
-			margin-bottom: var(--space-sm);
+			margin-bottom: var(--space-md);
 		}
 
 		& .optimized-image {
-			width: 64px;
-			height: 64px;
+			width: 56px;
+			height: 56px;
 		}
 	}
 
@@ -222,7 +219,8 @@
 		padding: 0;
 		font-family: inherit;
 		font-size: var(--text-base);
-		font-weight: var(--font-semibold);
+		font-weight: var(--font-medium);
+		letter-spacing: -0.01em;
 		line-height: var(--line-height-tight);
 		color: inherit;
 		text-decoration: none;
@@ -233,15 +231,15 @@
 	@media (hover: hover) {
 		/* No underline here on purpose: a plain click opens the modal, not the
 		   page, so a link-styled hover would promise a navigation that never
-		   happens. The card's own hover (lift + border colour) is the
-		   affordance; the href is there for crawlers and modified clicks. */
+		   happens. The card's own hover (border colour) is the affordance; the
+		   href is there for crawlers and modified clicks. */
 		.distro-card:hover .distro-name-link {
 			text-decoration: none;
 		}
 	}
 
 	.distro-name-link:focus-visible {
-		outline: 2px solid var(--color-primary);
+		outline: 2px solid var(--accent);
 		outline-offset: 2px;
 	}
 

@@ -29,13 +29,12 @@
 	.error-container {
 		text-align: center;
 		padding: var(--space-3xl) var(--space-xl);
-		background: var(--color-error-background);
-		border: 2px solid var(--color-error-light);
+		background: var(--color-surface);
+		border: 1px solid var(--color-error-light);
 		border-radius: var(--radius-lg);
 		color: var(--color-error-dark);
 		max-width: 400px;
 		margin: var(--space-xl) auto;
-		box-shadow: var(--shadow-md);
 	}
 
 	.error-icon {
@@ -62,10 +61,10 @@
 	.retry-button {
 		background: var(--color-error);
 		color: var(--color-background);
-		border: none;
+		border: 1px solid var(--color-error);
 		padding: var(--space-md) var(--space-xl);
 		border-radius: var(--radius-md);
-		font-weight: var(--font-semibold);
+		font-weight: var(--font-medium);
 		cursor: pointer;
 		transition: all var(--transition-normal);
 		font-size: var(--text-base);
@@ -75,7 +74,7 @@
 	@media (hover: hover) {
 		.retry-button:hover {
 			background: var(--color-error-dark);
-			transform: translateY(-1px);
+			border-color: var(--color-error-dark);
 		}
 	}
 

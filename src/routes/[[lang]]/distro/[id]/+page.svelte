@@ -113,37 +113,49 @@
 
 <style>
 	.distro-header {
-		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--space-md);
+		padding-bottom: var(--space-lg);
+		border-bottom: 1px solid var(--line);
 		margin-bottom: var(--space-2xl);
 	}
 
 	.distro-logo {
-		width: 96px;
-		height: 96px;
+		width: 80px;
+		height: 80px;
 		object-fit: contain;
-		margin-bottom: var(--space-md);
 	}
 
 	.distro-name {
-		font-size: var(--text-4xl);
-		color: var(--color-secondary);
-		line-height: var(--line-height-tight);
-		margin: 0 0 var(--space-md);
+		font-size: clamp(2.25rem, 6vw, 4rem);
+		letter-spacing: -0.035em;
+		line-height: 1.02;
+		color: var(--color-text);
+		margin: 0;
 	}
 
 	.badges {
-		margin: 0 0 var(--space-md);
+		margin: 0;
 		display: flex;
 		gap: var(--space-sm);
-		justify-content: center;
 		flex-wrap: wrap;
 	}
 
 	.badge {
-		font-size: var(--text-sm);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		text-transform: uppercase;
+		letter-spacing: var(--label-tracking);
+		color: var(--color-text-secondary);
+		border: 1px solid var(--line);
+		border-radius: var(--radius-full);
+		padding: 2px 10px;
 	}
 
 	.details-wrap {
+		max-width: 46rem;
 		margin-bottom: var(--space-2xl);
 	}
 
@@ -152,9 +164,12 @@
 	}
 
 	h2 {
-		font-size: var(--text-2xl);
-		color: var(--color-secondary);
-		font-weight: var(--font-semibold);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		text-transform: uppercase;
+		letter-spacing: var(--label-tracking);
+		color: var(--color-text-muted);
+		font-weight: 500;
 		margin: 0 0 var(--space-lg);
 	}
 
@@ -166,19 +181,17 @@
 
 	.screenshot-btn {
 		padding: 0;
-		border: 1px solid var(--color-border);
+		border: 1px solid var(--line);
 		border-radius: var(--radius-md);
 		background: var(--color-background-secondary);
 		cursor: pointer;
 		overflow: hidden;
-		transition: all var(--transition-normal);
+		transition: border-color var(--transition-normal);
 	}
 
 	@media (hover: hover) {
 		.screenshot-btn:hover {
-			border-color: var(--color-primary);
-			box-shadow: var(--shadow-lg);
-			transform: translateY(-2px);
+			border-color: var(--color-text);
 		}
 	}
 
@@ -193,7 +206,6 @@
 		display: flex;
 		gap: var(--space-md);
 		flex-wrap: wrap;
-		justify-content: center;
 	}
 
 	.btn-primary,
@@ -202,28 +214,32 @@
 		padding: var(--space-md) var(--space-xl);
 		border-radius: var(--radius-md);
 		font-size: var(--text-base);
-		font-weight: var(--font-semibold);
+		font-weight: var(--font-medium);
 		text-decoration: none;
 		transition: all var(--transition-normal);
 	}
 
 	.btn-primary {
-		background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-		border: none;
+		background: var(--color-secondary);
+		border: 1px solid var(--color-secondary);
 		color: var(--color-background);
 	}
 
 	.btn-secondary {
-		background: var(--color-background-secondary);
-		border: 1px solid var(--color-border);
+		background: transparent;
+		border: 1px solid var(--line-strong);
 		color: var(--color-secondary);
 	}
 
 	@media (hover: hover) {
-		.btn-primary:hover,
+		.btn-primary:hover {
+			background: var(--accent);
+			border-color: var(--accent);
+			color: #fff;
+		}
+
 		.btn-secondary:hover {
-			transform: translateY(-2px);
-			box-shadow: var(--shadow-lg);
+			border-color: var(--color-text);
 		}
 	}
 

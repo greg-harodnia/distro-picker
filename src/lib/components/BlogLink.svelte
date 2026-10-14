@@ -22,15 +22,36 @@
 </a>
 
 <style>
-	/* Both variants render the same pill button; only one is visible per breakpoint. */
+	/* Both variants render the same link; only one is visible per breakpoint.
+	   Styled as a plain editorial nav link (not a pill) to match the top bar. */
 	.blog-toggle {
 		gap: var(--space-xs);
 		height: 44px;
-		padding: 0 var(--space-md);
+		padding: 0;
+		border-color: transparent;
+		background: transparent;
 		font-size: var(--text-sm);
 		font-weight: var(--font-semibold);
 		text-decoration: none;
 		white-space: nowrap;
+		color: var(--color-text);
+	}
+
+	@media (hover: hover) {
+		.blog-toggle:hover {
+			border-color: transparent;
+			background: transparent;
+			color: var(--accent);
+		}
+
+		.blog-toggle:hover .blog-label {
+			text-decoration: underline;
+			text-underline-offset: 0.2em;
+		}
+	}
+
+	.blog-toggle svg {
+		opacity: 0.6;
 	}
 
 	.variant-desktop {

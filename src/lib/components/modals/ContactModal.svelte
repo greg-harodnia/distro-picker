@@ -118,14 +118,14 @@
 
 	.success-text {
 		font-size: var(--text-lg);
-		color: var(--color-best);
+		color: var(--color-success);
 		text-align: center;
 		font-weight: var(--font-semibold);
 	}
 
 	.error-text {
 		font-size: var(--text-sm);
-		color: #ef4444;
+		color: var(--color-error);
 		text-align: center;
 	}
 
@@ -143,27 +143,31 @@
 	}
 
 	label span {
-		font-size: var(--text-sm);
-		color: var(--color-text-secondary);
-		font-weight: var(--font-medium);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		color: var(--color-text-muted);
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: var(--label-tracking);
 	}
 
 	input, textarea {
 		width: 100%;
 		padding: var(--space-sm) var(--space-md);
-		border: 1px solid var(--color-border);
+		border: 1px solid var(--line-strong);
 		border-radius: var(--radius-md);
 		background: var(--color-background);
 		color: var(--color-text-primary);
 		font-family: inherit;
 		font-size: var(--text-base);
-		transition: border-color var(--transition-normal);
+		transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
 		box-sizing: border-box;
 	}
 
 	input:focus, textarea:focus {
 		outline: none;
-		border-color: var(--color-secondary);
+		border-color: var(--accent);
+		box-shadow: 0 0 0 3px var(--accent-soft);
 	}
 
 	textarea {

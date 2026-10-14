@@ -56,12 +56,12 @@
 		align-items: center;
 		justify-content: center;
 		padding: var(--space-sm) var(--space-md);
-		height: 35px;
-		border: 2px solid var(--tag-color);
+		height: 34px;
+		border: 1px solid var(--tag-color);
 		border-radius: var(--radius-full);
-		background: var(--color-background);
+		background: transparent;
 		color: var(--tag-color);
-		font-weight: var(--font-semibold);
+		font-weight: var(--font-medium);
 		cursor: pointer;
 		transition: all var(--transition-normal);
 		position: relative;
@@ -72,13 +72,13 @@
 
 	@media (hover: hover) {
 		.tag-filter:hover {
-			transform: translateY(-2px);
-			box-shadow: var(--shadow-lg);
+			background: color-mix(in srgb, var(--tag-color) 12%, transparent);
 		}
 	}
 
 	.tag-filter.selected {
 		background: var(--tag-color);
+		border-color: var(--tag-color);
 		color: var(--color-background);
 	}
 </style>

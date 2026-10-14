@@ -156,6 +156,7 @@
 
 <style>
 	.serial-number {
+		font-family: var(--font-mono);
 		color: var(--color-text-secondary);
 		font-size: var(--text-sm);
 	}
@@ -186,7 +187,7 @@
 		top: 50%;
 		transform: translateY(-50%);
 		background: var(--color-surface);
-		border: 2px solid var(--color-border);
+		border: 1px solid var(--line-strong);
 		color: var(--color-text-secondary);
 		cursor: pointer;
 		padding: var(--space-md);
@@ -199,8 +200,9 @@
 
 	@media (hover: hover) {
 		.arrow:hover {
-			background: var(--color-background-secondary);
-			color: var(--color-secondary);
+			background: var(--color-secondary);
+			border-color: var(--color-secondary);
+			color: var(--color-background);
 		}
 	}
 

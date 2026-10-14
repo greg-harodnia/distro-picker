@@ -228,13 +228,9 @@
 {/if}
 
 <div class="app" class:app-hidden={!!$error}>
-		<header class="header">
+		<nav class="site-nav" aria-label={$t('app.title')}>
 			<BlogLink variant="desktop" />
-			<div class="header-title-group">
-				<h1>{$t('app.title')}</h1>
-				<h2 class="header-description">{$t('app.description')}</h2>
-			</div>
-			<div class="header-controls">
+			<div class="site-nav-controls">
 				<BlogLink variant="mobile" />
 				<button
 					class="contact-link btn-toggle"
@@ -249,6 +245,13 @@
 				</button>
 				<LanguageToggle />
 				<ThemeToggle />
+			</div>
+		</nav>
+
+		<header class="header">
+			<div class="header-title-group">
+				<h1>{$t('app.title')}</h1>
+				<h2 class="header-description">{$t('app.description')}</h2>
 			</div>
 		</header>
 
@@ -284,9 +287,10 @@
 						<p>{$t('app.noResults')}</p>
 					</div>
 				{/if}
-				{#each $allTieredDistros as group (group.tier)}
+				{#each $allTieredDistros as group, i (group.tier)}
 					<DistroTierSection
 						tier={group.tier}
+						index={i + 1}
 						title={$t(`app.tiers.${group.tier}.name`) || humanizeId(group.tier)}
 						distros={group.distros}
 						visibleIds={$visibleDistroIds}
@@ -301,7 +305,12 @@
 		</div>
 		</main>
 
-		<footer>
+		<footer class="site-footer">
+			<div class="site-footer-brand">{$t('app.title')}</div>
+			<nav class="site-footer-links mono-label">
+				<a href={`${base}${localePath('/blog', $locale)}`}>{$t('pages.blog.navLabel')}</a>
+				<span class="site-footer-year">© {new Date().getFullYear()}</span>
+			</nav>
 		</footer>
 
 	{#if quickTestOpen}
@@ -356,55 +365,101 @@
 	.app {
 		max-width: var(--container-2xl);
 		margin: 0 auto;
-		padding: var(--space-xl);
+		padding: 0 var(--space-xl) var(--space-2xl);
 	}
 
 	.app.app-hidden {
 		display: none;
 	}
 
-	.header {
+	/* ---- top nav ---- */
+	.site-nav {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-		margin: var(--space-lg) auto var(--space-3xl);
+		justify-content: space-between;
+		gap: var(--space-md);
+		padding: var(--space-lg) 0 var(--space-md);
+		border-bottom: 1px solid var(--line);
+		margin-bottom: var(--space-3xl);
+	}
+
+	.site-nav-controls {
+		display: flex;
+		gap: var(--space-sm);
+		margin-left: auto;
+	}
+
+	/* ---- hero ---- */
+	.header {
+		margin: 0 0 var(--space-2xl);
 	}
 
 	.header-title-group {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		flex: 1;
+		gap: var(--space-md);
+		max-width: 62rem;
 	}
 
 	.header h1 {
-		text-align: center;
-		font-size: var(--text-4xl);
-		color: var(--color-secondary);
-		font-weight: var(--font-bold);
-		line-height: var(--line-height-tight);
-		margin-bottom: var(--space-xs);
+		font-size: clamp(2.5rem, 6.5vw, 5rem);
+		font-weight: var(--font-semibold);
+		letter-spacing: -0.035em;
+		line-height: 1.02;
+		color: var(--color-text);
+		margin: 0;
+		text-wrap: balance;
 	}
 
 	.header-description {
-		text-align: center;
-		font-size: var(--text-lg);
-		color: var(--color-text-muted);
-		max-width: 42rem;
-		line-height: var(--line-height-normal);
-	}
-
-	.header-controls {
-		display: flex;
-		gap: var(--space-sm);
+		font-size: clamp(var(--text-lg), 2vw, 1.5rem);
+		font-weight: var(--font-normal);
+		color: var(--color-text-secondary);
+		max-width: 44rem;
+		line-height: 1.45;
+		letter-spacing: -0.01em;
+		margin: 0;
 	}
 
 	.filters {
 		margin-bottom: var(--space-xl);
 	}
 
-	footer {
-		margin-bottom: var(--space-2xl);
+	.site-footer {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: var(--space-md);
+		flex-wrap: wrap;
+		margin-top: var(--space-3xl);
+		padding-top: var(--space-lg);
+		border-top: 1px solid var(--line);
+	}
+
+	.site-footer-brand {
+		font-family: var(--font-serif);
+		font-size: clamp(1.75rem, 4vw, 2.75rem);
+		line-height: 1;
+		letter-spacing: -0.01em;
+		color: var(--color-text);
+	}
+
+	.site-footer-links {
+		display: flex;
+		align-items: center;
+		gap: var(--space-lg);
+	}
+
+	.site-footer-links a {
+		text-decoration: none;
+		color: var(--color-text-muted);
+		transition: color var(--transition-normal);
+	}
+
+	@media (hover: hover) {
+		.site-footer-links a:hover {
+			color: var(--color-text);
+		}
 	}
 
 	.filter-groups {
@@ -431,18 +486,18 @@
 		justify-content: center;
 		width: 32px;
 		height: 32px;
-		border: none;
-		border-radius: var(--radius-full);
-		background: var(--color-secondary);
-		color: var(--color-background);
+		border: 1px solid var(--line-strong);
+		border-radius: var(--radius-md);
+		background: var(--color-background);
+		color: var(--color-text);
 		cursor: pointer;
 		transition: all var(--transition-normal);
 	}
 
 	@media (hover: hover) {
 		.clear-btn:hover {
-			transform: scale(1.1);
-			box-shadow: var(--shadow-lg);
+			background: var(--color-secondary);
+			color: var(--color-background);
 		}
 	}
 
@@ -470,7 +525,12 @@
 		display: flex;
 		align-items: center;
 		gap: var(--space-sm);
-		border-radius: var(--radius-full);
+		padding: var(--space-md) var(--space-lg);
+		font-family: var(--font-mono);
+		font-size: var(--text-sm);
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		border-radius: var(--radius-md);
 		box-shadow: var(--shadow-lg);
 		z-index: 100;
 	}
@@ -481,23 +541,20 @@
 
 	@media (max-width: 640px) {
 		.app {
-			padding: var(--space-lg);
+			padding: 0 var(--space-lg) var(--space-xl);
+		}
+
+		.site-nav {
+			padding-top: var(--space-md);
+			margin-bottom: var(--space-xl);
 		}
 
 		.header {
-			margin: var(--space-md) 0 var(--space-xl);
-			flex-direction: column;
-			gap: var(--space-lg);
-			padding: 0;
-		}
-
-		.header-controls {
-			flex-wrap: wrap;
-			justify-content: center;
+			margin-bottom: var(--space-xl);
 		}
 
 		.header h1 {
-			font-size: var(--text-3xl);
+			font-size: clamp(2rem, 9vw, 2.75rem);
 		}
 
 		.filter-groups {

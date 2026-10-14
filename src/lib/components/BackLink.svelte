@@ -16,11 +16,16 @@
 <style>
 	.back-link {
 		min-width: 0;
-		color: var(--color-secondary);
+		color: var(--color-text-secondary);
 		text-decoration: none;
-		font-weight: var(--font-medium);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: var(--label-tracking);
 		line-height: var(--line-height-normal);
 		overflow-wrap: anywhere;
+		transition: color var(--transition-normal);
 	}
 
 	.footer-link {
@@ -31,7 +36,7 @@
 
 	@media (hover: hover) {
 		.back-link:hover {
-			text-decoration: underline;
+			color: var(--color-text);
 		}
 	}
 

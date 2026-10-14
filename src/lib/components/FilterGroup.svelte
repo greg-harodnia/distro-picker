@@ -138,32 +138,39 @@
 		justify-content: center;
 		gap: var(--space-sm);
 		padding: var(--space-sm) var(--space-md);
-		height: 35px;
-		border: 2px solid var(--color-border);
+		height: 34px;
+		border: 1px solid var(--line-strong);
 		border-radius: var(--radius-full);
-		background: var(--color-background);
+		background: var(--color-surface);
 		color: var(--color-text);
 		font-size: var(--text-sm);
-		font-weight: var(--font-semibold);
+		font-weight: var(--font-medium);
 		cursor: pointer;
 		transition: all var(--transition-normal);
 		white-space: nowrap;
 		flex-shrink: 0;
 	}
 
+	.group-label {
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		text-transform: uppercase;
+		letter-spacing: var(--label-tracking);
+	}
+
 	@media (hover: hover) {
 		.filter-group-btn:hover {
-			border-color: var(--color-secondary);
+			border-color: var(--color-text);
 		}
 	}
 
-	.filter-group-btn.active,
-	.filter-group-btn.open {
-		border-color: var(--color-secondary);
+	.filter-group-btn.active {
+		border-color: var(--color-text);
 	}
 
 	.filter-group-btn.open {
 		background: var(--color-secondary);
+		border-color: var(--color-secondary);
 		color: var(--color-background);
 	}
 

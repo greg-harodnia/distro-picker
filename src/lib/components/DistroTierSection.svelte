@@ -5,6 +5,7 @@
 	let {
 		tier,
 		title,
+		index = 1,
 		distros = [],
 		visibleIds = null,
 		selectedDistro = null,
@@ -14,6 +15,7 @@
 	}: {
 		tier: DistroTier;
 		title: string;
+		index?: number;
 		distros?: Distro[];
 		visibleIds?: Set<string> | null;
 		selectedDistro?: Distro | null;
@@ -21,6 +23,9 @@
 		open?: boolean;
 		ontoggle?: () => void;
 	} = $props();
+
+	// Two-digit section number, e.g. `01`, used as an editorial index.
+	let sectionNumber = $derived(String(index).padStart(2, '0'));
 
 	// `distros` is the full, unfiltered tier list (kept mounted so icons never
 	// reload). Only the count / section visibility respond to the filters.
@@ -37,24 +42,26 @@
 			onclick={ontoggle}
 			aria-expanded={open}
 		>
+			<span class="tier-index mono-label">{sectionNumber}</span>
+			<span class="tier-sep mono-label" aria-hidden="true">/</span>
+			<span class="tier-title">{title}</span>
+			<span class="tier-count mono-label">{visibleCount}</span>
 			<svg
 				class="chevron"
 				class:open
 				xmlns="http://www.w3.org/2000/svg"
-				width="16"
-				height="16"
+				width="18"
+				height="18"
 				viewBox="0 0 24 24"
 				fill="none"
 				stroke="currentColor"
-				stroke-width="2.5"
+				stroke-width="1.75"
 				stroke-linecap="round"
 				stroke-linejoin="round"
 				aria-hidden="true"
 			>
 				<polyline points="6 9 12 15 18 9"></polyline>
 			</svg>
-			<span class="tier-title">{title}</span>
-			<span class="tier-count">{visibleCount}</span>
 		</button>
 	</h3>
 
@@ -121,39 +128,51 @@
 
 	.tier-header {
 		display: flex;
-		align-items: center;
+		align-items: baseline;
 		gap: var(--space-sm);
 		width: 100%;
-		padding: var(--space-sm) 0;
+		padding: var(--space-md) 0;
 		background: none;
 		border: none;
-		border-bottom: 1px solid var(--color-border);
-		color: var(--color-secondary);
+		border-bottom: 1px solid var(--line);
+		color: var(--color-text);
 		font-size: var(--text-xl);
 		font-weight: var(--font-semibold);
+		letter-spacing: -0.01em;
 		text-align: left;
 		cursor: pointer;
 		transition: color var(--transition-normal);
 	}
 
+	.tier-index {
+		font-size: var(--text-sm);
+		color: var(--color-text-muted);
+	}
+
+	.tier-sep {
+		color: var(--color-text-muted);
+	}
+
 	@media (hover: hover) {
 		.tier-header:hover {
-			color: var(--color-text);
+			color: var(--accent);
 		}
 
 		.tier-header:hover .chevron {
-			color: var(--color-text-secondary);
+			color: var(--color-text);
 		}
 	}
 
 	.tier-header:focus-visible {
-		outline: 2px solid var(--color-primary);
+		outline: 2px solid var(--accent);
 		outline-offset: 2px;
 		border-radius: var(--radius-sm);
 	}
 
 	.chevron {
 		flex-shrink: 0;
+		align-self: center;
+		margin-left: auto;
 		color: var(--color-text-muted);
 		transform: rotate(-90deg);
 		transition: transform var(--transition-normal), color var(--transition-normal);
@@ -169,10 +188,8 @@
 	}
 
 	.tier-count {
-		margin-left: auto;
 		font-size: var(--text-sm);
-		font-weight: var(--font-normal);
-		color: var(--color-text-secondary);
+		color: var(--color-text-muted);
 	}
 
 	@media (max-width: 640px) {

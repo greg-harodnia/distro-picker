@@ -145,15 +145,18 @@
 
 	.additional-detail h3 {
 		display: inline;
-		color: var(--color-secondary);
-		font-size: var(--text-base);
-		font-weight: var(--font-semibold);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: var(--label-tracking);
+		color: var(--color-text-muted);
 		margin: 0;
 	}
 
 	.additional-detail p {
 		display: inline;
-		color: var(--color-text-secondary);
+		color: var(--color-text);
 		font-size: var(--text-base);
 		margin: 0;
 	}
@@ -163,11 +166,12 @@
 	}
 
 	.highlights-title {
-		color: var(--color-secondary);
-		font-size: var(--text-sm);
-		font-weight: var(--font-semibold);
+		font-family: var(--font-mono);
+		color: var(--color-text-muted);
+		font-size: var(--text-xs);
+		font-weight: 500;
 		text-transform: uppercase;
-		letter-spacing: 0.03em;
+		letter-spacing: var(--label-tracking);
 		margin: 0 0 var(--space-sm);
 	}
 
@@ -190,8 +194,9 @@
 
 	.tag {
 		padding: var(--space-xs) var(--space-md);
-		background: var(--tag-color);
-		color: var(--color-background);
+		background: transparent;
+		border: 1px solid var(--tag-color);
+		color: var(--tag-color);
 		border-radius: var(--radius-full);
 		font-size: var(--text-sm);
 		font-weight: var(--font-medium);

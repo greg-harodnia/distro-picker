@@ -148,16 +148,12 @@
 	}
 
 	.buttons > button {
-		background: linear-gradient(
-			135deg,
-			var(--color-primary) 0%,
-			var(--color-primary-dark) 100%
-		);
+		background: var(--color-secondary);
 		color: var(--color-background);
-		border: none;
+		border: 1px solid var(--color-secondary);
 		border-radius: var(--radius-md);
 		font-size: var(--text-base);
-		font-weight: var(--font-semibold);
+		font-weight: var(--font-medium);
 		cursor: pointer;
 		transition: all var(--transition-normal);
 	}
@@ -176,8 +172,9 @@
 
 	@media (hover: hover) {
 		.buttons > button:hover {
-			transform: translateY(-2px);
-			box-shadow: var(--shadow-lg);
+			background: var(--accent);
+			border-color: var(--accent);
+			color: #fff;
 		}
 	}
 

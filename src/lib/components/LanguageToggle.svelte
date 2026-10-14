@@ -118,21 +118,25 @@
   }
 
   .lang-code {
-    font-size: var(--text-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.06em;
   }
 
   .dropdown {
     position: absolute;
-    top: calc(100% + 4px);
+    top: calc(100% + 6px);
     right: 0;
-    min-width: 170px;
+    min-width: 180px;
     max-height: 280px;
     overflow-y: auto;
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--line-strong);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
     z-index: 100;
+    padding: 4px;
     /* Always in the DOM instead of behind `{#if isOpen}`, so the language
        alternates are real crawlable links in the prerendered HTML. Visibility
        (not just opacity) keeps the closed panel from swallowing clicks, and
@@ -159,6 +163,7 @@
     width: 100%;
     padding: 10px 12px;
     border: none;
+    border-radius: var(--radius-sm);
     background: transparent;
     color: var(--color-text);
     cursor: pointer;
@@ -174,7 +179,7 @@
   }
 
   .dropdown-item.selected {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    background: var(--color-secondary);
     color: var(--color-background);
   }
 

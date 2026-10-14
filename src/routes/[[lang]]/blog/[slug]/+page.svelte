@@ -160,13 +160,16 @@
 
 	.post-header {
 		margin-bottom: var(--space-2xl);
+		padding-bottom: var(--space-lg);
+		border-bottom: 1px solid var(--line);
 	}
 
 	.post-header h1 {
-		font-size: var(--text-3xl);
-		color: var(--color-secondary);
-		font-weight: var(--font-bold);
-		line-height: var(--line-height-tight);
+		font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+		color: var(--color-text);
+		font-weight: var(--font-semibold);
+		letter-spacing: -0.035em;
+		line-height: 1.05;
 		margin: 0 0 var(--space-md);
 		overflow-wrap: anywhere;
 		text-wrap: balance;
@@ -175,7 +178,10 @@
 	.post-info {
 		margin: 0;
 		color: var(--color-text-muted);
-		font-size: var(--text-sm);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		text-transform: uppercase;
+		letter-spacing: var(--label-tracking);
 	}
 
 	/* ---- rendered markdown ----
@@ -200,7 +206,8 @@
 	.blog-prose :global(h4),
 	.blog-prose :global(h5),
 	.blog-prose :global(h6) {
-		color: var(--color-secondary);
+		color: var(--color-text);
+		letter-spacing: -0.02em;
 		line-height: var(--line-height-tight);
 		margin: 2rem 0 var(--space-md);
 		overflow-wrap: anywhere;
@@ -238,14 +245,14 @@
 	}
 
 	.blog-prose :global(a) {
-		color: var(--color-primary-dark);
+		color: var(--accent-ink);
 		text-decoration: underline;
 		text-underline-offset: 2px;
 		overflow-wrap: anywhere;
 	}
 
 	.blog-prose :global(a:hover) {
-		color: var(--color-secondary);
+		color: var(--accent);
 	}
 
 	.blog-prose :global(ul),
@@ -265,9 +272,9 @@
 	.blog-prose :global(blockquote) {
 		margin: 0 0 var(--space-lg);
 		padding: var(--space-sm) var(--space-lg);
-		border-left: 4px solid var(--color-primary-dark);
+		border-left: 3px solid var(--color-secondary);
 		background: var(--color-background-secondary);
-		border-radius: 0 var(--radius-md) var(--radius-md) 0;
+		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 		color: var(--color-text-secondary);
 	}
 
@@ -276,10 +283,11 @@
 	}
 
 	.blog-prose :global(code) {
-		font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+		font-family: var(--font-mono);
 		font-size: 0.875em;
 		background: var(--color-background-secondary);
-		padding: 2px 6px;
+		border: 1px solid var(--line);
+		padding: 1px 6px;
 		border-radius: var(--radius-sm);
 		overflow-wrap: anywhere;
 	}
@@ -288,12 +296,11 @@
 		max-width: 100%;
 		margin: 0 0 var(--space-lg);
 		padding: var(--space-lg);
-		/* Fixed dark palette on purpose: the previous `-secondary-dark` /
-		   `-primary-light` variables flip to light colors in dark mode,
-		   producing washed-out code blocks. A code block stays dark in both
+		/* Fixed dark palette on purpose: a code block stays dark in both
 		   themes so syntax always reads clearly. */
 		background: #0d1117;
 		color: #e6edf3;
+		font-family: var(--font-mono);
 		border: 1px solid #30363d;
 		border-radius: var(--radius-md);
 		overflow-x: auto;
@@ -340,8 +347,10 @@
 
 	.blog-prose :global(th) {
 		background: var(--color-background-secondary);
-		color: var(--color-secondary);
-		font-weight: var(--font-semibold);
+		color: var(--color-text);
+		font-family: var(--font-mono);
+		font-size: var(--text-sm);
+		font-weight: 500;
 	}
 
 	.blog-prose :global(img) {
@@ -383,11 +392,13 @@
 		gap: 6px;
 		min-height: 44px;
 		padding: var(--space-sm) var(--space-md);
+		border: 1px solid var(--line);
 		border-radius: var(--radius-full);
-		background: var(--color-background-secondary);
+		background: transparent;
 		color: var(--color-text-secondary);
-		font-size: var(--text-sm);
-		font-weight: var(--font-semibold);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		font-weight: 500;
 	}
 
 	.like-btn {
@@ -397,28 +408,33 @@
 		gap: 6px;
 		min-height: 44px;
 		padding: var(--space-sm) var(--space-md);
-		border: none;
+		border: 1px solid var(--line);
 		border-radius: var(--radius-full);
-		background: var(--color-background-secondary);
+		background: transparent;
 		color: var(--color-text-secondary);
-		font-size: var(--text-sm);
-		font-weight: var(--font-semibold);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		font-weight: 500;
 		cursor: pointer;
 		transition: all var(--transition-normal);
 	}
 
 	.like-btn.liked {
-		background: #fde8e8;
-		color: #c53030;
+		background: var(--color-secondary);
+		border-color: var(--color-secondary);
+		color: var(--color-background);
 	}
 
 	@media (hover: hover) {
 		.like-btn:hover {
-			background: var(--color-border);
+			border-color: var(--color-text);
+			color: var(--color-text);
 		}
 
 		.like-btn.liked:hover {
-			background: #fbd5d5;
+			background: var(--accent);
+			border-color: var(--accent);
+			color: #fff;
 		}
 	}
 
