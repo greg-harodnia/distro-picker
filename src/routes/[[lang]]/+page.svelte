@@ -49,6 +49,14 @@
 			'Linux distro picker'
 	);
 
+	// Alternate site names, in order of preference, for Google's site-name
+	// system. It falls back to the hosting platform's name ("Vercel") for a
+	// `*.vercel.app` subdomain when it isn't confident about the subdomain's
+	// own name; offering a concise brand form plus the host itself (which must
+	// be all lowercase) gives it a backup that isn't the platform name. Derived
+	// from SITE_URL so it stays correct if the domain ever changes.
+	let alternateSiteNames = $derived(['Distro Picker', new URL(siteUrl).host.toLowerCase()]);
+
 	// Structured data is derived (not module-level) so it is rendered in the
 	// page's language — `/be` gets Belarusian names and `/be`-prefixed URLs.
 	let ldJson = $derived(
@@ -60,6 +68,7 @@
 						"@type": "WebSite",
 						"url": `${siteUrl}${localePath('/', $locale)}`,
 						"name": $t('app.title') || 'Linux Distro Picker',
+						"alternateName": alternateSiteNames,
 						"description": ldDescription,
 						"inLanguage": $locale
 					},
