@@ -293,7 +293,7 @@ body {
 .btn-outline {
 	border: 2px solid var(--color-secondary);
 	border-radius: var(--radius-md);
-	padding: var(--space-md) var(--space-lg);
+	padding: var(--space-md);
 	font-size: var(--text-base);
 	font-weight: var(--font-medium);
 	cursor: pointer;
@@ -303,6 +303,7 @@ body {
 .btn-primary {
 	background: var(--color-secondary);
 	color: var(--color-background);
+	padding: var(--space-md) var(--space-lg);
 }
 
 @media (hover: hover) {
