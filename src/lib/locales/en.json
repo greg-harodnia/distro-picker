@@ -296,7 +296,7 @@
                 "answers": [
                     {
                         "text": "I'm lazy, just tell me what to use",
-                        "result": "Zorin OS (if you prioritize visual aesthetics and simplicity. Perfect for your mom and friends) or Ultramarine / TUXEDO OS (if you prefer the freshness of software. Perfect for ex-distrohoppers who want to finally settle) or Aurora (if you want maximum stability)."
+                        "result": "Well-proven by time distro: Linux Mint. Zorin OS if you prioritize visual aesthetics and simplicity, perfect for your mom and friends. TUXEDO OS or Ultramarine Linux if you prefer the freshness of software, perfect for ex-distrohoppers who want to finally settle. Aurora if you want an unbreakable immutable system."
                     },
                     {
                         "text": "Just a regular user",
@@ -305,7 +305,7 @@
                             "answers": [
                                 {
                                     "text": "Windows-like",
-                                    "result": "Linux Mint, Kubuntu, or Zorin OS—depending on which design you like more. If you like Kubuntu, but prefer the freshness of software, you can choose TUXEDO OS, Ultramarine Linux or Aurora."
+                                    "result": "Linux Mint, Kubuntu, or Zorin OS — depending on which design you like more. If you like Kubuntu, but prefer the freshness of software, you can choose TUXEDO OS, Ultramarine Linux, or Aurora."
                                 },
                                 {
                                     "text": "macOS-like",
@@ -336,7 +336,7 @@
                     },
                     {
                         "text": "I'm a tech enthusiast and want to have full control over my system",
-                        "result": "Sounds like CachyOS or Omarchy was made for you (choose first if you care about performance and second if you care more about minimalism and productivity). Or, if you want something even closer to barebones Arch, EndeavourOS is worth checking out."
+                        "result": "Sounds like CachyOS or Omarchy was made for you (choose first if you care about performance and second if you care more about productivity). Or, if you want something even closer to barebones Arch, EndeavourOS is worth checking out. openSUSE Tumbleweed is a great choice if you want your system to not only be powerful, but also reliable."
                     },
                     {
                         "text": "I want to recover my old PC with it",

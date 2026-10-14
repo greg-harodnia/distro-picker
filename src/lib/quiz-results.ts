@@ -13,7 +13,7 @@
  */
 export const QUIZ_RESULTS = {
 	/** I'm lazy, just tell me what to use */
-	'0': ['zorin', 'tuxedo', 'ultramarine', 'aurora'],
+	'0': ['mint', 'zorin', 'tuxedo', 'ultramarine', 'aurora'],
 	/** Just a regular user → Windows-like */
 	'1.0': ['mint', 'zorin', 'kubuntu', 'tuxedo', 'ultramarine', 'aurora'],
 	/** Just a regular user → macOS-like */
@@ -25,7 +25,7 @@ export const QUIZ_RESULTS = {
 	/** I want to develop on it */
 	'3': ['fedora', 'kubuntu'],
 	/** Tech enthusiast, full control */
-	'4': ['endeavouros', 'omarchy', 'cachyos'],
+	'4': ['endeavouros', 'omarchy', 'cachyos', 'openSUSE'],
 	/** Recover an old PC → sluggish, but not extremely old */
 	'5.0': ['mint'],
 	/** Recover an old PC → produced more than 15 years ago */
