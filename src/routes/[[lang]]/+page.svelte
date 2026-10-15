@@ -302,7 +302,6 @@
 						title={$t(`app.tiers.${group.tier}.name`) || humanizeId(group.tier)}
 						distros={group.distros}
 						visibleIds={$visibleDistroIds}
-						selectedDistro={$selectedDistro}
 						onselect={(d) => selectDistro(d)}
 						open={isTierOpen(group.tier)}
 						ontoggle={() => toggleTier(group.tier)}

@@ -8,7 +8,6 @@
 		index = 1,
 		distros = [],
 		visibleIds = null,
-		selectedDistro = null,
 		onselect = (_distro: Distro) => {},
 		open = true,
 		ontoggle = () => {},
@@ -18,7 +17,6 @@
 		index?: number;
 		distros?: Distro[];
 		visibleIds?: Set<string> | null;
-		selectedDistro?: Distro | null;
 		onselect?: (distro: Distro) => void;
 		open?: boolean;
 		ontoggle?: () => void;
@@ -68,7 +66,7 @@
 	<!-- Kept mounted (only hidden) so the card images stay loaded and don't
 	     re-fetch/re-flash every time the section is expanded or re-shown. -->
 	<div class="tier-panel" class:collapsed={!open}>
-		<DistroGrid {distros} {visibleIds} {selectedDistro} {onselect} />
+		<DistroGrid {distros} {visibleIds} {onselect} />
 	</div>
 </section>
 

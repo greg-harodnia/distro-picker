@@ -9,12 +9,10 @@
 	let {
 		distros = [],
 		visibleIds = null,
-		selectedDistro = null,
 		onselect = (_distro: Distro) => {},
 	}: {
 		distros?: Distro[];
 		visibleIds?: Set<string> | null;
-		selectedDistro?: Distro | null;
 		onselect?: (distro: Distro) => void;
 	} = $props();
 
@@ -79,7 +77,6 @@
 	{#each distros as distro (distro.id)}
 		<div 
 			class="distro-card"
-			class:selected={selectedDistro?.id === distro.id}
 			hidden={visibleIds ? !visibleIds.has(distro.id) : false}
 			onclick={() => selectDistro(distro)}
 			data-distro-id={distro.id}
@@ -155,19 +152,6 @@
 			border-color: var(--color-text);
 			background: var(--color-background);
 		}
-	}
-
-	.distro-card.selected {
-		border-color: var(--color-text);
-		background: var(--color-secondary);
-		color: var(--color-background);
-	}
-
-	/* The h3 has its own colour from the global heading rule, so the card's
-	   `color` never reaches it — without this the title stays ink-coloured
-	   on the ink background and disappears. */
-	.distro-card.selected h3 {
-		color: var(--color-background);
 	}
 
 	.reactions {
