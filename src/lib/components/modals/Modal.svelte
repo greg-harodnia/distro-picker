@@ -82,7 +82,6 @@
 <div
 	class="modal-overlay"
 	class:stacked={!scrim.isBottom}
-	class:under={!scrim.isTop}
 	onclick={handleOverlayClick}
 	transition:fade={{ duration: 200 }}
 >
@@ -118,8 +117,9 @@
 
 	/* Only the bottom-most modal paints the scrim, so stacking never
 	   composites into a brighter wash — the page stays at a constant 60%.
-	   Deeper overlays stay transparent; the dialog they cover recedes via a
-	   slight content dim instead. */
+	   Deeper overlays stay transparent and the dialogs beneath them are
+	   left completely static: no class swaps, so opening/closing a stacked
+	   modal never animates the one already on screen. */
 	.modal-overlay {
 		position: fixed;
 		top: 0;
@@ -143,10 +143,6 @@
 		background: transparent;
 	}
 
-	.modal-overlay.under :global(.modal-content) {
-		opacity: 0.9;
-	}
-
 	.modal-overlay :global(.modal-content) {
 		background: var(--color-surface);
 		border: 1px solid var(--line-strong);
@@ -159,7 +155,6 @@
 		display: flex;
 		flex-direction: column;
 		box-shadow: var(--shadow-2xl);
-		transition: opacity var(--transition-normal);
 	}
 
 	.modal-overlay :global(.modal-content.modal-content-full) {

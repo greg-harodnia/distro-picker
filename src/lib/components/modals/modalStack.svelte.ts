@@ -13,10 +13,6 @@ export function useModalStack() {
 		get isBottom() {
 			return open[0] === id;
 		},
-		/** The topmost modal is the interactive one; others recede. */
-		get isTop() {
-			return open[open.length - 1] === id;
-		},
 		enter() {
 			open.push(id);
 			return () => {
