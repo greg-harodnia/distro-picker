@@ -265,24 +265,27 @@
 
 		<main>
 		<section class="filters">
-			<div class="filter-groups" use:dragScroll>
-				{#each groups as group (group.id)}
-					<FilterGroup
-						label={groupLabel(group.id)}
-						tags={group.tags}
-						selectedTags={$selectedTags}
-						open={openGroup === group.id}
-						ontoggle={toggleTag}
-						onopen={() => (openGroup = group.id)}
-						onclose={() => (openGroup = null)}
-					/>
-				{/each}
+			<div class="filter-row">
+				<div class="filter-groups" use:dragScroll>
+					{#each groups as group (group.id)}
+						<FilterGroup
+							label={groupLabel(group.id)}
+							tags={group.tags}
+							selectedTags={$selectedTags}
+							open={openGroup === group.id}
+							ontoggle={toggleTag}
+							onopen={() => (openGroup = group.id)}
+							onclose={() => (openGroup = null)}
+						/>
+					{/each}
+				</div>
 				{#if $selectedTags.size > 0}
 					<button class="clear-btn" onclick={() => { tagActions.clear(); }} aria-label={$t('app.filters.clearAll')}>
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 							<line x1="18" y1="6" x2="6" y2="18"></line>
 							<line x1="6" y1="6" x2="18" y2="18"></line>
 						</svg>
+						<span>{$t('app.filters.clearAll')}</span>
 					</button>
 				{/if}
 			</div>
@@ -459,14 +462,24 @@
 		}
 	}
 
+	/* Strip + reset share one row: the strip takes all leftover width and
+	   scrolls, while the reset stays pinned outside the drag-scroll region. */
+	.filter-row {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		padding-top: var(--space-md);
+	}
+
 	.filter-groups {
 		display: flex;
 		flex-wrap: nowrap;
+		flex: 1;
+		min-width: 0;
 		overflow-x: auto;
 		overscroll-behavior-x: contain;
 		align-items: center;
 		gap: var(--space-sm);
-		padding-top: var(--space-md);
 		-webkit-overflow-scrolling: touch;
 		scrollbar-width: none;
 		-ms-overflow-style: none;
@@ -476,17 +489,25 @@
 		display: none;
 	}
 
+	/* Ghost pill matching the filter-strip language: transparent fill with a
+	   fractional-DPR-safe inset hairline (round corners alias with a real
+	   border), inverting to the secondary pill on hover. */
 	.clear-btn {
 		flex-shrink: 0;
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 32px;
-		height: 32px;
-		border: 1px solid var(--line-strong);
-		border-radius: var(--radius-md);
-		background: var(--color-background);
-		color: var(--color-text);
+		gap: var(--space-xs);
+		height: 34px;
+		padding: 0 var(--space-md);
+		border: 1px solid transparent;
+		box-shadow: inset 0 0 0 1px var(--line-strong);
+		border-radius: var(--radius-full);
+		background: transparent;
+		color: var(--color-text-secondary);
+		font-size: var(--text-sm);
+		font-weight: var(--font-medium);
+		white-space: nowrap;
 		cursor: pointer;
 		transition: all var(--transition-normal);
 	}
@@ -494,6 +515,7 @@
 	@media (hover: hover) {
 		.clear-btn:hover {
 			background: var(--color-secondary);
+			box-shadow: inset 0 0 0 1px var(--color-secondary);
 			color: var(--color-background);
 		}
 	}
@@ -569,13 +591,28 @@
 			justify-content: center;
 		}
 
+		.filter-row {
+			padding-top: var(--space-sm);
+		}
+
 		.filter-groups {
 			gap: var(--space-sm);
-			padding-top: var(--space-sm);
 		}
 
 		.filters {
 			margin-bottom: var(--space-xl);
+		}
+	}
+
+	@media (max-width: 480px) {
+		/* Icon-only circle on phones so the label never steals strip room. */
+		.clear-btn span {
+			display: none;
+		}
+
+		.clear-btn {
+			width: 34px;
+			padding: 0;
 		}
 	}
 </style>
