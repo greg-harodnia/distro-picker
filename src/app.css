@@ -226,6 +226,18 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+html, .modal-body {
+  /* Hide the viewport scrollbar completely: a classic scrollbar taking or
+     releasing ~15px reflows the whole layout whenever it appears (tall
+     page) or vanishes (modal scroll lock). With no scrollbar there is no
+     width to change — wheel/touch/keyboard scrolling still work. */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
