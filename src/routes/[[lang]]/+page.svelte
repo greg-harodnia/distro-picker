@@ -315,7 +315,7 @@
 
 		<footer class="site-footer">
 			<button
-				class="footer-contact"
+				class="footer-contact mono-label"
 				onclick={() => contactModalOpen = true}
 				type="button"
 			>
@@ -449,17 +449,9 @@
 		display: inline-flex;
 		align-items: center;
 		gap: var(--space-sm);
-		font-family: var(--font-mono);
-		font-size: var(--text-xs);
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: var(--label-tracking);
-		color: var(--color-text-muted);
 		background: none;
 		border: none;
 		padding: 0;
-		cursor: pointer;
-		transition: color var(--transition-normal);
 	}
 
 	@media (hover: hover) {

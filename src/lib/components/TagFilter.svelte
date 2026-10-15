@@ -28,24 +28,15 @@
 	function handleClick() {
 		ontoggle();
 	}
-
-	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'Enter' || e.key === ' ') {
-			e.preventDefault();
-			handleClick();
-		}
-	}
 </script>
 
 <button 
  	class="tag-filter"
  	class:selected
  	style="--tag-color: var(--tag-{tag.id})"
- 	onclick={handleClick}
- 	onkeydown={handleKeydown}
- 	aria-pressed={selected}
- 	tabindex="0"
- >
+	onclick={handleClick}
+	aria-pressed={selected}
+>
 	{tagName}
 	<span class="sr-only">, {tagDescription}</span>
 </button>
@@ -55,7 +46,7 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: var(--space-sm) var(--space-md);
+		padding: var(--space-xs) var(--space-md);
 		height: 34px;
 		border: 1px solid transparent;
 		box-shadow: inset 0 0 0 1px var(--tag-color);

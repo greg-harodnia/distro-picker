@@ -72,8 +72,8 @@
 		<h1 class="distro-name">{distro.name}</h1>
 		{#if distro.popular || distro.in_development}
 			<p class="badges">
-				{#if distro.popular}<span class="badge">🔥 {$t('pages.distro.popular')}</span>{/if}
-				{#if distro.in_development}<span class="badge">🚧 {$t('pages.distro.inDevelopment')}</span>{/if}
+			{#if distro.popular}<span class="badge mono-label">🔥 {$t('pages.distro.popular')}</span>{/if}
+			{#if distro.in_development}<span class="badge mono-label">🚧 {$t('pages.distro.inDevelopment')}</span>{/if}
 			</p>
 		{/if}
 	</header>
@@ -84,7 +84,7 @@
 
 	{#if screenshots.length > 0}
 		<section class="screenshots" aria-label={$t('pages.distro.screenshots')}>
-			<h2>{$t('pages.distro.screenshots')}</h2>
+			<h2 class="mono-label">{$t('pages.distro.screenshots')}</h2>
 			<div class="screenshot-grid">
 				{#each screenshots as screenshot, i}
 					<button
@@ -152,14 +152,10 @@
 	}
 
 	.badge {
-		font-family: var(--font-mono);
-		font-size: var(--text-xs);
-		text-transform: uppercase;
-		letter-spacing: var(--label-tracking);
 		color: var(--color-text-secondary);
 		border: 1px solid var(--line);
 		border-radius: var(--radius-full);
-		padding: 2px 10px;
+		padding: var(--space-2xs) var(--space-sm);
 	}
 
 	.details-wrap {
@@ -172,12 +168,6 @@
 	}
 
 	h2 {
-		font-family: var(--font-mono);
-		font-size: var(--text-xs);
-		text-transform: uppercase;
-		letter-spacing: var(--label-tracking);
-		color: var(--color-text-muted);
-		font-weight: 500;
 		margin: 0 0 var(--space-lg);
 	}
 

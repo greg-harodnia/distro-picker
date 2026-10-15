@@ -86,7 +86,7 @@
 		aria-expanded={open}
 		bind:this={buttonEl}
 	>
-		<span class="group-label">{label}</span>
+		<span class="group-label mono-label">{label}</span>
 		<svg
 			class="chevron"
 			xmlns="http://www.w3.org/2000/svg"
@@ -151,11 +151,10 @@
 		flex-shrink: 0;
 	}
 
+	/* Pin inheritance so the label tracks the button's state colors
+	   (esp. `.open`'s inverted palette) over `.mono-label`'s muted color. */
 	.group-label {
-		font-family: var(--font-mono);
-		font-size: var(--text-xs);
-		text-transform: uppercase;
-		letter-spacing: var(--label-tracking);
+		color: inherit;
 	}
 
 	@media (hover: hover) {

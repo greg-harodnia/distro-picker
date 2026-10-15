@@ -119,7 +119,7 @@
 	<article class="post">
 		<header class="post-header">
 			<h1>{post.meta.title}</h1>
-			<p class="post-info">
+			<p class="post-info mono-label">
 				<time datetime={post.meta.date}>{$t('pages.blog.publishedOn')}: {formatDate(post.meta.date)}</time>
 			</p>
 		</header>
@@ -177,11 +177,6 @@
 
 	.post-info {
 		margin: 0;
-		color: var(--color-text-muted);
-		font-family: var(--font-mono);
-		font-size: var(--text-xs);
-		text-transform: uppercase;
-		letter-spacing: var(--label-tracking);
 	}
 
 	/* ---- rendered markdown ----
@@ -551,10 +546,6 @@
 
 		.post-header h1 {
 			font-size: 1.625rem;
-		}
-
-		.post-info {
-			font-size: var(--text-xs);
 		}
 
 		.blog-prose {

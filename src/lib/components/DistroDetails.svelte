@@ -54,7 +54,7 @@
 		<div class="additional-details">
 			{#if translatedBasedOn}
 				<div class="additional-detail">
-					<h3>{$t('modals.distro.basedOn')}</h3>
+					<h3 class="mono-label">{$t('modals.distro.basedOn')}</h3>
 					<p>{translatedBasedOn}</p>
 				</div>
 			{/if}
@@ -62,9 +62,9 @@
 			{#if distro.desktops && distro.desktops.length > 0}
 				<div class="additional-detail">
 					{#if distro.desktops.length === 1}
-						<h3>{$t('modals.distro.desktop')}</h3>
+						<h3 class="mono-label">{$t('modals.distro.desktop')}</h3>
 					{:else}
-						<h3>{$t('modals.distro.desktops')}</h3>
+						<h3 class="mono-label">{$t('modals.distro.desktops')}</h3>
 					{/if}
 					<p>
 						{distro.desktops.join(", ")}{#if distro.hasMoreDesktops}{$t('modals.distro.andMore')}{/if}
@@ -74,28 +74,28 @@
 
 			{#if distro.ease_of_use}
 				<div class="additional-detail">
-					<h3>{$t('modals.distro.easeOfUse')}</h3>
+					<h3 class="mono-label">{$t('modals.distro.easeOfUse')}</h3>
 					<p>{distro.ease_of_use}/5</p>
 				</div>
 			{/if}
 
 			{#if distro.userbase_number && translatedUserbaseSuffix}
 				<div class="additional-detail">
-					<h3>{$t('modals.distro.userbase')}</h3>
+					<h3 class="mono-label">{$t('modals.distro.userbase')}</h3>
 					<p>{distro.userbase_number}{translatedUserbaseSuffix}</p>
 				</div>
 			{/if}
 
 			{#if distro.secure_boot !== undefined}
 				<div class="additional-detail">
-					<h3>{$t('modals.distro.secureBoot')}</h3>
+					<h3 class="mono-label">{$t('modals.distro.secureBoot')}</h3>
 					<p>{distro.secure_boot ? $t('modals.distro.yes') : $t('modals.distro.no')}</p>
 				</div>
 			{/if}
 
 			{#if distro.swap_strategy}
 				<div class="additional-detail">
-					<h3>{$t('modals.distro.swapStrategy')}</h3>
+					<h3 class="mono-label">{$t('modals.distro.swapStrategy')}</h3>
 					<p>{translatedSwapStrategy}</p>
 				</div>
 			{/if}
@@ -104,7 +104,7 @@
 
 	{#if translatedHighlights && translatedHighlights.length > 0}
 		<div class="highlights">
-			<h3 class="highlights-title">{$t('pages.distro.features')}</h3>
+			<h3 class="highlights-title mono-label">{$t('pages.distro.features')}</h3>
 			{#each translatedHighlights as highlight}
 				<p class="highlight-item">✦ {highlight}</p>
 			{/each}
@@ -145,12 +145,6 @@
 
 	.additional-detail h3 {
 		display: inline;
-		font-family: var(--font-mono);
-		font-size: var(--text-xs);
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: var(--label-tracking);
-		color: var(--color-text-muted);
 		margin: 0;
 	}
 
@@ -166,12 +160,6 @@
 	}
 
 	.highlights-title {
-		font-family: var(--font-mono);
-		color: var(--color-text-muted);
-		font-size: var(--text-xs);
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: var(--label-tracking);
 		margin: 0 0 var(--space-sm);
 	}
 
@@ -217,8 +205,7 @@
 		}
 
 		.tag {
-			padding: 0.125rem var(--space-sm);
-			font-size: var(--text-base);
+			padding: var(--space-xs) var(--space-sm);
 		}
 	}
 </style>

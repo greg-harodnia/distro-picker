@@ -68,9 +68,9 @@
 			{#each data.posts as post (post.slug)}
 				<li>
 					<a class="post-card" href={`${base}${localePath(`/blog/${post.slug}`, $locale)}`}>
-						<time datetime={post.date}>{formatDate(post.date)}</time>
+						<time class="mono-label" datetime={post.date}>{formatDate(post.date)}</time>
 						{#if post.pinned}
-							<span class="pin-badge">📌 {$t('pages.blog.pinned')}</span>
+							<span class="pin-badge mono-label">📌 {$t('pages.blog.pinned')}</span>
 						{/if}
 						<h2>{post.title}</h2>
 						{#if post.description}
@@ -92,7 +92,7 @@
 									{likesFor(post.slug)}
 								</span>
 							</span>
-							<span class="read-more">{$t('pages.blog.readMore')} →</span>
+							<span class="read-more mono-label">{$t('pages.blog.readMore')} →</span>
 						</div>
 					</a>
 				</li>
@@ -165,11 +165,6 @@
 
 	.post-card time {
 		display: block;
-		font-family: var(--font-mono);
-		font-size: var(--text-xs);
-		text-transform: uppercase;
-		letter-spacing: var(--label-tracking);
-		color: var(--color-text-muted);
 		margin-bottom: var(--space-sm);
 	}
 
@@ -177,12 +172,7 @@
 		display: inline-block;
 		margin-bottom: var(--space-sm);
 		margin-right: var(--space-sm);
-		padding: 2px var(--space-sm);
-		font-family: var(--font-mono);
-		font-size: var(--text-xs);
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: var(--label-tracking);
+		padding: var(--space-2xs) var(--space-sm);
 		color: var(--color-text-secondary);
 		border: 1px solid var(--line);
 		border-radius: var(--radius-full);
@@ -231,11 +221,6 @@
 
 	.read-more {
 		margin-left: auto;
-		font-family: var(--font-mono);
-		font-size: var(--text-xs);
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: var(--label-tracking);
 		color: var(--color-text-secondary);
 	}
 

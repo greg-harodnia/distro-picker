@@ -53,7 +53,7 @@
 
 			<form onsubmit={(e) => { e.preventDefault(); handleSend(); }}>
 				<label>
-					<span>{$t('modals.contact.name')}</span>
+					<span class="mono-label">{$t('modals.contact.name')}</span>
 					<input
 						type="text"
 						bind:value={name}
@@ -64,7 +64,7 @@
 				</label>
 
 				<label>
-					<span>{$t('modals.contact.email')}</span>
+					<span class="mono-label">{$t('modals.contact.email')}</span>
 					<input
 						type="email"
 						bind:value={email}
@@ -75,7 +75,7 @@
 				</label>
 
 				<label>
-					<span>{$t('modals.contact.message')}</span>
+					<span class="mono-label">{$t('modals.contact.message')}</span>
 					<textarea
 						bind:value={message}
 						required
@@ -140,15 +140,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-xs);
-	}
-
-	label span {
-		font-family: var(--font-mono);
-		font-size: var(--text-xs);
-		color: var(--color-text-muted);
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: var(--label-tracking);
 	}
 
 	input, textarea {
