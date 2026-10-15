@@ -195,7 +195,8 @@
 	.tag {
 		padding: var(--space-xs) var(--space-md);
 		background: transparent;
-		border: 1px solid var(--tag-color);
+		border: 1px solid transparent;
+		box-shadow: inset 0 0 0 1px var(--tag-color);
 		color: var(--tag-color);
 		border-radius: var(--radius-full);
 		font-size: var(--text-sm);

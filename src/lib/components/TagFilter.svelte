@@ -57,7 +57,8 @@
 		justify-content: center;
 		padding: var(--space-sm) var(--space-md);
 		height: 34px;
-		border: 1px solid var(--tag-color);
+		border: 1px solid transparent;
+		box-shadow: inset 0 0 0 1px var(--tag-color);
 		border-radius: var(--radius-full);
 		background: transparent;
 		color: var(--tag-color);
@@ -78,7 +79,6 @@
 
 	.tag-filter.selected {
 		background: var(--tag-color);
-		border-color: var(--tag-color);
 		color: var(--color-background);
 	}
 </style>
