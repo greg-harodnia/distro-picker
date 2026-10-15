@@ -13,8 +13,10 @@
 	import { lockBodyScroll } from '$lib/utils/body';
 	import { t } from '$lib/i18n/locale';
 	import CloseIcon from '../icons/CloseIcon.svelte';
+	import { useModalStack } from './modalStack.svelte';
 
 	const instance = Symbol('modal');
+	const scrim = useModalStack();
 
 	interface Props {
 		onclose?: () => void;
@@ -64,8 +66,10 @@
 
 	onMount(() => {
 		modalStack.push(instance);
+		const leaveScrim = scrim.enter();
 		lockBodyScroll(true);
 		return () => {
+			leaveScrim();
 			const index = modalStack.indexOf(instance);
 			if (index !== -1) modalStack.splice(index, 1);
 			if (modalStack.length === 0) lockBodyScroll(false);
@@ -77,6 +81,8 @@
 
 <div
 	class="modal-overlay"
+	class:stacked={!scrim.isBottom}
+	class:under={!scrim.isTop}
 	onclick={handleOverlayClick}
 	transition:fade={{ duration: 200 }}
 >
@@ -110,6 +116,10 @@
 
 <style>
 
+	/* Only the bottom-most modal paints the scrim, so stacking never
+	   composites into a brighter wash — the page stays at a constant 60%.
+	   Deeper overlays stay transparent; the dialog they cover recedes via a
+	   slight content dim instead. */
 	.modal-overlay {
 		position: fixed;
 		top: 0;
@@ -129,6 +139,14 @@
 		padding-right: max(var(--overlay-padding), env(safe-area-inset-right));
 	}
 
+	.modal-overlay.stacked {
+		background: transparent;
+	}
+
+	.modal-overlay.under :global(.modal-content) {
+		opacity: 0.9;
+	}
+
 	.modal-overlay :global(.modal-content) {
 		background: var(--color-surface);
 		border: 1px solid var(--line-strong);
@@ -141,6 +159,7 @@
 		display: flex;
 		flex-direction: column;
 		box-shadow: var(--shadow-2xl);
+		transition: opacity var(--transition-normal);
 	}
 
 	.modal-overlay :global(.modal-content.modal-content-full) {
