@@ -8,6 +8,7 @@
 	import { getNestedValue } from '$lib/i18n/translations';
 	import { quizResultsFor, quizResultKey } from '$lib/quiz-results';
 	import { distros as distroStore, distroActions } from '$lib/stores';
+	import { logoContrast } from '$lib/utils/logoContrast';
 	import Confetti from '$lib/components/Confetti.svelte';
 	import distrosData from '$lib/distros.json';
 
@@ -173,7 +174,7 @@
 					{#if distro}
 						<li>
 							<a class="result-link" href={localePath(`/distro/${id}`)} onclick={(e) => openResult(e, id)}>
-								<img class="result-logo" src={distro.logo} alt="" width="24" height="24" loading="lazy" />
+								<img class="result-logo" use:logoContrast={distro.logo} src={distro.logo} alt="" width="24" height="24" loading="lazy" />
 								<span>{distro.name}</span>
 							</a>
 						</li>
