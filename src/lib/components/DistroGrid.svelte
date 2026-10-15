@@ -120,7 +120,7 @@
 <style>
 	.distro-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 		gap: var(--space-md);
 		padding-top: var(--space-lg);
 	}
@@ -136,6 +136,14 @@
 		position: relative;
 		user-select: none;
 		-webkit-user-select: none;
+		/* Square tile: the card grows with the column (grid `min-height: auto`
+		   keeps it from clipping), so the content is centred inside the extra
+		   height instead of floating at the top. */
+		aspect-ratio: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.distro-card[hidden] {
@@ -155,6 +163,13 @@
 		color: var(--color-background);
 	}
 
+	/* The h3 has its own colour from the global heading rule, so the card's
+	   `color` never reaches it — without this the title stays ink-coloured
+	   on the ink background and disappears. */
+	.distro-card.selected h3 {
+		color: var(--color-background);
+	}
+
 	.reactions {
 		position: absolute;
 		top: -10px;
@@ -171,12 +186,12 @@
 	}
 
 	.like {
-		font-size: var(--text-xs);
+		font-size: var(--text-sm);
 		line-height: 1;
 		background: var(--color-surface);
 		border: 1px solid var(--line-strong);
 		border-radius: var(--radius-full);
-		padding: 4px 8px;
+		padding: 5px 10px;
 		cursor: pointer;
 		transition: all var(--transition-normal);
 		display: flex;
@@ -202,8 +217,8 @@
 		}
 
 		& .optimized-image {
-			width: 56px;
-			height: 56px;
+			width: 64px;
+			height: 64px;
 		}
 	}
 

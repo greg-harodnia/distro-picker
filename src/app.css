@@ -22,16 +22,12 @@
   --invert-bg: #101014;
   --invert-fg: #f2f1ee;
   --danger: #b3261e;
-  --scanline: rgba(16, 16, 20, 0.035);
+
+  /* Paper grain overlay strength (see body::before). */
+  --grain-opacity: 0.035;
 
   /* ---- Colors (legacy names, remapped) ---- */
-  --color-primary: #101014;
-  --color-primary-dark: #000000;
-  --color-primary-light: #3a3a40;
-
   --color-secondary: var(--ink);
-  --color-secondary-light: #3a3a40;
-  --color-secondary-dark: var(--ink-strong);
 
   --color-background: var(--bg);
   --color-background-secondary: var(--bg-sunken);
@@ -48,11 +44,8 @@
   --color-error: #b3261e;
   --color-error-light: #d9544c;
   --color-error-dark: #8c1d17;
-  --color-error-background: #f7e9e6;
 
   --color-success: #1f7a45;
-  --color-warning: #a16207;
-  --color-best: #ffd400;
 
   /* Tag colors (flat, editorial) */
   --tag-gaming-ready: #6d28d9;
@@ -176,26 +169,17 @@
   --invert-bg: #f2f1ee;
   --invert-fg: #101014;
   --danger: #ff6b5f;
-  --scanline: rgba(242, 241, 238, 0.04);
-
-  --color-primary: #f2f1ee;
-  --color-primary-dark: #ffffff;
-  --color-primary-light: #c9c8c4;
+  --grain-opacity: 0.045;
 
   --color-secondary: var(--ink);
-  --color-secondary-light: rgba(242, 241, 238, 0.72);
-  --color-secondary-dark: var(--ink-strong);
 
   --color-border-light: rgba(242, 241, 238, 0.08);
 
   --color-error: #ff6b5f;
   --color-error-light: #ff9a90;
   --color-error-dark: #ff4d3f;
-  --color-error-background: #2a1614;
 
   --color-success: #4ade80;
-  --color-warning: #fbbf24;
-  --color-best: #ffd700;
 
   /* Tag colors (lighter for contrast on dark) */
   --tag-gaming-ready: #a78bfa;
@@ -251,6 +235,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   font-feature-settings: 'ss01' 1, 'cv01' 1;
+}
+
+/* Paper grain — a fixed, non-interactive fractal-noise layer that gives the
+   flat off-white a subtle tooth. Monochrome via the feColorMatrix so it never
+   tints the page; `--grain-opacity` tunes strength per theme. Fixed-position
+   so it stays put on scroll and never affects layout. z-index -1 parks it
+   above the body background but below every in-flow element, so no content
+   needs repositioning and the modal stack (z-index 1000) is untouched. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -338,6 +339,21 @@ button, input, textarea, select {
 }
 
 /* ==========================================================================
+   Logo contrast
+
+   A one-colour black silhouette (Tux, the SteamOS circle) dissolves into the
+   ink theme, and its exact inverse is that logo's own dark-mode version — so
+   a single invert, only in the theme that would swallow it, is all it needs.
+   Which logos qualify is decided at runtime from the image pixels, see
+   utils/logoContrast.ts.
+   ========================================================================== */
+
+:root:not(.dark) .logo-flip--light,
+:root.dark .logo-flip--dark {
+  filter: invert(1);
+}
+
+/* ==========================================================================
    Buttons
    ========================================================================== */
 
@@ -354,8 +370,7 @@ button, input, textarea, select {
   height: 44px;
 }
 
-.btn-toggle.theme-toggle,
-.btn-toggle.contact-link {
+.btn-toggle.theme-toggle {
   width: 44px;
 }
 

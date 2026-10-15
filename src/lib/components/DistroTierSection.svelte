@@ -190,6 +190,9 @@
 	.tier-count {
 		font-size: var(--text-sm);
 		color: var(--color-text-muted);
+		/* Sit the count off the title instead of hugging it (the flex gap
+		   alone leaves it cramped). */
+		margin-left: var(--space-sm);
 	}
 
 	@media (max-width: 640px) {

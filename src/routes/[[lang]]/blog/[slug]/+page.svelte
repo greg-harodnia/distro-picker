@@ -325,7 +325,7 @@
 	}
 
 	.blog-prose :global(.table-scroll:focus-visible) {
-		outline: 2px solid var(--color-primary-dark);
+		outline: 2px solid var(--ink-strong);
 		outline-offset: 2px;
 	}
 

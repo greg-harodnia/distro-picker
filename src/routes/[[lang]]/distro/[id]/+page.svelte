@@ -7,6 +7,7 @@
 	import { getTranslation } from '$lib/i18n/translations';
 	import { t, locale, localePath } from '$lib/i18n/locale';
 	import { SITE_URL as siteUrl } from '$lib/seo';
+	import { logoContrast } from '$lib/utils/logoContrast';
 
 	let { data }: { data: PageData } = $props();
 
@@ -60,7 +61,14 @@
 	<PageTopBar backPath="/" label={$t('pages.distro.backLink')} />
 
 	<header class="distro-header">
-		<img class="distro-logo" src={`${base}${distro.logo || '/linux.webp'}`} alt="{distro.name} logo" height="96" width="96" />
+		<img
+			class="distro-logo"
+			src={`${base}${distro.logo || '/linux.webp'}`}
+			alt="{distro.name} logo"
+			height="96"
+			width="96"
+			use:logoContrast={distro.logo || '/linux.webp'}
+		/>
 		<h1 class="distro-name">{distro.name}</h1>
 		{#if distro.popular || distro.in_development}
 			<p class="badges">

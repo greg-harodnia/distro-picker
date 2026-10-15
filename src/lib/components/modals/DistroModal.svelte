@@ -138,7 +138,6 @@
 		.full-page-link:hover {
 			background: var(--color-background-secondary);
 			color: var(--color-secondary);
-			transform: translateY(-2px);
 		}
 	}
 

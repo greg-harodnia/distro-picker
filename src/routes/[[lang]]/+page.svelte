@@ -100,6 +100,11 @@
 	let contactModalOpen = $state(false);
 	let openGroup = $state<string | null>(null);
 
+	// Split the localized title so its final word can carry the serif-italic
+	// accent (e.g. "Linux Distro Picker" -> "Picker"). The h1's full text is
+	// unchanged for SEO/heading semantics — only the styling differs per word.
+	let titleWords = $derived(($t('app.title') || 'Linux Distro Picker').split(' '));
+
 	// Tier sections: by default the first two ("Best", "Other good options") are
 	// expanded, and the third is collapsed on a fresh visit. `expandedTiers` is
 	// `null` until the visitor toggles a section; filters never change the
@@ -229,31 +234,34 @@
 
 <div class="app" class:app-hidden={!!$error}>
 		<nav class="site-nav" aria-label={$t('app.title')}>
-			<BlogLink variant="desktop" />
+			<div class="site-brand">
+				<h1 class="site-title">
+					{#each titleWords as word, i}
+						{#if i === titleWords.length - 1}
+							<span class="serif-accent">{word}</span>
+						{:else}{word}{' '}{/if}
+					{/each}
+				</h1>
+				<h2 class="site-description">{$t('app.description')}</h2>
+			</div>
 			<div class="site-nav-controls">
-				<BlogLink variant="mobile" />
+				<BlogLink />
 				<button
-					class="contact-link btn-toggle"
-					onclick={() => contactModalOpen = true}
-					aria-label={$t('modals.contact.title')}
+					class="btn-primary quiz-nav-btn"
+					onclick={() => quickTestOpen = true}
+					aria-label={$t('modals.quiz.title')}
 					type="button"
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-						<polyline points="22,6 12,13 2,6"></polyline>
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+						<line x1="12" y1="17" x2="12.01" y2="17"></line>
 					</svg>
+					<span>{$t('modals.quiz.title')}</span>
 				</button>
 				<LanguageToggle />
 				<ThemeToggle />
 			</div>
 		</nav>
-
-		<header class="header">
-			<div class="header-title-group">
-				<h1>{$t('app.title')}</h1>
-				<h2 class="header-description">{$t('app.description')}</h2>
-			</div>
-		</header>
 
 		<main>
 		<section class="filters">
@@ -306,11 +314,17 @@
 		</main>
 
 		<footer class="site-footer">
-			<div class="site-footer-brand">{$t('app.title')}</div>
-			<nav class="site-footer-links mono-label">
-				<a href={`${base}${localePath('/blog', $locale)}`}>{$t('pages.blog.navLabel')}</a>
-				<span class="site-footer-year">© {new Date().getFullYear()}</span>
-			</nav>
+			<button
+				class="footer-contact"
+				onclick={() => contactModalOpen = true}
+				type="button"
+			>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+					<polyline points="22,6 12,13 2,6"></polyline>
+				</svg>
+				<span>{$t('modals.contact.title')}</span>
+			</button>
 		</footer>
 
 	{#if quickTestOpen}
@@ -342,19 +356,6 @@
 			<ContactModal onclose={() => contactModalOpen = false} />
 		{/await}
 	{/if}
-
-		<button
-			class="btn-primary quick-test-btn"
-			onclick={() => quickTestOpen = true}
-			aria-label={$t('modals.quiz.title')}
-			type="button"
-		>
-			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-				<line x1="12" y1="17" x2="12.01" y2="17"></line>
-			</svg>
-			<span>{$t('modals.quiz.title')}</span>
-		</button>
 </div>
 
 <svelte:head>
@@ -372,9 +373,10 @@
 		display: none;
 	}
 
-	/* ---- top nav ---- */
+	/* ---- top nav (masthead: title left, controls right) ---- */
 	.site-nav {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
 		gap: var(--space-md);
@@ -389,36 +391,44 @@
 		margin-left: auto;
 	}
 
-	/* ---- hero ---- */
-	.header {
-		margin: 0 0 var(--space-2xl);
-	}
-
-	.header-title-group {
+	/* Title and tagline read as one unit: the tagline is centred against the
+	   title's height and split off by a hairline rule (the page's divider
+	   motif). When the pair no longer fits next to the controls the tagline
+	   wraps under the title. */
+	.site-brand {
 		display: flex;
-		flex-direction: column;
-		gap: var(--space-md);
-		max-width: 62rem;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--space-sm) var(--space-md);
+		min-width: 0;
 	}
 
-	.header h1 {
-		font-size: clamp(2.5rem, 6.5vw, 5rem);
+	.site-title {
+		font-size: clamp(1.25rem, 2.5vw, 1.75rem);
 		font-weight: var(--font-semibold);
-		letter-spacing: -0.035em;
-		line-height: 1.02;
+		letter-spacing: -0.03em;
+		line-height: 1.1;
 		color: var(--color-text);
 		margin: 0;
 		text-wrap: balance;
 	}
 
-	.header-description {
-		font-size: clamp(var(--text-lg), 2vw, 1.5rem);
+	/* The accent word sits a touch larger and in the editorial serif italic. */
+	.site-title .serif-accent {
+		font-size: 1.06em;
+		line-height: 1;
+	}
+
+	.site-description {
+		font-size: clamp(var(--text-sm), 1.4vw, var(--text-base));
 		font-weight: var(--font-normal);
 		color: var(--color-text-secondary);
-		max-width: 44rem;
-		line-height: 1.45;
+		line-height: 1.4;
 		letter-spacing: -0.01em;
 		margin: 0;
+		max-width: 44rem;
+		border-left: 1px solid var(--line);
+		padding-left: var(--space-md);
 	}
 
 	.filters {
@@ -427,37 +437,33 @@
 
 	.site-footer {
 		display: flex;
-		align-items: flex-end;
-		justify-content: space-between;
+		align-items: center;
+		justify-content: flex-start;
 		gap: var(--space-md);
-		flex-wrap: wrap;
 		margin-top: var(--space-3xl);
 		padding-top: var(--space-lg);
 		border-top: 1px solid var(--line);
 	}
 
-	.site-footer-brand {
-		font-family: var(--font-serif);
-		font-size: clamp(1.75rem, 4vw, 2.75rem);
-		line-height: 1;
-		letter-spacing: -0.01em;
-		color: var(--color-text);
-	}
-
-	.site-footer-links {
-		display: flex;
+	.footer-contact {
+		display: inline-flex;
 		align-items: center;
-		gap: var(--space-lg);
-	}
-
-	.site-footer-links a {
-		text-decoration: none;
+		gap: var(--space-sm);
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: var(--label-tracking);
 		color: var(--color-text-muted);
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
 		transition: color var(--transition-normal);
 	}
 
 	@media (hover: hover) {
-		.site-footer-links a:hover {
+		.footer-contact:hover {
 			color: var(--color-text);
 		}
 	}
@@ -518,25 +524,20 @@
 		line-height: var(--line-height-normal);
 	}
 
-	.quick-test-btn {
-		position: fixed;
-		bottom: var(--space-xl);
-		right: var(--space-xl);
-		display: flex;
+	/* Quiz CTA in the top bar — compact primary pill, sized to match the
+	   44px toggle controls next to it. */
+	.quiz-nav-btn {
+		display: inline-flex;
 		align-items: center;
 		gap: var(--space-sm);
-		padding: var(--space-md) var(--space-lg);
+		height: 44px;
+		padding: 0 var(--space-md);
 		font-family: var(--font-mono);
-		font-size: var(--text-sm);
+		font-size: var(--text-xs);
 		font-weight: 500;
-		letter-spacing: 0.02em;
-		border-radius: var(--radius-md);
-		box-shadow: var(--shadow-lg);
-		z-index: 100;
-	}
-
-	.quick-test-btn:active {
-		transform: translateY(0);
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		white-space: nowrap;
 	}
 
 	@media (max-width: 640px) {
@@ -544,17 +545,37 @@
 			padding: 0 var(--space-lg) var(--space-xl);
 		}
 
+		/* Phones get a centred masthead: title and tagline stacked and
+		   centred, with the control row centred underneath. */
 		.site-nav {
 			padding-top: var(--space-md);
 			margin-bottom: var(--space-xl);
+			justify-content: center;
 		}
 
-		.header {
-			margin-bottom: var(--space-xl);
+		.site-brand {
+			width: 100%;
+			justify-content: center;
+			text-align: center;
 		}
 
-		.header h1 {
-			font-size: clamp(2rem, 9vw, 2.75rem);
+		.site-title {
+			font-size: clamp(2rem, 8vw, 2.75rem);
+		}
+
+		/* The hairline split is a desktop affordance; on a phone the tagline
+		   is a plain centred line under the title at a readable size (the
+		   mobile font scale would otherwise shrink it to 10px). */
+		.site-description {
+			width: 100%;
+			border-left: none;
+			padding-left: 0;
+			font-size: var(--text-base);
+		}
+
+		.site-nav-controls {
+			margin-left: 0;
+			justify-content: center;
 		}
 
 		.filter-groups {
@@ -564,12 +585,6 @@
 
 		.filters {
 			margin-bottom: var(--space-xl);
-		}
-
-		.quick-test-btn {
-			bottom: var(--space-lg);
-			right: var(--space-lg);
-			padding: var(--space-sm) var(--space-md);
 		}
 	}
 </style>

@@ -30,7 +30,7 @@
 
 	.spinner {
 		border: 3px solid var(--color-border-light);
-		border-top: 3px solid var(--color-primary);
+		border-top: 3px solid var(--ink);
 		border-radius: 50%;
 		width: 40px;
 		height: 40px;

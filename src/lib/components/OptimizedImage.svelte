@@ -2,6 +2,7 @@
 	import { onMount, onDestroy } from 'svelte';
   	import { base } from '$app/paths';
 	import { observeImage } from '$lib/utils/imageObserver';
+	import { logoContrast } from '$lib/utils/logoContrast';
 
 	// Paths of images that have loaded at least once on this page. If a card's
 	// image is already in the cache, a fresh OptimizedImage instance starts
@@ -61,6 +62,7 @@
 		style="object-fit: contain; -webkit-user-drag: none; user-select: none;"
 		loading="lazy"
 		draggable="false"
+		use:logoContrast={iconPath}
 	/>
 	{#if !isLoaded && !isError}
 		<div class="image-placeholder"></div>
