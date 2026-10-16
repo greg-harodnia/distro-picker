@@ -18,6 +18,21 @@
 	const instance = Symbol('modal');
 	const scrim = useModalStack();
 
+	// The click that opens a dialog is often followed by a second click at
+	// the same coordinates before the user notices the popup — but by then
+	// the modal's text sits exactly under the cursor, so the browser pairs
+	// the two clicks into a double-click and selects the word there.
+	// Swallow the selection default for that first instant only, keeping
+	// normal click-drag and double-click selection working afterwards.
+	const openedAt = performance.now();
+	const STRAY_CLICK_GUARD_MS = 500;
+
+	function guardStraySelection(e: MouseEvent) {
+		if (performance.now() - openedAt < STRAY_CLICK_GUARD_MS) {
+			e.preventDefault();
+		}
+	}
+
 	interface Props {
 		onclose?: () => void;
 		ariaLabel?: string;
@@ -82,6 +97,7 @@
 <div
 	class="modal-overlay"
 	class:stacked={!scrim.isBottom}
+	onselectstart={guardStraySelection}
 	onclick={handleOverlayClick}
 	transition:fade={{ duration: 200 }}
 >
