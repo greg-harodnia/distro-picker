@@ -232,7 +232,7 @@
 	/>
 {/if}
 
-<div class="app" class:app-hidden={!!$error}>
+<div class="app page-shell" class:app-hidden={!!$error}>
 		<nav class="site-nav" aria-label={$t('app.title')}>
 			<div class="site-brand">
 				<h1 class="site-title">
@@ -365,10 +365,12 @@
 </svelte:head>
 
 <style>
+	/* Width, gutters and top inset come from the shared `.page-shell` frame —
+	   keeping them identical to the blog/distro routes is what stops the
+	   theme and language toggles from shifting on navigation. Only the extra
+	   bottom breathing room is home-specific. */
 	.app {
-		max-width: var(--container-2xl);
-		margin: 0 auto;
-		padding: 0 var(--space-xl) var(--space-2xl);
+		padding-bottom: var(--space-2xl);
 	}
 
 	.app.app-hidden {
@@ -382,7 +384,7 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: var(--space-md);
-		padding: var(--space-lg) 0 var(--space-md);
+		padding-bottom: var(--space-md);
 		border-bottom: 1px solid var(--line);
 		margin-bottom: var(--space-3xl);
 	}
@@ -555,13 +557,12 @@
 
 	@media (max-width: 640px) {
 		.app {
-			padding: 0 var(--space-lg) var(--space-xl);
+			padding-bottom: var(--space-xl);
 		}
 
 		/* Phones get a centred masthead: title and tagline stacked and
 		   centred, with the control row centred underneath. */
 		.site-nav {
-			padding-top: var(--space-md);
 			margin-bottom: var(--space-xl);
 			justify-content: center;
 		}

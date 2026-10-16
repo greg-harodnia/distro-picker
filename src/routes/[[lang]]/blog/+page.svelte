@@ -55,11 +55,11 @@
 </script>
 
 <main class="page-shell blog-page">
-	<PageTopBar backPath="/" label={$t('pages.blog.backToPicker')} />
-
-	<header class="blog-header">
-		<h1>{$t('pages.blog.title')}</h1>
-	</header>
+	<PageTopBar
+		backPath="/"
+		label={$t('pages.blog.backToPicker')}
+		title={$t('pages.blog.title')}
+	/>
 
 	{#if data.posts.length === 0}
 		<p class="empty">{$t('pages.blog.empty')}</p>
@@ -102,39 +102,21 @@
 </main>
 
 <style>
-	.blog-header {
-		width: 100%;
-		max-width: var(--container-lg);
-		margin-right: auto;
-		margin-bottom: var(--space-2xl);
-		margin-left: auto;
-		padding-bottom: var(--space-lg);
-		border-bottom: 1px solid var(--line);
-	}
-
-	.blog-header h1 {
-		font-size: clamp(2.5rem, 6vw, 4rem);
-		color: var(--color-text);
-		font-weight: var(--font-semibold);
-		letter-spacing: -0.035em;
-		line-height: 1.02;
-		margin: 0;
-		text-wrap: balance;
-	}
-
 	.empty {
 		text-align: center;
 		color: var(--color-text-muted);
 		padding: var(--space-2xl) 0;
 	}
 
+	/* Spans the full shell width like the app page's content: the entries are
+	   rows, not prose, and a narrower left-aligned column would leave the
+	   remainder of the shell empty on the right. */
 	.post-list {
 		width: 100%;
-		max-width: var(--container-lg);
 		min-width: 0;
 		list-style: none;
 		padding: 0;
-		margin: 0 auto;
+		margin: 0;
 		display: flex;
 		flex-direction: column;
 		gap: 0;
@@ -231,14 +213,6 @@
 	}
 
 	@media (max-width: 640px) {
-		.blog-header {
-			margin-bottom: var(--space-xl);
-		}
-
-		.blog-header h1 {
-			font-size: 1.75rem;
-		}
-
 		.post-list {
 			gap: 0;
 		}
@@ -261,14 +235,6 @@
 	}
 
 	@media (max-width: 380px) {
-		.blog-header {
-			margin-bottom: var(--space-lg);
-		}
-
-		.blog-header h1 {
-			font-size: 1.625rem;
-		}
-
 		.post-list {
 			gap: 0;
 		}

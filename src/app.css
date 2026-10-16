@@ -136,10 +136,22 @@
   --container-lg: 1024px;
   --container-xl: 1280px;
   --container-2xl: 1400px;
+
+  /* ---- Page frame ----
+     Shared by `.page-shell` and the home page's `.app` wrapper. Every route
+     that renders a masthead uses the same max width, gutters and top inset,
+     so the title and the theme/language toggles stay at the same coordinates
+     when you navigate between pages. */
+  --page-max-width: var(--container-2xl);
+  --page-inset: var(--space-xl);
 }
 
 /* Mobile font scale */
 @media (max-width: 640px) {
+  :root {
+    --page-inset: var(--space-md);
+  }
+
   .modal-content,
   .app {
     --text-xs:   0.625rem;
@@ -316,23 +328,16 @@ button, input, textarea, select {
   letter-spacing: 0;
 }
 
-/* Shared responsive page spacing */
+/* Shared responsive page frame — see `--page-max-width` / `--page-inset` in
+   :root. The home page's `.app` wrapper layers on top of this class so the
+   mastheads line up across routes. */
 .page-shell {
-  max-width: var(--container-xl);
+  max-width: var(--page-max-width);
   margin: 0 auto;
-  padding: max(var(--space-xl), env(safe-area-inset-top))
-    max(var(--space-xl), env(safe-area-inset-right))
-    max(var(--space-xl), env(safe-area-inset-bottom))
-    max(var(--space-xl), env(safe-area-inset-left));
-}
-
-@media (max-width: 640px) {
-  .page-shell {
-    padding: max(var(--space-md), env(safe-area-inset-top))
-      max(var(--space-md), env(safe-area-inset-right))
-      max(var(--space-md), env(safe-area-inset-bottom))
-      max(var(--space-md), env(safe-area-inset-left));
-  }
+  padding: max(var(--page-inset), env(safe-area-inset-top))
+    max(var(--page-inset), env(safe-area-inset-right))
+    max(var(--page-inset), env(safe-area-inset-bottom))
+    max(var(--page-inset), env(safe-area-inset-left));
 }
 
 /* ==========================================================================
