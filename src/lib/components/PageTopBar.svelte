@@ -15,144 +15,54 @@
 	let titleWords = $derived(title ? title.split(' ') : []);
 </script>
 
-<div class="page-top-bar" class:has-title={!!title}>
-	<div class="bar-lead">
+<div class="masthead page-top-bar" class:masthead--titled={!!title}>
+	<div class="masthead-lead">
 		{#if title}
-			<h1 class="bar-title">
+			<h1 class="masthead-title">
 				{#each titleWords as word, i}
 					{#if i === titleWords.length - 1}
 						<span class="serif-accent">{word}</span>
 					{:else}{word}{' '}{/if}
 				{/each}
 			</h1>
-		{/if}
-		<span class="bar-sub" class:with-rule={!!title}>
+		{:else}
 			<BackLink path={backPath} {label} />
-		</span>
+		{/if}
 	</div>
-	<div class="page-controls">
+	<div class="masthead-controls">
 		<LanguageToggle />
 		<ThemeToggle />
 	</div>
 </div>
+{#if title}
+	<p class="masthead-sub">
+		<BackLink path={backPath} {label} />
+	</p>
+{/if}
 
 <style>
-	/* Masthead chrome, kept identical to the app's `.site-nav` (same bottom
-	   rule, padding and spacing) so this bar and the app's title bar are the
-	   same element visually — the shared page frame then pins the toggles to
-	   the same coordinates on every route. */
-	.page-top-bar {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		align-items: center;
-		width: 100%;
-		min-width: 0;
-		gap: var(--space-md);
-		padding-bottom: var(--space-md);
-		border-bottom: 1px solid var(--line);
+	/* Chrome comes from the shared `.masthead` / `.masthead-sub` classes in
+	   app.css — the same ones the home nav uses — so the bar and the app
+	   title bar are one element visually. Only the spacing that depends on
+	   whether a tagline follows the rule is local here. */
+
+	/* Untitled bars pair with page content directly (no sub below the
+	   rule), so they keep the full bottom margin. */
+	.page-top-bar:not(.masthead--titled) {
 		margin-bottom: var(--space-3xl);
 	}
 
-	.bar-lead {
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-		gap: var(--space-sm) var(--space-md);
-		min-width: 0;
-	}
-
-	/* Matches `.site-title` on the app page: same size, weight and tracking. */
-	.bar-title {
-		font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-		font-weight: var(--font-semibold);
-		letter-spacing: -0.03em;
-		line-height: 1.1;
-		color: var(--color-text);
-		margin: 0;
-		text-wrap: balance;
-	}
-
-	.bar-title .serif-accent {
-		font-size: 1.06em;
-		line-height: 1;
-	}
-
-	/* With a title beside it, the back link takes the tagline's place — split
-	   off by the same hairline rule the app masthead uses for its description,
-	   and set in the same type so both lead blocks are the same height. Any
-	   mismatch here shifts the rule (and everything under it) vertically when
-	   navigating between / and /blog. */
-	.bar-sub.with-rule {
-		border-left: 1px solid var(--line);
-		padding-left: var(--space-md);
-		font-size: clamp(var(--text-sm), 1.4vw, var(--text-base));
-		line-height: 1.4;
-	}
-
-	/* The link ships its own size and line-height; inherit them so the
-	   wrapper's line box — the one sized to match `.site-description` — is
-	   what actually contributes to the bar's height. */
-	.bar-sub.with-rule :global(.back-link) {
-		font-size: inherit;
-		line-height: inherit;
-	}
-
-	.page-controls {
-		display: flex;
-		flex-shrink: 0;
-		gap: var(--space-sm);
-		margin-left: auto;
-	}
-
 	@media (max-width: 640px) {
-		.page-top-bar {
-			margin-bottom: var(--space-xl);
+		/* Untitled bars tighten up on phones; titled ones keep the shared
+		   masthead spacing so both routes stay pixel-identical. */
+		.page-top-bar:not(.masthead--titled) {
 			gap: var(--space-sm);
-		}
-
-		/* Titled bars centre on phones the way the app masthead does: title
-		   stacked above the sub-link, control row centred underneath. The
-		   row gap matches `.site-nav` so the controls land at the same
-		   height as the app's own control row. */
-		.page-top-bar.has-title {
-			justify-content: center;
-			gap: var(--space-md);
-		}
-
-		/* Phones get the app masthead's hero-sized title so the lead block
-		   (and with it the control row below it) is the same height on both
-		   pages — that keeps the toggles at the same y-position too. */
-		.page-top-bar.has-title .bar-title {
-			font-size: clamp(2rem, 8vw, 2.75rem);
-		}
-
-		.page-top-bar.has-title .bar-lead {
-			width: 100%;
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-		}
-
-		.page-top-bar.has-title .bar-sub.with-rule {
-			border-left: none;
-			padding-left: 0;
-			/* `.site-description` reads `var(--text-base)`, which the app's
-			   mobile font scale shrinks to 0.875rem inside `.app` — a scale
-			   this page doesn't get. Pin that scaled value so both secondary
-			   lines are 19.6px tall and the rules line up across routes. */
-			font-size: 0.875rem;
-			line-height: 1.4;
-		}
-
-		.page-top-bar.has-title .page-controls {
-			margin-left: 0;
-			justify-content: center;
+			margin-bottom: var(--space-xl);
 		}
 	}
 
 	@media (max-width: 380px) {
-		.page-controls {
+		.masthead-controls {
 			gap: 6px;
 		}
 	}

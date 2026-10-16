@@ -68,10 +68,12 @@
 			{#each data.posts as post (post.slug)}
 				<li>
 					<a class="post-card" href={`${base}${localePath(`/blog/${post.slug}`, $locale)}`}>
-						<time class="mono-label" datetime={post.date}>{formatDate(post.date)}</time>
-						{#if post.pinned}
-							<span class="pin-badge mono-label">📌 {$t('pages.blog.pinned')}</span>
-						{/if}
+						<div class="post-head">
+							<time class="mono-label" datetime={post.date}>{formatDate(post.date)}</time>
+							{#if post.pinned}
+								<span class="pin-badge mono-label">📌 {$t('pages.blog.pinned')}</span>
+							{/if}
+						</div>
 						<h2>{post.title}</h2>
 						{#if post.description}
 							<p class="post-description">{post.description}</p>
@@ -126,6 +128,8 @@
 		min-width: 0;
 	}
 
+	/* Vertical inset comes from the shared `--content-top-pad` so the first
+	   card lands at the same y as the home filter strip. */
 	.post-card {
 		display: block;
 		min-width: 0;
@@ -133,7 +137,7 @@
 		background: transparent;
 		border-bottom: 1px solid var(--line);
 		border-radius: 0;
-		padding: var(--space-lg) var(--space-sm);
+		padding: var(--content-top-pad) var(--space-sm);
 		text-decoration: none;
 		color: inherit;
 		transition: background var(--transition-normal);
@@ -145,15 +149,17 @@
 		}
 	}
 
-	.post-card time {
-		display: block;
+	/* Date and pin badge share one row so the badge never costs a line of
+	   its own; the row carries the spacing the old time block had. */
+	.post-head {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--space-sm);
 		margin-bottom: var(--space-sm);
 	}
 
 	.pin-badge {
-		display: inline-block;
-		margin-bottom: var(--space-sm);
-		margin-right: var(--space-sm);
 		padding: var(--space-2xs) var(--space-sm);
 		color: var(--color-text-secondary);
 		border: 1px solid var(--line);
@@ -218,7 +224,8 @@
 		}
 
 		.post-card {
-			padding: var(--space-md) 0;
+			padding-left: 0;
+			padding-right: 0;
 		}
 
 		.post-card h2 {
@@ -237,10 +244,6 @@
 	@media (max-width: 380px) {
 		.post-list {
 			gap: 0;
-		}
-
-		.post-card {
-			padding: 0.875rem 0;
 		}
 
 		.post-card h2 {

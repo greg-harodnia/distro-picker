@@ -11,7 +11,7 @@
 	let href = $derived(`${base}${localePath(path, $locale)}`);
 </script>
 
-<a class="back-link mono-label" class:footer-link={variant === 'footer'} {href}>← {label}</a>
+<a class="back-link" class:footer-link={variant === 'footer'} {href}>← {label}</a>
 
 <style>
 	.back-link {

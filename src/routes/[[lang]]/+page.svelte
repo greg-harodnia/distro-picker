@@ -233,18 +233,17 @@
 {/if}
 
 <div class="app page-shell" class:app-hidden={!!$error}>
-		<nav class="site-nav" aria-label={$t('app.title')}>
-			<div class="site-brand">
-				<h1 class="site-title">
+		<nav class="masthead masthead--titled" aria-label={$t('app.title')}>
+			<div class="masthead-lead">
+				<h1 class="masthead-title">
 					{#each titleWords as word, i}
 						{#if i === titleWords.length - 1}
 							<span class="serif-accent">{word}</span>
 						{:else}{word}{' '}{/if}
 					{/each}
 				</h1>
-				<h2 class="site-description">{$t('app.description')}</h2>
 			</div>
-			<div class="site-nav-controls">
+			<div class="masthead-controls">
 				<BlogLink />
 				<button
 					class="btn-primary quiz-nav-btn"
@@ -262,6 +261,8 @@
 				<ThemeToggle />
 			</div>
 		</nav>
+
+		<p class="masthead-sub">{$t('app.description')}</p>
 
 		<main>
 		<section class="filters">
@@ -377,64 +378,6 @@
 		display: none;
 	}
 
-	/* ---- top nav (masthead: title left, controls right) ---- */
-	.site-nav {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		gap: var(--space-md);
-		padding-bottom: var(--space-md);
-		border-bottom: 1px solid var(--line);
-		margin-bottom: var(--space-3xl);
-	}
-
-	.site-nav-controls {
-		display: flex;
-		gap: var(--space-sm);
-		margin-left: auto;
-	}
-
-	/* Title and tagline read as one unit: the tagline is centred against the
-	   title's height and split off by a hairline rule (the page's divider
-	   motif). When the pair no longer fits next to the controls the tagline
-	   wraps under the title. */
-	.site-brand {
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-		gap: var(--space-sm) var(--space-md);
-		min-width: 0;
-	}
-
-	.site-title {
-		font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-		font-weight: var(--font-semibold);
-		letter-spacing: -0.03em;
-		line-height: 1.1;
-		color: var(--color-text);
-		margin: 0;
-		text-wrap: balance;
-	}
-
-	/* The accent word sits a touch larger and in the editorial serif italic. */
-	.site-title .serif-accent {
-		font-size: 1.06em;
-		line-height: 1;
-	}
-
-	.site-description {
-		font-size: clamp(var(--text-sm), 1.4vw, var(--text-base));
-		font-weight: var(--font-normal);
-		color: var(--color-text-secondary);
-		line-height: 1.4;
-		letter-spacing: -0.01em;
-		margin: 0;
-		max-width: 44rem;
-		border-left: 1px solid var(--line);
-		padding-left: var(--space-md);
-	}
-
 	.filters {
 		margin-bottom: var(--space-xl);
 	}
@@ -465,12 +408,14 @@
 	}
 
 	/* Strip + reset share one row: the strip takes all leftover width and
-	   scrolls, while the reset stays pinned outside the drag-scroll region. */
+	   scrolls, while the reset stays pinned outside the drag-scroll region.
+	   The top inset comes from the shared `--content-top-pad` so the first
+	   content lands at the same y as the blog post list. */
 	.filter-row {
 		display: flex;
 		align-items: center;
 		gap: var(--space-md);
-		padding-top: var(--space-md);
+		padding-top: var(--content-top-pad);
 	}
 
 	.filter-groups {
@@ -558,42 +503,6 @@
 	@media (max-width: 640px) {
 		.app {
 			padding-bottom: var(--space-xl);
-		}
-
-		/* Phones get a centred masthead: title and tagline stacked and
-		   centred, with the control row centred underneath. */
-		.site-nav {
-			margin-bottom: var(--space-xl);
-			justify-content: center;
-		}
-
-		.site-brand {
-			width: 100%;
-			justify-content: center;
-			text-align: center;
-		}
-
-		.site-title {
-			font-size: clamp(2rem, 8vw, 2.75rem);
-		}
-
-		/* The hairline split is a desktop affordance; on a phone the tagline
-		   is a plain centred line under the title at a readable size (the
-		   mobile font scale would otherwise shrink it to 10px). */
-		.site-description {
-			width: 100%;
-			border-left: none;
-			padding-left: 0;
-			font-size: var(--text-base);
-		}
-
-		.site-nav-controls {
-			margin-left: 0;
-			justify-content: center;
-		}
-
-		.filter-row {
-			padding-top: var(--space-sm);
 		}
 
 		.filter-groups {

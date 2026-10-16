@@ -16,9 +16,9 @@
   --faint: rgba(16, 16, 20, 0.42);
   --line: rgba(16, 16, 20, 0.16);
   --line-strong: rgba(16, 16, 20, 0.40);
-  --accent: #2d81ff;
-  --accent-ink: #1659c4;
-  --accent-soft: rgba(45, 129, 255, 0.12);
+  --accent: #e95420;
+  --accent-ink: #b03d0d;
+  --accent-soft: rgba(233, 84, 32, 0.12);
   --invert-bg: #101014;
   --invert-fg: #f2f1ee;
   --danger: #b3261e;
@@ -59,8 +59,6 @@
   --tag-cinnamon: #8c4a2f;
   --tag-xfce: #a16207;
   --tag-lxqt: #007a52;
-  --tag-hyprland: #0369a1;
-  --tag-niri: #4f46e5;
   --tag-other: #c2410c;
   --tag-ubuntu: #c1440e;
   --tag-debian: #a81d44;
@@ -94,7 +92,7 @@
   --space-3xl: 4rem;
 
   /* ---- Typography ---- */
-  --font-sans: 'Archivo', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Ubuntu', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --label-tracking: 0.16em;
@@ -144,12 +142,18 @@
      when you navigate between pages. */
   --page-max-width: var(--container-2xl);
   --page-inset: var(--space-xl);
+
+  /* Top inset of the first content row below the masthead tagline —
+     shared by the home filter strip and the blog post list so the first
+     content lands at the same y on every route. */
+  --content-top-pad: var(--space-md);
 }
 
 /* Mobile font scale */
 @media (max-width: 640px) {
   :root {
     --page-inset: var(--space-md);
+    --content-top-pad: var(--space-sm);
   }
 
   .modal-content,
@@ -176,9 +180,9 @@
   --faint: rgba(242, 241, 238, 0.44);
   --line: rgba(242, 241, 238, 0.16);
   --line-strong: rgba(242, 241, 238, 0.38);
-  --accent: #5c9dff;
-  --accent-ink: #8ab4ff;
-  --accent-soft: rgba(92, 157, 255, 0.16);
+  --accent: #ff7b45;
+  --accent-ink: #ffa06b;
+  --accent-soft: rgba(255, 123, 69, 0.16);
   --invert-bg: #f2f1ee;
   --invert-fg: #101014;
   --danger: #ff6b5f;
@@ -206,8 +210,6 @@
   --tag-cinnamon: #e8a06a;
   --tag-xfce: #facc15;
   --tag-lxqt: #34d399;
-  --tag-hyprland: #38bdf8;
-  --tag-niri: #818cf8;
   --tag-other: #fb923c;
   --tag-ubuntu: #ff8a4c;
   --tag-debian: #fb7185;
@@ -300,6 +302,10 @@ button, input, textarea, select {
   color: inherit;
 }
 
+button:not(:disabled) {
+  cursor: pointer;
+}
+
 ::selection {
   background: var(--accent);
   color: #fff;
@@ -310,7 +316,7 @@ button, input, textarea, select {
   outline-offset: 2px;
 }
 
-/* Mono micro-label — the editorial caption used across the site. */
+/* Mono micro-label — the editorial caption used across the app. */
 .mono-label {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
@@ -338,6 +344,113 @@ button, input, textarea, select {
     max(var(--page-inset), env(safe-area-inset-right))
     max(var(--page-inset), env(safe-area-inset-bottom))
     max(var(--page-inset), env(safe-area-inset-left));
+}
+
+/* ==========================================================================
+   Masthead — shared by the home nav and every route's top bar
+   (PageTopBar). Title row + hairline rule; the tagline (`.masthead-sub`)
+   lives below the rule so the bar itself is always exactly the title row
+   on every route, and the toggles keep the same coordinates everywhere.
+   ========================================================================== */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--space-md);
+}
+
+/* Zero flex-basis lets the lead yield horizontal space to the controls
+   so the pair always shares one row. Bottom-aligned so the title sits
+   against the control row instead of floating at mid-height. */
+.masthead-lead {
+  display: flex;
+  align-self: flex-end;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.masthead-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: var(--font-semibold);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* The accent word sits a touch larger and in the editorial serif italic. */
+.masthead-title .serif-accent {
+  font-size: 1.06em;
+  line-height: 1;
+}
+
+.masthead-controls {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-sm);
+  margin-left: auto;
+}
+
+/* Below-rule tagline: the home description or a titled bar's back link.
+   Keeping it out of the bar means its height never changes with copy
+   length or wrapping. */
+.masthead-sub {
+  font-size: clamp(var(--text-base), 1.6vw, var(--text-lg));
+  font-weight: var(--font-normal);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-3xl);
+  max-width: 44rem;
+}
+
+/* The back link ships its own size and line-height (incl. its phone
+   overrides); inherit them so the wrapper's line box — sized like the home
+   tagline — drives the height. Element in the selector outranks BackLink's
+   own scoped rules. */
+.masthead-sub a.back-link {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+@media (max-width: 640px) {
+  /* Titled mastheads centre on phones: title above, controls underneath,
+     tagline below the rule. */
+  .masthead--titled {
+    justify-content: center;
+  }
+
+  .masthead--titled .masthead-lead {
+    flex: 0 0 auto;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Phones get the hero-sized title so the lead block (and with it the
+     control row below it) is the same height on both pages. */
+  .masthead--titled .masthead-title {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+  }
+
+  .masthead--titled .masthead-controls {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .masthead-sub {
+    width: 100%;
+    margin-bottom: var(--space-xl);
+    text-align: center;
+    /* Sits one step above the `.app` mobile font scale (0.875rem) so the
+       tagline stays readable on phones. */
+    font-size: 1rem;
+  }
 }
 
 /* ==========================================================================

@@ -94,7 +94,7 @@
 					onclick={(e) => handleLike(e, distro)}
 					aria-label={distro.userLiked ? 'Unlike this distro' : 'Like this distro'}
 				>
-					❤️{distro.likes ? ` ${distro.likes}` : ''}
+					❤️ {distro.likes ?? 0}
 				</button>
 			</div>
 			<OptimizedImage
@@ -243,8 +243,8 @@
 	}
 
 	@media (max-width: 640px) {
-		.distro-grid {			
-			grid-template-columns: repeat(auto-fill, minmax(134px, 1fr));
+		.distro-grid {
+			grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 			gap: var(--space-lg);
 			padding-top: var(--space-md);
 		}
