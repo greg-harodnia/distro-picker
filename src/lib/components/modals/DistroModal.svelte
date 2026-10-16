@@ -165,8 +165,15 @@
 	}
 
 	.gallery-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		width: 56px;
 		margin-left: var(--space-md);
+	}
+
+	.gallery-btn svg {
+		flex-shrink: 0;
 	}
 
 	@media (hover: hover) {
