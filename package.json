@@ -3,10 +3,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "vite build",
+    "build": "bun --bun vite build",
     "prebuild": "bun scripts/gen-sitemap.ts",
-    "dev": "vite dev",
-    "preview": "vite preview",
+    "dev": "bun --bun vite dev",
+    "preview": "bun --bun vite preview",
     "check:quiz": "bun scripts/check-quiz.ts"
   },
   "devDependencies": {

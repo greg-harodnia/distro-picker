@@ -13,19 +13,19 @@ bun install
 ### Start development server
 
 ```bash
-bun run dev
+bun --bun vite dev
 ```
 
 ### Create production build
 
 ```bash
-bun run build
+bun --bun vite build
 ```
 
 ### Preview production build
 
 ```bash
-bun run preview
+bun --bun vite preview
 ```
 
 ## 📝 Blog
