@@ -7,7 +7,10 @@
  * re-implemented for mobile.
  *
  * After a real drag the click that follows is swallowed, so buttons inside the
- * row (tag toggles, group triggers) aren't unintentionally hit.
+ * row (tag toggles, group triggers) aren't unintentionally hit. The listener
+ * lives on `document`, not the row: releasing outside the row retargets the
+ * click to the common ancestor of the press/release points, which is outside
+ * the row — a listener on the node would miss it entirely.
  *
  * The action is self-contained: it manages the grab/grabbing cursor and
  * disables text selection while dragging, so no extra CSS is required.
@@ -72,12 +75,12 @@ export function dragScroll(node: HTMLElement) {
 				e.preventDefault();
 				e.stopPropagation();
 			};
-			node.addEventListener('click', swallowClick, true);
+			document.addEventListener('click', swallowClick, true);
 			// The click fires in the same task as pointerup, so unhooking on
 			// the next tick keeps later, genuine clicks untouched.
 			setTimeout(() => {
 				if (swallowClick) {
-					node.removeEventListener('click', swallowClick, true);
+					document.removeEventListener('click', swallowClick, true);
 					swallowClick = null;
 				}
 			}, 0);
@@ -97,7 +100,7 @@ export function dragScroll(node: HTMLElement) {
 			window.removeEventListener('pointerup', endDrag);
 			window.removeEventListener('pointercancel', endDrag);
 			if (swallowClick) {
-				node.removeEventListener('click', swallowClick, true);
+				document.removeEventListener('click', swallowClick, true);
 			}
 			setSelectable(true);
 			node.style.cursor = previousCursor;
