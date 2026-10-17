@@ -79,6 +79,16 @@ function resolvePath(lang: Language, path: string): unknown {
 	return result;
 }
 
+/**
+ * The translated string at `path`, falling back to English when `lang` has no
+ * entry for it — the fallback is performed by `resolvePath` (missing key or
+ * unloaded locale), so callers must not repeat it as
+ * `getTranslation(lang, p) || getTranslation('en', p)`: that second lookup can
+ * only ever redo the English fallback that already happened.
+ *
+ * `undefined` when the path resolves to a non-string, or is missing in English
+ * too.
+ */
 export function getTranslation(lang: Language, path: string): string | undefined {
 	const cacheKey = `${lang}:${path}`;
 	const cached = translationPathCache.get(cacheKey);

@@ -1,5 +1,4 @@
 import { error } from '@sveltejs/kit';
-import type { Language } from '$lib/locales/types';
 import type { LayoutServerLoad } from './$types';
 
 export const prerender = true;
@@ -14,5 +13,8 @@ export const load: LayoutServerLoad = ({ params }) => {
 	if (params.lang !== undefined && params.lang !== 'be') {
 		error(404, 'Language not found');
 	}
-	return { locale: (params.lang ?? 'en') as Language };
+	// `params.lang` is already narrowed to `'be' | undefined` by the 404 guard
+	// above, so no cast is needed — and leaving one out means a future change to
+	// that guard gets flagged here instead of silently cast away.
+	return { locale: params.lang ?? 'en' };
 };

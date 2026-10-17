@@ -37,11 +37,21 @@ export const t = derived(locale, ($locale) => {
   };
 });
 
-/** English fallback for the app name when a locale (or the key) isn't loaded. */
+/** Last resort for the app name when no locale (not even English) can supply `app.title`. */
 export const APP_TITLE = 'Linux Distro Picker';
 
-/** The localized app name, with an English fallback that never depends on a loaded locale. */
-export const appTitle = derived(locale, ($locale) => getTranslation($locale, 'app.title') || APP_TITLE);
+/**
+ * The site title for `lang`: its own `app.title`, else the English one, else
+ * `APP_TITLE`. Server loads and the `appTitle` store share it so the brand
+ * fallback lives in exactly one place — and a `<title>` can never render as
+ * `undefined` just because a translation wasn't the loaded one.
+ */
+export function getSiteTitle(lang: Language): string {
+  return getTranslation(lang, 'app.title') || APP_TITLE;
+}
+
+/** The localized app name, always non-empty (see `getSiteTitle`). */
+export const appTitle = derived(locale, ($locale) => getSiteTitle($locale));
 
 export const availableLanguages = languageConfigs.map(c => ({
   code: c.code,

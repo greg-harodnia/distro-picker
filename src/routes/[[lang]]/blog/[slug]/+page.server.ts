@@ -1,7 +1,8 @@
 import { error } from '@sveltejs/kit';
 import { getPost, toDetail, BLOG_INDEX_DESCRIPTION } from '$lib/blog/content';
 import { renderMarkdown } from '$lib/blog/markdown';
-import { getTranslation, loadTranslation } from '$lib/i18n/translations';
+import { loadTranslation } from '$lib/i18n/translations';
+import { getSiteTitle } from '$lib/i18n/locale';
 
 // Blog pages are intentionally dynamic: the markdown is fetched and rendered
 // when a visitor opens the post, not baked into the initial SSR HTML.
@@ -29,7 +30,7 @@ export async function load({ params }) {
 	);
 	const contentHtml = renderMarkdown(body);
 
-	const siteTitle = getTranslation(locale, 'app.title') || getTranslation('en', 'app.title');
+	const siteTitle = getSiteTitle(locale);
 	const description = file.meta.description || BLOG_INDEX_DESCRIPTION;
 
 	return {

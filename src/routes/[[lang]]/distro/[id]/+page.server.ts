@@ -1,6 +1,7 @@
 import { error } from '@sveltejs/kit';
 import { distros } from '$lib/distros';
 import { getTranslation, loadTranslation } from '$lib/i18n/translations';
+import { getSiteTitle } from '$lib/i18n/locale';
 import { screenshotsForDistro } from '$lib/screenshots';
 import { logoPath } from '$lib/utils/assets';
 
@@ -21,7 +22,7 @@ export async function load({ params }) {
 
 	const screenshots = screenshotsForDistro(distro.id);
 
-	const siteTitle = getTranslation(locale, 'app.title') || getTranslation('en', 'app.title');
+	const siteTitle = getSiteTitle(locale);
 	const description = getTranslation(locale, `distros.${distro.id}.description`) || '';
 
 	return {

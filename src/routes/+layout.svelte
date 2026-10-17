@@ -7,7 +7,6 @@
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import type { Snippet } from 'svelte';
 	import { t, locale, setLocale, localePath, localeFromPath, availableLanguages, appTitle, redirectToPreferredLocale } from '$lib/i18n/locale';
-	import { getTranslation } from '$lib/i18n/translations';
 	import type { Language } from '$lib/locales/types';
 	import { initTheme } from '$lib/stores/theme';
 	import { warmUp } from '$lib/utils/warmup';
@@ -39,7 +38,7 @@
 	});
 
 	let baseTitle = $derived($appTitle);
-	let description = $derived($t('app.description') || getTranslation('en', 'app.description'));
+	let description = $derived($t('app.description'));
 
 	let pageTitle = $derived(seo.title || baseTitle);
 	let pageDescription = $derived(seo.description || description);

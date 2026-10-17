@@ -1,5 +1,6 @@
 import { listPosts, BLOG_INDEX_DESCRIPTION } from '$lib/blog/content';
 import { getTranslation, loadTranslation } from '$lib/i18n/translations';
+import { getSiteTitle } from '$lib/i18n/locale';
 import { fetchAllBlogStats } from '$lib/supabase';
 import type { BlogStats } from '$lib/supabase';
 import type { BlogPostSummary } from '$lib/blog/types';
@@ -22,9 +23,8 @@ export async function load({ params }): Promise<{
 	// translations must be awaited here rather than relied on from the layout.
 	await loadTranslation(locale);
 
-	const siteTitle = getTranslation(locale, 'app.title') || getTranslation('en', 'app.title');
-	const blogTitle =
-		getTranslation(locale, 'pages.blog.title') || getTranslation('en', 'pages.blog.title');
+	const siteTitle = getSiteTitle(locale);
+	const blogTitle = getTranslation(locale, 'pages.blog.title');
 	const blogDescription = BLOG_INDEX_DESCRIPTION;
 
 	// View/like counters for the cards. Degrades to [] (counters show 0)
