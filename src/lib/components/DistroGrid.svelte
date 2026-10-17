@@ -2,7 +2,7 @@
 	import type { Distro } from '$lib/types';
 	import OptimizedImage from '$lib/components/OptimizedImage.svelte';
 	import { incrementDistroLikes } from '$lib/supabase';
-	import { setLikedDistro, removeLikedDistro } from '$lib/utils';
+	import { setLikedDistro, removeLikedDistro, toggleLike } from '$lib/utils';
 	import { distroActions } from '$lib/stores';
 	import { t, localePath } from '$lib/i18n/locale';
 
@@ -44,37 +44,17 @@
 	async function handleLike(e: Event, distro: Distro) {
 		e.stopPropagation();
 
-		const prevLikes = distro.likes;
-		const prevUserLiked = distro.userLiked;
-		// Send a delta, not an absolute count: the database applies it with a
-		// single atomic UPDATE, so concurrent likers can't overwrite each other.
-		const liked = !distro.userLiked;
-		const delta = liked ? 1 : -1;
-		const newLikes = Math.max(0, (distro.likes || 0) + delta);
-
-		distroActions.update(distro.id, { likes: newLikes, userLiked: liked });
-		if (liked) {
-			setLikedDistro(distro.id);
-		} else {
-			removeLikedDistro(distro.id);
-		}
-
-		const serverLikes = await incrementDistroLikes(distro.id, delta);
-		if (serverLikes === null) {
-			// Roll the optimistic update back to exactly what it was before.
-			const rollback: Partial<Distro> = {};
-			if (prevLikes !== undefined) rollback.likes = prevLikes;
-			if (prevUserLiked !== undefined) rollback.userLiked = prevUserLiked;
-			distroActions.update(distro.id, rollback);
-			if (!liked) {
-				setLikedDistro(distro.id);
-			} else {
-				removeLikedDistro(distro.id);
+		await toggleLike(
+			{ liked: distro.userLiked ?? false, count: distro.likes ?? 0 },
+			{
+				// The card renders from the global store.
+				apply: ({ liked, count }) =>
+					distroActions.update(distro.id, { likes: count, userLiked: liked }),
+				remember: (liked) =>
+					liked ? setLikedDistro(distro.id) : removeLikedDistro(distro.id),
+				rpc: (delta) => incrementDistroLikes(distro.id, delta)
 			}
-		} else if (serverLikes !== newLikes) {
-			// Another liker got there first — adopt the authoritative count.
-			distroActions.update(distro.id, { likes: serverLikes });
-		}
+		);
 	}
 </script>
 

@@ -100,7 +100,7 @@
 	<div class="actions">
 		<a class="btn-primary" href={`${base}${localePath('/', $locale)}`}>{$t('pages.distro.findMyDistro')}</a>
 		{#if distro.website}
-			<a class="btn-secondary" href={distro.website} rel="noopener noreferrer" target="_blank">{$t('modals.distro.visitWebsite')}</a>
+			<a class="btn-outline" href={distro.website} rel="noopener noreferrer" target="_blank">{$t('modals.distro.visitWebsite')}</a>
 		{/if}
 	</div>
 </main>
@@ -203,37 +203,23 @@
 		flex-wrap: wrap;
 	}
 
+	/* Link CTAs: the global button classes already apply (same class names), so
+	   only the link-specific bits and the wider CTA padding are declared here. */
 	.btn-primary,
-	.btn-secondary {
+	.btn-outline {
 		display: inline-block;
-		padding: var(--space-md) var(--space-xl);
-		border-radius: var(--radius-md);
-		font-size: var(--text-base);
-		font-weight: var(--font-medium);
 		text-decoration: none;
-		transition: all var(--transition-normal);
+		padding: var(--space-md) var(--space-xl);
 	}
 
-	.btn-primary {
-		background: var(--color-secondary);
-		border: 1px solid var(--color-secondary);
-		color: var(--color-background);
-	}
-
-	.btn-secondary {
-		background: transparent;
-		border: 1px solid var(--line-strong);
-		color: var(--color-secondary);
+	.btn-outline {
+		letter-spacing: normal;
 	}
 
 	@media (hover: hover) {
-		.btn-primary:hover {
-			background: var(--accent);
-			border-color: var(--accent);
-			color: #fff;
-		}
-
-		.btn-secondary:hover {
+		.btn-outline:hover {
+			background: transparent;
+			color: var(--color-secondary);
 			border-color: var(--color-text);
 		}
 	}

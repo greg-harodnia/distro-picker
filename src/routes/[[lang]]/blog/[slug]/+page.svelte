@@ -8,7 +8,7 @@
 	import HeartIcon from '$lib/components/icons/HeartIcon.svelte';
 	import { t, locale, localePath } from '$lib/i18n/locale';
 	import { fetchBlogStats, addBlogView, incrementBlogLikes } from '$lib/supabase';
-	import { formatDate, readLikedIds, setLikedId } from '$lib/utils';
+	import { formatDate, readLikedIds, setLikedId, toggleLike } from '$lib/utils';
 	import { SITE_URL as siteUrl } from '$lib/seo';
 
 	let { data }: { data: PageData } = $props();
@@ -56,31 +56,23 @@
 		}
 	});
 
-	async function toggleLike() {
+	async function handleLike() {
 		if (liking) return;
 		liking = true;
 
-		const previousLiked = userLiked;
-		const previousLikes = likes;
-		const liked = !previousLiked;
+		await toggleLike(
+			{ liked: userLiked, count: likes },
+			{
+				// The footer renders from local component state.
+				apply: ({ liked, count }) => {
+					userLiked = liked;
+					likes = count;
+				},
+				remember: persistLikedState,
+				rpc: (delta) => incrementBlogLikes(post.slug, delta).then((stats) => stats?.likes ?? null)
+			}
+		);
 
-		// Optimistic flip, confirmed by the server below.
-		userLiked = liked;
-		likes = Math.max(0, likes + (liked ? 1 : -1));
-
-		// Send a delta, not an absolute count: the database applies it with a
-		// single atomic UPDATE, so concurrent likers can't overwrite each other.
-		const stats = await incrementBlogLikes(post.slug, liked ? 1 : -1);
-		if (stats) {
-			// Adopt the authoritative count (another liker may have beaten us).
-			likes = stats.likes;
-			persistLikedState(liked);
-		} else {
-			// Server unreachable — revert both the count and the remembered
-			// like, so the UI never claims a like that was not recorded.
-			userLiked = previousLiked;
-			likes = previousLikes;
-		}
 		liking = false;
 	}
 
@@ -124,7 +116,7 @@
 					<EyeIcon size={18} />
 					{views}
 				</span>
-				<button class="like-btn" class:liked={userLiked} onclick={toggleLike} type="button" aria-pressed={userLiked}>
+				<button class="like-btn" class:liked={userLiked} onclick={handleLike} type="button" aria-pressed={userLiked}>
 					<HeartIcon size={18} filled={userLiked} />
 					<span>{likes}</span>
 					<span class="like-label">{userLiked ? $t('pages.blog.liked') : $t('pages.blog.like')}</span>
@@ -366,7 +358,10 @@
 		flex-wrap: wrap;
 	}
 
-	.stat {
+	/* The views chip and the like button are the same pill; the button adds
+	   only the interactive bits. */
+	.stat,
+	.like-btn {
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
@@ -382,19 +377,7 @@
 	}
 
 	.like-btn {
-		display: inline-flex;
-		align-items: center;
 		justify-content: center;
-		gap: 6px;
-		min-height: 44px;
-		padding: var(--space-sm) var(--space-md);
-		border: 1px solid var(--line);
-		border-radius: var(--radius-full);
-		background: transparent;
-		color: var(--color-text-secondary);
-		font-family: var(--font-mono);
-		font-size: var(--text-xs);
-		font-weight: 500;
 		cursor: pointer;
 		transition: all var(--transition-normal);
 	}
