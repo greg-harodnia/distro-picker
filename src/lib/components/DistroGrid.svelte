@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Distro } from '$lib/types';
 	import OptimizedImage from '$lib/components/OptimizedImage.svelte';
-	import { updateLikes } from '$lib/supabase';
+	import { incrementDistroLikes } from '$lib/supabase';
 	import { setLikedDistro, removeLikedDistro } from '$lib/utils';
 	import { distroActions } from '$lib/stores';
 	import { t, localePath } from '$lib/i18n/locale';
@@ -46,37 +46,48 @@
 
 		const prevLikes = distro.likes;
 		const prevUserLiked = distro.userLiked;
-		const newLikes = distro.userLiked 
-			? (distro.likes || 1) - 1 
-			: (distro.likes || 0) + 1;
-		const newUserLiked = !distro.userLiked;
+		// Send a delta, not an absolute count: the database applies it with a
+		// single atomic UPDATE, so concurrent likers can't overwrite each other.
+		const liked = !distro.userLiked;
+		const delta = liked ? 1 : -1;
+		const newLikes = Math.max(0, (distro.likes || 0) + delta);
 
-		distroActions.update(distro.id, { likes: newLikes, userLiked: newUserLiked });
-		if (newUserLiked) {
+		distroActions.update(distro.id, { likes: newLikes, userLiked: liked });
+		if (liked) {
 			setLikedDistro(distro.id);
 		} else {
 			removeLikedDistro(distro.id);
 		}
 
-		const success = await updateLikes(distro.id, newLikes);
-		if (!success) {
+		const serverLikes = await incrementDistroLikes(distro.id, delta);
+		if (serverLikes === null) {
+			// Roll the optimistic update back to exactly what it was before.
 			const rollback: Partial<Distro> = {};
 			if (prevLikes !== undefined) rollback.likes = prevLikes;
 			if (prevUserLiked !== undefined) rollback.userLiked = prevUserLiked;
 			distroActions.update(distro.id, rollback);
-			if (!newUserLiked) {
+			if (!liked) {
 				setLikedDistro(distro.id);
 			} else {
 				removeLikedDistro(distro.id);
 			}
+		} else if (serverLikes !== newLikes) {
+			// Another liker got there first — adopt the authoritative count.
+			distroActions.update(distro.id, { likes: serverLikes });
 		}
 	}
 </script>
 
 <div class="distro-grid">
 	{#each distros as distro (distro.id)}
+		<!-- The card's click is a redundant mouse affordance: the real
+		     interactive elements are the like <button> and the name <a> below
+		     (which also opens the modal on Enter). `role="presentation"` keeps
+		     this wrapper out of the accessibility tree so it isn't announced as
+		     content with no keyboard equivalent of its own. -->
 		<div 
 			class="distro-card"
+			role="presentation"
 			hidden={visibleIds ? !visibleIds.has(distro.id) : false}
 			onclick={() => selectDistro(distro)}
 			data-distro-id={distro.id}

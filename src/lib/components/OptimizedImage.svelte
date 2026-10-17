@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
-  	import { base } from '$app/paths';
-	import { observeImage } from '$lib/utils/imageObserver';
+	import { base } from '$app/paths';
 	import { logoContrast } from '$lib/utils/logoContrast';
 
 	// Paths of images that have loaded at least once on this page. If a card's
@@ -9,6 +7,8 @@
 	// "loaded" so remounting (after a filter change collapses/restores a card)
 	// doesn't flash the placeholder again. Module-scoped so it survives unmount.
 	const loadedIcons = new Set<string>();
+
+	const FALLBACK = `${base}/linux.webp`;
 
 	let {
 		alt,
@@ -20,43 +20,42 @@
 		logo?: string | undefined;
 	} = $props();
 
-	let imgElement: HTMLImageElement;
-	let iconPath = `${base}${logo || '/linux.webp'}`;
-	let isLoaded = $state(loadedIcons.has(iconPath));
-	let isError = $state(false);
-	let unobserve: (() => void) | null = null;
+	let iconPath = $derived(`${base}${logo || '/linux.webp'}`);
 
-	onMount(() => {
-		if (imgElement) {
-			unobserve = observeImage(imgElement, iconPath);
-		}
-	});
+	// Both flags are keyed by path rather than being one-way booleans, so if the
+	// `logo` prop ever changes the component recovers instead of staying stuck
+	// on the placeholder (or on the fallback).
+	let loadedPath = $state<string | null>(null);
+	let failedPath = $state<string | null>(null);
 
-	onDestroy(() => {
-		if (unobserve) {
-			unobserve();
-		}
-	});
+	let hasError = $derived(failedPath === iconPath);
+	let isLoaded = $derived(loadedPath === iconPath || loadedIcons.has(iconPath));
+
+	// The `src` is always set — including in the SSR/prerendered HTML — so the
+	// logo is part of the initial document instead of appearing only after
+	// hydration. Native `loading="lazy"` defers off-screen loads, which replaces
+	// the old IntersectionObserver (that one deferred the `src` itself, leaving
+	// every card's <img> without a source in the server-rendered markup).
+	let src = $derived(hasError ? FALLBACK : iconPath);
 
 	function handleLoad() {
+		// When the substitute has been swapped in, this load is the fallback,
+		// not the logo — don't mark the logo as cached.
+		if (hasError) return;
 		loadedIcons.add(iconPath);
-		isLoaded = true;
+		loadedPath = iconPath;
 	}
 
 	function handleError() {
-		isError = true;
-		if (imgElement && iconPath !== `${base}/linux.webp`) {	
-			imgElement.src = `${base}/linux.webp`;	
-		}
+		failedPath = iconPath;
 	}
 </script>
 
-<div class="optimized-image-container {customClass}" class:loaded={isLoaded} class:error={isError}>
+<div class="optimized-image-container {customClass}" class:loaded={isLoaded} class:error={hasError}>
 	<img
-		bind:this={imgElement}
 		{alt}
 		class="optimized-image"
-		src={isLoaded ? iconPath : undefined}
+		{src}
 		onload={handleLoad}
 		onerror={handleError}
 		style="object-fit: contain; -webkit-user-drag: none; user-select: none;"
@@ -64,7 +63,7 @@
 		draggable="false"
 		use:logoContrast={iconPath}
 	/>
-	{#if !isLoaded && !isError}
+	{#if !isLoaded && !hasError}
 		<div class="image-placeholder"></div>
 	{/if}
 </div>

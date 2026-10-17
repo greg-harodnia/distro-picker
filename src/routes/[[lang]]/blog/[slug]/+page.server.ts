@@ -1,14 +1,17 @@
 import { error } from '@sveltejs/kit';
 import { getPost, toDetail, BLOG_INDEX_DESCRIPTION } from '$lib/blog/content';
 import { renderMarkdown } from '$lib/blog/markdown';
-import { getTranslation } from '$lib/i18n/translations';
+import { getTranslation, loadTranslation } from '$lib/i18n/translations';
 
 // Blog pages are intentionally dynamic: the markdown is fetched and rendered
 // when a visitor opens the post, not baked into the initial SSR HTML.
 export const prerender = false;
 
-export function load({ params }) {
+export async function load({ params }) {
 	const locale = params.lang === 'be' ? 'be' : 'en';
+	// Server `load`s run concurrently with the layout's, so the locale's
+	// translations must be awaited here rather than relied on from the layout.
+	await loadTranslation(locale);
 
 	const resolved = getPost(params.slug, locale);
 	if (!resolved) {

@@ -4,7 +4,7 @@
 	import BackLink from '$lib/components/BackLink.svelte';
 	import PageTopBar from '$lib/components/PageTopBar.svelte';
 	import { t, locale, localePath } from '$lib/i18n/locale';
-	import { fetchBlogStats, addBlogView, setBlogLikes } from '$lib/supabase';
+	import { fetchBlogStats, addBlogView, incrementBlogLikes } from '$lib/supabase';
 	import { SITE_URL as siteUrl } from '$lib/seo';
 
 	let { data }: { data: PageData } = $props();
@@ -76,13 +76,27 @@
 		if (liking) return;
 		liking = true;
 
-		userLiked = !userLiked;
-		const nextCount = userLiked ? likes + 1 : Math.max(0, likes - 1);
-		likes = nextCount;
-		persistLikedState(userLiked);
+		const previousLiked = userLiked;
+		const previousLikes = likes;
+		const liked = !previousLiked;
 
-		// Fire-and-forget: on failure we keep the optimistic local count.
-		await setBlogLikes(post.slug, nextCount);
+		// Optimistic flip, confirmed by the server below.
+		userLiked = liked;
+		likes = Math.max(0, likes + (liked ? 1 : -1));
+
+		// Send a delta, not an absolute count: the database applies it with a
+		// single atomic UPDATE, so concurrent likers can't overwrite each other.
+		const stats = await incrementBlogLikes(post.slug, liked ? 1 : -1);
+		if (stats) {
+			// Adopt the authoritative count (another liker may have beaten us).
+			likes = stats.likes;
+			persistLikedState(liked);
+		} else {
+			// Server unreachable — revert both the count and the remembered
+			// like, so the UI never claims a like that was not recorded.
+			userLiked = previousLiked;
+			likes = previousLikes;
+		}
 		liking = false;
 	}
 

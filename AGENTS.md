@@ -2,11 +2,13 @@
 
 ## Stack
 - Local tooling: **bun** — `bun install`, `bun run dev`, `bun run build`.
-- Server: **Vercel** (prerendered SvelteKit via `adapter-static`) and **Supabase** (distro likes, blog views/likes).
+- Server: **Vercel** (SvelteKit via `@sveltejs/adapter-vercel`; routes are prerendered by default, blog is dynamic) and **Supabase** (distro likes, blog views/likes, contact messages).
+- Response headers and cache policy for static assets live in `vercel.json`.
 
 ## Verify
+- `bun run check` — `svelte-check` type + a11y check. Keep it at zero errors/warnings.
 - `bun run check:quiz` — quiz locales and data stay consistent.
-- `bun run build` — runs `prebuild` (sitemap) then the Vite build. Run both after changes to routes, data, or content.
+- `bun run build` — runs `prebuild` (sitemap) then the Vite build. Run all three after changes to routes, data, or content.
 
 ## Conventions
 - No duplicated code; keep modules small and cohesive.

@@ -1,28 +1,24 @@
 import { error } from '@sveltejs/kit';
 import { distros } from '$lib/distros';
-import { getTranslation } from '$lib/i18n/translations';
+import { getTranslation, loadTranslation } from '$lib/i18n/translations';
+import { screenshotsForDistro } from '$lib/screenshots';
 
 export const prerender = true;
 
 export const entries = () =>
 	distros.flatMap((distro) => [{ id: distro.id }, { id: distro.id, lang: 'be' }]);
 
-export function load({ params }) {
+export async function load({ params }) {
 	const locale = params.lang === 'be' ? 'be' : 'en';
+	// Server `load`s run concurrently with the layout's, so the locale's
+	// translations must be awaited here rather than relied on from the layout.
+	await loadTranslation(locale);
 	const distro = distros.find((d) => d.id === params.id);
 	if (!distro) {
 		error(404, 'Distribution not found');
 	}
 
-	const screenshots: string[] = [];
-	const modules = import.meta.glob('/static/screenshots/*/*');
-
-	for (const path in modules) {
-		const match = path.match(/\/screenshots\/([^/]+)\//);
-		if (match && match[1] === distro.id) {
-			screenshots.push(path.replace('/static', ''));
-		}
-	}
+	const screenshots = screenshotsForDistro(distro.id);
 
 	const siteTitle = getTranslation(locale, 'app.title') || getTranslation('en', 'app.title');
 	const description = getTranslation(locale, `distros.${distro.id}.description`) || '';

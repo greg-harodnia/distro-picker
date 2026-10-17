@@ -27,8 +27,13 @@
 	const openedAt = performance.now();
 	const STRAY_CLICK_GUARD_MS = 500;
 
-	function guardStraySelection(e: MouseEvent) {
-		if (performance.now() - openedAt < STRAY_CLICK_GUARD_MS) {
+	/** True for a few hundred ms after mount — the window in which a second click may still belong to the double-click that opened the modal. */
+	function isStrayClick() {
+		return performance.now() - openedAt < STRAY_CLICK_GUARD_MS;
+	}
+
+	function guardStraySelection(e: Event) {
+		if (isStrayClick()) {
 			e.preventDefault();
 		}
 	}
@@ -74,7 +79,11 @@
 	}
 
 	function handleOverlayClick(e: MouseEvent) {
-		if (e.target === e.currentTarget && isTopmost()) {
+		// The full-viewport overlay extends far past the centred dialog, so the
+		// second click of the opening double-click can also land on the scrim
+		// (e.target === e.currentTarget) and would otherwise close the dialog
+		// the user just opened.
+		if (e.target === e.currentTarget && isTopmost() && !isStrayClick()) {
 			close();
 		}
 	}
@@ -94,9 +103,14 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
+<!-- The overlay is a decorative scrim: it has a click handler as a mouse
+affordance to close the dialog, but the real interactive affordances are the
+close button and the Escape key handled above. `role="presentation"` keeps it
+out of the accessibility tree so it isn't announced as content. -->
 <div
 	class="modal-overlay"
 	class:stacked={!scrim.isBottom}
+	role="presentation"
 	onselectstart={guardStraySelection}
 	onclick={handleOverlayClick}
 	transition:fade={{ duration: 200 }}

@@ -80,8 +80,8 @@ export const logoContrast: Action<HTMLImageElement, string | undefined> = (img, 
 		if (fix) img.classList.add(fix);
 	};
 
-	// `complete` is also true for an image that has no src yet (the grid's
-	// lazy loader sets it later), so only treat it as done once it has pixels.
+	// `complete` is true for an image whose src is already cached, and also for
+	// an image with no src at all — only treat it as done once it has pixels.
 	if (img.complete && img.naturalWidth) apply();
 	else img.addEventListener('load', apply);
 

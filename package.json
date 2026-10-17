@@ -7,13 +7,15 @@
     "prebuild": "bun scripts/gen-sitemap.ts",
     "dev": "bun --bun vite dev",
     "preview": "bun --bun vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:quiz": "bun scripts/check-quiz.ts"
   },
   "devDependencies": {
-    "@types/bun": "latest",
-    "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.50.2",
+    "@types/bun": "latest",
     "svelte": "^5.50.1",
+    "svelte-check": "^4.7.7",
+    "typescript": "^5.9.3",
     "vite": "^7.3.1"
   },
   "dependencies": {

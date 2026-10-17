@@ -1,5 +1,5 @@
 											<script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import { t } from '$lib/i18n/locale';
 	import Modal from './Modal.svelte';
 
@@ -15,7 +15,10 @@
 		onclose?: () => void;
 	} = $props();
 
-	let currentIndex = $state(initialIndex);
+	// `initialIndex` is only an opening position, not a live binding: read it
+	// once. `untrack` makes that intent explicit (and silences
+	// state_referenced_locally).
+	let currentIndex = $state(untrack(() => initialIndex));
 	let preloadIndexes: number[] = $state([]);
 
 	let scale = $state(1);

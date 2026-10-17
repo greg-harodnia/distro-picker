@@ -11,8 +11,11 @@
 
 	let { data }: { data: PageData } = $props();
 
-	const distro = data.distro;
-	const screenshots = data.screenshots;
+	// Derive, don't snapshot: on client-side navigation between two distro
+	// pages Svelte reuses this component instance, so reading `data` once would
+	// keep rendering the previous distro.
+	let distro = $derived(data.distro);
+	let screenshots = $derived(data.screenshots);
 
 	let galleryIndex = $state<number | null>(null);
 

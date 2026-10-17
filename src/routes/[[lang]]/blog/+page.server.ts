@@ -1,5 +1,5 @@
 import { listPosts, BLOG_INDEX_DESCRIPTION } from '$lib/blog/content';
-import { getTranslation } from '$lib/i18n/translations';
+import { getTranslation, loadTranslation } from '$lib/i18n/translations';
 import { fetchAllBlogStats } from '$lib/supabase';
 import type { BlogStats } from '$lib/supabase';
 import type { BlogPostSummary } from '$lib/blog/types';
@@ -18,6 +18,9 @@ export async function load({ params }): Promise<{
 	seo: { title: string; description: string };
 }> {
 	const locale = params.lang === 'be' ? 'be' : 'en';
+	// Server `load`s run concurrently with the layout's, so the locale's
+	// translations must be awaited here rather than relied on from the layout.
+	await loadTranslation(locale);
 
 	const siteTitle = getTranslation(locale, 'app.title') || getTranslation('en', 'app.title');
 	const blogTitle =

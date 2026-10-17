@@ -25,7 +25,7 @@ const languageConfigs: LanguageConfig[] = [
  */
 export const locale = writable<Language>('en');
 
-/** Set the current locale synchronously (translations are bundled). */
+/** Set the current locale synchronously (its translations are loaded by then). */
 export function setLocale(lang: Language): void {
   locale.set(lang);
 }

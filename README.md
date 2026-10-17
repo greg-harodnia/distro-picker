@@ -39,8 +39,8 @@ posts/
 
 - Each file starts with a `---` frontmatter block: `title`, `date`, optional `description` and `pinned`.
 - A post is served in the URL's locale; if no `<slug>.<lang>.md` exists, the English file is used as the default fallback.
-- Blog pages are **dynamic** (`prerender = false`): the markdown is read and rendered by the server when a visitor opens a blog page, so post content never ships in the initial SSR HTML and blog pages stay indexable (canonical, hreflang, JSON-LD `BlogPosting`).
-- **Views & likes** are stored in Supabase. The `blog_posts` table (`slug`, `views`, `likes`) must exist — apply `supabase/migrations/0001_blog_posts.sql` in your Supabase project (SQL editor). Without the table, the counters simply show 0 and the current visit/like is still tracked locally.
+- Blog pages are **dynamic** (`prerender = false`): the markdown is read and rendered by the server on each request, so it is part of the SSR response (not baked into the build output) and blog pages stay indexable (canonical, hreflang, JSON-LD `BlogPosting`).
+- **Views & likes** are stored in Supabase. Apply the migrations in `supabase/migrations/` in order (`0001`–`0004`) in your Supabase project (SQL editor). Without them, the counters simply show 0 and the current visit/like is still tracked locally.
 
 ## 📁 Project Structure
 
@@ -49,30 +49,46 @@ distro-picker/
 ├── docs/
 │   ├── SEO.png
 │   └── SEO_mobile.png
+├── scripts/
+│   ├── check-quiz.ts         # `bun run check:quiz`
+│   └── gen-sitemap.ts        # `prebuild`: writes static/sitemap.xml
+├── supabase/migrations/      # Apply in order in the Supabase SQL editor
 ├── src/
 │   ├── app.css
 │   ├── app.html
+│   ├── hooks.server.ts           # Rewrites <html lang> per URL during prerender
 │   ├── lib/
+│   │   ├── actions/
+│   │   │   └── dragScroll.ts
+│   │   ├── blog/
+│   │   │   ├── content.ts        # Frontmatter parsing + locale fallback
+│   │   │   ├── markdown.ts
+│   │   │   ├── posts/            # <slug>.<lang>.md
+│   │   │   └── types.ts
 │   │   ├── components/
+│   │   │   ├── icons/
+│   │   │   ├── modals/           # Modal.svelte + one component per dialog
+│   │   │   ├── BackLink.svelte
+│   │   │   ├── BlogLink.svelte
+│   │   │   ├── Confetti.svelte
+│   │   │   ├── DistroDetails.svelte
 │   │   │   ├── DistroGrid.svelte
-│   │   │   ├── DistroGridSkeleton.svelte
-│   │   │   ├── DistroModal.svelte
+│   │   │   ├── DistroTierSection.svelte
 │   │   │   ├── ErrorDisplay.svelte
-│   │   │   ├── GalleryModal.svelte
+│   │   │   ├── FilterGroup.svelte
 │   │   │   ├── LanguageToggle.svelte
-│   │   │   ├── LoadingSpinner.svelte
 │   │   │   ├── OptimizedImage.svelte
-│   │   │   ├── QuickTestModal.svelte
+│   │   │   ├── PageTopBar.svelte
+│   │   │   ├── Quiz.svelte
 │   │   │   ├── TagFilter.svelte
-│   │   │   ├── TagSkeleton.svelte
 │   │   │   └── ThemeToggle.svelte
 │   │   ├── i18n/
 │   │   │   ├── locale.ts
 │   │   │   └── translations.ts
 │   │   ├── locales/
 │   │   │   ├── types.ts      # Type definitions
-│   │   │   ├── en.json       # English (bundled, used for SSR)
-│   │   │   └── be.json       # Belarusian (bundled, used for SSR)
+│   │   │   ├── en.json       # English (bundled: default + fallback)
+│   │   │   └── be.json       # Belarusian (fetched on demand for /be)
 │   │   ├── stores/
 │   │   │   ├── index.ts
 │   │   │   └── theme.ts
@@ -81,47 +97,80 @@ distro-picker/
 │   │   ├── utils/
 │   │   │   ├── body.ts
 │   │   │   ├── data.ts
-│   │   │   ├── imageObserver.ts
 │   │   │   ├── index.ts
+│   │   │   ├── logoContrast.ts
 │   │   │   ├── storage.ts
-│   │   │   └── validation.ts
+│   │   │   ├── validation.ts
+│   │   │   └── warmup.ts
 │   │   ├── distros.json
+│   │   ├── distros.ts
+│   │   ├── quiz-results.ts
+│   │   ├── screenshots.ts        # Shared static/screenshots discovery
+│   │   ├── seo.ts
 │   │   ├── supabase.ts
 │   │   ├── tagGroups.ts
 │   │   └── types.ts
 │   └── routes/
 │       ├── +layout.server.js     # Returns the locale from the URL (`/` -> en, `/be` -> be)
+│       ├── +layout.ts            # Loads the active locale's translations
 │       ├── +layout.svelte        # Seeds the locale store, canonical + hreflang
 │       └── [[lang]]/             # Optional locale segment
 │           ├── +page.server.ts
 │           ├── +page.svelte
+│           ├── blog/             # Dynamic (prerender = false)
+│           │   ├── +page.server.ts
+│           │   ├── +page.svelte
+│           │   └── [slug]/{+page.server.ts,+page.svelte}
 │           └── distro/[id]/
 │               ├── +page.server.ts   # entries() prerenders both /distro/x and /be/distro/x
 │               └── +page.svelte
-├── src/hooks.server.ts           # Rewrites <html lang> per URL during prerender
 ├── static/
+│   ├── fonts/                # Self-hosted Ubuntu / Geist Mono / Instrument Serif
 │   ├── screenshots/          # Distro screenshots
-│   ├── _headers
 │   ├── .nojekyll
+│   ├── llms.txt, llms-full.txt
 │   ├── robots.txt
-│   ├── sitemap.xml           # Includes both language variants
+│   ├── sitemap.xml           # Generated by `prebuild`; includes both language variants
 │   └── *.webp/*.svg          # Distro logo images
+├── vercel.json               # Security + cache headers (Vercel)
 ├── package.json
 ├── svelte.config.js
-├── tsconfig.json
-└── README.md
+└── tsconfig.json
 ```
 
 ## 🗄️ Database Structure (Supabase)
 
-### 'distros' table
+Schemas live in `supabase/migrations/` and are applied by hand in the Supabase
+SQL editor, in numeric order.
+
+### `distros` table
 
 | Column | Type | Description |
 |--------|------|-------------|
-| id | text | Primary key (same as 'id' in distros.json) |
-| likes | int2 | Number of likes |
+| id | text | Primary key (same as `id` in distros.json) |
+| likes | integer | Number of likes |
 
-Row Level Security (RLS) is enabled with public SELECT and UPDATE policies for the anon role.
+### `blog_posts` table
+
+| Column | Type | Description |
+|--------|------|-------------|
+| slug | text | Primary key (post slug) |
+| views | integer | View count |
+| likes | integer | Like count |
+
+### `messages` table
+
+| Column | Type | Description |
+|--------|------|-------------|
+| id | bigint | Identity primary key |
+| name / email / message | text | Contact form fields (length-checked) |
+| created_at | timestamptz | Insert time |
+
+RLS is enabled on all three tables. The `anon` role has **SELECT only** on
+`distros`/`blog_posts`; counters are mutated through the `SECURITY DEFINER`
+functions created in `0004_atomic_counters.sql`, which apply a delta in a
+single atomic statement so concurrent likes/views cannot overwrite each other.
+`messages` is insert-only — submissions are not readable with the anon key.
 
 ## 🌐 Supported Languages
 
@@ -161,8 +210,11 @@ indexable HTML:
 
 ### Translations
 
-All translations are statically bundled from `src/lib/locales/*.json`, which
-makes them available during SSR/prerender. Missing keys fall back to English.
+English (`en`) is bundled statically — it is the default locale *and* the
+fallback for every other one. Other locales are fetched on demand: the root
+layout's `load` awaits the active locale before rendering (`be.json` is a
+separate chunk, so an English page never downloads it). Missing keys fall back
+to English.
 
 ### SEO
 
