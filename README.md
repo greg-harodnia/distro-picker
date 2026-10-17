@@ -10,6 +10,13 @@ A modern Linux distribution picker built with SvelteKit to help users find the p
 bun install
 ```
 
+### Environment
+
+Copy `.env.example` to `.env.local` and set `PUBLIC_SUPABASE_URL` to your
+Supabase project URL. It is read at build time by the client (`$env/static/public`)
+and by the CSP `connect-src` / preconnect tags in `src/app.html`. The same
+variable must be set in the Vercel project settings, or the build fails.
+
 ### Start development server
 
 ```bash

@@ -1,4 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { PUBLIC_SUPABASE_URL } from '$env/static/public';
 
 /**
  * Supabase data access.
@@ -13,7 +14,10 @@ import type { SupabaseClient } from '@supabase/supabase-js';
  * updates, so concurrent likes/views can't clobber each other.
  */
 
-const supabaseUrl = 'https://lsydfkkkjazznplskovm.supabase.co';
+// Public Supabase project URL (see `.env.example`). The anon key is public by
+// design and lives here; the URL is also referenced by `app.html`, so it comes
+// from one env var to keep the two in sync.
+const supabaseUrl = PUBLIC_SUPABASE_URL;
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxzeWRma2tramF6em5wbHNrb3ZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5ODE3ODMsImV4cCI6MjA4ODU1Nzc4M30.HqKyYDSCscHztQfd71e5D1C1E-IsKPyxxfYQquM0dyw';
 
 let clientPromise: Promise<SupabaseClient> | null = null;
