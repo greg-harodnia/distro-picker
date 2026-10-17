@@ -79,11 +79,7 @@
 	}
 
 	function handleOverlayClick(e: MouseEvent) {
-		// The full-viewport overlay extends far past the centred dialog, so the
-		// second click of the opening double-click can also land on the scrim
-		// (e.target === e.currentTarget) and would otherwise close the dialog
-		// the user just opened.
-		if (e.target === e.currentTarget && isTopmost() && !isStrayClick()) {
+		if (e.target === e.currentTarget && isTopmost()) {
 			close();
 		}
 	}

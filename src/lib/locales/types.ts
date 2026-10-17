@@ -115,11 +115,5 @@ export type Translations = {
         }>;
       };
     };
-    share: {
-      title: string;
-      text: string;
-      copyLink: string;
-      copied: string;
-    };
   };
 };

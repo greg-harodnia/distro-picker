@@ -362,12 +362,6 @@
                 ]
             }
         },
-        "share": {
-            "title": "Enjoying the app?",
-            "text": "Help others discover Linux by sharing this app with your friends!",
-            "copyLink": "Copy Link",
-            "copied": "Copied!"
-        },
         "contact": {
             "title": "Contact Me",
             "intro": "Have a question, suggestion, or just want to say hi? Send me a message!",

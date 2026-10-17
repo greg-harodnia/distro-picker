@@ -96,7 +96,6 @@
 	);
 
 	let quickTestOpen = $state(false);
-	let shareModalOpen = $state(false);
 	let contactModalOpen = $state(false);
 	let openGroup = $state<string | null>(null);
 
@@ -204,9 +203,6 @@
 
 	onMount(() => {
 		loadData();
-		const timer = setTimeout(() => {
-			shareModalOpen = true;
-		}, 60_000);
 
 		const onDocClick = (e: Event) => {
 			const target = e.target as HTMLElement;
@@ -217,7 +213,6 @@
 		document.addEventListener('click', onDocClick);
 
 		return () => {
-			clearTimeout(timer);
 			document.removeEventListener('click', onDocClick);
 		};
 	});
@@ -346,12 +341,6 @@
 			screenshots={(data.screenshots[$selectedDistro.id] || []).map(s => `${base}${s}`)}
 			onclose={closePanel}
 		/>
-	{/if}
-
-	{#if shareModalOpen}
-		{#await import("$lib/components/modals/ShareModal.svelte") then { default: ShareModal }}
-			<ShareModal onclose={() => shareModalOpen = false} />
-		{/await}
 	{/if}
 
 	{#if contactModalOpen}
