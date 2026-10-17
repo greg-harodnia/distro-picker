@@ -2,29 +2,19 @@
 	import BackLink from '$lib/components/BackLink.svelte';
 	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import MastheadTitle from '$lib/components/MastheadTitle.svelte';
 
 	let {
 		backPath,
 		label,
 		title = undefined
 	}: { backPath: string; label?: string | undefined; title?: string | undefined } = $props();
-
-	// Split the localized title so its final word can carry the serif-italic
-	// accent, exactly like the app masthead splits "Linux Distro Picker" so
-	// "Picker" gets it. A single-word title ends up entirely accented.
-	let titleWords = $derived(title ? title.split(' ') : []);
 </script>
 
 <div class="masthead page-top-bar" class:masthead--titled={!!title}>
 	<div class="masthead-lead">
 		{#if title}
-			<h1 class="masthead-title">
-				{#each titleWords as word, i}
-					{#if i === titleWords.length - 1}
-						<span class="serif-accent">{word}</span>
-					{:else}{word}{' '}{/if}
-				{/each}
-			</h1>
+			<MastheadTitle {title} />
 		{:else}
 			<BackLink path={backPath} {label} />
 		{/if}

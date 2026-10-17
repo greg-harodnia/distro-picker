@@ -8,7 +8,8 @@ export interface ValidationResult {
 	errors: ValidationError[];
 }
 
-function isValidUrl(url: string): boolean {
+/** True for well-formed `http:`/`https:` URLs. The single place this is defined. */
+export function isValidUrl(url: string): boolean {
 	try {
 		const urlObj = new URL(url);
 		return urlObj.protocol === 'http:' || urlObj.protocol === 'https:';

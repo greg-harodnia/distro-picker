@@ -59,53 +59,44 @@ export function humanizeId(id: string): string {
 	return id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+/**
+ * Walks a dotted path against a loaded locale, falling back to English when
+ * the key (or the whole locale) is missing. Shared by the string and
+ * structured lookups below so the traversal exists once.
+ */
+function resolvePath(lang: Language, path: string): unknown {
+	const translations = translationCache[lang];
+	if (!translations) return lang === 'en' ? undefined : resolvePath('en', path);
+
+	let result: unknown = translations;
+	for (const key of path.split('.')) {
+		if (result && typeof result === 'object' && key in result) {
+			result = (result as Record<string, unknown>)[key];
+		} else {
+			return lang === 'en' ? undefined : resolvePath('en', path);
+		}
+	}
+	return result;
+}
+
 export function getTranslation(lang: Language, path: string): string | undefined {
-  const cacheKey = `${lang}:${path}`;
-  const cached = translationPathCache.get(cacheKey);
-  if (cached !== undefined) return cached;
-  
-  const translations = translationCache[lang];
-  if (!translations) {
-    // The locale hasn't been loaded yet. Return the English fallback but do
-    // *not* cache it — a later lookup (after `loadTranslation` has run) must
-    // resolve against the real translations instead of a stale fallback.
-    return lang === 'en' ? undefined : getTranslation('en', path);
-  }
+	const cacheKey = `${lang}:${path}`;
+	const cached = translationPathCache.get(cacheKey);
+	if (cached !== undefined) return cached;
 
-  const keys = path.split('.');
-  let result: unknown = translations;
+	// The locale hasn't been loaded yet. Return the English fallback but do
+	// *not* cache it — a later lookup (after `loadTranslation` has run) must
+	// resolve against the real translations instead of a stale fallback.
+	if (!translationCache[lang]) {
+		return lang === 'en' ? undefined : getTranslation('en', path);
+	}
 
-  for (const key of keys) {
-    if (result && typeof result === 'object' && key in result) {
-      result = (result as Record<string, unknown>)[key];
-    } else {
-      const fallback = lang === 'en' ? undefined : getTranslation('en', path);
-      translationPathCache.set(cacheKey, fallback || '');
-      return fallback;
-    }
-  }
-
-  const value = typeof result === 'string' ? result : undefined;
-  translationPathCache.set(cacheKey, value || '');
-  return value;
+	const value = resolvePath(lang, path);
+	const result = typeof value === 'string' ? value : undefined;
+	translationPathCache.set(cacheKey, result || '');
+	return result;
 }
 
 export function getNestedValue<T = unknown>(lang: Language, path: string): T | undefined {
-  const translations = translationCache[lang];
-  if (!translations) {
-    return lang === 'en' ? undefined : getNestedValue<T>('en', path);
-  }
-
-  const keys = path.split('.');
-  let result: unknown = translations;
-
-  for (const key of keys) {
-    if (result && typeof result === 'object' && key in result) {
-      result = (result as Record<string, unknown>)[key];
-    } else {
-      return lang === 'en' ? undefined : getNestedValue<T>('en', path);
-    }
-  }
-
-  return result as T;
+	return resolvePath(lang, path) as T | undefined;
 }

@@ -8,7 +8,6 @@
     "app": {
         "title": "Linux Distro Picker",
         "description": "A distro chooser for beginners with a quiz",
-        "loading": "Loading...",
         "failedToLoad": "Failed to Load Data",
         "noResults": "No distributions match your selected criteria.",
         "close": "Close",
@@ -49,7 +48,6 @@
             "readMore": "Read post",
             "backToBlog": "Back to all posts",
             "backToPicker": "Back to Distro Picker",
-            "loading": "Loading posts...",
             "empty": "No posts yet. Check back soon!",
             "views": "views",
             "likes": "likes",

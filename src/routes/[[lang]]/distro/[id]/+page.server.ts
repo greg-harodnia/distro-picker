@@ -2,6 +2,7 @@ import { error } from '@sveltejs/kit';
 import { distros } from '$lib/distros';
 import { getTranslation, loadTranslation } from '$lib/i18n/translations';
 import { screenshotsForDistro } from '$lib/screenshots';
+import { logoPath } from '$lib/utils/assets';
 
 export const prerender = true;
 
@@ -29,7 +30,7 @@ export async function load({ params }) {
 		seo: {
 			title: `${distro.name} | ${siteTitle}`,
 			description: description.length > 155 ? `${description.slice(0, 152).trim()}...` : description,
-			image: `${distro.logo || '/linux.webp'}`,
+			image: `${logoPath(distro.logo)}`,
 		},
 	};
 }

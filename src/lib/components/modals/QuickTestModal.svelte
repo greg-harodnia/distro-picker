@@ -2,6 +2,8 @@
 	import { t } from '$lib/i18n/locale';
 	import Modal from './Modal.svelte';
 	import Quiz, { type QuizApi } from '$lib/components/Quiz.svelte';
+	import ChevronLeftIcon from '$lib/components/icons/ChevronLeftIcon.svelte';
+	import RestartIcon from '$lib/components/icons/RestartIcon.svelte';
 
 	interface Props {
 		onclose?: () => void;
@@ -21,9 +23,7 @@
 	{#snippet header()}
 		{#if quiz?.canGoBack}
 			<button class="back-btn" onclick={() => quiz?.goBack()} aria-label={$t('modals.quiz.goBack')} type="button">
-				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<polyline points="15 18 9 12 15 6"></polyline>
-				</svg>
+				<ChevronLeftIcon size={20} />
 			</button>
 		{:else}
 			<div class="spacer"></div>
@@ -35,10 +35,7 @@
 		{#if quiz?.isComplete}
 			<div class="footer-actions">
 				<button class="btn-outline" onclick={() => quiz?.restart()} type="button">
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<polyline points="1 4 1 10 7 10"></polyline>
-						<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-					</svg>
+					<RestartIcon />
 					{$t('modals.quiz.restartTest')}
 				</button>
 				<button class="btn-primary" onclick={onclose} type="button">

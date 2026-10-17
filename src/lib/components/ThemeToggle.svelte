@@ -1,31 +1,10 @@
 <script lang="ts">
 	import { theme, themeActions } from '$lib/stores/theme';
-	import { onMount } from 'svelte';
 	import { t } from '$lib/i18n/locale';
 
-	let isDark = $state(false);
-
-	onMount(() => {
-		const storedTheme = localStorage.getItem('theme');
-		if (storedTheme === 'light' || storedTheme === 'dark') {
-			themeActions.set(storedTheme);
-		} else {
-			const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-			themeActions.set(systemPreference);
-		}
-
-		const unsubscribe = theme.subscribe((value: string) => {
-			isDark = value === 'dark';
-			if (value === 'dark') {
-				document.documentElement.classList.add('dark');
-			} else {
-				document.documentElement.classList.remove('dark');
-			}
-			localStorage.setItem('theme', value);
-		});
-
-		return unsubscribe;
-	});
+	// The root layout seeds the store and keeps <html>/localStorage in sync
+	// (see `initTheme`), so this component only reads the current value.
+	let isDark = $derived($theme === 'dark');
 
 	function toggleTheme() {
 		themeActions.toggle();
@@ -40,7 +19,7 @@
 	title={$t('app.toggles.theme')}
 >
 	{#if isDark}
-		<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 			<circle cx="12" cy="12" r="5"/>
 			<line x1="12" y1="1" x2="12" y2="3"/>
 			<line x1="12" y1="21" x2="12" y2="23"/>
@@ -52,7 +31,7 @@
 			<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
 		</svg>
 	{:else}
-		<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 			<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
 		</svg>
 	{/if}

@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { locale, availableLanguages, t, storeLanguagePreference } from '$lib/i18n/locale';
+  import { locale, availableLanguages, t, localeFromPath, storeLanguagePreference } from '$lib/i18n/locale';
   import type { Language } from '$lib/locales/types';
   import { page } from '$app/state';
   import { base } from '$app/paths';
+  import ChevronDownIcon from '$lib/components/icons/ChevronDownIcon.svelte';
 
   let isOpen = $state(false);
 
@@ -13,7 +14,7 @@
    */
   function hrefFor(code: Language): string {
     const path = page.url.pathname;
-    const isBe = path === '/be' || path.startsWith('/be/');
+    const isBe = localeFromPath(path) === 'be';
     const enPath = isBe ? path.slice(3) || '/' : path;
     if (code === 'en') return `${base}${enPath}`;
     if (isBe) return `${base}${path}`;
@@ -53,18 +54,7 @@
     aria-haspopup="listbox"
   >
     <span class="lang-code">{currentLang.code.toUpperCase()}</span>
-    <svg 
-      class="chevron" 
-      class:open={isOpen}
-      width="12" 
-      height="12" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      stroke-width="2"
-    >
-      <polyline points="6 9 12 15 18 9"></polyline>
-    </svg>
+    <ChevronDownIcon size={12} rounded={false} class="chevron{isOpen ? ' open' : ''}" />
   </button>
 
   <div
@@ -109,11 +99,11 @@
     font-weight: var(--font-semibold);
   }
 
-  .chevron {
+  .language-toggle :global(.chevron) {
     transition: transform var(--transition-normal);
   }
 
-  .chevron.open {
+  .language-toggle :global(.chevron.open) {
     transform: rotate(180deg);
   }
 

@@ -2,49 +2,33 @@
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import BackLink from '$lib/components/BackLink.svelte';
+	import JsonLd from '$lib/components/JsonLd.svelte';
 	import PageTopBar from '$lib/components/PageTopBar.svelte';
+	import EyeIcon from '$lib/components/icons/EyeIcon.svelte';
+	import HeartIcon from '$lib/components/icons/HeartIcon.svelte';
 	import { t, locale, localePath } from '$lib/i18n/locale';
 	import { fetchBlogStats, addBlogView, incrementBlogLikes } from '$lib/supabase';
+	import { formatDate, readLikedIds, setLikedId } from '$lib/utils';
 	import { SITE_URL as siteUrl } from '$lib/seo';
 
 	let { data }: { data: PageData } = $props();
 
 	const post = $derived(data.post);
 
+	// Separate key from the distro likes so the two systems don't collide.
+	const BLOG_LIKES_KEY = 'blog_likes';
+
 	let views = $state(0);
 	let likes = $state(0);
 	let userLiked = $state(false);
 	let liking = $state(false);
 
-	function formatDate(iso: string): string {
-		const date = new Date(`${iso}T00:00:00Z`);
-		return new Intl.DateTimeFormat($locale === 'be' ? 'be' : 'en-US', {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric',
-			timeZone: 'UTC',
-		}).format(date);
-	}
-
 	function readLikedState(): boolean {
-		try {
-			const set = JSON.parse(localStorage.getItem('blog_likes') || '[]');
-			return Array.isArray(set) && set.includes(post.slug);
-		} catch {
-			return false;
-		}
+		return readLikedIds(BLOG_LIKES_KEY).includes(post.slug);
 	}
 
 	function persistLikedState(liked: boolean) {
-		try {
-			const set = JSON.parse(localStorage.getItem('blog_likes') || '[]');
-			const next = Array.isArray(set) ? new Set(set) : new Set<string>();
-			if (liked) next.add(post.slug);
-			else next.delete(post.slug);
-			localStorage.setItem('blog_likes', JSON.stringify([...next]));
-		} catch {
-			// storage unavailable — like state just isn't remembered
-		}
+		setLikedId(BLOG_LIKES_KEY, post.slug, liked);
 	}
 
 	onMount(async () => {
@@ -106,26 +90,18 @@
 		post.usingFallback ? `/blog/${post.slug}` : localePath(`/blog/${post.slug}`, $locale)
 	);
 
-	let ldJson = $derived(
-		JSON.stringify(
-			{
-				'@context': 'https://schema.org',
-				'@type': 'BlogPosting',
-				mainEntityOfPage: `${siteUrl}${blogPath}`,
-				headline: post.meta.title,
-				description: post.meta.description,
-				datePublished: post.meta.date,
-				inLanguage: post.lang,
-			},
-			null,
-			2
-		)
-	);
+	let ldData = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'BlogPosting',
+		mainEntityOfPage: `${siteUrl}${blogPath}`,
+		headline: post.meta.title,
+		description: post.meta.description,
+		datePublished: post.meta.date,
+		inLanguage: post.lang,
+	});
 </script>
 
-<svelte:head>
-	{@html `<script type="application/ld+json">${ldJson}</script>`}
-</svelte:head>
+<JsonLd data={ldData} />
 
 <main class="page-shell post-page">
 	<PageTopBar backPath="/blog" label={$t('pages.blog.backToBlog')} />
@@ -134,7 +110,7 @@
 		<header class="post-header">
 			<h1>{post.meta.title}</h1>
 			<p class="post-info mono-label">
-				<time datetime={post.meta.date}>{$t('pages.blog.publishedOn')}: {formatDate(post.meta.date)}</time>
+				<time datetime={post.meta.date}>{$t('pages.blog.publishedOn')}: {formatDate(post.meta.date, $locale)}</time>
 			</p>
 		</header>
 
@@ -145,16 +121,11 @@
 		<footer class="post-footer">
 			<div class="stats">
 				<span class="stat" title="views">
-					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-						<circle cx="12" cy="12" r="3"></circle>
-					</svg>
+					<EyeIcon size={18} />
 					{views}
 				</span>
 				<button class="like-btn" class:liked={userLiked} onclick={toggleLike} type="button" aria-pressed={userLiked}>
-					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill={userLiked ? 'currentColor' : 'none'} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-					</svg>
+					<HeartIcon size={18} filled={userLiked} />
 					<span>{likes}</span>
 					<span class="like-label">{userLiked ? $t('pages.blog.liked') : $t('pages.blog.like')}</span>
 				</button>

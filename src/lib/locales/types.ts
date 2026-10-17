@@ -15,7 +15,6 @@ export type Translations = {
   app: {
     title: string;
     description: string;
-    loading: string;
     failedToLoad: string;
     noResults: string;
     close: string;
@@ -59,7 +58,6 @@ export type Translations = {
       readMore: string;
       backToBlog: string;
       backToPicker: string;
-      loading: string;
       empty: string;
       views: string;
       likes: string;

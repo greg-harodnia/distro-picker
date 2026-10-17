@@ -1,22 +1,28 @@
 import { writable, derived } from 'svelte/store';
 import type { Distro, DistroTier, Tag } from '$lib/types';
-import { getTagGroup } from '$lib/tagGroups';
-
-export { getTagGroup };
+import { getTagGroup, TAGS } from '$lib/tagGroups';
+import { distros as allDistros } from '$lib/distros';
 
 export const selectedTags = writable<Set<string>>(new Set());
 export const selectedDistro = writable<Distro | null>(null);
-export const tags = writable<Tag[]>([]);
-export const distros = writable<Distro[]>([]);
+
+// The canonical tag list and distro list are static, so the stores are seeded
+// with them at definition. Seeding here (rather than mutating the stores from a
+// route's render) keeps initial state with the state that owns it and means SSR
+// renders the full grid from the store's first value.
+export const tags = writable<Tag[]>(TAGS);
+export const distros = writable<Distro[]>(
+	allDistros.map((d) => ({ ...d, likes: 0, userLiked: false }))
+);
 export const error = writable<string | null>(null);
 
 /**
  * Homepage display order of the distro tiers. Each becomes its own labelled,
  * collapsible section.
  */
-export const TIERS: readonly DistroTier[] = ['best', 'other', 'less-popular'];
+const TIERS: readonly DistroTier[] = ['best', 'other', 'less-popular'];
 
-export interface TierGroup {
+interface TierGroup {
 	tier: DistroTier;
 	distros: Distro[];
 }
@@ -24,19 +30,6 @@ export interface TierGroup {
 /** Tier a distro belongs to (unknown/missing tiers fall back to `other`). */
 function tierOf(distro: Distro): DistroTier {
 	return distro.tier && TIERS.includes(distro.tier) ? distro.tier : 'other';
-}
-
-let tagMap = new Map<string, Tag>();
-
-tags.subscribe(tagList => {
-	tagMap.clear();
-	for (const tag of tagList) {
-		tagMap.set(tag.id, tag);
-	}
-});
-
-export function getTagById(tagId: string): Tag | undefined {
-	return tagMap.get(tagId);
 }
 
 // Tag group whose tags are matched against `distro.desktops`.
@@ -47,7 +40,19 @@ const DESKTOP_GROUP = getTagGroup('kde-plasma') ?? 'desktop';
 // (the "Based on" / "Заклад на" filter), not `tag_ids`.
 const BASED_ON_GROUP = getTagGroup('ubuntu') ?? 'based-on';
 
-const MAIN_DESKTOPS = new Set(['KDE Plasma', 'GNOME', 'COSMIC', 'Cinnamon', 'Xfce', 'LXQt']);
+// Desktop filter tag id -> the exact `distro.desktops` value it matches.
+// `other` is the catch-all and is handled separately below.
+const DESKTOP_MATCHES: Record<string, string> = {
+	'kde-plasma': 'KDE Plasma',
+	gnome: 'GNOME',
+	cosmic: 'COSMIC',
+	cinnamon: 'Cinnamon',
+	xfce: 'Xfce',
+	lxqt: 'LXQt',
+};
+
+// Desktops that have their own filter tag; anything else counts as "other".
+const MAIN_DESKTOPS = new Set(Object.values(DESKTOP_MATCHES));
 
 // Tag groups (sections) where multiple tags may be selected at once.
 // The second filter section ("release-model": point-release, rolling, immutable).
@@ -55,52 +60,33 @@ const MULTI_SELECT_GROUPS = new Set(['release-model']);
 
 function matchesDesktop(desktops: string[] | undefined, tagId: string): boolean {
 	if (!desktops || desktops.length === 0) return false;
-	switch (tagId) {
-		case 'kde-plasma':
-			return desktops.includes('KDE Plasma');
-		case 'gnome':
-			return desktops.includes('GNOME');
-		case 'cosmic':
-			return desktops.includes('COSMIC');
-		case 'cinnamon':
-			return desktops.includes('Cinnamon');
-		case 'xfce':
-			return desktops.includes('Xfce');
-		case 'lxqt':
-			return desktops.includes('LXQt');
-		case 'other':
-			return desktops.some(d => !MAIN_DESKTOPS.has(d));
-		default:
-			return false;
-	}
+	if (tagId === 'other') return desktops.some(d => !MAIN_DESKTOPS.has(d));
+	const desktop = DESKTOP_MATCHES[tagId];
+	return desktop !== undefined && desktops.includes(desktop);
 }
 
-// Base families of `based_on` values (e.g. "Debian Testing", "Fedora Atomic"
-// belong to their root family); everything else lands in the "other" bucket.
-const BASED_ON_FAMILIES = ['Ubuntu', 'Debian', 'Fedora', 'Arch'];
+// "Based on" filter tag id -> the root family its `based_on` value starts with
+// (e.g. "Debian Testing", "Fedora Atomic" belong to their root family).
+// `independent` / `based-on-other` are handled separately below.
+const BASED_ON_MATCHES: Record<string, string> = {
+	ubuntu: 'Ubuntu',
+	debian: 'Debian',
+	fedora: 'Fedora',
+	arch: 'Arch',
+};
 
 // Which "Based on" filter tag a distro's `based_on` value matches.
 function matchesBasedOn(basedOn: string | undefined, tagId: string): boolean {
 	if (!basedOn) return false;
-	switch (tagId) {
-		case 'ubuntu':
-			return basedOn.startsWith('Ubuntu');
-		case 'debian':
-			return basedOn.startsWith('Debian');
-		case 'fedora':
-			return basedOn.startsWith('Fedora');
-		case 'arch':
-			return basedOn.startsWith('Arch');
-		case 'independent':
-			return basedOn === 'independent';
-		case 'based-on-other':
-			return (
-				basedOn !== 'independent' &&
-				!BASED_ON_FAMILIES.some(family => basedOn.startsWith(family))
-			);
-		default:
-			return false;
+	if (tagId === 'independent') return basedOn === 'independent';
+	if (tagId === 'based-on-other') {
+		return (
+			basedOn !== 'independent' &&
+			!Object.values(BASED_ON_MATCHES).some(family => basedOn.startsWith(family))
+		);
 	}
+	const family = BASED_ON_MATCHES[tagId];
+	return family !== undefined && basedOn.startsWith(family);
 }
 
 export const filteredDistros = derived(
@@ -180,10 +166,6 @@ export const tagActions = {
 	
 	clear: () => {
 		selectedTags.set(new Set());
-	},
-	
-	set: (tagIds: string[]) => {
-		selectedTags.set(new Set(tagIds));
 	}
 };
 
@@ -204,10 +186,6 @@ export const distroActions = {
 };
 
 export const dataActions = {
-	setTags: (newTags: Tag[]) => {
-		tags.set(newTags);
-	},
-	
 	setDistros: (newDistros: Distro[]) => {
 		distros.set(newDistros);
 	},

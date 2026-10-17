@@ -1,12 +1,3 @@
-<script module lang="ts">
-	// Every modal is a full-screen overlay with the same z-index, so nesting
-	// (gallery → distro → quiz) is resolved by DOM order — and needs a stack
-	// for the shared window-level handlers: only the topmost modal may react to
-	// Escape / overlay clicks, and the body scroll lock must survive until the
-	// *last* modal closes rather than being released by the first one.
-	const modalStack: symbol[] = [];
-</script>
-
 <script lang="ts">
 	import { onMount, type Snippet } from 'svelte';
 	import { fade } from 'svelte/transition';
@@ -15,7 +6,6 @@
 	import CloseIcon from '../icons/CloseIcon.svelte';
 	import { useModalStack } from './modalStack.svelte';
 
-	const instance = Symbol('modal');
 	const scrim = useModalStack();
 
 	// The click that opens a dialog is often followed by a second click at
@@ -68,7 +58,7 @@
 
 	/** True when this modal is the one currently on top of the stack. */
 	function isTopmost() {
-		return modalStack[modalStack.length - 1] === instance;
+		return scrim.isTopmost;
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
@@ -85,14 +75,10 @@
 	}
 
 	onMount(() => {
-		modalStack.push(instance);
 		const leaveScrim = scrim.enter();
 		lockBodyScroll(true);
 		return () => {
-			leaveScrim();
-			const index = modalStack.indexOf(instance);
-			if (index !== -1) modalStack.splice(index, 1);
-			if (modalStack.length === 0) lockBodyScroll(false);
+			if (leaveScrim()) lockBodyScroll(false);
 		};
 	});
 </script>

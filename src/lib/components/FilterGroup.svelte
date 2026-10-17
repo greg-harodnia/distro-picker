@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Tag } from '$lib/types';
 	import TagFilter from './TagFilter.svelte';
+	import ChevronRightIcon from './icons/ChevronRightIcon.svelte';
 	import { fly } from 'svelte/transition';
 
 	let {
@@ -87,21 +88,7 @@
 		bind:this={buttonEl}
 	>
 		<span class="group-label mono-label">{label}</span>
-		<svg
-			class="chevron"
-			xmlns="http://www.w3.org/2000/svg"
-			width="16"
-			height="16"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="2"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			aria-hidden="true"
-		>
-			<polyline points="9 6 15 12 9 18"></polyline>
-		</svg>
+		<ChevronRightIcon size={16} class="chevron" />
 	</button>
 
 	{#if open}
@@ -173,12 +160,12 @@
 		color: var(--color-background);
 	}
 
-	.chevron {
+	.filter-group-btn :global(.chevron) {
 		flex-shrink: 0;
 		transition: transform var(--transition-normal);
 	}
 
-	.filter-group-btn.open .chevron {
+	.filter-group-btn.open :global(.chevron) {
 		transform: rotate(180deg);
 	}
 

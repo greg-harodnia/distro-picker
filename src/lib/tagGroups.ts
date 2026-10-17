@@ -21,7 +21,7 @@ interface TagGroupStructure {
 
 const rawGroups: Record<string, TagGroupStructure> = (enData as { tags: Record<string, TagGroupStructure> }).tags;
 
-export const TAG_GROUPS: TagGroup[] = Object.entries(rawGroups).map(([id, group]) => ({
+const TAG_GROUPS: TagGroup[] = Object.entries(rawGroups).map(([id, group]) => ({
 	id,
 	entryIds: Object.keys(group.entries),
 }));

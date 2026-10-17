@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Distro, DistroTier } from '$lib/types';
 	import DistroGrid from '$lib/components/DistroGrid.svelte';
+	import ChevronDownIcon from '$lib/components/icons/ChevronDownIcon.svelte';
 
 	let {
 		tier,
@@ -44,22 +45,7 @@
 			<span class="tier-sep mono-label" aria-hidden="true">/</span>
 			<span class="tier-title">{title}</span>
 			<span class="tier-count mono-label">{visibleCount}</span>
-			<svg
-				class="chevron"
-				class:open
-				xmlns="http://www.w3.org/2000/svg"
-				width="18"
-				height="18"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="1.75"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
-			>
-				<polyline points="6 9 12 15 18 9"></polyline>
-			</svg>
+			<ChevronDownIcon size={18} strokeWidth={1.75} class="chevron{open ? ' open' : ''}" />
 		</button>
 	</h3>
 
@@ -156,7 +142,7 @@
 			color: var(--accent);
 		}
 
-		.tier-header:hover .chevron {
+		.tier-header:hover :global(.chevron) {
 			color: var(--color-text);
 		}
 	}
@@ -167,7 +153,7 @@
 		border-radius: var(--radius-sm);
 	}
 
-	.chevron {
+	.tier-header :global(.chevron) {
 		flex-shrink: 0;
 		align-self: center;
 		margin-left: auto;
@@ -176,7 +162,7 @@
 		transition: transform var(--transition-normal), color var(--transition-normal);
 	}
 
-	.chevron.open {
+	.tier-header :global(.chevron.open) {
 		transform: rotate(0deg);
 	}
 

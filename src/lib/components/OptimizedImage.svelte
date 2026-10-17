@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { logoContrast } from '$lib/utils/logoContrast';
+	import { FALLBACK_LOGO, logoPath } from '$lib/utils/assets';
 
 	// Paths of images that have loaded at least once on this page. If a card's
 	// image is already in the cache, a fresh OptimizedImage instance starts
@@ -8,7 +9,7 @@
 	// doesn't flash the placeholder again. Module-scoped so it survives unmount.
 	const loadedIcons = new Set<string>();
 
-	const FALLBACK = `${base}/linux.webp`;
+	const FALLBACK = `${base}${FALLBACK_LOGO}`;
 
 	let {
 		alt,
@@ -20,7 +21,7 @@
 		logo?: string | undefined;
 	} = $props();
 
-	let iconPath = $derived(`${base}${logo || '/linux.webp'}`);
+	let iconPath = $derived(`${base}${logoPath(logo)}`);
 
 	// Both flags are keyed by path rather than being one-way booleans, so if the
 	// `logo` prop ever changes the component recovers instead of staying stuck

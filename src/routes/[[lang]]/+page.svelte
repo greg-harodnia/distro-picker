@@ -9,9 +9,12 @@
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import LanguageToggle from "$lib/components/LanguageToggle.svelte";
 	import BlogLink from "$lib/components/BlogLink.svelte";
+	import MastheadTitle from "$lib/components/MastheadTitle.svelte";
+	import JsonLd from "$lib/components/JsonLd.svelte";
+	import CloseIcon from "$lib/components/icons/CloseIcon.svelte";
 	import { dragScroll } from "$lib/actions/dragScroll";
 
-	import { loadDistros, getLikedDistros } from "$lib/utils";
+	import { loadDistros, getLikedDistros, logoPath } from "$lib/utils";
 	import { fetchLikes } from "$lib/supabase";
 	import {
 		tags,
@@ -27,15 +30,11 @@
 		dataActions,
 	} from "$lib/stores";
 	import type { Distro, Tag } from "$lib/types";
-	import { t, locale, localePath } from "$lib/i18n/locale";
+	import { t, locale, localePath, appTitle } from "$lib/i18n/locale";
 	import { humanizeId } from '$lib/i18n/translations';
-	import distrosData from "$lib/distros.json";
-	import { distros as distrosList } from "$lib/distros";
+	import { distros as allDistros } from "$lib/distros";
 	import { SITE_URL as siteUrl } from "$lib/seo";
-	import { getTagGroups, TAGS } from "$lib/tagGroups";
-
-	dataActions.setTags(TAGS);
-	dataActions.setDistros(distrosList.map(d => ({ ...d, likes: 0, userLiked: false })));
+	import { getTagGroups } from "$lib/tagGroups";
 
 	let { data }: { data: PageData } = $props();
 
@@ -59,50 +58,39 @@
 
 	// Structured data is derived (not module-level) so it is rendered in the
 	// page's language — `/be` gets Belarusian names and `/be`-prefixed URLs.
-	let ldJson = $derived(
-		JSON.stringify(
+	let ldData = $derived({
+		"@context": "https://schema.org",
+		"@graph": [
 			{
-				"@context": "https://schema.org",
-				"@graph": [
-					{
-						"@type": "WebSite",
-						"url": `${siteUrl}${localePath('/', $locale)}`,
-						"name": $t('app.title') || 'Linux Distro Picker',
-						"alternateName": alternateSiteNames,
-						"description": ldDescription,
-						"inLanguage": $locale
-					},
-					{
-						"@type": "ItemList",
-						"numberOfItems": distrosData.distros.length,
-						"itemListElement": distrosData.distros.map((d, i) => ({
-							"@type": "ListItem",
-							"position": i + 1,
-							"item": {
-								"@type": "SoftwareApplication",
-								"name": d.name,
-								"url": `${siteUrl}${localePath(`/distro/${d.id}`, $locale)}`,
-								"image": `${siteUrl}${d.logo || '/linux.webp'}`,
-								"applicationCategory": "OperatingSystem",
-								"operatingSystem": "Linux"
-							}
-						}))
-					}
-				]
+				"@type": "WebSite",
+				"url": `${siteUrl}${localePath('/', $locale)}`,
+				"name": $appTitle,
+				"alternateName": alternateSiteNames,
+				"description": ldDescription,
+				"inLanguage": $locale
 			},
-			null,
-			2
-		)
-	);
+			{
+				"@type": "ItemList",
+				"numberOfItems": allDistros.length,
+				"itemListElement": allDistros.map((d, i) => ({
+					"@type": "ListItem",
+					"position": i + 1,
+					"item": {
+						"@type": "SoftwareApplication",
+						"name": d.name,
+						"url": `${siteUrl}${localePath(`/distro/${d.id}`, $locale)}`,
+						"image": `${siteUrl}${logoPath(d.logo)}`,
+						"applicationCategory": "OperatingSystem",
+						"operatingSystem": "Linux"
+					}
+				}))
+			}
+		]
+	});
 
 	let quickTestOpen = $state(false);
 	let contactModalOpen = $state(false);
 	let openGroup = $state<string | null>(null);
-
-	// Split the localized title so its final word can carry the serif-italic
-	// accent (e.g. "Linux Distro Picker" -> "Picker"). The h1's full text is
-	// unchanged for SEO/heading semantics — only the styling differs per word.
-	let titleWords = $derived(($t('app.title') || 'Linux Distro Picker').split(' '));
 
 	// Tier sections: by default the first two ("Best", "Other good options") are
 	// expanded, and the third is collapsed on a fresh visit. `expandedTiers` is
@@ -230,13 +218,7 @@
 <div class="app page-shell" class:app-hidden={!!$error}>
 		<nav class="masthead masthead--titled" aria-label={$t('app.title')}>
 			<div class="masthead-lead">
-				<h1 class="masthead-title">
-					{#each titleWords as word, i}
-						{#if i === titleWords.length - 1}
-							<span class="serif-accent">{word}</span>
-						{:else}{word}{' '}{/if}
-					{/each}
-				</h1>
+				<MastheadTitle title={$appTitle} />
 			</div>
 			<div class="masthead-controls">
 				<BlogLink />
@@ -277,10 +259,7 @@
 				</div>
 				{#if $selectedTags.size > 0}
 					<button class="clear-btn" onclick={() => { tagActions.clear(); }} aria-label={$t('app.filters.clearAll')}>
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<line x1="18" y1="6" x2="6" y2="18"></line>
-							<line x1="6" y1="6" x2="18" y2="18"></line>
-						</svg>
+						<CloseIcon size={16} />
 						<span>{$t('app.filters.clearAll')}</span>
 					</button>
 				{/if}
@@ -350,9 +329,7 @@
 	{/if}
 </div>
 
-<svelte:head>
-	{@html `<script type="application/ld+json">${ldJson}</script>`}
-</svelte:head>
+<JsonLd data={ldData} />
 
 <style>
 	/* Width, gutters and top inset come from the shared `.page-shell` frame —

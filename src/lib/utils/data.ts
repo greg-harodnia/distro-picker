@@ -1,6 +1,6 @@
 import type { Distro } from '../types';
 import { distros } from '../distros';
-import { validateDistrosArray, type ValidationResult } from './validation';
+import { validateDistrosArray, isValidUrl, type ValidationResult } from './validation';
 
 export interface DataLoadResult<T> {
 	data: T | null;
@@ -35,15 +35,7 @@ export async function loadDistros(): Promise<DataLoadResult<Distro[]>> {
 	}
 }
 
+/** Returns a normalized `http(s)` URL, or `'#'` when the input isn't one. */
 export function sanitizeUrl(url: string): string {
-	try {
-		const parsed = new URL(url);
-		// Only allow http and https protocols
-		if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
-			return '#';
-		}
-		return parsed.toString();
-	} catch {
-		return '#';
-	}
+	return isValidUrl(url) ? new URL(url).toString() : '#';
 }

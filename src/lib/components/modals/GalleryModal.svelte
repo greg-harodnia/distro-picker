@@ -1,7 +1,9 @@
-											<script lang="ts">
+<script lang="ts">
 	import { onMount, untrack } from 'svelte';
 	import { t } from '$lib/i18n/locale';
 	import Modal from './Modal.svelte';
+	import ChevronLeftIcon from '$lib/components/icons/ChevronLeftIcon.svelte';
+	import ChevronRightIcon from '$lib/components/icons/ChevronRightIcon.svelte';
 
 	let {
 		images = [],
@@ -144,14 +146,10 @@
 
 		{#if images.length > 1}
 			<button class="arrow left-arrow" onclick={prev} aria-label={$t('modals.gallery.previousImage')} type="button">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<polyline points="15 18 9 12 15 6"></polyline>
-				</svg>
+				<ChevronLeftIcon size={24} />
 			</button>
 			<button class="arrow right-arrow" onclick={next} aria-label={$t('modals.gallery.nextImage')} type="button">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<polyline points="9 18 15 12 9 6"></polyline>
-				</svg>
+				<ChevronRightIcon size={24} />
 			</button>
 		{/if}
 	{/if}
@@ -239,7 +237,7 @@
 			padding: var(--space-sm);
 		}
 
-		.arrow svg {
+		.arrow :global(svg) {
 			width: 20px;
 			height: 20px;
 		}

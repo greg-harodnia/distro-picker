@@ -3,14 +3,16 @@
 	import { get } from 'svelte/store';
 	import type { Language } from '$lib/locales/types';
 	import type { QuizQuestion, QuizAnswer } from '$lib/types/quiz';
-	import type { Distro } from '$lib/types';
 	import { locale, t, localePath } from '$lib/i18n/locale';
 	import { getNestedValue } from '$lib/i18n/translations';
 	import { quizResultsFor, quizResultKey } from '$lib/quiz-results';
 	import { distros as distroStore, distroActions } from '$lib/stores';
 	import { logoContrast } from '$lib/utils/logoContrast';
+	import { logoPath } from '$lib/utils/assets';
 	import Confetti from '$lib/components/Confetti.svelte';
-	import distrosData from '$lib/distros.json';
+	import ChevronLeftIcon from '$lib/components/icons/ChevronLeftIcon.svelte';
+	import RestartIcon from '$lib/components/icons/RestartIcon.svelte';
+	import { distros as allDistros } from '$lib/distros';
 
 	/**
 	 * Read-only view of the quiz state, handed to `onchange` and the `footer`
@@ -39,7 +41,7 @@
 
 	let { onchange, footer }: Props = $props();
 
-	const byId = new Map(distrosData.distros.map((d) => [d.id, d]));
+	const byId = new Map(allDistros.map((d) => [d.id, d]));
 
 	let rootQuestion = $derived(getNestedValue<QuizQuestion>($locale, 'modals.quiz.question')!);
 
@@ -103,9 +105,9 @@
 		if (isModified) return; // let the browser follow the href
 		e.preventDefault();
 		// Prefer the hydrated copy from the store (likes / liked state), fall
-		// back to the raw distros.json entry if the store isn't populated.
+		// back to the canonical distro list if the store isn't populated.
 		const distro =
-			get(distroStore).find((d) => d.id === id) ?? (byId.get(id) as Distro | undefined);
+			get(distroStore).find((d) => d.id === id) ?? byId.get(id);
 		if (distro) distroActions.select(distro);
 	}
 
@@ -174,7 +176,7 @@
 					{#if distro}
 						<li>
 							<a class="result-link" href={localePath(`/distro/${id}`)} onclick={(e) => openResult(e, id)}>
-								<img class="result-logo" use:logoContrast={distro.logo} src={distro.logo} alt="" width="24" height="24" loading="lazy" />
+								<img class="result-logo" use:logoContrast={logoPath(distro.logo)} src={logoPath(distro.logo)} alt="" width="24" height="24" loading="lazy" />
 								<span>{distro.name}</span>
 							</a>
 						</li>
@@ -224,16 +226,11 @@
 {/if}
 
 {#snippet backIcon()}
-	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		<polyline points="15 18 9 12 15 6"></polyline>
-	</svg>
+	<ChevronLeftIcon size={20} />
 {/snippet}
 
 {#snippet restartIcon()}
-	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-		<polyline points="1 4 1 10 7 10"></polyline>
-		<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-	</svg>
+	<RestartIcon />
 {/snippet}
 
 <style>

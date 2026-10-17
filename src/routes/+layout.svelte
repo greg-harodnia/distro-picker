@@ -6,10 +6,10 @@
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import type { Snippet } from 'svelte';
-	import { t, locale, setLocale, localePath, availableLanguages, redirectToPreferredLocale } from '$lib/i18n/locale';
+	import { t, locale, setLocale, localePath, localeFromPath, availableLanguages, appTitle, redirectToPreferredLocale } from '$lib/i18n/locale';
 	import { getTranslation } from '$lib/i18n/translations';
 	import type { Language } from '$lib/locales/types';
-	import { theme, themeActions } from '$lib/stores/theme';
+	import { initTheme } from '$lib/stores/theme';
 	import { warmUp } from '$lib/utils/warmup';
 	import { SITE_URL as siteUrl, SEO_KEYWORDS } from '$lib/seo';
 
@@ -38,7 +38,7 @@
 		description?: string;
 	});
 
-	let baseTitle = $derived($t('app.title') || getTranslation('en', 'app.title'));
+	let baseTitle = $derived($appTitle);
 	let description = $derived($t('app.description') || getTranslation('en', 'app.description'));
 
 	let pageTitle = $derived(seo.title || baseTitle);
@@ -47,7 +47,7 @@
 	let pathname = $derived($page.url.pathname);
 
 	// Language variants of the current page: `/` <-> `/be`, `/distro/x` <-> `/be/distro/x`
-	let isBe = $derived(pathname === '/be' || pathname.startsWith('/be/'));
+	let isBe = $derived(localeFromPath(pathname) === 'be');
 	let enPath = $derived(isBe ? pathname.slice(3) || '/' : pathname);
 	let bePath = $derived(isBe ? pathname : enPath === '/' ? '/be' : `/be${enPath}`);
 
@@ -111,22 +111,9 @@
 		// runs after the (English) HTML is served, so crawlers never see it.
 		redirectToPreferredLocale();
 
-		const storedTheme = localStorage.getItem('theme');
-		if (storedTheme === 'light' || storedTheme === 'dark') {
-			themeActions.set(storedTheme);
-		} else {
-			const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-			themeActions.set(systemTheme);
-		}
-
-		const unsubscribeTheme = theme.subscribe((value) => {
-			document.documentElement.classList.toggle('dark', value === 'dark');
-			localStorage.setItem('theme', value);
-		});
-
-		return () => {
-			unsubscribeTheme();
-		};
+		// Seed the theme from storage/system and keep <html> + localStorage
+		// in sync; the returned unsubscribe is this onMount's cleanup.
+		return initTheme();
 	});
 </script>
 

@@ -24,11 +24,10 @@ interface ParsedFile {
 	lang: string;
 	meta: Record<string, string | string[]>;
 	body: string;
-	raw: string;
 }
 
 /** Naive frontmatter parser for `---\nkey: value\nkey2: [a, b]\n---` blocks. */
-export function parseFrontmatter(raw: string): { meta: Record<string, string | string[]>; body: string } {
+function parseFrontmatter(raw: string): { meta: Record<string, string | string[]>; body: string } {
 	const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(raw);
 	if (!match) {
 		return { meta: {}, body: raw };
@@ -61,7 +60,7 @@ const allFiles: ParsedFile[] = Object.entries(rawModules).flatMap(([path, raw]) 
 	if (!m) return [];
 	const { slug, lang } = { slug: m[1], lang: m[2] as Language };
 	const { meta, body } = parseFrontmatter(raw as string);
-	return [{ slug, lang, meta, body, raw: raw as string }];
+	return [{ slug, lang, meta, body }];
 });
 
 const KNOWN_LANGUAGES = new Set<Language>(['en', 'be', 'ru', 'es', 'pt', 'de', 'fr', 'tr']);
@@ -102,7 +101,7 @@ function pickFile(slug: string, lang: Language): { file: BlogPostFile; usingFall
 	return { file: any, usingFallback: true };
 }
 
-export function getAllSlugs(): string[] {
+function getAllSlugs(): string[] {
 	return [...new Set(allFiles.map((f) => f.slug))];
 }
 

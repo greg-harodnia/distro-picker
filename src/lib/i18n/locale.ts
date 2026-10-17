@@ -37,6 +37,12 @@ export const t = derived(locale, ($locale) => {
   };
 });
 
+/** English fallback for the app name when a locale (or the key) isn't loaded. */
+export const APP_TITLE = 'Linux Distro Picker';
+
+/** The localized app name, with an English fallback that never depends on a loaded locale. */
+export const appTitle = derived(locale, ($locale) => getTranslation($locale, 'app.title') || APP_TITLE);
+
 export const availableLanguages = languageConfigs.map(c => ({
   code: c.code,
   name: c.name,
@@ -50,6 +56,11 @@ export function localePath(path: string, lang: Language = get(locale)): string {
   const p = path.startsWith('/') ? path : `/${path}`;
   if (lang === 'en') return p;
   return p === '/' ? `/${lang}` : `/${lang}${p}`;
+}
+
+/** The locale encoded in a pathname: `/be` or `/be/...` -> 'be'; anything else -> 'en'. */
+export function localeFromPath(path: string): Language {
+  return path === '/be' || path.startsWith('/be/') ? 'be' : 'en';
 }
 
 /** Stored by the language toggle when the user makes an explicit choice. */

@@ -2,12 +2,14 @@
 	import { base } from '$app/paths';
 	import type { PageData } from './$types';
 	import DistroDetails from '$lib/components/DistroDetails.svelte';
+	import JsonLd from '$lib/components/JsonLd.svelte';
 	import PageTopBar from '$lib/components/PageTopBar.svelte';
 	import { TAGS } from '$lib/tagGroups';
 	import { getTranslation } from '$lib/i18n/translations';
-	import { t, locale, localePath } from '$lib/i18n/locale';
+	import { t, locale, localePath, appTitle } from '$lib/i18n/locale';
 	import { SITE_URL as siteUrl } from '$lib/seo';
 	import { logoContrast } from '$lib/utils/logoContrast';
+	import { logoPath } from '$lib/utils/assets';
 
 	let { data }: { data: PageData } = $props();
 
@@ -25,40 +27,32 @@
 	let homePath = $derived(localePath('/', $locale));
 	let distroPath = $derived(localePath(`/distro/${distro.id}`, $locale));
 
-	let ldJson = $derived(
-		JSON.stringify(
+	let ldData = $derived({
+		'@context': 'https://schema.org',
+		'@graph': [
 			{
-				'@context': 'https://schema.org',
-				'@graph': [
-					{
-						'@type': 'BreadcrumbList',
-						itemListElement: [
-							{ '@type': 'ListItem', position: 1, name: $t('app.title') || 'Linux Distro Picker', item: `${siteUrl}${homePath}` },
-							{ '@type': 'ListItem', position: 2, name: distro.name, item: `${siteUrl}${distroPath}` },
-						],
-					},
-					{
-						'@type': 'SoftwareApplication',
-						name: distro.name,
-						url: `${siteUrl}${distroPath}`,
-						applicationCategory: 'OperatingSystem',
-						operatingSystem: 'Linux',
-						description,
-						inLanguage: $locale,
-						image: `${siteUrl}${distro.logo || '/linux.webp'}`,
-						...(distro.website ? { sameAs: distro.website } : {}),
-					},
+				'@type': 'BreadcrumbList',
+				itemListElement: [
+					{ '@type': 'ListItem', position: 1, name: $appTitle, item: `${siteUrl}${homePath}` },
+					{ '@type': 'ListItem', position: 2, name: distro.name, item: `${siteUrl}${distroPath}` },
 				],
 			},
-			null,
-			2
-		)
-	);
+			{
+				'@type': 'SoftwareApplication',
+				name: distro.name,
+				url: `${siteUrl}${distroPath}`,
+				applicationCategory: 'OperatingSystem',
+				operatingSystem: 'Linux',
+				description,
+				inLanguage: $locale,
+				image: `${siteUrl}${logoPath(distro.logo)}`,
+				...(distro.website ? { sameAs: distro.website } : {}),
+			},
+		],
+	});
 </script>
 
-<svelte:head>
-	{@html `<script type="application/ld+json">${ldJson}</script>`}
-</svelte:head>
+<JsonLd data={ldData} />
 
 <main class="page-shell distro-page">
 	<PageTopBar backPath="/" label={$t('pages.distro.backLink')} />
@@ -66,11 +60,11 @@
 	<header class="distro-header">
 		<img
 			class="distro-logo"
-			src={`${base}${distro.logo || '/linux.webp'}`}
+			src={`${base}${logoPath(distro.logo)}`}
 			alt="{distro.name} logo"
 			height="96"
 			width="96"
-			use:logoContrast={distro.logo || '/linux.webp'}
+			use:logoContrast={logoPath(distro.logo)}
 		/>
 		<h1 class="distro-name">{distro.name}</h1>
 		{#if distro.popular || distro.in_development}
