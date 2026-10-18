@@ -117,6 +117,22 @@
 </script>
 
 <svelte:head>
+	<!--
+		The masthead <h1> is the LCP element: it paints at FCP with fallback
+		fonts (font-display: swap), then re-paints when the webfonts load —
+		and that swap paint is the LCP candidate. Preloading the two faces it
+		use (Ubuntu 600 resolves to the 700 face; the accent word is
+		Instrument Serif italic) starts them at HTML receipt instead of after
+		the CSS is parsed. Script subset follows the active locale.
+	-->
+	{#if data.locale === 'be'}
+		<link rel="preload" href="/fonts/ubuntu-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	{:else}
+		<!-- Latin-script locales (en and the SSR-only ones). -->
+		<link rel="preload" href="/fonts/ubuntu-700-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/instrument-serif-latin-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+	{/if}
+
 	<!-- Basic Meta -->
 	<title>{pageTitle || ''}</title>
 	<meta name="description" content={pageDescription} />

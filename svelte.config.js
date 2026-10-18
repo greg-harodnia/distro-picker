@@ -6,6 +6,12 @@ const config = {
 		adapter: adapter({
 			runtime: 'nodejs22.x'
 		}),
+		// Inline every CSS file smaller than this (UTF-16 units) into the
+		// HTML as one <style> block. The homepage ships ~34 KB of CSS across
+		// 6 render-blocking <link>s; inlining removes those requests from the
+		// critical path (FCP), at the cost of a larger HTML document.
+		// Raise alongside app.css if it ever outgrows this threshold.
+		inlineStyleThreshold: 32768,
 		paths: {
 			base: ''
 		},
