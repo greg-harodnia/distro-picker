@@ -4,7 +4,7 @@
 	import type { PageData } from './$types';
 	import FilterGroup from "$lib/components/FilterGroup.svelte";
 	import DistroTierSection from "$lib/components/DistroTierSection.svelte";
-	import DistroModal from "$lib/components/modals/DistroModal.svelte";
+	// DistroModal is lazy-loaded on demand to reduce initial bundle size
 	import ErrorDisplay from "$lib/components/ErrorDisplay.svelte";
 	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 	import LanguageToggle from "$lib/components/LanguageToggle.svelte";
@@ -79,6 +79,24 @@
 	let quickTestOpen = $state(false);
 	let contactModalOpen = $state(false);
 	let openGroup = $state<string | null>(null);
+
+	// Preload heavy modal components after initial load to avoid first-click delay
+	// while keeping initial TBT low. This runs in the background during idle time.
+	onMount(() => {
+		const preloadModals = () => {
+			void import('$lib/components/modals/DistroModal.svelte');
+			void import('$lib/components/modals/QuickTestModal.svelte');
+			void import('$lib/components/modals/ContactModal.svelte');
+		};
+
+		if (typeof window !== 'undefined') {
+			if ('requestIdleCallback' in window) {
+				window.requestIdleCallback(preloadModals, { timeout: 2500 });
+			} else {
+				setTimeout(preloadModals, 1200);
+			}
+		}
+	});
 
 	// Tier sections: by default the first two ("Best", "Other good options") are
 	// expanded, and the third is collapsed on a fresh visit. `expandedTiers` is
@@ -290,12 +308,14 @@
 	     z-index 1000, so DOM order decides which one paints on top. A distro
 	     popup opened from a quiz result must sit above the quiz. -->
 	{#if catalog.selectedDistro}
-		<DistroModal
-			distro={catalog.selectedDistro}
-			tags={TAGS}
-			screenshots={(data.screenshots[catalog.selectedDistro.id] || []).map(s => `${base}${s}`)}
-			onclose={catalog.closeDistro}
-		/>
+		{#await import("$lib/components/modals/DistroModal.svelte") then { default: DistroModal }}
+			<DistroModal
+				distro={catalog.selectedDistro}
+				tags={TAGS}
+				screenshots={(data.screenshots[catalog.selectedDistro.id] || []).map(s => `${base}${s}`)}
+				onclose={catalog.closeDistro}
+			/>
+		{/await}
 	{/if}
 
 	{#if contactModalOpen}

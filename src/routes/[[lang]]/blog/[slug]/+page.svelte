@@ -6,7 +6,7 @@
 	import PageTopBar from '$lib/components/PageTopBar.svelte';
 	import EyeIcon from '$lib/components/icons/EyeIcon.svelte';
 	import HeartIcon from '$lib/components/icons/HeartIcon.svelte';
-	import { t, locale, localePath } from '$lib/i18n/locale';
+	import { t, locale, localePath, appTitle } from '$lib/i18n/locale';
 	import { fetchBlogStats, addBlogView, incrementBlogLikes } from '$lib/supabase';
 	import { formatDate, readLikedIds, setLikedId, toggleLike } from '$lib/utils';
 	import { SITE_URL as siteUrl } from '$lib/seo';
@@ -89,7 +89,16 @@
 		headline: post.meta.title,
 		description: post.meta.description,
 		datePublished: post.meta.date,
+		dateModified: post.meta.date,
 		inLanguage: post.lang,
+		url: `${siteUrl}${blogPath}`,
+		author: { '@type': 'Organization', name: $appTitle },
+		publisher: {
+			'@type': 'Organization',
+			name: $appTitle,
+			logo: { '@type': 'ImageObject', url: `${siteUrl}/linux.webp` }
+		},
+		image: `${siteUrl}/og-image.png`
 	});
 </script>
 

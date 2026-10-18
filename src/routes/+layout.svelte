@@ -10,10 +10,28 @@
 	import type { Language } from '$lib/locales/types';
 	import { initTheme } from '$lib/stores/theme';
 	import { warmUp } from '$lib/utils/warmup';
+	import JsonLd from '$lib/components/JsonLd.svelte';
 	import { SITE_URL as siteUrl, SEO_KEYWORDS } from '$lib/seo';
 
-	injectAnalytics({ mode: dev ? 'development' : 'production' });
-	injectSpeedInsights();
+	// Defer analytics/speed insights to idle time to reduce TBT on first load
+	let analyticsInjected = false;
+	function injectAfterIdle() {
+		if (analyticsInjected) return;
+		analyticsInjected = true;
+		injectAnalytics({ mode: dev ? 'development' : 'production' });
+		injectSpeedInsights();
+	}
+
+	if (typeof window !== 'undefined') {
+		if (window.requestIdleCallback) {
+			window.requestIdleCallback(injectAfterIdle, { timeout: 2000 });
+		} else {
+			setTimeout(injectAfterIdle, 1000);
+		}
+	} else {
+		injectAnalytics({ mode: dev ? 'development' : 'production' });
+		injectSpeedInsights();
+	}
 
 	let { children, data }: { children: Snippet; data: { locale: Language } } = $props();
 
@@ -126,11 +144,11 @@
 		the CSS is parsed. Script subset follows the active locale.
 	-->
 	{#if data.locale === 'be'}
-		<link rel="preload" href="/fonts/ubuntu-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/ubuntu-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high">
 	{:else}
 		<!-- Latin-script locales (en and the SSR-only ones). -->
-		<link rel="preload" href="/fonts/ubuntu-700-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="/fonts/instrument-serif-latin-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/ubuntu-700-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high">
+		<link rel="preload" href="/fonts/instrument-serif-latin-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high">
 	{/if}
 
 	<!-- Basic Meta -->
@@ -158,6 +176,9 @@
 	<meta name="twitter:image" content={socialImage}>
 	<meta name="twitter:image:alt" content={pageTitle}>
 	<meta name="twitter:url" content={canonicalUrl}>
+
+	<!-- Preload OG image -->
+	<link rel="preload" href="/og-image.png" as="image" fetchpriority="low">
 	
 	<!-- Canonical URL -->
 	<link rel="canonical" href={canonicalUrl}>
@@ -167,6 +188,36 @@
 		<link rel="alternate" hreflang={code} href={langHref(code)} />
 	{/each}
 	<link rel="alternate" hreflang="x-default" href={langHref('en')} />
+
+	<!-- WebSite JSON-LD -->
+	<JsonLd
+		data={{
+			'@context': 'https://schema.org',
+			'@graph': [
+				{
+					'@type': 'WebSite',
+					name: baseTitle,
+					url: siteUrl,
+					description: description,
+					inLanguage: $locale,
+					potentialAction: {
+						'@type': 'SearchAction',
+						target: {
+							'@type': 'EntryPoint',
+							urlTemplate: `${siteUrl}/?q={search_term_string}`
+						},
+						'query-input': 'required name=search_term_string'
+					}
+				},
+				{
+					'@type': 'Organization',
+					name: baseTitle,
+					url: siteUrl,
+					logo: `${siteUrl}/linux.webp`
+				}
+			]
+		}}
+	/>
 
 	<!-- Open Graph Locales -->
 	<meta property="og:locale" content={contentLocale === 'en' ? 'en_US' : contentLocale === 'be' ? 'be_BY' : contentLocale}>
