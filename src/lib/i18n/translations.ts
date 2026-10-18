@@ -13,11 +13,11 @@ import enData from '$lib/locales/en.json';
  * — and therefore `$t` — is synchronous.
  */
 const translationCache: Partial<Record<Language, Translations>> = {
-	en: enData as Translations,
+	en: enData,
 };
 
 /** Locales that ship with the app but aren't bundled into the initial graph. */
-const localeLoaders: Partial<Record<Language, () => Promise<{ default: unknown }>>> = {
+const localeLoaders: Partial<Record<Language, () => Promise<{ default: Translations }>>> = {
 	be: () => import('$lib/locales/be.json'),
 };
 
@@ -37,7 +37,7 @@ export async function loadTranslation(lang: Language): Promise<Translations> {
 	if (!inflight) {
 		inflight = loader()
 			.then((mod) => {
-				const data = mod.default as Translations;
+				const data = mod.default;
 				translationCache[lang] = data;
 				return data;
 			})
