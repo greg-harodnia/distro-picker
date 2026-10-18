@@ -1,12 +1,11 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { get } from 'svelte/store';
 	import type { Language } from '$lib/locales/types';
 	import type { QuizQuestion, QuizAnswer } from '$lib/types/quiz';
 	import { locale, t, localePath } from '$lib/i18n/locale';
 	import { getNestedValue } from '$lib/i18n/translations';
 	import { quizResultsFor, quizResultKey } from '$lib/quiz-results';
-	import { distros as distroStore, distroActions } from '$lib/stores';
+	import { catalog } from '$lib/stores/state/catalog.svelte';
 	import { logoContrast } from '$lib/utils/logoContrast';
 	import { logoPath } from '$lib/utils/assets';
 	import Confetti from '$lib/components/Confetti.svelte';
@@ -104,11 +103,11 @@
 			e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
 		if (isModified) return; // let the browser follow the href
 		e.preventDefault();
-		// Prefer the hydrated copy from the store (likes / liked state), fall
-		// back to the canonical distro list if the store isn't populated.
+		// Prefer the hydrated copy from the catalog (likes / liked state), fall
+		// back to the canonical distro list if the catalog isn't populated.
 		const distro =
-			get(distroStore).find((d) => d.id === id) ?? byId.get(id);
-		if (distro) distroActions.select(distro);
+			catalog.distros.find((d) => d.id === id) ?? byId.get(id);
+		if (distro) catalog.selectDistro(distro);
 	}
 
 	function goBack() {

@@ -3,7 +3,7 @@
 	import OptimizedImage from '$lib/components/OptimizedImage.svelte';
 	import { incrementDistroLikes } from '$lib/supabase';
 	import { setLikedDistro, removeLikedDistro, toggleLike } from '$lib/utils';
-	import { distroActions } from '$lib/stores';
+	import { catalog } from '$lib/stores/state/catalog.svelte';
 	import { t, localePath } from '$lib/i18n/locale';
 
 	let {
@@ -47,9 +47,9 @@
 		await toggleLike(
 			{ liked: distro.userLiked ?? false, count: distro.likes ?? 0 },
 			{
-				// The card renders from the global store.
+				// The card renders from the global catalog.
 				apply: ({ liked, count }) =>
-					distroActions.update(distro.id, { likes: count, userLiked: liked }),
+					catalog.updateDistro(distro.id, { likes: count, userLiked: liked }),
 				remember: (liked) =>
 					liked ? setLikedDistro(distro.id) : removeLikedDistro(distro.id),
 				rpc: (delta) => incrementDistroLikes(distro.id, delta)

@@ -97,7 +97,10 @@ distro-picker/
 │   │   │   ├── en.json       # English (bundled: default + fallback)
 │   │   │   └── be.json       # Belarusian (fetched on demand for /be)
 │   │   ├── stores/
-│   │   │   ├── index.ts
+│   │   │   ├── core/
+│   │   │   │   └── filters.ts       # Pure filter engine (tiers, tag matching)
+│   │   │   ├── state/
+│   │   │   │   └── catalog.svelte.ts # Shared picker state (runes singleton)
 │   │   │   └── theme.ts
 │   │   ├── types/
 │   │   │   └── quiz.ts

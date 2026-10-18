@@ -16,25 +16,13 @@
 
 	import { loadDistros, getLikedDistros, logoPath } from "$lib/utils";
 	import { fetchLikes } from "$lib/supabase";
-	import {
-		tags,
-		error,
-		selectedTags,
-		selectedDistro,
-		distros,
-		filteredDistros,
-		allTieredDistros,
-		visibleDistroIds,
-		tagActions,
-		distroActions,
-		dataActions,
-	} from "$lib/stores";
-	import type { Distro, Tag } from "$lib/types";
+	import { catalog } from "$lib/stores/state/catalog.svelte";
+	import type { Tag } from "$lib/types";
 	import { t, locale, localePath, appTitle } from "$lib/i18n/locale";
 	import { humanizeId } from '$lib/i18n/translations';
 	import { distros as allDistros } from "$lib/distros";
 	import { SITE_URL as siteUrl } from "$lib/seo";
-	import { getTagGroups } from "$lib/tagGroups";
+	import { TAGS, getTagGroups } from "$lib/tagGroups";
 
 	let { data }: { data: PageData } = $props();
 
@@ -116,7 +104,7 @@
 	}
 
 	let groups = $derived.by(() => {
-		const tagById = new Map($tags.map(tag => [tag.id, tag]));
+		const tagById = new Map(TAGS.map(tag => [tag.id, tag]));
 		return getTagGroups()
 			.map(group => ({
 				id: group.id,
@@ -128,13 +116,13 @@
 	});
 
 	async function loadData() {
-		dataActions.clearError();
+		catalog.clearError();
 
 		try {
 			const distrosResult = await loadDistros();
 
 			if (distrosResult.error) {
-				dataActions.setError(distrosResult.error);
+				catalog.setError(distrosResult.error);
 			} else {
 				const loadedDistros = distrosResult.data || [];
 				const userLikes = getLikedDistros();
@@ -145,10 +133,10 @@
 					userLiked: userLikes.includes(distro.id)
 				}));
 
-				dataActions.setDistros(distrosWithLikes);
+				catalog.setDistros(distrosWithLikes);
 			}
 		} catch (err) {
-			dataActions.setError(
+			catalog.setError(
 				err instanceof Error ? err.message : "Failed to load data",
 			);
 		}
@@ -159,34 +147,22 @@
 				const likesMap = new Map(likesData.map(l => [l.id, l.likes]));
 				// Update likes on the full distro list, not the filtered one —
 				// writing back a filtered subset would permanently drop distros
-				// from the store while filters are active (e.g. on remount).
-				const updatedDistros = $distros.map(distro => {
+				// from the catalog while filters are active (e.g. on remount).
+				const updatedDistros = catalog.distros.map(distro => {
 					const newLikes = likesMap.get(distro.id);
 					return newLikes !== undefined && newLikes !== distro.likes
 						? { ...distro, likes: newLikes }
 						: distro;
 				});
-				dataActions.setDistros(updatedDistros);
+				catalog.setDistros(updatedDistros);
 			}
 		} catch (err) {
 			console.error('Failed to fetch likes:', err);
 		}
 	}
 
-	function toggleTag(tagId: string) {
-		tagActions.toggle(tagId);
-	}
-
 	function groupLabel(group: string): string {
 		return $t(`tags.${group}.name`) || humanizeId(group);
-	}
-
-	function selectDistro(distro: Distro) {
-		distroActions.select(distro);
-	}
-
-	function closePanel() {
-		distroActions.clear();
 	}
 
 	onMount(() => {
@@ -206,16 +182,16 @@
 	});
 </script>
 
-{#if $error}
+{#if catalog.error}
 	<ErrorDisplay
 		title={$t('app.failedToLoad') ?? ''}
-		message={$error}
+		message={catalog.error}
 		retryable
 		onretry={loadData}
 	/>
 {/if}
 
-<div class="app page-shell" class:app-hidden={!!$error}>
+<div class="app page-shell" class:app-hidden={!!catalog.error}>
 		<nav class="masthead masthead--titled" aria-label={$t('app.title')}>
 			<div class="masthead-lead">
 				<MastheadTitle title={$appTitle} />
@@ -249,16 +225,16 @@
 						<FilterGroup
 							label={groupLabel(group.id)}
 							tags={group.tags}
-							selectedTags={$selectedTags}
+							selectedTags={catalog.selectedTags}
 							open={openGroup === group.id}
-							ontoggle={toggleTag}
+							ontoggle={catalog.toggleTag}
 							onopen={() => (openGroup = group.id)}
 							onclose={() => (openGroup = null)}
 						/>
 					{/each}
 				</div>
-				{#if $selectedTags.size > 0}
-					<button class="clear-btn" onclick={() => { tagActions.clear(); }} aria-label={$t('app.filters.clearAll')}>
+				{#if catalog.selectedTags.size > 0}
+					<button class="clear-btn" onclick={() => { catalog.clearTags(); }} aria-label={$t('app.filters.clearAll')}>
 						<CloseIcon size={16} />
 						<span>{$t('app.filters.clearAll')}</span>
 					</button>
@@ -268,19 +244,19 @@
 
 		<div class="content">
 			<section class="distros" id="distribution-details">
-				{#if $filteredDistros.length === 0}
+				{#if catalog.filteredDistros.length === 0}
 					<div class="no-results" role="status" aria-live="polite">
 						<p>{$t('app.noResults')}</p>
 					</div>
 				{/if}
-				{#each $allTieredDistros as group, i (group.tier)}
+				{#each catalog.allTieredDistros as group, i (group.tier)}
 					<DistroTierSection
 						tier={group.tier}
 						index={i + 1}
 						title={$t(`app.tiers.${group.tier}.name`) || humanizeId(group.tier)}
 						distros={group.distros}
-						visibleIds={$visibleDistroIds}
-						onselect={(d) => selectDistro(d)}
+						visibleIds={catalog.visibleDistroIds}
+						onselect={catalog.selectDistro}
 						open={isTierOpen(group.tier)}
 						ontoggle={() => toggleTier(group.tier)}
 					/>
@@ -313,12 +289,12 @@
 	<!-- Rendered after the quiz modal on purpose: every modal shares
 	     z-index 1000, so DOM order decides which one paints on top. A distro
 	     popup opened from a quiz result must sit above the quiz. -->
-	{#if $selectedDistro}
+	{#if catalog.selectedDistro}
 		<DistroModal
-			distro={$selectedDistro}
-			tags={$tags}
-			screenshots={(data.screenshots[$selectedDistro.id] || []).map(s => `${base}${s}`)}
-			onclose={closePanel}
+			distro={catalog.selectedDistro}
+			tags={TAGS}
+			screenshots={(data.screenshots[catalog.selectedDistro.id] || []).map(s => `${base}${s}`)}
+			onclose={catalog.closeDistro}
 		/>
 	{/if}
 
