@@ -80,20 +80,18 @@
 	let contactModalOpen = $state(false);
 	let openGroup = $state<string | null>(null);
 
-	// Preload heavy modal components after initial load to avoid first-click delay
+	// Preload DistroModal after initial load to avoid first-click delay
 	// while keeping initial TBT low. This runs in the background during idle time.
 	onMount(() => {
 		const preloadModals = () => {
 			void import('$lib/components/modals/DistroModal.svelte');
-			void import('$lib/components/modals/QuickTestModal.svelte');
-			void import('$lib/components/modals/ContactModal.svelte');
 		};
 
 		if (typeof window !== 'undefined') {
 			if ('requestIdleCallback' in window) {
-				window.requestIdleCallback(preloadModals, { timeout: 2500 });
+				window.requestIdleCallback(preloadModals, { timeout: 3000 });
 			} else {
-				setTimeout(preloadModals, 1200);
+				setTimeout(preloadModals, 2000);
 			}
 		}
 	});

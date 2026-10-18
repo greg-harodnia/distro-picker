@@ -176,9 +176,6 @@
 	<meta name="twitter:image" content={socialImage}>
 	<meta name="twitter:image:alt" content={pageTitle}>
 	<meta name="twitter:url" content={canonicalUrl}>
-
-	<!-- Preload OG image -->
-	<link rel="preload" href="/og-image.png" as="image" fetchpriority="low">
 	
 	<!-- Canonical URL -->
 	<link rel="canonical" href={canonicalUrl}>
