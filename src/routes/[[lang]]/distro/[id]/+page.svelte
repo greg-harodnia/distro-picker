@@ -64,6 +64,7 @@
 			alt="{distro.name} logo"
 			height="96"
 			width="96"
+			decoding="async"
 			use:logoContrast={logoPath(distro.logo)}
 		/>
 		<h1 class="distro-name">{distro.name}</h1>
@@ -90,7 +91,14 @@
 						aria-label="{$t('pages.distro.screenshots')} {i + 1} of {distro.name}"
 						type="button"
 					>
-						<img src={`${base}${screenshot}`} alt="Screenshot {i + 1} of {distro.name}" loading="lazy" />
+						<img
+							src={`${base}${screenshot}`}
+							alt="Screenshot {i + 1} of {distro.name}"
+							loading="lazy"
+							decoding="async"
+							width="240"
+							height="160"
+						/>
 					</button>
 				{/each}
 			</div>

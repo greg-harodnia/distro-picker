@@ -157,6 +157,13 @@
 			);
 		}
 
+	}
+
+	// Likes are cosmetic, and fetching them pulls the ~170 KB Supabase client
+	// onto the main thread (Google reports it as unused JS on first load).
+	// Scheduling it after hydration/first idle keeps it off the critical path;
+	// retry re-runs it so a failed first attempt still resolves.
+	async function loadLikes() {
 		try {
 			const likesData = await fetchLikes();
 			if (likesData.length > 0) {
@@ -177,12 +184,27 @@
 		}
 	}
 
+	function scheduleLikes() {
+		if (typeof window === 'undefined') return;
+		if ('requestIdleCallback' in window) {
+			window.requestIdleCallback(() => void loadLikes(), { timeout: 3000 });
+		} else {
+			setTimeout(() => void loadLikes(), 1500);
+		}
+	}
+
+	function retryData() {
+		loadData();
+		scheduleLikes();
+	}
+
 	function groupLabel(group: string): string {
 		return $t(`tags.${group}.name`) || humanizeId(group);
 	}
 
 	onMount(() => {
 		loadData();
+		scheduleLikes();
 
 		const onDocClick = (e: Event) => {
 			const target = e.target as HTMLElement;
@@ -203,7 +225,7 @@
 		title={$t('app.failedToLoad') ?? ''}
 		message={catalog.error}
 		retryable
-		onretry={loadData}
+		onretry={retryData}
 	/>
 {/if}
 
