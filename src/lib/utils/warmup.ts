@@ -10,6 +10,7 @@ import { preloadCode, preloadData } from '$app/navigation';
 const LAZY_CHUNKS: ReadonlyArray<() => Promise<unknown>> = [
 	() => import('$lib/components/modals/QuickTestModal.svelte'), // "Quick Quiz"
 	() => import('$lib/components/modals/ContactModal.svelte'), // header contact button
+	() => import('$lib/components/modals/DistroModal.svelte'), // distro detail popup
 ];
 
 export interface WarmUpTargets {
@@ -76,8 +77,12 @@ function flush(): void {
 	}
 }
 
-/** Run `fn` after the page has loaded, at the first idle moment. */
-function whenIdle(fn: () => void): void {
+/**
+ * Run `fn` after the page has loaded, at the first idle moment. Shared by the
+ * warm-up flush below and by callers that have non-critical work (e.g. the
+ * like counters) to keep off the critical path.
+ */
+export function whenIdle(fn: () => void): void {
 	let scheduled = false;
 	const go = () => {
 		if (scheduled) return;

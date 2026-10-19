@@ -136,20 +136,12 @@
 
 <svelte:head>
 	<!--
-		The masthead <h1> is the LCP element: it paints at FCP with fallback
-		fonts (font-display: swap), then re-paints when the webfonts load —
-		and that swap paint is the LCP candidate. Preloading the two faces it
-		use (Ubuntu 600 resolves to the 700 face; the accent word is
-		Instrument Serif italic) starts them at HTML receipt instead of after
-		the CSS is parsed. Script subset follows the active locale.
+		The LCP-critical masthead fonts are preloaded from `app.html` instead
+		of here: `<svelte:head>` is emitted after SvelteKit's own
+		modulepreload tags, so a preload declared here only starts after the
+		~150 KB of page JS has claimed the (same-priority) fetch queue. See the
+		inline script in `src/app.html` for the locale-aware preload.
 	-->
-	{#if data.locale === 'be'}
-		<link rel="preload" href="/fonts/ubuntu-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high">
-	{:else}
-		<!-- Latin-script locales (en and the SSR-only ones). -->
-		<link rel="preload" href="/fonts/ubuntu-700-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high">
-		<link rel="preload" href="/fonts/instrument-serif-latin-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high">
-	{/if}
 
 	<!-- Basic Meta -->
 	<title>{pageTitle || ''}</title>

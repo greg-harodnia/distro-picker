@@ -10,6 +10,39 @@
 		<meta name="google-site-verification" content="DYt7fPMkb9nRbwcRu_KkPqhtBDnUHPiYn_6GAS5gl2I" />
 		<link rel="icon" href="%sveltekit.assets%/linux.webp" />
 		<script>
+			// The masthead <h1> is the LCP element: it paints at FCP with the
+			// fallback font, then re-paints when the webfont arrives — and that
+			// swap paint is the LCP candidate. Preloading here (rather than in
+			// `<svelte:head>`) is what puts the font in the fetch queue *before*
+			// SvelteKit's modulepreload JS chunks: same priority, so discovery
+			// order decides who gets the connection first. Ubuntu 600 resolves
+			// to the 700 face; the accent word is Instrument Serif italic.
+			// Subset follows the active locale (`/be` renders Cyrillic).
+			(() => {
+				const cyrillic =
+					location.pathname === '/be' || location.pathname.startsWith('/be/');
+				const fonts = cyrillic
+					? ['/fonts/ubuntu-700-cyrillic.woff2']
+					: [
+							'/fonts/ubuntu-700-latin.woff2',
+							'/fonts/instrument-serif-latin-italic.woff2'
+						];
+				for (const href of fonts) {
+					const link = document.createElement('link');
+					// setAttribute, not the IDL properties: `fetchPriority` is
+					// Chromium-only, and a missing attribute would silently drop
+					// the hint in Firefox/Safari.
+					link.setAttribute('rel', 'preload');
+					link.setAttribute('as', 'font');
+					link.setAttribute('type', 'font/woff2');
+					link.setAttribute('crossorigin', 'anonymous');
+					link.setAttribute('fetchpriority', 'high');
+					link.setAttribute('href', href);
+					document.head.appendChild(link);
+				}
+			})();
+		</script>
+		<script>
 			// Apply the theme class before first paint: the layout only sets it in
 			// onMount (after hydration), which made dark-mode visitors see a light
 			// flash of the prerendered page. onMount re-applies the same class,

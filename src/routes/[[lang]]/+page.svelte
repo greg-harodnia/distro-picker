@@ -13,6 +13,7 @@
 	import JsonLd from "$lib/components/JsonLd.svelte";
 	import CloseIcon from "$lib/components/icons/CloseIcon.svelte";
 	import { dragScroll } from "$lib/actions/dragScroll";
+	import { whenIdle } from "$lib/utils/warmup";
 
 	import { loadDistros, getLikedDistros, logoPath } from "$lib/utils";
 	import { fetchLikes } from "$lib/supabase";
@@ -79,22 +80,6 @@
 	let quickTestOpen = $state(false);
 	let contactModalOpen = $state(false);
 	let openGroup = $state<string | null>(null);
-
-	// Preload DistroModal after initial load to avoid first-click delay
-	// while keeping initial TBT low. This runs in the background during idle time.
-	onMount(() => {
-		const preloadModals = () => {
-			void import('$lib/components/modals/DistroModal.svelte');
-		};
-
-		if (typeof window !== 'undefined') {
-			if ('requestIdleCallback' in window) {
-				window.requestIdleCallback(preloadModals, { timeout: 3000 });
-			} else {
-				setTimeout(preloadModals, 2000);
-			}
-		}
-	});
 
 	// Tier sections: by default the first two ("Best", "Other good options") are
 	// expanded, and the third is collapsed on a fresh visit. `expandedTiers` is
@@ -185,12 +170,7 @@
 	}
 
 	function scheduleLikes() {
-		if (typeof window === 'undefined') return;
-		if ('requestIdleCallback' in window) {
-			window.requestIdleCallback(() => void loadLikes(), { timeout: 3000 });
-		} else {
-			setTimeout(() => void loadLikes(), 1500);
-		}
+		whenIdle(() => void loadLikes());
 	}
 
 	function retryData() {
