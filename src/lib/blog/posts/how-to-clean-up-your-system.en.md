@@ -42,6 +42,8 @@ Package managers are the biggest source of accumulated junk: every update leaves
 
 Arch users with an AUR helper (`yay` or `paru`) can clear its build cache as well: `yay -Sc` or `paru -Sc`.
 
+Also, on Arch and friends, you can see your top 20 packages by size with: `expac -H M "%m\t%n" $(pacman -Qqe) | sort -rh | head -n 20`.
+
 ## Remove orphaned packages
 
 "Orphans" are packages that were installed automatically as dependencies but are no longer needed by anything. Removing them is the biggest win after the cache.
