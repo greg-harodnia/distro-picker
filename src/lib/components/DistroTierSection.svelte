@@ -52,7 +52,9 @@
 	<!-- Kept mounted (only hidden) so the card images stay loaded and don't
 	     re-fetch/re-flash every time the section is expanded or re-shown. -->
 	<div class="tier-panel" class:collapsed={!open}>
-		<DistroGrid {distros} {visibleIds} {onselect} />
+		<div class="tier-clip">
+			<DistroGrid {distros} {visibleIds} {onselect} />
+		</div>
 	</div>
 </section>
 
@@ -83,37 +85,43 @@
 	}
 
 	/* The panel stays mounted (so the card images don't reload) and collapses by
-	   animating its height from auto to 0 and back via `clip-path`, which both
-	   (a) extends the clip 16px beyond the box so the ❤️/badge overhangs and
-	   shadows of the outer card columns stay visible at rest, and (b) clips
-	   exactly at the panel edge while opening/closing — nothing lingers as a
-	   visible sliver when the panel finishes closing. Height (not overflow) does
-	   the layout collapsing, so card widths stay untouched. */
+	   animating a grid track 1fr ↔ 0fr rather than `height` ↔ `auto`: keyword
+	   height interpolation needs `interpolate-size`, which only Chromium
+	   implements, so Firefox/Safari would snap with no animation. Grid track
+	   interpolation runs everywhere (Chrome/Edge 107+, Firefox 66+, Safari 16+)
+	   and degrades to that same instant snap only below those versions. The
+	   track does the layout collapsing, so card widths stay untouched, and the
+	   row shrinks in flow — no phantom scroll past the end of the document.
+
+	   `clip-path` extends the clip 16px beyond the box so the ❤️/badge
+	   overhangs and shadows of the outer card columns stay visible at rest, and
+	   clips exactly at the panel edge while opening/closing — nothing lingers
+	   as a visible sliver when the panel finishes closing. */
 	.tier-panel {
-		height: auto;
+		display: grid;
+		grid-template-rows: 1fr;
 		clip-path: inset(-16px);
+		transition:
+			grid-template-rows var(--transition-slow),
+			clip-path var(--transition-slow);
 	}
 
 	.tier-panel.collapsed {
-		height: 0;
-		/* `clip-path` hides the overflowing grid visually but does NOT remove it
-		   from scrollable overflow — without this the document stays ~530px
-		   scrollable past the end (empty space where the expanded grid would
-		   be). `overflow: clip` (not `hidden`: no scroll container) drops that
-		   phantom scroll area; the 16px clip margin matches clip-path's own
-		   -16px bleed so badge overhangs animate identically. */
-		overflow: clip;
-		overflow-clip-margin: 16px;
+		grid-template-rows: 0fr;
 		clip-path: inset(-16px -16px 100% -16px);
 	}
 
-	@supports (interpolate-size: allow-keywords) {
-		.tier-panel {
-			interpolate-size: allow-keywords;
-			transition:
-				height var(--transition-slow),
-				clip-path var(--transition-slow);
-		}
+	/* The grid's wrapper: `min-height: 0` lets it collapse with the 0fr track
+	   (its automatic minimum size would otherwise hold the row open), while
+	   `overflow: clip` — not `hidden`: no scroll container — drops the grid
+	   from the document's scrollable overflow. `clip-path` alone hides it
+	   visually but still leaves ~530px of scrollable space past the end. The
+	   16px clip margin matches the panel's own -16px bleed so the card
+	   overhangs paint at rest. */
+	.tier-clip {
+		min-height: 0;
+		overflow: clip;
+		overflow-clip-margin: 16px;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
