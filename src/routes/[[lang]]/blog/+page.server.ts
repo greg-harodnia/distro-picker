@@ -1,14 +1,24 @@
 import { listPosts, BLOG_INDEX_DESCRIPTION } from '$lib/blog/content';
 import { getTranslation, loadTranslation } from '$lib/i18n/translations';
 import { getSiteTitle } from '$lib/i18n/locale';
-import { fetchAllBlogStats } from '$lib/supabase';
-import type { BlogStats } from '$lib/supabase';
+import { supabase } from '$lib/server/supabase';
+import type { BlogStats } from '$lib/supabase-types';
 import type { BlogPostSummary } from '$lib/blog/types';
 import type { Language } from '$lib/locales/types';
 
 // Blog pages are intentionally dynamic: the post list/content is fetched
 // when a visitor goes to the blog, not baked into the initial SSR HTML.
 export const prerender = false;
+
+async function fetchAllBlogStats(): Promise<BlogStats[]> {
+	const { data, error } = await supabase.from('blog_posts').select('slug, views, likes');
+
+	if (error) {
+		console.error('Failed to fetch blog stats:', error);
+		return [];
+	}
+	return (data as BlogStats[]) ?? [];
+}
 
 export async function load({ params }): Promise<{
 	posts: BlogPostSummary[];
