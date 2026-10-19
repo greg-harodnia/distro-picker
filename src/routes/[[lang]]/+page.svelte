@@ -296,6 +296,12 @@
 				</svg>
 				<span>{$t('modals.contact.title')}</span>
 			</button>
+			<a
+				class="footer-link mono-label"
+				href={`${base}${localePath('/blog/welcome-to-distro-picker', $locale)}`}
+			>
+				{$t('pages.blog.whyNotOtherDistros')}
+			</a>
 		</footer>
 
 	{#if quickTestOpen}
@@ -348,13 +354,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		gap: var(--space-md);
+		gap: var(--space-lg);
 		margin-top: var(--space-3xl);
 		padding-top: var(--space-lg);
 		border-top: 1px solid var(--line);
 	}
 
-	.footer-contact {
+	.footer-contact,
+	.footer-link {
 		display: inline-flex;
 		align-items: center;
 		gap: var(--space-sm);
@@ -363,8 +370,13 @@
 		padding: 0;
 	}
 
+	.footer-link {
+		text-decoration: none;
+	}
+
 	@media (hover: hover) {
-		.footer-contact:hover {
+		.footer-contact:hover,
+		.footer-link:hover {
 			color: var(--color-text);
 		}
 	}
