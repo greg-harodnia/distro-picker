@@ -31,6 +31,24 @@
 	let visibleCount = $derived(
 		visibleIds ? distros.filter(d => visibleIds.has(d.id)).length : distros.length
 	);
+
+	// Deferred rendering: collapsed tiers (open=false on first mount) don't
+	// hydrate their grid until the user expands them. Once expanded, the grid
+	// stays mounted so images don't reload on re-collapse.
+	let hasOpened = $state(open);
+	// First expansion needs a frame in the collapsed state so the height
+	// transition has a starting point (0) to animate from.
+	let firstExpand = $state(false);
+
+	$effect(() => {
+		if (open && !hasOpened) {
+			hasOpened = true;
+			firstExpand = true;
+			requestAnimationFrame(() => {
+				firstExpand = false;
+			});
+		}
+	});
 </script>
 
 <section class="tier tier--{tier}" hidden={visibleCount === 0}>
@@ -49,16 +67,25 @@
 		</button>
 	</h3>
 
-	<!-- Kept mounted (only hidden) so the card images stay loaded and don't
-	     re-fetch/re-flash every time the section is expanded or re-shown. -->
-	<div class="tier-panel" class:collapsed={!open}>
-		<DistroGrid {distros} {visibleIds} {onselect} />
-	</div>
+	{#if hasOpened}
+		<!-- Kept mounted (only hidden) so the card images stay loaded and don't
+		     re-fetch/re-flash every time the section is expanded or re-shown. -->
+		<div class="tier-panel" class:collapsed={!open || firstExpand}>
+			<DistroGrid {distros} {visibleIds} {onselect} />
+		</div>
+	{/if}
 </section>
 
 <style>
 	.tier[hidden] {
 		display: none;
+	}
+
+	/* Skip rendering off-screen tiers; contain-intrinsic-size reserves space
+	   to avoid scroll jank when they enter the viewport. */
+	.tier {
+		content-visibility: auto;
+		contain-intrinsic-size: auto 400px;
 	}
 
 	.tier:not(:last-child) {
