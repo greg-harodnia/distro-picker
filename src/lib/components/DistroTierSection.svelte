@@ -62,10 +62,20 @@
 	}
 
 	/* Skip rendering off-screen tiers; contain-intrinsic-size reserves space
-	   to avoid scroll jank when they enter the viewport. */
+	   to avoid scroll jank when they enter the viewport.
+
+	   `content-visibility` implies paint containment, which clips descendants
+	   to the padding box — the content box is exactly the grid's width, so the
+	   last column's ❤️ pill (`.reactions` hangs 10px past its card) got sliced
+	   off at the content edge. The 16px right bleed matches `.tier-panel`'s
+	   clip-path margin so the overhang paints again; the negative margin
+	   cancels the padding, so the header rule, cards and column positions are
+	   byte-for-byte where they were. */
 	.tier {
 		content-visibility: auto;
 		contain-intrinsic-size: auto 400px;
+		margin-right: -16px;
+		padding-right: 16px;
 	}
 
 	.tier:not(:last-child) {
