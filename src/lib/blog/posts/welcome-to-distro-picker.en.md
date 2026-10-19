@@ -1,11 +1,11 @@
 ---
-title: Welcome to Distro Picker
+title: Welcome
 date: 2026-09-23
 description: What this distro picker is and isn't, how big Linux really is, dual-boot and Secure Boot tips, and the apps we recommend.
 pinned: true
 ---
 
-# Welcome to Distro Picker
+# Welcome
 
 Not sure which Linux distribution to use? [Distro Picker](/) is a distro finder and quick quiz built to match beginners with the right distro. 
 
