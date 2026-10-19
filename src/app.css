@@ -475,8 +475,9 @@ button:not(:disabled) {
    A one-colour black silhouette (Tux, the SteamOS circle) dissolves into the
    ink theme, and its exact inverse is that logo's own dark-mode version — so
    a single invert, only in the theme that would swallow it, is all it needs.
-   Which logos qualify is decided at runtime from the image pixels, see
-   utils/logoContrast.ts.
+   Which logos qualify is decided from their pixels once, ahead of time, see
+   `logoFlip` in utils/assets.ts — the class is in the server-rendered markup,
+   so a silhouette is never painted un-inverted and then corrected.
    ========================================================================== */
 
 :root:not(.dark) .logo-flip--light,

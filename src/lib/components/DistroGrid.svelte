@@ -10,10 +10,13 @@
 		distros = [],
 		visibleIds = null,
 		onselect = (_distro: Distro) => {},
+		eager = false,
 	}: {
 		distros?: Distro[];
 		visibleIds?: Set<string> | null;
 		onselect?: (distro: Distro) => void;
+		/** Load these cards' logos at parse time (a first-screen section). */
+		eager?: boolean;
 	} = $props();
 
 	function getDescription(distro: Distro): string {
@@ -92,6 +95,7 @@
 				logo={distro.logo}
 				alt="{distro.name} logo"
 				customClass="distro-icon"
+				{eager}
 			/>
 			<h3>
 				<a

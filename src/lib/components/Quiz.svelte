@@ -6,8 +6,7 @@
 	import { getNestedValue } from '$lib/i18n/translations';
 	import { quizResultsFor, quizResultKey } from '$lib/quiz-results';
 	import { catalog } from '$lib/stores/state/catalog.svelte';
-	import { logoContrast } from '$lib/utils/logoContrast';
-	import { logoPath } from '$lib/utils/assets';
+	import { logoFlip, logoPath } from '$lib/utils/assets';
 	import Confetti from '$lib/components/Confetti.svelte';
 	import ChevronLeftIcon from '$lib/components/icons/ChevronLeftIcon.svelte';
 	import RestartIcon from '$lib/components/icons/RestartIcon.svelte';
@@ -175,7 +174,7 @@
 					{#if distro}
 						<li>
 							<a class="result-link" href={localePath(`/distro/${id}`)} onclick={(e) => openResult(e, id)}>
-								<img class="result-logo" use:logoContrast={logoPath(distro.logo)} src={logoPath(distro.logo)} alt="" width="24" height="24" loading="lazy" />
+								<img class="result-logo {logoFlip(distro.logo)}" src={logoPath(distro.logo)} alt="" width="24" height="24" loading="lazy" />
 								<span>{distro.name}</span>
 							</a>
 						</li>

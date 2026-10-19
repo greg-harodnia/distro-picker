@@ -1,13 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { logoContrast } from '$lib/utils/logoContrast';
-	import { FALLBACK_LOGO, logoPath } from '$lib/utils/assets';
-
-	// Paths of images that have loaded at least once on this page. If a card's
-	// image is already in the cache, a fresh OptimizedImage instance starts
-	// "loaded" so remounting (after a filter change collapses/restores a card)
-	// doesn't flash the placeholder again. Module-scoped so it survives unmount.
-	const loadedIcons = new Set<string>();
+	import { FALLBACK_LOGO, logoFlip, logoPath } from '$lib/utils/assets';
 
 	const FALLBACK = `${base}${FALLBACK_LOGO}`;
 
@@ -15,58 +8,56 @@
 		alt,
 		customClass = '',
 		logo,
+		eager = false,
 	}: {
 		alt: string;
 		customClass?: string;
 		logo?: string | undefined;
+		/**
+		 * Load at parse time instead of on scroll. Set by the parent for the
+		 * sections it expects to be in the first viewport — a guess, since the
+		 * prerendered HTML doesn't know the screen size.
+		 */
+		eager?: boolean;
 	} = $props();
 
 	let iconPath = $derived(`${base}${logoPath(logo)}`);
 
-	// Both flags are keyed by path rather than being one-way booleans, so if the
-	// `logo` prop ever changes the component recovers instead of staying stuck
-	// on the placeholder (or on the fallback).
-	let loadedPath = $state<string | null>(null);
+	// Keyed by path rather than being a one-way boolean, so if the `logo` prop
+	// ever changes a past failure stops substituting the fallback for it.
 	let failedPath = $state<string | null>(null);
-
 	let hasError = $derived(failedPath === iconPath);
-	let isLoaded = $derived(loadedPath === iconPath || loadedIcons.has(iconPath));
 
 	// The `src` is always set — including in the SSR/prerendered HTML — so the
-	// logo is part of the initial document instead of appearing only after
-	// hydration. Native `loading="lazy"` defers off-screen loads, which replaces
-	// the old IntersectionObserver (that one deferred the `src` itself, leaving
-	// every card's <img> without a source in the server-rendered markup).
+	// logo paints as soon as the browser decodes it, like the rest of the page:
+	// no placeholder and no fade-in. The card's fixed 64×64 slot is reserved by
+	// the container, so a slow logo costs no layout shift either way. `onerror`
+	// is the only state left to manage — a logo that 404s swaps to the shared
+	// fallback image and dims, so the broken-image glyph never lingers.
+	//
+	// `eager` lifts a card out of `loading="lazy"`. The preload scanner already
+	// fetched in-viewport lazy images at parse time anyway, so what the flag
+	// really changes is the queue position — and `fetchpriority="low"` keeps
+	// these logos from outbidding the preloaded LCP webfont, which went into
+	// the fetch queue before them.
 	let src = $derived(hasError ? FALLBACK : iconPath);
-
-	function handleLoad() {
-		// When the substitute has been swapped in, this load is the fallback,
-		// not the logo — don't mark the logo as cached.
-		if (hasError) return;
-		loadedIcons.add(iconPath);
-		loadedPath = iconPath;
-	}
 
 	function handleError() {
 		failedPath = iconPath;
 	}
 </script>
 
-<div class="optimized-image-container {customClass}" class:loaded={isLoaded} class:error={hasError}>
+<div class="optimized-image-container {customClass}" class:error={hasError}>
 	<img
 		{alt}
-		class="optimized-image"
+		class="optimized-image {logoFlip(logo)}"
 		{src}
-		onload={handleLoad}
 		onerror={handleError}
 		style="object-fit: contain; -webkit-user-drag: none; user-select: none;"
-		loading="lazy"
+		loading={eager ? 'eager' : 'lazy'}
+		fetchpriority={eager ? 'low' : undefined}
 		draggable="false"
-		use:logoContrast={iconPath}
 	/>
-	{#if !isLoaded && !hasError}
-		<div class="image-placeholder"></div>
-	{/if}
 </div>
 
 <style>
@@ -80,24 +71,6 @@
 	.optimized-image {
 		display: block;
 		transition: opacity var(--transition-normal);
-		opacity: 0;
-	}
-
-	.image-placeholder {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: var(--color-border-light);
-	}
-
-	.loaded .optimized-image {
-		opacity: 1;
-	}
-
-	.loaded .image-placeholder {
-		display: none;
 	}
 
 	.error .optimized-image {

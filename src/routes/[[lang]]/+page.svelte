@@ -88,6 +88,14 @@
 	// count still updates, and it can be opened manually any time).
 	let expandedTiers = $state<Set<string> | null>(null);
 
+	// How many leading tiers count as "the first screen". On a laptop the two
+	// open tiers are what fits above the fold (7 cards per row at ≥1280 px), so
+	// their logos load at parse time; a phone only gets the first rows of tier 1,
+	// and the collapsed third tier isn't fetched at all until it's opened. The
+	// prerendered HTML can't know the viewport, so this is a fixed guess rather
+	// than a measurement — hence the low fetch priority those logos get.
+	const FIRST_SCREEN_TIERS = 2;
+
 	function defaultExpandedTiers(): Set<string> {
 		return new Set(['best', 'other']);
 	}
@@ -268,6 +276,9 @@
 					</div>
 				{/if}
 				{#each catalog.allTieredDistros as group, i (group.tier)}
+					<!-- The sections a laptop sees without scrolling load their logos
+					     at parse time (see FIRST_SCREEN_TIERS); the rest load on
+					     scroll. -->
 					<DistroTierSection
 						tier={group.tier}
 						index={i + 1}
@@ -277,6 +288,7 @@
 						onselect={catalog.selectDistro}
 						open={isTierOpen(group.tier)}
 						ontoggle={() => toggleTier(group.tier)}
+						eager={i < FIRST_SCREEN_TIERS}
 					/>
 				{/each}
 			</section>

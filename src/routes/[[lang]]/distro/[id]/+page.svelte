@@ -8,8 +8,7 @@
 	import { getTranslation } from '$lib/i18n/translations';
 	import { t, locale, localePath, appTitle } from '$lib/i18n/locale';
 	import { SITE_URL as siteUrl } from '$lib/seo';
-	import { logoContrast } from '$lib/utils/logoContrast';
-	import { logoPath } from '$lib/utils/assets';
+	import { logoFlip, logoPath } from '$lib/utils/assets';
 
 	let { data }: { data: PageData } = $props();
 
@@ -59,13 +58,12 @@
 
 	<header class="distro-header">
 		<img
-			class="distro-logo"
+			class="distro-logo {logoFlip(distro.logo)}"
 			src={`${base}${logoPath(distro.logo)}`}
 			alt="{distro.name} logo"
 			height="96"
 			width="96"
 			decoding="async"
-			use:logoContrast={logoPath(distro.logo)}
 		/>
 		<h1 class="distro-name">{distro.name}</h1>
 		{#if distro.popular || distro.in_development}

@@ -12,6 +12,7 @@
 		onselect = (_distro: Distro) => {},
 		open = true,
 		ontoggle = () => {},
+		eager = false,
 	}: {
 		tier: DistroTier;
 		title: string;
@@ -21,6 +22,8 @@
 		onselect?: (distro: Distro) => void;
 		open?: boolean;
 		ontoggle?: () => void;
+		/** Load this section's card logos at parse time (a first-screen section). */
+		eager?: boolean;
 	} = $props();
 
 	// Two-digit section number, e.g. `01`, used as an editorial index.
@@ -53,7 +56,7 @@
 	     re-fetch/re-flash every time the section is expanded or re-shown. -->
 	<div class="tier-panel" class:collapsed={!open}>
 		<div class="tier-clip">
-			<DistroGrid {distros} {visibleIds} {onselect} />
+			<DistroGrid {distros} {visibleIds} {onselect} {eager} />
 		</div>
 	</div>
 </section>
