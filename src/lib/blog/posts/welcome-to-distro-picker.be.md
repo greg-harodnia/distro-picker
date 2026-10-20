@@ -52,7 +52,7 @@ P.S. Шырокая даступнасьць выбару ня ёсьць пра
 - **Пашыранае праграмнае забясьпечаньне**: Flatpak (Bazaar або ваш цэнтар ПЗ), Distrobox (DistroShelf для GNOME/GTK, Kontainer для KDE/Qt).
 - **Запуск праґрам Windows**: Bottles, Winboat, winPodX.
 - **Ачысьнікі**: BleachBit (не патрэбны для нязьменных сыстэм), Krokiet.
-- **Рэзэрвовае капіяваньне**: Timeshift (не патрэбны для нязьменных сыстэм).
+- **Рэзэрвовае капіяваньне (не патрэбнае для нязьменных сыстэм)**: Timeshift (для дыстрыбуцый, закладзеных на Debian/Ubuntu), Snapper + Btrfs Assistant (для дыстрыбуцый, закладзеных на Fedora або Arch).
 - **Альтэрнатыва для Nvidia Shadow Play**: GPU Screen Recorder.
 - **Альтэрнатывы для Discord (акрамя афіцыйнай аплікацыі)**: Matrix/Element, Fluxer, Stoat.
 - **Альтэрнатывы для Slack і Microsoft Teams (акрамя афіцыйных аплікацый)**: Rocket.chat, Mattermost, Matrix/Element, Zulip.

@@ -52,7 +52,7 @@ P.S. The broad availability of choice isn't a problem. If one day 500 new Window
 - **Extended software support**: Flatpak (Bazaar or your software center), Distrobox (DistroShelf for GNOME/GTK, Kontainer for KDE/Qt).
 - **Running Windows apps**: Bottles, Winboat, winPodX.
 - **Cleaners**: BleachBit (not needed for immutable systems), Krokiet.
-- **System backup**: Timeshift (not needed for immutable systems).
+- **System backup (not needed for immutable systems)**: Timeshift (for Debian/Ubuntu-based distros), Snapper + Btrfs Assistant (for Fedora- and Arch-based distros).
 - **Nvidia Shadow Play alternative**: GPU Screen Recorder.
 - **Discord alternatives (besides the official app)**: Matrix/Element, Fluxer, Stoat.
 - **Slack and Microsoft Teams alternatives (besides the official apps)**: Rocket.chat, Mattermost, Matrix/Element, Zulip.
