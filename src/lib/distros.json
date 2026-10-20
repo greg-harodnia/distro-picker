@@ -238,7 +238,7 @@
       "popular": true,
       "desktops": ["KDE Plasma", "GNOME", "COSMIC", "Xfce", "Niri", "Hyprland"],
       "hasMoreDesktops": true,
-      "ease_of_use": 3.5,
+      "ease_of_use": 3.8,
       "based_on": "Arch Linux",
       "userbase_number": "~300-600",
       "secure_boot": false,
