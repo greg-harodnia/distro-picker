@@ -38,10 +38,11 @@
 		children: Snippet;
 		header?: Snippet | undefined;
 		footer?: Snippet | undefined;
+		media?: Snippet | undefined;
 	}
 
-	let { 
-		onclose = () => {}, 
+	let {
+		onclose = () => {},
 		ariaLabel = '',
 		scrollable = true,
 		contentStyle = '',
@@ -49,7 +50,8 @@
 		onkeydown: onKeydown,
 		children,
 		header,
-		footer
+		footer,
+		media
 	}: Props = $props();
 
 	function close() {
@@ -95,10 +97,11 @@ out of the accessibility tree so it isn't announced as content. -->
 	role="presentation"
 	onselectstart={guardStraySelection}
 	onclick={handleOverlayClick}
-	transition:fade={{ duration: 200 }}
+	transition:fade|global={{ duration: 200 }}
 >
 	<div
 		class="modal-content {contentClass}"
+		class:split={media !== undefined}
 		class:modal-content-full={!scrollable}
 		style={contentStyle}
 		role="dialog"
@@ -106,6 +109,11 @@ out of the accessibility tree so it isn't announced as content. -->
 		aria-label={ariaLabel}
 		tabindex="-1"
 	>
+		{#if media}
+			<div class="modal-media">
+				{@render media()}
+			</div>
+		{/if}
 		<div class="modal-header">
 			{#if header}
 				{@render header()}
@@ -171,6 +179,48 @@ out of the accessibility tree so it isn't announced as content. -->
 
 	.modal-overlay :global(.modal-content.modal-content-full) {
 		height: 100%;
+	}
+
+	/* The optional media slot becomes a full-height left column in the split
+	   layout below; below the split breakpoint the shell hides it so the
+	   dialog stays a single stack. Consumers size its content; the shell
+	   only clips and separates it. */
+	.modal-overlay :global(.modal-media) {
+		display: none;
+		flex-direction: column;
+		flex: none;
+		overflow: hidden;
+	}
+
+	@media (min-width: 900px) {
+		.modal-overlay :global(.modal-content.split) {
+			display: grid;
+			grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+			grid-template-rows: auto minmax(0, 1fr) auto;
+			grid-template-areas:
+				"media header"
+				"media body"
+				"media footer";
+		}
+
+		.modal-overlay :global(.modal-content.split .modal-media) {
+			display: flex;
+			grid-area: media;
+			height: auto;
+			border-right: 1px solid var(--line);
+		}
+
+		.modal-overlay :global(.modal-content.split .modal-header) {
+			grid-area: header;
+		}
+
+		.modal-overlay :global(.modal-content.split .modal-body) {
+			grid-area: body;
+		}
+
+		.modal-overlay :global(.modal-content.split .modal-footer) {
+			grid-area: footer;
+		}
 	}
 
 	.modal-overlay :global(.modal-header) {

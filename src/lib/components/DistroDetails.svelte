@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Distro, Tag } from "$lib/types";
-	import { t, locale } from "$lib/i18n/locale";
-	import { getNestedValue, humanizeId } from "$lib/i18n/translations";
+	import { t } from "$lib/i18n/locale";
+	import { humanizeId } from "$lib/i18n/translations";
 	import { getTagGroup } from "$lib/tagGroups";
 
 	let {
@@ -29,155 +29,89 @@
 		};
 	}) || []);
 
-	let hasAdditionalDetails = $derived(
-		(distro.desktops && distro.desktops.length > 0) ||
-		distro.based_on ||
-		distro.ease_of_use ||
-		(distro.userbase_number && translatedUserbaseSuffix) ||
-		distro.secure_boot !== undefined ||
-		distro.swap_strategy
-	);
-
 	let translatedSwapStrategy = $derived(
 		distro.swap_strategy ? $t(`modals.distro.swap.${distro.swap_strategy}`) as string : ''
 	);
-
-	let translatedHighlights = $derived(getNestedValue<string[]>($locale, `distros.${distro.id}.highlights`));
 </script>
 
 <div class="distro-details">
-	<div class="distro-description">
-		<p>{translatedDescription}</p>
+	<div class="specs">
+		{#if translatedBasedOn}
+			<div class="spec">
+				<span class="spec-label mono-label">{$t('modals.distro.basedOn')}</span>
+				<span class="spec-value">{translatedBasedOn}</span>
+			</div>
+		{/if}
+
+		{#if distro.desktops && distro.desktops.length > 0}
+			<div class="spec">
+				<span class="spec-label mono-label">
+					{distro.desktops.length === 1 ? $t('modals.distro.desktop') : $t('modals.distro.desktops')}
+				</span>
+				<span class="spec-value">
+					{distro.desktops.join(", ")}{#if distro.hasMoreDesktops}{$t('modals.distro.andMore')}{/if}
+				</span>
+			</div>
+		{/if}
+
+		{#if distro.ease_of_use}
+			<div class="spec">
+				<span class="spec-label mono-label">{$t('modals.distro.easeOfUse')}</span>
+				<span class="spec-value">{distro.ease_of_use}/5</span>
+			</div>
+		{/if}
+
+		{#if distro.userbase_number && translatedUserbaseSuffix}
+			<div class="spec">
+				<span class="spec-label mono-label">{$t('modals.distro.userbase')}</span>
+				<span class="spec-value">{distro.userbase_number}{translatedUserbaseSuffix}</span>
+			</div>
+		{/if}
+
+		{#if distro.secure_boot !== undefined}
+			<div class="spec">
+				<span class="spec-label mono-label">{$t('modals.distro.secureBoot')}</span>
+				<span class="spec-value">{distro.secure_boot ? $t('modals.distro.yes') : $t('modals.distro.no')}</span>
+			</div>
+		{/if}
+
+		{#if distro.swap_strategy}
+			<div class="spec">
+				<span class="spec-label mono-label">{$t('modals.distro.swapStrategy')}</span>
+				<span class="spec-value">{translatedSwapStrategy}</span>
+			</div>
+		{/if}
 	</div>
 
-	{#if hasAdditionalDetails}
-		<div class="additional-details">
-			{#if translatedBasedOn}
-				<div class="additional-detail">
-					<h3 class="mono-label">{$t('modals.distro.basedOn')}</h3>
-					<p>{translatedBasedOn}</p>
-				</div>
-			{/if}
-
-			{#if distro.desktops && distro.desktops.length > 0}
-				<div class="additional-detail">
-					{#if distro.desktops.length === 1}
-						<h3 class="mono-label">{$t('modals.distro.desktop')}</h3>
-					{:else}
-						<h3 class="mono-label">{$t('modals.distro.desktops')}</h3>
-					{/if}
-					<p>
-						{distro.desktops.join(", ")}{#if distro.hasMoreDesktops}{$t('modals.distro.andMore')}{/if}
-					</p>
-				</div>
-			{/if}
-
-			{#if distro.ease_of_use}
-				<div class="additional-detail">
-					<h3 class="mono-label">{$t('modals.distro.easeOfUse')}</h3>
-					<p>{distro.ease_of_use}/5</p>
-				</div>
-			{/if}
-
-			{#if distro.userbase_number && translatedUserbaseSuffix}
-				<div class="additional-detail">
-					<h3 class="mono-label">{$t('modals.distro.userbase')}</h3>
-					<p>{distro.userbase_number}{translatedUserbaseSuffix}</p>
-				</div>
-			{/if}
-
-			{#if distro.secure_boot !== undefined}
-				<div class="additional-detail">
-					<h3 class="mono-label">{$t('modals.distro.secureBoot')}</h3>
-					<p>{distro.secure_boot ? $t('modals.distro.yes') : $t('modals.distro.no')}</p>
-				</div>
-			{/if}
-
-			{#if distro.swap_strategy}
-				<div class="additional-detail">
-					<h3 class="mono-label">{$t('modals.distro.swapStrategy')}</h3>
-					<p>{translatedSwapStrategy}</p>
-				</div>
-			{/if}
-		</div>
-	{/if}
-
-	{#if translatedHighlights && translatedHighlights.length > 0}
-		<div class="highlights">
-			<h3 class="highlights-title mono-label">{$t('pages.distro.features')}</h3>
-			{#each translatedHighlights as highlight}
-				<p class="highlight-item">✦ {highlight}</p>
+	{#if translatedTagNames.length > 0}
+		<div class="tag-list">
+			{#each translatedTagNames as { tagId, name } (tagId)}
+				{@const tag = tagMap.get(tagId)}
+				{#if tag}
+					<span class="tag" style="--tag-color: var(--tag-{tagId})">
+						{name}
+					</span>
+				{/if}
 			{/each}
 		</div>
 	{/if}
 
-	{#if distro.tag_ids && distro.tag_ids.length > 0}
-		<div class="distro-tags">
-			<div class="tag-list">
-				{#each translatedTagNames as { tagId, name }}
-					{@const tag = tagMap.get(tagId)}
-					{#if tag}
-						<span class="tag" style="--tag-color: var(--tag-{tagId})">
-							{name}
-						</span>
-					{/if}
-				{/each}
-			</div>
-		</div>
-	{/if}
+	<div class="distro-description">
+		<p>{translatedDescription}</p>
+	</div>
 </div>
 
 <style>
-	.distro-description p {
-		color: var(--color-text-secondary);
-		line-height: var(--line-height-relaxed);
-		margin: 0;
-		font-size: var(--text-base);
-	}
-
-	.additional-details {
-		margin-top: var(--space-xl);
-	}
-
-	.additional-detail {
-		margin-top: var(--space-sm);
-	}
-
-	.additional-detail h3 {
-		display: inline;
-		margin: 0;
-	}
-
-	.additional-detail p {
-		display: inline;
-		color: var(--color-text);
-		font-size: var(--text-base);
-		margin: 0;
-	}
-
-	.highlights {
-		margin-top: var(--space-xl);
-	}
-
-	.highlights-title {
-		margin: 0 0 var(--space-sm);
-	}
-
-	.highlight-item {
-		color: var(--color-text-secondary);
-		font-size: var(--text-base);
-		line-height: var(--line-height-relaxed);
-		margin: 0;
-	}
-
-	.distro-tags {
-		margin-top: var(--space-xl);
+	.distro-details {
+		display: flex;
+		flex-direction: column;
 	}
 
 	.tag-list {
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--space-sm);
+		margin-bottom: var(--space-lg);
 	}
 
 	.tag {
@@ -191,19 +125,39 @@
 		font-weight: var(--font-medium);
 	}
 
+	.specs {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		margin-bottom: var(--space-lg);
+	}
+
+	.spec {
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-sm);
+		min-width: 0;
+	}
+
+	.spec-label {
+		color: var(--color-text-muted);
+	}
+
+	.spec-value {
+		color: var(--color-text);
+		font-size: var(--text-base);
+		line-height: var(--line-height-normal);
+		overflow-wrap: anywhere;
+	}
+
+	.distro-description p {
+		color: var(--color-text-secondary);
+		line-height: var(--line-height-relaxed);
+		margin: 0;
+		font-size: var(--text-base);
+	}
+
 	@media (max-width: 640px) {
-		.additional-details {
-			margin-top: var(--space-lg);
-		}
-
-		.highlights {
-			margin-top: var(--space-lg);
-		}
-
-		.distro-tags {
-			margin-top: var(--space-lg);
-		}
-
 		.tag {
 			padding: var(--space-xs) var(--space-sm);
 		}

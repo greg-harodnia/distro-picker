@@ -83,12 +83,15 @@ distro-picker/
 │   │   │   ├── DistroTierSection.svelte
 │   │   │   ├── ErrorDisplay.svelte
 │   │   │   ├── FilterGroup.svelte
+│   │   │   ├── GalleryStage.svelte   # Interactive screenshot viewer (swipe, anchored pinch-zoom)
 │   │   │   ├── LanguageToggle.svelte
 │   │   │   ├── OptimizedImage.svelte
 │   │   │   ├── PageTopBar.svelte
 │   │   │   ├── Quiz.svelte
+│   │   │   ├── ScreenshotGallery.svelte # Stage + filmstrip, shared by modal and distro page
 │   │   │   ├── TagFilter.svelte
-│   │   │   └── ThemeToggle.svelte
+│   │   │   ├── ThemeToggle.svelte
+│   │   │   └── galleryState.svelte.ts   # Shared index/preload state for both gallery surfaces
 │   │   ├── i18n/
 │   │   │   ├── locale.ts
 │   │   │   └── translations.ts

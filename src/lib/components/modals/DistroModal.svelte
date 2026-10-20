@@ -4,6 +4,7 @@
 	import { sanitizeUrl } from "$lib/utils";
 	import Modal from "./Modal.svelte";
 	import GalleryModal from "./GalleryModal.svelte";
+	import ScreenshotGallery from "$lib/components/ScreenshotGallery.svelte";
 	import DistroDetails from "$lib/components/DistroDetails.svelte";
 	import { t, locale, localePath } from "$lib/i18n/locale";
 
@@ -19,7 +20,7 @@
 		onclose?: () => void;
 	} = $props();
 
-	let showGallery = $state(false);
+	let galleryIndex = $state<number | null>(null);
 
 	let fullPageUrl = $derived(`${base}${localePath(`/distro/${distro.id}`, $locale)}`);
 
@@ -31,7 +32,20 @@
 	}
 </script>
 
-<Modal {onclose} ariaLabel={distro.name} contentClass="distro-modal">
+{#snippet media()}
+	<ScreenshotGallery
+		images={screenshots}
+		name={distro.name}
+		onexpand={(index) => (galleryIndex = index)}
+	/>
+{/snippet}
+
+<Modal
+	{onclose}
+	ariaLabel={distro.name}
+	contentClass="distro-modal"
+	media={screenshots.length > 0 ? media : undefined}
+>
 	{#snippet header()}
 		<h2 class="modal-title">{distro.name}</h2>
 		<a
@@ -50,6 +64,7 @@
 				stroke-width="2"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				aria-hidden="true"
 			>
 				<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
 				<polyline points="15 3 21 3 21 9"></polyline>
@@ -58,7 +73,7 @@
 		</a>
 	{/snippet}
 
-	<DistroDetails {distro} {tags} />
+	<DistroDetails {tags} {distro} />
 
 	{#snippet footer()}
 	<div class="buttons">
@@ -71,52 +86,64 @@
 			{$t('modals.distro.visitWebsite')}
 		</button>
 
-		<button
-			class="gallery-btn"
-			onclick={() => (showGallery = true)}
-			aria-label={`View ${distro.name} screenshots`}
-			type="button"
-		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				width="24"
-				height="24"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+		{#if screenshots.length > 0}
+			<button
+				class="gallery-btn"
+				onclick={() => (galleryIndex = 0)}
+				aria-label={`View ${distro.name} screenshots`}
+				type="button"
 			>
-				<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-				<circle cx="8.5" cy="8.5" r="1.5"></circle>
-				<polyline points="21 15 16 10 5 21"></polyline>
-			</svg>
-		</button>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+					<circle cx="8.5" cy="8.5" r="1.5"></circle>
+					<polyline points="21 15 16 10 5 21"></polyline>
+				</svg>
+			</button>
+		{/if}
 	</div>
 	{/snippet}
 </Modal>
 
-{#if showGallery}
+{#if galleryIndex !== null}
 	<GalleryModal
 		images={screenshots}
 		distroName={distro.name}
-		onclose={() => (showGallery = false)}
+		initialIndex={galleryIndex}
+		onclose={() => (galleryIndex = null)}
 	/>
 {/if}
 
 <style>
+	:global(.modal-overlay .modal-content.distro-modal) {
+		max-width: 720px;
+	}
+
+	@media (min-width: 900px) {
+		:global(.modal-overlay .modal-content.distro-modal) {
+			max-width: 1040px;
+		}
+	}
+
 	:global(.distro-modal .modal-header) {
-		position: relative;
-		justify-content: flex-end;
+		justify-content: space-between;
 		gap: var(--space-sm);
 	}
 
 	:global(.distro-modal .modal-title) {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		max-width: 70%;
+		text-align: left;
+		font-size: var(--text-lg);
+		flex: 1;
 	}
 
 	.full-page-link {
@@ -125,6 +152,7 @@
 		justify-content: center;
 		width: 36px;
 		height: 36px;
+		flex-shrink: 0;
 		color: var(--color-text-muted);
 		border-radius: var(--radius-full);
 		transition: all var(--transition-normal);
@@ -158,9 +186,8 @@
 	}
 
 	.website-btn {
-		width: calc(100% - 56px - var(--space-md));
+		flex: 1;
 		padding: var(--space-md) var(--space-xl);
-		text-decoration: none;
 		text-align: center;
 	}
 
@@ -170,6 +197,7 @@
 		justify-content: center;
 		width: 56px;
 		margin-left: var(--space-md);
+		flex-shrink: 0;
 	}
 
 	.gallery-btn svg {
@@ -194,7 +222,6 @@
 		}
 
 		.website-btn {
-			width: calc(100% - 44px - var(--space-sm));
 			padding: var(--space-sm) var(--space-md);
 		}
 

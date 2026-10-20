@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import type { PageData } from './$types';
 	import DistroDetails from '$lib/components/DistroDetails.svelte';
+	import ScreenshotGallery from '$lib/components/ScreenshotGallery.svelte';
 	import JsonLd from '$lib/components/JsonLd.svelte';
 	import PageTopBar from '$lib/components/PageTopBar.svelte';
 	import { TAGS } from '$lib/tagGroups';
@@ -81,24 +82,15 @@
 	{#if screenshots.length > 0}
 		<section class="screenshots" aria-label={$t('pages.distro.screenshots')}>
 			<h2 class="mono-label">{$t('pages.distro.screenshots')}</h2>
-			<div class="screenshot-grid">
-				{#each screenshots as screenshot, i}
-					<button
-						class="screenshot-btn"
-						onclick={() => galleryIndex = i}
-						aria-label="{$t('pages.distro.screenshots')} {i + 1} of {distro.name}"
-						type="button"
-					>
-						<img
-							src={`${base}${screenshot}`}
-							alt="Screenshot {i + 1} of {distro.name}"
-							loading="lazy"
-							decoding="async"
-							width="240"
-							height="160"
-						/>
-					</button>
-				{/each}
+			<div
+				class="shots-wrap"
+				style="--shot-panel-h: clamp(240px, 40vw, 460px); --shot-border: 1px solid var(--line); --shot-radius: var(--radius-lg)"
+			>
+				<ScreenshotGallery
+					images={screenshots.map((s) => `${base}${s}`)}
+					name={distro.name}
+					onexpand={(index) => (galleryIndex = index)}
+				/>
 			</div>
 		</section>
 	{/if}
@@ -174,35 +166,6 @@
 		margin: 0 0 var(--space-lg);
 	}
 
-	.screenshot-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-		gap: var(--space-md);
-	}
-
-	.screenshot-btn {
-		padding: 0;
-		border: 1px solid var(--line);
-		border-radius: var(--radius-md);
-		background: var(--color-background-secondary);
-		cursor: pointer;
-		overflow: hidden;
-		transition: border-color var(--transition-normal);
-	}
-
-	@media (hover: hover) {
-		.screenshot-btn:hover {
-			border-color: var(--color-text);
-		}
-	}
-
-	.screenshot-btn img {
-		width: 100%;
-		height: 160px;
-		object-fit: cover;
-		display: block;
-	}
-
 	.actions {
 		display: flex;
 		gap: var(--space-md);
@@ -233,10 +196,6 @@
 	@media (max-width: 640px) {
 		.distro-name {
 			font-size: var(--text-3xl);
-		}
-
-		.screenshot-btn img {
-			height: 120px;
 		}
 	}
 </style>

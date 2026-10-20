@@ -80,7 +80,6 @@
 		color: var(--color-text);
 		margin: 0;
 		flex: 1;
-		text-align: center;
 	}
 
 	/* .modal-footer is a plain block, so the buttons need their own flex row

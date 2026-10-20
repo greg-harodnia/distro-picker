@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { onMount, untrack } from 'svelte';
+	import { untrack } from 'svelte';
 	import { t } from '$lib/i18n/locale';
 	import Modal from './Modal.svelte';
-	import ChevronLeftIcon from '$lib/components/icons/ChevronLeftIcon.svelte';
-	import ChevronRightIcon from '$lib/components/icons/ChevronRightIcon.svelte';
+	import GalleryStage from '$lib/components/GalleryStage.svelte';
+	import { createGalleryState } from '$lib/components/galleryState.svelte';
 
 	let {
 		images = [],
@@ -13,241 +13,62 @@
 	}: {
 		images?: string[];
 		distroName?: string;
+		/** Opening position, read once per image list — not a live binding. */
 		initialIndex?: number;
 		onclose?: () => void;
 	} = $props();
 
-	// `initialIndex` is only an opening position, not a live binding: read it
-	// once. `untrack` makes that intent explicit (and silences
-	// state_referenced_locally).
-	let currentIndex = $state(untrack(() => initialIndex));
-	let preloadIndexes: number[] = $state([]);
-
-	let scale = $state(1);
-	let translateX = $state(0);
-	let translateY = $state(0);
-	let isZooming = $state(false);
-
-	let startDistance = 0;
-	let startScale = 1;
-	let startX = 0;
-	let startY = 0;
-	let originX = $state('50%');
-	let originY = $state('50%');
-
-	function getTouchCenter(touches: TouchList) {
-		return {
-			x: (touches[0].clientX + touches[1].clientX) / 2,
-			y: (touches[0].clientY + touches[1].clientY) / 2
-		};
-	}
-
-	function handleTouchStart(e: TouchEvent) {
-		if (e.touches.length === 2) {
-			isZooming = true;
-			startDistance = Math.hypot(
-				e.touches[0].clientX - e.touches[1].clientX,
-				e.touches[0].clientY - e.touches[1].clientY
-			);
-			startScale = scale;
-			
-			const center = getTouchCenter(e.touches);
-			const img = (e.target as HTMLElement).closest('.image-container')?.querySelector('img');
-			if (img) {
-				const rect = img.getBoundingClientRect();
-				originX = `${((center.x - rect.left) / rect.width) * 100}%`;
-				originY = `${((center.y - rect.top) / rect.height) * 100}%`;
-			}
-		} else if (e.touches.length === 1 && scale > 1) {
-			isZooming = true;
-			startX = e.touches[0].clientX - translateX;
-			startY = e.touches[0].clientY - translateY;
-		}
-	}
-
-	function handleTouchMove(e: TouchEvent) {
-		if (!isZooming) return;
-		e.preventDefault();
-
-		if (e.touches.length === 2) {
-			const distance = Math.hypot(
-				e.touches[0].clientX - e.touches[1].clientX,
-				e.touches[0].clientY - e.touches[1].clientY
-			);
-			scale = Math.max(1, Math.min(startScale * (distance / startDistance), 4));
-		} else if (e.touches.length === 1 && scale > 1) {
-			translateX = e.touches[0].clientX - startX;
-			translateY = e.touches[0].clientY - startY;
-		}
-	}
-
-	function handleTouchEnd() {
-		isZooming = false;
-		scale = 1;
-		translateX = 0;
-		translateY = 0;
-	}
-
-	function prev() {
-		currentIndex = (currentIndex - 1 + images.length) % images.length;
-		preloadAdjacent();
-	}
-
-	function next() {
-		currentIndex = (currentIndex + 1) % images.length;
-		preloadAdjacent();
-	}
-
-	function preloadAdjacent() {
-		const prevIdx = (currentIndex - 1 + images.length) % images.length;
-		const nextIdx = (currentIndex + 1) % images.length;
-		preloadIndexes = [prevIdx, nextIdx];
-	}
+	// Derived, not snapshotted: client-side navigation can change `images`
+	// while this modal is mounted, and the index must reset with the list.
+	// `untrack` keeps `initialIndex` a one-time opening position.
+	let gallery = $derived.by(() => createGalleryState(images, untrack(() => initialIndex)));
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'ArrowLeft') {
-			prev();
+			gallery.prev();
 		} else if (e.key === 'ArrowRight') {
-			next();
+			gallery.next();
 		}
 	}
-
-	onMount(() => {
-		preloadAdjacent();
-	});
 </script>
 
-<Modal {onclose} scrollable={false} onkeydown={handleKeydown} ariaLabel={`${distroName} screenshots`} contentStyle="max-width: 1200px; position: relative;" contentClass="gallery-modal-content">
-	{#snippet header()}
-		<span class="serial-number">{currentIndex + 1} / {images.length}</span>
-	{/snippet}
-
+<Modal
+	{onclose}
+	scrollable={false}
+	onkeydown={handleKeydown}
+	ariaLabel={`${distroName} screenshots`}
+	contentStyle="max-width: 1200px;"
+	contentClass="gallery-modal-content"
+>
 	{#if images.length === 0}
 		<div class="no-images">
 			<p>{$t('modals.gallery.noImages')}</p>
 		</div>
 	{:else}
-		<div class="image-container">
-			<img 
-				src={images[currentIndex]} 
-				alt={`${distroName} screenshot ${currentIndex + 1}`} 
-				loading="eager" 
-				decoding="async" 
-				ontouchstart={handleTouchStart}
-				ontouchmove={handleTouchMove}
-				ontouchend={handleTouchEnd}
-				class:zoomed={scale > 1}
-				style="transform: translate({translateX}px, {translateY}px) scale({scale}); transform-origin: {originX} {originY}"
-			/>
-			{#each preloadIndexes as idx}
-				<link rel="preload" as="image" href={images[idx]} />
-			{/each}
-		</div>
-
-		{#if images.length > 1}
-			<button class="arrow left-arrow" onclick={prev} aria-label={$t('modals.gallery.previousImage')} type="button">
-				<ChevronLeftIcon size={24} />
-			</button>
-			<button class="arrow right-arrow" onclick={next} aria-label={$t('modals.gallery.nextImage')} type="button">
-				<ChevronRightIcon size={24} />
-			</button>
-		{/if}
+		<GalleryStage
+			src={images[gallery.index]}
+			alt={`${distroName} screenshot ${gallery.index + 1}`}
+			index={gallery.index}
+			total={images.length}
+			preloadSrcs={gallery.preloadSrcs}
+			onprev={gallery.prev}
+			onnext={gallery.next}
+			zoom={true}
+		/>
 	{/if}
 </Modal>
 
 <style>
-	.serial-number {
-		font-family: var(--font-mono);
-		color: var(--color-text-secondary);
-		font-size: var(--text-sm);
-	}
-
-	.image-container {
-		flex: 1;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		padding: var(--space-lg);
-	}
-
-	.image-container img {
-		max-width: 100%;
-		max-height: 100%;
-		border-radius: var(--radius-md);
-		transition: transform 0.2s ease-out;
-		touch-action: none;
-	}
-
-	.image-container img.zoomed {
-		transition: none;
-	}
-
-	.arrow {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		background: var(--color-surface);
-		border: 1px solid var(--line-strong);
-		color: var(--color-text-secondary);
-		cursor: pointer;
-		padding: var(--space-md);
-		border-radius: var(--radius-full);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: all var(--transition-normal);
-	}
-
-	@media (hover: hover) {
-		.arrow:hover {
-			background: var(--color-secondary);
-			border-color: var(--color-secondary);
-			color: var(--color-background);
-		}
-	}
-
-
-	.left-arrow {
-		left: var(--space-md);
-	}
-
-	.right-arrow {
-		right: var(--space-md);
-	}
-
 	.no-images {
 		flex: 1;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		padding: var(--space-lg);
 	}
 
 	.no-images p {
 		color: var(--color-text-secondary);
 		font-size: var(--text-lg);
-	}
-
-	@media (max-width: 640px) {
-		:global(.modal-overlay .modal-content.gallery-modal-content) {
-			max-height: 50vh;
-		}
-
-		.arrow {
-			padding: var(--space-sm);
-		}
-
-		.arrow :global(svg) {
-			width: 20px;
-			height: 20px;
-		}
-
-		.left-arrow {
-			left: var(--space-xs);
-		}
-
-		.right-arrow {
-			right: var(--space-xs);
-		}
 	}
 </style>

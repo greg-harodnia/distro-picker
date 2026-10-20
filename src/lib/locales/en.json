@@ -36,7 +36,6 @@
             "backLink": "Back to all distributions",
             "popular": "Popular",
             "inDevelopment": "Still in development",
-            "features": "Features",
             "screenshots": "Screenshots",
             "findMyDistro": "Find my distro"
         },
@@ -152,86 +151,70 @@
     },
     "distros": {
         "mint": {
-            "description": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment. A general-purpose distro, can be used for gaming too (like most distros), but it doesn't come with special tools pre-installed. Works well even on 10-15 years old computers. For older computers (for instance, those with only 2–4 GB of RAM), the Xfce edition of Linux Mint is recommended. Consider also enabling zSwap to improve performance basically for free.",
-            "userbasePostfix": " million",
-            "highlights": ["Extremely polished and intuitive desktop", "Strives to have GUI apps for everything to eliminate the need of using the terminal, like for example Driver Manager", "May look old-style", "Not the most up-to-date software"]
+            "description": "Been here for quite a while. Community-driven, stable and familiar. The main edition features the Cinnamon desktop environment which may look old-style to some. However, it's extremely polished and intuitive, and it strives to have GUI apps for everything to eliminate the need for using the terminal, like, for example, Driver Manager. A general-purpose distro, can be used for gaming too (like most distros), but it doesn't come with special tools pre-installed and doesn't offer the most up-to-date software. It works well even on 10–15-year-old computers. For older computers (for instance, those with only 2–4 GB of RAM), the Xfce edition of Linux Mint is recommended. Consider also enabling zSwap to improve performance basically for free.",
+            "userbasePostfix": " million"
         },
         "zorin": {
-            "description": "A polished distro focused on visual appeal and ease of use, featuring the GNOME desktop environment with 3D animations and various out-of-the-box layouts. Similar hardware requirements to Linux Mint.",
-            "userbasePostfix": " million",
-            "highlights": ["Sleek design", "Good even for people that have no idea what Linux is", "Not the most up-to-date software"]
+            "description": "A polished distro focused on visual appeal and ease of use, featuring the GNOME desktop environment with 3D animations and various out-of-the-box layouts. Good even for people that have no idea what Linux is. For example, it can suggest open-source alternatives if a user tries to install an .exe file. It does not offer the most up-to-date software in its repositories. Very light on resources as well.",
+            "userbasePostfix": " million"
         },
         "kubuntu": {
-            "description": "A well-established and trusted distro, based on Ubuntu (corporate standard) with the KDE Plasma desktop environment (the most feature-rich). It is backed by a huge corporation, Canonical. If you want to access more apps, feel free to install the Flatpak backend (you will also need to add the Flathub repository). Afterward, you can install more apps directly from Discover (if you add its Flatpak plugin) or choose an alternative storefront like Bazaar. The best alternative to it is TUXEDO OS.",
-            "userbasePostfix": " million",
-            "highlights": ["Has a lot of documentation available", "Uses Snap packages"]
+            "description": "A well-established and trusted distro, based on Ubuntu (corporate standard) with the KDE Plasma desktop environment (the most feature-rich). It is backed by a huge corporation, Canonical, and has a lot of documentation available. It uses Snap packages, so if you want to access more apps, feel free to install the Flatpak backend (you will also need to add the Flathub repository). Afterward, you can install more apps directly from Discover (if you add its Flatpak plugin) or choose an alternative storefront like Bazaar. The best alternative to it is TUXEDO OS.",
+            "userbasePostfix": " million"
         },
         "tuxedo": {
-            "description": "TUXEDO OS is a better Kubuntu alternative which is developed by TUXEDO Computers. It uses Flatpaks instead of Snaps, has a custom kernel, and includes other improvements. It is a semi-rolling distribution meaning it has newer software versions, including cutting-edge versions of KDE Plasma. TUXEDO OS comes pre-installed with the TUXEDO Control Center for managing fan speeds and power profiles, and it supports system snapshots with the help of the Btrfs filesystem. A good choice for gaming as well. It feels much more snappier than Kubuntu. Its mirrors can be slow for updates if you are very far away from Germany.",
-            "userbasePostfix": "k",
-            "highlights": ["Solid OS with up-to-date and stable software"]
+            "description": "TUXEDO OS is a better Kubuntu alternative which is developed by TUXEDO Computers. It uses Flatpaks instead of Snaps, has a custom kernel, and includes other improvements, such as integrated snapshots. It is a semi-rolling distribution meaning it has newer software versions, including cutting-edge versions of KDE Plasma. TUXEDO OS comes pre-installed with the TUXEDO Control Center for managing fan speeds and power profiles, and it supports system snapshots with the help of the Btrfs filesystem. A good choice for gaming as well. It feels much more snappier than Kubuntu. Its mirrors can be slow for updates if you are very far away from Germany.",
+            "userbasePostfix": "k"
         },
         "popos": {
-            "description": "Built by System76, featuring the COSMIC desktop environment (macOS-like) and focusing on usability. Has tiling window support. Good for creative work and productivity. It has a version with the Nvidia drivers preinstalled.",
-            "userbasePostfix": " million",
-            "highlights": ["Innovative design with tiling window capability", "Not the most up-to-date software"]
+            "description": "Built by System76, featuring the innovative COSMIC desktop environment (macOS-like) with tiling window support. It focuses on usability and is good for creative work and productivity. It also has a version with the Nvidia drivers preinstalled.",
+            "userbasePostfix": " million"
         },
         "aurora": {
             "description": "Aurora is a cutting-edge Linux OS built on the same foundation as Bazzite. As an immutable, point-release distribution, it delivers daily background updates that apply seamlessly upon reboot, remaining unnoticed by the user. Aurora utilizes Flatpaks managed through the Bazaar software center, offering greater stability than traditional distributions like Ubuntu without sacrificing freshness. It is the perfect option for everyday use, including gaming and software development.",
-            "userbasePostfix": "k",
-            "highlights": ["Cutting-edge OS for everything"]
+            "userbasePostfix": "k"
         },
         "kde-linux": {
-            "description": "An immutable Linux OS built by KDE. It provides the default KDE Plasma experience as its developers originally intended, effectively replacing KDE Neon. Yet to be released, here just for information, don't install it just yet.",
-            "highlights": ["Stable, modern, and reliable general-purpose OS"]
+            "description": "An immutable Linux OS built by KDE. It provides the default KDE Plasma experience as its developers originally intended, effectively replacing KDE Neon. Yet to be released, here just for information, don't install it just yet."
         },
         "kalpa": {
-            "description": "Kalpa is a desktop OS you don't have to worry about. It has an immutable OS layer (provided by Btrfs snapshots), while providing continuous updates to its mutable software layer. It is the perfect choice for an \"it just works\" OS, however, it is still in the alpha stage. The GNOME variant is called Aeon.",
-            "highlights": ["Stable, modern, and reliable general-purpose OS"]
+            "description": "Kalpa is a desktop OS you don't have to worry about. It has an immutable OS layer (provided by Btrfs snapshots), while providing continuous updates to its mutable software layer. It is the perfect choice for an \"it just works\" OS, however, it is still in the alpha stage. The GNOME variant is called Aeon."
         },
         "openSUSE": {
-            "description": "openSUSE is a modern, general-purpose, stable, and reliable distribution intended for both professional and casual users. It is sponsored by SUSE, the first company to market Linux for the enterprise. It comes in two main variants: Leap (a point release) and Tumbleweed (a rolling release), and offers three primary desktop environments: KDE Plasma, GNOME, and Xfce (with more options available during installation). openSUSE greatly leverages the Btrfs filesystem by making snapshots of files and packages with Snapper to ensure system integrity (can be disabled, of course). Also, historically, it used the YaST configuration tool to manage the entire system from a single place, but now it has been replaced with modern solutions. At its core, it's similar to Fedora but with a greater focus on system stability. It is as light and fast as Arch, but more stable. Tumbleweed automatically tests its packages using the openQA service to ensure compatibility and system stability. Therefore, it doesn't need to artificially freeze package versions while waiting for upstream developers to test them. openSUSE is a perfect choice for system administrators and regular users (yes, even gamers). The OS adheres strictly to open-source practices and therefore does not contain proprietary components by default.",
-            "highlights": ["A very toxic community that constantly projects. To solve Nvidia's hibernation and sleep mode issues, they recommended removing the Nvidia driver completely. Whenever you mention having an issue with openSUSE, they just reply that it works fine on their computer and they cannot help you further. They were rude to me for no reason, accused me of being hostile (which is pure projection), and purged me from the chat. 🤣 Also, their English is not the best, but they correct yours and laugh at your questions."],
+            "description": "openSUSE is a modern, general-purpose, stable, and reliable distribution intended for both professional and casual users. It is sponsored by SUSE, the first company to market Linux for the enterprise. It comes in two main variants: Leap (a point release) and Tumbleweed (a rolling release), and offers three primary desktop environments: KDE Plasma, GNOME, and Xfce (with more options available during installation). openSUSE greatly leverages the Btrfs filesystem by making snapshots of files and packages with Snapper to ensure system integrity (can be disabled, of course). Also, historically, it used the YaST configuration tool to manage the entire system from a single place, but now it has been replaced with modern solutions. At its core, it's similar to Fedora but with a greater focus on system stability. It is as light and fast as Arch, but more stable. Tumbleweed automatically tests its packages using the openQA service to ensure compatibility and system stability. Therefore, it doesn't need to artificially freeze package versions while waiting for upstream developers to test them. openSUSE is a perfect choice for system administrators and regular users (yes, even gamers). The OS adheres strictly to open-source practices and therefore does not contain proprietary components by default. Its community members are quite toxic and prone to projecting. They gatekeep and feed their own egos rather than genuinely helping you. To solve Nvidia's hibernation and sleep mode issues, they recommended removing the Nvidia driver completely. Whenever you mention having an issue with openSUSE, they just reply that it works fine on their computer and they cannot help you further. They were rude to me for no reason, accused me of being hostile (which is pure projection), and purged me from the chat. Also, their English is not the best, but they correct yours and laugh at your questions.",
             "userbasePostfix": " million"
         },
         "fedora": {
             "description": "The golden mean for a Linux distribution, it is general-purpose and good for developers, gamers, and casual users. It comes in many editions/spins, including one with the KDE Plasma desktop environment. It frequently updates apps and system components during its release cycle, keeping the software up-to-date while still remaining a point-release distribution. Fedora is a fully open-source project, so it doesn't come with Nvidia drivers or other proprietary software preinstalled, but it all can be done manually after the installation. The best alternative to it is Ultramarine Linux.",
-            "userbasePostfix": " million",
-            "highlights": ["Cutting-edge and reliable distribution"]
+            "userbasePostfix": " million"
         },
         "ultramarine": {
             "description": "An out-of-the-box version of Fedora. It features extra repositories, preinstalled multimedia codecs, and other components — essentially everything most users would manually set up post-installation. The additional Terra repository with its cutting-edge software makes it a truly semi-rolling distro. Ultramarine to Fedora is what Ubuntu is to Debian. A good choice for gaming. Its developers also provide a conversion script allowing you to migrate from Fedora to Ultramarine Linux.",
-            "userbasePostfix": "k",
-            "highlights": ["Pre-configured distribution with up-to-date software"]
+            "userbasePostfix": "k"
         },
         "endeavouros": {
-            "description": "Arch Linux made easy. It provides a graphical installer and makes minimal changes to the base system.",
-            "userbasePostfix": "k",
-            "highlights": ["Simple and powerful with no bloat", "A lot of available software in repositories", "Very fast boot and shutdown times", "Doesn't configure zRAM by default"]
+            "description": "Arch Linux made easy. Simple and powerful with no bloat. It provides a graphical installer and makes minimal changes to the base system. It offers a lot of available software in its repositories and boots and shuts down very fast. However, it doesn't configure zRAM by default.",
+            "userbasePostfix": "k"
         },
         "cachyos": {
-            "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Perfect for tech enthusiasts who want to have full control over their system. The extreme optimizations of CachyOS may result in lower stability compared to EndeavourOS.",
-            "userbasePostfix": "k",
-            "highlights": ["Extreme performance optimizations", "A lot of community support", "Integrated snapshots with a dedicated boot menu"]
+            "description": "An Arch-based rolling distribution optimized for performance, featuring the KDE Plasma desktop environment (among many others). Though not initially gaming-ready, it can be easily set up for gaming by installing a single meta package (cachyos-gaming-meta). The handheld edition, on the other hand, is gaming-ready. Includes Shelly, a GUI app center that supports all major package types. Perfect for tech enthusiasts who want to have full control over their system. The extreme optimizations of CachyOS may result in lower stability compared to EndeavourOS. It has snapshots integrated into the system and provides a dedicated boot menu for them.",
+            "userbasePostfix": "k"
         },
         "omarchy": {
-            "description": "An opinionated Arch-based rolling distribution powered by the Hyprland tiling window manager and built for productivity in mind. Minimalistic UI and workflow, but it ships with some productivity software. The workflow revolves around using hotkeys and, optionally, AI agents. The UI is highly customizable, with a large database of community extensions.",
-            "userbasePostfix": "k",
-            "highlights": ["Beautifully pre-configured setup with tiling workflow", "The system is complete which eliminates the need to manually tweak it", "A lot of stock themes", "A lot of productivity software pre-installed", "Very fast installation within minutes", "It's vibe-coded"]
+            "description": "An opinionated Arch-based rolling distribution powered by the beautifully preconfigured Hyprland tiling window manager and built with productivity in mind. Minimalistic UI and workflow, but it ships with some productivity software. The workflow revolves around using hotkeys and, optionally, AI agents. The UI is highly customizable with a lot of stock themes and a large database of community extensions. It's vibe-coded and installs just within minutes.",
+            "userbasePostfix": "k"
         },
         "steamos": {
             "description": "An official gaming OS from Valve that powers Steam Deck, Steam Machine and other devices like Lenovo Legion Go. Immutable (using its own RAUC and desync technologies), user-friendly and optimized for gaming. Features the KDE Plasma desktop environment.",
             "userbasePostfix": " million"
         },
         "bazzite": {
-            "description": "A gaming immutable (using OSTree) Linux distribution, perfect for both PCs and handhelds (has a special edition for them). A SteamOS alternative, but it has better desktop mode support. 16GB of RAM is recommended for Bazzite. Take a survey on the official website to see if your hardware supports the Linux gaming.",
-            "userbasePostfix": "k",
-            "highlights": ["Universal gaming distro for desktop and handhelds", "May take up about 4-5Gb of RAM on idle"]
+            "description": "A universal gaming Linux distro, perfect for both PCs and handhelds (has a special edition for them). It is an immutable (using OSTree) and is a good alternative to SteamOS, but it has better desktop mode support. It may take up about 4–5 GB of RAM on idle, so 16GB is recommended for Bazzite. Take a survey on the official website to see if your hardware supports Linux gaming.",
+            "userbasePostfix": "k"
         },
         "nobara": {
-            "description": "A gaming distro with a mutable core system, giving you full control. It was developed by the creator of Proton-GE, a utility at the heart of Linux gaming, and features both PC and handheld versions. Provides you the full power of Fedora, but comes with graphics drivers and gaming software preinstalled on top of that.",
-            "userbasePostfix": "k",
-            "highlights": ["Gaming distro that can be used for everything else too", "Good community support", "May have some update friction"]
+            "description": "A gaming distro with a mutable core system, giving you full control. It was developed by the creator of Proton-GE, a utility at the heart of Linux gaming, and features both PC and handheld versions. It gives you the full power of Fedora, but comes with graphics drivers and gaming software preinstalled on top of that. It may have some update friction if it is updated rarely.",
+            "userbasePostfix": "k"
         },
         "pikaos": {
             "description": "A mutable gaming distribution. Similar to Nobara, but based on Debian (unstable branch with newer software). It offers you the option to install a gaming meta-package after the OS installation, meaning you can keep it bloat-free and configure it yourself. The GNOME edition features a layout switcher, just like Zorin OS.",
