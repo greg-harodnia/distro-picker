@@ -94,7 +94,7 @@
       "logo": "/ultramarine.webp",
       "tier": "less-popular",
       "desktops": ["KDE Plasma", "GNOME", "Xfce", "Budgie"],
-      "ease_of_use": 4.8,
+      "ease_of_use": 4.5,
       "based_on": "Fedora",
       "userbase_number": "~10",
       "secure_boot": true,
