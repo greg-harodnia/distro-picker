@@ -20,3 +20,8 @@
 - `README.md` — project structure, blog format, i18n, Supabase schema.
 - Routes: `src/routes/[[lang]]/…` — the locale is part of the URL.
 - Blog posts: `src/lib/blog/posts/<slug>.<lang>.md`.
+
+## Git strategy
+
+- Offer a commit name idea every time for all uncommited changes.
+- Don't commit yourself.
