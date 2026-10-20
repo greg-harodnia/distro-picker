@@ -178,30 +178,45 @@
 	{/each}
 	<link rel="alternate" hreflang="x-default" href={langHref('en')} />
 
-	<!-- WebSite JSON-LD -->
+	<!--
+		Site-level JSON-LD. Google supports one site name per subdomain and only
+		reads `WebSite` from the domain home page, so the site node is emitted on
+		`/` alone — `/be` is a subdirectory and a second block there would have
+		the site compete with itself. This is the only `WebSite` block in the app.
+		`name`/`description` mirror the meta tags above; `alternateName` offers a
+		shorter brand form, deliberately not the bare host: a lowercase domain in
+		`alternateName` is Google's documented last-resort name preference, which
+		is how the SERP came to show the domain right above its own URL.
+	-->
 	<JsonLd
 		data={{
 			'@context': 'https://schema.org',
 			'@graph': [
-				{
-					'@type': 'WebSite',
-					name: baseTitle,
-					url: siteUrl,
-					description: description,
-					inLanguage: $locale,
-					potentialAction: {
-						'@type': 'SearchAction',
-						target: {
-							'@type': 'EntryPoint',
-							urlTemplate: `${siteUrl}/?q={search_term_string}`
-						},
-						'query-input': 'required name=search_term_string'
-					}
-				},
+				...(pathname === '/'
+					? [
+							{
+								'@type': 'WebSite',
+								name: baseTitle,
+								// Canonical home page (matches `<link rel="canonical">`).
+								url: `${siteUrl}/`,
+								alternateName: ['Distro Picker'],
+								description: pageDescription,
+								inLanguage: $locale,
+								potentialAction: {
+									'@type': 'SearchAction',
+									target: {
+										'@type': 'EntryPoint',
+										urlTemplate: `${siteUrl}/?q={search_term_string}`
+									},
+									'query-input': 'required name=search_term_string'
+								}
+							}
+						]
+					: []),
 				{
 					'@type': 'Organization',
 					name: baseTitle,
-					url: siteUrl,
+					url: `${siteUrl}/`,
 					logo: `${siteUrl}/linux.webp`
 				}
 			]

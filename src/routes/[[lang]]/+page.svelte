@@ -27,37 +27,12 @@
 
 	let { data }: { data: PageData } = $props();
 
-	// The JSON-LD description must match the meta description, otherwise Google
-	// sees structured data that contradicts the page. `seo.home.description` is
-	// the same string the layout renders into <meta name="description">; fall
-	// back to the shorter `app.description` if a locale is ever missing it.
-	let ldDescription = $derived(
-		(data.seo?.description as string | undefined) ||
-			$t('app.description') ||
-			'Linux distro picker'
-	);
-
-	// Alternate site names, in order of preference, for Google's site-name
-	// system. It falls back to the hosting platform's name ("Vercel") for a
-	// `*.vercel.app` subdomain when it isn't confident about the subdomain's
-	// own name; offering a concise brand form plus the host itself (which must
-	// be all lowercase) gives it a backup that isn't the platform name. Derived
-	// from SITE_URL so it stays correct if the domain ever changes.
-	let alternateSiteNames = $derived(['Distro Picker', new URL(siteUrl).host.toLowerCase()]);
-
-	// Structured data is derived (not module-level) so it is rendered in the
-	// page's language — `/be` gets Belarusian names and `/be`-prefixed URLs.
+	// ItemList only: the `WebSite` site-name node lives in `+layout.svelte` and
+	// is emitted on `/` alone, so the subdomain has exactly one site-name block
+	// (Google ignores `WebSite` markup on subdirectories like `/be` anyway).
 	let ldData = $derived({
 		"@context": "https://schema.org",
 		"@graph": [
-			{
-				"@type": "WebSite",
-				"url": `${siteUrl}${localePath('/', $locale)}`,
-				"name": $appTitle,
-				"alternateName": alternateSiteNames,
-				"description": ldDescription,
-				"inLanguage": $locale
-			},
 			{
 				"@type": "ItemList",
 				"numberOfItems": allDistros.length,
