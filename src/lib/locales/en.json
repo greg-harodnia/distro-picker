@@ -155,7 +155,7 @@
             "userbasePostfix": " million"
         },
         "zorin": {
-            "description": "A polished distro focused on visual appeal and ease of use, featuring the GNOME desktop environment with 3D animations and various out-of-the-box layouts. Good even for people that have no idea what Linux is. For example, it can suggest open-source alternatives if a user tries to install an .exe file. It does not offer the most up-to-date software in its repositories. Very light on resources as well.",
+            "description": "A polished distro focused on visual appeal and ease of use, featuring the GNOME desktop environment with 3D animations and various out-of-the-box layouts. Good even for people that have no idea what Linux is. For example, it can suggest open-source alternatives if a user tries to install an .exe file. It does not offer the most up-to-date software in its repositories.",
             "userbasePostfix": " million"
         },
         "kubuntu": {
