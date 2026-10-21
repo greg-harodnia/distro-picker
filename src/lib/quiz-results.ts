@@ -12,30 +12,28 @@
  * `npm run check:quiz` to verify that the locale trees still match this map.
  */
 export const QUIZ_RESULTS = {
-	/** I'm lazy, just tell me what to use */
-	'0': ['mint', 'zorin', 'tuxedo', 'ultramarine', 'aurora'],
 	/** Just a regular user → Windows-like */
-	'1.0': ['mint', 'zorin', 'kubuntu', 'tuxedo', 'ultramarine', 'aurora'],
+	'0.0': ['mint', 'zorin', 'tuxedo', 'ultramarine', 'aurora'],
 	/** Just a regular user → macOS-like */
-	'1.1': ['popos', 'zorin'],
+	'0.1': ['popos', 'zorin'],
 	/** Preconfigured for gaming → don't care about editing system files */
-	'2.0': ['bazzite', 'steamos', 'rakuos'],
+	'1.0': ['bazzite', 'steamos', 'rakuos'],
 	/** Preconfigured for gaming → yes, want to edit system files */
-	'2.1': ['nobara', 'pikaos', 'cachyos'],
+	'1.1': ['nobara', 'pikaos', 'cachyos'],
 	/** I want to develop on it */
-	'3': ['fedora', 'kubuntu'],
+	'2': ['fedora', 'kubuntu'],
 	/** Tech enthusiast, full control */
-	'4': ['endeavouros', 'omarchy', 'cachyos', 'openSUSE'],
+	'3': ['endeavouros', 'omarchy', 'cachyos', 'openSUSE'],
 	/** Recover an old PC → sluggish, but not extremely old */
-	'5.0': ['mint'],
+	'4.0': ['mint'],
 	/** Recover an old PC → produced more than 15 years ago */
-	'5.1': ['lubuntu'],
+	'4.1': ['lubuntu'],
 	/** Recover an old PC → truly ancient */
-	'5.2': ['antiX'],
+	'4.2': ['antiX'],
 	/** Apple Silicon — Asahi has no page in distros.json yet */
-	'6': [],
+	'5': [],
 	/** Android console — Armada has no page in distros.json yet */
-	'7': []
+	'6': []
 } as const satisfies Record<string, readonly string[]>;
 
 /** Dot-joined index path of an answer, matching a {@link QUIZ_RESULTS} key. */

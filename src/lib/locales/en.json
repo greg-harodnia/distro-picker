@@ -270,17 +270,13 @@
                 "text": "How would you like to use the distribution?",
                 "answers": [
                     {
-                        "text": "I'm lazy, just tell me what to use",
-                        "result": "Well-proven by time distro: Linux Mint. Zorin OS if you prioritize visual aesthetics and simplicity, perfect for your mom and friends. TUXEDO OS or Ultramarine Linux if you prefer the freshness of software, perfect for ex-distrohoppers who want to finally settle. Aurora if you want an unbreakable immutable system."
-                    },
-                    {
                         "text": "Just a regular user",
                         "question": {
                             "text": "Which layout do you prefer?",
                             "answers": [
                                 {
                                     "text": "Windows-like",
-                                    "result": "Linux Mint, Kubuntu, or Zorin OS — depending on which design you like more. If you like Kubuntu, but prefer the freshness of software, you can choose TUXEDO OS, Ultramarine Linux, or Aurora."
+                                    "result": "Well-proven by time distro: Linux Mint. Zorin OS if you prioritize visual aesthetics and simplicity. TUXEDO OS if you prefer the freshness of software and a customizable desktop. Ultramarine Linux if you are a distrohopper who want to finally settle. Aurora if you want an unbreakable immutable system."
                                 },
                                 {
                                     "text": "macOS-like",
