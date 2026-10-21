@@ -47,7 +47,6 @@
 	media={screenshots.length > 0 ? media : undefined}
 >
 	{#snippet header()}
-		<h2 class="modal-title">{distro.name}</h2>
 		<a
 			class="full-page-link"
 			href={fullPageUrl}
@@ -71,6 +70,7 @@
 				<line x1="10" y1="14" x2="21" y2="3"></line>
 			</svg>
 		</a>
+		<h2 class="modal-title">{distro.name}</h2>
 	{/snippet}
 
 	<DistroDetails {tags} {distro} />
@@ -138,12 +138,6 @@
 	:global(.distro-modal .modal-header) {
 		justify-content: space-between;
 		gap: var(--space-sm);
-	}
-
-	:global(.distro-modal .modal-title) {
-		text-align: left;
-		font-size: var(--text-lg);
-		flex: 1;
 	}
 
 	.full-page-link {
