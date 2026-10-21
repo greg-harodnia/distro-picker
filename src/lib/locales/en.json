@@ -163,7 +163,7 @@
             "userbasePostfix": " million"
         },
         "tuxedo": {
-            "description": "TUXEDO OS is a better Kubuntu alternative which is developed by TUXEDO Computers. It uses Flatpaks instead of Snaps, has a custom kernel, and includes other improvements, such as integrated snapshots. It is a semi-rolling distribution meaning it has newer software versions, including cutting-edge versions of KDE Plasma. TUXEDO OS comes pre-installed with the TUXEDO Control Center for managing fan speeds and power profiles, and it supports system snapshots with the help of the Btrfs filesystem. A good choice for gaming as well. It feels much more snappier than Kubuntu. Its mirrors can be slow for updates if you are very far away from Germany.",
+            "description": "TUXEDO OS is a better Kubuntu alternative which is developed by TUXEDO Computers. It uses Flatpaks instead of Snaps, has a custom kernel, and includes other improvements. It is a semi-rolling distribution meaning it has newer software versions, including cutting-edge versions of KDE Plasma. TUXEDO OS comes pre-installed with the TUXEDO Control Center for managing fan speeds and power profiles, and it supports system snapshots with the help of the Btrfs filesystem. A good choice for gaming as well. It feels much more snappier than Kubuntu. Its mirrors can be slow for updates if you are very far away from Germany.",
             "userbasePostfix": "k"
         },
         "popos": {
