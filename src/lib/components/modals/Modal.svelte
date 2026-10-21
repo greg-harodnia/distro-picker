@@ -242,6 +242,14 @@ out of the accessibility tree so it isn't announced as content. -->
 		flex-shrink: 0;
 	}
 
+	/* The close button always closes the header row, but `space-between`
+	   only right-aligns it when a consumer supplies a `header` snippet.
+	   GalleryModal passes none, so without this the single flex child
+	   falls to the start and the ✕ sits in the top-left corner. */
+	.modal-overlay :global(.modal-header > .close-btn) {
+		margin-left: auto;
+	}
+
 	.modal-overlay :global(.modal-body) {
 		padding: var(--space-lg);
 		overflow-y: auto;
