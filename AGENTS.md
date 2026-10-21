@@ -24,5 +24,5 @@
 
 ## Git strategy
 
-- Offer a commit name idea every time for all uncommited changes.
+- Offer a commit name idea every time for all uncommited changes (so if a commit was made during the session, don't include those changes into the commit name).
 - Don't commit yourself.
