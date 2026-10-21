@@ -132,22 +132,22 @@
 		margin-bottom: var(--space-lg);
 	}
 
+	/* Label and value share one line so a long value wraps back to the start
+	   of the row (under the label) instead of hanging in a value column. */
 	.spec {
-		display: flex;
-		align-items: baseline;
-		gap: var(--space-sm);
-		min-width: 0;
+		line-height: var(--line-height-normal);
+		overflow-wrap: anywhere;
 	}
 
 	.spec-label {
 		color: var(--color-text-muted);
+		margin-right: var(--space-xs);
 	}
 
 	.spec-value {
 		color: var(--color-text);
 		font-size: var(--text-base);
 		line-height: var(--line-height-normal);
-		overflow-wrap: anywhere;
 	}
 
 	.distro-description p {
