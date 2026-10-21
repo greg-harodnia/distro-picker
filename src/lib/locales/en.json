@@ -288,15 +288,15 @@
                     {
                         "text": "I want it to be preconfigured for gaming",
                         "question": {
-                            "text": "Do you want to be able to edit system files?",
+                            "text": "Do you mind an immutable distro?",
                             "answers": [
                                 {
-                                    "text": "I don't care about it",
+                                    "text": "No, it's okay",
                                     "result": "Bazzite or SteamOS. These distributions are available for both PCs and handhelds (keep in mind that AMD cards are currently the most supported). Alternatively, you can pick RakuOS if you use a desktop / laptop."
                                 },
                                 {
-                                    "text": "Yes",
-                                    "result": "Nobara or PikaOS. With their mutable systems, you'll be able to tweak system files and install any packages you want. If you're technically skilled enough, you can also go with CachyOS."
+                                    "text": "I do",
+                                    "result": "Nobara or PikaOS. With their mutable systems, you'll be able to tweak any system files and install any packages you want. If you're technically skilled enough, you can also go with CachyOS."
                                 }
                             ]
                         }
