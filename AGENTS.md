@@ -15,6 +15,7 @@
 - Prefer shared abstractions over appending. When a new feature strains an existing implementation, evolve that code instead of patching around its limits.
 - SEO and performance are priorities — flag regressions rather than shipping them.
 - Ask before a significant unrequested rewrite.
+- Use BEM (Block, Element, Modificator) approach in CSS when writing new code or editing the old. This allows to use one-class rules with the same specificity everywhere.
 
 ## Where to look
 - `README.md` — project structure, blog format, i18n, Supabase schema.

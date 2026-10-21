@@ -163,7 +163,17 @@ out of the accessibility tree so it isn't announced as content. -->
 		background: transparent;
 	}
 
-	.modal-overlay :global(.modal-content) {
+	/* Fully `:global` on purpose: the scoped form `.modal-overlay.svelte-x
+	   .modal-content` would score (0,3,0) and TIE with consumer overrides
+	   like `.modal-overlay .modal-content.distro-modal` (0,3,0) in
+	   DistroModal.svelte. A tie is resolved by stylesheet order, and dev
+	   injects styles per module while prod extracts them and inlines part
+	   into the prerendered HTML — so the same tie made the 1040px width
+	   win in dev but lose in prod. Keeping this base rule at (0,2,0)
+	   puts the shell strictly below consumer block rules (0,3,0) and
+	   strictly above app.css element/class rules (0,0,1 / 0,1,0), so the
+	   winner no longer depends on load order. */
+	:global(.modal-overlay .modal-content) {
 		background: var(--color-surface);
 		border: 1px solid var(--line-strong);
 		border-radius: var(--radius-lg);
