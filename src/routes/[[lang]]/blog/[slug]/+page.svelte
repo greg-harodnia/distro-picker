@@ -4,6 +4,7 @@
 	import BackLink from '$lib/components/BackLink.svelte';
 	import JsonLd from '$lib/components/JsonLd.svelte';
 	import PageTopBar from '$lib/components/PageTopBar.svelte';
+	import ScrollProgress from '$lib/components/ScrollProgress.svelte';
 	import EyeIcon from '$lib/components/icons/EyeIcon.svelte';
 	import HeartIcon from '$lib/components/icons/HeartIcon.svelte';
 	import { t, locale, localePath, appTitle } from '$lib/i18n/locale';
@@ -22,6 +23,9 @@
 	let likes = $state(0);
 	let userLiked = $state(false);
 	let liking = $state(false);
+
+	// The post element the progress line measures against.
+	let postEl = $state<HTMLElement | undefined>(undefined);
 
 	function readLikedState(): boolean {
 		return readLikedIds(BLOG_LIKES_KEY).includes(post.slug);
@@ -104,10 +108,12 @@
 
 <JsonLd data={ldData} />
 
+<ScrollProgress target={postEl} />
+
 <main class="page-shell post-page">
 	<PageTopBar backPath="/blog" label={$t('pages.blog.backToBlog')} />
 
-	<article class="post">
+	<article class="post" bind:this={postEl}>
 		<header class="post-header">
 			<h1>{post.meta.title}</h1>
 			<p class="post-info mono-label">
