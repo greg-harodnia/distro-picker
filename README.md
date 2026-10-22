@@ -35,6 +35,26 @@ bun --bun vite build
 bun --bun vite preview
 ```
 
+## 🚀 Caching (Vercel)
+
+`vercel.json` sets `Cache-Control` per path pattern. Two rules to keep in mind:
+
+- **Order matters.** Vercel applies *every* matching rule and, for the same
+  header key, the **last** match wins. The generic page rule
+  (`/((?!api|blog).*)`) therefore has to stay **above** the asset rules —
+  otherwise it overwrites their longer TTLs.
+- **Fonts are self-hosted** in `static/fonts/` and cached for a year
+  (`max-age=31536000`). Their filenames are not content-hashed, so a font
+  update only reaches returning visitors after the TTL expires.
+
+| Path | TTL |
+|------|-----|
+| `/internal/immutable/*` (JS/CSS) | 1 year, immutable (set by `adapter-vercel`) |
+| `/fonts/*.woff2` | 1 year |
+| `/screenshots/*/*`, `/*.webp`, `/*.svg`, `/*.png` | 7 days |
+| HTML pages | 1 day, stale-while-revalidate 7 days |
+| `/api/*`, `/blog/*` | not cached by `vercel.json` |
+
 ## 📝 Blog
 
 Blog posts live as Markdown files in `src/lib/blog/posts/`:
