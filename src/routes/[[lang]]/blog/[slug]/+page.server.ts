@@ -28,13 +28,15 @@ export async function load({ params }) {
 		(heading, text) =>
 			text.trim().toLowerCase() === file.meta.title.trim().toLowerCase() ? '' : heading
 	);
-	const contentHtml = renderMarkdown(body);
+	const { html: contentHtml, headings } = renderMarkdown(body);
 
 	const siteTitle = getSiteTitle(locale);
 	const description = file.meta.description || BLOG_INDEX_DESCRIPTION;
 
 	return {
 		post: toDetail(params.slug, locale, contentHtml, usingFallback),
+		// The post's `##` sections, used by the floating table of contents.
+		headings,
 		seo: {
 			title: `${file.meta.title} | ${siteTitle}`,
 			description: description.length > 155 ? `${description.slice(0, 152).trim()}...` : description,

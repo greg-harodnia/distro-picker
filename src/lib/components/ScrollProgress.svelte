@@ -15,10 +15,11 @@
 	 * the bottom of the screen — the page header above the post and the footer
 	 * below it don't stretch the scale.
 	 */
+	import { frameThrottle } from '$lib/utils';
+
 	let { target }: { target: HTMLElement | undefined } = $props();
 
 	let progress = $state(0);
-	let frame = 0;
 
 	function measure() {
 		if (!target) {
@@ -45,13 +46,7 @@
 
 	// Scrolling fires far more often than the line needs to move; one
 	// measurement per animation frame is enough and keeps it smooth.
-	function schedule() {
-		if (frame) return;
-		frame = requestAnimationFrame(() => {
-			frame = 0;
-			measure();
-		});
-	}
+	const schedule = frameThrottle(measure);
 
 	$effect(() => {
 		const element = target;
@@ -70,8 +65,7 @@
 
 		return () => {
 			observer.disconnect();
-			cancelAnimationFrame(frame);
-			frame = 0;
+			schedule.cancel();
 		};
 	});
 </script>

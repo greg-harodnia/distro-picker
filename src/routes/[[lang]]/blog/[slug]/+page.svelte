@@ -4,6 +4,7 @@
 	import BackLink from '$lib/components/BackLink.svelte';
 	import JsonLd from '$lib/components/JsonLd.svelte';
 	import PageTopBar from '$lib/components/PageTopBar.svelte';
+	import PostToc from '$lib/components/PostToc.svelte';
 	import ScrollProgress from '$lib/components/ScrollProgress.svelte';
 	import EyeIcon from '$lib/components/icons/EyeIcon.svelte';
 	import HeartIcon from '$lib/components/icons/HeartIcon.svelte';
@@ -109,6 +110,8 @@
 <JsonLd data={ldData} />
 
 <ScrollProgress target={postEl} />
+
+<PostToc headings={data.headings} />
 
 <main class="page-shell post-page">
 	<PageTopBar backPath="/blog" label={$t('pages.blog.backToBlog')} />
@@ -225,6 +228,13 @@
 		font-size: 0.875rem;
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
+	}
+
+	/* Jumping to a section (the table of contents, or a fragment URL) should
+	   not park the heading against the very top of the viewport. */
+	.blog-prose :global(h2),
+	.blog-prose :global(h3) {
+		scroll-margin-top: var(--space-xl);
 	}
 
 	.blog-prose :global(p) {

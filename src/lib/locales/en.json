@@ -52,7 +52,8 @@
             "views": "views",
             "likes": "likes",
             "like": "Like",
-            "liked": "Liked"
+            "liked": "Liked",
+            "tocLabel": "Post sections"
         }
     },
     "tags": {
