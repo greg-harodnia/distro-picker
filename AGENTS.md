@@ -15,6 +15,7 @@
 - Prefer shared abstractions over appending. When a new feature strains an existing implementation, evolve that code instead of patching around its limits.
 - SEO and performance are priorities — flag regressions rather than shipping them.
 - Ask before a significant unrequested rewrite.
+- Write comments and docs as if they had just been written for a first-time reader: describe how things are now, never what changed or what used to exist. Migration/changelog notes are fine only for substantial changes.
 - Use BEM (Block, Element, Modificator) approach in CSS when writing new code or editing the old. This allows to use one-class rules with the same specificity everywhere.
 
 ## Where to look
