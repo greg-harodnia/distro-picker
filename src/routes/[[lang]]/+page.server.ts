@@ -1,4 +1,4 @@
-import { getTranslation, loadTranslation } from '$lib/i18n/translations';
+import { loadTranslation } from '$lib/i18n/translations';
 import { allScreenshots } from '$lib/screenshots';
 
 export async function load({ params }) {
@@ -8,12 +8,8 @@ export async function load({ params }) {
 	await loadTranslation(locale);
 	const screenshots = allScreenshots();
 
-	// The homepage is the head-term landing page for "distro picker", so it gets
-	// its own title/description instead of the bare `app.*` brand strings.
-	const seo = {
-		title: getTranslation(locale, 'seo.home.title'),
-		description: getTranslation(locale, 'seo.home.description'),
-	};
-
-	return { screenshots, seo };
+	// The homepage's title/description are the shared `app.*` brand strings
+	// (see the layout's `<svelte:head>`); only the blog and distro routes
+	// return their own `seo` override.
+	return { screenshots };
 }

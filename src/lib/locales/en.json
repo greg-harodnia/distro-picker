@@ -1,10 +1,4 @@
 {
-    "seo": {
-        "home": {
-            "title": "Linux Distro Picker with a Quiz",
-            "description": "Distro chooser: quiz or browse 20+ Linux distros."
-        }
-    },
     "app": {
         "title": "Linux Distro Picker",
         "description": "A distro chooser for beginners with a quiz",
