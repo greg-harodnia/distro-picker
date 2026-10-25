@@ -150,7 +150,7 @@
       "logo": "/rakuos.svg",
       "tier": "less-popular",
       "desktops": ["KDE Plasma", "GNOME", "COSMIC", "Niri"],
-      "ease_of_use": 4.8,
+      "ease_of_use": 4.5,
       "based_on": "Fedora Atomic",
       "userbase_number": "~1",
       "secure_boot": true,
@@ -179,7 +179,7 @@
       "tier": "less-popular",
       "in_development": true,
       "desktops": ["KDE Plasma"],
-      "ease_of_use": 4.8,
+      "ease_of_use": 4.5,
       "based_on": "openSUSE MicroOS + openSUSE Tumbleweed",
       "secure_boot": true,
       "swap_strategy": "zram"
