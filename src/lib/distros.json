@@ -30,6 +30,34 @@
       "swap_strategy": "zram"
     },
     {
+      "id": "kubuntu",
+      "name": "Kubuntu",
+      "website": "https://kubuntu.org/",
+      "tag_ids": ["point-release"],
+      "logo": "/kubuntu.webp",
+      "tier": "best",
+      "desktops": ["KDE Plasma"],
+      "ease_of_use": 4.8,
+      "based_on": "Ubuntu",
+      "userbase_number": "~1",
+      "secure_boot": true,
+      "swap_strategy": "swap-file"
+    },
+    {
+      "id": "tuxedo",
+      "name": "TUXEDO OS",
+      "website": "https://www.tuxedocomputers.com/en/TUXEDO-OS_1.tuxedo",
+      "tag_ids": ["rolling"],
+      "logo": "/tuxedo.svg",
+      "tier": "other",
+      "desktops": ["KDE Plasma"],
+      "ease_of_use": 5.0,
+      "based_on": "Debian Testing",
+      "userbase_number": "~100",
+      "secure_boot": false,
+      "swap_strategy": "swap-file"
+    },
+    {
       "id": "zorin",
       "name": "Zorin OS",
       "website": "https://zorinos.com/",
@@ -45,20 +73,6 @@
       "swap_strategy": "swap-file"
     },
     {
-      "id": "tuxedo",
-      "name": "TUXEDO OS",
-      "website": "https://www.tuxedocomputers.com/en/TUXEDO-OS_1.tuxedo",
-      "tag_ids": ["rolling"],
-      "logo": "/tuxedo.svg",
-      "tier": "best",
-      "desktops": ["KDE Plasma"],
-      "ease_of_use": 5.0,
-      "based_on": "Debian Testing",
-      "userbase_number": "~100",
-      "secure_boot": false,
-      "swap_strategy": "swap-file"
-    },
-    {
       "id": "popos",
       "name": "Pop!_OS",
       "website": "https://pop.system76.com/",
@@ -71,20 +85,6 @@
       "userbase_number": "~1-2",
       "secure_boot": false,
       "swap_strategy": "zram-and-swap-partition"
-    },
-    {
-      "id": "kubuntu",
-      "name": "Kubuntu",
-      "website": "https://kubuntu.org/",
-      "tag_ids": ["point-release"],
-      "logo": "/kubuntu.webp",
-      "tier": "other",
-      "desktops": ["KDE Plasma"],
-      "ease_of_use": 4.8,
-      "based_on": "Ubuntu",
-      "userbase_number": "~1",
-      "secure_boot": true,
-      "swap_strategy": "swap-file"
     },
     {
       "id": "ultramarine",
