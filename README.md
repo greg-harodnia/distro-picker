@@ -41,11 +41,19 @@ bun --bun vite preview
 
 - **Order matters.** Vercel applies *every* matching rule and, for the same
   header key, the **last** match wins. The generic page rule
-  (`/((?!api|blog).*)`) therefore has to stay **above** the asset rules —
-  otherwise it overwrites their longer TTLs.
+  (`/((?!api|blog|be/api|be/blog).*)`) therefore has to stay **above** the asset
+  rules — otherwise it overwrites their longer TTLs. The negative lookahead
+  covers the locale-prefixed twins too: dynamic routes are reachable at both
+  `/blog/...` and `/be/blog/...`, and only the prefixed ones would otherwise
+  fall into the day-long HTML rule.
 - **Fonts are self-hosted** in `static/fonts/` and cached for a year
   (`max-age=31536000`). Their filenames are not content-hashed, so a font
   update only reaches returning visitors after the TTL expires.
+- **Sitemap `lastmod`** comes from the last git commit of the files each page
+  renders (`scripts/gen-sitemap.ts`). Vercel clones with limited history, so
+  anything older than the clone depth reports the oldest fetched commit instead
+  of its real date. Set `VERCEL_DEEP_CLONE=1` in the project's environment
+  variables for accurate dates; Google ignores `lastmod` it cannot trust.
 
 | Path | TTL |
 |------|-----|
@@ -53,7 +61,7 @@ bun --bun vite preview
 | `/fonts/*.woff2` | 1 year |
 | `/screenshots/*/*`, `/*.webp`, `/*.svg`, `/*.png` | 7 days |
 | HTML pages | 1 day, stale-while-revalidate 7 days |
-| `/api/*`, `/blog/*` | not cached by `vercel.json` |
+| `/api/*`, `/blog/*` (and their `/be/...` twins) | not cached by `vercel.json` |
 
 ## 📝 Blog
 
@@ -64,7 +72,9 @@ posts/
 ├── <slug>.<lang>.md     e.g. dont-use-obs.en.md
 ```
 
-- Each file starts with a `---` frontmatter block: `title`, `date`, optional `description` and `pinned`.
+- Each file starts with a `---` frontmatter block: `title`, `date`, optional `description`, `pinned` and `updated`.
+  - `date` is the publish date and is what the post header shows.
+  - `updated` is the last meaningful edit; it becomes the schema.org `dateModified` of the `BlogPosting`. Leave it out (or stale) and search engines keep seeing the post as untouched since `date`.
 - A post is served in the URL's locale; if no `<slug>.<lang>.md` exists, the English file is used as the default fallback.
 - Blog pages are **dynamic** (`prerender = false`): the markdown is read and rendered by the server on each request, so it is part of the SSR response (not baked into the build output) and blog pages stay indexable (canonical, hreflang, JSON-LD `BlogPosting`).
 - **Views & likes** are stored in Supabase. Apply the migrations in `supabase/migrations/` in order (`0001`–`0004`) in your Supabase project (SQL editor). Without them, the counters simply show 0 and the current visit/like is still tracked locally.

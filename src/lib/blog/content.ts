@@ -73,9 +73,15 @@ function normalizeMeta(slug: string, file: ParsedFile): BlogPostMeta {
 		typeof meta[key] === 'string' ? (meta[key] as string) : undefined;
 	const title = str('title')?.trim() || slug;
 	const date = str('date') ?? '';
+	// Empty/absent `updated` means "never edited" — the detail page then falls
+	// back to `date` rather than emitting an empty `dateModified`.
+	const updated = str('updated') ?? '';
 	const description = str('description') ?? '';
 	const pinned = meta['pinned'] === 'true';
-	return { slug, title, date, description, pinned };
+	const normalized: BlogPostMeta = { slug, title, date, description, pinned };
+	// Absent when never edited (rather than an empty `updated: ''`).
+	if (updated) normalized.updated = updated;
+	return normalized;
 }
 
 function filesForSlug(slug: string): BlogPostFile[] {

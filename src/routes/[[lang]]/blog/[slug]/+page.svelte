@@ -94,7 +94,8 @@
 		headline: post.meta.title,
 		description: post.meta.description,
 		datePublished: post.meta.date,
-		dateModified: post.meta.date,
+		// Falls back to the publish date for posts that were never edited.
+		dateModified: post.meta.updated ?? post.meta.date,
 		inLanguage: post.lang,
 		url: `${siteUrl}${blogPath}`,
 		author: { '@type': 'Organization', name: $appTitle },

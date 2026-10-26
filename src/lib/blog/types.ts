@@ -6,6 +6,12 @@ export interface BlogPostMeta {
 	title: string;
 	/** ISO date string, e.g. "2026-09-20". */
 	date: string;
+	/**
+	 * ISO date of the last meaningful edit. Surfaced as schema.org
+	 * `dateModified`, so search engines see when a post actually changed
+	 * instead of the day it was first published. Omitted when never edited.
+	 */
+	updated?: string;
 	description?: string;
 	/** Frontmatter `pinned: true` — sorted to the top of the blog index. */
 	pinned: boolean;

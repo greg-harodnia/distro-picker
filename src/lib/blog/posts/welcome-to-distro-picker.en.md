@@ -1,6 +1,7 @@
 ---
 title: Welcome
 date: 2026-09-23
+updated: 2026-10-20
 description: What this distro picker is and isn't, how big Linux really is, dual-boot and Secure Boot tips, and the apps we recommend.
 pinned: true
 ---
