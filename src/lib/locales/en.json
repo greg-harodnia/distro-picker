@@ -208,11 +208,11 @@
             "userbasePostfix": "k"
         },
         "nobara": {
-            "description": "A gaming distro with a mutable core system, giving you full control. It was developed by the creator of Proton-GE, a utility at the heart of Linux gaming, and features both PC and handheld versions. It gives you the full power of Fedora, but comes with graphics drivers and gaming software preinstalled on top of that. It may have some update friction if it is updated rarely.",
+            "description": "A gaming distro with a mutable core system, giving you full control. It was developed by the creator of Proton-GE, a utility at the heart of Linux gaming, and features both PC and handheld versions. It gives you the full power of Fedora, but comes with graphics drivers and gaming software preinstalled on top of that. It may have some update friction if it is updated rarely. Its standard .iso images cover both standard and Nvidia installations.",
             "userbasePostfix": "k"
         },
         "pikaos": {
-            "description": "A mutable gaming distribution. Similar to Nobara, but based on Debian (unstable branch with newer software). It offers you the option to install a gaming meta-package after the OS installation, meaning you can keep it bloat-free and configure it yourself. The GNOME edition features a layout switcher, just like Zorin OS.",
+            "description": "A mutable gaming distribution. Similar to Nobara, but based on Debian (unstable branch with newer software). It offers you the option to install a gaming meta-package after the OS installation, meaning you can keep it bloat-free and configure it yourself. The GNOME edition features a layout switcher, just like Zorin OS. It also has pre-made Nvidia .iso images, so that you don't have to install Nvidia drivers after system installation.",
             "userbasePostfix": "k"
         },
         "rakuos": {
