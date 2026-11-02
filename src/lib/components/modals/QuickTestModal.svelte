@@ -22,7 +22,7 @@
 >
 	{#snippet header()}
 		{#if quiz?.canGoBack}
-			<button class="back-btn" onclick={() => quiz?.goBack()} aria-label={$t('modals.quiz.goBack')} type="button">
+			<button class="back-btn btn-icon" onclick={() => quiz?.goBack()} aria-label={$t('modals.quiz.goBack')} type="button">
 				<ChevronLeftIcon size={20} />
 			</button>
 		{:else}
@@ -49,25 +49,9 @@
 </Modal>
 
 <style>
+	/* Shared `.btn-icon` chrome; the header row must not let it shrink. */
 	.back-btn {
-		background: none;
-		border: none;
-		color: var(--color-text-secondary);
-		cursor: pointer;
-		padding: var(--space-xs);
-		border-radius: var(--radius-sm);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: all var(--transition-normal);
 		flex-shrink: 0;
-	}
-
-	@media (hover: hover) {
-		.back-btn:hover {
-			background: var(--color-background-secondary);
-			color: var(--color-secondary);
-		}
 	}
 
 	.spacer {

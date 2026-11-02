@@ -19,7 +19,7 @@
 	<h2 class="error-title">{title || $t('app.error')}</h2>
 	<p class="error-message">{message || $t('app.error')}</p>
 	{#if retryable}
-		<button class="retry-button" onclick={onretry}>
+		<button class="retry-button" type="button" onclick={onretry}>
 			Try Again
 		</button>
 	{/if}

@@ -96,9 +96,9 @@
 	{/if}
 
 	<div class="actions">
-		<a class="btn-primary" href={`${base}${localePath('/', $locale)}`}>{$t('pages.distro.findMyDistro')}</a>
+		<a class="btn-primary actions__link" href={`${base}${localePath('/', $locale)}`}>{$t('pages.distro.findMyDistro')}</a>
 		{#if distro.website}
-			<a class="btn-outline" href={distro.website} rel="noopener noreferrer" target="_blank">{$t('modals.distro.visitWebsite')}</a>
+			<a class="btn-outline actions__link actions__link--outline" href={distro.website} rel="noopener noreferrer" target="_blank">{$t('modals.distro.visitWebsite')}</a>
 		{/if}
 	</div>
 </main>
@@ -172,21 +172,20 @@
 		flex-wrap: wrap;
 	}
 
-	/* Link CTAs: the global button classes already apply (same class names), so
-	   only the link-specific bits and the wider CTA padding are declared here. */
-	.btn-primary,
-	.btn-outline {
+	/* Link CTAs reuse the global button palette; this block class owns the
+	   link-specific bits and the wider padding. */
+	.actions__link {
 		display: inline-block;
 		text-decoration: none;
 		padding: var(--space-md) var(--space-xl);
 	}
 
-	.btn-outline {
+	.actions__link--outline {
 		letter-spacing: normal;
 	}
 
 	@media (hover: hover) {
-		.btn-outline:hover {
+		.actions__link--outline:hover {
 			background: transparent;
 			color: var(--color-secondary);
 			border-color: var(--color-text);

@@ -84,6 +84,7 @@
 			{/if}
 				<button 
 					class="like" 
+					type="button"
 					class:liked={distro.userLiked}
 					onclick={(e) => handleLike(e, distro)}
 					aria-label={distro.userLiked ? 'Unlike this distro' : 'Like this distro'}

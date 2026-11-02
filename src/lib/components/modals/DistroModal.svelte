@@ -80,7 +80,7 @@
 	{#snippet footer()}
 	<div class="buttons">
 		<button
-			class="website-btn"
+			class="website-btn btn-primary"
 			onclick={visitWebsite}
 			aria-label={`Visit ${distro.name} website`}
 			type="button"
@@ -90,7 +90,7 @@
 
 		{#if screenshots.length > 0}
 			<button
-				class="gallery-btn"
+				class="gallery-btn btn-primary"
 				onclick={() => (galleryIndex = 0)}
 				aria-label={`View ${distro.name} screenshots`}
 				type="button"
@@ -170,22 +170,11 @@
 		height: 56px;
 	}
 
-	.buttons > button {
-		background: var(--color-secondary);
-		color: var(--color-background);
-		border: 1px solid var(--color-secondary);
-		border-radius: var(--radius-md);
-		font-size: var(--text-base);
-		font-weight: var(--font-medium);
-		cursor: pointer;
-		transition: all var(--transition-normal);
-	}
-
+	/* Both CTAs share `.btn-primary`; only their footprint differs. */
 	.website-btn {
 		flex: 1;
 		padding: var(--space-md) var(--space-xl);
 		text-align: center;
-		user-select: none;
 	}
 
 	.gallery-btn {
@@ -193,6 +182,7 @@
 		align-items: center;
 		justify-content: center;
 		width: 56px;
+		padding: 0;
 		margin-left: var(--space-md);
 		flex-shrink: 0;
 	}
@@ -201,20 +191,13 @@
 		flex-shrink: 0;
 	}
 
-	@media (hover: hover) {
-		.buttons > button:hover {
-			background: var(--accent);
-			border-color: var(--accent);
-			color: #fff;
-		}
-	}
-
 	@media (max-width: 640px) {
 		.buttons {
 			height: 44px;
 		}
 
-		.buttons > button {
+		.website-btn,
+		.gallery-btn {
 			border-radius: var(--radius-sm);
 		}
 

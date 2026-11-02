@@ -36,3 +36,10 @@
 		</svg>
 	{/if}
 </button>
+
+<style>
+	/* The toggle chrome is shared; my square footprint is not. */
+	.theme-toggle {
+		width: 44px;
+	}
+</style>

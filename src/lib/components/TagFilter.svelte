@@ -30,10 +30,11 @@
 	}
 </script>
 
-<button 
- 	class="tag-filter"
- 	class:selected
- 	style="--tag-color: var(--tag-{tag.id})"
+<button
+	type="button"
+	class="tag-filter btn-pill"
+	class:selected
+	style="--tag-color: var(--tag-{tag.id})"
 	onclick={handleClick}
 	aria-pressed={selected}
 >
@@ -42,23 +43,12 @@
 </button>
 
 <style>
+	/* Shared `.btn-pill` geometry; the tag colour arrives as `--tag-color`. */
 	.tag-filter {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: var(--space-xs) var(--space-md);
-		height: 34px;
-		border: 1px solid transparent;
 		box-shadow: inset 0 0 0 1px var(--tag-color);
-		border-radius: var(--radius-full);
 		background: transparent;
 		color: var(--tag-color);
-		font-weight: var(--font-medium);
-		cursor: pointer;
-		transition: all var(--transition-normal);
 		position: relative;
-		font-size: var(--text-sm);
-		white-space: nowrap;
 		flex-shrink: 0;
 	}
 

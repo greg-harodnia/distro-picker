@@ -235,7 +235,7 @@
 					{/each}
 				</div>
 				{#if catalog.selectedTags.size > 0}
-					<button class="clear-btn" onclick={() => { catalog.clearTags(); }} aria-label={$t('app.filters.clearAll')}>
+					<button class="clear-btn btn-pill" onclick={() => { catalog.clearTags(); }} aria-label={$t('app.filters.clearAll')}>
 						<CloseIcon size={16} />
 						<span>{$t('app.filters.clearAll')}</span>
 					</button>
@@ -399,25 +399,14 @@
 
 	/* Ghost pill matching the filter-strip language: transparent fill with a
 	   fractional-DPR-safe inset hairline (round corners alias with a real
-	   border), inverting to the secondary pill on hover. */
+	   border), inverting to the secondary pill on hover. Shared `.btn-pill`
+	   supplies the geometry; only the palette and icon gap are local. */
 	.clear-btn {
 		flex-shrink: 0;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
 		gap: var(--space-xs);
-		height: 34px;
-		padding: 0 var(--space-md);
-		border: 1px solid transparent;
 		box-shadow: inset 0 0 0 1px var(--line-strong);
-		border-radius: var(--radius-full);
 		background: transparent;
 		color: var(--color-text-secondary);
-		font-size: var(--text-sm);
-		font-weight: var(--font-medium);
-		white-space: nowrap;
-		cursor: pointer;
-		transition: all var(--transition-normal);
 	}
 
 	@media (hover: hover) {

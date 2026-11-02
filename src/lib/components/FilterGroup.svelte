@@ -79,7 +79,7 @@
 
 <div class="filter-group">
 	<button
-		class="filter-group-btn"
+		class="filter-group-btn btn-pill"
 		class:open
 		class:active={selectedCount > 0}
 		onclick={handleClick}
@@ -119,24 +119,13 @@
 		gap: var(--space-sm);
 	}
 
+	/* Shared `.btn-pill` geometry; only the palette is local. */
 	.filter-group-btn {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		flex-shrink: 0;
 		gap: var(--space-sm);
-		padding: var(--space-sm) var(--space-md);
-		height: 34px;
-		border: 1px solid var(--line-strong);
-		border-radius: var(--radius-full);
+		border-color: var(--line-strong);
 		background: var(--color-surface);
 		color: var(--color-text);
-		font-size: var(--text-sm);
-		font-weight: var(--font-medium);
-		cursor: pointer;
-		user-select: none;
-		transition: all var(--transition-normal);
-		white-space: nowrap;
-		flex-shrink: 0;
 	}
 
 	/* Pin inheritance so the label tracks the button's state colors

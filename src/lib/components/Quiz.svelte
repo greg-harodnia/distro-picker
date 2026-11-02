@@ -199,7 +199,7 @@
 {:else}
 	<div class="question-container">
 		{#if !onchange && currentPath.length > 0}
-			<button class="back-btn" onclick={goBack} aria-label={$t('modals.quiz.goBack')} type="button">
+			<button class="back-btn btn-icon" onclick={goBack} aria-label={$t('modals.quiz.goBack')} type="button">
 				{@render backIcon()}
 			</button>
 		{/if}
@@ -232,25 +232,9 @@
 {/snippet}
 
 <style>
+	/* Shared `.btn-icon` chrome; the arrow sits at the top of the column. */
 	.back-btn {
-		background: none;
-		border: none;
-		color: var(--color-text-secondary);
-		cursor: pointer;
-		padding: var(--space-xs);
-		border-radius: var(--radius-sm);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: all var(--transition-normal);
 		align-self: flex-start;
-	}
-
-	@media (hover: hover) {
-		.back-btn:hover {
-			background: var(--color-background-secondary);
-			color: var(--color-secondary);
-		}
 	}
 
 	.question-container {

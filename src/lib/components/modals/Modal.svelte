@@ -118,7 +118,7 @@ out of the accessibility tree so it isn't announced as content. -->
 			{#if header}
 				{@render header()}
 			{/if}
-			<button class="close-btn" onclick={close} aria-label={$t('app.close')} type="button">
+			<button class="close-btn btn-icon" onclick={close} aria-label={$t('app.close')} type="button">
 				<CloseIcon />
 			</button>
 		</div>

@@ -302,6 +302,12 @@ button, input, textarea, select {
   color: inherit;
 }
 
+/* Buttons are controls, not text: a double-click or drag must not paint a
+   selection. Inputs and textareas stay selectable. */
+button {
+  user-select: none;
+}
+
 button:not(:disabled) {
   cursor: pointer;
 }
@@ -487,24 +493,25 @@ button:not(:disabled) {
 
 /* ==========================================================================
    Buttons
+
+   Four shared controls: the 44px top-bar toggle (.btn-toggle), the primary
+   and outline CTAs (.btn-primary / .btn-outline), the square icon button
+   (.btn-icon) and the 34px filter pill (.btn-pill). Components layer their
+   own layout and colour on top of these instead of restating the chrome.
    ========================================================================== */
 
 .btn-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 44px;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   background: var(--color-surface);
   color: var(--color-text);
   cursor: pointer;
-	user-select: none;
+  user-select: none;
   transition: var(--transition-normal);
-  height: 44px;
-}
-
-.btn-toggle.theme-toggle {
-  width: 44px;
 }
 
 @media (hover: hover) {
@@ -527,8 +534,12 @@ button:not(:disabled) {
   font-weight: var(--font-medium);
   letter-spacing: -0.01em;
   cursor: pointer;
-	user-select: none;
-  transition: all var(--transition-normal);
+  user-select: none;
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal),
+    color var(--transition-normal),
+    transform var(--transition-normal);
 }
 
 .btn-primary {
@@ -558,23 +569,50 @@ button:not(:disabled) {
   }
 }
 
-.close-btn {
-  background: none;
-  border: 1px solid transparent;
-  color: var(--color-text-secondary);
-  cursor: pointer;
-  padding: var(--space-xs);
-  border-radius: var(--radius-sm);
+/* Square icon-only control: modal close and quiz back. `.close-btn` adds the
+   hairline the modal header wants. */
+.btn-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition-normal);
+  padding: var(--space-xs);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal),
+    color var(--transition-normal);
 }
 
 @media (hover: hover) {
-  .close-btn:hover {
+  .btn-icon:hover {
     background: var(--color-background-secondary);
-    border-color: var(--line);
     color: var(--color-secondary);
   }
+
+  .close-btn:hover {
+    border-color: var(--line);
+  }
+}
+
+/* 34px filter/selection pill. Colour, elevation and gap stay local. */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  height: 34px;
+  padding: 0 var(--space-md);
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-normal);
 }
