@@ -248,6 +248,7 @@
                 "zram-and-swap-partition": "zRAM + разьдзел Swap"
             },
             "visitWebsite": "Наведаць сайт",
+            "tryOnDistroSea": "Паспрабаваць у DistroSea",
             "andMore": " і г.д.",
             "independent": "незалежная"
         },

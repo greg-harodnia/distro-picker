@@ -248,6 +248,7 @@
                 "zram-and-swap-partition": "zRAM + Swap Partition"
             },
             "visitWebsite": "Visit Website",
+            "tryOnDistroSea": "Try on DistroSea",
             "andMore": ", etc.",
             "independent": "independent"
         },

@@ -6,6 +6,7 @@
 	import GalleryModal from "./GalleryModal.svelte";
 	import ScreenshotGallery from "$lib/components/ScreenshotGallery.svelte";
 	import DistroDetails from "$lib/components/DistroDetails.svelte";
+	import { getDistroSeaUrl } from "$lib/distroSea";
 	import { t, locale, localePath } from "$lib/i18n/locale";
 
 	let {
@@ -23,6 +24,7 @@
 	let galleryIndex = $state<number | null>(null);
 
 	let fullPageUrl = $derived(`${base}${localePath(`/distro/${distro.id}`, $locale)}`);
+	let distroSeaUrl = $derived(getDistroSeaUrl(distro.id));
 
 	function visitWebsite() {
 		const sanitizedUrl = sanitizeUrl(distro.website);
@@ -73,7 +75,7 @@
 		<h2 class="modal-title">{distro.name}</h2>
 	{/snippet}
 
-	<DistroDetails {tags} {distro} />
+	<DistroDetails {tags} {distro} {distroSeaUrl} />
 
 	{#snippet footer()}
 	<div class="buttons">

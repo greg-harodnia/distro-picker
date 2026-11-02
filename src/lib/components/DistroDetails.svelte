@@ -7,9 +7,11 @@
 	let {
 		distro,
 		tags = [],
+		distroSeaUrl,
 	}: {
 		distro: Distro;
 		tags?: Tag[];
+		distroSeaUrl?: string | undefined;
 	} = $props();
 
 	let translatedDescription = $derived($t(`distros.${distro.id}.description`) as string);
@@ -83,7 +85,7 @@
 		{/if}
 	</div>
 
-	{#if translatedTagNames.length > 0}
+	{#if translatedTagNames.length > 0 || distroSeaUrl}
 		<div class="tag-list">
 			{#each translatedTagNames as { tagId, name } (tagId)}
 				{@const tag = tagMap.get(tagId)}
@@ -93,6 +95,34 @@
 					</span>
 				{/if}
 			{/each}
+
+			{#if distroSeaUrl}
+				<a
+					class="distro-details__try"
+					href={distroSeaUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label={`${$t('modals.distro.tryOnDistroSea')} (opens in a new tab)`}
+				>
+					{$t('modals.distro.tryOnDistroSea')}
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="14"
+						height="14"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"
+					>
+						<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+						<polyline points="15 3 21 3 21 9"></polyline>
+						<line x1="10" y1="14" x2="21" y2="3"></line>
+					</svg>
+				</a>
+			{/if}
 		</div>
 	{/if}
 
@@ -123,6 +153,28 @@
 		border-radius: var(--radius-full);
 		font-size: var(--text-sm);
 		font-weight: var(--font-medium);
+	}
+
+	.distro-details__try {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-2xs);
+		padding: var(--space-xs) var(--space-md);
+		background: var(--accent-soft);
+		border-radius: var(--radius-full);
+		box-shadow: inset 0 0 0 1px var(--accent);
+		color: var(--accent-ink);
+		font-size: var(--text-sm);
+		font-weight: var(--font-medium);
+		text-decoration: none;
+		transition: all var(--transition-normal);
+	}
+
+	@media (hover: hover) {
+		.distro-details__try:hover {
+			background: var(--accent);
+			color: #fff;
+		}
 	}
 
 	.specs {
@@ -158,7 +210,8 @@
 	}
 
 	@media (max-width: 640px) {
-		.tag {
+		.tag,
+		.distro-details__try {
 			padding: var(--space-xs) var(--space-sm);
 		}
 	}
