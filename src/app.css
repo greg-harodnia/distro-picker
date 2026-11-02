@@ -498,6 +498,7 @@ button:not(:disabled) {
   background: var(--color-surface);
   color: var(--color-text);
   cursor: pointer;
+	user-select: none;
   transition: var(--transition-normal);
   height: 44px;
 }
@@ -526,6 +527,7 @@ button:not(:disabled) {
   font-weight: var(--font-medium);
   letter-spacing: -0.01em;
   cursor: pointer;
+	user-select: none;
   transition: all var(--transition-normal);
 }
 

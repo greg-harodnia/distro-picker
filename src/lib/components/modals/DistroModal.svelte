@@ -185,6 +185,7 @@
 		flex: 1;
 		padding: var(--space-md) var(--space-xl);
 		text-align: center;
+		user-select: none;
 	}
 
 	.gallery-btn {

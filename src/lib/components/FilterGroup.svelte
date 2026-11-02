@@ -133,6 +133,7 @@
 		font-size: var(--text-sm);
 		font-weight: var(--font-medium);
 		cursor: pointer;
+		user-select: none;
 		transition: all var(--transition-normal);
 		white-space: nowrap;
 		flex-shrink: 0;

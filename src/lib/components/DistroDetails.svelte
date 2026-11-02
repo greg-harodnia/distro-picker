@@ -153,6 +153,7 @@
 		border-radius: var(--radius-full);
 		font-size: var(--text-sm);
 		font-weight: var(--font-medium);
+		user-select: none;
 	}
 
 	.distro-details__try {
@@ -168,6 +169,7 @@
 		font-weight: var(--font-medium);
 		text-decoration: none;
 		transition: all var(--transition-normal);
+		user-select: none;
 	}
 
 	@media (hover: hover) {
