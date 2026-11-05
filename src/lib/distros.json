@@ -25,7 +25,7 @@
       "hasMoreDesktops": true,
       "ease_of_use": 4.2,
       "based_on": "independent",
-      "userbase_number": "~1-2",
+      "userbase_number": "~0.5-1.2",
       "secure_boot": true,
       "swap_strategy": "zram"
     },
@@ -82,7 +82,7 @@
       "desktops": ["COSMIC"],
       "ease_of_use": 5.0,
       "based_on": "Ubuntu",
-      "userbase_number": "~1-2",
+      "userbase_number": "~300-500",
       "secure_boot": false,
       "swap_strategy": "zram-and-swap-partition"
     },

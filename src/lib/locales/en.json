@@ -163,7 +163,7 @@
         },
         "popos": {
             "description": "Built by System76, featuring the innovative COSMIC desktop environment (macOS-like) with tiling window support. It focuses on usability and is good for creative work and productivity. It also has a version with the Nvidia drivers preinstalled.",
-            "userbasePostfix": " million"
+            "userbasePostfix": "k"
         },
         "aurora": {
             "description": "Aurora is a cutting-edge Linux OS built on the same foundation as Bazzite. As an immutable, point-release distribution, it delivers daily background updates that apply seamlessly upon reboot, remaining unnoticed by the user. Aurora utilizes Flatpaks managed through the Bazaar software center, offering greater stability than traditional distributions like Ubuntu without sacrificing freshness. It is the perfect option for everyday use, including gaming and software development.",
