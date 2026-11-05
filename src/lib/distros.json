@@ -10,7 +10,7 @@
       "desktops": ["Cinnamon", "MATE", "Xfce"],
       "ease_of_use": 5.0,
       "based_on": "Ubuntu",
-      "userbase_number": "~3-10",
+      "userbase_number": "~2-5",
       "secure_boot": true,
       "swap_strategy": "swap-file"
     },
@@ -39,7 +39,7 @@
       "desktops": ["KDE Plasma"],
       "ease_of_use": 4.8,
       "based_on": "Ubuntu",
-      "userbase_number": "~1",
+      "userbase_number": "~0.5-1",
       "secure_boot": true,
       "swap_strategy": "swap-file"
     },
@@ -68,7 +68,7 @@
       "desktops": ["GNOME"],
       "ease_of_use": 5.0,
       "based_on": "Ubuntu",
-      "userbase_number": "~2",
+      "userbase_number": "~0.5-1",
       "secure_boot": true,
       "swap_strategy": "swap-file"
     },
@@ -255,7 +255,7 @@
       "desktops": ["KDE Plasma"],
       "ease_of_use": 4.8,
       "based_on": "independent",
-      "userbase_number": "~5-10",
+      "userbase_number": "~5",
       "secure_boot": false,
       "swap_strategy": "zram-and-swap-file"
     },
