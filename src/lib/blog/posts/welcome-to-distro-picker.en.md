@@ -16,7 +16,7 @@ The picker doesn't include other popular distributions (*like Arch Linux, Ubuntu
 
 ## How big is Linux?
 
-As of mid-2026, there are approximately **75 million** Linux users worldwide (around 25–30% of whom use Ubuntu, 10% Linux Mint, 5% Arch Linux, 4% Debian and 2% Fedora family). This represents about 5% of the OS market share (however, around a third of all Linux users use it exclusively at work).
+As of mid-2026, there are approximately **75 million** Linux users worldwide (around 25–30% of whom use Ubuntu, 5% Linux Mint, 5% Arch Linux, 4% Debian and 2% Fedora family). This represents about 5% of the OS market share (however, around a third of all Linux users use it exclusively at work).
 
 ## Who uses Linux?
 
