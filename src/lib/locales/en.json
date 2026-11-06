@@ -272,7 +272,7 @@
                             "answers": [
                                 {
                                     "text": "Windows-like",
-                                    "result": "Well-proven by time distro: Linux Mint. Zorin OS if you prioritize visual aesthetics and simplicity. TUXEDO OS if you prefer the freshness of software and a customizable desktop. Ultramarine Linux if you are a distrohopper who want to finally settle. Aurora if you want an unbreakable immutable system."
+                                    "result": "Well-proven by time distro: Linux Mint. Kubuntu if you prefer a customizable and functional desktop. Zorin OS if you prioritize visual aesthetics and simplicity. Fedora if you prefer more frequent updates."
                                 },
                                 {
                                     "text": "macOS-like",

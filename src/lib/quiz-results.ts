@@ -13,7 +13,7 @@
  */
 export const QUIZ_RESULTS = {
 	/** Just a regular user → Windows-like */
-	'0.0': ['mint', 'zorin', 'tuxedo', 'ultramarine', 'aurora'],
+	'0.0': ['mint', 'kubuntu', 'zorin', 'fedora'],
 	/** Just a regular user → macOS-like */
 	'0.1': ['popos', 'zorin'],
 	/** Preconfigured for gaming → don't care about editing system files */
