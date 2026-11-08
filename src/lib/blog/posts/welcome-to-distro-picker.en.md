@@ -61,13 +61,13 @@ P.S. The broad availability of choice isn't a problem. If one day 500 new Window
 
 ### Professional apps
 
-- **Adobe Photoshop alternatives**: Photopea, GIMP, Krita, PhotoCraft, Affinity (via Bottles), Photoshop online, Canva (for simple tasks).
+- **Adobe Photoshop alternatives**: Photopea, GIMP, Krita, PhotoCraft, Affinity, Photoshop online, Canva (for simple tasks).
 - **Adobe Lightroom alternatives**: Darktable, LightCraft.
-- **Adobe Illustrator alternatives**: Inkscape, VectorCraft, Affinity (via Bottles).
+- **Adobe Illustrator alternatives**: Inkscape, VectorCraft, Affinity.
 - **Adobe Premiere Pro alternatives**: DaVinci Resolve, Kdenlive, FilmCraft, Shotcut.
 - **Adobe Acrobat alternatives**: Master PDF Editor, PdfCraft, PDF Arranger, Okular.
 - **Adobe After Effects alternatives**: EffectCraft, Blender.
-- **Adobe InDesign alternatives**: DesignCraft, Scribus, Affinity (via Bottles).
+- **Adobe InDesign alternatives**: DesignCraft, Scribus, Affinity.
 - **Autodesk AutoCAD alternatives**: BricsCAD, CADCraft, LibreCAD, FreeCAD.
 - **Avid Pro Tools alternatives**: REAPER, SoundCraft, Ardour.
 

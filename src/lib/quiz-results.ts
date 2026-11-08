@@ -17,7 +17,7 @@ export const QUIZ_RESULTS = {
 	/** Just a regular user → macOS-like */
 	'0.1': ['popos', 'zorin'],
 	/** Preconfigured for gaming → don't care about editing system files */
-	'1.0': ['bazzite', 'steamos', 'rakuos'],
+	'1.0': ['bazzite', 'steamos'],
 	/** Preconfigured for gaming → yes, want to edit system files */
 	'1.1': ['nobara', 'pikaos', 'cachyos'],
 	/** I want to develop on it */

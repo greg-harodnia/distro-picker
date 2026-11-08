@@ -61,13 +61,13 @@ P.S. Шырокая даступнасьць выбару ня ёсьць пра
 
 ### Прафэсыйныя аплікацыі
 
-- **Альтэрнатывы для Adobe Photoshop**: Photopea, GIMP, Krita, PhotoCraft, Affinity (праз Bottles), Photoshop online, Canva (для простых задач).
+- **Альтэрнатывы для Adobe Photoshop**: Photopea, GIMP, Krita, PhotoCraft, Affinity, Photoshop online, Canva (для простых задач).
 - **Альтэрнатывы для Lightroom**: Darktable, LightCraft.
-- **Альтэрнатывы для Adobe Illustrator**: Inkscape, VectorCraft, Affinity (праз Bottles).
+- **Альтэрнатывы для Adobe Illustrator**: Inkscape, VectorCraft, Affinity.
 - **Альтэрнатывы для Adobe Premiere Pro**: DaVinci Resolve, Kdenlive, FilmCraft, Shotcut.
 - **Альтэрнатывы для Adobe Acrobat**: Master PDF Editor, PdfCraft, PDF Arranger, Okular.
 - **Альтэрнатывы для Adobe After Effects**: EffectCraft, Blender.
-- **Альтэрнатывы для Adobe InDesign**: DesignCraft, Scribus, Affinity (праз Bottles).
+- **Альтэрнатывы для Adobe InDesign**: DesignCraft, Scribus, Affinity.
 - **Альтэрнатывы для Autodesk AutoCAD**: BricsCAD, CADCraft, LibreCAD, FreeCAD.
 - **Альтэрнатывы для Avid Pro Tools**: REAPER, SoundCraft, Ardour.
 

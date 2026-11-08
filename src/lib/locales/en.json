@@ -212,7 +212,7 @@
             "userbasePostfix": "k"
         },
         "pikaos": {
-            "description": "A mutable gaming distribution. Similar to Nobara, but based on Debian (unstable branch with newer software). It offers you the option to install a gaming meta-package after the OS installation, meaning you can keep it bloat-free and configure it yourself. The GNOME edition features a layout switcher, just like Zorin OS. It also has pre-made Nvidia .iso images, so that you don't have to install Nvidia drivers after system installation.",
+            "description": "A mutable gaming distribution. Similar to Nobara and CachyOS, but based on Debian (unstable branch with newer software). It offers you the option to install a gaming meta-package after the OS installation, meaning you can keep it bloat-free and configure it yourself. The GNOME edition features a layout switcher, just like Zorin OS. It also has pre-made Nvidia .iso images, so that you don't have to install Nvidia drivers after system installation.",
             "userbasePostfix": "k"
         },
         "rakuos": {
@@ -288,7 +288,7 @@
                             "answers": [
                                 {
                                     "text": "No, it's okay",
-                                    "result": "Bazzite or SteamOS. These distributions are available for both PCs and handhelds (keep in mind that AMD cards are currently the most supported). Alternatively, you can pick RakuOS if you use a desktop / laptop."
+                                    "result": "Bazzite or SteamOS. These distributions are available for both PCs and handhelds (keep in mind that AMD cards are currently the most supported)."
                                 },
                                 {
                                     "text": "I do",

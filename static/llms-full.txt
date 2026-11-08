@@ -340,7 +340,7 @@ Highlights:
 
 URL: https://distro-picker.vercel.app/distro/pikaos
 
-A mutable gaming distribution. Similar to Nobara, but based on Debian (unstable branch with newer software). It offers you the option to install a gaming meta-package after the OS installation, meaning you can keep it bloat-free and configure it yourself. The GNOME edition features a layout switcher, just like Zorin OS.
+A mutable gaming distribution. Similar to Nobara and CachyOS, but based on Debian (unstable branch with newer software). It offers you the option to install a gaming meta-package after the OS installation, meaning you can keep it bloat-free and configure it yourself. The GNOME edition features a layout switcher, just like Zorin OS.
 
 Key facts:
 - Based on: Debian Unstable
