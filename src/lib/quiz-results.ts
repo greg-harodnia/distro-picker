@@ -31,7 +31,7 @@ export const QUIZ_RESULTS = {
 	/** Recover an old PC → truly ancient */
 	'4.2': ['antiX'],
 	/** Apple Silicon — Asahi has no page in distros.json yet */
-	'5': [],
+	'5': ['omarchy'],
 	/** Android console — Armada has no page in distros.json yet */
 	'6': []
 } as const satisfies Record<string, readonly string[]>;

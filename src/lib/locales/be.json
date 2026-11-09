@@ -327,11 +327,11 @@
                     },
                     {
                         "text": "Хачу ўсталяваць яе на прыладу з працэсарам Apple Silicon",
-                        "result": "Asahi Linux"
+                        "result": "Asahi Linux, Omarcy"
                     },
                     {
                         "text": "Хачу ўсталяваць яе на партатыўную кансоль Android  (AYANEO, AYN, Retroid, KONKR)",
-                        "result": "Armada"
+                        "result": "Armada. Або вы можаце ператварыць свой Android тэлефон у кансоль з гэтымі аплікацыямі: DroidDeck, GameNative, GameHub."
                     }
                 ]
             }

@@ -327,11 +327,11 @@
                     },
                     {
                         "text": "I want to install it on a device with an Apple Silicon processor",
-                        "result": "Asahi Linux"
+                        "result": "Asahi Linux, Omarchy"
                     },
                     {
                         "text": "I want to install it on an Android Console (AYANEO, AYN, Retroid, KONKR)",
-                        "result": "Armada"
+                        "result": "Armada. Or you turn your Android phone to a console with these apps: DroidDeck, GameNative, GameHub."
                     }
                 ]
             }
