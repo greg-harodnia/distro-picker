@@ -49,7 +49,8 @@ P.S. The broad availability of choice isn't a problem. If one day 500 new Window
 - **Office**: OnlyOffice, LibreOffice, ArtCraft.
 - **Torrent client**: qBittorrent.
 - **Disk analyzer**: Filelight (KDE/Qt), Baobab (GNOME/GTK), gdu (command-line written in Rust).
-- **Local AI**: LM Studio (I recommend the Mistral model).
+- **Running local AI**: LM Studio (I recommend the Mistral model).
+- **ChatGPT local alternative**: Jan.
 - **Extended software support**: Flatpak (Bazaar or your software center), Distrobox (DistroShelf for GNOME/GTK, Kontainer for KDE/Qt).
 - **Running Windows apps**: Bottles, Winboat, winPodX.
 - **Cleaners**: BleachBit (not needed for immutable systems), Krokiet.

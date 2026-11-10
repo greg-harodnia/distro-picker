@@ -49,7 +49,8 @@ P.S. Шырокая даступнасьць выбару ня ёсьць пра
 - **Офіс**: OnlyOffice, LibreOffice, ArtCraft.
 - **Торэнт-кліент**: qBittorrent.
 - **Аналізатар дыска**: Filelight (KDE/Qt), Baobab (GNOME/GTK), gdu (тэрмінальная праграма, напісаная на Rust).
-- **Лакальная Штучная Інтэліґенцыя**: LM Studio (раджу мадэль Mistral).
+- **Запуск лакальнай Штучнай Інтэліґенцыі**: LM Studio (раджу мадэль Mistral).
+- **Лакальная альтэрнатыва для ChatGPT**: Jan.
 - **Пашыранае праграмнае забясьпечаньне**: Flatpak (Bazaar або ваш цэнтар ПЗ), Distrobox (DistroShelf для GNOME/GTK, Kontainer для KDE/Qt).
 - **Запуск праґрам Windows**: Bottles, Winboat, winPodX.
 - **Ачысьнікі**: BleachBit (не патрэбны для нязьменных сыстэм), Krokiet.
