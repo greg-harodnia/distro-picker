@@ -267,19 +267,7 @@
                 "answers": [
                     {
                         "text": "Just a regular user",
-                        "question": {
-                            "text": "Which layout do you prefer?",
-                            "answers": [
-                                {
-                                    "text": "Windows-like",
-                                    "result": "Well-proven by time distro: Linux Mint. Kubuntu if you prefer a customizable and functional desktop. Zorin OS if you prioritize visual aesthetics and simplicity. Fedora if you prefer more frequent updates."
-                                },
-                                {
-                                    "text": "macOS-like",
-                                    "result": "Pop!_OS. Zorin OS also offers a macOS-like layout in its paid version."
-                                }
-                            ]
-                        }
+                        "result": "Well-proven by time distro: Linux Mint. Kubuntu if you prefer a customizable and functional desktop. Fedora if you prefer more frequent updates. Zorin OS if you prioritize visual aesthetics and simplicity."
                     },
                     {
                         "text": "I want it to be preconfigured for gaming",

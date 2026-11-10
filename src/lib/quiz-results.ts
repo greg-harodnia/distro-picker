@@ -12,10 +12,8 @@
  * `npm run check:quiz` to verify that the locale trees still match this map.
  */
 export const QUIZ_RESULTS = {
-	/** Just a regular user → Windows-like */
-	'0.0': ['mint', 'kubuntu', 'zorin', 'fedora'],
-	/** Just a regular user → macOS-like */
-	'0.1': ['popos', 'zorin'],
+	/** Just a regular user */
+	'0': ['mint', 'kubuntu', 'fedora', 'zorin'],
 	/** Preconfigured for gaming → don't care about editing system files */
 	'1.0': ['bazzite', 'steamos'],
 	/** Preconfigured for gaming → yes, want to edit system files */
