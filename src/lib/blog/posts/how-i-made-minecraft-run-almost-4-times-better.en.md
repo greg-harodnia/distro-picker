@@ -1,50 +1,58 @@
 ---
-title: How I made Minecraft run almost 4 times better
+title: How I made Minecraft run 37% better
 date: 2026-11-11
-description: OpenGL, Vulkan, and a modded build took Minecraft from 92 to 333 FPS on a Linux laptop with an Nvidia GPU.
+description: OpenGL, Vulkan, and a modded build took Minecraft from 295 to 405 FPS on a Linux laptop with an Nvidia GPU.
 ---
 
-I use EndeavourOS on a laptop with an Nvidia GPU, and recently decided to install Minecraft.
+I use EndeavourOS on a laptop with an Nvidia GPU, and recently I decided to install Minecraft.
 
-## Standard Edition
+## Standard Edition with OpenGL
 
 First, I installed the standard edition through Prism Launcher.
 
 ![Prism Launcher](/blog/images/prism-launcher.webp)
 
-By default, it runs on OpenGL and gives around 92 FPS in this location.
+By default, it runs on OpenGL using the integrated Intel GPU and gives around 123 FPS at this spot.
 
-![OpenGL](/blog/images/opengl.webp)
+![OpenGL on the integrated GPU](/blog/images/opengl-integrated-gpu.webp)
 
-## Vulkan
+To make it use the dedicated GPU, I changed this setting in Prism Launcher:
 
-Switching from OpenGL to Vulkan gives almost 3× the FPS (260).
+![Use discrete GPU setting](/blog/images/dedicated-gpu-setting.webp)
 
-![Vulkan](/blog/images/vulkan.webp)
+Now, with the Nvidia GPU, it runs at 295 FPS:
 
-## 'Fabulously Optimized' build
+![OpenGL on the dedicated GPU](/blog/images/opengl-vanilla.webp)
 
-When you create a Minecraft instance in Prism Launcher, you can pick among various ready-made builds. I picked the Fabulously Optimized one, which was the first in the list. Running the same world from this instance gives a huge boost in FPS compared to the vanilla version (1.5×, 145 FPS).
+## Standard Edition with Vulkan
+
+Switching from OpenGL to Vulkan gives a slight performance boost (305 FPS):
+
+![Vulkan vanilla](/blog/images/vulkan-vanilla.webp)
+
+## 'Fabulously Optimized' build with OpenGL
+
+When you create a Minecraft instance in Prism Launcher, you can pick from various ready-made builds. I picked the Fabulously Optimized one, which was first in the list. Running the same world in this instance gives a huge boost in FPS compared to the vanilla version (1.25×, 370 FPS).
 
 ![OpenGL modded](/blog/images/modded-opengl.webp)
 
-## 'Fabulously Optimized' on Vulkan
+## 'Fabulously Optimized' build with Vulkan
 
-When switching to Vulkan, the FPS in the modded instance increases as well. Now it's 333 FPS in the same location, which is more than twice the FPS of the modded OpenGL instance and almost four times that of the vanilla OpenGL one.
+Switching to Vulkan raises the FPS of the modded instance even further: 405 FPS at the same spot.
 
-![Vulkan modded](/blog/images/vulkan-modded.webp)
+![Vulkan modded](/blog/images/modded-vulkan.webp)
 
 ## All the results
 
 | Version | OpenGL | Vulkan |
 | --- | --- | --- |
-| Vanilla | 92 FPS | 260 FPS |
-| Modded | 145 FPS | 333 FPS |
+| Vanilla | 295 FPS | 305 FPS |
+| Modded | 370 FPS | 405 FPS (+37%) |
 
 ## Can it be improved even further?
 
-So far, all of this has been on the standard Java Edition. Lately, Horizon — a new launcher written in Rust — has appeared, but in my experience it runs worse than the Java Edition — the only real benefit is almost instant world loading.
+So far, all of this has been with the standard Java Edition. Lately, Horizon — a new launcher written in Rust — has appeared, but in my experience it runs worse than the Java Edition; the only real benefit is almost instant world loading.
 
 ## How did I sync the worlds between instances?
 
-You may ask how I was able to test the same world from the same location in two different Minecraft instances. If you right-click on a Minecraft instance in Prism Launcher, you can open its files by choosing 'Folder' in the context menu. Then, you can go to /minecraft/saves and copy your world to the same location in another instance. However, this only copies the world statically, and it won't be synchronised between the instances. To keep it synchronised, you don't even need to copy the save each time you switch to another Minecraft instance. You can simply create a symlink to a particular save in another instance's 'saves' folder. So in reality, you will only have one save in one instance, but other instances will use it through the symlink you added to their saves.
+You may wonder how I tested the same world at the same spot in two different Minecraft instances. If you right-click a Minecraft instance in Prism Launcher, you can open its folder by choosing 'Folder' in the context menu. Then go to `/minecraft/saves` and copy your world to the same location in the other instance. However, this copies the world only once, so it won't stay in sync between the instances. To keep it in sync, you don't need to copy the save each time you switch instances: just create a symlink to that save in the other instance's `saves` folder. You then keep a single save in one instance, and the other instances use it through the symlink.
