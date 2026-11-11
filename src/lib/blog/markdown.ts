@@ -72,6 +72,15 @@ export function renderMarkdown(markdown: string): RenderedMarkdown {
 			const table = Renderer.prototype.table.call(this, token);
 			return `<div class="table-scroll" role="region" aria-label="Scrollable table" tabindex="0">${table}</div>`;
 		},
+		image(this: Renderer, token: Tokens.Image): string {
+			const html = Renderer.prototype.image.call(this, token);
+			// `image` returns bare alt text when the URL is not safe to use.
+			if (!html.startsWith('<img ')) return html;
+
+			// Screenshots sit far down a post; loading them lazily keeps them
+			// from competing with the page's own fonts and scripts.
+			return html.replace(/^<img /, '<img loading="lazy" decoding="async" ');
+		},
 		heading(this: Renderer, token: Tokens.Heading): string {
 			const html = Renderer.prototype.heading.call(this, token);
 			const text = plainText(token.text);

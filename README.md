@@ -76,6 +76,7 @@ posts/
   - `date` is the publish date and is what the post header shows.
   - `updated` is the last meaningful edit; it becomes the schema.org `dateModified` of the `BlogPosting`. Leave it out (or stale) and search engines keep seeing the post as untouched since `date`.
 - A post is served in the URL's locale; if no `<slug>.<lang>.md` exists, the English file is used as the default fallback.
+- Post images live in `static/blog/images/` and are embedded with a root-absolute path, e.g. `![OpenGL](/blog/images/opengl.webp)`. The path has to start with `/blog/images/` because a post is reachable both as `/blog/<slug>` and `/be/blog/<slug>`, so a relative path would resolve against a different directory per locale. Vercel caches these files for 7 days (see `vercel.json`).
 - Blog pages are **dynamic** (`prerender = false`): the markdown is read and rendered by the server on each request, so it is part of the SSR response (not baked into the build output) and blog pages stay indexable (canonical, hreflang, JSON-LD `BlogPosting`).
 - **Views & likes** are stored in Supabase. Apply the migrations in `supabase/migrations/` in order (`0001`–`0004`) in your Supabase project (SQL editor). Without them, the counters simply show 0 and the current visit/like is still tracked locally.
 
@@ -168,6 +169,7 @@ distro-picker/
 │               ├── +page.server.ts   # entries() prerenders both /distro/x and /be/distro/x
 │               └── +page.svelte
 ├── static/
+│   ├── blog/images/          # Images embedded in blog posts
 │   ├── fonts/                # Self-hosted Ubuntu / Geist Mono / Instrument Serif
 │   ├── screenshots/          # Distro screenshots
 │   ├── .nojekyll
