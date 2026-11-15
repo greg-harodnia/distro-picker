@@ -1,5 +1,5 @@
 ---
-title: How I made Minecraft run 37% better
+title: How I made Minecraft run 71% better
 date: 2026-11-11
 description: OpenGL, Vulkan, and a modded build took Minecraft from 295 to 405 FPS on a Linux laptop with an Nvidia GPU.
 ---
@@ -30,28 +30,36 @@ Switching from OpenGL to Vulkan gives a slight performance boost (305 FPS):
 
 ![Vulkan vanilla](/blog/images/vulkan-vanilla.webp)
 
-## 'Fabulously Optimized' build with OpenGL
+## 'Fabulously Optimized' modpack with OpenGL
 
 When you create a Minecraft instance in Prism Launcher, you can pick from various ready-made builds. I picked the Fabulously Optimized one, which was first in the list. Running the same world in this instance gives a huge boost in FPS compared to the vanilla version (1.25×, 370 FPS).
 
-![OpenGL modded](/blog/images/modded-opengl.webp)
+![OpenGL modded Fabulously Optimized](/blog/images/modded-opengl.webp)
 
-## 'Fabulously Optimized' build with Vulkan
+## 'Fabulously Optimized' modpack with Vulkan
 
 Switching to Vulkan raises the FPS of the modded instance even further: 405 FPS at the same spot.
 
-![Vulkan modded](/blog/images/modded-vulkan.webp)
+![Vulkan modded Fabulously Optimized](/blog/images/modded-vulkan.webp)
+
+## 'FPS modpack' modpack
+
+After trying various modpacks, I found one that gives an even better performance boost than Fabulously Optimized does, called FPS modpack. It achieves this similarly (by using Sodium, Lithium, and similar mods), but it also completely removes shader support. Compared to Fabulously Optimized, FPS modpack gives around 25% more FPS.
+
+![Vulkan modded FPS modpack](/blog/images/modded-vulkan-fps-modpack.webp)
 
 ## All the results
 
 | Version | OpenGL | Vulkan |
 | --- | --- | --- |
-| Vanilla | 295 FPS | 305 FPS |
-| Modded | 370 FPS | 405 FPS (+37%) |
+| Vanilla (integrated GPU) | 123 FPS (42%) | - |
+| Vanilla (dedicated GPU) | 295 FPS (100%) | 305 FPS (103%) |
+| Fabulously Optimized | 370 FPS (125%) | 405 FPS (137%) |
+| FPS modpack | ~470 FPS (159%) | ~505 FPS (171%) |
 
 ## Can it be improved even further?
 
-So far, all of this has been with the standard Java Edition. Lately, Horizon — a new launcher written in Rust — has appeared, but in my experience it runs worse than the Java Edition; the only real benefit is almost instant world loading.
+So far, all of this has been with the standard Java Edition. Lately, Horizon — a new unnoficial launcher written in Rust — has appeared, but in my experience it runs worse than the Java Edition; the only real benefit is almost instant world loading.
 
 ## How did I sync the worlds between instances?
 
