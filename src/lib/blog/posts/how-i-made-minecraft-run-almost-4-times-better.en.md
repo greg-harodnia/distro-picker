@@ -59,7 +59,7 @@ After trying various modpacks, I found one that gives an even better performance
 
 ## Can it be improved even further?
 
-So far, all of this has been with the standard Java Edition. Lately, Horizon — a new unnoficial launcher written in Rust — has appeared, but in my experience it runs worse than the Java Edition; the only real benefit is almost instant world loading.
+So far, all of this has been with the standard Java Edition. Lately, Horizon — a new unofficial launcher written in Rust — has appeared, but in my experience it runs worse than the Java Edition; the only real benefit is almost instant world loading.
 
 ## How did I sync the worlds between instances?
 
