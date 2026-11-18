@@ -1,7 +1,7 @@
 ---
-title: How I made Minecraft run 71% better
+title: How I made Minecraft run 2.5 times better
 date: 2026-11-11
-description: OpenGL, Vulkan, and a modded build took Minecraft from 295 to 405 FPS on a Linux laptop with an Nvidia GPU.
+description: Vulkan, X11 (XLibre) and a modded build took Minecraft from 305 to 770 FPS on a Linux laptop with an Nvidia GPU.
 ---
 
 I use EndeavourOS on a laptop with an Nvidia GPU, and recently I decided to install Minecraft.
@@ -42,20 +42,38 @@ Switching to Vulkan raises the FPS of the modded instance even further: 405 FPS 
 
 ![Vulkan modded Fabulously Optimized](/blog/images/modded-vulkan.webp)
 
-## 'FPS modpack' modpack
-
-After trying various modpacks, I found one that gives an even better performance boost than Fabulously Optimized does, called FPS modpack. It achieves this similarly (by using Sodium, Lithium, and similar mods), but it also completely removes shader support. Compared to Fabulously Optimized, FPS modpack gives around 25% more FPS.
-
-![Vulkan modded FPS modpack](/blog/images/modded-vulkan-fps-modpack.webp)
-
-## All the results
+## Results
 
 | Version | OpenGL | Vulkan |
 | --- | --- | --- |
 | Vanilla (integrated GPU) | 123 FPS (42%) | - |
 | Vanilla (dedicated GPU) | 295 FPS (100%) | 305 FPS (103%) |
 | Fabulously Optimized | 370 FPS (125%) | 405 FPS (137%) |
-| FPS modpack | ~470 FPS (159%) | ~505 FPS (171%) |
+
+## 'FPS modpack' modpack
+
+After trying various modpacks, I found one that gives an even better performance boost than Fabulously Optimized does, called FPS modpack. It achieves this similarly (by using Sodium, Lithium, and similar mods), but it also completely removes shader support.
+
+![Vulkan modded FPS modpack](/blog/images/modded-vulkan-fps-modpack.webp)
+
+## Switching from Wayland to X11
+
+All previous tests were held on Wayland. Switching to X11 somehow improved performance drastically (almost 75% more FPS). I tested it on other distributions, and switching from Wayland to X11 improved performance there as well (by the same margin). XLibre (a fork of X11) has a slightly better performance.
+
+![Display server setting](/blog/images/display-server-setting.webp)
+
+## All the results
+
+Because I tested FPS modpack and the X11 display server later, I had already lost that location in my Minecraft world where I conducted the previous tests. Therefore, to get fair results, I tested everything again (except for the 'Fabulously Optimized' modpack) in a new spot. Here are the updated results:
+
+| Version | OpenGL | Vulkan |
+| --- | --- | --- |
+| Vanilla (integrated GPU) | 105 FPS (34%) | - |
+| Vanilla (dedicated GPU) | 305 FPS (100%) | 328 FPS (108%) |
+| Vanilla X11 | 485 FPS (159%) | 485 FPS (159%) |
+| FPS modpack | 402 FPS (132%) | 430 FPS (141%) |
+| FPS modpack X11 | 760 FPS (249%) | 760 FPS (249%) |
+| FPS modpack XLibre | 770 FPS (252%) | 770 FPS (252%) |
 
 ## Can it be improved even further?
 

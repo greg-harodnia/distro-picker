@@ -266,13 +266,13 @@
 	</url>
 	<url>
 		<loc>https://distro-picker.vercel.app/blog</loc>
-		<lastmod>2026-11-12</lastmod>
+		<lastmod>2026-11-18</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.9</priority>
 	</url>
 	<url>
 		<loc>https://distro-picker.vercel.app/be/blog</loc>
-		<lastmod>2026-11-12</lastmod>
+		<lastmod>2026-11-18</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.9</priority>
 	</url>
@@ -295,8 +295,8 @@
 		<priority>0.8</priority>
 	</url>
 	<url>
-		<loc>https://distro-picker.vercel.app/blog/how-i-made-minecraft-run-almost-4-times-better</loc>
-		<lastmod>2026-11-15</lastmod>
+		<loc>https://distro-picker.vercel.app/blog/how-i-made-minecraft-run-much-better</loc>
+		<lastmod>2026-11-18</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
 	</url>
