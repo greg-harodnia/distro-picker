@@ -62,6 +62,10 @@ All previous tests were held on Wayland. Switching to X11 somehow improved perfo
 
 ![Display server setting](/blog/images/display-server-setting.webp)
 
+## Again vanilla but with custom settings
+
+I decided to achieve what performance modpacks do, but manually in the vanilla version. I switched the graphics preset from 'Fancy' to 'Fast,' then reverted some of the settings back to their 'Fancy' values: Render Distance to 16 Chunks, Simulation Distance to 12 Chunks, and Smooth Lighting to ON. This increased my FPS up to 720, which is very similar to what it was with FPS modpack.
+
 ## All the results
 
 Because I tested FPS modpack and the X11 display server later, I had already lost that location in my Minecraft world where I conducted the previous tests. Therefore, to get fair results, I tested everything again (except for the 'Fabulously Optimized' modpack) in a new spot. Here are the updated results:
@@ -74,6 +78,9 @@ Because I tested FPS modpack and the X11 display server later, I had already los
 | FPS modpack | 402 FPS (132%) | 430 FPS (141%) |
 | FPS modpack X11 | 760 FPS (249%) | 760 FPS (249%) |
 | FPS modpack XLibre | 770 FPS (252%) | 770 FPS (252%) |
+| Vanilla Custom Settings XLibre | 720 FPS (236%) | 720 FPS (236%) |
+
+Ultimately, the biggest performance boosters were switching to X11/Xlibre and using custom settings in the vanilla version.
 
 ## Can it be improved even further?
 
